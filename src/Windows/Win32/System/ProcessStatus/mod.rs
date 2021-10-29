@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct ENUM_PAGE_FILE_INFORMATION {
@@ -24,22 +16,12 @@ impl ::std::default::Default for ENUM_PAGE_FILE_INFORMATION {
 }
 impl ::std::fmt::Debug for ENUM_PAGE_FILE_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ENUM_PAGE_FILE_INFORMATION")
-            .field("cb", &self.cb)
-            .field("Reserved", &self.Reserved)
-            .field("TotalSize", &self.TotalSize)
-            .field("TotalInUse", &self.TotalInUse)
-            .field("PeakUsage", &self.PeakUsage)
-            .finish()
+        fmt.debug_struct("ENUM_PAGE_FILE_INFORMATION").field("cb", &self.cb).field("Reserved", &self.Reserved).field("TotalSize", &self.TotalSize).field("TotalInUse", &self.TotalInUse).field("PeakUsage", &self.PeakUsage).finish()
     }
 }
 impl ::std::cmp::PartialEq for ENUM_PAGE_FILE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb
-            && self.Reserved == other.Reserved
-            && self.TotalSize == other.TotalSize
-            && self.TotalInUse == other.TotalInUse
-            && self.PeakUsage == other.PeakUsage
+        self.cb == other.cb && self.Reserved == other.Reserved && self.TotalSize == other.TotalSize && self.TotalInUse == other.TotalInUse && self.PeakUsage == other.PeakUsage
     }
 }
 impl ::std::cmp::Eq for ENUM_PAGE_FILE_INFORMATION {}
@@ -47,14 +29,7 @@ unsafe impl ::windows::runtime::Abi for ENUM_PAGE_FILE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ENUM_PROCESS_MODULES_EX_FLAGS(pub u32);
 pub const LIST_MODULES_ALL: ENUM_PROCESS_MODULES_EX_FLAGS = ENUM_PROCESS_MODULES_EX_FLAGS(3u32);
@@ -100,19 +75,12 @@ impl ::std::ops::Not for ENUM_PROCESS_MODULES_EX_FLAGS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EmptyWorkingSet<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hprocess: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EmptyWorkingSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32EmptyWorkingSet(
-                hprocess: super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::BOOL;
+            fn K32EmptyWorkingSet(hprocess: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(K32EmptyWorkingSet(hprocess.into_param().abi()))
     }
@@ -121,685 +89,334 @@ pub unsafe fn K32EmptyWorkingSet<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumDeviceDrivers(
-    lpimagebase: *mut *mut ::std::ffi::c_void,
-    cb: u32,
-    lpcbneeded: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumDeviceDrivers(lpimagebase: *mut *mut ::std::ffi::c_void, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32EnumDeviceDrivers(
-                lpimagebase: *mut *mut ::std::ffi::c_void,
-                cb: u32,
-                lpcbneeded: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn K32EnumDeviceDrivers(lpimagebase: *mut *mut ::std::ffi::c_void, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32EnumDeviceDrivers(
-            ::std::mem::transmute(lpimagebase),
-            ::std::mem::transmute(cb),
-            ::std::mem::transmute(lpcbneeded),
-        ))
+        ::std::mem::transmute(K32EnumDeviceDrivers(::std::mem::transmute(lpimagebase), ::std::mem::transmute(cb), ::std::mem::transmute(lpcbneeded)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumPageFilesA(
-    pcallbackroutine: ::std::option::Option<PENUM_PAGE_FILE_CALLBACKA>,
-    pcontext: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumPageFilesA(pcallbackroutine: ::std::option::Option<PENUM_PAGE_FILE_CALLBACKA>, pcontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32EnumPageFilesA(
-                pcallbackroutine: ::windows::runtime::RawPtr,
-                pcontext: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn K32EnumPageFilesA(pcallbackroutine: ::windows::runtime::RawPtr, pcontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32EnumPageFilesA(
-            ::std::mem::transmute(pcallbackroutine),
-            ::std::mem::transmute(pcontext),
-        ))
+        ::std::mem::transmute(K32EnumPageFilesA(::std::mem::transmute(pcallbackroutine), ::std::mem::transmute(pcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumPageFilesW(
-    pcallbackroutine: ::std::option::Option<PENUM_PAGE_FILE_CALLBACKW>,
-    pcontext: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumPageFilesW(pcallbackroutine: ::std::option::Option<PENUM_PAGE_FILE_CALLBACKW>, pcontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32EnumPageFilesW(
-                pcallbackroutine: ::windows::runtime::RawPtr,
-                pcontext: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn K32EnumPageFilesW(pcallbackroutine: ::windows::runtime::RawPtr, pcontext: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32EnumPageFilesW(
-            ::std::mem::transmute(pcallbackroutine),
-            ::std::mem::transmute(pcontext),
-        ))
+        ::std::mem::transmute(K32EnumPageFilesW(::std::mem::transmute(pcallbackroutine), ::std::mem::transmute(pcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumProcessModules<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hprocess: Param0,
-    lphmodule: *mut super::super::Foundation::HINSTANCE,
-    cb: u32,
-    lpcbneeded: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumProcessModules<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32EnumProcessModules(
-                hprocess: super::super::Foundation::HANDLE,
-                lphmodule: *mut super::super::Foundation::HINSTANCE,
-                cb: u32,
-                lpcbneeded: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn K32EnumProcessModules(hprocess: super::super::Foundation::HANDLE, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32EnumProcessModules(
-            hprocess.into_param().abi(),
-            ::std::mem::transmute(lphmodule),
-            ::std::mem::transmute(cb),
-            ::std::mem::transmute(lpcbneeded),
-        ))
+        ::std::mem::transmute(K32EnumProcessModules(hprocess.into_param().abi(), ::std::mem::transmute(lphmodule), ::std::mem::transmute(cb), ::std::mem::transmute(lpcbneeded)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumProcessModulesEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hprocess: Param0,
-    lphmodule: *mut super::super::Foundation::HINSTANCE,
-    cb: u32,
-    lpcbneeded: *mut u32,
-    dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumProcessModulesEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32EnumProcessModulesEx(
-                hprocess: super::super::Foundation::HANDLE,
-                lphmodule: *mut super::super::Foundation::HINSTANCE,
-                cb: u32,
-                lpcbneeded: *mut u32,
-                dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS,
-            ) -> super::super::Foundation::BOOL;
+            fn K32EnumProcessModulesEx(hprocess: super::super::Foundation::HANDLE, lphmodule: *mut super::super::Foundation::HINSTANCE, cb: u32, lpcbneeded: *mut u32, dwfilterflag: ENUM_PROCESS_MODULES_EX_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32EnumProcessModulesEx(
-            hprocess.into_param().abi(),
-            ::std::mem::transmute(lphmodule),
-            ::std::mem::transmute(cb),
-            ::std::mem::transmute(lpcbneeded),
-            ::std::mem::transmute(dwfilterflag),
-        ))
+        ::std::mem::transmute(K32EnumProcessModulesEx(hprocess.into_param().abi(), ::std::mem::transmute(lphmodule), ::std::mem::transmute(cb), ::std::mem::transmute(lpcbneeded), ::std::mem::transmute(dwfilterflag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32EnumProcesses(
-    lpidprocess: *mut u32,
-    cb: u32,
-    lpcbneeded: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32EnumProcesses(
-                lpidprocess: *mut u32,
-                cb: u32,
-                lpcbneeded: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn K32EnumProcesses(lpidprocess: *mut u32, cb: u32, lpcbneeded: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32EnumProcesses(
-            ::std::mem::transmute(lpidprocess),
-            ::std::mem::transmute(cb),
-            ::std::mem::transmute(lpcbneeded),
-        ))
+        ::std::mem::transmute(K32EnumProcesses(::std::mem::transmute(lpidprocess), ::std::mem::transmute(cb), ::std::mem::transmute(lpcbneeded)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetDeviceDriverBaseNameA(
-    imagebase: *const ::std::ffi::c_void,
-    lpfilename: super::super::Foundation::PSTR,
-    nsize: u32,
-) -> u32 {
+pub unsafe fn K32GetDeviceDriverBaseNameA(imagebase: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetDeviceDriverBaseNameA(
-                imagebase: *const ::std::ffi::c_void,
-                lpfilename: super::super::Foundation::PSTR,
-                nsize: u32,
-            ) -> u32;
+            fn K32GetDeviceDriverBaseNameA(imagebase: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32;
         }
-        ::std::mem::transmute(K32GetDeviceDriverBaseNameA(
-            ::std::mem::transmute(imagebase),
-            ::std::mem::transmute(lpfilename),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(K32GetDeviceDriverBaseNameA(::std::mem::transmute(imagebase), ::std::mem::transmute(lpfilename), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetDeviceDriverBaseNameW(
-    imagebase: *const ::std::ffi::c_void,
-    lpbasename: super::super::Foundation::PWSTR,
-    nsize: u32,
-) -> u32 {
+pub unsafe fn K32GetDeviceDriverBaseNameW(imagebase: *const ::std::ffi::c_void, lpbasename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetDeviceDriverBaseNameW(
-                imagebase: *const ::std::ffi::c_void,
-                lpbasename: super::super::Foundation::PWSTR,
-                nsize: u32,
-            ) -> u32;
+            fn K32GetDeviceDriverBaseNameW(imagebase: *const ::std::ffi::c_void, lpbasename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
         }
-        ::std::mem::transmute(K32GetDeviceDriverBaseNameW(
-            ::std::mem::transmute(imagebase),
-            ::std::mem::transmute(lpbasename),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(K32GetDeviceDriverBaseNameW(::std::mem::transmute(imagebase), ::std::mem::transmute(lpbasename), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetDeviceDriverFileNameA(
-    imagebase: *const ::std::ffi::c_void,
-    lpfilename: super::super::Foundation::PSTR,
-    nsize: u32,
-) -> u32 {
+pub unsafe fn K32GetDeviceDriverFileNameA(imagebase: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetDeviceDriverFileNameA(
-                imagebase: *const ::std::ffi::c_void,
-                lpfilename: super::super::Foundation::PSTR,
-                nsize: u32,
-            ) -> u32;
+            fn K32GetDeviceDriverFileNameA(imagebase: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32;
         }
-        ::std::mem::transmute(K32GetDeviceDriverFileNameA(
-            ::std::mem::transmute(imagebase),
-            ::std::mem::transmute(lpfilename),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(K32GetDeviceDriverFileNameA(::std::mem::transmute(imagebase), ::std::mem::transmute(lpfilename), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetDeviceDriverFileNameW(
-    imagebase: *const ::std::ffi::c_void,
-    lpfilename: super::super::Foundation::PWSTR,
-    nsize: u32,
-) -> u32 {
+pub unsafe fn K32GetDeviceDriverFileNameW(imagebase: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetDeviceDriverFileNameW(
-                imagebase: *const ::std::ffi::c_void,
-                lpfilename: super::super::Foundation::PWSTR,
-                nsize: u32,
-            ) -> u32;
+            fn K32GetDeviceDriverFileNameW(imagebase: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
         }
-        ::std::mem::transmute(K32GetDeviceDriverFileNameW(
-            ::std::mem::transmute(imagebase),
-            ::std::mem::transmute(lpfilename),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(K32GetDeviceDriverFileNameW(::std::mem::transmute(imagebase), ::std::mem::transmute(lpfilename), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetMappedFileNameA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hprocess: Param0,
-    lpv: *const ::std::ffi::c_void,
-    lpfilename: super::super::Foundation::PSTR,
-    nsize: u32,
-) -> u32 {
+pub unsafe fn K32GetMappedFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpv: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetMappedFileNameA(
-                hprocess: super::super::Foundation::HANDLE,
-                lpv: *const ::std::ffi::c_void,
-                lpfilename: super::super::Foundation::PSTR,
-                nsize: u32,
-            ) -> u32;
+            fn K32GetMappedFileNameA(hprocess: super::super::Foundation::HANDLE, lpv: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32;
         }
-        ::std::mem::transmute(K32GetMappedFileNameA(
-            hprocess.into_param().abi(),
-            ::std::mem::transmute(lpv),
-            ::std::mem::transmute(lpfilename),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(K32GetMappedFileNameA(hprocess.into_param().abi(), ::std::mem::transmute(lpv), ::std::mem::transmute(lpfilename), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetMappedFileNameW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hprocess: Param0,
-    lpv: *const ::std::ffi::c_void,
-    lpfilename: super::super::Foundation::PWSTR,
-    nsize: u32,
-) -> u32 {
+pub unsafe fn K32GetMappedFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpv: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetMappedFileNameW(
-                hprocess: super::super::Foundation::HANDLE,
-                lpv: *const ::std::ffi::c_void,
-                lpfilename: super::super::Foundation::PWSTR,
-                nsize: u32,
-            ) -> u32;
+            fn K32GetMappedFileNameW(hprocess: super::super::Foundation::HANDLE, lpv: *const ::std::ffi::c_void, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
         }
-        ::std::mem::transmute(K32GetMappedFileNameW(
-            hprocess.into_param().abi(),
-            ::std::mem::transmute(lpv),
-            ::std::mem::transmute(lpfilename),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(K32GetMappedFileNameW(hprocess.into_param().abi(), ::std::mem::transmute(lpv), ::std::mem::transmute(lpfilename), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetModuleBaseNameA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
->(
-    hprocess: Param0,
-    hmodule: Param1,
-    lpbasename: super::super::Foundation::PSTR,
-    nsize: u32,
-) -> u32 {
+pub unsafe fn K32GetModuleBaseNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpbasename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetModuleBaseNameA(
-                hprocess: super::super::Foundation::HANDLE,
-                hmodule: super::super::Foundation::HINSTANCE,
-                lpbasename: super::super::Foundation::PSTR,
-                nsize: u32,
-            ) -> u32;
+            fn K32GetModuleBaseNameA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpbasename: super::super::Foundation::PSTR, nsize: u32) -> u32;
         }
-        ::std::mem::transmute(K32GetModuleBaseNameA(
-            hprocess.into_param().abi(),
-            hmodule.into_param().abi(),
-            ::std::mem::transmute(lpbasename),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(K32GetModuleBaseNameA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::std::mem::transmute(lpbasename), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetModuleBaseNameW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
->(
-    hprocess: Param0,
-    hmodule: Param1,
-    lpbasename: super::super::Foundation::PWSTR,
-    nsize: u32,
-) -> u32 {
+pub unsafe fn K32GetModuleBaseNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpbasename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetModuleBaseNameW(
-                hprocess: super::super::Foundation::HANDLE,
-                hmodule: super::super::Foundation::HINSTANCE,
-                lpbasename: super::super::Foundation::PWSTR,
-                nsize: u32,
-            ) -> u32;
+            fn K32GetModuleBaseNameW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpbasename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
         }
-        ::std::mem::transmute(K32GetModuleBaseNameW(
-            hprocess.into_param().abi(),
-            hmodule.into_param().abi(),
-            ::std::mem::transmute(lpbasename),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(K32GetModuleBaseNameW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::std::mem::transmute(lpbasename), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetModuleFileNameExA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
->(
-    hprocess: Param0,
-    hmodule: Param1,
-    lpfilename: super::super::Foundation::PSTR,
-    nsize: u32,
-) -> u32 {
+pub unsafe fn K32GetModuleFileNameExA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetModuleFileNameExA(
-                hprocess: super::super::Foundation::HANDLE,
-                hmodule: super::super::Foundation::HINSTANCE,
-                lpfilename: super::super::Foundation::PSTR,
-                nsize: u32,
-            ) -> u32;
+            fn K32GetModuleFileNameExA(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpfilename: super::super::Foundation::PSTR, nsize: u32) -> u32;
         }
-        ::std::mem::transmute(K32GetModuleFileNameExA(
-            hprocess.into_param().abi(),
-            hmodule.into_param().abi(),
-            ::std::mem::transmute(lpfilename),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(K32GetModuleFileNameExA(hprocess.into_param().abi(), hmodule.into_param().abi(), ::std::mem::transmute(lpfilename), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetModuleFileNameExW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
->(
-    hprocess: Param0,
-    hmodule: Param1,
-    lpfilename: super::super::Foundation::PWSTR,
-    nsize: u32,
-) -> u32 {
+pub unsafe fn K32GetModuleFileNameExW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetModuleFileNameExW(
-                hprocess: super::super::Foundation::HANDLE,
-                hmodule: super::super::Foundation::HINSTANCE,
-                lpfilename: super::super::Foundation::PWSTR,
-                nsize: u32,
-            ) -> u32;
+            fn K32GetModuleFileNameExW(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpfilename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
         }
-        ::std::mem::transmute(K32GetModuleFileNameExW(
-            hprocess.into_param().abi(),
-            hmodule.into_param().abi(),
-            ::std::mem::transmute(lpfilename),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(K32GetModuleFileNameExW(hprocess.into_param().abi(), hmodule.into_param().abi(), ::std::mem::transmute(lpfilename), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetModuleInformation<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
->(
-    hprocess: Param0,
-    hmodule: Param1,
-    lpmodinfo: *mut MODULEINFO,
-    cb: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32GetModuleInformation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(hprocess: Param0, hmodule: Param1, lpmodinfo: *mut MODULEINFO, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetModuleInformation(
-                hprocess: super::super::Foundation::HANDLE,
-                hmodule: super::super::Foundation::HINSTANCE,
-                lpmodinfo: *mut MODULEINFO,
-                cb: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn K32GetModuleInformation(hprocess: super::super::Foundation::HANDLE, hmodule: super::super::Foundation::HINSTANCE, lpmodinfo: *mut MODULEINFO, cb: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32GetModuleInformation(
-            hprocess.into_param().abi(),
-            hmodule.into_param().abi(),
-            ::std::mem::transmute(lpmodinfo),
-            ::std::mem::transmute(cb),
-        ))
+        ::std::mem::transmute(K32GetModuleInformation(hprocess.into_param().abi(), hmodule.into_param().abi(), ::std::mem::transmute(lpmodinfo), ::std::mem::transmute(cb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetPerformanceInfo(
-    pperformanceinformation: *mut PERFORMANCE_INFORMATION,
-    cb: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32GetPerformanceInfo(pperformanceinformation: *mut PERFORMANCE_INFORMATION, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetPerformanceInfo(
-                pperformanceinformation: *mut PERFORMANCE_INFORMATION,
-                cb: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn K32GetPerformanceInfo(pperformanceinformation: *mut PERFORMANCE_INFORMATION, cb: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32GetPerformanceInfo(
-            ::std::mem::transmute(pperformanceinformation),
-            ::std::mem::transmute(cb),
-        ))
+        ::std::mem::transmute(K32GetPerformanceInfo(::std::mem::transmute(pperformanceinformation), ::std::mem::transmute(cb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetProcessImageFileNameA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hprocess: Param0,
-    lpimagefilename: super::super::Foundation::PSTR,
-    nsize: u32,
-) -> u32 {
+pub unsafe fn K32GetProcessImageFileNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpimagefilename: super::super::Foundation::PSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetProcessImageFileNameA(
-                hprocess: super::super::Foundation::HANDLE,
-                lpimagefilename: super::super::Foundation::PSTR,
-                nsize: u32,
-            ) -> u32;
+            fn K32GetProcessImageFileNameA(hprocess: super::super::Foundation::HANDLE, lpimagefilename: super::super::Foundation::PSTR, nsize: u32) -> u32;
         }
-        ::std::mem::transmute(K32GetProcessImageFileNameA(
-            hprocess.into_param().abi(),
-            ::std::mem::transmute(lpimagefilename),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(K32GetProcessImageFileNameA(hprocess.into_param().abi(), ::std::mem::transmute(lpimagefilename), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetProcessImageFileNameW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hprocess: Param0,
-    lpimagefilename: super::super::Foundation::PWSTR,
-    nsize: u32,
-) -> u32 {
+pub unsafe fn K32GetProcessImageFileNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpimagefilename: super::super::Foundation::PWSTR, nsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetProcessImageFileNameW(
-                hprocess: super::super::Foundation::HANDLE,
-                lpimagefilename: super::super::Foundation::PWSTR,
-                nsize: u32,
-            ) -> u32;
+            fn K32GetProcessImageFileNameW(hprocess: super::super::Foundation::HANDLE, lpimagefilename: super::super::Foundation::PWSTR, nsize: u32) -> u32;
         }
-        ::std::mem::transmute(K32GetProcessImageFileNameW(
-            hprocess.into_param().abi(),
-            ::std::mem::transmute(lpimagefilename),
-            ::std::mem::transmute(nsize),
-        ))
+        ::std::mem::transmute(K32GetProcessImageFileNameW(hprocess.into_param().abi(), ::std::mem::transmute(lpimagefilename), ::std::mem::transmute(nsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetProcessMemoryInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    process: Param0,
-    ppsmemcounters: *mut PROCESS_MEMORY_COUNTERS,
-    cb: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32GetProcessMemoryInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, ppsmemcounters: *mut PROCESS_MEMORY_COUNTERS, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetProcessMemoryInfo(
-                process: super::super::Foundation::HANDLE,
-                ppsmemcounters: *mut PROCESS_MEMORY_COUNTERS,
-                cb: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn K32GetProcessMemoryInfo(process: super::super::Foundation::HANDLE, ppsmemcounters: *mut PROCESS_MEMORY_COUNTERS, cb: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32GetProcessMemoryInfo(
-            process.into_param().abi(),
-            ::std::mem::transmute(ppsmemcounters),
-            ::std::mem::transmute(cb),
-        ))
+        ::std::mem::transmute(K32GetProcessMemoryInfo(process.into_param().abi(), ::std::mem::transmute(ppsmemcounters), ::std::mem::transmute(cb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetWsChanges<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hprocess: Param0,
-    lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION,
-    cb: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32GetWsChanges<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetWsChanges(
-                hprocess: super::super::Foundation::HANDLE,
-                lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION,
-                cb: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn K32GetWsChanges(hprocess: super::super::Foundation::HANDLE, lpwatchinfo: *mut PSAPI_WS_WATCH_INFORMATION, cb: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32GetWsChanges(
-            hprocess.into_param().abi(),
-            ::std::mem::transmute(lpwatchinfo),
-            ::std::mem::transmute(cb),
-        ))
+        ::std::mem::transmute(K32GetWsChanges(hprocess.into_param().abi(), ::std::mem::transmute(lpwatchinfo), ::std::mem::transmute(cb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32GetWsChangesEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hprocess: Param0,
-    lpwatchinfoex: *mut PSAPI_WS_WATCH_INFORMATION_EX,
-    cb: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32GetWsChangesEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, lpwatchinfoex: *mut PSAPI_WS_WATCH_INFORMATION_EX, cb: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32GetWsChangesEx(
-                hprocess: super::super::Foundation::HANDLE,
-                lpwatchinfoex: *mut PSAPI_WS_WATCH_INFORMATION_EX,
-                cb: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn K32GetWsChangesEx(hprocess: super::super::Foundation::HANDLE, lpwatchinfoex: *mut PSAPI_WS_WATCH_INFORMATION_EX, cb: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32GetWsChangesEx(
-            hprocess.into_param().abi(),
-            ::std::mem::transmute(lpwatchinfoex),
-            ::std::mem::transmute(cb),
-        ))
+        ::std::mem::transmute(K32GetWsChangesEx(hprocess.into_param().abi(), ::std::mem::transmute(lpwatchinfoex), ::std::mem::transmute(cb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32InitializeProcessForWsWatch<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hprocess: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32InitializeProcessForWsWatch<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32InitializeProcessForWsWatch(
-                hprocess: super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::BOOL;
+            fn K32InitializeProcessForWsWatch(hprocess: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(K32InitializeProcessForWsWatch(hprocess.into_param().abi()))
     }
@@ -808,58 +425,28 @@ pub unsafe fn K32InitializeProcessForWsWatch<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32QueryWorkingSet<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hprocess: Param0,
-    pv: *mut ::std::ffi::c_void,
-    cb: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32QueryWorkingSet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pv: *mut ::std::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32QueryWorkingSet(
-                hprocess: super::super::Foundation::HANDLE,
-                pv: *mut ::std::ffi::c_void,
-                cb: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn K32QueryWorkingSet(hprocess: super::super::Foundation::HANDLE, pv: *mut ::std::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32QueryWorkingSet(
-            hprocess.into_param().abi(),
-            ::std::mem::transmute(pv),
-            ::std::mem::transmute(cb),
-        ))
+        ::std::mem::transmute(K32QueryWorkingSet(hprocess.into_param().abi(), ::std::mem::transmute(pv), ::std::mem::transmute(cb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn K32QueryWorkingSetEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hprocess: Param0,
-    pv: *mut ::std::ffi::c_void,
-    cb: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn K32QueryWorkingSetEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, pv: *mut ::std::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn K32QueryWorkingSetEx(
-                hprocess: super::super::Foundation::HANDLE,
-                pv: *mut ::std::ffi::c_void,
-                cb: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn K32QueryWorkingSetEx(hprocess: super::super::Foundation::HANDLE, pv: *mut ::std::ffi::c_void, cb: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(K32QueryWorkingSetEx(
-            hprocess.into_param().abi(),
-            ::std::mem::transmute(pv),
-            ::std::mem::transmute(cb),
-        ))
+        ::std::mem::transmute(K32QueryWorkingSetEx(hprocess.into_param().abi(), ::std::mem::transmute(pv), ::std::mem::transmute(cb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -879,18 +466,12 @@ impl ::std::default::Default for MODULEINFO {
 }
 impl ::std::fmt::Debug for MODULEINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MODULEINFO")
-            .field("lpBaseOfDll", &self.lpBaseOfDll)
-            .field("SizeOfImage", &self.SizeOfImage)
-            .field("EntryPoint", &self.EntryPoint)
-            .finish()
+        fmt.debug_struct("MODULEINFO").field("lpBaseOfDll", &self.lpBaseOfDll).field("SizeOfImage", &self.SizeOfImage).field("EntryPoint", &self.EntryPoint).finish()
     }
 }
 impl ::std::cmp::PartialEq for MODULEINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.lpBaseOfDll == other.lpBaseOfDll
-            && self.SizeOfImage == other.SizeOfImage
-            && self.EntryPoint == other.EntryPoint
+        self.lpBaseOfDll == other.lpBaseOfDll && self.SizeOfImage == other.SizeOfImage && self.EntryPoint == other.EntryPoint
     }
 }
 impl ::std::cmp::Eq for MODULEINFO {}
@@ -899,17 +480,9 @@ unsafe impl ::windows::runtime::Abi for MODULEINFO {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUM_PAGE_FILE_CALLBACKA = unsafe extern "system" fn(
-    pcontext: *mut ::std::ffi::c_void,
-    ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION,
-    lpfilename: super::super::Foundation::PSTR,
-) -> super::super::Foundation::BOOL;
+pub type PENUM_PAGE_FILE_CALLBACKA = unsafe extern "system" fn(pcontext: *mut ::std::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: super::super::Foundation::PSTR) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type PENUM_PAGE_FILE_CALLBACKW = unsafe extern "system" fn(
-    pcontext: *mut ::std::ffi::c_void,
-    ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION,
-    lpfilename: super::super::Foundation::PWSTR,
-) -> super::super::Foundation::BOOL;
+pub type PENUM_PAGE_FILE_CALLBACKW = unsafe extern "system" fn(pcontext: *mut ::std::ffi::c_void, ppagefileinfo: *mut ENUM_PAGE_FILE_INFORMATION, lpfilename: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct PERFORMANCE_INFORMATION {
@@ -1006,10 +579,7 @@ impl ::std::fmt::Debug for PROCESS_MEMORY_COUNTERS {
             .field("WorkingSetSize", &self.WorkingSetSize)
             .field("QuotaPeakPagedPoolUsage", &self.QuotaPeakPagedPoolUsage)
             .field("QuotaPagedPoolUsage", &self.QuotaPagedPoolUsage)
-            .field(
-                "QuotaPeakNonPagedPoolUsage",
-                &self.QuotaPeakNonPagedPoolUsage,
-            )
+            .field("QuotaPeakNonPagedPoolUsage", &self.QuotaPeakNonPagedPoolUsage)
             .field("QuotaNonPagedPoolUsage", &self.QuotaNonPagedPoolUsage)
             .field("PagefileUsage", &self.PagefileUsage)
             .field("PeakPagefileUsage", &self.PeakPagefileUsage)
@@ -1065,10 +635,7 @@ impl ::std::fmt::Debug for PROCESS_MEMORY_COUNTERS_EX {
             .field("WorkingSetSize", &self.WorkingSetSize)
             .field("QuotaPeakPagedPoolUsage", &self.QuotaPeakPagedPoolUsage)
             .field("QuotaPagedPoolUsage", &self.QuotaPagedPoolUsage)
-            .field(
-                "QuotaPeakNonPagedPoolUsage",
-                &self.QuotaPeakNonPagedPoolUsage,
-            )
+            .field("QuotaPeakNonPagedPoolUsage", &self.QuotaPeakNonPagedPoolUsage)
             .field("QuotaNonPagedPoolUsage", &self.QuotaNonPagedPoolUsage)
             .field("PagefileUsage", &self.PagefileUsage)
             .field("PeakPagefileUsage", &self.PeakPagefileUsage)
@@ -1132,9 +699,7 @@ impl ::std::default::Default for PSAPI_WORKING_SET_BLOCK_0 {
 }
 impl ::std::fmt::Debug for PSAPI_WORKING_SET_BLOCK_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PSAPI_WORKING_SET_BLOCK_0 {
@@ -1204,9 +769,7 @@ impl ::std::default::Default for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
 }
 impl ::std::fmt::Debug for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0_0 {
@@ -1232,9 +795,7 @@ impl ::std::default::Default for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
 }
 impl ::std::fmt::Debug for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Invalid_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Invalid_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for PSAPI_WORKING_SET_EX_BLOCK_0_1 {
@@ -1305,10 +866,7 @@ impl ::std::default::Default for PSAPI_WS_WATCH_INFORMATION {
 }
 impl ::std::fmt::Debug for PSAPI_WS_WATCH_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PSAPI_WS_WATCH_INFORMATION")
-            .field("FaultingPc", &self.FaultingPc)
-            .field("FaultingVa", &self.FaultingVa)
-            .finish()
+        fmt.debug_struct("PSAPI_WS_WATCH_INFORMATION").field("FaultingPc", &self.FaultingPc).field("FaultingVa", &self.FaultingVa).finish()
     }
 }
 impl ::std::cmp::PartialEq for PSAPI_WS_WATCH_INFORMATION {
@@ -1336,18 +894,12 @@ impl ::std::default::Default for PSAPI_WS_WATCH_INFORMATION_EX {
 }
 impl ::std::fmt::Debug for PSAPI_WS_WATCH_INFORMATION_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PSAPI_WS_WATCH_INFORMATION_EX")
-            .field("BasicInfo", &self.BasicInfo)
-            .field("FaultingThreadId", &self.FaultingThreadId)
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("PSAPI_WS_WATCH_INFORMATION_EX").field("BasicInfo", &self.BasicInfo).field("FaultingThreadId", &self.FaultingThreadId).field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for PSAPI_WS_WATCH_INFORMATION_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.BasicInfo == other.BasicInfo
-            && self.FaultingThreadId == other.FaultingThreadId
-            && self.Flags == other.Flags
+        self.BasicInfo == other.BasicInfo && self.FaultingThreadId == other.FaultingThreadId && self.Flags == other.Flags
     }
 }
 impl ::std::cmp::Eq for PSAPI_WS_WATCH_INFORMATION_EX {}

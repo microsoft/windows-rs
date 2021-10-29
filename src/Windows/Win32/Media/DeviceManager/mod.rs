@@ -1,71 +1,21 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const ALLOW_OUTOFBAND_NOTIFICATION: u32 = 2u32;
 pub const DO_NOT_VIRTUALIZE_STORAGES_AS_DEVICES: u32 = 1u32;
-pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        865901556,
-        48382,
-        20184,
-        [148, 223, 234, 248, 194, 106, 182, 27],
-    );
+pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(865901556, 48382, 20184, [148, 223, 234, 248, 194, 106, 182, 27]);
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IComponentAuthenticate(::windows::runtime::IUnknown);
 impl IComponentAuthenticate {
-    pub unsafe fn SACAuth(
-        &self,
-        dwprotocolid: u32,
-        dwpass: u32,
-        pbdatain: *const u8,
-        dwdatainlen: u32,
-        ppbdataout: *mut *mut u8,
-        pdwdataoutlen: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwprotocolid),
-            ::std::mem::transmute(dwpass),
-            ::std::mem::transmute(pbdatain),
-            ::std::mem::transmute(dwdatainlen),
-            ::std::mem::transmute(ppbdataout),
-            ::std::mem::transmute(pdwdataoutlen),
-        )
-        .ok()
+    pub unsafe fn SACAuth(&self, dwprotocolid: u32, dwpass: u32, pbdatain: *const u8, dwdatainlen: u32, ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwprotocolid), ::std::mem::transmute(dwpass), ::std::mem::transmute(pbdatain), ::std::mem::transmute(dwdatainlen), ::std::mem::transmute(ppbdataout), ::std::mem::transmute(pdwdataoutlen)).ok()
     }
-    pub unsafe fn SACGetProtocols(
-        &self,
-        ppdwprotocols: *mut *mut u32,
-        pdwprotocolcount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppdwprotocols),
-            ::std::mem::transmute(pdwprotocolcount),
-        )
-        .ok()
+    pub unsafe fn SACGetProtocols(&self, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdwprotocols), ::std::mem::transmute(pdwprotocolcount)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IComponentAuthenticate {
     type Vtable = IComponentAuthenticate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2844302336,
-        27947,
-        4563,
-        [132, 150, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2844302336, 27947, 4563, [132, 150, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IComponentAuthenticate> for ::windows::runtime::IUnknown {
     fn from(value: IComponentAuthenticate) -> Self {
@@ -77,186 +27,74 @@ impl ::std::convert::From<&IComponentAuthenticate> for ::windows::runtime::IUnkn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IComponentAuthenticate
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IComponentAuthenticate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IComponentAuthenticate
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IComponentAuthenticate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IComponentAuthenticate_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwprotocolid: u32,
-        dwpass: u32,
-        pbdatain: *const u8,
-        dwdatainlen: u32,
-        ppbdataout: *mut *mut u8,
-        pdwdataoutlen: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppdwprotocols: *mut *mut u32,
-        pdwprotocolcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwprotocolid: u32, dwpass: u32, pbdatain: *const u8, dwdatainlen: u32, ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPDevice(::windows::runtime::IUnknown);
 impl IMDSPDevice {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetManufacturer(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetManufacturer(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetSerialNumber(
-        &self,
-        pserialnumber: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pserialnumber),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pserialnumber), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn GetPowerSource(
-        &self,
-        pdwpowersource: *mut u32,
-        pdwpercentremaining: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwpowersource),
-            ::std::mem::transmute(pdwpercentremaining),
-        )
-        .ok()
+    pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpowersource), ::std::mem::transmute(pdwpercentremaining)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetDeviceIcon(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IMDSPEnumStorage> {
         let mut result__: <IMDSPEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPEnumStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport(
-        &self,
-        pformatex: *mut *mut _WAVEFORMATEX,
-        pnformatcount: *mut u32,
-        pppwszmimetype: *mut *mut super::super::Foundation::PWSTR,
-        pnmimetypecount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pformatex),
-            ::std::mem::transmute(pnformatcount),
-            ::std::mem::transmute(pppwszmimetype),
-            ::std::mem::transmute(pnmimetypecount),
-        )
-        .ok()
+    pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pformatex), ::std::mem::transmute(pnformatcount), ::std::mem::transmute(pppwszmimetype), ::std::mem::transmute(pnmimetypecount)).ok()
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPDevice {
     type Vtable = IMDSPDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857938,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857938, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IMDSPDevice> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPDevice) -> Self {
@@ -270,241 +108,87 @@ impl ::std::convert::From<&IMDSPDevice> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPDevice_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwversion: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwtype: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pserialnumber: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwpowersource: *mut u32,
-        pdwpercentremaining: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hicon: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pformatex: *mut *mut _WAVEFORMATEX,
-        pnformatcount: *mut u32,
-        pppwszmimetype: *mut *mut super::super::Foundation::PWSTR,
-        pnmimetypecount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwversion: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwtype: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hicon: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPDevice2(::windows::runtime::IUnknown);
 impl IMDSPDevice2 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetManufacturer(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetManufacturer(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetSerialNumber(
-        &self,
-        pserialnumber: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pserialnumber),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pserialnumber), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn GetPowerSource(
-        &self,
-        pdwpowersource: *mut u32,
-        pdwpercentremaining: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwpowersource),
-            ::std::mem::transmute(pdwpercentremaining),
-        )
-        .ok()
+    pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpowersource), ::std::mem::transmute(pdwpercentremaining)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetDeviceIcon(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IMDSPEnumStorage> {
         let mut result__: <IMDSPEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPEnumStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport(
-        &self,
-        pformatex: *mut *mut _WAVEFORMATEX,
-        pnformatcount: *mut u32,
-        pppwszmimetype: *mut *mut super::super::Foundation::PWSTR,
-        pnmimetypecount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pformatex),
-            ::std::mem::transmute(pnformatcount),
-            ::std::mem::transmute(pppwszmimetype),
-            ::std::mem::transmute(pnmimetypecount),
-        )
-        .ok()
+    pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pformatex), ::std::mem::transmute(pnformatcount), ::std::mem::transmute(pppwszmimetype), ::std::mem::transmute(pnmimetypecount)).ok()
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStorage<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszstoragename: Param0,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn GetStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstoragename: Param0) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            pszstoragename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pszstoragename.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport2(
-        &self,
-        dwflags: u32,
-        ppaudioformatex: *mut *mut _WAVEFORMATEX,
-        pnaudioformatcount: *mut u32,
-        ppvideoformatex: *mut *mut _VIDEOINFOHEADER,
-        pnvideoformatcount: *mut u32,
-        ppfiletype: *mut *mut WMFILECAPABILITIES,
-        pnfiletypecount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
+    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(dwflags),
@@ -518,44 +202,17 @@ impl IMDSPDevice2 {
         .ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetSpecifyPropertyPages(
-        &self,
-        ppspecifyproppages: *mut ::std::option::Option<
-            super::super::System::Ole::ISpecifyPropertyPages,
-        >,
-        pppunknowns: *mut *mut ::std::option::Option<::windows::runtime::IUnknown>,
-        pcunks: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppspecifyproppages),
-            ::std::mem::transmute(pppunknowns),
-            ::std::mem::transmute(pcunks),
-        )
-        .ok()
+    pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::std::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::std::option::Option<::windows::runtime::IUnknown>, pcunks: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppspecifyproppages), ::std::mem::transmute(pppunknowns), ::std::mem::transmute(pcunks)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCanonicalName(
-        &self,
-        pwszpnpname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszpnpname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetCanonicalName(&self, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszpnpname), ::std::mem::transmute(nmaxchars)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPDevice2 {
     type Vtable = IMDSPDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1108154029,
-        51581,
-        19968,
-        [130, 170, 0, 233, 244, 51, 93, 221],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1108154029, 51581, 19968, [130, 170, 0, 233, 244, 51, 93, 221]);
 }
 impl ::std::convert::From<IMDSPDevice2> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPDevice2) -> Self {
@@ -569,18 +226,12 @@ impl ::std::convert::From<&IMDSPDevice2> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDSPDevice2> for IMDSPDevice {
@@ -600,266 +251,90 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDSPDevice> for IMDSPDevice2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPDevice> for &IMDSPDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPDevice>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPDevice>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPDevice2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwversion: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwtype: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pserialnumber: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwpowersource: *mut u32,
-        pdwpercentremaining: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hicon: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pformatex: *mut *mut _WAVEFORMATEX,
-        pnformatcount: *mut u32,
-        pppwszmimetype: *mut *mut super::super::Foundation::PWSTR,
-        pnmimetypecount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwversion: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwtype: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hicon: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszstoragename: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwflags: u32,
-        ppaudioformatex: *mut *mut _WAVEFORMATEX,
-        pnaudioformatcount: *mut u32,
-        ppvideoformatex: *mut *mut _VIDEOINFOHEADER,
-        pnvideoformatcount: *mut u32,
-        ppfiletype: *mut *mut WMFILECAPABILITIES,
-        pnfiletypecount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Ole")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppspecifyproppages: *mut ::windows::runtime::RawPtr,
-        pppunknowns: *mut *mut ::windows::runtime::RawPtr,
-        pcunks: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppspecifyproppages: *mut ::windows::runtime::RawPtr, pppunknowns: *mut *mut ::windows::runtime::RawPtr, pcunks: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszpnpname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPDevice3(::windows::runtime::IUnknown);
 impl IMDSPDevice3 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetManufacturer(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetManufacturer(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetSerialNumber(
-        &self,
-        pserialnumber: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pserialnumber),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pserialnumber), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn GetPowerSource(
-        &self,
-        pdwpowersource: *mut u32,
-        pdwpercentremaining: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwpowersource),
-            ::std::mem::transmute(pdwpercentremaining),
-        )
-        .ok()
+    pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpowersource), ::std::mem::transmute(pdwpercentremaining)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetDeviceIcon(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IMDSPEnumStorage> {
         let mut result__: <IMDSPEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPEnumStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport(
-        &self,
-        pformatex: *mut *mut _WAVEFORMATEX,
-        pnformatcount: *mut u32,
-        pppwszmimetype: *mut *mut super::super::Foundation::PWSTR,
-        pnmimetypecount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pformatex),
-            ::std::mem::transmute(pnformatcount),
-            ::std::mem::transmute(pppwszmimetype),
-            ::std::mem::transmute(pnmimetypecount),
-        )
-        .ok()
+    pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pformatex), ::std::mem::transmute(pnformatcount), ::std::mem::transmute(pppwszmimetype), ::std::mem::transmute(pnmimetypecount)).ok()
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStorage<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszstoragename: Param0,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn GetStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstoragename: Param0) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            pszstoragename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pszstoragename.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport2(
-        &self,
-        dwflags: u32,
-        ppaudioformatex: *mut *mut _WAVEFORMATEX,
-        pnaudioformatcount: *mut u32,
-        ppvideoformatex: *mut *mut _VIDEOINFOHEADER,
-        pnvideoformatcount: *mut u32,
-        ppfiletype: *mut *mut WMFILECAPABILITIES,
-        pnfiletypecount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
+    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(dwflags),
@@ -873,141 +348,39 @@ impl IMDSPDevice3 {
         .ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetSpecifyPropertyPages(
-        &self,
-        ppspecifyproppages: *mut ::std::option::Option<
-            super::super::System::Ole::ISpecifyPropertyPages,
-        >,
-        pppunknowns: *mut *mut ::std::option::Option<::windows::runtime::IUnknown>,
-        pcunks: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppspecifyproppages),
-            ::std::mem::transmute(pppunknowns),
-            ::std::mem::transmute(pcunks),
-        )
-        .ok()
+    pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::std::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::std::option::Option<::windows::runtime::IUnknown>, pcunks: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppspecifyproppages), ::std::mem::transmute(pppunknowns), ::std::mem::transmute(pcunks)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCanonicalName(
-        &self,
-        pwszpnpname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszpnpname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetCanonicalName(&self, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszpnpname), ::std::mem::transmute(nmaxchars)).ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn GetProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwszpropname: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::System::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            pwszpropname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn GetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszpropname: Param0) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pwszpropname.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn SetProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwszpropname: Param0,
-        pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            pwszpropname.into_param().abi(),
-            ::std::mem::transmute(pvalue),
-        )
-        .ok()
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn SetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszpropname: Param0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), pwszpropname.into_param().abi(), ::std::mem::transmute(pvalue)).ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn GetFormatCapability(
-        &self,
-        format: WMDM_FORMATCODE,
-    ) -> ::windows::runtime::Result<WMDM_FORMAT_CAPABILITY> {
-        let mut result__: <WMDM_FORMAT_CAPABILITY as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(format),
-            &mut result__,
-        )
-        .from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows::runtime::Result<WMDM_FORMAT_CAPABILITY> {
+        let mut result__: <WMDM_FORMAT_CAPABILITY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(format), &mut result__).from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
     }
-    pub unsafe fn DeviceIoControl(
-        &self,
-        dwiocontrolcode: u32,
-        lpinbuffer: *const u8,
-        ninbuffersize: u32,
-        lpoutbuffer: *mut u8,
-        pnoutbuffersize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwiocontrolcode),
-            ::std::mem::transmute(lpinbuffer),
-            ::std::mem::transmute(ninbuffersize),
-            ::std::mem::transmute(lpoutbuffer),
-            ::std::mem::transmute(pnoutbuffersize),
-        )
-        .ok()
+    pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwiocontrolcode), ::std::mem::transmute(lpinbuffer), ::std::mem::transmute(ninbuffersize), ::std::mem::transmute(lpoutbuffer), ::std::mem::transmute(pnoutbuffersize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindStorage<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        findscope: WMDM_FIND_SCOPE,
-        pwszuniqueid: Param1,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn FindStorage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: Param1) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(findscope),
-            pwszuniqueid.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(findscope), pwszuniqueid.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPDevice3 {
     type Vtable = IMDSPDevice3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        444831813,
-        64597,
-        18556,
-        [151, 111, 238, 56, 172, 14, 140, 78],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(444831813, 64597, 18556, [151, 111, 238, 56, 172, 14, 140, 78]);
 }
 impl ::std::convert::From<IMDSPDevice3> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPDevice3) -> Self {
@@ -1021,18 +394,12 @@ impl ::std::convert::From<&IMDSPDevice3> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDSPDevice3> for IMDSPDevice2 {
@@ -1052,9 +419,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDSPDevice2> for IMDSPDevice3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPDevice2> for &IMDSPDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPDevice2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPDevice2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDSPDevice3> for IMDSPDevice {
@@ -1074,221 +439,64 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDSPDevice> for IMDSPDevice3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPDevice> for &IMDSPDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPDevice>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPDevice>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPDevice3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwversion: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwtype: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pserialnumber: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwpowersource: *mut u32,
-        pdwpercentremaining: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hicon: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pformatex: *mut *mut _WAVEFORMATEX,
-        pnformatcount: *mut u32,
-        pppwszmimetype: *mut *mut super::super::Foundation::PWSTR,
-        pnmimetypecount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwversion: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwtype: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hicon: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszstoragename: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwflags: u32,
-        ppaudioformatex: *mut *mut _WAVEFORMATEX,
-        pnaudioformatcount: *mut u32,
-        ppvideoformatex: *mut *mut _VIDEOINFOHEADER,
-        pnvideoformatcount: *mut u32,
-        ppfiletype: *mut *mut WMFILECAPABILITIES,
-        pnfiletypecount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Ole")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppspecifyproppages: *mut ::windows::runtime::RawPtr,
-        pppunknowns: *mut *mut ::windows::runtime::RawPtr,
-        pcunks: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppspecifyproppages: *mut ::windows::runtime::RawPtr, pppunknowns: *mut *mut ::windows::runtime::RawPtr, pcunks: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszpnpname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszpropname: super::super::Foundation::PWSTR,
-        pvalue: *mut ::std::mem::ManuallyDrop<
-            super::super::System::Com::StructuredStorage::PROPVARIANT,
-        >,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszpropname: super::super::Foundation::PWSTR,
-        pvalue: *const ::std::mem::ManuallyDrop<
-            super::super::System::Com::StructuredStorage::PROPVARIANT,
-        >,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        format: WMDM_FORMATCODE,
-        pformatsupport: *mut WMDM_FORMAT_CAPABILITY,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwiocontrolcode: u32,
-        lpinbuffer: *const u8,
-        ninbuffersize: u32,
-        lpoutbuffer: *mut u8,
-        pnoutbuffersize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        findscope: WMDM_FIND_SCOPE,
-        pwszuniqueid: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszpropname: super::super::Foundation::PWSTR, pvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszpropname: super::super::Foundation::PWSTR, pvalue: *const ::std::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: WMDM_FORMATCODE, pformatsupport: *mut WMDM_FORMAT_CAPABILITY) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation")))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPDeviceControl(::windows::runtime::IUnknown);
 impl IMDSPDeviceControl {
     pub unsafe fn GetDCStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetCapabilities(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn Play(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn Record(&self, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pformat)).ok()
     }
     pub unsafe fn Pause(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
@@ -1300,22 +508,12 @@ impl IMDSPDeviceControl {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn Seek(&self, fumode: u32, noffset: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            ::std::mem::transmute(noffset),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), ::std::mem::transmute(noffset)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPDeviceControl {
     type Vtable = IMDSPDeviceControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857940,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857940, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IMDSPDeviceControl> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPDeviceControl) -> Self {
@@ -1329,70 +527,35 @@ impl ::std::convert::From<&IMDSPDeviceControl> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPDeviceControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPDeviceControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPDeviceControl_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcapabilitiesmask: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcapabilitiesmask: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        noffset: i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, noffset: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPDirectTransfer(::windows::runtime::IUnknown);
 impl IMDSPDirectTransfer {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn TransferToDevice<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, IWMDMOperation>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param4: ::windows::runtime::IntoParam<'a, IWMDMMetaData>,
-        Param5: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-    >(
+    pub unsafe fn TransferToDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IWMDMOperation>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IWMDMMetaData>, Param5: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(
         &self,
         pwszsourcefilepath: Param0,
         psourceoperation: Param1,
@@ -1402,27 +565,12 @@ impl IMDSPDirectTransfer {
         ptransferprogress: Param5,
     ) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            pwszsourcefilepath.into_param().abi(),
-            psourceoperation.into_param().abi(),
-            ::std::mem::transmute(fuflags),
-            pwszdestinationname.into_param().abi(),
-            psourcemetadata.into_param().abi(),
-            ptransferprogress.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwszsourcefilepath.into_param().abi(), psourceoperation.into_param().abi(), ::std::mem::transmute(fuflags), pwszdestinationname.into_param().abi(), psourcemetadata.into_param().abi(), ptransferprogress.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPDirectTransfer {
     type Vtable = IMDSPDirectTransfer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3271448488,
-        37636,
-        18316,
-        [158, 228, 71, 227, 151, 185, 18, 215],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3271448488, 37636, 18316, [158, 228, 71, 227, 151, 185, 18, 215]);
 }
 impl ::std::convert::From<IMDSPDirectTransfer> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPDirectTransfer) -> Self {
@@ -1436,95 +584,45 @@ impl ::std::convert::From<&IMDSPDirectTransfer> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPDirectTransfer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPDirectTransfer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPDirectTransfer_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszsourcefilepath: super::super::Foundation::PWSTR,
-        psourceoperation: ::windows::runtime::RawPtr,
-        fuflags: u32,
-        pwszdestinationname: super::super::Foundation::PWSTR,
-        psourcemetadata: ::windows::runtime::RawPtr,
-        ptransferprogress: ::windows::runtime::RawPtr,
-        ppnewobject: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszsourcefilepath: super::super::Foundation::PWSTR, psourceoperation: ::windows::runtime::RawPtr, fuflags: u32, pwszdestinationname: super::super::Foundation::PWSTR, psourcemetadata: ::windows::runtime::RawPtr, ptransferprogress: ::windows::runtime::RawPtr, ppnewobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPEnumDevice(::windows::runtime::IUnknown);
 impl IMDSPEnumDevice {
-    pub unsafe fn Next(
-        &self,
-        celt: u32,
-        ppdevice: *mut ::std::option::Option<IMDSPDevice>,
-        pceltfetched: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(celt),
-            ::std::mem::transmute(ppdevice),
-            ::std::mem::transmute(pceltfetched),
-        )
-        .ok()
+    pub unsafe fn Next(&self, celt: u32, ppdevice: *mut ::std::option::Option<IMDSPDevice>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppdevice), ::std::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(celt),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IMDSPEnumDevice> {
         let mut result__: <IMDSPEnumDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPEnumDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPEnumDevice>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPEnumDevice {
     type Vtable = IMDSPEnumDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857937,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857937, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IMDSPEnumDevice> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPEnumDevice) -> Self {
@@ -1538,99 +636,47 @@ impl ::std::convert::From<&IMDSPEnumDevice> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPEnumDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPEnumDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPEnumDevice_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        celt: u32,
-        ppdevice: *mut ::windows::runtime::RawPtr,
-        pceltfetched: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        celt: u32,
-        pceltfetched: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, ppdevice: *mut ::windows::runtime::RawPtr, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPEnumStorage(::windows::runtime::IUnknown);
 impl IMDSPEnumStorage {
-    pub unsafe fn Next(
-        &self,
-        celt: u32,
-        ppstorage: *mut ::std::option::Option<IMDSPStorage>,
-        pceltfetched: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(celt),
-            ::std::mem::transmute(ppstorage),
-            ::std::mem::transmute(pceltfetched),
-        )
-        .ok()
+    pub unsafe fn Next(&self, celt: u32, ppstorage: *mut ::std::option::Option<IMDSPStorage>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppstorage), ::std::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(celt),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IMDSPEnumStorage> {
         let mut result__: <IMDSPEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPEnumStorage>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPEnumStorage {
     type Vtable = IMDSPEnumStorage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857941,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857941, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IMDSPEnumStorage> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPEnumStorage) -> Self {
@@ -1644,145 +690,50 @@ impl ::std::convert::From<&IMDSPEnumStorage> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPEnumStorage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPEnumStorage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPEnumStorage_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        celt: u32,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-        pceltfetched: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        celt: u32,
-        pceltfetched: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, ppstorage: *mut ::windows::runtime::RawPtr, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPObject(::windows::runtime::IUnknown);
 impl IMDSPObject {
     pub unsafe fn Open(&self, fumode: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode)).ok()
     }
-    pub unsafe fn Read(
-        &self,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn Read(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn Write(
-        &self,
-        pdata: *const u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn Delete<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(
-        &self,
-        fumode: u32,
-        pprogress: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Delete<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
     pub unsafe fn Seek(&self, fuflags: u32, dwoffset: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fuflags),
-            ::std::mem::transmute(dwoffset),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(fuflags), ::std::mem::transmute(dwoffset)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Rename<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-    >(
-        &self,
-        pwsznewname: Param0,
-        pprogress: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            pwsznewname.into_param().abi(),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Rename<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, pwsznewname: Param0, pprogress: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
     }
-    pub unsafe fn Move<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-        Param2: ::windows::runtime::IntoParam<'a, IMDSPStorage>,
-    >(
-        &self,
-        fumode: u32,
-        pprogress: Param1,
-        ptarget: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pprogress.into_param().abi(),
-            ptarget.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Move<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>, Param2: ::windows::runtime::IntoParam<'a, IMDSPStorage>>(&self, fumode: u32, pprogress: Param1, ptarget: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pprogress.into_param().abi(), ptarget.into_param().abi()).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
@@ -1790,12 +741,7 @@ impl IMDSPObject {
 }
 unsafe impl ::windows::runtime::Interface for IMDSPObject {
     type Vtable = IMDSPObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857944,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857944, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IMDSPObject> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPObject) -> Self {
@@ -1809,206 +755,69 @@ impl ::std::convert::From<&IMDSPObject> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPObject_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fuflags: u32,
-        dwoffset: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwsznewname: super::super::Foundation::PWSTR,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fuflags: u32, dwoffset: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwsznewname: super::super::Foundation::PWSTR, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pprogress: ::windows::runtime::RawPtr,
-        ptarget: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pprogress: ::windows::runtime::RawPtr, ptarget: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPObject2(::windows::runtime::IUnknown);
 impl IMDSPObject2 {
     pub unsafe fn Open(&self, fumode: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode)).ok()
     }
-    pub unsafe fn Read(
-        &self,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn Read(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn Write(
-        &self,
-        pdata: *const u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn Delete<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(
-        &self,
-        fumode: u32,
-        pprogress: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Delete<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
     pub unsafe fn Seek(&self, fuflags: u32, dwoffset: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fuflags),
-            ::std::mem::transmute(dwoffset),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(fuflags), ::std::mem::transmute(dwoffset)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Rename<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-    >(
-        &self,
-        pwsznewname: Param0,
-        pprogress: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            pwsznewname.into_param().abi(),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Rename<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, pwsznewname: Param0, pprogress: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
     }
-    pub unsafe fn Move<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-        Param2: ::windows::runtime::IntoParam<'a, IMDSPStorage>,
-    >(
-        &self,
-        fumode: u32,
-        pprogress: Param1,
-        ptarget: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pprogress.into_param().abi(),
-            ptarget.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Move<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>, Param2: ::windows::runtime::IntoParam<'a, IMDSPStorage>>(&self, fumode: u32, pprogress: Param1, ptarget: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pprogress.into_param().abi(), ptarget.into_param().abi()).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn ReadOnClearChannel(
-        &self,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-        )
-        .ok()
+    pub unsafe fn ReadOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize)).ok()
     }
-    pub unsafe fn WriteOnClearChannel(
-        &self,
-        pdata: *const u8,
-        pdwsize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-        )
-        .ok()
+    pub unsafe fn WriteOnClearChannel(&self, pdata: *const u8, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPObject2 {
     type Vtable = IMDSPObject2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1060425022,
-        22791,
-        17217,
-        [154, 249, 151, 244, 24, 124, 58, 165],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1060425022, 22791, 17217, [154, 249, 151, 244, 24, 124, 58, 165]);
 }
 impl ::std::convert::From<IMDSPObject2> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPObject2) -> Self {
@@ -2022,18 +831,12 @@ impl ::std::convert::From<&IMDSPObject2> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPObject2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPObject2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDSPObject2> for IMDSPObject {
@@ -2053,144 +856,61 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDSPObject> for IMDSPObject2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPObject> for &IMDSPObject2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPObject> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPObject>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPObject>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPObject2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fuflags: u32,
-        dwoffset: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwsznewname: super::super::Foundation::PWSTR,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fuflags: u32, dwoffset: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwsznewname: super::super::Foundation::PWSTR, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pprogress: ::windows::runtime::RawPtr,
-        ptarget: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pprogress: ::windows::runtime::RawPtr, ptarget: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        pdwsize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const u8, pdwsize: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPObjectInfo(::windows::runtime::IUnknown);
 impl IMDSPObjectInfo {
     pub unsafe fn GetPlayLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn SetPlayLength(&self, dwlength: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwlength),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlength)).ok()
     }
     pub unsafe fn GetPlayOffset(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn SetPlayOffset(&self, dwoffset: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwoffset),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoffset)).ok()
     }
     pub unsafe fn GetTotalLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetLastPlayPosition(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetLongestPlayPosition(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPObjectInfo {
     type Vtable = IMDSPObjectInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857945,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857945, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IMDSPObjectInfo> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPObjectInfo) -> Self {
@@ -2204,90 +924,40 @@ impl ::std::convert::From<&IMDSPObjectInfo> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPObjectInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPObjectInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPObjectInfo_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwlength: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwlength: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwoffset: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwoffset: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwlength: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwlastpos: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwlongestpos: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwlength: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwlength: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwoffset: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoffset: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwlength: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwlastpos: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwlongestpos: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPRevoked(::windows::runtime::IUnknown);
 impl IMDSPRevoked {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRevocationURL(
-        &self,
-        ppwszrevocationurl: *mut super::super::Foundation::PWSTR,
-        pdwbufferlen: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppwszrevocationurl),
-            ::std::mem::transmute(pdwbufferlen),
-        )
-        .ok()
+    pub unsafe fn GetRevocationURL(&self, ppwszrevocationurl: *mut super::super::Foundation::PWSTR, pdwbufferlen: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppwszrevocationurl), ::std::mem::transmute(pdwbufferlen)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPRevoked {
     type Vtable = IMDSPRevoked_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2766729940,
-        16177,
-        17997,
-        [181, 61, 79, 195, 53, 153, 129, 132],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2766729940, 16177, 17997, [181, 61, 79, 195, 53, 153, 129, 132]);
 }
 impl ::std::convert::From<IMDSPRevoked> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPRevoked) -> Self {
@@ -2301,174 +971,67 @@ impl ::std::convert::From<&IMDSPRevoked> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPRevoked {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPRevoked {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPRevoked_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszrevocationurl: *mut super::super::Foundation::PWSTR,
-        pdwbufferlen: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszrevocationurl: *mut super::super::Foundation::PWSTR, pdwbufferlen: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPStorage(::windows::runtime::IUnknown);
 impl IMDSPStorage {
-    pub unsafe fn SetAttributes(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat)).ok()
     }
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::runtime::Result<IMDSPStorageGlobals> {
-        let mut result__: <IMDSPStorageGlobals as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorageGlobals>(result__)
+        let mut result__: <IMDSPStorageGlobals as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPStorageGlobals>(result__)
     }
-    pub unsafe fn GetAttributes(
-        &self,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows::runtime::Result<WMDMDATETIME> {
         let mut result__: <WMDMDATETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WMDMDATETIME>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMDMDATETIME>(result__)
     }
-    pub unsafe fn GetSize(
-        &self,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwsizelow),
-            ::std::mem::transmute(pdwsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwsizelow), ::std::mem::transmute(pdwsizehigh)).ok()
     }
-    pub unsafe fn GetRights(
-        &self,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pprights),
-            ::std::mem::transmute(pnrightscount),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprights), ::std::mem::transmute(pnrightscount), ::std::mem::transmute(abmac)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStorage<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-        pwszname: Param2,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: Param2) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-            pwszname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat), pwszname.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IMDSPEnumStorage> {
         let mut result__: <IMDSPEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPEnumStorage>(result__)
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPStorage {
     type Vtable = IMDSPStorage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857942,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857942, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IMDSPStorage> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPStorage) -> Self {
@@ -2482,296 +1045,95 @@ impl ::std::convert::From<&IMDSPStorage> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPStorage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPStorage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPStorage_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstorageglobals: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstorageglobals: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdatetimeutc: *mut WMDMDATETIME,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-        pwszname: super::super::Foundation::PWSTR,
-        ppnewstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdatetimeutc: *mut WMDMDATETIME) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: super::super::Foundation::PWSTR, ppnewstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPStorage2(::windows::runtime::IUnknown);
 impl IMDSPStorage2 {
-    pub unsafe fn SetAttributes(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat)).ok()
     }
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::runtime::Result<IMDSPStorageGlobals> {
-        let mut result__: <IMDSPStorageGlobals as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorageGlobals>(result__)
+        let mut result__: <IMDSPStorageGlobals as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPStorageGlobals>(result__)
     }
-    pub unsafe fn GetAttributes(
-        &self,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows::runtime::Result<WMDMDATETIME> {
         let mut result__: <WMDMDATETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WMDMDATETIME>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMDMDATETIME>(result__)
     }
-    pub unsafe fn GetSize(
-        &self,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwsizelow),
-            ::std::mem::transmute(pdwsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwsizelow), ::std::mem::transmute(pdwsizehigh)).ok()
     }
-    pub unsafe fn GetRights(
-        &self,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pprights),
-            ::std::mem::transmute(pnrightscount),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprights), ::std::mem::transmute(pnrightscount), ::std::mem::transmute(abmac)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStorage<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-        pwszname: Param2,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: Param2) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-            pwszname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat), pwszname.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IMDSPEnumStorage> {
         let mut result__: <IMDSPEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPEnumStorage>(result__)
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStorage<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszstoragename: Param0,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn GetStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstoragename: Param0) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            pszstoragename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pszstoragename.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStorage2<
-        'a,
-        Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        dwattributes: u32,
-        dwattributesex: u32,
-        paudioformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-        pwszname: Param4,
-        qwfilesize: u64,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage2<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(dwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-            pwszname.into_param().abi(),
-            ::std::mem::transmute(qwfilesize),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(dwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat), pwszname.into_param().abi(), ::std::mem::transmute(qwfilesize), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttributes2(
-        &self,
-        dwattributes: u32,
-        dwattributesex: u32,
-        paudioformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(dwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(dwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes2(
-        &self,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pdwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pdwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPStorage2 {
     type Vtable = IMDSPStorage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        173934501,
-        25684,
-        17489,
-        [156, 54, 28, 106, 231, 226, 177, 214],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(173934501, 25684, 17489, [156, 54, 28, 106, 231, 226, 177, 214]);
 }
 impl ::std::convert::From<IMDSPStorage2> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPStorage2) -> Self {
@@ -2785,18 +1147,12 @@ impl ::std::convert::From<&IMDSPStorage2> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPStorage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPStorage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDSPStorage2> for IMDSPStorage {
@@ -2816,344 +1172,104 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage> for IMDSPStorage2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage> for &IMDSPStorage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPStorage2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstorageglobals: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstorageglobals: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdatetimeutc: *mut WMDMDATETIME,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-        pwszname: super::super::Foundation::PWSTR,
-        ppnewstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdatetimeutc: *mut WMDMDATETIME) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: super::super::Foundation::PWSTR, ppnewstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszstoragename: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        dwattributesex: u32,
-        paudioformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-        pwszname: super::super::Foundation::PWSTR,
-        qwfilesize: u64,
-        ppnewstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: super::super::Foundation::PWSTR, qwfilesize: u64, ppnewstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        dwattributesex: u32,
-        paudioformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPStorage3(::windows::runtime::IUnknown);
 impl IMDSPStorage3 {
-    pub unsafe fn SetAttributes(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat)).ok()
     }
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::runtime::Result<IMDSPStorageGlobals> {
-        let mut result__: <IMDSPStorageGlobals as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorageGlobals>(result__)
+        let mut result__: <IMDSPStorageGlobals as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPStorageGlobals>(result__)
     }
-    pub unsafe fn GetAttributes(
-        &self,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows::runtime::Result<WMDMDATETIME> {
         let mut result__: <WMDMDATETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WMDMDATETIME>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMDMDATETIME>(result__)
     }
-    pub unsafe fn GetSize(
-        &self,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwsizelow),
-            ::std::mem::transmute(pdwsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwsizelow), ::std::mem::transmute(pdwsizehigh)).ok()
     }
-    pub unsafe fn GetRights(
-        &self,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pprights),
-            ::std::mem::transmute(pnrightscount),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprights), ::std::mem::transmute(pnrightscount), ::std::mem::transmute(abmac)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStorage<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-        pwszname: Param2,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: Param2) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-            pwszname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat), pwszname.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IMDSPEnumStorage> {
         let mut result__: <IMDSPEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPEnumStorage>(result__)
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStorage<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszstoragename: Param0,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn GetStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstoragename: Param0) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            pszstoragename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pszstoragename.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStorage2<
-        'a,
-        Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        dwattributes: u32,
-        dwattributesex: u32,
-        paudioformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-        pwszname: Param4,
-        qwfilesize: u64,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage2<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(dwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-            pwszname.into_param().abi(),
-            ::std::mem::transmute(qwfilesize),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(dwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat), pwszname.into_param().abi(), ::std::mem::transmute(qwfilesize), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttributes2(
-        &self,
-        dwattributes: u32,
-        dwattributesex: u32,
-        paudioformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(dwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(dwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes2(
-        &self,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pdwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pdwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat)).ok()
     }
-    pub unsafe fn GetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(
-        &self,
-        pmetadata: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            pmetadata.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), pmetadata.into_param().abi()).ok()
     }
-    pub unsafe fn SetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(
-        &self,
-        pmetadata: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            pmetadata.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pmetadata.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPStorage3 {
     type Vtable = IMDSPStorage3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1818663015,
-        38893,
-        19047,
-        [151, 6, 28, 85, 41, 210, 164, 20],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1818663015, 38893, 19047, [151, 6, 28, 85, 41, 210, 164, 20]);
 }
 impl ::std::convert::From<IMDSPStorage3> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPStorage3) -> Self {
@@ -3167,18 +1283,12 @@ impl ::std::convert::From<&IMDSPStorage3> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDSPStorage3> for IMDSPStorage2 {
@@ -3198,9 +1308,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage2> for IMDSPStorage3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage2> for &IMDSPStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDSPStorage3> for IMDSPStorage {
@@ -3220,443 +1328,130 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage> for IMDSPStorage3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage> for &IMDSPStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPStorage3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstorageglobals: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstorageglobals: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdatetimeutc: *mut WMDMDATETIME,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-        pwszname: super::super::Foundation::PWSTR,
-        ppnewstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdatetimeutc: *mut WMDMDATETIME) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: super::super::Foundation::PWSTR, ppnewstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszstoragename: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        dwattributesex: u32,
-        paudioformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-        pwszname: super::super::Foundation::PWSTR,
-        qwfilesize: u64,
-        ppnewstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: super::super::Foundation::PWSTR, qwfilesize: u64, ppnewstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        dwattributesex: u32,
-        paudioformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pmetadata: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pmetadata: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmetadata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmetadata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPStorage4(::windows::runtime::IUnknown);
 impl IMDSPStorage4 {
-    pub unsafe fn SetAttributes(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat)).ok()
     }
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::runtime::Result<IMDSPStorageGlobals> {
-        let mut result__: <IMDSPStorageGlobals as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorageGlobals>(result__)
+        let mut result__: <IMDSPStorageGlobals as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPStorageGlobals>(result__)
     }
-    pub unsafe fn GetAttributes(
-        &self,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows::runtime::Result<WMDMDATETIME> {
         let mut result__: <WMDMDATETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WMDMDATETIME>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMDMDATETIME>(result__)
     }
-    pub unsafe fn GetSize(
-        &self,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwsizelow),
-            ::std::mem::transmute(pdwsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwsizelow), ::std::mem::transmute(pdwsizehigh)).ok()
     }
-    pub unsafe fn GetRights(
-        &self,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pprights),
-            ::std::mem::transmute(pnrightscount),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprights), ::std::mem::transmute(pnrightscount), ::std::mem::transmute(abmac)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStorage<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-        pwszname: Param2,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: Param2) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-            pwszname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat), pwszname.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IMDSPEnumStorage> {
         let mut result__: <IMDSPEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPEnumStorage>(result__)
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStorage<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszstoragename: Param0,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn GetStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstoragename: Param0) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            pszstoragename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), pszstoragename.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStorage2<
-        'a,
-        Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        dwattributes: u32,
-        dwattributesex: u32,
-        paudioformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-        pwszname: Param4,
-        qwfilesize: u64,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorage2<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: Param4, qwfilesize: u64) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(dwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-            pwszname.into_param().abi(),
-            ::std::mem::transmute(qwfilesize),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(dwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat), pwszname.into_param().abi(), ::std::mem::transmute(qwfilesize), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttributes2(
-        &self,
-        dwattributes: u32,
-        dwattributesex: u32,
-        paudioformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(dwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(dwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes2(
-        &self,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pdwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pdwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat)).ok()
     }
-    pub unsafe fn GetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(
-        &self,
-        pmetadata: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            pmetadata.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), pmetadata.into_param().abi()).ok()
     }
-    pub unsafe fn SetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(
-        &self,
-        pmetadata: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            pmetadata.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pmetadata.into_param().abi()).ok()
     }
-    pub unsafe fn SetReferences(
-        &self,
-        dwrefs: u32,
-        ppispstorage: *const ::std::option::Option<IMDSPStorage>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwrefs),
-            ::std::mem::transmute(ppispstorage),
-        )
-        .ok()
+    pub unsafe fn SetReferences(&self, dwrefs: u32, ppispstorage: *const ::std::option::Option<IMDSPStorage>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwrefs), ::std::mem::transmute(ppispstorage)).ok()
     }
-    pub unsafe fn GetReferences(
-        &self,
-        pdwrefs: *mut u32,
-        pppispstorage: *mut *mut ::std::option::Option<IMDSPStorage>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwrefs),
-            ::std::mem::transmute(pppispstorage),
-        )
-        .ok()
+    pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut ::std::option::Option<IMDSPStorage>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwrefs), ::std::mem::transmute(pppispstorage)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStorageWithMetadata<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMMetaData>,
-    >(
-        &self,
-        dwattributes: u32,
-        pwszname: Param1,
-        pmetadata: Param2,
-        qwfilesize: u64,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn CreateStorageWithMetadata<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(&self, dwattributes: u32, pwszname: Param1, pmetadata: Param2, qwfilesize: u64) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            pwszname.into_param().abi(),
-            pmetadata.into_param().abi(),
-            ::std::mem::transmute(qwfilesize),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), pwszname.into_param().abi(), pmetadata.into_param().abi(), ::std::mem::transmute(qwfilesize), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSpecifiedMetadata<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMMetaData>,
-    >(
-        &self,
-        cproperties: u32,
-        ppwszpropnames: *const super::super::Foundation::PWSTR,
-        pmetadata: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(cproperties),
-            ::std::mem::transmute(ppwszpropnames),
-            pmetadata.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetSpecifiedMetadata<'a, Param2: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(&self, cproperties: u32, ppwszpropnames: *const super::super::Foundation::PWSTR, pmetadata: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(cproperties), ::std::mem::transmute(ppwszpropnames), pmetadata.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindStorage<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        findscope: WMDM_FIND_SCOPE,
-        pwszuniqueid: Param1,
-    ) -> ::windows::runtime::Result<IMDSPStorage> {
+    pub unsafe fn FindStorage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: Param1) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).23)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(findscope),
-            pwszuniqueid.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(findscope), pwszuniqueid.into_param().abi(), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
     pub unsafe fn GetParent(&self) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).24)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPStorage4 {
     type Vtable = IMDSPStorage4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        825471684,
-        20828,
-        18459,
-        [177, 206, 57, 50, 126, 203, 79, 116],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(825471684, 20828, 18459, [177, 206, 57, 50, 126, 203, 79, 116]);
 }
 impl ::std::convert::From<IMDSPStorage4> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPStorage4) -> Self {
@@ -3670,18 +1465,12 @@ impl ::std::convert::From<&IMDSPStorage4> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDSPStorage4> for IMDSPStorage3 {
@@ -3701,9 +1490,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage3> for IMDSPStorage4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage3> for &IMDSPStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage3>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage3>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDSPStorage4> for IMDSPStorage2 {
@@ -3723,9 +1510,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage2> for IMDSPStorage4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage2> for &IMDSPStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDSPStorage4> for IMDSPStorage {
@@ -3745,270 +1530,86 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage> for IMDSPStorage4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDSPStorage> for &IMDSPStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDSPStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDSPStorage>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPStorage4_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstorageglobals: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstorageglobals: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdatetimeutc: *mut WMDMDATETIME,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-        pwszname: super::super::Foundation::PWSTR,
-        ppnewstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdatetimeutc: *mut WMDMDATETIME) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX, pwszname: super::super::Foundation::PWSTR, ppnewstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszstoragename: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        dwattributesex: u32,
-        paudioformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-        pwszname: super::super::Foundation::PWSTR,
-        qwfilesize: u64,
-        ppnewstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER, pwszname: super::super::Foundation::PWSTR, qwfilesize: u64, ppnewstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        dwattributesex: u32,
-        paudioformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, dwattributesex: u32, paudioformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pmetadata: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pmetadata: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwrefs: u32,
-        ppispstorage: *const ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwrefs: *mut u32,
-        pppispstorage: *mut *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pwszname: super::super::Foundation::PWSTR,
-        pmetadata: ::windows::runtime::RawPtr,
-        qwfilesize: u64,
-        ppnewstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmetadata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmetadata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwrefs: u32, ppispstorage: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwrefs: *mut u32, pppispstorage: *mut *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pwszname: super::super::Foundation::PWSTR, pmetadata: ::windows::runtime::RawPtr, qwfilesize: u64, ppnewstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        cproperties: u32,
-        ppwszpropnames: *const super::super::Foundation::PWSTR,
-        pmetadata: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cproperties: u32, ppwszpropnames: *const super::super::Foundation::PWSTR, pmetadata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        findscope: WMDM_FIND_SCOPE,
-        pwszuniqueid: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDSPStorageGlobals(::windows::runtime::IUnknown);
 impl IMDSPStorageGlobals {
     pub unsafe fn GetCapabilities(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetSerialNumber(
-        &self,
-        pserialnum: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pserialnum),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pserialnum), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn GetTotalSize(
-        &self,
-        pdwtotalsizelow: *mut u32,
-        pdwtotalsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwtotalsizelow),
-            ::std::mem::transmute(pdwtotalsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwtotalsizelow), ::std::mem::transmute(pdwtotalsizehigh)).ok()
     }
-    pub unsafe fn GetTotalFree(
-        &self,
-        pdwfreelow: *mut u32,
-        pdwfreehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwfreelow),
-            ::std::mem::transmute(pdwfreehigh),
-        )
-        .ok()
+    pub unsafe fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwfreelow), ::std::mem::transmute(pdwfreehigh)).ok()
     }
-    pub unsafe fn GetTotalBad(
-        &self,
-        pdwbadlow: *mut u32,
-        pdwbadhigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwbadlow),
-            ::std::mem::transmute(pdwbadhigh),
-        )
-        .ok()
+    pub unsafe fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwbadlow), ::std::mem::transmute(pdwbadhigh)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn Initialize<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(
-        &self,
-        fumode: u32,
-        pprogress: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
     pub unsafe fn GetDevice(&self) -> ::windows::runtime::Result<IMDSPDevice> {
         let mut result__: <IMDSPDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPDevice>(result__)
     }
     pub unsafe fn GetRootStorage(&self) -> ::windows::runtime::Result<IMDSPStorage> {
         let mut result__: <IMDSPStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPStorage>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDSPStorageGlobals {
     type Vtable = IMDSPStorageGlobals_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857943,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857943, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IMDSPStorageGlobals> for ::windows::runtime::IUnknown {
     fn from(value: IMDSPStorageGlobals) -> Self {
@@ -4022,106 +1623,46 @@ impl ::std::convert::From<&IMDSPStorageGlobals> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDSPStorageGlobals {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDSPStorageGlobals {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDSPStorageGlobals_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcapabilities: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pserialnum: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwtotalsizelow: *mut u32,
-        pdwtotalsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwfreelow: *mut u32,
-        pdwfreehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwbadlow: *mut u32,
-        pdwbadhigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pproot: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcapabilities: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pproot: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDServiceProvider(::windows::runtime::IUnknown);
 impl IMDServiceProvider {
     pub unsafe fn GetDeviceCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn EnumDevices(&self) -> ::windows::runtime::Result<IMDSPEnumDevice> {
         let mut result__: <IMDSPEnumDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPEnumDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPEnumDevice>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDServiceProvider {
     type Vtable = IMDServiceProvider_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857936,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857936, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IMDServiceProvider> for ::windows::runtime::IUnknown {
     fn from(value: IMDServiceProvider) -> Self {
@@ -4135,91 +1676,43 @@ impl ::std::convert::From<&IMDServiceProvider> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDServiceProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDServiceProvider {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDServiceProvider_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDServiceProvider2(::windows::runtime::IUnknown);
 impl IMDServiceProvider2 {
     pub unsafe fn GetDeviceCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn EnumDevices(&self) -> ::windows::runtime::Result<IMDSPEnumDevice> {
         let mut result__: <IMDSPEnumDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPEnumDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPEnumDevice>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDevice<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwszdevicepath: Param0,
-        pdwcount: *mut u32,
-        pppdevicearray: *mut *mut ::std::option::Option<IMDSPDevice>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            pwszdevicepath.into_param().abi(),
-            ::std::mem::transmute(pdwcount),
-            ::std::mem::transmute(pppdevicearray),
-        )
-        .ok()
+    pub unsafe fn CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszdevicepath: Param0, pdwcount: *mut u32, pppdevicearray: *mut *mut ::std::option::Option<IMDSPDevice>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwszdevicepath.into_param().abi(), ::std::mem::transmute(pdwcount), ::std::mem::transmute(pppdevicearray)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDServiceProvider2 {
     type Vtable = IMDServiceProvider2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3002737847,
-        52643,
-        18068,
-        [152, 98, 65, 58, 225, 163, 72, 25],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3002737847, 52643, 18068, [152, 98, 65, 58, 225, 163, 72, 25]);
 }
 impl ::std::convert::From<IMDServiceProvider2> for ::windows::runtime::IUnknown {
     fn from(value: IMDServiceProvider2) -> Self {
@@ -4233,18 +1726,12 @@ impl ::std::convert::From<&IMDServiceProvider2> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDServiceProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDServiceProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDServiceProvider2> for IMDServiceProvider {
@@ -4264,100 +1751,43 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDServiceProvider> for IMDServicePro
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDServiceProvider> for &IMDServiceProvider2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDServiceProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDServiceProvider>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDServiceProvider>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDServiceProvider2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszdevicepath: super::super::Foundation::PWSTR,
-        pdwcount: *mut u32,
-        pppdevicearray: *mut *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszdevicepath: super::super::Foundation::PWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMDServiceProvider3(::windows::runtime::IUnknown);
 impl IMDServiceProvider3 {
     pub unsafe fn GetDeviceCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn EnumDevices(&self) -> ::windows::runtime::Result<IMDSPEnumDevice> {
         let mut result__: <IMDSPEnumDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMDSPEnumDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMDSPEnumDevice>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateDevice<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwszdevicepath: Param0,
-        pdwcount: *mut u32,
-        pppdevicearray: *mut *mut ::std::option::Option<IMDSPDevice>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            pwszdevicepath.into_param().abi(),
-            ::std::mem::transmute(pdwcount),
-            ::std::mem::transmute(pppdevicearray),
-        )
-        .ok()
+    pub unsafe fn CreateDevice<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszdevicepath: Param0, pdwcount: *mut u32, pppdevicearray: *mut *mut ::std::option::Option<IMDSPDevice>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pwszdevicepath.into_param().abi(), ::std::mem::transmute(pdwcount), ::std::mem::transmute(pppdevicearray)).ok()
     }
-    pub unsafe fn SetDeviceEnumPreference(
-        &self,
-        dwenumpref: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwenumpref),
-        )
-        .ok()
+    pub unsafe fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwenumpref)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMDServiceProvider3 {
     type Vtable = IMDServiceProvider3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1322335987,
-        43377,
-        19737,
-        [159, 81, 14, 24, 38, 178, 218, 87],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1322335987, 43377, 19737, [159, 81, 14, 24, 38, 178, 218, 87]);
 }
 impl ::std::convert::From<IMDServiceProvider3> for ::windows::runtime::IUnknown {
     fn from(value: IMDServiceProvider3) -> Self {
@@ -4371,18 +1801,12 @@ impl ::std::convert::From<&IMDServiceProvider3> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMDServiceProvider3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMDServiceProvider3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDServiceProvider3> for IMDServiceProvider2 {
@@ -4402,9 +1826,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDServiceProvider2> for IMDServicePr
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDServiceProvider2> for &IMDServiceProvider3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDServiceProvider2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDServiceProvider2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDServiceProvider2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMDServiceProvider3> for IMDServiceProvider {
@@ -4424,69 +1846,34 @@ impl<'a> ::windows::runtime::IntoParam<'a, IMDServiceProvider> for IMDServicePro
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IMDServiceProvider> for &IMDServiceProvider3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMDServiceProvider> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDServiceProvider>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMDServiceProvider>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMDServiceProvider3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszdevicepath: super::super::Foundation::PWSTR,
-        pdwcount: *mut u32,
-        pppdevicearray: *mut *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszdevicepath: super::super::Foundation::PWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwenumpref: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwenumpref: u32) -> ::windows::runtime::HRESULT,
 );
 pub const IOCTL_MTP_CUSTOM_COMMAND: u32 = 827348045u32;
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISCPSecureAuthenticate(::windows::runtime::IUnknown);
 impl ISCPSecureAuthenticate {
     pub unsafe fn GetSecureQuery(&self) -> ::windows::runtime::Result<ISCPSecureQuery> {
         let mut result__: <ISCPSecureQuery as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<ISCPSecureQuery>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISCPSecureQuery>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ISCPSecureAuthenticate {
     type Vtable = ISCPSecureAuthenticate_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857935,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857935, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<ISCPSecureAuthenticate> for ::windows::runtime::IUnknown {
     fn from(value: ISCPSecureAuthenticate) -> Self {
@@ -4498,75 +1885,40 @@ impl ::std::convert::From<&ISCPSecureAuthenticate> for ::windows::runtime::IUnkn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for ISCPSecureAuthenticate
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISCPSecureAuthenticate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &ISCPSecureAuthenticate
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISCPSecureAuthenticate {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureAuthenticate_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppsecurequery: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsecurequery: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISCPSecureAuthenticate2(::windows::runtime::IUnknown);
 impl ISCPSecureAuthenticate2 {
     pub unsafe fn GetSecureQuery(&self) -> ::windows::runtime::Result<ISCPSecureQuery> {
         let mut result__: <ISCPSecureQuery as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<ISCPSecureQuery>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISCPSecureQuery>(result__)
     }
     pub unsafe fn GetSCPSession(&self) -> ::windows::runtime::Result<ISCPSession> {
         let mut result__: <ISCPSession as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<ISCPSession>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISCPSession>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ISCPSecureAuthenticate2 {
     type Vtable = ISCPSecureAuthenticate2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3045117870,
-        5746,
-        18402,
-        [172, 170, 68, 187, 236, 188, 174, 91],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3045117870, 5746, 18402, [172, 170, 68, 187, 236, 188, 174, 91]);
 }
 impl ::std::convert::From<ISCPSecureAuthenticate2> for ::windows::runtime::IUnknown {
     fn from(value: ISCPSecureAuthenticate2) -> Self {
@@ -4578,24 +1930,14 @@ impl ::std::convert::From<&ISCPSecureAuthenticate2> for ::windows::runtime::IUnk
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for ISCPSecureAuthenticate2
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISCPSecureAuthenticate2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &ISCPSecureAuthenticate2
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISCPSecureAuthenticate2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<ISCPSecureAuthenticate2> for ISCPSecureAuthenticate {
@@ -4615,68 +1957,27 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureAuthenticate> for ISCPSecur
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureAuthenticate> for &ISCPSecureAuthenticate2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureAuthenticate> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureAuthenticate>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureAuthenticate>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureAuthenticate2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppsecurequery: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppscpsession: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsecurequery: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppscpsession: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISCPSecureExchange(::windows::runtime::IUnknown);
 impl ISCPSecureExchange {
-    pub unsafe fn TransferContainerData(
-        &self,
-        pdata: *const u8,
-        dwsize: u32,
-        pfureadyflags: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(pfureadyflags),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn TransferContainerData(&self, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(dwsize), ::std::mem::transmute(pfureadyflags), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn ObjectData(
-        &self,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize), ::std::mem::transmute(abmac)).ok()
     }
     pub unsafe fn TransferComplete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
@@ -4684,12 +1985,7 @@ impl ISCPSecureExchange {
 }
 unsafe impl ::windows::runtime::Interface for ISCPSecureExchange {
     type Vtable = ISCPSecureExchange_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857934,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857934, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<ISCPSecureExchange> for ::windows::runtime::IUnknown {
     fn from(value: ISCPSecureExchange) -> Self {
@@ -4703,117 +1999,44 @@ impl ::std::convert::From<&ISCPSecureExchange> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISCPSecureExchange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISCPSecureExchange {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureExchange_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        dwsize: u32,
-        pfureadyflags: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISCPSecureExchange2(::windows::runtime::IUnknown);
 impl ISCPSecureExchange2 {
-    pub unsafe fn TransferContainerData(
-        &self,
-        pdata: *const u8,
-        dwsize: u32,
-        pfureadyflags: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(pfureadyflags),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn TransferContainerData(&self, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(dwsize), ::std::mem::transmute(pfureadyflags), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn ObjectData(
-        &self,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize), ::std::mem::transmute(abmac)).ok()
     }
     pub unsafe fn TransferComplete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn TransferContainerData2<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress3>,
-    >(
-        &self,
-        pdata: *const u8,
-        dwsize: u32,
-        pprogresscallback: Param2,
-        pfureadyflags: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(dwsize),
-            pprogresscallback.into_param().abi(),
-            ::std::mem::transmute(pfureadyflags),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn TransferContainerData2<'a, Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress3>>(&self, pdata: *const u8, dwsize: u32, pprogresscallback: Param2, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(dwsize), pprogresscallback.into_param().abi(), ::std::mem::transmute(pfureadyflags), ::std::mem::transmute(abmac)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ISCPSecureExchange2 {
     type Vtable = ISCPSecureExchange2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1818426491,
-        9872,
-        18495,
-        [157, 68, 10, 32, 203, 53, 87, 124],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1818426491, 9872, 18495, [157, 68, 10, 32, 203, 53, 87, 124]);
 }
 impl ::std::convert::From<ISCPSecureExchange2> for ::windows::runtime::IUnknown {
     fn from(value: ISCPSecureExchange2) -> Self {
@@ -4827,18 +2050,12 @@ impl ::std::convert::From<&ISCPSecureExchange2> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISCPSecureExchange2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISCPSecureExchange2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<ISCPSecureExchange2> for ISCPSecureExchange {
@@ -4858,168 +2075,50 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureExchange> for ISCPSecureExc
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureExchange> for &ISCPSecureExchange2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureExchange>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureExchange>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureExchange2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        dwsize: u32,
-        pfureadyflags: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        dwsize: u32,
-        pprogresscallback: ::windows::runtime::RawPtr,
-        pfureadyflags: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const u8, dwsize: u32, pprogresscallback: ::windows::runtime::RawPtr, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISCPSecureExchange3(::windows::runtime::IUnknown);
 impl ISCPSecureExchange3 {
-    pub unsafe fn TransferContainerData(
-        &self,
-        pdata: *const u8,
-        dwsize: u32,
-        pfureadyflags: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(pfureadyflags),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn TransferContainerData(&self, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(dwsize), ::std::mem::transmute(pfureadyflags), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn ObjectData(
-        &self,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize), ::std::mem::transmute(abmac)).ok()
     }
     pub unsafe fn TransferComplete(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn TransferContainerData2<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress3>,
-    >(
-        &self,
-        pdata: *const u8,
-        dwsize: u32,
-        pprogresscallback: Param2,
-        pfureadyflags: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(dwsize),
-            pprogresscallback.into_param().abi(),
-            ::std::mem::transmute(pfureadyflags),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn TransferContainerData2<'a, Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress3>>(&self, pdata: *const u8, dwsize: u32, pprogresscallback: Param2, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(dwsize), pprogresscallback.into_param().abi(), ::std::mem::transmute(pfureadyflags), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn TransferContainerDataOnClearChannel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IMDSPDevice>,
-        Param3: ::windows::runtime::IntoParam<'a, IWMDMProgress3>,
-    >(
-        &self,
-        pdevice: Param0,
-        pdata: *const u8,
-        dwsize: u32,
-        pprogresscallback: Param3,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn TransferContainerDataOnClearChannel<'a, Param0: ::windows::runtime::IntoParam<'a, IMDSPDevice>, Param3: ::windows::runtime::IntoParam<'a, IWMDMProgress3>>(&self, pdevice: Param0, pdata: *const u8, dwsize: u32, pprogresscallback: Param3) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            pdevice.into_param().abi(),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(dwsize),
-            pprogresscallback.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pdevice.into_param().abi(), ::std::mem::transmute(pdata), ::std::mem::transmute(dwsize), pprogresscallback.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetObjectDataOnClearChannel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IMDSPDevice>,
-    >(
-        &self,
-        pdevice: Param0,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            pdevice.into_param().abi(),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-        )
-        .ok()
+    pub unsafe fn GetObjectDataOnClearChannel<'a, Param0: ::windows::runtime::IntoParam<'a, IMDSPDevice>>(&self, pdevice: Param0, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pdevice.into_param().abi(), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize)).ok()
     }
-    pub unsafe fn TransferCompleteForDevice<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IMDSPDevice>,
-    >(
-        &self,
-        pdevice: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            pdevice.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn TransferCompleteForDevice<'a, Param0: ::windows::runtime::IntoParam<'a, IMDSPDevice>>(&self, pdevice: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pdevice.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ISCPSecureExchange3 {
     type Vtable = ISCPSecureExchange3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2874046436,
-        35080,
-        19223,
-        [189, 42, 177, 219, 230, 221, 105, 225],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2874046436, 35080, 19223, [189, 42, 177, 219, 230, 221, 105, 225]);
 }
 impl ::std::convert::From<ISCPSecureExchange3> for ::windows::runtime::IUnknown {
     fn from(value: ISCPSecureExchange3) -> Self {
@@ -5033,18 +2132,12 @@ impl ::std::convert::From<&ISCPSecureExchange3> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISCPSecureExchange3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISCPSecureExchange3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<ISCPSecureExchange3> for ISCPSecureExchange2 {
@@ -5064,9 +2157,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureExchange2> for ISCPSecureEx
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureExchange2> for &ISCPSecureExchange3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureExchange2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureExchange2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureExchange2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<ISCPSecureExchange3> for ISCPSecureExchange {
@@ -5086,126 +2177,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureExchange> for ISCPSecureExc
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureExchange> for &ISCPSecureExchange3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureExchange> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureExchange>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureExchange>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureExchange3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        dwsize: u32,
-        pfureadyflags: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        dwsize: u32,
-        pprogresscallback: ::windows::runtime::RawPtr,
-        pfureadyflags: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdevice: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        dwsize: u32,
-        pprogresscallback: ::windows::runtime::RawPtr,
-        pfureadyflags: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdevice: ::windows::runtime::RawPtr,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdevice: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const u8, dwsize: u32, pprogresscallback: ::windows::runtime::RawPtr, pfureadyflags: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdata: *const u8, dwsize: u32, pprogresscallback: ::windows::runtime::RawPtr, pfureadyflags: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevice: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISCPSecureQuery(::windows::runtime::IUnknown);
 impl ISCPSecureQuery {
-    pub unsafe fn GetDataDemands(
-        &self,
-        pfuflags: *mut u32,
-        pdwminrightsdata: *mut u32,
-        pdwminexaminedata: *mut u32,
-        pdwmindecidedata: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pfuflags),
-            ::std::mem::transmute(pdwminrightsdata),
-            ::std::mem::transmute(pdwminexaminedata),
-            ::std::mem::transmute(pdwmindecidedata),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfuflags), ::std::mem::transmute(pdwminrightsdata), ::std::mem::transmute(pdwminexaminedata), ::std::mem::transmute(pdwmindecidedata), ::std::mem::transmute(abmac)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExamineData<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        fuflags: u32,
-        pwszextension: Param1,
-        pdata: *const u8,
-        dwsize: u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fuflags),
-            pwszextension.into_param().abi(),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn ExamineData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, fuflags: u32, pwszextension: Param1, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(fuflags), pwszextension.into_param().abi(), ::std::mem::transmute(pdata), ::std::mem::transmute(dwsize), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn MakeDecision<
-        'a,
-        Param6: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>,
-    >(
-        &self,
-        fuflags: u32,
-        pdata: *const u8,
-        dwsize: u32,
-        dwappsec: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstorageglobals: Param6,
-        ppexchange: *mut ::std::option::Option<ISCPSecureExchange>,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
+    pub unsafe fn MakeDecision<'a, Param6: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>>(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Param6, ppexchange: *mut ::std::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(fuflags),
@@ -5220,17 +2220,7 @@ impl ISCPSecureQuery {
         )
         .ok()
     }
-    pub unsafe fn GetRights<'a, Param4: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>>(
-        &self,
-        pdata: *const u8,
-        dwsize: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstgglobals: Param4,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
+    pub unsafe fn GetRights<'a, Param4: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>>(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(pdata),
@@ -5247,12 +2237,7 @@ impl ISCPSecureQuery {
 }
 unsafe impl ::windows::runtime::Interface for ISCPSecureQuery {
     type Vtable = ISCPSecureQuery_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857933,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857933, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<ISCPSecureQuery> for ::windows::runtime::IUnknown {
     fn from(value: ISCPSecureQuery) -> Self {
@@ -5266,136 +2251,38 @@ impl ::std::convert::From<&ISCPSecureQuery> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISCPSecureQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISCPSecureQuery {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureQuery_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pfuflags: *mut u32,
-        pdwminrightsdata: *mut u32,
-        pdwminexaminedata: *mut u32,
-        pdwmindecidedata: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fuflags: u32,
-        pwszextension: super::super::Foundation::PWSTR,
-        pdata: *const u8,
-        dwsize: u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fuflags: u32, pwszextension: super::super::Foundation::PWSTR, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fuflags: u32,
-        pdata: *const u8,
-        dwsize: u32,
-        dwappsec: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstorageglobals: ::windows::runtime::RawPtr,
-        ppexchange: *mut ::windows::runtime::RawPtr,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        dwsize: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstgglobals: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::runtime::RawPtr, ppexchange: *mut ::windows::runtime::RawPtr, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISCPSecureQuery2(::windows::runtime::IUnknown);
 impl ISCPSecureQuery2 {
-    pub unsafe fn GetDataDemands(
-        &self,
-        pfuflags: *mut u32,
-        pdwminrightsdata: *mut u32,
-        pdwminexaminedata: *mut u32,
-        pdwmindecidedata: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pfuflags),
-            ::std::mem::transmute(pdwminrightsdata),
-            ::std::mem::transmute(pdwminexaminedata),
-            ::std::mem::transmute(pdwmindecidedata),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfuflags), ::std::mem::transmute(pdwminrightsdata), ::std::mem::transmute(pdwminexaminedata), ::std::mem::transmute(pdwmindecidedata), ::std::mem::transmute(abmac)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExamineData<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        fuflags: u32,
-        pwszextension: Param1,
-        pdata: *const u8,
-        dwsize: u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fuflags),
-            pwszextension.into_param().abi(),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn ExamineData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, fuflags: u32, pwszextension: Param1, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(fuflags), pwszextension.into_param().abi(), ::std::mem::transmute(pdata), ::std::mem::transmute(dwsize), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn MakeDecision<
-        'a,
-        Param6: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>,
-    >(
-        &self,
-        fuflags: u32,
-        pdata: *const u8,
-        dwsize: u32,
-        dwappsec: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstorageglobals: Param6,
-        ppexchange: *mut ::std::option::Option<ISCPSecureExchange>,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
+    pub unsafe fn MakeDecision<'a, Param6: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>>(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Param6, ppexchange: *mut ::std::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(fuflags),
@@ -5410,17 +2297,7 @@ impl ISCPSecureQuery2 {
         )
         .ok()
     }
-    pub unsafe fn GetRights<'a, Param4: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>>(
-        &self,
-        pdata: *const u8,
-        dwsize: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstgglobals: Param4,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
+    pub unsafe fn GetRights<'a, Param4: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>>(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(pdata),
@@ -5435,11 +2312,7 @@ impl ISCPSecureQuery2 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeDecision2<
-        'a,
-        Param6: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>,
-        Param15: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
+    pub unsafe fn MakeDecision2<'a, Param6: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>, Param15: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
         &self,
         fuflags: u32,
         pdata: *const u8,
@@ -5486,12 +2359,7 @@ impl ISCPSecureQuery2 {
 }
 unsafe impl ::windows::runtime::Interface for ISCPSecureQuery2 {
     type Vtable = ISCPSecureQuery2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3957423653,
-        20439,
-        17970,
-        [175, 70, 109, 147, 212, 252, 199, 46],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3957423653, 20439, 17970, [175, 70, 109, 147, 212, 252, 199, 46]);
 }
 impl ::std::convert::From<ISCPSecureQuery2> for ::windows::runtime::IUnknown {
     fn from(value: ISCPSecureQuery2) -> Self {
@@ -5505,18 +2373,12 @@ impl ::std::convert::From<&ISCPSecureQuery2> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISCPSecureQuery2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISCPSecureQuery2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<ISCPSecureQuery2> for ISCPSecureQuery {
@@ -5536,62 +2398,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureQuery> for ISCPSecureQuery2
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureQuery> for &ISCPSecureQuery2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureQuery> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureQuery>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureQuery>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureQuery2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pfuflags: *mut u32,
-        pdwminrightsdata: *mut u32,
-        pdwminexaminedata: *mut u32,
-        pdwmindecidedata: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fuflags: u32,
-        pwszextension: super::super::Foundation::PWSTR,
-        pdata: *const u8,
-        dwsize: u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fuflags: u32, pwszextension: super::super::Foundation::PWSTR, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fuflags: u32,
-        pdata: *const u8,
-        dwsize: u32,
-        dwappsec: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstorageglobals: ::windows::runtime::RawPtr,
-        ppexchange: *mut ::windows::runtime::RawPtr,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        dwsize: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstgglobals: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::runtime::RawPtr, ppexchange: *mut ::windows::runtime::RawPtr, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -5617,69 +2437,17 @@ pub struct ISCPSecureQuery2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISCPSecureQuery3(::windows::runtime::IUnknown);
 impl ISCPSecureQuery3 {
-    pub unsafe fn GetDataDemands(
-        &self,
-        pfuflags: *mut u32,
-        pdwminrightsdata: *mut u32,
-        pdwminexaminedata: *mut u32,
-        pdwmindecidedata: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pfuflags),
-            ::std::mem::transmute(pdwminrightsdata),
-            ::std::mem::transmute(pdwminexaminedata),
-            ::std::mem::transmute(pdwmindecidedata),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pfuflags), ::std::mem::transmute(pdwminrightsdata), ::std::mem::transmute(pdwminexaminedata), ::std::mem::transmute(pdwmindecidedata), ::std::mem::transmute(abmac)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ExamineData<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        fuflags: u32,
-        pwszextension: Param1,
-        pdata: *const u8,
-        dwsize: u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fuflags),
-            pwszextension.into_param().abi(),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn ExamineData<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, fuflags: u32, pwszextension: Param1, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(fuflags), pwszextension.into_param().abi(), ::std::mem::transmute(pdata), ::std::mem::transmute(dwsize), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn MakeDecision<
-        'a,
-        Param6: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>,
-    >(
-        &self,
-        fuflags: u32,
-        pdata: *const u8,
-        dwsize: u32,
-        dwappsec: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstorageglobals: Param6,
-        ppexchange: *mut ::std::option::Option<ISCPSecureExchange>,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
+    pub unsafe fn MakeDecision<'a, Param6: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>>(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: Param6, ppexchange: *mut ::std::option::Option<ISCPSecureExchange>, abmac: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(fuflags),
@@ -5694,17 +2462,7 @@ impl ISCPSecureQuery3 {
         )
         .ok()
     }
-    pub unsafe fn GetRights<'a, Param4: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>>(
-        &self,
-        pdata: *const u8,
-        dwsize: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstgglobals: Param4,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
+    pub unsafe fn GetRights<'a, Param4: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>>(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: Param4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(pdata),
@@ -5719,11 +2477,7 @@ impl ISCPSecureQuery3 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeDecision2<
-        'a,
-        Param6: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>,
-        Param15: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
+    pub unsafe fn MakeDecision2<'a, Param6: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>, Param15: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
         &self,
         fuflags: u32,
         pdata: *const u8,
@@ -5767,21 +2521,7 @@ impl ISCPSecureQuery3 {
         )
         .ok()
     }
-    pub unsafe fn GetRightsOnClearChannel<
-        'a,
-        Param4: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>,
-        Param5: ::windows::runtime::IntoParam<'a, IWMDMProgress3>,
-    >(
-        &self,
-        pdata: *const u8,
-        dwsize: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstgglobals: Param4,
-        pprogresscallback: Param5,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
+    pub unsafe fn GetRightsOnClearChannel<'a, Param4: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>, Param5: ::windows::runtime::IntoParam<'a, IWMDMProgress3>>(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: Param4, pprogresscallback: Param5, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(pdata),
@@ -5796,12 +2536,7 @@ impl ISCPSecureQuery3 {
         .ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MakeDecisionOnClearChannel<
-        'a,
-        Param6: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>,
-        Param7: ::windows::runtime::IntoParam<'a, IWMDMProgress3>,
-        Param16: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
+    pub unsafe fn MakeDecisionOnClearChannel<'a, Param6: ::windows::runtime::IntoParam<'a, IMDSPStorageGlobals>, Param7: ::windows::runtime::IntoParam<'a, IWMDMProgress3>, Param16: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
         &self,
         fuflags: u32,
         pdata: *const u8,
@@ -5848,12 +2583,7 @@ impl ISCPSecureQuery3 {
 }
 unsafe impl ::windows::runtime::Interface for ISCPSecureQuery3 {
     type Vtable = ISCPSecureQuery3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3085816226,
-        19883,
-        18507,
-        [179, 197, 173, 57, 184, 180, 192, 177],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3085816226, 19883, 18507, [179, 197, 173, 57, 184, 180, 192, 177]);
 }
 impl ::std::convert::From<ISCPSecureQuery3> for ::windows::runtime::IUnknown {
     fn from(value: ISCPSecureQuery3) -> Self {
@@ -5867,18 +2597,12 @@ impl ::std::convert::From<&ISCPSecureQuery3> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISCPSecureQuery3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISCPSecureQuery3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<ISCPSecureQuery3> for ISCPSecureQuery2 {
@@ -5898,9 +2622,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureQuery2> for ISCPSecureQuery
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureQuery2> for &ISCPSecureQuery3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureQuery2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureQuery2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureQuery2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<ISCPSecureQuery3> for ISCPSecureQuery {
@@ -5920,62 +2642,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureQuery> for ISCPSecureQuery3
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISCPSecureQuery> for &ISCPSecureQuery3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISCPSecureQuery> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureQuery>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<ISCPSecureQuery>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSecureQuery3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pfuflags: *mut u32,
-        pdwminrightsdata: *mut u32,
-        pdwminexaminedata: *mut u32,
-        pdwmindecidedata: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fuflags: u32,
-        pwszextension: super::super::Foundation::PWSTR,
-        pdata: *const u8,
-        dwsize: u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fuflags: u32, pwszextension: super::super::Foundation::PWSTR, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fuflags: u32,
-        pdata: *const u8,
-        dwsize: u32,
-        dwappsec: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstorageglobals: ::windows::runtime::RawPtr,
-        ppexchange: *mut ::windows::runtime::RawPtr,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        dwsize: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstgglobals: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: ::windows::runtime::RawPtr, ppexchange: *mut ::windows::runtime::RawPtr, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -5999,17 +2679,7 @@ pub struct ISCPSecureQuery3_abi(
         abmac: *mut u8,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *const u8,
-        dwsize: u32,
-        pbspsessionkey: *const u8,
-        dwsessionkeylen: u32,
-        pstgglobals: ::windows::runtime::RawPtr,
-        pprogresscallback: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: ::windows::runtime::RawPtr, pprogresscallback: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -6035,57 +2705,23 @@ pub struct ISCPSecureQuery3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISCPSession(::windows::runtime::IUnknown);
 impl ISCPSession {
-    pub unsafe fn BeginSession<'a, Param0: ::windows::runtime::IntoParam<'a, IMDSPDevice>>(
-        &self,
-        pidevice: Param0,
-        pctx: *const u8,
-        dwsizectx: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            pidevice.into_param().abi(),
-            ::std::mem::transmute(pctx),
-            ::std::mem::transmute(dwsizectx),
-        )
-        .ok()
+    pub unsafe fn BeginSession<'a, Param0: ::windows::runtime::IntoParam<'a, IMDSPDevice>>(&self, pidevice: Param0, pctx: *const u8, dwsizectx: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pidevice.into_param().abi(), ::std::mem::transmute(pctx), ::std::mem::transmute(dwsizectx)).ok()
     }
-    pub unsafe fn EndSession(
-        &self,
-        pctx: *const u8,
-        dwsizectx: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pctx),
-            ::std::mem::transmute(dwsizectx),
-        )
-        .ok()
+    pub unsafe fn EndSession(&self, pctx: *const u8, dwsizectx: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pctx), ::std::mem::transmute(dwsizectx)).ok()
     }
     pub unsafe fn GetSecureQuery(&self) -> ::windows::runtime::Result<ISCPSecureQuery> {
         let mut result__: <ISCPSecureQuery as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<ISCPSecureQuery>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<ISCPSecureQuery>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ISCPSession {
     type Vtable = ISCPSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2292442861,
-        61156,
-        17945,
-        [187, 179, 253, 79, 182, 39, 21, 209],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2292442861, 61156, 17945, [187, 179, 253, 79, 182, 39, 21, 209]);
 }
 impl ::std::convert::From<ISCPSession> for ::windows::runtime::IUnknown {
     fn from(value: ISCPSession) -> Self {
@@ -6099,181 +2735,73 @@ impl ::std::convert::From<&ISCPSession> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISCPSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISCPSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISCPSession_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pidevice: ::windows::runtime::RawPtr,
-        pctx: *const u8,
-        dwsizectx: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pctx: *const u8,
-        dwsizectx: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppsecurequery: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pidevice: ::windows::runtime::RawPtr, pctx: *const u8, dwsizectx: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctx: *const u8, dwsizectx: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsecurequery: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMDevice(::windows::runtime::IUnknown);
 impl IWMDMDevice {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetManufacturer(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetManufacturer(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetSerialNumber(
-        &self,
-        pserialnumber: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pserialnumber),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pserialnumber), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn GetPowerSource(
-        &self,
-        pdwpowersource: *mut u32,
-        pdwpercentremaining: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwpowersource),
-            ::std::mem::transmute(pdwpercentremaining),
-        )
-        .ok()
+    pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpowersource), ::std::mem::transmute(pdwpercentremaining)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetDeviceIcon(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IWMDMEnumStorage> {
         let mut result__: <IWMDMEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport(
-        &self,
-        ppformatex: *mut *mut _WAVEFORMATEX,
-        pnformatcount: *mut u32,
-        pppwszmimetype: *mut *mut super::super::Foundation::PWSTR,
-        pnmimetypecount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppformatex),
-            ::std::mem::transmute(pnformatcount),
-            ::std::mem::transmute(pppwszmimetype),
-            ::std::mem::transmute(pnmimetypecount),
-        )
-        .ok()
+    pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppformatex), ::std::mem::transmute(pnformatcount), ::std::mem::transmute(pppwszmimetype), ::std::mem::transmute(pnmimetypecount)).ok()
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMDevice {
     type Vtable = IWMDMDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857922,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857922, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IWMDMDevice> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMDevice) -> Self {
@@ -6287,241 +2815,87 @@ impl ::std::convert::From<&IWMDMDevice> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMDevice_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwversion: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwtype: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pserialnumber: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwpowersource: *mut u32,
-        pdwpercentremaining: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hicon: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppformatex: *mut *mut _WAVEFORMATEX,
-        pnformatcount: *mut u32,
-        pppwszmimetype: *mut *mut super::super::Foundation::PWSTR,
-        pnmimetypecount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwversion: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwtype: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hicon: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMDevice2(::windows::runtime::IUnknown);
 impl IWMDMDevice2 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetManufacturer(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetManufacturer(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetSerialNumber(
-        &self,
-        pserialnumber: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pserialnumber),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pserialnumber), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn GetPowerSource(
-        &self,
-        pdwpowersource: *mut u32,
-        pdwpercentremaining: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwpowersource),
-            ::std::mem::transmute(pdwpercentremaining),
-        )
-        .ok()
+    pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpowersource), ::std::mem::transmute(pdwpercentremaining)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetDeviceIcon(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IWMDMEnumStorage> {
         let mut result__: <IWMDMEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport(
-        &self,
-        ppformatex: *mut *mut _WAVEFORMATEX,
-        pnformatcount: *mut u32,
-        pppwszmimetype: *mut *mut super::super::Foundation::PWSTR,
-        pnmimetypecount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppformatex),
-            ::std::mem::transmute(pnformatcount),
-            ::std::mem::transmute(pppwszmimetype),
-            ::std::mem::transmute(pnmimetypecount),
-        )
-        .ok()
+    pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppformatex), ::std::mem::transmute(pnformatcount), ::std::mem::transmute(pppwszmimetype), ::std::mem::transmute(pnmimetypecount)).ok()
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStorage<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszstoragename: Param0,
-    ) -> ::windows::runtime::Result<IWMDMStorage> {
+    pub unsafe fn GetStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstoragename: Param0) -> ::windows::runtime::Result<IWMDMStorage> {
         let mut result__: <IWMDMStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            pszstoragename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pszstoragename.into_param().abi(), &mut result__).from_abi::<IWMDMStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport2(
-        &self,
-        dwflags: u32,
-        ppaudioformatex: *mut *mut _WAVEFORMATEX,
-        pnaudioformatcount: *mut u32,
-        ppvideoformatex: *mut *mut _VIDEOINFOHEADER,
-        pnvideoformatcount: *mut u32,
-        ppfiletype: *mut *mut WMFILECAPABILITIES,
-        pnfiletypecount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
+    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(dwflags),
@@ -6535,44 +2909,17 @@ impl IWMDMDevice2 {
         .ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetSpecifyPropertyPages(
-        &self,
-        ppspecifyproppages: *mut ::std::option::Option<
-            super::super::System::Ole::ISpecifyPropertyPages,
-        >,
-        pppunknowns: *mut *mut ::std::option::Option<::windows::runtime::IUnknown>,
-        pcunks: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppspecifyproppages),
-            ::std::mem::transmute(pppunknowns),
-            ::std::mem::transmute(pcunks),
-        )
-        .ok()
+    pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::std::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::std::option::Option<::windows::runtime::IUnknown>, pcunks: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppspecifyproppages), ::std::mem::transmute(pppunknowns), ::std::mem::transmute(pcunks)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCanonicalName(
-        &self,
-        pwszpnpname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszpnpname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetCanonicalName(&self, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszpnpname), ::std::mem::transmute(nmaxchars)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMDevice2 {
     type Vtable = IWMDMDevice2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3813621047,
-        40295,
-        20417,
-        [146, 82, 98, 210, 139, 47, 139, 85],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3813621047, 40295, 20417, [146, 82, 98, 210, 139, 47, 139, 85]);
 }
 impl ::std::convert::From<IWMDMDevice2> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMDevice2) -> Self {
@@ -6586,18 +2933,12 @@ impl ::std::convert::From<&IWMDMDevice2> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMDevice2> for IWMDMDevice {
@@ -6617,266 +2958,90 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMDevice> for IWMDMDevice2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMDevice> for &IWMDMDevice2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMDevice>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMDevice>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMDevice2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwversion: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwtype: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pserialnumber: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwpowersource: *mut u32,
-        pdwpercentremaining: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hicon: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppformatex: *mut *mut _WAVEFORMATEX,
-        pnformatcount: *mut u32,
-        pppwszmimetype: *mut *mut super::super::Foundation::PWSTR,
-        pnmimetypecount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwversion: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwtype: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hicon: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszstoragename: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwflags: u32,
-        ppaudioformatex: *mut *mut _WAVEFORMATEX,
-        pnaudioformatcount: *mut u32,
-        ppvideoformatex: *mut *mut _VIDEOINFOHEADER,
-        pnvideoformatcount: *mut u32,
-        ppfiletype: *mut *mut WMFILECAPABILITIES,
-        pnfiletypecount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Ole")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppspecifyproppages: *mut ::windows::runtime::RawPtr,
-        pppunknowns: *mut *mut ::windows::runtime::RawPtr,
-        pcunks: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppspecifyproppages: *mut ::windows::runtime::RawPtr, pppunknowns: *mut *mut ::windows::runtime::RawPtr, pcunks: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszpnpname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMDevice3(::windows::runtime::IUnknown);
 impl IWMDMDevice3 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetManufacturer(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetManufacturer(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetVersion(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetType(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetSerialNumber(
-        &self,
-        pserialnumber: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pserialnumber),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pserialnumber), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn GetPowerSource(
-        &self,
-        pdwpowersource: *mut u32,
-        pdwpercentremaining: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwpowersource),
-            ::std::mem::transmute(pdwpercentremaining),
-        )
-        .ok()
+    pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpowersource), ::std::mem::transmute(pdwpercentremaining)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetDeviceIcon(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IWMDMEnumStorage> {
         let mut result__: <IWMDMEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport(
-        &self,
-        ppformatex: *mut *mut _WAVEFORMATEX,
-        pnformatcount: *mut u32,
-        pppwszmimetype: *mut *mut super::super::Foundation::PWSTR,
-        pnmimetypecount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppformatex),
-            ::std::mem::transmute(pnformatcount),
-            ::std::mem::transmute(pppwszmimetype),
-            ::std::mem::transmute(pnmimetypecount),
-        )
-        .ok()
+    pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppformatex), ::std::mem::transmute(pnformatcount), ::std::mem::transmute(pppwszmimetype), ::std::mem::transmute(pnmimetypecount)).ok()
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStorage<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszstoragename: Param0,
-    ) -> ::windows::runtime::Result<IWMDMStorage> {
+    pub unsafe fn GetStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstoragename: Param0) -> ::windows::runtime::Result<IWMDMStorage> {
         let mut result__: <IWMDMStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            pszstoragename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), pszstoragename.into_param().abi(), &mut result__).from_abi::<IWMDMStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatSupport2(
-        &self,
-        dwflags: u32,
-        ppaudioformatex: *mut *mut _WAVEFORMATEX,
-        pnaudioformatcount: *mut u32,
-        ppvideoformatex: *mut *mut _VIDEOINFOHEADER,
-        pnvideoformatcount: *mut u32,
-        ppfiletype: *mut *mut WMFILECAPABILITIES,
-        pnfiletypecount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
+    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(dwflags),
@@ -6890,141 +3055,39 @@ impl IWMDMDevice3 {
         .ok()
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetSpecifyPropertyPages(
-        &self,
-        ppspecifyproppages: *mut ::std::option::Option<
-            super::super::System::Ole::ISpecifyPropertyPages,
-        >,
-        pppunknowns: *mut *mut ::std::option::Option<::windows::runtime::IUnknown>,
-        pcunks: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppspecifyproppages),
-            ::std::mem::transmute(pppunknowns),
-            ::std::mem::transmute(pcunks),
-        )
-        .ok()
+    pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut ::std::option::Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut ::std::option::Option<::windows::runtime::IUnknown>, pcunks: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppspecifyproppages), ::std::mem::transmute(pppunknowns), ::std::mem::transmute(pcunks)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCanonicalName(
-        &self,
-        pwszpnpname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszpnpname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetCanonicalName(&self, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszpnpname), ::std::mem::transmute(nmaxchars)).ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn GetProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwszpropname: Param0,
-    ) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::System::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            pwszpropname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn GetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszpropname: Param0) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__: <super::super::System::Com::StructuredStorage::PROPVARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pwszpropname.into_param().abi(), &mut result__).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn SetProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwszpropname: Param0,
-        pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            pwszpropname.into_param().abi(),
-            ::std::mem::transmute(pvalue),
-        )
-        .ok()
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn SetProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszpropname: Param0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), pwszpropname.into_param().abi(), ::std::mem::transmute(pvalue)).ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn GetFormatCapability(
-        &self,
-        format: WMDM_FORMATCODE,
-    ) -> ::windows::runtime::Result<WMDM_FORMAT_CAPABILITY> {
-        let mut result__: <WMDM_FORMAT_CAPABILITY as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(format),
-            &mut result__,
-        )
-        .from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> ::windows::runtime::Result<WMDM_FORMAT_CAPABILITY> {
+        let mut result__: <WMDM_FORMAT_CAPABILITY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(format), &mut result__).from_abi::<WMDM_FORMAT_CAPABILITY>(result__)
     }
-    pub unsafe fn DeviceIoControl(
-        &self,
-        dwiocontrolcode: u32,
-        lpinbuffer: *const u8,
-        ninbuffersize: u32,
-        lpoutbuffer: *mut u8,
-        pnoutbuffersize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwiocontrolcode),
-            ::std::mem::transmute(lpinbuffer),
-            ::std::mem::transmute(ninbuffersize),
-            ::std::mem::transmute(lpoutbuffer),
-            ::std::mem::transmute(pnoutbuffersize),
-        )
-        .ok()
+    pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwiocontrolcode), ::std::mem::transmute(lpinbuffer), ::std::mem::transmute(ninbuffersize), ::std::mem::transmute(lpoutbuffer), ::std::mem::transmute(pnoutbuffersize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindStorage<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        findscope: WMDM_FIND_SCOPE,
-        pwszuniqueid: Param1,
-    ) -> ::windows::runtime::Result<IWMDMStorage> {
+    pub unsafe fn FindStorage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: Param1) -> ::windows::runtime::Result<IWMDMStorage> {
         let mut result__: <IWMDMStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(findscope),
-            pwszuniqueid.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(findscope), pwszuniqueid.into_param().abi(), &mut result__).from_abi::<IWMDMStorage>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMDevice3 {
     type Vtable = IWMDMDevice3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1812194558,
-        1499,
-        19930,
-        [158, 60, 6, 35, 58, 109, 93, 101],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1812194558, 1499, 19930, [158, 60, 6, 35, 58, 109, 93, 101]);
 }
 impl ::std::convert::From<IWMDMDevice3> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMDevice3) -> Self {
@@ -7038,18 +3101,12 @@ impl ::std::convert::From<&IWMDMDevice3> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMDevice3> for IWMDMDevice2 {
@@ -7069,9 +3126,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMDevice2> for IWMDMDevice3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMDevice2> for &IWMDMDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMDevice2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMDevice2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMDevice2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMDevice3> for IWMDMDevice {
@@ -7091,221 +3146,64 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMDevice> for IWMDMDevice3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMDevice> for &IWMDMDevice3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMDevice> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMDevice>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMDevice>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMDevice3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwversion: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwtype: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pserialnumber: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwpowersource: *mut u32,
-        pdwpercentremaining: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hicon: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppformatex: *mut *mut _WAVEFORMATEX,
-        pnformatcount: *mut u32,
-        pppwszmimetype: *mut *mut super::super::Foundation::PWSTR,
-        pnmimetypecount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwversion: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwtype: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pserialnumber: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hicon: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppformatex: *mut *mut _WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut super::super::Foundation::PWSTR, pnmimetypecount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszstoragename: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwflags: u32,
-        ppaudioformatex: *mut *mut _WAVEFORMATEX,
-        pnaudioformatcount: *mut u32,
-        ppvideoformatex: *mut *mut _VIDEOINFOHEADER,
-        pnvideoformatcount: *mut u32,
-        ppfiletype: *mut *mut WMFILECAPABILITIES,
-        pnfiletypecount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, ppaudioformatex: *mut *mut _WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut _VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_Ole")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppspecifyproppages: *mut ::windows::runtime::RawPtr,
-        pppunknowns: *mut *mut ::windows::runtime::RawPtr,
-        pcunks: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppspecifyproppages: *mut ::windows::runtime::RawPtr, pppunknowns: *mut *mut ::windows::runtime::RawPtr, pcunks: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszpnpname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszpnpname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszpropname: super::super::Foundation::PWSTR,
-        pvalue: *mut ::std::mem::ManuallyDrop<
-            super::super::System::Com::StructuredStorage::PROPVARIANT,
-        >,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszpropname: super::super::Foundation::PWSTR,
-        pvalue: *const ::std::mem::ManuallyDrop<
-            super::super::System::Com::StructuredStorage::PROPVARIANT,
-        >,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        format: WMDM_FORMATCODE,
-        pformatsupport: *mut WMDM_FORMAT_CAPABILITY,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Com_StructuredStorage",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwiocontrolcode: u32,
-        lpinbuffer: *const u8,
-        ninbuffersize: u32,
-        lpoutbuffer: *mut u8,
-        pnoutbuffersize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        findscope: WMDM_FIND_SCOPE,
-        pwszuniqueid: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszpropname: super::super::Foundation::PWSTR, pvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszpropname: super::super::Foundation::PWSTR, pvalue: *const ::std::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, format: WMDM_FORMATCODE, pformatsupport: *mut WMDM_FORMAT_CAPABILITY) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation")))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMDeviceControl(::windows::runtime::IUnknown);
 impl IWMDMDeviceControl {
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetCapabilities(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn Play(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn Record(&self, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pformat)).ok()
     }
     pub unsafe fn Pause(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
@@ -7317,22 +3215,12 @@ impl IWMDMDeviceControl {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn Seek(&self, fumode: u32, noffset: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            ::std::mem::transmute(noffset),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), ::std::mem::transmute(noffset)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMDeviceControl {
     type Vtable = IWMDMDeviceControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857924,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857924, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IWMDMDeviceControl> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMDeviceControl) -> Self {
@@ -7346,98 +3234,43 @@ impl ::std::convert::From<&IWMDMDeviceControl> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMDeviceControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMDeviceControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMDeviceControl_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcapabilitiesmask: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcapabilitiesmask: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        noffset: i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, noffset: i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMDeviceSession(::windows::runtime::IUnknown);
 impl IWMDMDeviceSession {
-    pub unsafe fn BeginSession(
-        &self,
-        r#type: WMDM_SESSION_TYPE,
-        pctx: *const u8,
-        dwsizectx: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(pctx),
-            ::std::mem::transmute(dwsizectx),
-        )
-        .ok()
+    pub unsafe fn BeginSession(&self, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type), ::std::mem::transmute(pctx), ::std::mem::transmute(dwsizectx)).ok()
     }
-    pub unsafe fn EndSession(
-        &self,
-        r#type: WMDM_SESSION_TYPE,
-        pctx: *const u8,
-        dwsizectx: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(pctx),
-            ::std::mem::transmute(dwsizectx),
-        )
-        .ok()
+    pub unsafe fn EndSession(&self, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type), ::std::mem::transmute(pctx), ::std::mem::transmute(dwsizectx)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMDeviceSession {
     type Vtable = IWMDMDeviceSession_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2192509541,
-        40342,
-        16684,
-        [131, 229, 60, 67, 228, 176, 108, 199],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2192509541, 40342, 16684, [131, 229, 60, 67, 228, 176, 108, 199]);
 }
 impl ::std::convert::From<IWMDMDeviceSession> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMDeviceSession) -> Self {
@@ -7451,95 +3284,45 @@ impl ::std::convert::From<&IWMDMDeviceSession> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMDeviceSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMDeviceSession {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMDeviceSession_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        r#type: WMDM_SESSION_TYPE,
-        pctx: *const u8,
-        dwsizectx: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        r#type: WMDM_SESSION_TYPE,
-        pctx: *const u8,
-        dwsizectx: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMEnumDevice(::windows::runtime::IUnknown);
 impl IWMDMEnumDevice {
-    pub unsafe fn Next(
-        &self,
-        celt: u32,
-        ppdevice: *mut ::std::option::Option<IWMDMDevice>,
-        pceltfetched: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(celt),
-            ::std::mem::transmute(ppdevice),
-            ::std::mem::transmute(pceltfetched),
-        )
-        .ok()
+    pub unsafe fn Next(&self, celt: u32, ppdevice: *mut ::std::option::Option<IWMDMDevice>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppdevice), ::std::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(celt),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IWMDMEnumDevice> {
         let mut result__: <IWMDMEnumDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumDevice>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMEnumDevice {
     type Vtable = IWMDMEnumDevice_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857921,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857921, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IWMDMEnumDevice> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMEnumDevice) -> Self {
@@ -7553,99 +3336,47 @@ impl ::std::convert::From<&IWMDMEnumDevice> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMEnumDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMEnumDevice {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMEnumDevice_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        celt: u32,
-        ppdevice: *mut ::windows::runtime::RawPtr,
-        pceltfetched: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        celt: u32,
-        pceltfetched: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, ppdevice: *mut ::windows::runtime::RawPtr, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMEnumStorage(::windows::runtime::IUnknown);
 impl IWMDMEnumStorage {
-    pub unsafe fn Next(
-        &self,
-        celt: u32,
-        ppstorage: *mut ::std::option::Option<IWMDMStorage>,
-        pceltfetched: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(celt),
-            ::std::mem::transmute(ppstorage),
-            ::std::mem::transmute(pceltfetched),
-        )
-        .ok()
+    pub unsafe fn Next(&self, celt: u32, ppstorage: *mut ::std::option::Option<IWMDMStorage>, pceltfetched: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), ::std::mem::transmute(ppstorage), ::std::mem::transmute(pceltfetched)).ok()
     }
     pub unsafe fn Skip(&self, celt: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(celt),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(celt), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn Clone(&self) -> ::windows::runtime::Result<IWMDMEnumStorage> {
         let mut result__: <IWMDMEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumStorage>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMEnumStorage {
     type Vtable = IWMDMEnumStorage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857925,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857925, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IWMDMEnumStorage> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMEnumStorage) -> Self {
@@ -7659,183 +3390,67 @@ impl ::std::convert::From<&IWMDMEnumStorage> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMEnumStorage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMEnumStorage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMEnumStorage_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        celt: u32,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-        pceltfetched: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        celt: u32,
-        pceltfetched: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, ppstorage: *mut ::windows::runtime::RawPtr, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, celt: u32, pceltfetched: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMLogger(::windows::runtime::IUnknown);
 impl IWMDMLogger {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsEnabled(&self) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
-        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::BOOL>(result__)
+        let mut result__: <super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BOOL>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Enable<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    >(
-        &self,
-        fenable: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            fenable.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Enable<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetLogFileName(
-        &self,
-        pszfilename: super::super::Foundation::PSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pszfilename),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetLogFileName(&self, pszfilename: super::super::Foundation::PSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pszfilename), ::std::mem::transmute(nmaxchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetLogFileName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        pszfilename: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            pszfilename.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetLogFileName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, pszfilename: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pszfilename.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LogString<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        dwflags: u32,
-        pszsrcname: Param1,
-        pszlog: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwflags),
-            pszsrcname.into_param().abi(),
-            pszlog.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn LogString<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, dwflags: u32, pszsrcname: Param1, pszlog: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pszsrcname.into_param().abi(), pszlog.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LogDword<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        dwflags: u32,
-        pszsrcname: Param1,
-        pszlogformat: Param2,
-        dwlog: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwflags),
-            pszsrcname.into_param().abi(),
-            pszlogformat.into_param().abi(),
-            ::std::mem::transmute(dwlog),
-        )
-        .ok()
+    pub unsafe fn LogDword<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, dwflags: u32, pszsrcname: Param1, pszlogformat: Param2, dwlog: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), pszsrcname.into_param().abi(), pszlogformat.into_param().abi(), ::std::mem::transmute(dwlog)).ok()
     }
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetSizeParams(
-        &self,
-        pdwmaxsize: *mut u32,
-        pdwshrinktosize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwmaxsize),
-            ::std::mem::transmute(pdwshrinktosize),
-        )
-        .ok()
+    pub unsafe fn GetSizeParams(&self, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwmaxsize), ::std::mem::transmute(pdwshrinktosize)).ok()
     }
-    pub unsafe fn SetSizeParams(
-        &self,
-        dwmaxsize: u32,
-        dwshrinktosize: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwmaxsize),
-            ::std::mem::transmute(dwshrinktosize),
-        )
-        .ok()
+    pub unsafe fn SetSizeParams(&self, dwmaxsize: u32, dwshrinktosize: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmaxsize), ::std::mem::transmute(dwshrinktosize)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMLogger {
     type Vtable = IWMDMLogger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        285880832,
-        23161,
-        4563,
-        [141, 120, 68, 69, 83, 84, 0, 0],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(285880832, 23161, 4563, [141, 120, 68, 69, 83, 84, 0, 0]);
 }
 impl ::std::convert::From<IWMDMLogger> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMLogger) -> Self {
@@ -7849,168 +3464,59 @@ impl ::std::convert::From<&IWMDMLogger> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMLogger {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMLogger {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMLogger_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pfenabled: *mut super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fenable: super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fenable: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszfilename: super::super::Foundation::PSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszfilename: super::super::Foundation::PSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszfilename: super::super::Foundation::PSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszfilename: super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwflags: u32,
-        pszsrcname: super::super::Foundation::PSTR,
-        pszlog: super::super::Foundation::PSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, pszsrcname: super::super::Foundation::PSTR, pszlog: super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwflags: u32,
-        pszsrcname: super::super::Foundation::PSTR,
-        pszlogformat: super::super::Foundation::PSTR,
-        dwlog: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, pszsrcname: super::super::Foundation::PSTR, pszlogformat: super::super::Foundation::PSTR, dwlog: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwmaxsize: *mut u32,
-        pdwshrinktosize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwmaxsize: u32,
-        dwshrinktosize: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwmaxsize: u32, dwshrinktosize: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMMetaData(::windows::runtime::IUnknown);
 impl IWMDMMetaData {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddItem<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        r#type: WMDM_TAG_DATATYPE,
-        pwsztagname: Param1,
-        pvalue: *const u8,
-        ilength: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(r#type),
-            pwsztagname.into_param().abi(),
-            ::std::mem::transmute(pvalue),
-            ::std::mem::transmute(ilength),
-        )
-        .ok()
+    pub unsafe fn AddItem<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, r#type: WMDM_TAG_DATATYPE, pwsztagname: Param1, pvalue: *const u8, ilength: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(r#type), pwsztagname.into_param().abi(), ::std::mem::transmute(pvalue), ::std::mem::transmute(ilength)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn QueryByName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwsztagname: Param0,
-        ptype: *mut WMDM_TAG_DATATYPE,
-        pvalue: *mut *mut u8,
-        pcblength: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            pwsztagname.into_param().abi(),
-            ::std::mem::transmute(ptype),
-            ::std::mem::transmute(pvalue),
-            ::std::mem::transmute(pcblength),
-        )
-        .ok()
+    pub unsafe fn QueryByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwsztagname: Param0, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pwsztagname.into_param().abi(), ::std::mem::transmute(ptype), ::std::mem::transmute(pvalue), ::std::mem::transmute(pcblength)).ok()
     }
-    pub unsafe fn QueryByIndex(
-        &self,
-        iindex: u32,
-        ppwszname: *mut *mut u16,
-        ptype: *mut WMDM_TAG_DATATYPE,
-        ppvalue: *mut *mut u8,
-        pcblength: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(iindex),
-            ::std::mem::transmute(ppwszname),
-            ::std::mem::transmute(ptype),
-            ::std::mem::transmute(ppvalue),
-            ::std::mem::transmute(pcblength),
-        )
-        .ok()
+    pub unsafe fn QueryByIndex(&self, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(iindex), ::std::mem::transmute(ppwszname), ::std::mem::transmute(ptype), ::std::mem::transmute(ppvalue), ::std::mem::transmute(pcblength)).ok()
     }
     pub unsafe fn GetItemCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMMetaData {
     type Vtable = IWMDMMetaData_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3963291235,
-        2385,
-        17930,
-        [154, 128, 13, 206, 237, 60, 4, 60],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3963291235, 2385, 17930, [154, 128, 13, 206, 237, 60, 4, 60]);
 }
 impl ::std::convert::From<IWMDMMetaData> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMMetaData) -> Self {
@@ -8024,95 +3530,39 @@ impl ::std::convert::From<&IWMDMMetaData> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMMetaData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMMetaData {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMMetaData_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        r#type: WMDM_TAG_DATATYPE,
-        pwsztagname: super::super::Foundation::PWSTR,
-        pvalue: *const u8,
-        ilength: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, r#type: WMDM_TAG_DATATYPE, pwsztagname: super::super::Foundation::PWSTR, pvalue: *const u8, ilength: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwsztagname: super::super::Foundation::PWSTR,
-        ptype: *mut WMDM_TAG_DATATYPE,
-        pvalue: *mut *mut u8,
-        pcblength: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwsztagname: super::super::Foundation::PWSTR, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iindex: u32,
-        ppwszname: *mut *mut u16,
-        ptype: *mut WMDM_TAG_DATATYPE,
-        ppvalue: *mut *mut u8,
-        pcblength: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        icount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, icount: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMNotification(::windows::runtime::IUnknown);
 impl IWMDMNotification {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WMDMMessage<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        dwmessagetype: u32,
-        pwszcanonicalname: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwmessagetype),
-            pwszcanonicalname.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn WMDMMessage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, dwmessagetype: u32, pwszcanonicalname: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmessagetype), pwszcanonicalname.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMNotification {
     type Vtable = IWMDMNotification_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1063163328,
-        3907,
-        20180,
-        [147, 210, 200, 154, 69, 213, 155, 129],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1063163328, 3907, 20180, [147, 210, 200, 154, 69, 213, 155, 129]);
 }
 impl ::std::convert::From<IWMDMNotification> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMNotification) -> Self {
@@ -8126,110 +3576,57 @@ impl ::std::convert::From<&IWMDMNotification> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMNotification {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMNotification {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMNotification_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwmessagetype: u32,
-        pwszcanonicalname: super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwmessagetype: u32, pwszcanonicalname: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMObjectInfo(::windows::runtime::IUnknown);
 impl IWMDMObjectInfo {
     pub unsafe fn GetPlayLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn SetPlayLength(&self, dwlength: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwlength),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwlength)).ok()
     }
     pub unsafe fn GetPlayOffset(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn SetPlayOffset(&self, dwoffset: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwoffset),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoffset)).ok()
     }
     pub unsafe fn GetTotalLength(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetLastPlayPosition(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetLongestPlayPosition(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMObjectInfo {
     type Vtable = IWMDMObjectInfo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857929,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857929, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IWMDMObjectInfo> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMObjectInfo) -> Self {
@@ -8243,66 +3640,30 @@ impl ::std::convert::From<&IWMDMObjectInfo> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMObjectInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMObjectInfo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMObjectInfo_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwlength: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwlength: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwoffset: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwoffset: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwlength: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwlastpos: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwlongestpos: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwlength: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwlength: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwoffset: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoffset: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwlength: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwlastpos: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwlongestpos: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMOperation(::windows::runtime::IUnknown);
 impl IWMDMOperation {
     pub unsafe fn BeginRead(&self) -> ::windows::runtime::Result<()> {
@@ -8312,120 +3673,35 @@ impl IWMDMOperation {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetObjectName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetObjectName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwszname: Param0,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            pwszname.into_param().abi(),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn SetObjectName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszname: Param0, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwszname.into_param().abi(), ::std::mem::transmute(nmaxchars)).ok()
     }
-    pub unsafe fn GetObjectAttributes(
-        &self,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pformat)).ok()
     }
-    pub unsafe fn SetObjectAttributes(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat)).ok()
     }
-    pub unsafe fn GetObjectTotalSize(
-        &self,
-        pdwsize: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(pdwsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwsize), ::std::mem::transmute(pdwsizehigh)).ok()
     }
-    pub unsafe fn SetObjectTotalSize(
-        &self,
-        dwsize: u32,
-        dwsizehigh: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(dwsizehigh),
-        )
-        .ok()
+    pub unsafe fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsize), ::std::mem::transmute(dwsizehigh)).ok()
     }
-    pub unsafe fn TransferObjectData(
-        &self,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn End<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        phcompletioncode: *const ::windows::runtime::HRESULT,
-        pnewobject: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(phcompletioncode),
-            pnewobject.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn End<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, phcompletioncode: *const ::windows::runtime::HRESULT, pnewobject: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(phcompletioncode), pnewobject.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMOperation {
     type Vtable = IWMDMOperation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857931,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857931, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IWMDMOperation> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMOperation) -> Self {
@@ -8439,85 +3715,35 @@ impl ::std::convert::From<&IWMDMOperation> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMOperation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMOperation_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwsize: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwsize: u32,
-        dwsizehigh: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        phcompletioncode: *const ::windows::runtime::HRESULT,
-        pnewobject: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwsize: u32, dwsizehigh: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phcompletioncode: *const ::windows::runtime::HRESULT, pnewobject: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMOperation2(::windows::runtime::IUnknown);
 impl IWMDMOperation2 {
     pub unsafe fn BeginRead(&self) -> ::windows::runtime::Result<()> {
@@ -8527,154 +3753,43 @@ impl IWMDMOperation2 {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetObjectName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetObjectName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwszname: Param0,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            pwszname.into_param().abi(),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn SetObjectName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszname: Param0, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwszname.into_param().abi(), ::std::mem::transmute(nmaxchars)).ok()
     }
-    pub unsafe fn GetObjectAttributes(
-        &self,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pformat)).ok()
     }
-    pub unsafe fn SetObjectAttributes(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat)).ok()
     }
-    pub unsafe fn GetObjectTotalSize(
-        &self,
-        pdwsize: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(pdwsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwsize), ::std::mem::transmute(pdwsizehigh)).ok()
     }
-    pub unsafe fn SetObjectTotalSize(
-        &self,
-        dwsize: u32,
-        dwsizehigh: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(dwsizehigh),
-        )
-        .ok()
+    pub unsafe fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsize), ::std::mem::transmute(dwsizehigh)).ok()
     }
-    pub unsafe fn TransferObjectData(
-        &self,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn End<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        phcompletioncode: *const ::windows::runtime::HRESULT,
-        pnewobject: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(phcompletioncode),
-            pnewobject.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn End<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, phcompletioncode: *const ::windows::runtime::HRESULT, pnewobject: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(phcompletioncode), pnewobject.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetObjectAttributes2(
-        &self,
-        dwattributes: u32,
-        dwattributesex: u32,
-        pformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(dwattributesex),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(dwattributesex), ::std::mem::transmute(pformat), ::std::mem::transmute(pvideoformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectAttributes2(
-        &self,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pdwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pdwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMOperation2 {
     type Vtable = IWMDMOperation2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        860117832,
-        32247,
-        16988,
-        [173, 143, 15, 198, 216, 47, 159, 117],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(860117832, 32247, 16988, [173, 143, 15, 198, 216, 47, 159, 117]);
 }
 impl ::std::convert::From<IWMDMOperation2> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMOperation2) -> Self {
@@ -8688,18 +3803,12 @@ impl ::std::convert::From<&IWMDMOperation2> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMOperation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMOperation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMOperation2> for IWMDMOperation {
@@ -8719,94 +3828,34 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMOperation> for IWMDMOperation2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMOperation> for &IWMDMOperation2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMOperation>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMOperation>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMOperation2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwsize: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwsize: u32,
-        dwsizehigh: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        phcompletioncode: *const ::windows::runtime::HRESULT,
-        pnewobject: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        dwattributesex: u32,
-        pformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwsize: u32, dwsizehigh: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phcompletioncode: *const ::windows::runtime::HRESULT, pnewobject: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMOperation3(::windows::runtime::IUnknown);
 impl IWMDMOperation3 {
     pub unsafe fn BeginRead(&self) -> ::windows::runtime::Result<()> {
@@ -8816,132 +3865,38 @@ impl IWMDMOperation3 {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetObjectName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetObjectName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwszname: Param0,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            pwszname.into_param().abi(),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn SetObjectName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszname: Param0, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwszname.into_param().abi(), ::std::mem::transmute(nmaxchars)).ok()
     }
-    pub unsafe fn GetObjectAttributes(
-        &self,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pformat)).ok()
     }
-    pub unsafe fn SetObjectAttributes(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat)).ok()
     }
-    pub unsafe fn GetObjectTotalSize(
-        &self,
-        pdwsize: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(pdwsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwsize), ::std::mem::transmute(pdwsizehigh)).ok()
     }
-    pub unsafe fn SetObjectTotalSize(
-        &self,
-        dwsize: u32,
-        dwsizehigh: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwsize),
-            ::std::mem::transmute(dwsizehigh),
-        )
-        .ok()
+    pub unsafe fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsize), ::std::mem::transmute(dwsizehigh)).ok()
     }
-    pub unsafe fn TransferObjectData(
-        &self,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn End<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        phcompletioncode: *const ::windows::runtime::HRESULT,
-        pnewobject: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(phcompletioncode),
-            pnewobject.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn End<'a, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, phcompletioncode: *const ::windows::runtime::HRESULT, pnewobject: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(phcompletioncode), pnewobject.into_param().abi()).ok()
     }
-    pub unsafe fn TransferObjectDataOnClearChannel(
-        &self,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pdwsize),
-        )
-        .ok()
+    pub unsafe fn TransferObjectDataOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdata), ::std::mem::transmute(pdwsize)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMOperation3 {
     type Vtable = IWMDMOperation3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3522802794,
-        40104,
-        18136,
-        [157, 15, 30, 201, 186, 229, 73, 25],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3522802794, 40104, 18136, [157, 15, 30, 201, 186, 229, 73, 25]);
 }
 impl ::std::convert::From<IWMDMOperation3> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMOperation3) -> Self {
@@ -8955,18 +3910,12 @@ impl ::std::convert::From<&IWMDMOperation3> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMOperation3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMOperation3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMOperation3> for IWMDMOperation {
@@ -8986,96 +3935,38 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMOperation> for IWMDMOperation3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMOperation> for &IWMDMOperation3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMOperation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMOperation>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMOperation>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMOperation3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwsize: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwsize: u32,
-        dwsizehigh: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        phcompletioncode: *const ::windows::runtime::HRESULT,
-        pnewobject: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdata: *mut u8,
-        pdwsize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwsize: u32, dwsizehigh: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phcompletioncode: *const ::windows::runtime::HRESULT, pnewobject: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdata: *mut u8, pdwsize: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMProgress(::windows::runtime::IUnknown);
 impl IWMDMProgress {
     pub unsafe fn Begin(&self, dwestimatedticks: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwestimatedticks),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwestimatedticks)).ok()
     }
     pub unsafe fn Progress(&self, dwtranspiredticks: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwtranspiredticks),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwtranspiredticks)).ok()
     }
     pub unsafe fn End(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
@@ -9083,12 +3974,7 @@ impl IWMDMProgress {
 }
 unsafe impl ::windows::runtime::Interface for IWMDMProgress {
     type Vtable = IWMDMProgress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857932,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857932, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IWMDMProgress> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMProgress) -> Self {
@@ -9102,85 +3988,44 @@ impl ::std::convert::From<&IWMDMProgress> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMProgress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMProgress_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwestimatedticks: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwtranspiredticks: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwestimatedticks: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwtranspiredticks: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMProgress2(::windows::runtime::IUnknown);
 impl IWMDMProgress2 {
     pub unsafe fn Begin(&self, dwestimatedticks: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwestimatedticks),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwestimatedticks)).ok()
     }
     pub unsafe fn Progress(&self, dwtranspiredticks: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwtranspiredticks),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwtranspiredticks)).ok()
     }
     pub unsafe fn End(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn End2(
-        &self,
-        hrcompletioncode: ::windows::runtime::HRESULT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(hrcompletioncode),
-        )
-        .ok()
+    pub unsafe fn End2(&self, hrcompletioncode: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrcompletioncode)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMProgress2 {
     type Vtable = IWMDMProgress2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        977532240,
-        45955,
-        20114,
-        [176, 74, 230, 187, 198, 96, 254, 252],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(977532240, 45955, 20114, [176, 74, 230, 187, 198, 96, 254, 252]);
 }
 impl ::std::convert::From<IWMDMProgress2> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMProgress2) -> Self {
@@ -9194,18 +4039,12 @@ impl ::std::convert::From<&IWMDMProgress2> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMProgress2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMProgress2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMProgress2> for IWMDMProgress {
@@ -9225,128 +4064,49 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMProgress> for IWMDMProgress2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMProgress> for &IWMDMProgress2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMProgress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMProgress>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMProgress>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMProgress2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwestimatedticks: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwtranspiredticks: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwestimatedticks: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwtranspiredticks: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hrcompletioncode: ::windows::runtime::HRESULT,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hrcompletioncode: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMProgress3(::windows::runtime::IUnknown);
 impl IWMDMProgress3 {
     pub unsafe fn Begin(&self, dwestimatedticks: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwestimatedticks),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwestimatedticks)).ok()
     }
     pub unsafe fn Progress(&self, dwtranspiredticks: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwtranspiredticks),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwtranspiredticks)).ok()
     }
     pub unsafe fn End(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn End2(
-        &self,
-        hrcompletioncode: ::windows::runtime::HRESULT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(hrcompletioncode),
-        )
-        .ok()
+    pub unsafe fn End2(&self, hrcompletioncode: ::windows::runtime::HRESULT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(hrcompletioncode)).ok()
     }
-    pub unsafe fn Begin3<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
-    >(
-        &self,
-        eventid: Param0,
-        dwestimatedticks: u32,
-        pcontext: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            eventid.into_param().abi(),
-            ::std::mem::transmute(dwestimatedticks),
-            ::std::mem::transmute(pcontext),
-        )
-        .ok()
+    pub unsafe fn Begin3<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, eventid: Param0, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), eventid.into_param().abi(), ::std::mem::transmute(dwestimatedticks), ::std::mem::transmute(pcontext)).ok()
     }
-    pub unsafe fn Progress3<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>,
-    >(
-        &self,
-        eventid: Param0,
-        dwtranspiredticks: u32,
-        pcontext: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            eventid.into_param().abi(),
-            ::std::mem::transmute(dwtranspiredticks),
-            ::std::mem::transmute(pcontext),
-        )
-        .ok()
+    pub unsafe fn Progress3<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, eventid: Param0, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), eventid.into_param().abi(), ::std::mem::transmute(dwtranspiredticks), ::std::mem::transmute(pcontext)).ok()
     }
-    pub unsafe fn End3<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(
-        &self,
-        eventid: Param0,
-        hrcompletioncode: ::windows::runtime::HRESULT,
-        pcontext: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            eventid.into_param().abi(),
-            ::std::mem::transmute(hrcompletioncode),
-            ::std::mem::transmute(pcontext),
-        )
-        .ok()
+    pub unsafe fn End3<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::GUID>>(&self, eventid: Param0, hrcompletioncode: ::windows::runtime::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), eventid.into_param().abi(), ::std::mem::transmute(hrcompletioncode), ::std::mem::transmute(pcontext)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMProgress3 {
     type Vtable = IWMDMProgress3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        568197579,
-        15284,
-        18729,
-        [178, 26, 23, 175, 63, 128, 246, 88],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(568197579, 15284, 18729, [178, 26, 23, 175, 63, 128, 246, 88]);
 }
 impl ::std::convert::From<IWMDMProgress3> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMProgress3) -> Self {
@@ -9360,18 +4120,12 @@ impl ::std::convert::From<&IWMDMProgress3> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMProgress3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMProgress3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMProgress3> for IWMDMProgress2 {
@@ -9391,9 +4145,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMProgress2> for IWMDMProgress3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMProgress2> for &IWMDMProgress3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMProgress2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMProgress2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMProgress2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMProgress3> for IWMDMProgress {
@@ -9413,86 +4165,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMProgress> for IWMDMProgress3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMProgress> for &IWMDMProgress3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMProgress> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMProgress>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMProgress>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMProgress3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwestimatedticks: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwtranspiredticks: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwestimatedticks: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwtranspiredticks: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hrcompletioncode: ::windows::runtime::HRESULT,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        eventid: ::windows::runtime::GUID,
-        dwestimatedticks: u32,
-        pcontext: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        eventid: ::windows::runtime::GUID,
-        dwtranspiredticks: u32,
-        pcontext: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        eventid: ::windows::runtime::GUID,
-        hrcompletioncode: ::windows::runtime::HRESULT,
-        pcontext: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hrcompletioncode: ::windows::runtime::HRESULT) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventid: ::windows::runtime::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventid: ::windows::runtime::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eventid: ::windows::runtime::GUID, hrcompletioncode: ::windows::runtime::HRESULT, pcontext: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMRevoked(::windows::runtime::IUnknown);
 impl IWMDMRevoked {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetRevocationURL(
-        &self,
-        ppwszrevocationurl: *mut super::super::Foundation::PWSTR,
-        pdwbufferlen: *mut u32,
-        pdwrevokedbitflag: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppwszrevocationurl),
-            ::std::mem::transmute(pdwbufferlen),
-            ::std::mem::transmute(pdwrevokedbitflag),
-        )
-        .ok()
+    pub unsafe fn GetRevocationURL(&self, ppwszrevocationurl: *mut super::super::Foundation::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppwszrevocationurl), ::std::mem::transmute(pdwbufferlen), ::std::mem::transmute(pdwrevokedbitflag)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMRevoked {
     type Vtable = IWMDMRevoked_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3958165211,
-        35054,
-        20053,
-        [182, 164, 141, 159, 7, 214, 150, 170],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3958165211, 35054, 20053, [182, 164, 141, 159, 7, 214, 150, 170]);
 }
 impl ::std::convert::From<IWMDMRevoked> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMRevoked) -> Self {
@@ -9506,155 +4207,62 @@ impl ::std::convert::From<&IWMDMRevoked> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMRevoked {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMRevoked {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMRevoked_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppwszrevocationurl: *mut super::super::Foundation::PWSTR,
-        pdwbufferlen: *mut u32,
-        pdwrevokedbitflag: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppwszrevocationurl: *mut super::super::Foundation::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMStorage(::windows::runtime::IUnknown);
 impl IWMDMStorage {
-    pub unsafe fn SetAttributes(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat)).ok()
     }
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::runtime::Result<IWMDMStorageGlobals> {
-        let mut result__: <IWMDMStorageGlobals as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorageGlobals>(result__)
+        let mut result__: <IWMDMStorageGlobals as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMStorageGlobals>(result__)
     }
-    pub unsafe fn GetAttributes(
-        &self,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows::runtime::Result<WMDMDATETIME> {
         let mut result__: <WMDMDATETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WMDMDATETIME>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMDMDATETIME>(result__)
     }
-    pub unsafe fn GetSize(
-        &self,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwsizelow),
-            ::std::mem::transmute(pdwsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwsizelow), ::std::mem::transmute(pdwsizehigh)).ok()
     }
-    pub unsafe fn GetRights(
-        &self,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pprights),
-            ::std::mem::transmute(pnrightscount),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprights), ::std::mem::transmute(pnrightscount), ::std::mem::transmute(abmac)).ok()
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IWMDMEnumStorage> {
         let mut result__: <IWMDMEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumStorage>(result__)
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMStorage {
     type Vtable = IWMDMStorage_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857926,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857926, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IWMDMStorage> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMStorage) -> Self {
@@ -9668,241 +4276,83 @@ impl ::std::convert::From<&IWMDMStorage> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMStorage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMStorage {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorage_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstorageglobals: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstorageglobals: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdatetimeutc: *mut WMDMDATETIME,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        penumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdatetimeutc: *mut WMDMDATETIME) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMStorage2(::windows::runtime::IUnknown);
 impl IWMDMStorage2 {
-    pub unsafe fn SetAttributes(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat)).ok()
     }
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::runtime::Result<IWMDMStorageGlobals> {
-        let mut result__: <IWMDMStorageGlobals as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorageGlobals>(result__)
+        let mut result__: <IWMDMStorageGlobals as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMStorageGlobals>(result__)
     }
-    pub unsafe fn GetAttributes(
-        &self,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows::runtime::Result<WMDMDATETIME> {
         let mut result__: <WMDMDATETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WMDMDATETIME>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMDMDATETIME>(result__)
     }
-    pub unsafe fn GetSize(
-        &self,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwsizelow),
-            ::std::mem::transmute(pdwsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwsizelow), ::std::mem::transmute(pdwsizehigh)).ok()
     }
-    pub unsafe fn GetRights(
-        &self,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pprights),
-            ::std::mem::transmute(pnrightscount),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprights), ::std::mem::transmute(pnrightscount), ::std::mem::transmute(abmac)).ok()
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IWMDMEnumStorage> {
         let mut result__: <IWMDMEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumStorage>(result__)
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStorage<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszstoragename: Param0,
-    ) -> ::windows::runtime::Result<IWMDMStorage> {
+    pub unsafe fn GetStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstoragename: Param0) -> ::windows::runtime::Result<IWMDMStorage> {
         let mut result__: <IWMDMStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            pszstoragename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pszstoragename.into_param().abi(), &mut result__).from_abi::<IWMDMStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttributes2(
-        &self,
-        dwattributes: u32,
-        dwattributesex: u32,
-        pformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(dwattributesex),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(dwattributesex), ::std::mem::transmute(pformat), ::std::mem::transmute(pvideoformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes2(
-        &self,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pdwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pdwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMStorage2 {
     type Vtable = IWMDMStorage2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        517316932,
-        23765,
-        18051,
-        [158, 255, 114, 203, 219, 45, 149, 51],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(517316932, 23765, 18051, [158, 255, 114, 203, 219, 45, 149, 51]);
 }
 impl ::std::convert::From<IWMDMStorage2> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMStorage2) -> Self {
@@ -9916,18 +4366,12 @@ impl ::std::convert::From<&IWMDMStorage2> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMStorage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMStorage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMStorage2> for IWMDMStorage {
@@ -9947,298 +4391,99 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage> for IWMDMStorage2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage> for &IWMDMStorage2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorage2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstorageglobals: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstorageglobals: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdatetimeutc: *mut WMDMDATETIME,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        penumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszstoragename: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdatetimeutc: *mut WMDMDATETIME) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        dwattributesex: u32,
-        pformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMStorage3(::windows::runtime::IUnknown);
 impl IWMDMStorage3 {
-    pub unsafe fn SetAttributes(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat)).ok()
     }
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::runtime::Result<IWMDMStorageGlobals> {
-        let mut result__: <IWMDMStorageGlobals as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorageGlobals>(result__)
+        let mut result__: <IWMDMStorageGlobals as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMStorageGlobals>(result__)
     }
-    pub unsafe fn GetAttributes(
-        &self,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows::runtime::Result<WMDMDATETIME> {
         let mut result__: <WMDMDATETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WMDMDATETIME>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMDMDATETIME>(result__)
     }
-    pub unsafe fn GetSize(
-        &self,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwsizelow),
-            ::std::mem::transmute(pdwsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwsizelow), ::std::mem::transmute(pdwsizehigh)).ok()
     }
-    pub unsafe fn GetRights(
-        &self,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pprights),
-            ::std::mem::transmute(pnrightscount),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprights), ::std::mem::transmute(pnrightscount), ::std::mem::transmute(abmac)).ok()
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IWMDMEnumStorage> {
         let mut result__: <IWMDMEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumStorage>(result__)
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStorage<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszstoragename: Param0,
-    ) -> ::windows::runtime::Result<IWMDMStorage> {
+    pub unsafe fn GetStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstoragename: Param0) -> ::windows::runtime::Result<IWMDMStorage> {
         let mut result__: <IWMDMStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            pszstoragename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pszstoragename.into_param().abi(), &mut result__).from_abi::<IWMDMStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttributes2(
-        &self,
-        dwattributes: u32,
-        dwattributesex: u32,
-        pformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(dwattributesex),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(dwattributesex), ::std::mem::transmute(pformat), ::std::mem::transmute(pvideoformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes2(
-        &self,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pdwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pdwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat)).ok()
     }
     pub unsafe fn GetMetadata(&self) -> ::windows::runtime::Result<IWMDMMetaData> {
         let mut result__: <IWMDMMetaData as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMMetaData>(result__)
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMMetaData>(result__)
     }
-    pub unsafe fn SetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(
-        &self,
-        pmetadata: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            pmetadata.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pmetadata.into_param().abi()).ok()
     }
     pub unsafe fn CreateEmptyMetadataObject(&self) -> ::windows::runtime::Result<IWMDMMetaData> {
         let mut result__: <IWMDMMetaData as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMMetaData>(result__)
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMMetaData>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnumPreference(
-        &self,
-        pmode: *mut WMDM_STORAGE_ENUM_MODE,
-        nviews: u32,
-        pviews: *const WMDMMetadataView,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pmode),
-            ::std::mem::transmute(nviews),
-            ::std::mem::transmute(pviews),
-        )
-        .ok()
+    pub unsafe fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmode), ::std::mem::transmute(nviews), ::std::mem::transmute(pviews)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMStorage3 {
     type Vtable = IWMDMStorage3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2540797674,
-        37482,
-        17998,
-        [150, 164, 36, 123, 2, 22, 2, 110],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2540797674, 37482, 17998, [150, 164, 36, 123, 2, 22, 2, 110]);
 }
 impl ::std::convert::From<IWMDMStorage3> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMStorage3) -> Self {
@@ -10252,18 +4497,12 @@ impl ::std::convert::From<&IWMDMStorage3> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMStorage3> for IWMDMStorage2 {
@@ -10283,9 +4522,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage2> for IWMDMStorage3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage2> for &IWMDMStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMStorage3> for IWMDMStorage {
@@ -10305,400 +4542,127 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage> for IWMDMStorage3 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage> for &IWMDMStorage3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorage3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstorageglobals: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstorageglobals: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdatetimeutc: *mut WMDMDATETIME,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        penumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszstoragename: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdatetimeutc: *mut WMDMDATETIME) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        dwattributesex: u32,
-        pformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppmetadata: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pmetadata: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppmetadata: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pmode: *mut WMDM_STORAGE_ENUM_MODE,
-        nviews: u32,
-        pviews: *const WMDMMetadataView,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppmetadata: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmetadata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppmetadata: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMStorage4(::windows::runtime::IUnknown);
 impl IWMDMStorage4 {
-    pub unsafe fn SetAttributes(
-        &self,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(pformat)).ok()
     }
     pub unsafe fn GetStorageGlobals(&self) -> ::windows::runtime::Result<IWMDMStorageGlobals> {
-        let mut result__: <IWMDMStorageGlobals as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorageGlobals>(result__)
+        let mut result__: <IWMDMStorageGlobals as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMStorageGlobals>(result__)
     }
-    pub unsafe fn GetAttributes(
-        &self,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetName(
-        &self,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwszname),
-            ::std::mem::transmute(nmaxchars),
-        )
-        .ok()
+    pub unsafe fn GetName(&self, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwszname), ::std::mem::transmute(nmaxchars)).ok()
     }
     pub unsafe fn GetDate(&self) -> ::windows::runtime::Result<WMDMDATETIME> {
         let mut result__: <WMDMDATETIME as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<WMDMDATETIME>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<WMDMDATETIME>(result__)
     }
-    pub unsafe fn GetSize(
-        &self,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwsizelow),
-            ::std::mem::transmute(pdwsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwsizelow), ::std::mem::transmute(pdwsizehigh)).ok()
     }
-    pub unsafe fn GetRights(
-        &self,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pprights),
-            ::std::mem::transmute(pnrightscount),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprights), ::std::mem::transmute(pnrightscount), ::std::mem::transmute(abmac)).ok()
     }
     pub unsafe fn EnumStorage(&self) -> ::windows::runtime::Result<IWMDMEnumStorage> {
         let mut result__: <IWMDMEnumStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumStorage>(result__)
     }
-    pub unsafe fn SendOpaqueCommand(
-        &self,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcommand),
-        )
-        .ok()
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcommand)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStorage<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pszstoragename: Param0,
-    ) -> ::windows::runtime::Result<IWMDMStorage> {
+    pub unsafe fn GetStorage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszstoragename: Param0) -> ::windows::runtime::Result<IWMDMStorage> {
         let mut result__: <IWMDMStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            pszstoragename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pszstoragename.into_param().abi(), &mut result__).from_abi::<IWMDMStorage>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAttributes2(
-        &self,
-        dwattributes: u32,
-        dwattributesex: u32,
-        pformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwattributes),
-            ::std::mem::transmute(dwattributesex),
-            ::std::mem::transmute(pformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwattributes), ::std::mem::transmute(dwattributesex), ::std::mem::transmute(pformat), ::std::mem::transmute(pvideoformat)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributes2(
-        &self,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwattributes),
-            ::std::mem::transmute(pdwattributesex),
-            ::std::mem::transmute(paudioformat),
-            ::std::mem::transmute(pvideoformat),
-        )
-        .ok()
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwattributes), ::std::mem::transmute(pdwattributesex), ::std::mem::transmute(paudioformat), ::std::mem::transmute(pvideoformat)).ok()
     }
     pub unsafe fn GetMetadata(&self) -> ::windows::runtime::Result<IWMDMMetaData> {
         let mut result__: <IWMDMMetaData as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMMetaData>(result__)
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMMetaData>(result__)
     }
-    pub unsafe fn SetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(
-        &self,
-        pmetadata: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            pmetadata.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetMetadata<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMMetaData>>(&self, pmetadata: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pmetadata.into_param().abi()).ok()
     }
     pub unsafe fn CreateEmptyMetadataObject(&self) -> ::windows::runtime::Result<IWMDMMetaData> {
         let mut result__: <IWMDMMetaData as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMMetaData>(result__)
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMMetaData>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEnumPreference(
-        &self,
-        pmode: *mut WMDM_STORAGE_ENUM_MODE,
-        nviews: u32,
-        pviews: *const WMDMMetadataView,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pmode),
-            ::std::mem::transmute(nviews),
-            ::std::mem::transmute(pviews),
-        )
-        .ok()
+    pub unsafe fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pmode), ::std::mem::transmute(nviews), ::std::mem::transmute(pviews)).ok()
     }
-    pub unsafe fn SetReferences(
-        &self,
-        dwrefs: u32,
-        ppiwmdmstorage: *const ::std::option::Option<IWMDMStorage>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwrefs),
-            ::std::mem::transmute(ppiwmdmstorage),
-        )
-        .ok()
+    pub unsafe fn SetReferences(&self, dwrefs: u32, ppiwmdmstorage: *const ::std::option::Option<IWMDMStorage>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwrefs), ::std::mem::transmute(ppiwmdmstorage)).ok()
     }
-    pub unsafe fn GetReferences(
-        &self,
-        pdwrefs: *mut u32,
-        pppiwmdmstorage: *mut *mut ::std::option::Option<IWMDMStorage>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwrefs),
-            ::std::mem::transmute(pppiwmdmstorage),
-        )
-        .ok()
+    pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::std::option::Option<IWMDMStorage>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwrefs), ::std::mem::transmute(pppiwmdmstorage)).ok()
     }
-    pub unsafe fn GetRightsWithProgress<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IWMDMProgress3>,
-    >(
-        &self,
-        piprogresscallback: Param0,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            piprogresscallback.into_param().abi(),
-            ::std::mem::transmute(pprights),
-            ::std::mem::transmute(pnrightscount),
-        )
-        .ok()
+    pub unsafe fn GetRightsWithProgress<'a, Param0: ::windows::runtime::IntoParam<'a, IWMDMProgress3>>(&self, piprogresscallback: Param0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), piprogresscallback.into_param().abi(), ::std::mem::transmute(pprights), ::std::mem::transmute(pnrightscount)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetSpecifiedMetadata(
-        &self,
-        cproperties: u32,
-        ppwszpropnames: *const super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::Result<IWMDMMetaData> {
+    pub unsafe fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const super::super::Foundation::PWSTR) -> ::windows::runtime::Result<IWMDMMetaData> {
         let mut result__: <IWMDMMetaData as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(cproperties),
-            ::std::mem::transmute(ppwszpropnames),
-            &mut result__,
-        )
-        .from_abi::<IWMDMMetaData>(result__)
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(cproperties), ::std::mem::transmute(ppwszpropnames), &mut result__).from_abi::<IWMDMMetaData>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindStorage<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        findscope: WMDM_FIND_SCOPE,
-        pwszuniqueid: Param1,
-    ) -> ::windows::runtime::Result<IWMDMStorage> {
+    pub unsafe fn FindStorage<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: Param1) -> ::windows::runtime::Result<IWMDMStorage> {
         let mut result__: <IWMDMStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).23)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(findscope),
-            pwszuniqueid.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(findscope), pwszuniqueid.into_param().abi(), &mut result__).from_abi::<IWMDMStorage>(result__)
     }
     pub unsafe fn GetParent(&self) -> ::windows::runtime::Result<IWMDMStorage> {
         let mut result__: <IWMDMStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).24)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMStorage>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMStorage4 {
     type Vtable = IWMDMStorage4_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3257252549,
-        41018,
-        16568,
-        [154, 35, 145, 207, 71, 140, 100, 166],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3257252549, 41018, 16568, [154, 35, 145, 207, 71, 140, 100, 166]);
 }
 impl ::std::convert::From<IWMDMStorage4> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMStorage4) -> Self {
@@ -10712,18 +4676,12 @@ impl ::std::convert::From<&IWMDMStorage4> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMStorage4> for IWMDMStorage3 {
@@ -10743,9 +4701,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage3> for IWMDMStorage4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage3> for &IWMDMStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage3> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage3>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage3>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMStorage4> for IWMDMStorage2 {
@@ -10765,9 +4721,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage2> for IWMDMStorage4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage2> for &IWMDMStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMStorage4> for IWMDMStorage {
@@ -10787,260 +4741,72 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage> for IWMDMStorage4 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorage> for &IWMDMStorage4 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorage> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorage>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorage4_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        pformat: *const _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstorageglobals: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pformat: *mut _WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszname: super::super::Foundation::PWSTR,
-        nmaxchars: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, pformat: *const _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstorageglobals: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pformat: *mut _WAVEFORMATEX) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszname: super::super::Foundation::PWSTR, nmaxchars: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdatetimeutc: *mut WMDMDATETIME,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwsizelow: *mut u32,
-        pdwsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        penumstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcommand: *mut OPAQUECOMMAND,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pszstoragename: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdatetimeutc: *mut WMDMDATETIME) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, penumstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcommand: *mut OPAQUECOMMAND) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pszstoragename: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwattributes: u32,
-        dwattributesex: u32,
-        pformat: *const _WAVEFORMATEX,
-        pvideoformat: *const _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwattributes: u32, dwattributesex: u32, pformat: *const _WAVEFORMATEX, pvideoformat: *const _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwattributes: *mut u32,
-        pdwattributesex: *mut u32,
-        paudioformat: *mut _WAVEFORMATEX,
-        pvideoformat: *mut _VIDEOINFOHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut _WAVEFORMATEX, pvideoformat: *mut _VIDEOINFOHEADER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppmetadata: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pmetadata: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppmetadata: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pmode: *mut WMDM_STORAGE_ENUM_MODE,
-        nviews: u32,
-        pviews: *const WMDMMetadataView,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppmetadata: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmetadata: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppmetadata: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwrefs: u32,
-        ppiwmdmstorage: *const ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwrefs: *mut u32,
-        pppiwmdmstorage: *mut *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        piprogresscallback: ::windows::runtime::RawPtr,
-        pprights: *mut *mut WMDMRIGHTS,
-        pnrightscount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        cproperties: u32,
-        ppwszpropnames: *const super::super::Foundation::PWSTR,
-        ppmetadata: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwrefs: u32, ppiwmdmstorage: *const ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piprogresscallback: ::windows::runtime::RawPtr, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cproperties: u32, ppwszpropnames: *const super::super::Foundation::PWSTR, ppmetadata: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        findscope: WMDM_FIND_SCOPE,
-        pwszuniqueid: super::super::Foundation::PWSTR,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, findscope: WMDM_FIND_SCOPE, pwszuniqueid: super::super::Foundation::PWSTR, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstorage: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstorage: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMStorageControl(::windows::runtime::IUnknown);
 impl IWMDMStorageControl {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Insert<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMOperation>,
-        Param3: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-    >(
-        &self,
-        fumode: u32,
-        pwszfile: Param1,
-        poperation: Param2,
-        pprogress: Param3,
-    ) -> ::windows::runtime::Result<IWMDMStorage> {
+    pub unsafe fn Insert<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWMDMOperation>, Param3: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwszfile: Param1, poperation: Param2, pprogress: Param3) -> ::windows::runtime::Result<IWMDMStorage> {
         let mut result__: <IWMDMStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pwszfile.into_param().abi(),
-            poperation.into_param().abi(),
-            pprogress.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pwszfile.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), &mut result__).from_abi::<IWMDMStorage>(result__)
     }
-    pub unsafe fn Delete<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(
-        &self,
-        fumode: u32,
-        pprogress: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Delete<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Rename<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-    >(
-        &self,
-        fumode: u32,
-        pwsznewname: Param1,
-        pprogress: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pwsznewname.into_param().abi(),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Rename<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwsznewname: Param1, pprogress: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Read<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-        Param3: ::windows::runtime::IntoParam<'a, IWMDMOperation>,
-    >(
-        &self,
-        fumode: u32,
-        pwszfile: Param1,
-        pprogress: Param2,
-        poperation: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pwszfile.into_param().abi(),
-            pprogress.into_param().abi(),
-            poperation.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Read<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>, Param3: ::windows::runtime::IntoParam<'a, IWMDMOperation>>(&self, fumode: u32, pwszfile: Param1, pprogress: Param2, poperation: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pwszfile.into_param().abi(), pprogress.into_param().abi(), poperation.into_param().abi()).ok()
     }
-    pub unsafe fn Move<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, IWMDMStorage>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-    >(
-        &self,
-        fumode: u32,
-        ptargetobject: Param1,
-        pprogress: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            ptargetobject.into_param().abi(),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Move<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMStorage>, Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, ptargetobject: Param1, pprogress: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), ptargetobject.into_param().abi(), pprogress.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMStorageControl {
     type Vtable = IWMDMStorageControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857928,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857928, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IWMDMStorageControl> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMStorageControl) -> Self {
@@ -11054,182 +4820,54 @@ impl ::std::convert::From<&IWMDMStorageControl> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMStorageControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMStorageControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorageControl_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pwszfile: super::super::Foundation::PWSTR,
-        poperation: ::windows::runtime::RawPtr,
-        pprogress: ::windows::runtime::RawPtr,
-        ppnewobject: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pwszfile: super::super::Foundation::PWSTR, poperation: ::windows::runtime::RawPtr, pprogress: ::windows::runtime::RawPtr, ppnewobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pwsznewname: super::super::Foundation::PWSTR,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pwsznewname: super::super::Foundation::PWSTR, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pwszfile: super::super::Foundation::PWSTR,
-        pprogress: ::windows::runtime::RawPtr,
-        poperation: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pwszfile: super::super::Foundation::PWSTR, pprogress: ::windows::runtime::RawPtr, poperation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        ptargetobject: ::windows::runtime::RawPtr,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, ptargetobject: ::windows::runtime::RawPtr, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMStorageControl2(::windows::runtime::IUnknown);
 impl IWMDMStorageControl2 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Insert<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMOperation>,
-        Param3: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-    >(
-        &self,
-        fumode: u32,
-        pwszfile: Param1,
-        poperation: Param2,
-        pprogress: Param3,
-    ) -> ::windows::runtime::Result<IWMDMStorage> {
+    pub unsafe fn Insert<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWMDMOperation>, Param3: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwszfile: Param1, poperation: Param2, pprogress: Param3) -> ::windows::runtime::Result<IWMDMStorage> {
         let mut result__: <IWMDMStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pwszfile.into_param().abi(),
-            poperation.into_param().abi(),
-            pprogress.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pwszfile.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), &mut result__).from_abi::<IWMDMStorage>(result__)
     }
-    pub unsafe fn Delete<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(
-        &self,
-        fumode: u32,
-        pprogress: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Delete<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Rename<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-    >(
-        &self,
-        fumode: u32,
-        pwsznewname: Param1,
-        pprogress: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pwsznewname.into_param().abi(),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Rename<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwsznewname: Param1, pprogress: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Read<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-        Param3: ::windows::runtime::IntoParam<'a, IWMDMOperation>,
-    >(
-        &self,
-        fumode: u32,
-        pwszfile: Param1,
-        pprogress: Param2,
-        poperation: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pwszfile.into_param().abi(),
-            pprogress.into_param().abi(),
-            poperation.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Read<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>, Param3: ::windows::runtime::IntoParam<'a, IWMDMOperation>>(&self, fumode: u32, pwszfile: Param1, pprogress: Param2, poperation: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pwszfile.into_param().abi(), pprogress.into_param().abi(), poperation.into_param().abi()).ok()
     }
-    pub unsafe fn Move<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, IWMDMStorage>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-    >(
-        &self,
-        fumode: u32,
-        ptargetobject: Param1,
-        pprogress: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            ptargetobject.into_param().abi(),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Move<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMStorage>, Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, ptargetobject: Param1, pprogress: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), ptargetobject.into_param().abi(), pprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Insert2<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param3: ::windows::runtime::IntoParam<'a, IWMDMOperation>,
-        Param4: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-        Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
+    pub unsafe fn Insert2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IWMDMOperation>, Param4: ::windows::runtime::IntoParam<'a, IWMDMProgress>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
         &self,
         fumode: u32,
         pwszfilesource: Param1,
@@ -11239,27 +4877,12 @@ impl IWMDMStorageControl2 {
         punknown: Param5,
         ppnewobject: *mut ::std::option::Option<IWMDMStorage>,
     ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pwszfilesource.into_param().abi(),
-            pwszfiledest.into_param().abi(),
-            poperation.into_param().abi(),
-            pprogress.into_param().abi(),
-            punknown.into_param().abi(),
-            ::std::mem::transmute(ppnewobject),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pwszfilesource.into_param().abi(), pwszfiledest.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), punknown.into_param().abi(), ::std::mem::transmute(ppnewobject)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMStorageControl2 {
     type Vtable = IWMDMStorageControl2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2536255112,
-        48492,
-        16677,
-        [142, 9, 132, 248, 55, 230, 55, 182],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2536255112, 48492, 16677, [142, 9, 132, 248, 55, 230, 55, 182]);
 }
 impl ::std::convert::From<IWMDMStorageControl2> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMStorageControl2) -> Self {
@@ -11273,18 +4896,12 @@ impl ::std::convert::From<&IWMDMStorageControl2> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMStorageControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMStorageControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMStorageControl2> for IWMDMStorageControl {
@@ -11304,185 +4921,51 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorageControl> for IWMDMStorage
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorageControl> for &IWMDMStorageControl2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorageControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorageControl>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorageControl>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorageControl2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pwszfile: super::super::Foundation::PWSTR,
-        poperation: ::windows::runtime::RawPtr,
-        pprogress: ::windows::runtime::RawPtr,
-        ppnewobject: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pwszfile: super::super::Foundation::PWSTR, poperation: ::windows::runtime::RawPtr, pprogress: ::windows::runtime::RawPtr, ppnewobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pwsznewname: super::super::Foundation::PWSTR,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pwsznewname: super::super::Foundation::PWSTR, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pwszfile: super::super::Foundation::PWSTR,
-        pprogress: ::windows::runtime::RawPtr,
-        poperation: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pwszfile: super::super::Foundation::PWSTR, pprogress: ::windows::runtime::RawPtr, poperation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        ptargetobject: ::windows::runtime::RawPtr,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pwszfilesource: super::super::Foundation::PWSTR,
-        pwszfiledest: super::super::Foundation::PWSTR,
-        poperation: ::windows::runtime::RawPtr,
-        pprogress: ::windows::runtime::RawPtr,
-        punknown: ::windows::runtime::RawPtr,
-        ppnewobject: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, ptargetobject: ::windows::runtime::RawPtr, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: ::windows::runtime::RawPtr, pprogress: ::windows::runtime::RawPtr, punknown: ::windows::runtime::RawPtr, ppnewobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMStorageControl3(::windows::runtime::IUnknown);
 impl IWMDMStorageControl3 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Insert<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMOperation>,
-        Param3: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-    >(
-        &self,
-        fumode: u32,
-        pwszfile: Param1,
-        poperation: Param2,
-        pprogress: Param3,
-    ) -> ::windows::runtime::Result<IWMDMStorage> {
+    pub unsafe fn Insert<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWMDMOperation>, Param3: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwszfile: Param1, poperation: Param2, pprogress: Param3) -> ::windows::runtime::Result<IWMDMStorage> {
         let mut result__: <IWMDMStorage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pwszfile.into_param().abi(),
-            poperation.into_param().abi(),
-            pprogress.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWMDMStorage>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pwszfile.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), &mut result__).from_abi::<IWMDMStorage>(result__)
     }
-    pub unsafe fn Delete<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(
-        &self,
-        fumode: u32,
-        pprogress: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Delete<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Rename<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-    >(
-        &self,
-        fumode: u32,
-        pwsznewname: Param1,
-        pprogress: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pwsznewname.into_param().abi(),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Rename<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pwsznewname: Param1, pprogress: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pwsznewname.into_param().abi(), pprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Read<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-        Param3: ::windows::runtime::IntoParam<'a, IWMDMOperation>,
-    >(
-        &self,
-        fumode: u32,
-        pwszfile: Param1,
-        pprogress: Param2,
-        poperation: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pwszfile.into_param().abi(),
-            pprogress.into_param().abi(),
-            poperation.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Read<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>, Param3: ::windows::runtime::IntoParam<'a, IWMDMOperation>>(&self, fumode: u32, pwszfile: Param1, pprogress: Param2, poperation: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pwszfile.into_param().abi(), pprogress.into_param().abi(), poperation.into_param().abi()).ok()
     }
-    pub unsafe fn Move<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, IWMDMStorage>,
-        Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-    >(
-        &self,
-        fumode: u32,
-        ptargetobject: Param1,
-        pprogress: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            ptargetobject.into_param().abi(),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Move<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMStorage>, Param2: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, ptargetobject: Param1, pprogress: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), ptargetobject.into_param().abi(), pprogress.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Insert2<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param3: ::windows::runtime::IntoParam<'a, IWMDMOperation>,
-        Param4: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-        Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
+    pub unsafe fn Insert2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, IWMDMOperation>, Param4: ::windows::runtime::IntoParam<'a, IWMDMProgress>, Param5: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
         &self,
         fumode: u32,
         pwszfilesource: Param1,
@@ -11492,28 +4975,10 @@ impl IWMDMStorageControl3 {
         punknown: Param5,
         ppnewobject: *mut ::std::option::Option<IWMDMStorage>,
     ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pwszfilesource.into_param().abi(),
-            pwszfiledest.into_param().abi(),
-            poperation.into_param().abi(),
-            pprogress.into_param().abi(),
-            punknown.into_param().abi(),
-            ::std::mem::transmute(ppnewobject),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pwszfilesource.into_param().abi(), pwszfiledest.into_param().abi(), poperation.into_param().abi(), pprogress.into_param().abi(), punknown.into_param().abi(), ::std::mem::transmute(ppnewobject)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Insert3<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param4: ::windows::runtime::IntoParam<'a, IWMDMOperation>,
-        Param5: ::windows::runtime::IntoParam<'a, IWMDMProgress>,
-        Param6: ::windows::runtime::IntoParam<'a, IWMDMMetaData>,
-        Param7: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
+    pub unsafe fn Insert3<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, IWMDMOperation>, Param5: ::windows::runtime::IntoParam<'a, IWMDMProgress>, Param6: ::windows::runtime::IntoParam<'a, IWMDMMetaData>, Param7: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
         &self,
         fumode: u32,
         futype: u32,
@@ -11542,12 +5007,7 @@ impl IWMDMStorageControl3 {
 }
 unsafe impl ::windows::runtime::Interface for IWMDMStorageControl3 {
     type Vtable = IWMDMStorageControl3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3005637477,
-        54515,
-        18070,
-        [141, 83, 189, 39, 236, 96, 153, 58],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3005637477, 54515, 18070, [141, 83, 189, 39, 236, 96, 153, 58]);
 }
 impl ::std::convert::From<IWMDMStorageControl3> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMStorageControl3) -> Self {
@@ -11561,18 +5021,12 @@ impl ::std::convert::From<&IWMDMStorageControl3> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMStorageControl3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMStorageControl3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMStorageControl3> for IWMDMStorageControl2 {
@@ -11592,9 +5046,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorageControl2> for IWMDMStorag
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorageControl2> for &IWMDMStorageControl3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorageControl2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorageControl2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorageControl2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDMStorageControl3> for IWMDMStorageControl {
@@ -11614,180 +5066,59 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorageControl> for IWMDMStorage
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDMStorageControl> for &IWMDMStorageControl3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDMStorageControl> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorageControl>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDMStorageControl>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorageControl3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pwszfile: super::super::Foundation::PWSTR,
-        poperation: ::windows::runtime::RawPtr,
-        pprogress: ::windows::runtime::RawPtr,
-        ppnewobject: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pwszfile: super::super::Foundation::PWSTR, poperation: ::windows::runtime::RawPtr, pprogress: ::windows::runtime::RawPtr, ppnewobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pwsznewname: super::super::Foundation::PWSTR,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pwsznewname: super::super::Foundation::PWSTR, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pwszfile: super::super::Foundation::PWSTR,
-        pprogress: ::windows::runtime::RawPtr,
-        poperation: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pwszfile: super::super::Foundation::PWSTR, pprogress: ::windows::runtime::RawPtr, poperation: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        ptargetobject: ::windows::runtime::RawPtr,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pwszfilesource: super::super::Foundation::PWSTR,
-        pwszfiledest: super::super::Foundation::PWSTR,
-        poperation: ::windows::runtime::RawPtr,
-        pprogress: ::windows::runtime::RawPtr,
-        punknown: ::windows::runtime::RawPtr,
-        ppnewobject: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, ptargetobject: ::windows::runtime::RawPtr, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: ::windows::runtime::RawPtr, pprogress: ::windows::runtime::RawPtr, punknown: ::windows::runtime::RawPtr, ppnewobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        futype: u32,
-        pwszfilesource: super::super::Foundation::PWSTR,
-        pwszfiledest: super::super::Foundation::PWSTR,
-        poperation: ::windows::runtime::RawPtr,
-        pprogress: ::windows::runtime::RawPtr,
-        pmetadata: ::windows::runtime::RawPtr,
-        punknown: ::windows::runtime::RawPtr,
-        ppnewobject: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, futype: u32, pwszfilesource: super::super::Foundation::PWSTR, pwszfiledest: super::super::Foundation::PWSTR, poperation: ::windows::runtime::RawPtr, pprogress: ::windows::runtime::RawPtr, pmetadata: ::windows::runtime::RawPtr, punknown: ::windows::runtime::RawPtr, ppnewobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDMStorageGlobals(::windows::runtime::IUnknown);
 impl IWMDMStorageGlobals {
     pub unsafe fn GetCapabilities(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetSerialNumber(
-        &self,
-        pserialnum: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pserialnum),
-            ::std::mem::transmute(abmac),
-        )
-        .ok()
+    pub unsafe fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pserialnum), ::std::mem::transmute(abmac)).ok()
     }
-    pub unsafe fn GetTotalSize(
-        &self,
-        pdwtotalsizelow: *mut u32,
-        pdwtotalsizehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwtotalsizelow),
-            ::std::mem::transmute(pdwtotalsizehigh),
-        )
-        .ok()
+    pub unsafe fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwtotalsizelow), ::std::mem::transmute(pdwtotalsizehigh)).ok()
     }
-    pub unsafe fn GetTotalFree(
-        &self,
-        pdwfreelow: *mut u32,
-        pdwfreehigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwfreelow),
-            ::std::mem::transmute(pdwfreehigh),
-        )
-        .ok()
+    pub unsafe fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwfreelow), ::std::mem::transmute(pdwfreehigh)).ok()
     }
-    pub unsafe fn GetTotalBad(
-        &self,
-        pdwbadlow: *mut u32,
-        pdwbadhigh: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwbadlow),
-            ::std::mem::transmute(pdwbadhigh),
-        )
-        .ok()
+    pub unsafe fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwbadlow), ::std::mem::transmute(pdwbadhigh)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn Initialize<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(
-        &self,
-        fumode: u32,
-        pprogress: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fumode),
-            pprogress.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param1: ::windows::runtime::IntoParam<'a, IWMDMProgress>>(&self, fumode: u32, pprogress: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(fumode), pprogress.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDMStorageGlobals {
     type Vtable = IWMDMStorageGlobals_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857927,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857927, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IWMDMStorageGlobals> for ::windows::runtime::IUnknown {
     fn from(value: IWMDMStorageGlobals) -> Self {
@@ -11801,106 +5132,48 @@ impl ::std::convert::From<&IWMDMStorageGlobals> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDMStorageGlobals {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDMStorageGlobals {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDMStorageGlobals_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcapabilities: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pserialnum: *mut WMDMID,
-        abmac: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwtotalsizelow: *mut u32,
-        pdwtotalsizehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwfreelow: *mut u32,
-        pdwfreehigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwbadlow: *mut u32,
-        pdwbadhigh: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fumode: u32,
-        pprogress: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcapabilities: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pserialnum: *mut WMDMID, abmac: *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fumode: u32, pprogress: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDeviceManager(::windows::runtime::IUnknown);
 impl IWMDeviceManager {
     pub unsafe fn GetRevision(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetDeviceCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn EnumDevices(&self) -> ::windows::runtime::Result<IWMDMEnumDevice> {
         let mut result__: <IWMDMEnumDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumDevice>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDeviceManager {
     type Vtable = IWMDeviceManager_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        499857920,
-        13293,
-        4563,
-        [132, 112, 0, 192, 79, 121, 219, 192],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(499857920, 13293, 4563, [132, 112, 0, 192, 79, 121, 219, 192]);
 }
 impl ::std::convert::From<IWMDeviceManager> for ::windows::runtime::IUnknown {
     fn from(value: IWMDeviceManager) -> Self {
@@ -11914,99 +5187,48 @@ impl ::std::convert::From<&IWMDeviceManager> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDeviceManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDeviceManager {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDeviceManager_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwrevision: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwrevision: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDeviceManager2(::windows::runtime::IUnknown);
 impl IWMDeviceManager2 {
     pub unsafe fn GetRevision(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetDeviceCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn EnumDevices(&self) -> ::windows::runtime::Result<IWMDMEnumDevice> {
         let mut result__: <IWMDMEnumDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumDevice>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceFromCanonicalName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwszcanonicalname: Param0,
-    ) -> ::windows::runtime::Result<IWMDMDevice> {
+    pub unsafe fn GetDeviceFromCanonicalName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszcanonicalname: Param0) -> ::windows::runtime::Result<IWMDMDevice> {
         let mut result__: <IWMDMDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            pwszcanonicalname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWMDMDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwszcanonicalname.into_param().abi(), &mut result__).from_abi::<IWMDMDevice>(result__)
     }
     pub unsafe fn EnumDevices2(&self) -> ::windows::runtime::Result<IWMDMEnumDevice> {
         let mut result__: <IWMDMEnumDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumDevice>(result__)
     }
     pub unsafe fn Reinitialize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
@@ -12014,12 +5236,7 @@ impl IWMDeviceManager2 {
 }
 unsafe impl ::windows::runtime::Interface for IWMDeviceManager2 {
     type Vtable = IWMDeviceManager2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2453557833,
-        34609,
-        19547,
-        [155, 28, 184, 182, 11, 110, 70, 175],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2453557833, 34609, 19547, [155, 28, 184, 182, 11, 110, 70, 175]);
 }
 impl ::std::convert::From<IWMDeviceManager2> for ::windows::runtime::IUnknown {
     fn from(value: IWMDeviceManager2) -> Self {
@@ -12033,18 +5250,12 @@ impl ::std::convert::From<&IWMDeviceManager2> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDeviceManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDeviceManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDeviceManager2> for IWMDeviceManager {
@@ -12064,125 +5275,58 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDeviceManager> for IWMDeviceManage
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDeviceManager> for &IWMDeviceManager2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDeviceManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDeviceManager>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDeviceManager>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDeviceManager2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwrevision: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszcanonicalname: super::super::Foundation::PWSTR,
-        ppdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwrevision: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszcanonicalname: super::super::Foundation::PWSTR, ppdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWMDeviceManager3(::windows::runtime::IUnknown);
 impl IWMDeviceManager3 {
     pub unsafe fn GetRevision(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetDeviceCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn EnumDevices(&self) -> ::windows::runtime::Result<IWMDMEnumDevice> {
         let mut result__: <IWMDMEnumDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumDevice>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceFromCanonicalName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwszcanonicalname: Param0,
-    ) -> ::windows::runtime::Result<IWMDMDevice> {
+    pub unsafe fn GetDeviceFromCanonicalName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwszcanonicalname: Param0) -> ::windows::runtime::Result<IWMDMDevice> {
         let mut result__: <IWMDMDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            pwszcanonicalname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWMDMDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pwszcanonicalname.into_param().abi(), &mut result__).from_abi::<IWMDMDevice>(result__)
     }
     pub unsafe fn EnumDevices2(&self) -> ::windows::runtime::Result<IWMDMEnumDevice> {
         let mut result__: <IWMDMEnumDevice as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IWMDMEnumDevice>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IWMDMEnumDevice>(result__)
     }
     pub unsafe fn Reinitialize(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn SetDeviceEnumPreference(
-        &self,
-        dwenumpref: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwenumpref),
-        )
-        .ok()
+    pub unsafe fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwenumpref)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWMDeviceManager3 {
     type Vtable = IWMDeviceManager3_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2937609281,
-        4109,
-        18157,
-        [190, 46, 156, 232, 196, 69, 148, 239],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2937609281, 4109, 18157, [190, 46, 156, 232, 196, 69, 148, 239]);
 }
 impl ::std::convert::From<IWMDeviceManager3> for ::windows::runtime::IUnknown {
     fn from(value: IWMDeviceManager3) -> Self {
@@ -12196,18 +5340,12 @@ impl ::std::convert::From<&IWMDeviceManager3> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWMDeviceManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWMDeviceManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDeviceManager3> for IWMDeviceManager2 {
@@ -12227,9 +5365,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDeviceManager2> for IWMDeviceManag
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDeviceManager2> for &IWMDeviceManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDeviceManager2> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDeviceManager2>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDeviceManager2>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IWMDeviceManager3> for IWMDeviceManager {
@@ -12249,49 +5385,23 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWMDeviceManager> for IWMDeviceManage
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IWMDeviceManager> for &IWMDeviceManager3 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IWMDeviceManager> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDeviceManager>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IWMDeviceManager>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWMDeviceManager3_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwrevision: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwszcanonicalname: super::super::Foundation::PWSTR,
-        ppdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwrevision: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwszcanonicalname: super::super::Foundation::PWSTR, ppdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumdevice: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumdevice: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwenumpref: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwenumpref: u32) -> ::windows::runtime::HRESULT,
 );
 pub const MDSP_READ: u32 = 1u32;
 pub const MDSP_SEEK_BOF: u32 = 1u32;
@@ -12355,18 +5465,8 @@ pub const MTP_NEXTPHASE_READ_DATA: u32 = 1u32;
 pub const MTP_NEXTPHASE_WRITE_DATA: u32 = 2u32;
 pub const MTP_RESPONSE_MAX_PARAMS: u32 = 5u32;
 pub const MTP_RESPONSE_OK: u16 = 8193u16;
-pub const MediaDevMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    632991105,
-    13664,
-    4563,
-    [132, 113, 0, 192, 79, 121, 219, 192],
-);
-pub const MediaDevMgrClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1342442525,
-    48575,
-    18724,
-    [184, 115, 241, 77, 108, 91, 253, 102],
-);
+pub const MediaDevMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(632991105, 13664, 4563, [132, 113, 0, 192, 79, 121, 219, 192]);
+pub const MediaDevMgrClassFactory: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1342442525, 48575, 18724, [184, 115, 241, 77, 108, 91, 253, 102]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct OPAQUECOMMAND {
@@ -12383,20 +5483,12 @@ impl ::std::default::Default for OPAQUECOMMAND {
 }
 impl ::std::fmt::Debug for OPAQUECOMMAND {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OPAQUECOMMAND")
-            .field("guidCommand", &self.guidCommand)
-            .field("dwDataLen", &self.dwDataLen)
-            .field("pData", &self.pData)
-            .field("abMAC", &self.abMAC)
-            .finish()
+        fmt.debug_struct("OPAQUECOMMAND").field("guidCommand", &self.guidCommand).field("dwDataLen", &self.dwDataLen).field("pData", &self.pData).field("abMAC", &self.abMAC).finish()
     }
 }
 impl ::std::cmp::PartialEq for OPAQUECOMMAND {
     fn eq(&self, other: &Self) -> bool {
-        self.guidCommand == other.guidCommand
-            && self.dwDataLen == other.dwDataLen
-            && self.pData == other.pData
-            && self.abMAC == other.abMAC
+        self.guidCommand == other.guidCommand && self.dwDataLen == other.dwDataLen && self.pData == other.pData && self.abMAC == other.abMAC
     }
 }
 impl ::std::cmp::Eq for OPAQUECOMMAND {}
@@ -12411,31 +5503,10 @@ pub const SAC_MAC_LEN: u32 = 8u32;
 pub const SAC_PROTOCOL_V1: u32 = 2u32;
 pub const SAC_PROTOCOL_WMDM: u32 = 1u32;
 pub const SAC_SESSION_KEYLEN: u32 = 8u32;
-pub const SCP_EVENTID_ACQSECURECLOCK: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2250542281,
-        19033,
-        17378,
-        [145, 70, 72, 167, 243, 244, 20, 12],
-    );
-pub const SCP_EVENTID_DRMINFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    557699719,
-    16850,
-    17195,
-    [158, 63, 59, 79, 123, 53, 129, 221],
-);
-pub const SCP_EVENTID_NEEDTOINDIV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2275739591,
-    46185,
-    17286,
-    [185, 118, 213, 209, 206, 83, 138, 111],
-);
-pub const SCP_PARAMID_DRMVERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1104155997,
-    31943,
-    16919,
-    [173, 169, 0, 80, 116, 98, 77, 164],
-);
+pub const SCP_EVENTID_ACQSECURECLOCK: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2250542281, 19033, 17378, [145, 70, 72, 167, 243, 244, 20, 12]);
+pub const SCP_EVENTID_DRMINFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(557699719, 16850, 17195, [158, 63, 59, 79, 123, 53, 129, 221]);
+pub const SCP_EVENTID_NEEDTOINDIV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2275739591, 46185, 17286, [185, 118, 213, 209, 206, 83, 138, 111]);
+pub const SCP_PARAMID_DRMVERSION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1104155997, 31943, 16919, [173, 169, 0, 80, 116, 98, 77, 164]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct WMDMDATETIME {
@@ -12454,24 +5525,12 @@ impl ::std::default::Default for WMDMDATETIME {
 }
 impl ::std::fmt::Debug for WMDMDATETIME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WMDMDATETIME")
-            .field("wYear", &self.wYear)
-            .field("wMonth", &self.wMonth)
-            .field("wDay", &self.wDay)
-            .field("wHour", &self.wHour)
-            .field("wMinute", &self.wMinute)
-            .field("wSecond", &self.wSecond)
-            .finish()
+        fmt.debug_struct("WMDMDATETIME").field("wYear", &self.wYear).field("wMonth", &self.wMonth).field("wDay", &self.wDay).field("wHour", &self.wHour).field("wMinute", &self.wMinute).field("wSecond", &self.wSecond).finish()
     }
 }
 impl ::std::cmp::PartialEq for WMDMDATETIME {
     fn eq(&self, other: &Self) -> bool {
-        self.wYear == other.wYear
-            && self.wMonth == other.wMonth
-            && self.wDay == other.wDay
-            && self.wHour == other.wHour
-            && self.wMinute == other.wMinute
-            && self.wSecond == other.wSecond
+        self.wYear == other.wYear && self.wMonth == other.wMonth && self.wDay == other.wDay && self.wHour == other.wHour && self.wMinute == other.wMinute && self.wSecond == other.wSecond
     }
 }
 impl ::std::cmp::Eq for WMDMDATETIME {}
@@ -12581,18 +5640,8 @@ unsafe impl ::windows::runtime::Abi for WMDMDetermineMaxPropStringLen {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const WMDMDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2155560159,
-    13690,
-    4563,
-    [132, 113, 0, 192, 79, 121, 219, 192],
-);
-pub const WMDMDeviceEnum: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1125004719,
-    14705,
-    4563,
-    [132, 116, 0, 192, 79, 121, 219, 192],
-);
+pub const WMDMDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2155560159, 13690, 4563, [132, 113, 0, 192, 79, 121, 219, 192]);
+pub const WMDMDeviceEnum: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1125004719, 14705, 4563, [132, 116, 0, 192, 79, 121, 219, 192]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct WMDMID {
@@ -12609,20 +5658,12 @@ impl ::std::default::Default for WMDMID {
 }
 impl ::std::fmt::Debug for WMDMID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WMDMID")
-            .field("cbSize", &self.cbSize)
-            .field("dwVendorID", &self.dwVendorID)
-            .field("pID", &self.pID)
-            .field("SerialNumberLength", &self.SerialNumberLength)
-            .finish()
+        fmt.debug_struct("WMDMID").field("cbSize", &self.cbSize).field("dwVendorID", &self.dwVendorID).field("pID", &self.pID).field("SerialNumberLength", &self.SerialNumberLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for WMDMID {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.dwVendorID == other.dwVendorID
-            && self.pID == other.pID
-            && self.SerialNumberLength == other.SerialNumberLength
+        self.cbSize == other.cbSize && self.dwVendorID == other.dwVendorID && self.pID == other.pID && self.SerialNumberLength == other.SerialNumberLength
     }
 }
 impl ::std::cmp::Eq for WMDMID {}
@@ -12631,16 +5672,8 @@ unsafe impl ::windows::runtime::Abi for WMDMID {
     type DefaultType = Self;
 }
 pub const WMDMID_LENGTH: u32 = 128u32;
-pub const WMDMLogger: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(285880834, 23161, 4563, [141, 120, 68, 69, 83, 84, 0, 0]);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub const WMDMLogger: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(285880834, 23161, 4563, [141, 120, 68, 69, 83, 84, 0, 0]);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMDMMessage(pub i32);
 pub const WMDM_MSG_DEVICE_ARRIVAL: WMDMMessage = WMDMMessage(0i32);
@@ -12675,19 +5708,13 @@ impl ::std::default::Default for WMDMMetadataView {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WMDMMetadataView {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WMDMMetadataView")
-            .field("pwszViewName", &self.pwszViewName)
-            .field("nDepth", &self.nDepth)
-            .field("ppwszTags", &self.ppwszTags)
-            .finish()
+        fmt.debug_struct("WMDMMetadataView").field("pwszViewName", &self.pwszViewName).field("nDepth", &self.nDepth).field("ppwszTags", &self.ppwszTags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WMDMMetadataView {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszViewName == other.pwszViewName
-            && self.nDepth == other.nDepth
-            && self.ppwszTags == other.ppwszTags
+        self.pwszViewName == other.pwszViewName && self.nDepth == other.nDepth && self.ppwszTags == other.ppwszTags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12729,13 +5756,7 @@ impl ::std::fmt::Debug for WMDMRIGHTS {
 }
 impl ::std::cmp::PartialEq for WMDMRIGHTS {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.dwContentType == other.dwContentType
-            && self.fuFlags == other.fuFlags
-            && self.fuRights == other.fuRights
-            && self.dwAppSec == other.dwAppSec
-            && self.dwPlaybackCount == other.dwPlaybackCount
-            && self.ExpirationDate == other.ExpirationDate
+        self.cbSize == other.cbSize && self.dwContentType == other.dwContentType && self.fuFlags == other.fuFlags && self.fuRights == other.fuRights && self.dwAppSec == other.dwAppSec && self.dwPlaybackCount == other.dwPlaybackCount && self.ExpirationDate == other.ExpirationDate
     }
 }
 impl ::std::cmp::Eq for WMDMRIGHTS {}
@@ -12743,24 +5764,9 @@ unsafe impl ::windows::runtime::Abi for WMDMRIGHTS {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const WMDMStorage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2155560160,
-    13690,
-    4563,
-    [132, 113, 0, 192, 79, 121, 219, 192],
-);
-pub const WMDMStorageEnum: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3946846779,
-    15095,
-    4563,
-    [132, 116, 0, 192, 79, 121, 219, 192],
-);
-pub const WMDMStorageGlobal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2155560161,
-    13690,
-    4563,
-    [132, 113, 0, 192, 79, 121, 219, 192],
-);
+pub const WMDMStorage: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2155560160, 13690, 4563, [132, 113, 0, 192, 79, 121, 219, 192]);
+pub const WMDMStorageEnum: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3946846779, 15095, 4563, [132, 116, 0, 192, 79, 121, 219, 192]);
+pub const WMDMStorageGlobal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2155560161, 13690, 4563, [132, 113, 0, 192, 79, 121, 219, 192]);
 pub const WMDM_APP_REVOKED: u32 = 2u32;
 pub const WMDM_CONTENT_FILE: u32 = 4u32;
 pub const WMDM_CONTENT_FOLDER: u32 = 8u32;
@@ -12774,27 +5780,9 @@ pub const WMDM_DEVICECAP_CANSTOP: u32 = 64u32;
 pub const WMDM_DEVICECAP_CANSTREAMPLAY: u32 = 2u32;
 pub const WMDM_DEVICECAP_CANSTREAMRECORD: u32 = 8u32;
 pub const WMDM_DEVICECAP_HASSECURECLOCK: u32 = 256u32;
-pub const WMDM_DEVICE_PROTOCOL_MSC: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2765275756,
-        43137,
-        17595,
-        [189, 93, 31, 112, 60, 113, 247, 169],
-    );
-pub const WMDM_DEVICE_PROTOCOL_MTP: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2543736037,
-        2812,
-        17924,
-        [141, 147, 220, 121, 138, 75, 207, 69],
-    );
-pub const WMDM_DEVICE_PROTOCOL_RAPI: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        705818001,
-        35983,
-        16868,
-        [130, 209, 131, 134, 224, 3, 86, 28],
-    );
+pub const WMDM_DEVICE_PROTOCOL_MSC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2765275756, 43137, 17595, [189, 93, 31, 112, 60, 113, 247, 169]);
+pub const WMDM_DEVICE_PROTOCOL_MTP: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2543736037, 2812, 17924, [141, 147, 220, 121, 138, 75, 207, 69]);
+pub const WMDM_DEVICE_PROTOCOL_RAPI: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(705818001, 35983, 16868, [130, 209, 131, 134, 224, 3, 86, 28]);
 pub const WMDM_DEVICE_TYPE_DECODE: u32 = 4u32;
 pub const WMDM_DEVICE_TYPE_ENCODE: u32 = 8u32;
 pub const WMDM_DEVICE_TYPE_FILELISTRESYNC: u32 = 512u32;
@@ -12806,22 +5794,12 @@ pub const WMDM_DEVICE_TYPE_SDMI: u32 = 64u32;
 pub const WMDM_DEVICE_TYPE_STORAGE: u32 = 16u32;
 pub const WMDM_DEVICE_TYPE_VIEW_PREF_METADATAVIEW: u32 = 1024u32;
 pub const WMDM_DEVICE_TYPE_VIRTUAL: u32 = 32u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMDM_ENUM_PROP_VALID_VALUES_FORM(pub i32);
-pub const WMDM_ENUM_PROP_VALID_VALUES_ANY: WMDM_ENUM_PROP_VALID_VALUES_FORM =
-    WMDM_ENUM_PROP_VALID_VALUES_FORM(0i32);
-pub const WMDM_ENUM_PROP_VALID_VALUES_RANGE: WMDM_ENUM_PROP_VALID_VALUES_FORM =
-    WMDM_ENUM_PROP_VALID_VALUES_FORM(1i32);
-pub const WMDM_ENUM_PROP_VALID_VALUES_ENUM: WMDM_ENUM_PROP_VALID_VALUES_FORM =
-    WMDM_ENUM_PROP_VALID_VALUES_FORM(2i32);
+pub const WMDM_ENUM_PROP_VALID_VALUES_ANY: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(0i32);
+pub const WMDM_ENUM_PROP_VALID_VALUES_RANGE: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(1i32);
+pub const WMDM_ENUM_PROP_VALID_VALUES_ENUM: WMDM_ENUM_PROP_VALID_VALUES_FORM = WMDM_ENUM_PROP_VALID_VALUES_FORM(2i32);
 impl ::std::convert::From<i32> for WMDM_ENUM_PROP_VALID_VALUES_FORM {
     fn from(value: i32) -> Self {
         Self(value)
@@ -12869,14 +5847,7 @@ pub const WMDM_FILE_ATTR_READONLY: u32 = 16777216u32;
 pub const WMDM_FILE_ATTR_SYSTEM: u32 = 8388608u32;
 pub const WMDM_FILE_ATTR_VIDEO: u32 = 64u32;
 pub const WMDM_FILE_CREATE_OVERWRITE: u32 = 1048576u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMDM_FIND_SCOPE(pub i32);
 pub const WMDM_FIND_SCOPE_GLOBAL: WMDM_FIND_SCOPE = WMDM_FIND_SCOPE(0i32);
@@ -12890,14 +5861,7 @@ unsafe impl ::windows::runtime::Abi for WMDM_FIND_SCOPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMDM_FORMATCODE(pub i32);
 pub const WMDM_FORMATCODE_NOTUSED: WMDM_FORMATCODE = WMDM_FORMATCODE(0i32);
@@ -13006,72 +5970,34 @@ unsafe impl ::windows::runtime::Abi for WMDM_FORMATCODE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 pub struct WMDM_FORMAT_CAPABILITY {
     pub nPropConfig: u32,
     pub pConfigs: *mut WMDM_PROP_CONFIG,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl WMDM_FORMAT_CAPABILITY {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for WMDM_FORMAT_CAPABILITY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::fmt::Debug for WMDM_FORMAT_CAPABILITY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WMDM_FORMAT_CAPABILITY")
-            .field("nPropConfig", &self.nPropConfig)
-            .field("pConfigs", &self.pConfigs)
-            .finish()
+        fmt.debug_struct("WMDM_FORMAT_CAPABILITY").field("nPropConfig", &self.nPropConfig).field("pConfigs", &self.pConfigs).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for WMDM_FORMAT_CAPABILITY {
     fn eq(&self, other: &Self) -> bool {
         self.nPropConfig == other.nPropConfig && self.pConfigs == other.pConfigs
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for WMDM_FORMAT_CAPABILITY {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for WMDM_FORMAT_CAPABILITY {
     type Abi = Self;
     type DefaultType = Self;
@@ -13098,354 +6024,170 @@ pub const WMDM_POWER_IS_EXTERNAL: u32 = 8u32;
 pub const WMDM_POWER_PERCENT_AVAILABLE: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 pub struct WMDM_PROP_CONFIG {
     pub nPreference: u32,
     pub nPropDesc: u32,
     pub pPropDesc: *mut WMDM_PROP_DESC,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl WMDM_PROP_CONFIG {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for WMDM_PROP_CONFIG {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::fmt::Debug for WMDM_PROP_CONFIG {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WMDM_PROP_CONFIG")
-            .field("nPreference", &self.nPreference)
-            .field("nPropDesc", &self.nPropDesc)
-            .field("pPropDesc", &self.pPropDesc)
-            .finish()
+        fmt.debug_struct("WMDM_PROP_CONFIG").field("nPreference", &self.nPreference).field("nPropDesc", &self.nPropDesc).field("pPropDesc", &self.pPropDesc).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for WMDM_PROP_CONFIG {
     fn eq(&self, other: &Self) -> bool {
-        self.nPreference == other.nPreference
-            && self.nPropDesc == other.nPropDesc
-            && self.pPropDesc == other.pPropDesc
+        self.nPreference == other.nPreference && self.nPropDesc == other.nPropDesc && self.pPropDesc == other.pPropDesc
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for WMDM_PROP_CONFIG {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_CONFIG {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for WMDM_PROP_DESC {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 pub struct WMDM_PROP_DESC {
     pub pwszPropName: super::super::Foundation::PWSTR,
     pub ValidValuesForm: WMDM_ENUM_PROP_VALID_VALUES_FORM,
     pub ValidValues: WMDM_PROP_DESC_0,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl WMDM_PROP_DESC {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for WMDM_PROP_DESC {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for WMDM_PROP_DESC {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for WMDM_PROP_DESC {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for WMDM_PROP_DESC_0 {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 pub union WMDM_PROP_DESC_0 {
     pub ValidValuesRange: ::std::mem::ManuallyDrop<WMDM_PROP_VALUES_RANGE>,
     pub EnumeratedValidValues: WMDM_PROP_VALUES_ENUM,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl WMDM_PROP_DESC_0 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for WMDM_PROP_DESC_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for WMDM_PROP_DESC_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for WMDM_PROP_DESC_0 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_DESC_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 pub struct WMDM_PROP_VALUES_ENUM {
     pub cEnumValues: u32,
     pub pValues: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl WMDM_PROP_VALUES_ENUM {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for WMDM_PROP_VALUES_ENUM {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::fmt::Debug for WMDM_PROP_VALUES_ENUM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WMDM_PROP_VALUES_ENUM")
-            .field("cEnumValues", &self.cEnumValues)
-            .field("pValues", &self.pValues)
-            .finish()
+        fmt.debug_struct("WMDM_PROP_VALUES_ENUM").field("cEnumValues", &self.cEnumValues).field("pValues", &self.pValues).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for WMDM_PROP_VALUES_ENUM {
     fn eq(&self, other: &Self) -> bool {
         self.cEnumValues == other.cEnumValues && self.pValues == other.pValues
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for WMDM_PROP_VALUES_ENUM {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_VALUES_ENUM {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for WMDM_PROP_VALUES_RANGE {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 pub struct WMDM_PROP_VALUES_RANGE {
     pub rangeMin: super::super::System::Com::StructuredStorage::PROPVARIANT,
     pub rangeMax: super::super::System::Com::StructuredStorage::PROPVARIANT,
     pub rangeStep: super::super::System::Com::StructuredStorage::PROPVARIANT,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl WMDM_PROP_VALUES_RANGE {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for WMDM_PROP_VALUES_RANGE {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for WMDM_PROP_VALUES_RANGE {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for WMDM_PROP_VALUES_RANGE {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Com_StructuredStorage",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for WMDM_PROP_VALUES_RANGE {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -13476,21 +6218,8 @@ pub const WMDM_SEEK_CURRENT: u32 = 2u32;
 pub const WMDM_SEEK_END: u32 = 8u32;
 pub const WMDM_SEEK_REMOTECONTROL: u32 = 1u32;
 pub const WMDM_SEEK_STREAMINGAUDIO: u32 = 2u32;
-pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2112383085,
-        30958,
-        17386,
-        [164, 150, 198, 37, 172, 145, 204, 93],
-    );
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub const WMDM_SERVICE_PROVIDER_VENDOR_MICROSOFT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2112383085, 30958, 17386, [164, 150, 198, 37, 172, 145, 204, 93]);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMDM_SESSION_TYPE(pub i32);
 pub const WMDM_SESSION_NONE: WMDM_SESSION_TYPE = WMDM_SESSION_TYPE(0i32);
@@ -13545,14 +6274,7 @@ pub const WMDM_STORAGE_ATTR_NONREMOVABLE: u32 = 4u32;
 pub const WMDM_STORAGE_ATTR_REMOVABLE: u32 = 2u32;
 pub const WMDM_STORAGE_ATTR_VIRTUAL: u32 = 536870912u32;
 pub const WMDM_STORAGE_CONTAINS_DEFAULT: u32 = 268435456u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMDM_STORAGE_ENUM_MODE(pub i32);
 pub const ENUM_MODE_RAW: WMDM_STORAGE_ENUM_MODE = WMDM_STORAGE_ENUM_MODE(0i32);
@@ -13570,14 +6292,7 @@ unsafe impl ::windows::runtime::Abi for WMDM_STORAGE_ENUM_MODE {
 pub const WMDM_STORAGE_IS_DEFAULT: u32 = 134217728u32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_APPLIED: i32 = 282625i32;
 pub const WMDM_S_NOT_ALL_PROPERTIES_RETRIEVED: i32 = 282626i32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WMDM_TAG_DATATYPE(pub i32);
 pub const WMDM_TYPE_DWORD: WMDM_TAG_DATATYPE = WMDM_TAG_DATATYPE(0i32);
@@ -13616,10 +6331,7 @@ impl ::std::default::Default for WMFILECAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WMFILECAPABILITIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WMFILECAPABILITIES")
-            .field("pwszMimeType", &self.pwszMimeType)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("WMFILECAPABILITIES").field("pwszMimeType", &self.pwszMimeType).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13675,17 +6387,7 @@ impl ::std::fmt::Debug for _BITMAPINFOHEADER {
 }
 impl ::std::cmp::PartialEq for _BITMAPINFOHEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.biSize == other.biSize
-            && self.biWidth == other.biWidth
-            && self.biHeight == other.biHeight
-            && self.biPlanes == other.biPlanes
-            && self.biBitCount == other.biBitCount
-            && self.biCompression == other.biCompression
-            && self.biSizeImage == other.biSizeImage
-            && self.biXPelsPerMeter == other.biXPelsPerMeter
-            && self.biYPelsPerMeter == other.biYPelsPerMeter
-            && self.biClrUsed == other.biClrUsed
-            && self.biClrImportant == other.biClrImportant
+        self.biSize == other.biSize && self.biWidth == other.biWidth && self.biHeight == other.biHeight && self.biPlanes == other.biPlanes && self.biBitCount == other.biBitCount && self.biCompression == other.biCompression && self.biSizeImage == other.biSizeImage && self.biXPelsPerMeter == other.biXPelsPerMeter && self.biYPelsPerMeter == other.biYPelsPerMeter && self.biClrUsed == other.biClrUsed && self.biClrImportant == other.biClrImportant
     }
 }
 impl ::std::cmp::Eq for _BITMAPINFOHEADER {}
@@ -13715,25 +6417,13 @@ impl ::std::default::Default for _VIDEOINFOHEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for _VIDEOINFOHEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_VIDEOINFOHEADER")
-            .field("rcSource", &self.rcSource)
-            .field("rcTarget", &self.rcTarget)
-            .field("dwBitRate", &self.dwBitRate)
-            .field("dwBitErrorRate", &self.dwBitErrorRate)
-            .field("AvgTimePerFrame", &self.AvgTimePerFrame)
-            .field("bmiHeader", &self.bmiHeader)
-            .finish()
+        fmt.debug_struct("_VIDEOINFOHEADER").field("rcSource", &self.rcSource).field("rcTarget", &self.rcTarget).field("dwBitRate", &self.dwBitRate).field("dwBitErrorRate", &self.dwBitErrorRate).field("AvgTimePerFrame", &self.AvgTimePerFrame).field("bmiHeader", &self.bmiHeader).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for _VIDEOINFOHEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.rcSource == other.rcSource
-            && self.rcTarget == other.rcTarget
-            && self.dwBitRate == other.dwBitRate
-            && self.dwBitErrorRate == other.dwBitErrorRate
-            && self.AvgTimePerFrame == other.AvgTimePerFrame
-            && self.bmiHeader == other.bmiHeader
+        self.rcSource == other.rcSource && self.rcTarget == other.rcTarget && self.dwBitRate == other.dwBitRate && self.dwBitErrorRate == other.dwBitErrorRate && self.AvgTimePerFrame == other.AvgTimePerFrame && self.bmiHeader == other.bmiHeader
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13775,13 +6465,7 @@ impl ::std::fmt::Debug for _WAVEFORMATEX {
 }
 impl ::std::cmp::PartialEq for _WAVEFORMATEX {
     fn eq(&self, other: &Self) -> bool {
-        self.wFormatTag == other.wFormatTag
-            && self.nChannels == other.nChannels
-            && self.nSamplesPerSec == other.nSamplesPerSec
-            && self.nAvgBytesPerSec == other.nAvgBytesPerSec
-            && self.nBlockAlign == other.nBlockAlign
-            && self.wBitsPerSample == other.wBitsPerSample
-            && self.cbSize == other.cbSize
+        self.wFormatTag == other.wFormatTag && self.nChannels == other.nChannels && self.nSamplesPerSec == other.nSamplesPerSec && self.nAvgBytesPerSec == other.nAvgBytesPerSec && self.nBlockAlign == other.nBlockAlign && self.wBitsPerSample == other.wBitsPerSample && self.cbSize == other.cbSize
     }
 }
 impl ::std::cmp::Eq for _WAVEFORMATEX {}
@@ -13807,10 +6491,7 @@ impl ::std::default::Default for __MACINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for __MACINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("__MACINFO")
-            .field("fUsed", &self.fUsed)
-            .field("abMacState", &self.abMacState)
-            .finish()
+        fmt.debug_struct("__MACINFO").field("fUsed", &self.fUsed).field("abMacState", &self.abMacState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -13884,8 +6565,7 @@ pub const g_wszWMDMLastModifiedDate: &'static str = "WMDM/LastModifiedDate";
 pub const g_wszWMDMMediaClassSecondaryID: &'static str = "WMDM/MediaClassSecondaryID";
 pub const g_wszWMDMMediaCredits: &'static str = "WMDM/MediaCredits";
 pub const g_wszWMDMMediaGuid: &'static str = "WMDM/MediaGuid";
-pub const g_wszWMDMMediaOriginalBroadcastDateTime: &'static str =
-    "WMDM/MediaOriginalBroadcastDateTime";
+pub const g_wszWMDMMediaOriginalBroadcastDateTime: &'static str = "WMDM/MediaOriginalBroadcastDateTime";
 pub const g_wszWMDMMediaOriginalChannel: &'static str = "WMDM/MediaOriginalChannel";
 pub const g_wszWMDMMediaStationName: &'static str = "WMDM/MediaStationName";
 pub const g_wszWMDMMetaGenre: &'static str = "WMDM/MetaGenre";

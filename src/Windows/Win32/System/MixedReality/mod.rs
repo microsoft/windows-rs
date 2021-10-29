@@ -1,19 +1,5 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-pub const PERCEPTIONFIELD_StateStream_TimeStamps: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2861064473,
-        62255,
-        18879,
-        [146, 202, 249, 221, 247, 132, 210, 151],
-    );
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+pub const PERCEPTIONFIELD_StateStream_TimeStamps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2861064473, 62255, 18879, [146, 202, 249, 221, 247, 132, 210, 151]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct PERCEPTION_PAYLOAD_FIELD {
@@ -29,18 +15,12 @@ impl ::std::default::Default for PERCEPTION_PAYLOAD_FIELD {
 }
 impl ::std::fmt::Debug for PERCEPTION_PAYLOAD_FIELD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PERCEPTION_PAYLOAD_FIELD")
-            .field("FieldId", &self.FieldId)
-            .field("OffsetInBytes", &self.OffsetInBytes)
-            .field("SizeInBytes", &self.SizeInBytes)
-            .finish()
+        fmt.debug_struct("PERCEPTION_PAYLOAD_FIELD").field("FieldId", &self.FieldId).field("OffsetInBytes", &self.OffsetInBytes).field("SizeInBytes", &self.SizeInBytes).finish()
     }
 }
 impl ::std::cmp::PartialEq for PERCEPTION_PAYLOAD_FIELD {
     fn eq(&self, other: &Self) -> bool {
-        self.FieldId == other.FieldId
-            && self.OffsetInBytes == other.OffsetInBytes
-            && self.SizeInBytes == other.SizeInBytes
+        self.FieldId == other.FieldId && self.OffsetInBytes == other.OffsetInBytes && self.SizeInBytes == other.SizeInBytes
     }
 }
 impl ::std::cmp::Eq for PERCEPTION_PAYLOAD_FIELD {}
@@ -62,19 +42,12 @@ impl ::std::default::Default for PERCEPTION_STATE_STREAM_TIMESTAMPS {
 }
 impl ::std::fmt::Debug for PERCEPTION_STATE_STREAM_TIMESTAMPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PERCEPTION_STATE_STREAM_TIMESTAMPS")
-            .field("InputTimestampInQpcCounts", &self.InputTimestampInQpcCounts)
-            .field(
-                "AvailableTimestampInQpcCounts",
-                &self.AvailableTimestampInQpcCounts,
-            )
-            .finish()
+        fmt.debug_struct("PERCEPTION_STATE_STREAM_TIMESTAMPS").field("InputTimestampInQpcCounts", &self.InputTimestampInQpcCounts).field("AvailableTimestampInQpcCounts", &self.AvailableTimestampInQpcCounts).finish()
     }
 }
 impl ::std::cmp::PartialEq for PERCEPTION_STATE_STREAM_TIMESTAMPS {
     fn eq(&self, other: &Self) -> bool {
-        self.InputTimestampInQpcCounts == other.InputTimestampInQpcCounts
-            && self.AvailableTimestampInQpcCounts == other.AvailableTimestampInQpcCounts
+        self.InputTimestampInQpcCounts == other.InputTimestampInQpcCounts && self.AvailableTimestampInQpcCounts == other.AvailableTimestampInQpcCounts
     }
 }
 impl ::std::cmp::Eq for PERCEPTION_STATE_STREAM_TIMESTAMPS {}

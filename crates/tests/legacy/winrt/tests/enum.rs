@@ -1,7 +1,4 @@
-use test_winrt::{
-    Windows::ApplicationModel::Appointments::AppointmentDaysOfWeek,
-    Windows::Foundation::AsyncStatus,
-};
+use test_winrt::{Windows::ApplicationModel::Appointments::AppointmentDaysOfWeek, Windows::Foundation::AsyncStatus};
 
 #[test]
 fn signed_enum() {
@@ -49,15 +46,9 @@ fn unsigned_enum() {
     days |= AppointmentDaysOfWeek::Tuesday;
     days |= AppointmentDaysOfWeek::Wednesday;
 
-    assert!(
-        days == AppointmentDaysOfWeek::Monday
-            | AppointmentDaysOfWeek::Tuesday
-            | AppointmentDaysOfWeek::Wednesday
-    );
+    assert!(days == AppointmentDaysOfWeek::Monday | AppointmentDaysOfWeek::Tuesday | AppointmentDaysOfWeek::Wednesday);
 
-    days &= AppointmentDaysOfWeek::Monday
-        | AppointmentDaysOfWeek::Wednesday
-        | AppointmentDaysOfWeek::Friday;
+    days &= AppointmentDaysOfWeek::Monday | AppointmentDaysOfWeek::Wednesday | AppointmentDaysOfWeek::Friday;
 
     assert!(days == AppointmentDaysOfWeek::Monday | AppointmentDaysOfWeek::Wednesday);
     days &= AppointmentDaysOfWeek::Wednesday;

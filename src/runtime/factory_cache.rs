@@ -3,8 +3,7 @@ use bindings::Windows::Win32::Graphics::DirectDraw::CO_E_NOTINITIALIZED;
 use std::marker::PhantomData;
 use std::sync::atomic::{AtomicPtr, Ordering};
 
-type DllGetActivationFactory =
-    extern "system" fn(name: std::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;
+type DllGetActivationFactory = extern "system" fn(name: std::mem::ManuallyDrop<HSTRING>, factory: *mut RawPtr) -> HRESULT;
 
 #[doc(hidden)]
 pub struct FactoryCache<C, I> {
@@ -15,11 +14,7 @@ pub struct FactoryCache<C, I> {
 
 impl<C, I> FactoryCache<C, I> {
     pub const fn new() -> Self {
-        Self {
-            shared: AtomicPtr::new(::std::ptr::null_mut()),
-            _c: PhantomData,
-            _i: PhantomData,
-        }
+        Self { shared: AtomicPtr::new(::std::ptr::null_mut()), _c: PhantomData, _i: PhantomData }
     }
 }
 
@@ -39,16 +34,7 @@ impl<C: RuntimeName, I: Interface> FactoryCache<C, I> {
 
             // If the factory is agile, we can safely cache it.
             if factory.cast::<IAgileObject>().is_ok() {
-                if self
-                    .shared
-                    .compare_exchange_weak(
-                        std::ptr::null_mut(),
-                        unsafe { std::mem::transmute_copy(&factory) },
-                        Ordering::Relaxed,
-                        Ordering::Relaxed,
-                    )
-                    .is_ok()
-                {
+                if self.shared.compare_exchange_weak(std::ptr::null_mut(), unsafe { std::mem::transmute_copy(&factory) }, Ordering::Relaxed, Ordering::Relaxed).is_ok() {
                     std::mem::forget(factory);
                 }
             } else {
@@ -67,11 +53,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
 
     unsafe {
         // First attempt to get the activation factory via the OS.
-        let code = RoGetActivationFactory(
-            std::mem::transmute_copy(&name),
-            &I::IID,
-            &mut factory as *mut _ as *mut _,
-        );
+        let code = RoGetActivationFactory(std::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _);
 
         // Treat any delay-load errors like standard errors, so that the heuristics
         // below can still load registration-free libraries on Windows versions below 10.
@@ -87,12 +69,7 @@ pub fn factory<C: RuntimeName, I: Interface>() -> Result<I> {
             let _ = CoIncrementMTAUsage(&mut _cookie);
 
             // Now try a second time to get the activation factory via the OS.
-            code = RoGetActivationFactory(
-                std::mem::transmute_copy(&name),
-                &I::IID,
-                &mut factory as *mut _ as *mut _,
-            )
-            .unwrap_or_else(|code| code);
+            code = RoGetActivationFactory(std::mem::transmute_copy(&name), &I::IID, &mut factory as *mut _ as *mut _).unwrap_or_else(|code| code);
         }
 
         // If this succeeded then return the resulting factory interface.

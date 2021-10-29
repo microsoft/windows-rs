@@ -1,128 +1,63 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct AnimationDescription(::windows::runtime::IInspectable);
 impl AnimationDescription {
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Animations(
-        &self,
-    ) -> ::windows::runtime::Result<
-        super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>,
-    > {
+    pub fn Animations(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::Collections::IVectorView<
-                IPropertyAnimation,
-            >>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<IPropertyAnimation>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn StaggerDelay(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn StaggerDelay(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     pub fn StaggerDelayFactor(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<f32>(result__)
+            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn DelayLimit(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn DelayLimit(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     pub fn ZOrder(&self) -> ::windows::runtime::Result<i32> {
         let this = self;
         unsafe {
             let mut result__: i32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<i32>(result__)
+            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
-    pub fn CreateInstance(
-        effect: AnimationEffect,
-        target: AnimationEffectTarget,
-    ) -> ::windows::runtime::Result<AnimationDescription> {
+    pub fn CreateInstance(effect: AnimationEffect, target: AnimationEffectTarget) -> ::windows::runtime::Result<AnimationDescription> {
         Self::IAnimationDescriptionFactory(|this| unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                effect,
-                target,
-                &mut result__,
-            )
-            .from_abi::<AnimationDescription>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), effect, target, &mut result__).from_abi::<AnimationDescription>(result__)
         })
     }
-    pub fn IAnimationDescriptionFactory<
-        R,
-        F: FnOnce(&IAnimationDescriptionFactory) -> ::windows::runtime::Result<R>,
-    >(
-        callback: F,
-    ) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<
-            AnimationDescription,
-            IAnimationDescriptionFactory,
-        > = ::windows::runtime::FactoryCache::new();
+    pub fn IAnimationDescriptionFactory<R, F: FnOnce(&IAnimationDescriptionFactory) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
+        static mut SHARED: ::windows::runtime::FactoryCache<AnimationDescription, IAnimationDescriptionFactory> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for AnimationDescription {
-    const SIGNATURE : :: windows :: runtime :: ConstBuffer = :: windows :: runtime :: ConstBuffer :: from_slice ( b"rc(Windows.UI.Core.AnimationMetrics.AnimationDescription;{7d11a549-be3d-41de-b081-05c149962f9b})" ) ;
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.AnimationDescription;{7d11a549-be3d-41de-b081-05c149962f9b})");
 }
 unsafe impl ::windows::runtime::Interface for AnimationDescription {
     type Vtable = IAnimationDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2098308425,
-        48701,
-        16862,
-        [176, 129, 5, 193, 73, 150, 47, 155],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2098308425, 48701, 16862, [176, 129, 5, 193, 73, 150, 47, 155]);
 }
 impl ::windows::runtime::RuntimeName for AnimationDescription {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
@@ -139,18 +74,12 @@ impl ::std::convert::From<&AnimationDescription> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for AnimationDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &AnimationDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<AnimationDescription> for ::windows::runtime::IInspectable {
@@ -163,30 +92,19 @@ impl ::std::convert::From<&AnimationDescription> for ::windows::runtime::IInspec
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
-    for AnimationDescription
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for AnimationDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
         ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
-    for &'a AnimationDescription
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a AnimationDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
         ::windows::runtime::Param::Borrowed(&self.0)
     }
 }
 unsafe impl ::std::marker::Send for AnimationDescription {}
 unsafe impl ::std::marker::Sync for AnimationDescription {}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AnimationEffect(pub i32);
 impl AnimationEffect {
@@ -237,18 +155,9 @@ unsafe impl ::windows::runtime::Abi for AnimationEffect {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AnimationEffect {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffect;i4)");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AnimationEffectTarget(pub i32);
 impl AnimationEffectTarget {
@@ -283,215 +192,90 @@ unsafe impl ::windows::runtime::Abi for AnimationEffectTarget {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AnimationEffectTarget {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.AnimationEffectTarget;i4)");
 }
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct AnimationMetricsContract(pub u8);
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAnimationDescription(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationDescription {
     type Vtable = IAnimationDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2098308425,
-        48701,
-        16862,
-        [176, 129, 5, 193, 73, 150, 47, 155],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2098308425, 48701, 16862, [176, 129, 5, 193, 73, 150, 47, 155]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationDescription_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation_Collections")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::super::Foundation::TimeSpan,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut f32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::super::Foundation::TimeSpan,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IAnimationDescriptionFactory(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IAnimationDescriptionFactory {
     type Vtable = IAnimationDescriptionFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3336731326,
-        49659,
-        18613,
-        [146, 113, 236, 199, 10, 200, 110, 240],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3336731326, 49659, 18613, [146, 113, 236, 199, 10, 200, 110, 240]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAnimationDescriptionFactory_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        effect: AnimationEffect,
-        target: AnimationEffectTarget,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, effect: AnimationEffect, target: AnimationEffectTarget, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IOpacityAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IOpacityAnimation {
     type Vtable = IOpacityAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2151328741,
-        61054,
-        17759,
-        [132, 233, 37, 6, 175, 184, 210, 180],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2151328741, 61054, 17759, [132, 233, 37, 6, 175, 184, 210, 180]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IOpacityAnimation_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut f32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPropertyAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IPropertyAnimation {
     type Vtable = IPropertyAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        973190362,
-        19852,
-        16670,
-        [182, 21, 26, 222, 104, 58, 153, 3],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(973190362, 19852, 16670, [182, 21, 26, 222, 104, 58, 153, 3]);
 }
 impl IPropertyAnimation {
     pub fn Type(&self) -> ::windows::runtime::Result<PropertyAnimationType> {
         let this = self;
         unsafe {
             let mut result__: PropertyAnimationType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<PropertyAnimationType>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -499,25 +283,15 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn Duration(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -525,11 +299,7 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -537,17 +307,12 @@ impl IPropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for IPropertyAnimation {
-    const SIGNATURE: ::windows::runtime::ConstBuffer =
-        ::windows::runtime::ConstBuffer::from_slice(b"{3a01b4da-4d8c-411e-b615-1ade683a9903}");
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"{3a01b4da-4d8c-411e-b615-1ade683a9903}");
 }
 impl ::std::convert::From<IPropertyAnimation> for ::windows::runtime::IUnknown {
     fn from(value: IPropertyAnimation) -> Self {
@@ -561,18 +326,12 @@ impl ::std::convert::From<&IPropertyAnimation> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IPropertyAnimation> for ::windows::runtime::IInspectable {
@@ -585,16 +344,12 @@ impl ::std::convert::From<&IPropertyAnimation> for ::windows::runtime::IInspecta
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
-    for IPropertyAnimation
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for IPropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
         ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
-    for &'a IPropertyAnimation
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a IPropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
         ::windows::runtime::Param::Borrowed(&self.0)
     }
@@ -602,166 +357,72 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPropertyAnimation_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut PropertyAnimationType,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::super::Foundation::TimeSpan,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut PropertyAnimationType) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::super::Foundation::TimeSpan,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::super::Foundation::Point,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::super::Foundation::Point,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IScaleAnimation(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IScaleAnimation {
     type Vtable = IScaleAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        37049031,
-        29099,
-        17036,
-        [156, 159, 211, 23, 128, 150, 73, 149],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(37049031, 29099, 17036, [156, 159, 211, 23, 128, 150, 73, 149]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IScaleAnimation_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut f32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut f32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        result__: *mut super::super::super::Foundation::Point,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, result__: *mut super::super::super::Foundation::Point) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct OpacityAnimation(::windows::runtime::IInspectable);
 impl OpacityAnimation {
     #[cfg(feature = "Foundation")]
-    pub fn InitialOpacity(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<f32>> {
+    pub fn InitialOpacity(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
     pub fn FinalOpacity(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<f32>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     pub fn Type(&self) -> ::windows::runtime::Result<PropertyAnimationType> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: PropertyAnimationType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<PropertyAnimationType>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -769,25 +430,15 @@ impl OpacityAnimation {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn Duration(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -795,11 +446,7 @@ impl OpacityAnimation {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -807,25 +454,16 @@ impl OpacityAnimation {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for OpacityAnimation {
-    const SIGNATURE : :: windows :: runtime :: ConstBuffer = :: windows :: runtime :: ConstBuffer :: from_slice ( b"rc(Windows.UI.Core.AnimationMetrics.OpacityAnimation;{803aabe5-ee7e-455f-84e9-2506afb8d2b4})" ) ;
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.OpacityAnimation;{803aabe5-ee7e-455f-84e9-2506afb8d2b4})");
 }
 unsafe impl ::windows::runtime::Interface for OpacityAnimation {
     type Vtable = IOpacityAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2151328741,
-        61054,
-        17759,
-        [132, 233, 37, 6, 175, 184, 210, 180],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2151328741, 61054, 17759, [132, 233, 37, 6, 175, 184, 210, 180]);
 }
 impl ::windows::runtime::RuntimeName for OpacityAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.OpacityAnimation";
@@ -842,18 +480,12 @@ impl ::std::convert::From<&OpacityAnimation> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for OpacityAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &OpacityAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<OpacityAnimation> for ::windows::runtime::IInspectable {
@@ -871,9 +503,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
-    for &'a OpacityAnimation
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a OpacityAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
         ::windows::runtime::Param::Borrowed(&self.0)
     }
@@ -897,31 +527,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for OpacityAnimat
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for &OpacityAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyAnimation> {
-        ::std::convert::TryInto::<IPropertyAnimation>::try_into(self)
-            .map(::windows::runtime::Param::Owned)
-            .unwrap_or(::windows::runtime::Param::None)
+        ::std::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 unsafe impl ::std::marker::Send for OpacityAnimation {}
 unsafe impl ::std::marker::Sync for OpacityAnimation {}
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct PropertyAnimation(::windows::runtime::IInspectable);
 impl PropertyAnimation {
     pub fn Type(&self) -> ::windows::runtime::Result<PropertyAnimationType> {
         let this = self;
         unsafe {
             let mut result__: PropertyAnimationType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<PropertyAnimationType>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -929,25 +548,15 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn Duration(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -955,11 +564,7 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -967,25 +572,16 @@ impl PropertyAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for PropertyAnimation {
-    const SIGNATURE : :: windows :: runtime :: ConstBuffer = :: windows :: runtime :: ConstBuffer :: from_slice ( b"rc(Windows.UI.Core.AnimationMetrics.PropertyAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})" ) ;
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.PropertyAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
 }
 unsafe impl ::windows::runtime::Interface for PropertyAnimation {
     type Vtable = IPropertyAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        973190362,
-        19852,
-        16670,
-        [182, 21, 26, 222, 104, 58, 153, 3],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(973190362, 19852, 16670, [182, 21, 26, 222, 104, 58, 153, 3]);
 }
 impl ::windows::runtime::RuntimeName for PropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.PropertyAnimation";
@@ -1002,18 +598,12 @@ impl ::std::convert::From<&PropertyAnimation> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for PropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &PropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<PropertyAnimation> for ::windows::runtime::IInspectable {
@@ -1031,9 +621,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
-    for &'a PropertyAnimation
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a PropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
         ::windows::runtime::Param::Borrowed(&self.0)
     }
@@ -1055,21 +643,12 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for PropertyAnima
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for &PropertyAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyAnimation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyAnimation>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyAnimation>::into(::std::clone::Clone::clone(self)))
     }
 }
 unsafe impl ::std::marker::Send for PropertyAnimation {}
 unsafe impl ::std::marker::Sync for PropertyAnimation {}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PropertyAnimationType(pub i32);
 impl PropertyAnimationType {
@@ -1087,92 +666,55 @@ unsafe impl ::windows::runtime::Abi for PropertyAnimationType {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for PropertyAnimationType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.UI.Core.AnimationMetrics.PropertyAnimationType;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.UI.Core.AnimationMetrics.PropertyAnimationType;i4)");
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ScaleAnimation(::windows::runtime::IInspectable);
 impl ScaleAnimation {
     #[cfg(feature = "Foundation")]
-    pub fn InitialScaleX(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<f32>> {
+    pub fn InitialScaleX(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn InitialScaleY(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<f32>> {
+    pub fn InitialScaleY(&self) -> ::windows::runtime::Result<super::super::super::Foundation::IReference<f32>> {
         let this = self;
         unsafe {
             let mut result__: ::windows::runtime::RawPtr = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<f32>>(result__)
         }
     }
     pub fn FinalScaleX(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<f32>(result__)
+            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     pub fn FinalScaleY(&self) -> ::windows::runtime::Result<f32> {
         let this = self;
         unsafe {
             let mut result__: f32 = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<f32>(result__)
+            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn NormalizedOrigin(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
+    pub fn NormalizedOrigin(&self) -> ::windows::runtime::Result<super::super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     pub fn Type(&self) -> ::windows::runtime::Result<PropertyAnimationType> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: PropertyAnimationType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<PropertyAnimationType>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1180,25 +722,15 @@ impl ScaleAnimation {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn Duration(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1206,11 +738,7 @@ impl ScaleAnimation {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1218,25 +746,16 @@ impl ScaleAnimation {
         let this = &::windows::runtime::Interface::cast::<IPropertyAnimation>(self)?;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for ScaleAnimation {
-    const SIGNATURE : :: windows :: runtime :: ConstBuffer = :: windows :: runtime :: ConstBuffer :: from_slice ( b"rc(Windows.UI.Core.AnimationMetrics.ScaleAnimation;{023552c7-71ab-428c-9c9f-d31780964995})" ) ;
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.ScaleAnimation;{023552c7-71ab-428c-9c9f-d31780964995})");
 }
 unsafe impl ::windows::runtime::Interface for ScaleAnimation {
     type Vtable = IScaleAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        37049031,
-        29099,
-        17036,
-        [156, 159, 211, 23, 128, 150, 73, 149],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(37049031, 29099, 17036, [156, 159, 211, 23, 128, 150, 73, 149]);
 }
 impl ::windows::runtime::RuntimeName for ScaleAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.ScaleAnimation";
@@ -1253,18 +772,12 @@ impl ::std::convert::From<&ScaleAnimation> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ScaleAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ScaleAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<ScaleAnimation> for ::windows::runtime::IInspectable {
@@ -1282,9 +795,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for
         ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
-    for &'a ScaleAnimation
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a ScaleAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
         ::windows::runtime::Param::Borrowed(&self.0)
     }
@@ -1308,31 +819,20 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for ScaleAnimatio
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for &ScaleAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyAnimation> {
-        ::std::convert::TryInto::<IPropertyAnimation>::try_into(self)
-            .map(::windows::runtime::Param::Owned)
-            .unwrap_or(::windows::runtime::Param::None)
+        ::std::convert::TryInto::<IPropertyAnimation>::try_into(self).map(::windows::runtime::Param::Owned).unwrap_or(::windows::runtime::Param::None)
     }
 }
 unsafe impl ::std::marker::Send for ScaleAnimation {}
 unsafe impl ::std::marker::Sync for ScaleAnimation {}
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct TranslationAnimation(::windows::runtime::IInspectable);
 impl TranslationAnimation {
     pub fn Type(&self) -> ::windows::runtime::Result<PropertyAnimationType> {
         let this = self;
         unsafe {
             let mut result__: PropertyAnimationType = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<PropertyAnimationType>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), &mut result__).from_abi::<PropertyAnimationType>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1340,25 +840,15 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
-    pub fn Duration(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> ::windows::runtime::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::TimeSpan = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::TimeSpan>(result__)
+            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1366,11 +856,7 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
     #[cfg(feature = "Foundation")]
@@ -1378,25 +864,16 @@ impl TranslationAnimation {
         let this = self;
         unsafe {
             let mut result__: super::super::super::Foundation::Point = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(
-                ::std::mem::transmute_copy(this),
-                &mut result__,
-            )
-            .from_abi::<super::super::super::Foundation::Point>(result__)
+            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Point>(result__)
         }
     }
 }
 unsafe impl ::windows::runtime::RuntimeType for TranslationAnimation {
-    const SIGNATURE : :: windows :: runtime :: ConstBuffer = :: windows :: runtime :: ConstBuffer :: from_slice ( b"rc(Windows.UI.Core.AnimationMetrics.TranslationAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})" ) ;
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.TranslationAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
 }
 unsafe impl ::windows::runtime::Interface for TranslationAnimation {
     type Vtable = IPropertyAnimation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        973190362,
-        19852,
-        16670,
-        [182, 21, 26, 222, 104, 58, 153, 3],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(973190362, 19852, 16670, [182, 21, 26, 222, 104, 58, 153, 3]);
 }
 impl ::windows::runtime::RuntimeName for TranslationAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.TranslationAnimation";
@@ -1413,18 +890,12 @@ impl ::std::convert::From<&TranslationAnimation> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for TranslationAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &TranslationAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<TranslationAnimation> for ::windows::runtime::IInspectable {
@@ -1437,16 +908,12 @@ impl ::std::convert::From<&TranslationAnimation> for ::windows::runtime::IInspec
         value.0.clone()
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
-    for TranslationAnimation
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for TranslationAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
         ::windows::runtime::Param::Owned(self.0)
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>
-    for &'a TranslationAnimation
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable> for &'a TranslationAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IInspectable> {
         ::windows::runtime::Param::Borrowed(&self.0)
     }
@@ -1468,9 +935,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for TranslationAn
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IPropertyAnimation> for &TranslationAnimation {
     fn into_param(self) -> ::windows::runtime::Param<'a, IPropertyAnimation> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyAnimation>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IPropertyAnimation>::into(::std::clone::Clone::clone(self)))
     }
 }
 unsafe impl ::std::marker::Send for TranslationAnimation {}

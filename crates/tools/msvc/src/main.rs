@@ -48,47 +48,23 @@ fn main() {
     }
 }
 
-fn load_functions(
-    tree: &TypeTree,
-    libraries: &mut BTreeMap<String, BTreeMap<&'static str, usize>>,
-) {
-    tree.types
-        .values()
-        .map(|entry| entry.def.iter())
-        .flatten()
-        .for_each(|def| load_function(def, libraries));
+fn load_functions(tree: &TypeTree, libraries: &mut BTreeMap<String, BTreeMap<&'static str, usize>>) {
+    tree.types.values().map(|entry| entry.def.iter()).flatten().for_each(|def| load_function(def, libraries));
 
-    tree.namespaces
-        .values()
-        .for_each(|tree| load_functions(tree, libraries));
+    tree.namespaces.values().for_each(|tree| load_functions(tree, libraries));
 }
 
-fn load_function(
-    def: &ElementType,
-    libraries: &mut BTreeMap<String, BTreeMap<&'static str, usize>>,
-) {
+fn load_function(def: &ElementType, libraries: &mut BTreeMap<String, BTreeMap<&'static str, usize>>) {
     if let ElementType::MethodDef(def) = def {
-        let library = def
-            .impl_map()
-            .expect("Function")
-            .scope()
-            .name()
-            .to_lowercase();
+        let library = def.impl_map().expect("Function").scope().name().to_lowercase();
 
         let params = def.signature(&[]).size();
 
-        libraries
-            .entry(library)
-            .or_default()
-            .insert(def.name(), params);
+        libraries.entry(library).or_default().insert(def.name(), params);
     }
 }
 
-fn build_library(
-    output: &std::path::Path,
-    library: &str,
-    functions: &BTreeMap<&'static str, usize>,
-) {
+fn build_library(output: &std::path::Path, library: &str, functions: &BTreeMap<&'static str, usize>) {
     println!("{}", library);
 
     // Note that we don't use set_extension as it confuses PathBuf when the library name includes a period.
@@ -109,11 +85,7 @@ EXPORTS
 "#,
             // DllImportAttribute dllName not explicitly specified for bthprops.cpl #714
             // https://github.com/microsoft/win32metadata/issues/714
-            if library == "bthprops" {
-                "bthprops.cpl"
-            } else {
-                library
-            }
+            if library == "bthprops" { "bthprops.cpl" } else { library }
         )
         .as_bytes(),
     )

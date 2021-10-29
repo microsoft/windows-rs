@@ -13,12 +13,7 @@ impl RustTest {
         *b = a;
         Ok(a)
     }
-    fn ArraySignatureDouble(
-        &self,
-        a: &[f64],
-        b: &mut [f64],
-        c: &mut Array<f64>,
-    ) -> Result<Array<f64>> {
+    fn ArraySignatureDouble(&self, a: &[f64], b: &mut [f64], c: &mut Array<f64>) -> Result<Array<f64>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);

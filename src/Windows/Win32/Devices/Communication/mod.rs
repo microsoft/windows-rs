@@ -1,130 +1,61 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildCommDCBA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpdef: Param0,
-    lpdcb: *mut DCB,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn BuildCommDCBA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpdef: Param0, lpdcb: *mut DCB) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BuildCommDCBA(
-                lpdef: super::super::Foundation::PSTR,
-                lpdcb: *mut DCB,
-            ) -> super::super::Foundation::BOOL;
+            fn BuildCommDCBA(lpdef: super::super::Foundation::PSTR, lpdcb: *mut DCB) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BuildCommDCBA(
-            lpdef.into_param().abi(),
-            ::std::mem::transmute(lpdcb),
-        ))
+        ::std::mem::transmute(BuildCommDCBA(lpdef.into_param().abi(), ::std::mem::transmute(lpdcb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildCommDCBAndTimeoutsA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpdef: Param0,
-    lpdcb: *mut DCB,
-    lpcommtimeouts: *mut COMMTIMEOUTS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn BuildCommDCBAndTimeoutsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpdef: Param0, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BuildCommDCBAndTimeoutsA(
-                lpdef: super::super::Foundation::PSTR,
-                lpdcb: *mut DCB,
-                lpcommtimeouts: *mut COMMTIMEOUTS,
-            ) -> super::super::Foundation::BOOL;
+            fn BuildCommDCBAndTimeoutsA(lpdef: super::super::Foundation::PSTR, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BuildCommDCBAndTimeoutsA(
-            lpdef.into_param().abi(),
-            ::std::mem::transmute(lpdcb),
-            ::std::mem::transmute(lpcommtimeouts),
-        ))
+        ::std::mem::transmute(BuildCommDCBAndTimeoutsA(lpdef.into_param().abi(), ::std::mem::transmute(lpdcb), ::std::mem::transmute(lpcommtimeouts)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildCommDCBAndTimeoutsW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpdef: Param0,
-    lpdcb: *mut DCB,
-    lpcommtimeouts: *mut COMMTIMEOUTS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn BuildCommDCBAndTimeoutsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdef: Param0, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BuildCommDCBAndTimeoutsW(
-                lpdef: super::super::Foundation::PWSTR,
-                lpdcb: *mut DCB,
-                lpcommtimeouts: *mut COMMTIMEOUTS,
-            ) -> super::super::Foundation::BOOL;
+            fn BuildCommDCBAndTimeoutsW(lpdef: super::super::Foundation::PWSTR, lpdcb: *mut DCB, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BuildCommDCBAndTimeoutsW(
-            lpdef.into_param().abi(),
-            ::std::mem::transmute(lpdcb),
-            ::std::mem::transmute(lpcommtimeouts),
-        ))
+        ::std::mem::transmute(BuildCommDCBAndTimeoutsW(lpdef.into_param().abi(), ::std::mem::transmute(lpdcb), ::std::mem::transmute(lpcommtimeouts)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn BuildCommDCBW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpdef: Param0,
-    lpdcb: *mut DCB,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn BuildCommDCBW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdef: Param0, lpdcb: *mut DCB) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn BuildCommDCBW(
-                lpdef: super::super::Foundation::PWSTR,
-                lpdcb: *mut DCB,
-            ) -> super::super::Foundation::BOOL;
+            fn BuildCommDCBW(lpdef: super::super::Foundation::PWSTR, lpdcb: *mut DCB) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(BuildCommDCBW(
-            lpdef.into_param().abi(),
-            ::std::mem::transmute(lpdcb),
-        ))
+        ::std::mem::transmute(BuildCommDCBW(lpdef.into_param().abi(), ::std::mem::transmute(lpdcb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLEAR_COMM_ERROR_FLAGS(pub u32);
 pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(16u32);
@@ -208,14 +139,7 @@ impl ::std::fmt::Debug for COMMCONFIG {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for COMMCONFIG {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.wVersion == other.wVersion
-            && self.wReserved == other.wReserved
-            && self.dcb == other.dcb
-            && self.dwProviderSubType == other.dwProviderSubType
-            && self.dwProviderOffset == other.dwProviderOffset
-            && self.dwProviderSize == other.dwProviderSize
-            && self.wcProviderData == other.wcProviderData
+        self.dwSize == other.dwSize && self.wVersion == other.wVersion && self.wReserved == other.wReserved && self.dcb == other.dcb && self.dwProviderSubType == other.dwProviderSubType && self.dwProviderOffset == other.dwProviderOffset && self.dwProviderSize == other.dwProviderSize && self.wcProviderData == other.wcProviderData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -304,14 +228,7 @@ unsafe impl ::windows::runtime::Abi for COMMPROP {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMMPROP_STOP_PARITY(pub u16);
 pub const STOPBITS_10: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1u16);
@@ -378,26 +295,16 @@ impl ::std::fmt::Debug for COMMTIMEOUTS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("COMMTIMEOUTS")
             .field("ReadIntervalTimeout", &self.ReadIntervalTimeout)
-            .field(
-                "ReadTotalTimeoutMultiplier",
-                &self.ReadTotalTimeoutMultiplier,
-            )
+            .field("ReadTotalTimeoutMultiplier", &self.ReadTotalTimeoutMultiplier)
             .field("ReadTotalTimeoutConstant", &self.ReadTotalTimeoutConstant)
-            .field(
-                "WriteTotalTimeoutMultiplier",
-                &self.WriteTotalTimeoutMultiplier,
-            )
+            .field("WriteTotalTimeoutMultiplier", &self.WriteTotalTimeoutMultiplier)
             .field("WriteTotalTimeoutConstant", &self.WriteTotalTimeoutConstant)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for COMMTIMEOUTS {
     fn eq(&self, other: &Self) -> bool {
-        self.ReadIntervalTimeout == other.ReadIntervalTimeout
-            && self.ReadTotalTimeoutMultiplier == other.ReadTotalTimeoutMultiplier
-            && self.ReadTotalTimeoutConstant == other.ReadTotalTimeoutConstant
-            && self.WriteTotalTimeoutMultiplier == other.WriteTotalTimeoutMultiplier
-            && self.WriteTotalTimeoutConstant == other.WriteTotalTimeoutConstant
+        self.ReadIntervalTimeout == other.ReadIntervalTimeout && self.ReadTotalTimeoutMultiplier == other.ReadTotalTimeoutMultiplier && self.ReadTotalTimeoutConstant == other.ReadTotalTimeoutConstant && self.WriteTotalTimeoutMultiplier == other.WriteTotalTimeoutMultiplier && self.WriteTotalTimeoutConstant == other.WriteTotalTimeoutConstant
     }
 }
 impl ::std::cmp::Eq for COMMTIMEOUTS {}
@@ -405,14 +312,7 @@ unsafe impl ::windows::runtime::Abi for COMMTIMEOUTS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMM_EVENT_MASK(pub u32);
 pub const EV_BREAK: COMM_EVENT_MASK = COMM_EVENT_MASK(64u32);
@@ -480,18 +380,12 @@ impl ::std::default::Default for COMSTAT {
 }
 impl ::std::fmt::Debug for COMSTAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("COMSTAT")
-            .field("_bitfield", &self._bitfield)
-            .field("cbInQue", &self.cbInQue)
-            .field("cbOutQue", &self.cbOutQue)
-            .finish()
+        fmt.debug_struct("COMSTAT").field("_bitfield", &self._bitfield).field("cbInQue", &self.cbInQue).field("cbOutQue", &self.cbOutQue).finish()
     }
 }
 impl ::std::cmp::PartialEq for COMSTAT {
     fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-            && self.cbInQue == other.cbInQue
-            && self.cbOutQue == other.cbOutQue
+        self._bitfield == other._bitfield && self.cbInQue == other.cbInQue && self.cbOutQue == other.cbOutQue
     }
 }
 impl ::std::cmp::Eq for COMSTAT {}
@@ -501,19 +395,12 @@ unsafe impl ::windows::runtime::Abi for COMSTAT {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClearCommBreak<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ClearCommBreak<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ClearCommBreak(
-                hfile: super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::BOOL;
+            fn ClearCommBreak(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ClearCommBreak(hfile.into_param().abi()))
     }
@@ -522,89 +409,42 @@ pub unsafe fn ClearCommBreak<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ClearCommError<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    lperrors: *mut CLEAR_COMM_ERROR_FLAGS,
-    lpstat: *mut COMSTAT,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn ClearCommError<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lperrors: *mut CLEAR_COMM_ERROR_FLAGS, lpstat: *mut COMSTAT) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ClearCommError(
-                hfile: super::super::Foundation::HANDLE,
-                lperrors: *mut CLEAR_COMM_ERROR_FLAGS,
-                lpstat: *mut COMSTAT,
-            ) -> super::super::Foundation::BOOL;
+            fn ClearCommError(hfile: super::super::Foundation::HANDLE, lperrors: *mut CLEAR_COMM_ERROR_FLAGS, lpstat: *mut COMSTAT) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(ClearCommError(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(lperrors),
-            ::std::mem::transmute(lpstat),
-        ))
+        ::std::mem::transmute(ClearCommError(hfile.into_param().abi(), ::std::mem::transmute(lperrors), ::std::mem::transmute(lpstat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CommConfigDialogA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    lpszname: Param0,
-    hwnd: Param1,
-    lpcc: *mut COMMCONFIG,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CommConfigDialogA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszname: Param0, hwnd: Param1, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CommConfigDialogA(
-                lpszname: super::super::Foundation::PSTR,
-                hwnd: super::super::Foundation::HWND,
-                lpcc: *mut COMMCONFIG,
-            ) -> super::super::Foundation::BOOL;
+            fn CommConfigDialogA(lpszname: super::super::Foundation::PSTR, hwnd: super::super::Foundation::HWND, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CommConfigDialogA(
-            lpszname.into_param().abi(),
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(lpcc),
-        ))
+        ::std::mem::transmute(CommConfigDialogA(lpszname.into_param().abi(), hwnd.into_param().abi(), ::std::mem::transmute(lpcc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CommConfigDialogW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
->(
-    lpszname: Param0,
-    hwnd: Param1,
-    lpcc: *mut COMMCONFIG,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn CommConfigDialogW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(lpszname: Param0, hwnd: Param1, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CommConfigDialogW(
-                lpszname: super::super::Foundation::PWSTR,
-                hwnd: super::super::Foundation::HWND,
-                lpcc: *mut COMMCONFIG,
-            ) -> super::super::Foundation::BOOL;
+            fn CommConfigDialogW(lpszname: super::super::Foundation::PWSTR, hwnd: super::super::Foundation::HWND, lpcc: *mut COMMCONFIG) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CommConfigDialogW(
-            lpszname.into_param().abi(),
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(lpcc),
-        ))
+        ::std::mem::transmute(CommConfigDialogW(lpszname.into_param().abi(), hwnd.into_param().abi(), ::std::mem::transmute(lpcc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -686,14 +526,7 @@ unsafe impl ::windows::runtime::Abi for DCB {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ESCAPE_COMM_FUNCTION(pub u32);
 pub const CLRBREAK: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(9u32);
@@ -743,268 +576,139 @@ impl ::std::ops::Not for ESCAPE_COMM_FUNCTION {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EscapeCommFunction<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    dwfunc: ESCAPE_COMM_FUNCTION,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn EscapeCommFunction<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwfunc: ESCAPE_COMM_FUNCTION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EscapeCommFunction(
-                hfile: super::super::Foundation::HANDLE,
-                dwfunc: ESCAPE_COMM_FUNCTION,
-            ) -> super::super::Foundation::BOOL;
+            fn EscapeCommFunction(hfile: super::super::Foundation::HANDLE, dwfunc: ESCAPE_COMM_FUNCTION) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(EscapeCommFunction(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(dwfunc),
-        ))
+        ::std::mem::transmute(EscapeCommFunction(hfile.into_param().abi(), ::std::mem::transmute(dwfunc)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommConfig<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hcommdev: Param0,
-    lpcc: *mut COMMCONFIG,
-    lpdwsize: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCommConfig<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hcommdev: Param0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetCommConfig(
-                hcommdev: super::super::Foundation::HANDLE,
-                lpcc: *mut COMMCONFIG,
-                lpdwsize: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GetCommConfig(hcommdev: super::super::Foundation::HANDLE, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCommConfig(
-            hcommdev.into_param().abi(),
-            ::std::mem::transmute(lpcc),
-            ::std::mem::transmute(lpdwsize),
-        ))
+        ::std::mem::transmute(GetCommConfig(hcommdev.into_param().abi(), ::std::mem::transmute(lpcc), ::std::mem::transmute(lpdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommMask<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    lpevtmask: *mut COMM_EVENT_MASK,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCommMask<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpevtmask: *mut COMM_EVENT_MASK) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetCommMask(
-                hfile: super::super::Foundation::HANDLE,
-                lpevtmask: *mut COMM_EVENT_MASK,
-            ) -> super::super::Foundation::BOOL;
+            fn GetCommMask(hfile: super::super::Foundation::HANDLE, lpevtmask: *mut COMM_EVENT_MASK) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCommMask(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(lpevtmask),
-        ))
+        ::std::mem::transmute(GetCommMask(hfile.into_param().abi(), ::std::mem::transmute(lpevtmask)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommModemStatus<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    lpmodemstat: *mut MODEM_STATUS_FLAGS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCommModemStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpmodemstat: *mut MODEM_STATUS_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetCommModemStatus(
-                hfile: super::super::Foundation::HANDLE,
-                lpmodemstat: *mut MODEM_STATUS_FLAGS,
-            ) -> super::super::Foundation::BOOL;
+            fn GetCommModemStatus(hfile: super::super::Foundation::HANDLE, lpmodemstat: *mut MODEM_STATUS_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCommModemStatus(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(lpmodemstat),
-        ))
+        ::std::mem::transmute(GetCommModemStatus(hfile.into_param().abi(), ::std::mem::transmute(lpmodemstat)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn GetCommPorts(
-    lpportnumbers: *mut u32,
-    uportnumberscount: u32,
-    puportnumbersfound: *mut u32,
-) -> u32 {
+pub unsafe fn GetCommPorts(lpportnumbers: *mut u32, uportnumberscount: u32, puportnumbersfound: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetCommPorts(
-                lpportnumbers: *mut u32,
-                uportnumberscount: u32,
-                puportnumbersfound: *mut u32,
-            ) -> u32;
+            fn GetCommPorts(lpportnumbers: *mut u32, uportnumberscount: u32, puportnumbersfound: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetCommPorts(
-            ::std::mem::transmute(lpportnumbers),
-            ::std::mem::transmute(uportnumberscount),
-            ::std::mem::transmute(puportnumbersfound),
-        ))
+        ::std::mem::transmute(GetCommPorts(::std::mem::transmute(lpportnumbers), ::std::mem::transmute(uportnumberscount), ::std::mem::transmute(puportnumbersfound)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommProperties<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    lpcommprop: *mut COMMPROP,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCommProperties<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpcommprop: *mut COMMPROP) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetCommProperties(
-                hfile: super::super::Foundation::HANDLE,
-                lpcommprop: *mut COMMPROP,
-            ) -> super::super::Foundation::BOOL;
+            fn GetCommProperties(hfile: super::super::Foundation::HANDLE, lpcommprop: *mut COMMPROP) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCommProperties(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(lpcommprop),
-        ))
+        ::std::mem::transmute(GetCommProperties(hfile.into_param().abi(), ::std::mem::transmute(lpcommprop)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommState<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    lpdcb: *mut DCB,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCommState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpdcb: *mut DCB) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetCommState(
-                hfile: super::super::Foundation::HANDLE,
-                lpdcb: *mut DCB,
-            ) -> super::super::Foundation::BOOL;
+            fn GetCommState(hfile: super::super::Foundation::HANDLE, lpdcb: *mut DCB) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCommState(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(lpdcb),
-        ))
+        ::std::mem::transmute(GetCommState(hfile.into_param().abi(), ::std::mem::transmute(lpdcb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCommTimeouts<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    lpcommtimeouts: *mut COMMTIMEOUTS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCommTimeouts<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetCommTimeouts(
-                hfile: super::super::Foundation::HANDLE,
-                lpcommtimeouts: *mut COMMTIMEOUTS,
-            ) -> super::super::Foundation::BOOL;
+            fn GetCommTimeouts(hfile: super::super::Foundation::HANDLE, lpcommtimeouts: *mut COMMTIMEOUTS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCommTimeouts(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(lpcommtimeouts),
-        ))
+        ::std::mem::transmute(GetCommTimeouts(hfile.into_param().abi(), ::std::mem::transmute(lpcommtimeouts)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDefaultCommConfigA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszname: Param0,
-    lpcc: *mut COMMCONFIG,
-    lpdwsize: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDefaultCommConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszname: Param0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDefaultCommConfigA(
-                lpszname: super::super::Foundation::PSTR,
-                lpcc: *mut COMMCONFIG,
-                lpdwsize: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GetDefaultCommConfigA(lpszname: super::super::Foundation::PSTR, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetDefaultCommConfigA(
-            lpszname.into_param().abi(),
-            ::std::mem::transmute(lpcc),
-            ::std::mem::transmute(lpdwsize),
-        ))
+        ::std::mem::transmute(GetDefaultCommConfigA(lpszname.into_param().abi(), ::std::mem::transmute(lpcc), ::std::mem::transmute(lpdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetDefaultCommConfigW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszname: Param0,
-    lpcc: *mut COMMCONFIG,
-    lpdwsize: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetDefaultCommConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszname: Param0, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDefaultCommConfigW(
-                lpszname: super::super::Foundation::PWSTR,
-                lpcc: *mut COMMCONFIG,
-                lpdwsize: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn GetDefaultCommConfigW(lpszname: super::super::Foundation::PWSTR, lpcc: *mut COMMCONFIG, lpdwsize: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetDefaultCommConfigW(
-            lpszname.into_param().abi(),
-            ::std::mem::transmute(lpcc),
-            ::std::mem::transmute(lpdwsize),
-        ))
+        ::std::mem::transmute(GetDefaultCommConfigW(lpszname.into_param().abi(), ::std::mem::transmute(lpcc), ::std::mem::transmute(lpdwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1185,14 +889,7 @@ unsafe impl ::windows::runtime::Abi for MODEMDEVCAPS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
 pub const DIALOPTION_BILLING: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(64u32);
@@ -1235,14 +932,7 @@ impl ::std::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODEMDEVCAPS_SPEAKER_MODE(pub u32);
 pub const MDMSPKRFLAG_CALLSETUP: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(8u32);
@@ -1286,14 +976,7 @@ impl ::std::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODEMDEVCAPS_SPEAKER_VOLUME(pub u32);
 pub const MDMVOLFLAG_HIGH: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(4u32);
@@ -1397,14 +1080,7 @@ unsafe impl ::windows::runtime::Abi for MODEMSETTINGS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODEMSETTINGS_SPEAKER_MODE(pub u32);
 pub const MDMSPKR_CALLSETUP: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(8u32);
@@ -1448,14 +1124,7 @@ impl ::std::ops::Not for MODEMSETTINGS_SPEAKER_MODE {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODEM_SPEAKER_VOLUME(pub u32);
 pub const MDMVOL_HIGH: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(2u32);
@@ -1498,14 +1167,7 @@ impl ::std::ops::Not for MODEM_SPEAKER_VOLUME {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MODEM_STATUS_FLAGS(pub u32);
 pub const MS_CTS_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(16u32);
@@ -1551,38 +1213,19 @@ impl ::std::ops::Not for MODEM_STATUS_FLAGS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn OpenCommPort(
-    uportnumber: u32,
-    dwdesiredaccess: u32,
-    dwflagsandattributes: u32,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn OpenCommPort(uportnumber: u32, dwdesiredaccess: u32, dwflagsandattributes: u32) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn OpenCommPort(
-                uportnumber: u32,
-                dwdesiredaccess: u32,
-                dwflagsandattributes: u32,
-            ) -> super::super::Foundation::HANDLE;
+            fn OpenCommPort(uportnumber: u32, dwdesiredaccess: u32, dwflagsandattributes: u32) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(OpenCommPort(
-            ::std::mem::transmute(uportnumber),
-            ::std::mem::transmute(dwdesiredaccess),
-            ::std::mem::transmute(dwflagsandattributes),
-        ))
+        ::std::mem::transmute(OpenCommPort(::std::mem::transmute(uportnumber), ::std::mem::transmute(dwdesiredaccess), ::std::mem::transmute(dwflagsandattributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PURGE_COMM_FLAGS(pub u32);
 pub const PURGE_RXABORT: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(2u32);
@@ -1628,51 +1271,27 @@ impl ::std::ops::Not for PURGE_COMM_FLAGS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PurgeComm<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    dwflags: PURGE_COMM_FLAGS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn PurgeComm<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwflags: PURGE_COMM_FLAGS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PurgeComm(
-                hfile: super::super::Foundation::HANDLE,
-                dwflags: PURGE_COMM_FLAGS,
-            ) -> super::super::Foundation::BOOL;
+            fn PurgeComm(hfile: super::super::Foundation::HANDLE, dwflags: PURGE_COMM_FLAGS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(PurgeComm(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-        ))
+        ::std::mem::transmute(PurgeComm(hfile.into_param().abi(), ::std::mem::transmute(dwflags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub const SID_3GPP_SUPSVCMODEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3620769287,
-    55143,
-    17528,
-    [177, 74, 238, 204, 135, 234, 18, 247],
-);
+pub const SID_3GPP_SUPSVCMODEL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3620769287, 55143, 17528, [177, 74, 238, 204, 135, 234, 18, 247]);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCommBreak<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetCommBreak<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetCommBreak(
-                hfile: super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::BOOL;
+            fn SetCommBreak(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(SetCommBreak(hfile.into_param().abi()))
     }
@@ -1681,250 +1300,126 @@ pub unsafe fn SetCommBreak<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCommConfig<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hcommdev: Param0,
-    lpcc: *const COMMCONFIG,
-    dwsize: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetCommConfig<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hcommdev: Param0, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetCommConfig(
-                hcommdev: super::super::Foundation::HANDLE,
-                lpcc: *const COMMCONFIG,
-                dwsize: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn SetCommConfig(hcommdev: super::super::Foundation::HANDLE, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCommConfig(
-            hcommdev.into_param().abi(),
-            ::std::mem::transmute(lpcc),
-            ::std::mem::transmute(dwsize),
-        ))
+        ::std::mem::transmute(SetCommConfig(hcommdev.into_param().abi(), ::std::mem::transmute(lpcc), ::std::mem::transmute(dwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCommMask<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    dwevtmask: COMM_EVENT_MASK,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetCommMask<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwevtmask: COMM_EVENT_MASK) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetCommMask(
-                hfile: super::super::Foundation::HANDLE,
-                dwevtmask: COMM_EVENT_MASK,
-            ) -> super::super::Foundation::BOOL;
+            fn SetCommMask(hfile: super::super::Foundation::HANDLE, dwevtmask: COMM_EVENT_MASK) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCommMask(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(dwevtmask),
-        ))
+        ::std::mem::transmute(SetCommMask(hfile.into_param().abi(), ::std::mem::transmute(dwevtmask)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCommState<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    lpdcb: *const DCB,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetCommState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpdcb: *const DCB) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetCommState(
-                hfile: super::super::Foundation::HANDLE,
-                lpdcb: *const DCB,
-            ) -> super::super::Foundation::BOOL;
+            fn SetCommState(hfile: super::super::Foundation::HANDLE, lpdcb: *const DCB) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCommState(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(lpdcb),
-        ))
+        ::std::mem::transmute(SetCommState(hfile.into_param().abi(), ::std::mem::transmute(lpdcb)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetCommTimeouts<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    lpcommtimeouts: *const COMMTIMEOUTS,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetCommTimeouts<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpcommtimeouts: *const COMMTIMEOUTS) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetCommTimeouts(
-                hfile: super::super::Foundation::HANDLE,
-                lpcommtimeouts: *const COMMTIMEOUTS,
-            ) -> super::super::Foundation::BOOL;
+            fn SetCommTimeouts(hfile: super::super::Foundation::HANDLE, lpcommtimeouts: *const COMMTIMEOUTS) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetCommTimeouts(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(lpcommtimeouts),
-        ))
+        ::std::mem::transmute(SetCommTimeouts(hfile.into_param().abi(), ::std::mem::transmute(lpcommtimeouts)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDefaultCommConfigA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    lpszname: Param0,
-    lpcc: *const COMMCONFIG,
-    dwsize: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetDefaultCommConfigA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(lpszname: Param0, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetDefaultCommConfigA(
-                lpszname: super::super::Foundation::PSTR,
-                lpcc: *const COMMCONFIG,
-                dwsize: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn SetDefaultCommConfigA(lpszname: super::super::Foundation::PSTR, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetDefaultCommConfigA(
-            lpszname.into_param().abi(),
-            ::std::mem::transmute(lpcc),
-            ::std::mem::transmute(dwsize),
-        ))
+        ::std::mem::transmute(SetDefaultCommConfigA(lpszname.into_param().abi(), ::std::mem::transmute(lpcc), ::std::mem::transmute(dwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetDefaultCommConfigW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpszname: Param0,
-    lpcc: *const COMMCONFIG,
-    dwsize: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetDefaultCommConfigW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszname: Param0, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetDefaultCommConfigW(
-                lpszname: super::super::Foundation::PWSTR,
-                lpcc: *const COMMCONFIG,
-                dwsize: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn SetDefaultCommConfigW(lpszname: super::super::Foundation::PWSTR, lpcc: *const COMMCONFIG, dwsize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetDefaultCommConfigW(
-            lpszname.into_param().abi(),
-            ::std::mem::transmute(lpcc),
-            ::std::mem::transmute(dwsize),
-        ))
+        ::std::mem::transmute(SetDefaultCommConfigW(lpszname.into_param().abi(), ::std::mem::transmute(lpcc), ::std::mem::transmute(dwsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetupComm<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    dwinqueue: u32,
-    dwoutqueue: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn SetupComm<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwinqueue: u32, dwoutqueue: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetupComm(
-                hfile: super::super::Foundation::HANDLE,
-                dwinqueue: u32,
-                dwoutqueue: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn SetupComm(hfile: super::super::Foundation::HANDLE, dwinqueue: u32, dwoutqueue: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(SetupComm(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(dwinqueue),
-            ::std::mem::transmute(dwoutqueue),
-        ))
+        ::std::mem::transmute(SetupComm(hfile.into_param().abi(), ::std::mem::transmute(dwinqueue), ::std::mem::transmute(dwoutqueue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn TransmitCommChar<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::CHAR>,
->(
-    hfile: Param0,
-    cchar: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn TransmitCommChar<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::CHAR>>(hfile: Param0, cchar: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn TransmitCommChar(
-                hfile: super::super::Foundation::HANDLE,
-                cchar: super::super::Foundation::CHAR,
-            ) -> super::super::Foundation::BOOL;
+            fn TransmitCommChar(hfile: super::super::Foundation::HANDLE, cchar: super::super::Foundation::CHAR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(TransmitCommChar(
-            hfile.into_param().abi(),
-            cchar.into_param().abi(),
-        ))
+        ::std::mem::transmute(TransmitCommChar(hfile.into_param().abi(), cchar.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WaitCommEvent<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    lpevtmask: *mut COMM_EVENT_MASK,
-    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WaitCommEvent<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WaitCommEvent(
-                hfile: super::super::Foundation::HANDLE,
-                lpevtmask: *mut COMM_EVENT_MASK,
-                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> super::super::Foundation::BOOL;
+            fn WaitCommEvent(hfile: super::super::Foundation::HANDLE, lpevtmask: *mut COMM_EVENT_MASK, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WaitCommEvent(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(lpevtmask),
-            ::std::mem::transmute(lpoverlapped),
-        ))
+        ::std::mem::transmute(WaitCommEvent(hfile.into_param().abi(), ::std::mem::transmute(lpevtmask), ::std::mem::transmute(lpoverlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

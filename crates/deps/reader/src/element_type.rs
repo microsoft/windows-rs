@@ -153,11 +153,7 @@ impl ElementType {
         }
     }
 
-    pub fn struct_features(
-        &self,
-        features: &mut BTreeSet<&'static str>,
-        keys: &mut std::collections::HashSet<Row>,
-    ) {
+    pub fn struct_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
         match self {
             Self::TypeDef(def) => def.struct_features(features, keys),
             Self::Array((signature, _)) => signature.kind.struct_features(features, keys),
@@ -165,11 +161,7 @@ impl ElementType {
         }
     }
 
-    pub fn method_features(
-        &self,
-        features: &mut BTreeSet<&'static str>,
-        keys: &mut std::collections::HashSet<Row>,
-    ) {
+    pub fn method_features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
         match self {
             Self::TypeDef(def) => def.method_features(features, keys),
             Self::Array((signature, _)) => signature.kind.method_features(features, keys),
@@ -197,11 +189,7 @@ impl ElementType {
     pub fn is_convertible(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.is_convertible(),
-            Self::String
-            | Self::IInspectable
-            | Self::GUID
-            | Self::IUnknown
-            | Self::GenericParam(_) => true,
+            Self::String | Self::IInspectable | Self::GUID | Self::IUnknown | Self::GenericParam(_) => true,
             _ => false,
         }
     }
@@ -216,21 +204,7 @@ impl ElementType {
     pub fn is_primitive(&self) -> bool {
         match self {
             Self::TypeDef(t) => t.is_primitive(),
-            Self::Bool
-            | Self::Char
-            | Self::I8
-            | Self::U8
-            | Self::I16
-            | Self::U16
-            | Self::I32
-            | Self::U32
-            | Self::I64
-            | Self::U64
-            | Self::F32
-            | Self::F64
-            | Self::ISize
-            | Self::USize
-            | Self::HRESULT => true,
+            Self::Bool | Self::Char | Self::I8 | Self::U8 | Self::I16 | Self::U16 | Self::I32 | Self::U32 | Self::I64 | Self::U64 | Self::F32 | Self::F64 | Self::ISize | Self::USize | Self::HRESULT => true,
             _ => false,
         }
     }

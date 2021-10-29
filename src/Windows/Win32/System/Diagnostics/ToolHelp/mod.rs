@@ -1,30 +1,12 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CREATE_TOOLHELP_SNAPSHOT_FLAGS(pub u32);
-pub const TH32CS_INHERIT: CREATE_TOOLHELP_SNAPSHOT_FLAGS =
-    CREATE_TOOLHELP_SNAPSHOT_FLAGS(2147483648u32);
+pub const TH32CS_INHERIT: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2147483648u32);
 pub const TH32CS_SNAPALL: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(15u32);
-pub const TH32CS_SNAPHEAPLIST: CREATE_TOOLHELP_SNAPSHOT_FLAGS =
-    CREATE_TOOLHELP_SNAPSHOT_FLAGS(1u32);
+pub const TH32CS_SNAPHEAPLIST: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(1u32);
 pub const TH32CS_SNAPMODULE: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(8u32);
-pub const TH32CS_SNAPMODULE32: CREATE_TOOLHELP_SNAPSHOT_FLAGS =
-    CREATE_TOOLHELP_SNAPSHOT_FLAGS(16u32);
+pub const TH32CS_SNAPMODULE32: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(16u32);
 pub const TH32CS_SNAPPROCESS: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(2u32);
 pub const TH32CS_SNAPTHREAD: CREATE_TOOLHELP_SNAPSHOT_FLAGS = CREATE_TOOLHELP_SNAPSHOT_FLAGS(4u32);
 impl ::std::convert::From<u32> for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
@@ -66,23 +48,14 @@ impl ::std::ops::Not for CREATE_TOOLHELP_SNAPSHOT_FLAGS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateToolhelp32Snapshot(
-    dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS,
-    th32processid: u32,
-) -> super::super::super::Foundation::HANDLE {
+pub unsafe fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32processid: u32) -> super::super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CreateToolhelp32Snapshot(
-                dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS,
-                th32processid: u32,
-            ) -> super::super::super::Foundation::HANDLE;
+            fn CreateToolhelp32Snapshot(dwflags: CREATE_TOOLHELP_SNAPSHOT_FLAGS, th32processid: u32) -> super::super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CreateToolhelp32Snapshot(
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(th32processid),
-        ))
+        ::std::mem::transmute(CreateToolhelp32Snapshot(::std::mem::transmute(dwflags), ::std::mem::transmute(th32processid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -128,15 +101,7 @@ impl ::std::fmt::Debug for HEAPENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HEAPENTRY32 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.hHandle == other.hHandle
-            && self.dwAddress == other.dwAddress
-            && self.dwBlockSize == other.dwBlockSize
-            && self.dwFlags == other.dwFlags
-            && self.dwLockCount == other.dwLockCount
-            && self.dwResvd == other.dwResvd
-            && self.th32ProcessID == other.th32ProcessID
-            && self.th32HeapID == other.th32HeapID
+        self.dwSize == other.dwSize && self.hHandle == other.hHandle && self.dwAddress == other.dwAddress && self.dwBlockSize == other.dwBlockSize && self.dwFlags == other.dwFlags && self.dwLockCount == other.dwLockCount && self.dwResvd == other.dwResvd && self.th32ProcessID == other.th32ProcessID && self.th32HeapID == other.th32HeapID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -146,14 +111,7 @@ unsafe impl ::windows::runtime::Abi for HEAPENTRY32 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HEAPENTRY32_FLAGS(pub u32);
 pub const LF32_FIXED: HEAPENTRY32_FLAGS = HEAPENTRY32_FLAGS(1u32);
@@ -212,20 +170,12 @@ impl ::std::default::Default for HEAPLIST32 {
 }
 impl ::std::fmt::Debug for HEAPLIST32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HEAPLIST32")
-            .field("dwSize", &self.dwSize)
-            .field("th32ProcessID", &self.th32ProcessID)
-            .field("th32HeapID", &self.th32HeapID)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("HEAPLIST32").field("dwSize", &self.dwSize).field("th32ProcessID", &self.th32ProcessID).field("th32HeapID", &self.th32HeapID).field("dwFlags", &self.dwFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for HEAPLIST32 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.th32ProcessID == other.th32ProcessID
-            && self.th32HeapID == other.th32HeapID
-            && self.dwFlags == other.dwFlags
+        self.dwSize == other.dwSize && self.th32ProcessID == other.th32ProcessID && self.th32HeapID == other.th32HeapID && self.dwFlags == other.dwFlags
     }
 }
 impl ::std::cmp::Eq for HEAPLIST32 {}
@@ -237,78 +187,42 @@ pub const HF32_DEFAULT: u32 = 1u32;
 pub const HF32_SHARED: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Heap32First(
-    lphe: *mut HEAPENTRY32,
-    th32processid: u32,
-    th32heapid: usize,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid: usize) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Heap32First(
-                lphe: *mut HEAPENTRY32,
-                th32processid: u32,
-                th32heapid: usize,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Heap32First(lphe: *mut HEAPENTRY32, th32processid: u32, th32heapid: usize) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Heap32First(
-            ::std::mem::transmute(lphe),
-            ::std::mem::transmute(th32processid),
-            ::std::mem::transmute(th32heapid),
-        ))
+        ::std::mem::transmute(Heap32First(::std::mem::transmute(lphe), ::std::mem::transmute(th32processid), ::std::mem::transmute(th32heapid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Heap32ListFirst<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    hsnapshot: Param0,
-    lphl: *mut HEAPLIST32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Heap32ListFirst<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Heap32ListFirst(
-                hsnapshot: super::super::super::Foundation::HANDLE,
-                lphl: *mut HEAPLIST32,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Heap32ListFirst(hsnapshot: super::super::super::Foundation::HANDLE, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Heap32ListFirst(
-            hsnapshot.into_param().abi(),
-            ::std::mem::transmute(lphl),
-        ))
+        ::std::mem::transmute(Heap32ListFirst(hsnapshot.into_param().abi(), ::std::mem::transmute(lphl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Heap32ListNext<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    hsnapshot: Param0,
-    lphl: *mut HEAPLIST32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Heap32ListNext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Heap32ListNext(
-                hsnapshot: super::super::super::Foundation::HANDLE,
-                lphl: *mut HEAPLIST32,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Heap32ListNext(hsnapshot: super::super::super::Foundation::HANDLE, lphl: *mut HEAPLIST32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Heap32ListNext(
-            hsnapshot.into_param().abi(),
-            ::std::mem::transmute(lphl),
-        ))
+        ::std::mem::transmute(Heap32ListNext(hsnapshot.into_param().abi(), ::std::mem::transmute(lphl)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -371,16 +285,7 @@ impl ::std::fmt::Debug for MODULEENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MODULEENTRY32 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.th32ModuleID == other.th32ModuleID
-            && self.th32ProcessID == other.th32ProcessID
-            && self.GlblcntUsage == other.GlblcntUsage
-            && self.ProccntUsage == other.ProccntUsage
-            && self.modBaseAddr == other.modBaseAddr
-            && self.modBaseSize == other.modBaseSize
-            && self.hModule == other.hModule
-            && self.szModule == other.szModule
-            && self.szExePath == other.szExePath
+        self.dwSize == other.dwSize && self.th32ModuleID == other.th32ModuleID && self.th32ProcessID == other.th32ProcessID && self.GlblcntUsage == other.GlblcntUsage && self.ProccntUsage == other.ProccntUsage && self.modBaseAddr == other.modBaseAddr && self.modBaseSize == other.modBaseSize && self.hModule == other.hModule && self.szModule == other.szModule && self.szExePath == other.szExePath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -433,16 +338,7 @@ impl ::std::fmt::Debug for MODULEENTRY32W {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MODULEENTRY32W {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.th32ModuleID == other.th32ModuleID
-            && self.th32ProcessID == other.th32ProcessID
-            && self.GlblcntUsage == other.GlblcntUsage
-            && self.ProccntUsage == other.ProccntUsage
-            && self.modBaseAddr == other.modBaseAddr
-            && self.modBaseSize == other.modBaseSize
-            && self.hModule == other.hModule
-            && self.szModule == other.szModule
-            && self.szExePath == other.szExePath
+        self.dwSize == other.dwSize && self.th32ModuleID == other.th32ModuleID && self.th32ProcessID == other.th32ProcessID && self.GlblcntUsage == other.GlblcntUsage && self.ProccntUsage == other.ProccntUsage && self.modBaseAddr == other.modBaseAddr && self.modBaseSize == other.modBaseSize && self.hModule == other.hModule && self.szModule == other.szModule && self.szExePath == other.szExePath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -454,104 +350,56 @@ unsafe impl ::windows::runtime::Abi for MODULEENTRY32W {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Module32First<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    hsnapshot: Param0,
-    lpme: *mut MODULEENTRY32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Module32First<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Module32First(
-                hsnapshot: super::super::super::Foundation::HANDLE,
-                lpme: *mut MODULEENTRY32,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Module32First(hsnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Module32First(
-            hsnapshot.into_param().abi(),
-            ::std::mem::transmute(lpme),
-        ))
+        ::std::mem::transmute(Module32First(hsnapshot.into_param().abi(), ::std::mem::transmute(lpme)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Module32FirstW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    hsnapshot: Param0,
-    lpme: *mut MODULEENTRY32W,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Module32FirstW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Module32FirstW(
-                hsnapshot: super::super::super::Foundation::HANDLE,
-                lpme: *mut MODULEENTRY32W,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Module32FirstW(hsnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Module32FirstW(
-            hsnapshot.into_param().abi(),
-            ::std::mem::transmute(lpme),
-        ))
+        ::std::mem::transmute(Module32FirstW(hsnapshot.into_param().abi(), ::std::mem::transmute(lpme)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Module32Next<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    hsnapshot: Param0,
-    lpme: *mut MODULEENTRY32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Module32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Module32Next(
-                hsnapshot: super::super::super::Foundation::HANDLE,
-                lpme: *mut MODULEENTRY32,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Module32Next(hsnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Module32Next(
-            hsnapshot.into_param().abi(),
-            ::std::mem::transmute(lpme),
-        ))
+        ::std::mem::transmute(Module32Next(hsnapshot.into_param().abi(), ::std::mem::transmute(lpme)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Module32NextW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    hsnapshot: Param0,
-    lpme: *mut MODULEENTRY32W,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Module32NextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Module32NextW(
-                hsnapshot: super::super::super::Foundation::HANDLE,
-                lpme: *mut MODULEENTRY32W,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Module32NextW(hsnapshot: super::super::super::Foundation::HANDLE, lpme: *mut MODULEENTRY32W) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Module32NextW(
-            hsnapshot.into_param().abi(),
-            ::std::mem::transmute(lpme),
-        ))
+        ::std::mem::transmute(Module32NextW(hsnapshot.into_param().abi(), ::std::mem::transmute(lpme)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -599,16 +447,7 @@ impl ::std::fmt::Debug for PROCESSENTRY32 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PROCESSENTRY32 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.cntUsage == other.cntUsage
-            && self.th32ProcessID == other.th32ProcessID
-            && self.th32DefaultHeapID == other.th32DefaultHeapID
-            && self.th32ModuleID == other.th32ModuleID
-            && self.cntThreads == other.cntThreads
-            && self.th32ParentProcessID == other.th32ParentProcessID
-            && self.pcPriClassBase == other.pcPriClassBase
-            && self.dwFlags == other.dwFlags
-            && self.szExeFile == other.szExeFile
+        self.dwSize == other.dwSize && self.cntUsage == other.cntUsage && self.th32ProcessID == other.th32ProcessID && self.th32DefaultHeapID == other.th32DefaultHeapID && self.th32ModuleID == other.th32ModuleID && self.cntThreads == other.cntThreads && self.th32ParentProcessID == other.th32ParentProcessID && self.pcPriClassBase == other.pcPriClassBase && self.dwFlags == other.dwFlags && self.szExeFile == other.szExeFile
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -656,16 +495,7 @@ impl ::std::fmt::Debug for PROCESSENTRY32W {
 }
 impl ::std::cmp::PartialEq for PROCESSENTRY32W {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.cntUsage == other.cntUsage
-            && self.th32ProcessID == other.th32ProcessID
-            && self.th32DefaultHeapID == other.th32DefaultHeapID
-            && self.th32ModuleID == other.th32ModuleID
-            && self.cntThreads == other.cntThreads
-            && self.th32ParentProcessID == other.th32ParentProcessID
-            && self.pcPriClassBase == other.pcPriClassBase
-            && self.dwFlags == other.dwFlags
-            && self.szExeFile == other.szExeFile
+        self.dwSize == other.dwSize && self.cntUsage == other.cntUsage && self.th32ProcessID == other.th32ProcessID && self.th32DefaultHeapID == other.th32DefaultHeapID && self.th32ModuleID == other.th32ModuleID && self.cntThreads == other.cntThreads && self.th32ParentProcessID == other.th32ParentProcessID && self.pcPriClassBase == other.pcPriClassBase && self.dwFlags == other.dwFlags && self.szExeFile == other.szExeFile
     }
 }
 impl ::std::cmp::Eq for PROCESSENTRY32W {}
@@ -675,104 +505,56 @@ unsafe impl ::windows::runtime::Abi for PROCESSENTRY32W {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process32First<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    hsnapshot: Param0,
-    lppe: *mut PROCESSENTRY32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Process32First<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Process32First(
-                hsnapshot: super::super::super::Foundation::HANDLE,
-                lppe: *mut PROCESSENTRY32,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Process32First(hsnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Process32First(
-            hsnapshot.into_param().abi(),
-            ::std::mem::transmute(lppe),
-        ))
+        ::std::mem::transmute(Process32First(hsnapshot.into_param().abi(), ::std::mem::transmute(lppe)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process32FirstW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    hsnapshot: Param0,
-    lppe: *mut PROCESSENTRY32W,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Process32FirstW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Process32FirstW(
-                hsnapshot: super::super::super::Foundation::HANDLE,
-                lppe: *mut PROCESSENTRY32W,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Process32FirstW(hsnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Process32FirstW(
-            hsnapshot.into_param().abi(),
-            ::std::mem::transmute(lppe),
-        ))
+        ::std::mem::transmute(Process32FirstW(hsnapshot.into_param().abi(), ::std::mem::transmute(lppe)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process32Next<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    hsnapshot: Param0,
-    lppe: *mut PROCESSENTRY32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Process32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Process32Next(
-                hsnapshot: super::super::super::Foundation::HANDLE,
-                lppe: *mut PROCESSENTRY32,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Process32Next(hsnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Process32Next(
-            hsnapshot.into_param().abi(),
-            ::std::mem::transmute(lppe),
-        ))
+        ::std::mem::transmute(Process32Next(hsnapshot.into_param().abi(), ::std::mem::transmute(lppe)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Process32NextW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    hsnapshot: Param0,
-    lppe: *mut PROCESSENTRY32W,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Process32NextW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Process32NextW(
-                hsnapshot: super::super::super::Foundation::HANDLE,
-                lppe: *mut PROCESSENTRY32W,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Process32NextW(hsnapshot: super::super::super::Foundation::HANDLE, lppe: *mut PROCESSENTRY32W) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Process32NextW(
-            hsnapshot.into_param().abi(),
-            ::std::mem::transmute(lppe),
-        ))
+        ::std::mem::transmute(Process32NextW(hsnapshot.into_param().abi(), ::std::mem::transmute(lppe)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -809,13 +591,7 @@ impl ::std::fmt::Debug for THREADENTRY32 {
 }
 impl ::std::cmp::PartialEq for THREADENTRY32 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.cntUsage == other.cntUsage
-            && self.th32ThreadID == other.th32ThreadID
-            && self.th32OwnerProcessID == other.th32OwnerProcessID
-            && self.tpBasePri == other.tpBasePri
-            && self.tpDeltaPri == other.tpDeltaPri
-            && self.dwFlags == other.dwFlags
+        self.dwSize == other.dwSize && self.cntUsage == other.cntUsage && self.th32ThreadID == other.th32ThreadID && self.th32OwnerProcessID == other.th32OwnerProcessID && self.tpBasePri == other.tpBasePri && self.tpDeltaPri == other.tpDeltaPri && self.dwFlags == other.dwFlags
     }
 }
 impl ::std::cmp::Eq for THREADENTRY32 {}
@@ -825,84 +601,42 @@ unsafe impl ::windows::runtime::Abi for THREADENTRY32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Thread32First<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    hsnapshot: Param0,
-    lpte: *mut THREADENTRY32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Thread32First<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Thread32First(
-                hsnapshot: super::super::super::Foundation::HANDLE,
-                lpte: *mut THREADENTRY32,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Thread32First(hsnapshot: super::super::super::Foundation::HANDLE, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Thread32First(
-            hsnapshot.into_param().abi(),
-            ::std::mem::transmute(lpte),
-        ))
+        ::std::mem::transmute(Thread32First(hsnapshot.into_param().abi(), ::std::mem::transmute(lpte)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Thread32Next<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    hsnapshot: Param0,
-    lpte: *mut THREADENTRY32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Thread32Next<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hsnapshot: Param0, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Thread32Next(
-                hsnapshot: super::super::super::Foundation::HANDLE,
-                lpte: *mut THREADENTRY32,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Thread32Next(hsnapshot: super::super::super::Foundation::HANDLE, lpte: *mut THREADENTRY32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Thread32Next(
-            hsnapshot.into_param().abi(),
-            ::std::mem::transmute(lpte),
-        ))
+        ::std::mem::transmute(Thread32Next(hsnapshot.into_param().abi(), ::std::mem::transmute(lpte)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Toolhelp32ReadProcessMemory(
-    th32processid: u32,
-    lpbaseaddress: *const ::std::ffi::c_void,
-    lpbuffer: *mut ::std::ffi::c_void,
-    cbread: usize,
-    lpnumberofbytesread: *mut usize,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *const ::std::ffi::c_void, lpbuffer: *mut ::std::ffi::c_void, cbread: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Toolhelp32ReadProcessMemory(
-                th32processid: u32,
-                lpbaseaddress: *const ::std::ffi::c_void,
-                lpbuffer: *mut ::std::ffi::c_void,
-                cbread: usize,
-                lpnumberofbytesread: *mut usize,
-            ) -> super::super::super::Foundation::BOOL;
+            fn Toolhelp32ReadProcessMemory(th32processid: u32, lpbaseaddress: *const ::std::ffi::c_void, lpbuffer: *mut ::std::ffi::c_void, cbread: usize, lpnumberofbytesread: *mut usize) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(Toolhelp32ReadProcessMemory(
-            ::std::mem::transmute(th32processid),
-            ::std::mem::transmute(lpbaseaddress),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(cbread),
-            ::std::mem::transmute(lpnumberofbytesread),
-        ))
+        ::std::mem::transmute(Toolhelp32ReadProcessMemory(::std::mem::transmute(th32processid), ::std::mem::transmute(lpbaseaddress), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(cbread), ::std::mem::transmute(lpnumberofbytesread)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -1,63 +1,28 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DisableThreadProfiling<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    performancedatahandle: Param0,
-) -> u32 {
+pub unsafe fn DisableThreadProfiling<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(performancedatahandle: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DisableThreadProfiling(
-                performancedatahandle: super::super::super::Foundation::HANDLE,
-            ) -> u32;
+            fn DisableThreadProfiling(performancedatahandle: super::super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(DisableThreadProfiling(
-            performancedatahandle.into_param().abi(),
-        ))
+        ::std::mem::transmute(DisableThreadProfiling(performancedatahandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn EnableThreadProfiling<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    threadhandle: Param0,
-    flags: u32,
-    hardwarecounters: u64,
-    performancedatahandle: *mut super::super::super::Foundation::HANDLE,
-) -> u32 {
+pub unsafe fn EnableThreadProfiling<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(threadhandle: Param0, flags: u32, hardwarecounters: u64, performancedatahandle: *mut super::super::super::Foundation::HANDLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn EnableThreadProfiling(
-                threadhandle: super::super::super::Foundation::HANDLE,
-                flags: u32,
-                hardwarecounters: u64,
-                performancedatahandle: *mut super::super::super::Foundation::HANDLE,
-            ) -> u32;
+            fn EnableThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, flags: u32, hardwarecounters: u64, performancedatahandle: *mut super::super::super::Foundation::HANDLE) -> u32;
         }
-        ::std::mem::transmute(EnableThreadProfiling(
-            threadhandle.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(hardwarecounters),
-            ::std::mem::transmute(performancedatahandle),
-        ))
+        ::std::mem::transmute(EnableThreadProfiling(threadhandle.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(hardwarecounters), ::std::mem::transmute(performancedatahandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -77,11 +42,7 @@ impl ::std::default::Default for HARDWARE_COUNTER_DATA {
 }
 impl ::std::fmt::Debug for HARDWARE_COUNTER_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HARDWARE_COUNTER_DATA")
-            .field("Type", &self.Type)
-            .field("Reserved", &self.Reserved)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("HARDWARE_COUNTER_DATA").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Value", &self.Value).finish()
     }
 }
 impl ::std::cmp::PartialEq for HARDWARE_COUNTER_DATA {
@@ -94,14 +55,7 @@ unsafe impl ::windows::runtime::Abi for HARDWARE_COUNTER_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HARDWARE_COUNTER_TYPE(pub i32);
 pub const PMCCounter: HARDWARE_COUNTER_TYPE = HARDWARE_COUNTER_TYPE(0i32);
@@ -151,15 +105,7 @@ impl ::std::fmt::Debug for PERFORMANCE_DATA {
 }
 impl ::std::cmp::PartialEq for PERFORMANCE_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Version == other.Version
-            && self.HwCountersCount == other.HwCountersCount
-            && self.ContextSwitchCount == other.ContextSwitchCount
-            && self.WaitReasonBitMap == other.WaitReasonBitMap
-            && self.CycleTime == other.CycleTime
-            && self.RetryCount == other.RetryCount
-            && self.Reserved == other.Reserved
-            && self.HwCounters == other.HwCounters
+        self.Size == other.Size && self.Version == other.Version && self.HwCountersCount == other.HwCountersCount && self.ContextSwitchCount == other.ContextSwitchCount && self.WaitReasonBitMap == other.WaitReasonBitMap && self.CycleTime == other.CycleTime && self.RetryCount == other.RetryCount && self.Reserved == other.Reserved && self.HwCounters == other.HwCounters
     }
 }
 impl ::std::cmp::Eq for PERFORMANCE_DATA {}
@@ -169,55 +115,28 @@ unsafe impl ::windows::runtime::Abi for PERFORMANCE_DATA {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn QueryThreadProfiling<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    threadhandle: Param0,
-    enabled: *mut super::super::super::Foundation::BOOLEAN,
-) -> u32 {
+pub unsafe fn QueryThreadProfiling<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(threadhandle: Param0, enabled: *mut super::super::super::Foundation::BOOLEAN) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn QueryThreadProfiling(
-                threadhandle: super::super::super::Foundation::HANDLE,
-                enabled: *mut super::super::super::Foundation::BOOLEAN,
-            ) -> u32;
+            fn QueryThreadProfiling(threadhandle: super::super::super::Foundation::HANDLE, enabled: *mut super::super::super::Foundation::BOOLEAN) -> u32;
         }
-        ::std::mem::transmute(QueryThreadProfiling(
-            threadhandle.into_param().abi(),
-            ::std::mem::transmute(enabled),
-        ))
+        ::std::mem::transmute(QueryThreadProfiling(threadhandle.into_param().abi(), ::std::mem::transmute(enabled)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReadThreadProfilingData<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    performancedatahandle: Param0,
-    flags: u32,
-    performancedata: *mut PERFORMANCE_DATA,
-) -> u32 {
+pub unsafe fn ReadThreadProfilingData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(performancedatahandle: Param0, flags: u32, performancedata: *mut PERFORMANCE_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReadThreadProfilingData(
-                performancedatahandle: super::super::super::Foundation::HANDLE,
-                flags: u32,
-                performancedata: *mut PERFORMANCE_DATA,
-            ) -> u32;
+            fn ReadThreadProfilingData(performancedatahandle: super::super::super::Foundation::HANDLE, flags: u32, performancedata: *mut PERFORMANCE_DATA) -> u32;
         }
-        ::std::mem::transmute(ReadThreadProfilingData(
-            performancedatahandle.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(performancedata),
-        ))
+        ::std::mem::transmute(ReadThreadProfilingData(performancedatahandle.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(performancedata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

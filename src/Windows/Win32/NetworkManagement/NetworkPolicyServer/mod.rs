@@ -1,46 +1,20 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ACCOUNTINGPROPERTIES(pub i32);
 pub const PROPERTY_ACCOUNTING_LOG_ACCOUNTING: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1026i32);
-pub const PROPERTY_ACCOUNTING_LOG_ACCOUNTING_INTERIM: ACCOUNTINGPROPERTIES =
-    ACCOUNTINGPROPERTIES(1027i32);
-pub const PROPERTY_ACCOUNTING_LOG_AUTHENTICATION: ACCOUNTINGPROPERTIES =
-    ACCOUNTINGPROPERTIES(1028i32);
-pub const PROPERTY_ACCOUNTING_LOG_OPEN_NEW_FREQUENCY: ACCOUNTINGPROPERTIES =
-    ACCOUNTINGPROPERTIES(1029i32);
-pub const PROPERTY_ACCOUNTING_LOG_OPEN_NEW_SIZE: ACCOUNTINGPROPERTIES =
-    ACCOUNTINGPROPERTIES(1030i32);
-pub const PROPERTY_ACCOUNTING_LOG_FILE_DIRECTORY: ACCOUNTINGPROPERTIES =
-    ACCOUNTINGPROPERTIES(1031i32);
+pub const PROPERTY_ACCOUNTING_LOG_ACCOUNTING_INTERIM: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1027i32);
+pub const PROPERTY_ACCOUNTING_LOG_AUTHENTICATION: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1028i32);
+pub const PROPERTY_ACCOUNTING_LOG_OPEN_NEW_FREQUENCY: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1029i32);
+pub const PROPERTY_ACCOUNTING_LOG_OPEN_NEW_SIZE: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1030i32);
+pub const PROPERTY_ACCOUNTING_LOG_FILE_DIRECTORY: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1031i32);
 pub const PROPERTY_ACCOUNTING_LOG_IAS1_FORMAT: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1032i32);
-pub const PROPERTY_ACCOUNTING_LOG_ENABLE_LOGGING: ACCOUNTINGPROPERTIES =
-    ACCOUNTINGPROPERTIES(1033i32);
-pub const PROPERTY_ACCOUNTING_LOG_DELETE_IF_FULL: ACCOUNTINGPROPERTIES =
-    ACCOUNTINGPROPERTIES(1034i32);
-pub const PROPERTY_ACCOUNTING_SQL_MAX_SESSIONS: ACCOUNTINGPROPERTIES =
-    ACCOUNTINGPROPERTIES(1035i32);
-pub const PROPERTY_ACCOUNTING_LOG_AUTHENTICATION_INTERIM: ACCOUNTINGPROPERTIES =
-    ACCOUNTINGPROPERTIES(1036i32);
-pub const PROPERTY_ACCOUNTING_LOG_FILE_IS_BACKUP: ACCOUNTINGPROPERTIES =
-    ACCOUNTINGPROPERTIES(1037i32);
-pub const PROPERTY_ACCOUNTING_DISCARD_REQUEST_ON_FAILURE: ACCOUNTINGPROPERTIES =
-    ACCOUNTINGPROPERTIES(1038i32);
+pub const PROPERTY_ACCOUNTING_LOG_ENABLE_LOGGING: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1033i32);
+pub const PROPERTY_ACCOUNTING_LOG_DELETE_IF_FULL: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1034i32);
+pub const PROPERTY_ACCOUNTING_SQL_MAX_SESSIONS: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1035i32);
+pub const PROPERTY_ACCOUNTING_LOG_AUTHENTICATION_INTERIM: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1036i32);
+pub const PROPERTY_ACCOUNTING_LOG_FILE_IS_BACKUP: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1037i32);
+pub const PROPERTY_ACCOUNTING_DISCARD_REQUEST_ON_FAILURE: ACCOUNTINGPROPERTIES = ACCOUNTINGPROPERTIES(1038i32);
 impl ::std::convert::From<i32> for ACCOUNTINGPROPERTIES {
     fn from(value: i32) -> Self {
         Self(value)
@@ -50,14 +24,7 @@ unsafe impl ::windows::runtime::Abi for ACCOUNTINGPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ATTRIBUTEFILTER(pub i32);
 pub const ATTRIBUTE_FILTER_NONE: ATTRIBUTEFILTER = ATTRIBUTEFILTER(0i32);
@@ -72,14 +39,7 @@ unsafe impl ::windows::runtime::Abi for ATTRIBUTEFILTER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ATTRIBUTEID(pub u32);
 pub const ATTRIBUTE_UNDEFINED: ATTRIBUTEID = ATTRIBUTEID(0u32);
@@ -362,14 +322,7 @@ impl ::std::ops::Not for ATTRIBUTEID {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ATTRIBUTEINFO(pub i32);
 pub const NAME: ATTRIBUTEINFO = ATTRIBUTEINFO(1i32);
@@ -388,14 +341,7 @@ unsafe impl ::windows::runtime::Abi for ATTRIBUTEINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ATTRIBUTEPROPERTIES(pub i32);
 pub const PROPERTY_ATTRIBUTE_ID: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1024i32);
@@ -411,10 +357,8 @@ pub const PROPERTY_ATTRIBUTE_ALLOW_IN_PROFILE: ATTRIBUTEPROPERTIES = ATTRIBUTEPR
 pub const PROPERTY_ATTRIBUTE_ALLOW_IN_CONDITION: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1034i32);
 pub const PROPERTY_ATTRIBUTE_DISPLAY_NAME: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1035i32);
 pub const PROPERTY_ATTRIBUTE_VALUE: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1036i32);
-pub const PROPERTY_ATTRIBUTE_ALLOW_IN_PROXY_PROFILE: ATTRIBUTEPROPERTIES =
-    ATTRIBUTEPROPERTIES(1037i32);
-pub const PROPERTY_ATTRIBUTE_ALLOW_IN_PROXY_CONDITION: ATTRIBUTEPROPERTIES =
-    ATTRIBUTEPROPERTIES(1038i32);
+pub const PROPERTY_ATTRIBUTE_ALLOW_IN_PROXY_PROFILE: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1037i32);
+pub const PROPERTY_ATTRIBUTE_ALLOW_IN_PROXY_CONDITION: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1038i32);
 pub const PROPERTY_ATTRIBUTE_ALLOW_IN_VPNDIALUP: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1039i32);
 pub const PROPERTY_ATTRIBUTE_ALLOW_IN_8021X: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1040i32);
 pub const PROPERTY_ATTRIBUTE_ENUM_FILTERS: ATTRIBUTEPROPERTIES = ATTRIBUTEPROPERTIES(1041i32);
@@ -427,14 +371,7 @@ unsafe impl ::windows::runtime::Abi for ATTRIBUTEPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ATTRIBUTERESTRICTIONS(pub i32);
 pub const MULTIVALUED: ATTRIBUTERESTRICTIONS = ATTRIBUTERESTRICTIONS(1i32);
@@ -453,14 +390,7 @@ unsafe impl ::windows::runtime::Abi for ATTRIBUTERESTRICTIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ATTRIBUTESYNTAX(pub i32);
 pub const IAS_SYNTAX_BOOLEAN: ATTRIBUTESYNTAX = ATTRIBUTESYNTAX(1i32);
@@ -482,14 +412,7 @@ unsafe impl ::windows::runtime::Abi for ATTRIBUTESYNTAX {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AUTHENTICATION_TYPE(pub i32);
 pub const IAS_AUTH_INVALID: AUTHENTICATION_TYPE = AUTHENTICATION_TYPE(0i32);
@@ -513,14 +436,7 @@ unsafe impl ::windows::runtime::Abi for AUTHENTICATION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CLIENTPROPERTIES(pub i32);
 pub const PROPERTY_CLIENT_REQUIRE_SIGNATURE: CLIENTPROPERTIES = CLIENTPROPERTIES(1024i32);
@@ -540,14 +456,7 @@ unsafe impl ::windows::runtime::Abi for CLIENTPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CONDITIONPROPERTIES(pub i32);
 pub const PROPERTY_CONDITION_TEXT: CONDITIONPROPERTIES = CONDITIONPROPERTIES(1024i32);
@@ -560,18 +469,10 @@ unsafe impl ::windows::runtime::Abi for CONDITIONPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DICTIONARYPROPERTIES(pub i32);
-pub const PROPERTY_DICTIONARY_ATTRIBUTES_COLLECTION: DICTIONARYPROPERTIES =
-    DICTIONARYPROPERTIES(1024i32);
+pub const PROPERTY_DICTIONARY_ATTRIBUTES_COLLECTION: DICTIONARYPROPERTIES = DICTIONARYPROPERTIES(1024i32);
 pub const PROPERTY_DICTIONARY_LOCATION: DICTIONARYPROPERTIES = DICTIONARYPROPERTIES(1025i32);
 impl ::std::convert::From<i32> for DICTIONARYPROPERTIES {
     fn from(value: i32) -> Self {
@@ -582,14 +483,7 @@ unsafe impl ::windows::runtime::Abi for DICTIONARYPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IASCOMMONPROPERTIES(pub i32);
 pub const PROPERTY_SDO_RESERVED: IASCOMMONPROPERTIES = IASCOMMONPROPERTIES(0i32);
@@ -610,14 +504,7 @@ unsafe impl ::windows::runtime::Abi for IASCOMMONPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IASCOMPONENTPROPERTIES(pub i32);
 pub const PROPERTY_COMPONENT_ID: IASCOMPONENTPROPERTIES = IASCOMPONENTPROPERTIES(1024i32);
@@ -632,14 +519,7 @@ unsafe impl ::windows::runtime::Abi for IASCOMPONENTPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IASDATASTORE(pub i32);
 pub const DATA_STORE_LOCAL: IASDATASTORE = IASDATASTORE(0i32);
@@ -653,14 +533,7 @@ unsafe impl ::windows::runtime::Abi for IASDATASTORE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IASDOMAINTYPE(pub i32);
 pub const DOMAIN_TYPE_NONE: IASDOMAINTYPE = IASDOMAINTYPE(0i32);
@@ -676,14 +549,7 @@ unsafe impl ::windows::runtime::Abi for IASDOMAINTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IASOSTYPE(pub i32);
 pub const SYSTEM_TYPE_NT4_WORKSTATION: IASOSTYPE = IASOSTYPE(0i32);
@@ -709,14 +575,7 @@ unsafe impl ::windows::runtime::Abi for IASOSTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IASPROPERTIES(pub i32);
 pub const PROPERTY_IAS_RADIUSSERVERGROUPS_COLLECTION: IASPROPERTIES = IASPROPERTIES(1024i32);
@@ -738,14 +597,7 @@ unsafe impl ::windows::runtime::Abi for IASPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IDENTITY_TYPE(pub i32);
 pub const IAS_IDENTITY_NO_DEFAULT: IDENTITY_TYPE = IDENTITY_TYPE(1i32);
@@ -758,14 +610,7 @@ unsafe impl ::windows::runtime::Abi for IDENTITY_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IPFILTERPROPERTIES(pub i32);
 pub const PROPERTY_IPFILTER_ATTRIBUTES_COLLECTION: IPFILTERPROPERTIES = IPFILTERPROPERTIES(1024i32);
@@ -779,139 +624,24 @@ unsafe impl ::windows::runtime::Abi for IPFILTERPROPERTIES {
     type DefaultType = Self;
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISdo(::windows::runtime::IUnknown);
 impl ISdo {
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+    pub unsafe fn GetPropertyInfo(&self, id: i32) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__ : < super::super::System::Ole::Automation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn GetProperty(&self, id: i32) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::super::System::Com::VARIANT,
-        pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
-    }
-    pub unsafe fn GetPropertyInfo(
-        &self,
-        id: i32,
-    ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(id),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn GetProperty(
-        &self,
-        id: i32,
-    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
-        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(id),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Com::VARIANT>(result__)
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn PutProperty(
-        &self,
-        id: i32,
-        pvalue: *const super::super::System::Com::VARIANT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(id),
-            ::std::mem::transmute(pvalue),
-        )
-        .ok()
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn PutProperty(&self, id: i32, pvalue: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), ::std::mem::transmute(pvalue)).ok()
     }
     pub unsafe fn ResetProperty(&self, id: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(id),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(id)).ok()
     }
     pub unsafe fn Apply(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
@@ -920,19 +650,13 @@ impl ISdo {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ISdo {
     type Vtable = ISdo_abi;
-    const IID: ::windows::runtime::GUID =
-        ::windows::runtime::GUID::from_values(1455182814, 38619, 4561, [191, 63, 0, 0, 0, 0, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1455182814, 38619, 4561, [191, 63, 0, 0, 0, 0, 0, 0]);
 }
 impl ::std::convert::From<ISdo> for ::windows::runtime::IUnknown {
     fn from(value: ISdo) -> Self {
@@ -946,18 +670,12 @@ impl ::std::convert::From<&ISdo> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISdo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISdo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -973,248 +691,56 @@ impl ::std::convert::From<&ISdo> for super::super::System::Ole::Automation::IDis
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for ISdo
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(self))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISdo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for &ISdo
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(::std::clone::Clone::clone(self)))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISdo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdo_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pctinfo: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        itinfo: u32,
-        lcid: u32,
-        pptinfo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        id: i32,
-        pppropertyinfo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        id: i32,
-        pvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        id: i32,
-        pvalue: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        id: i32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32, pppropertyinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32, pvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32, pvalue: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumvariant: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumvariant: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISdoCollection(::windows::runtime::IUnknown);
 impl ISdoCollection {
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
-    }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__ : < super::super::System::Ole::Automation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::super::System::Com::VARIANT,
-        pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
-    }
     pub unsafe fn Count(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<i32>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-    pub unsafe fn Add<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        bstrname: Param0,
-        ppitem: *mut ::std::option::Option<super::super::System::Ole::Automation::IDispatch>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            bstrname.into_param().abi(),
-            ::std::mem::transmute(ppitem),
-        )
-        .ok()
+    pub unsafe fn Add<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0, ppitem: *mut ::std::option::Option<super::super::System::Ole::Automation::IDispatch>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), bstrname.into_param().abi(), ::std::mem::transmute(ppitem)).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn Remove<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>,
-    >(
-        &self,
-        pitem: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            pitem.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Remove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>>(&self, pitem: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pitem.into_param().abi()).ok()
     }
     pub unsafe fn RemoveAll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
@@ -1223,52 +749,23 @@ impl ISdoCollection {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsNameUnique<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        bstrname: Param0,
-    ) -> ::windows::runtime::Result<i16> {
+    pub unsafe fn IsNameUnique<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrname: Param0) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            bstrname.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<i16>(result__)
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), bstrname.into_param().abi(), &mut result__).from_abi::<i16>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Item(
-        &self,
-        name: *const super::super::System::Com::VARIANT,
-    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IDispatch> {
-        let mut result__ : < super::super::System::Ole::Automation:: IDispatch as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(name),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Ole::Automation::IDispatch>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn Item(&self, name: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IDispatch> {
+        let mut result__: <super::super::System::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(name), &mut result__).from_abi::<super::super::System::Ole::Automation::IDispatch>(result__)
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ISdoCollection {
     type Vtable = ISdoCollection_abi;
-    const IID: ::windows::runtime::GUID =
-        ::windows::runtime::GUID::from_values(1455182818, 38619, 4561, [191, 63, 0, 0, 0, 0, 0, 0]);
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1455182818, 38619, 4561, [191, 63, 0, 0, 0, 0, 0, 0]);
 }
 impl ::std::convert::From<ISdoCollection> for ::windows::runtime::IUnknown {
     fn from(value: ISdoCollection) -> Self {
@@ -1282,18 +779,12 @@ impl ::std::convert::From<&ISdoCollection> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISdoCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISdoCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1309,304 +800,75 @@ impl ::std::convert::From<&ISdoCollection> for super::super::System::Ole::Automa
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for ISdoCollection
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(self))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISdoCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for &ISdoCollection
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(::std::clone::Clone::clone(self)))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISdoCollection {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoCollection_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pctinfo: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        itinfo: u32,
-        lcid: u32,
-        pptinfo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcount: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bstrname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        ppitem: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcount: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pitem: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pitem: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bstrname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pbool: *mut i16,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pbool: *mut i16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-        pitem: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumvariant: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumvariant: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISdoDictionaryOld(::windows::runtime::IUnknown);
 impl ISdoDictionaryOld {
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn EnumAttributes(&self, id: *mut super::super::System::Com::VARIANT, pvalues: *mut super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), ::std::mem::transmute(pvalues)).ok()
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn GetAttributeInfo(&self, id: ATTRIBUTEID, pinfoids: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), ::std::mem::transmute(pinfoids), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
+    }
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn EnumAttributeValues(&self, id: ATTRIBUTEID, pvalueids: *mut super::super::System::Com::VARIANT, pvaluesdesc: *mut super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), ::std::mem::transmute(pvalueids), ::std::mem::transmute(pvaluesdesc)).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__ : < super::super::System::Ole::Automation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    pub unsafe fn CreateAttribute(&self, id: ATTRIBUTEID) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IDispatch> {
+        let mut result__: <super::super::System::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), &mut result__).from_abi::<super::super::System::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::super::System::Com::VARIANT,
-        pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn EnumAttributes(
-        &self,
-        id: *mut super::super::System::Com::VARIANT,
-        pvalues: *mut super::super::System::Com::VARIANT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(id),
-            ::std::mem::transmute(pvalues),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn GetAttributeInfo(
-        &self,
-        id: ATTRIBUTEID,
-        pinfoids: *const super::super::System::Com::VARIANT,
-    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
-        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(id),
-            ::std::mem::transmute(pinfoids),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Com::VARIANT>(result__)
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn EnumAttributeValues(
-        &self,
-        id: ATTRIBUTEID,
-        pvalueids: *mut super::super::System::Com::VARIANT,
-        pvaluesdesc: *mut super::super::System::Com::VARIANT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(id),
-            ::std::mem::transmute(pvalueids),
-            ::std::mem::transmute(pvaluesdesc),
-        )
-        .ok()
-    }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn CreateAttribute(
-        &self,
-        id: ATTRIBUTEID,
-    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::IDispatch> {
-        let mut result__ : < super::super::System::Ole::Automation:: IDispatch as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(id),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Ole::Automation::IDispatch>(result__)
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributeID<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        bstrattributename: Param0,
-    ) -> ::windows::runtime::Result<ATTRIBUTEID> {
+    pub unsafe fn GetAttributeID<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrattributename: Param0) -> ::windows::runtime::Result<ATTRIBUTEID> {
         let mut result__: <ATTRIBUTEID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            bstrattributename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<ATTRIBUTEID>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), bstrattributename.into_param().abi(), &mut result__).from_abi::<ATTRIBUTEID>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ISdoDictionaryOld {
     type Vtable = ISdoDictionaryOld_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3560105460,
-        21464,
-        4562,
-        [154, 58, 0, 192, 79, 185, 152, 172],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3560105460, 21464, 4562, [154, 58, 0, 192, 79, 185, 152, 172]);
 }
 impl ::std::convert::From<ISdoDictionaryOld> for ::windows::runtime::IUnknown {
     fn from(value: ISdoDictionaryOld) -> Self {
@@ -1620,18 +882,12 @@ impl ::std::convert::From<&ISdoDictionaryOld> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISdoDictionaryOld {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISdoDictionaryOld {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -1647,345 +903,89 @@ impl ::std::convert::From<&ISdoDictionaryOld> for super::super::System::Ole::Aut
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for ISdoDictionaryOld
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(self))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISdoDictionaryOld {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for &ISdoDictionaryOld
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(::std::clone::Clone::clone(self)))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISdoDictionaryOld {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoDictionaryOld_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pctinfo: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        itinfo: u32,
-        lcid: u32,
-        pptinfo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        id: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-        pvalues: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        id: ATTRIBUTEID,
-        pinfoids: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-        pinfovalues: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        id: ATTRIBUTEID,
-        pvalueids: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-        pvaluesdesc: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        id: ATTRIBUTEID,
-        ppattributeobject: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvalues: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ATTRIBUTEID, pinfoids: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pinfovalues: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ATTRIBUTEID, pvalueids: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pvaluesdesc: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: ATTRIBUTEID, ppattributeobject: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bstrattributename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pid: *mut ATTRIBUTEID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrattributename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pid: *mut ATTRIBUTEID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISdoMachine(::windows::runtime::IUnknown);
 impl ISdoMachine {
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+    #[cfg(feature = "Win32_Foundation")]
+    pub unsafe fn Attach<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcomputername: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrcomputername.into_param().abi()).ok()
     }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__ : < super::super::System::Ole::Automation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    pub unsafe fn GetDictionarySDO(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::super::System::Com::VARIANT,
-        pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
+    pub unsafe fn GetServiceSDO<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, edatastore: IASDATASTORE, bstrservicename: Param1) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(edatastore), bstrservicename.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Attach<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        bstrcomputername: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            bstrcomputername.into_param().abi(),
-        )
-        .ok()
-    }
-    pub unsafe fn GetDictionarySDO(
-        &self,
-    ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetServiceSDO<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        edatastore: IASDATASTORE,
-        bstrservicename: Param1,
-    ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(edatastore),
-            bstrservicename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUserSDO<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        edatastore: IASDATASTORE,
-        bstrusername: Param1,
-    ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(edatastore),
-            bstrusername.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
+    pub unsafe fn GetUserSDO<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, edatastore: IASDATASTORE, bstrusername: Param1) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(edatastore), bstrusername.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     pub unsafe fn GetOSType(&self) -> ::windows::runtime::Result<IASOSTYPE> {
         let mut result__: <IASOSTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IASOSTYPE>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IASOSTYPE>(result__)
     }
     pub unsafe fn GetDomainType(&self) -> ::windows::runtime::Result<IASDOMAINTYPE> {
         let mut result__: <IASDOMAINTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IASDOMAINTYPE>(result__)
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IASDOMAINTYPE>(result__)
     }
     pub unsafe fn IsDirectoryAvailable(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<i16>(result__)
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttachedComputer(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn GetAttachedComputer(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetSDOSchema(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for ISdoMachine {
     type Vtable = ISdoMachine_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1201630837,
-        18850,
-        4562,
-        [142, 202, 0, 192, 79, 194, 245, 25],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1201630837, 18850, 4562, [142, 202, 0, 192, 79, 194, 245, 25]);
 }
 impl ::std::convert::From<ISdoMachine> for ::windows::runtime::IUnknown {
     fn from(value: ISdoMachine) -> Self {
@@ -1999,18 +999,12 @@ impl ::std::convert::From<&ISdoMachine> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISdoMachine {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISdoMachine {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2026,376 +1020,120 @@ impl ::std::convert::From<&ISdoMachine> for super::super::System::Ole::Automatio
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for ISdoMachine
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(self))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISdoMachine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for &ISdoMachine
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(::std::clone::Clone::clone(self)))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISdoMachine {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoMachine_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pctinfo: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        itinfo: u32,
-        lcid: u32,
-        pptinfo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bstrcomputername: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrcomputername: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppdictionarysdo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        edatastore: IASDATASTORE,
-        bstrservicename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        ppservicesdo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdictionarysdo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, edatastore: IASDATASTORE, bstrservicename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppservicesdo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        edatastore: IASDATASTORE,
-        bstrusername: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        ppusersdo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, edatastore: IASDATASTORE, bstrusername: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppusersdo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        eostype: *mut IASOSTYPE,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        edomaintype: *mut IASDOMAINTYPE,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        booldirectoryavailable: *mut i16,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bstrcomputername: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eostype: *mut IASOSTYPE) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, edomaintype: *mut IASDOMAINTYPE) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, booldirectoryavailable: *mut i16) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrcomputername: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppsdoschema: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsdoschema: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISdoMachine2(::windows::runtime::IUnknown);
 impl ISdoMachine2 {
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__ : < super::super::System::Ole::Automation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::super::System::Com::VARIANT,
-        pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Attach<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        bstrcomputername: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            bstrcomputername.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Attach<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrcomputername: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), bstrcomputername.into_param().abi()).ok()
     }
-    pub unsafe fn GetDictionarySDO(
-        &self,
-    ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
+    pub unsafe fn GetDictionarySDO(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetServiceSDO<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        edatastore: IASDATASTORE,
-        bstrservicename: Param1,
-    ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(edatastore),
-            bstrservicename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
+    pub unsafe fn GetServiceSDO<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, edatastore: IASDATASTORE, bstrservicename: Param1) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(edatastore), bstrservicename.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetUserSDO<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        edatastore: IASDATASTORE,
-        bstrusername: Param1,
-    ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(edatastore),
-            bstrusername.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
+    pub unsafe fn GetUserSDO<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, edatastore: IASDATASTORE, bstrusername: Param1) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(edatastore), bstrusername.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     pub unsafe fn GetOSType(&self) -> ::windows::runtime::Result<IASOSTYPE> {
         let mut result__: <IASOSTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IASOSTYPE>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IASOSTYPE>(result__)
     }
     pub unsafe fn GetDomainType(&self) -> ::windows::runtime::Result<IASDOMAINTYPE> {
         let mut result__: <IASDOMAINTYPE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IASDOMAINTYPE>(result__)
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IASDOMAINTYPE>(result__)
     }
     pub unsafe fn IsDirectoryAvailable(&self) -> ::windows::runtime::Result<i16> {
         let mut result__: <i16 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<i16>(result__)
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i16>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttachedComputer(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
-        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::BSTR>(result__)
+    pub unsafe fn GetAttachedComputer(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
+        let mut result__: <super::super::Foundation::BSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::Foundation::BSTR>(result__)
     }
     pub unsafe fn GetSDOSchema(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetTemplatesSDO<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        bstrservicename: Param0,
-    ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            bstrservicename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
+    pub unsafe fn GetTemplatesSDO<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrservicename: Param0) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), bstrservicename.into_param().abi(), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     pub unsafe fn EnableTemplates(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SyncConfigAgainstTemplates<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        bstrservicename: Param0,
-        ppconfigroot: *mut ::std::option::Option<::windows::runtime::IUnknown>,
-        pptemplatesroot: *mut ::std::option::Option<::windows::runtime::IUnknown>,
-        bforcedsync: i16,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            bstrservicename.into_param().abi(),
-            ::std::mem::transmute(ppconfigroot),
-            ::std::mem::transmute(pptemplatesroot),
-            ::std::mem::transmute(bforcedsync),
-        )
-        .ok()
+    pub unsafe fn SyncConfigAgainstTemplates<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, bstrservicename: Param0, ppconfigroot: *mut ::std::option::Option<::windows::runtime::IUnknown>, pptemplatesroot: *mut ::std::option::Option<::windows::runtime::IUnknown>, bforcedsync: i16) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), bstrservicename.into_param().abi(), ::std::mem::transmute(ppconfigroot), ::std::mem::transmute(pptemplatesroot), ::std::mem::transmute(bforcedsync)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ImportRemoteTemplates<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-    >(
-        &self,
-        plocaltemplatesroot: Param0,
-        bstrremotemachinename: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            plocaltemplatesroot.into_param().abi(),
-            bstrremotemachinename.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn ImportRemoteTemplates<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>>(&self, plocaltemplatesroot: Param0, bstrremotemachinename: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), plocaltemplatesroot.into_param().abi(), bstrremotemachinename.into_param().abi()).ok()
     }
     pub unsafe fn Reload(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)).ok()
@@ -2403,12 +1141,7 @@ impl ISdoMachine2 {
 }
 unsafe impl ::windows::runtime::Interface for ISdoMachine2 {
     type Vtable = ISdoMachine2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1368285182,
-        55502,
-        20350,
-        [165, 219, 180, 10, 53, 65, 157, 59],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1368285182, 55502, 20350, [165, 219, 180, 10, 53, 65, 157, 59]);
 }
 impl ::std::convert::From<ISdoMachine2> for ::windows::runtime::IUnknown {
     fn from(value: ISdoMachine2) -> Self {
@@ -2422,18 +1155,12 @@ impl ::std::convert::From<&ISdoMachine2> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISdoMachine2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISdoMachine2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<ISdoMachine2> for ISdoMachine {
@@ -2453,9 +1180,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISdoMachine> for ISdoMachine2 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISdoMachine> for &ISdoMachine2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISdoMachine> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISdoMachine>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<ISdoMachine>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2471,237 +1196,57 @@ impl ::std::convert::From<&ISdoMachine2> for super::super::System::Ole::Automati
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for ISdoMachine2
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(self))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISdoMachine2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for &ISdoMachine2
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(::std::clone::Clone::clone(self)))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISdoMachine2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoMachine2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pctinfo: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        itinfo: u32,
-        lcid: u32,
-        pptinfo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bstrcomputername: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrcomputername: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppdictionarysdo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        edatastore: IASDATASTORE,
-        bstrservicename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        ppservicesdo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdictionarysdo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, edatastore: IASDATASTORE, bstrservicename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppservicesdo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        edatastore: IASDATASTORE,
-        bstrusername: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        ppusersdo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, edatastore: IASDATASTORE, bstrusername: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppusersdo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        eostype: *mut IASOSTYPE,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        edomaintype: *mut IASDOMAINTYPE,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        booldirectoryavailable: *mut i16,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bstrcomputername: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, eostype: *mut IASOSTYPE) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, edomaintype: *mut IASDOMAINTYPE) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, booldirectoryavailable: *mut i16) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrcomputername: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppsdoschema: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bstrservicename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pptemplatessdo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppsdoschema: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrservicename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pptemplatessdo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bstrservicename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        ppconfigroot: *mut ::windows::runtime::RawPtr,
-        pptemplatesroot: *mut ::windows::runtime::RawPtr,
-        bforcedsync: i16,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrservicename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppconfigroot: *mut ::windows::runtime::RawPtr, pptemplatesroot: *mut ::windows::runtime::RawPtr, bforcedsync: i16) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        plocaltemplatesroot: ::windows::runtime::RawPtr,
-        bstrremotemachinename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plocaltemplatesroot: ::windows::runtime::RawPtr, bstrremotemachinename: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ISdoServiceControl(::windows::runtime::IUnknown);
 impl ISdoServiceControl {
-    pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
-        let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
-    }
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__ : < super::super::System::Ole::Automation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
-    }
-    #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
-    }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::super::System::Com::VARIANT,
-        pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
-    }
     pub unsafe fn StartService(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
@@ -2710,11 +1255,7 @@ impl ISdoServiceControl {
     }
     pub unsafe fn GetServiceStatus(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<i32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     pub unsafe fn ResetService(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
@@ -2722,12 +1263,7 @@ impl ISdoServiceControl {
 }
 unsafe impl ::windows::runtime::Interface for ISdoServiceControl {
     type Vtable = ISdoServiceControl_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1201630836,
-        18850,
-        4562,
-        [142, 202, 0, 192, 79, 194, 245, 25],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1201630836, 18850, 4562, [142, 202, 0, 192, 79, 194, 245, 25]);
 }
 impl ::std::convert::From<ISdoServiceControl> for ::windows::runtime::IUnknown {
     fn from(value: ISdoServiceControl) -> Self {
@@ -2741,18 +1277,12 @@ impl ::std::convert::From<&ISdoServiceControl> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ISdoServiceControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ISdoServiceControl {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -2762,233 +1292,78 @@ impl ::std::convert::From<ISdoServiceControl> for super::super::System::Ole::Aut
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl ::std::convert::From<&ISdoServiceControl>
-    for super::super::System::Ole::Automation::IDispatch
-{
+impl ::std::convert::From<&ISdoServiceControl> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: &ISdoServiceControl) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for ISdoServiceControl
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(self))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ISdoServiceControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for &ISdoServiceControl
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(::std::clone::Clone::clone(self)))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ISdoServiceControl {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISdoServiceControl_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pctinfo: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        itinfo: u32,
-        lcid: u32,
-        pptinfo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        status: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, status: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct ITemplateSdo(::windows::runtime::IUnknown);
 impl ITemplateSdo {
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn GetTypeInfo(
-        &self,
-        itinfo: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
-        let mut result__ : < super::super::System::Ole::Automation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(itinfo),
-            ::std::mem::transmute(lcid),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
+    pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::super::System::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(itinfo), ::std::mem::transmute(lcid), &mut result__).from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetIDsOfNames(
-        &self,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(rgsznames),
-            ::std::mem::transmute(cnames),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(rgdispid),
-        )
-        .ok()
+    pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(riid), ::std::mem::transmute(rgsznames), ::std::mem::transmute(cnames), ::std::mem::transmute(lcid), ::std::mem::transmute(rgdispid)).ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn Invoke(
-        &self,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut super::super::System::Com::VARIANT,
-        pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dispidmember),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(lcid),
-            ::std::mem::transmute(wflags),
-            ::std::mem::transmute(pdispparams),
-            ::std::mem::transmute(pvarresult),
-            ::std::mem::transmute(pexcepinfo),
-            ::std::mem::transmute(puargerr),
-        )
-        .ok()
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO, puargerr: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dispidmember), ::std::mem::transmute(riid), ::std::mem::transmute(lcid), ::std::mem::transmute(wflags), ::std::mem::transmute(pdispparams), ::std::mem::transmute(pvarresult), ::std::mem::transmute(pexcepinfo), ::std::mem::transmute(puargerr)).ok()
     }
-    pub unsafe fn GetPropertyInfo(
-        &self,
-        id: i32,
-    ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(id),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
+    pub unsafe fn GetPropertyInfo(&self, id: i32) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn GetProperty(
-        &self,
-        id: i32,
-    ) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
-        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(id),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Com::VARIANT>(result__)
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn GetProperty(&self, id: i32) -> ::windows::runtime::Result<super::super::System::Com::VARIANT> {
+        let mut result__: <super::super::System::Com::VARIANT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), &mut result__).from_abi::<super::super::System::Com::VARIANT>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub unsafe fn PutProperty(
-        &self,
-        id: i32,
-        pvalue: *const super::super::System::Com::VARIANT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(id),
-            ::std::mem::transmute(pvalue),
-        )
-        .ok()
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub unsafe fn PutProperty(&self, id: i32, pvalue: *const super::super::System::Com::VARIANT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(id), ::std::mem::transmute(pvalue)).ok()
     }
     pub unsafe fn ResetProperty(&self, id: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(id),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(id)).ok()
     }
     pub unsafe fn Apply(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
@@ -2997,77 +1372,25 @@ impl ITemplateSdo {
         (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn _NewEnum(&self) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-    pub unsafe fn AddToCollection<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>,
-    >(
-        &self,
-        bstrname: Param0,
-        pcollection: Param1,
-        ppitem: *mut ::std::option::Option<super::super::System::Ole::Automation::IDispatch>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            bstrname.into_param().abi(),
-            pcollection.into_param().abi(),
-            ::std::mem::transmute(ppitem),
-        )
-        .ok()
+    pub unsafe fn AddToCollection<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>>(&self, bstrname: Param0, pcollection: Param1, ppitem: *mut ::std::option::Option<super::super::System::Ole::Automation::IDispatch>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), bstrname.into_param().abi(), pcollection.into_param().abi(), ::std::mem::transmute(ppitem)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-    pub unsafe fn AddToSdo<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>,
-    >(
-        &self,
-        bstrname: Param0,
-        psdotarget: Param1,
-        ppitem: *mut ::std::option::Option<super::super::System::Ole::Automation::IDispatch>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            bstrname.into_param().abi(),
-            psdotarget.into_param().abi(),
-            ::std::mem::transmute(ppitem),
-        )
-        .ok()
+    pub unsafe fn AddToSdo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>>(&self, bstrname: Param0, psdotarget: Param1, ppitem: *mut ::std::option::Option<super::super::System::Ole::Automation::IDispatch>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), bstrname.into_param().abi(), psdotarget.into_param().abi(), ::std::mem::transmute(ppitem)).ok()
     }
     #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub unsafe fn AddToSdoAsProperty<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>,
-    >(
-        &self,
-        psdotarget: Param0,
-        id: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            psdotarget.into_param().abi(),
-            ::std::mem::transmute(id),
-        )
-        .ok()
+    pub unsafe fn AddToSdoAsProperty<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>>(&self, psdotarget: Param0, id: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), psdotarget.into_param().abi(), ::std::mem::transmute(id)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for ITemplateSdo {
     type Vtable = ITemplateSdo_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2326287106,
-        53986,
-        20000,
-        [139, 31, 165, 113, 228, 55, 214, 201],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2326287106, 53986, 20000, [139, 31, 165, 113, 228, 55, 214, 201]);
 }
 impl ::std::convert::From<ITemplateSdo> for ::windows::runtime::IUnknown {
     fn from(value: ITemplateSdo) -> Self {
@@ -3081,18 +1404,12 @@ impl ::std::convert::From<&ITemplateSdo> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for ITemplateSdo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ITemplateSdo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<ITemplateSdo> for ISdo {
@@ -3112,9 +1429,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, ISdo> for ITemplateSdo {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ISdo> for &ITemplateSdo {
     fn into_param(self) -> ::windows::runtime::Param<'a, ISdo> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<ISdo>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<ISdo>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
@@ -3130,162 +1445,48 @@ impl ::std::convert::From<&ITemplateSdo> for super::super::System::Ole::Automati
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for ITemplateSdo
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(self))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for ITemplateSdo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(self))
     }
 }
 #[cfg(feature = "Win32_System_Ole_Automation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
-    for &ITemplateSdo
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::Automation::IDispatch,
-        >::into(::std::clone::Clone::clone(self)))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch> for &ITemplateSdo {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::Automation::IDispatch>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct ITemplateSdo_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pctinfo: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        itinfo: u32,
-        lcid: u32,
-        pptinfo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pctinfo: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, itinfo: u32, lcid: u32, pptinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        riid: *const ::windows::runtime::GUID,
-        rgsznames: *const super::super::Foundation::PWSTR,
-        cnames: u32,
-        lcid: u32,
-        rgdispid: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, riid: *const ::windows::runtime::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dispidmember: i32,
-        riid: *const ::windows::runtime::GUID,
-        lcid: u32,
-        wflags: u16,
-        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>,
-        puargerr: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        id: i32,
-        pppropertyinfo: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        id: i32,
-        pvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    ))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        id: i32,
-        pvalue: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_System_Com",
-        feature = "Win32_System_Ole_Automation"
-    )))]
-    usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        id: i32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dispidmember: i32, riid: *const ::windows::runtime::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS, pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>, pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>, puargerr: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32, pppropertyinfo: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32, pvalue: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32, pvalue: *const ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>) -> ::windows::runtime::HRESULT,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation")))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, id: i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppenumvariant: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bstrname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        pcollection: ::windows::runtime::RawPtr,
-        ppitem: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppenumvariant: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, pcollection: ::windows::runtime::RawPtr, ppitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        bstrname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        psdotarget: ::windows::runtime::RawPtr,
-        ppitem: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, bstrname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>, psdotarget: ::windows::runtime::RawPtr, ppitem: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
-    #[cfg(feature = "Win32_System_Ole_Automation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        psdotarget: ::windows::runtime::RawPtr,
-        id: i32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Ole_Automation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psdotarget: ::windows::runtime::RawPtr, id: i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NAMESPROPERTIES(pub i32);
 pub const PROPERTY_NAMES_REALMS: NAMESPROPERTIES = NAMESPROPERTIES(1026i32);
@@ -3298,14 +1499,7 @@ unsafe impl ::windows::runtime::Abi for NAMESPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NAPPROPERTIES(pub i32);
 pub const PROPERTY_NAP_POLICIES_COLLECTION: NAPPROPERTIES = NAPPROPERTIES(1026i32);
@@ -3319,14 +1513,7 @@ unsafe impl ::windows::runtime::Abi for NAPPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NEW_LOG_FILE_FREQUENCY(pub i32);
 pub const IAS_LOGGING_UNLIMITED_SIZE: NEW_LOG_FILE_FREQUENCY = NEW_LOG_FILE_FREQUENCY(0i32);
@@ -3343,18 +1530,10 @@ unsafe impl ::windows::runtime::Abi for NEW_LOG_FILE_FREQUENCY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NTEVENTLOGPROPERTIES(pub i32);
-pub const PROPERTY_EVENTLOG_LOG_APPLICATION_EVENTS: NTEVENTLOGPROPERTIES =
-    NTEVENTLOGPROPERTIES(1026i32);
+pub const PROPERTY_EVENTLOG_LOG_APPLICATION_EVENTS: NTEVENTLOGPROPERTIES = NTEVENTLOGPROPERTIES(1026i32);
 pub const PROPERTY_EVENTLOG_LOG_MALFORMED: NTEVENTLOGPROPERTIES = NTEVENTLOGPROPERTIES(1027i32);
 pub const PROPERTY_EVENTLOG_LOG_DEBUG: NTEVENTLOGPROPERTIES = NTEVENTLOGPROPERTIES(1028i32);
 impl ::std::convert::From<i32> for NTEVENTLOGPROPERTIES {
@@ -3366,14 +1545,7 @@ unsafe impl ::windows::runtime::Abi for NTEVENTLOGPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NTSAMPROPERTIES(pub i32);
 pub const PROPERTY_NTSAM_ALLOW_LM_AUTHENTICATION: NTSAMPROPERTIES = NTSAMPROPERTIES(1026i32);
@@ -3386,14 +1558,7 @@ unsafe impl ::windows::runtime::Abi for NTSAMPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct POLICYPROPERTIES(pub i32);
 pub const PROPERTY_POLICY_CONSTRAINT: POLICYPROPERTIES = POLICYPROPERTIES(1024i32);
@@ -3414,27 +1579,13 @@ unsafe impl ::windows::runtime::Abi for POLICYPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type PRADIUS_EXTENSION_FREE_ATTRIBUTES =
-    unsafe extern "system" fn(pattrs: *mut RADIUS_ATTRIBUTE);
+pub type PRADIUS_EXTENSION_FREE_ATTRIBUTES = unsafe extern "system" fn(pattrs: *mut RADIUS_ATTRIBUTE);
 pub type PRADIUS_EXTENSION_INIT = unsafe extern "system" fn() -> u32;
-pub type PRADIUS_EXTENSION_PROCESS =
-    unsafe extern "system" fn(pattrs: *const RADIUS_ATTRIBUTE, pfaction: *mut RADIUS_ACTION) -> u32;
-pub type PRADIUS_EXTENSION_PROCESS_2 =
-    unsafe extern "system" fn(pecb: *mut RADIUS_EXTENSION_CONTROL_BLOCK) -> u32;
-pub type PRADIUS_EXTENSION_PROCESS_EX = unsafe extern "system" fn(
-    pinattrs: *const RADIUS_ATTRIBUTE,
-    poutattrs: *mut *mut RADIUS_ATTRIBUTE,
-    pfaction: *mut RADIUS_ACTION,
-) -> u32;
+pub type PRADIUS_EXTENSION_PROCESS = unsafe extern "system" fn(pattrs: *const RADIUS_ATTRIBUTE, pfaction: *mut RADIUS_ACTION) -> u32;
+pub type PRADIUS_EXTENSION_PROCESS_2 = unsafe extern "system" fn(pecb: *mut RADIUS_EXTENSION_CONTROL_BLOCK) -> u32;
+pub type PRADIUS_EXTENSION_PROCESS_EX = unsafe extern "system" fn(pinattrs: *const RADIUS_ATTRIBUTE, poutattrs: *mut *mut RADIUS_ATTRIBUTE, pfaction: *mut RADIUS_ACTION) -> u32;
 pub type PRADIUS_EXTENSION_TERM = unsafe extern "system" fn();
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROFILEPROPERTIES(pub i32);
 pub const PROPERTY_PROFILE_ATTRIBUTES_COLLECTION: PROFILEPROPERTIES = PROFILEPROPERTIES(1024i32);
@@ -3448,14 +1599,7 @@ unsafe impl ::windows::runtime::Abi for PROFILEPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PROTOCOLPROPERTIES(pub i32);
 pub const PROPERTY_PROTOCOL_REQUEST_HANDLER: PROTOCOLPROPERTIES = PROTOCOLPROPERTIES(1026i32);
@@ -3469,14 +1613,7 @@ unsafe impl ::windows::runtime::Abi for PROTOCOLPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RADIUSPROPERTIES(pub i32);
 pub const PROPERTY_RADIUS_ACCOUNTING_PORT: RADIUSPROPERTIES = RADIUSPROPERTIES(1027i32);
@@ -3492,14 +1629,7 @@ unsafe impl ::windows::runtime::Abi for RADIUSPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RADIUSPROXYPROPERTIES(pub i32);
 pub const PROPERTY_RADIUSPROXY_SERVERGROUPS: RADIUSPROXYPROPERTIES = RADIUSPROXYPROPERTIES(1026i32);
@@ -3512,18 +1642,10 @@ unsafe impl ::windows::runtime::Abi for RADIUSPROXYPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RADIUSSERVERGROUPPROPERTIES(pub i32);
-pub const PROPERTY_RADIUSSERVERGROUP_SERVERS_COLLECTION: RADIUSSERVERGROUPPROPERTIES =
-    RADIUSSERVERGROUPPROPERTIES(1024i32);
+pub const PROPERTY_RADIUSSERVERGROUP_SERVERS_COLLECTION: RADIUSSERVERGROUPPROPERTIES = RADIUSSERVERGROUPPROPERTIES(1024i32);
 impl ::std::convert::From<i32> for RADIUSSERVERGROUPPROPERTIES {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3533,36 +1655,23 @@ unsafe impl ::windows::runtime::Abi for RADIUSSERVERGROUPPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RADIUSSERVERPROPERTIES(pub i32);
 pub const PROPERTY_RADIUSSERVER_AUTH_PORT: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1024i32);
-pub const PROPERTY_RADIUSSERVER_AUTH_SECRET: RADIUSSERVERPROPERTIES =
-    RADIUSSERVERPROPERTIES(1025i32);
+pub const PROPERTY_RADIUSSERVER_AUTH_SECRET: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1025i32);
 pub const PROPERTY_RADIUSSERVER_ACCT_PORT: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1026i32);
-pub const PROPERTY_RADIUSSERVER_ACCT_SECRET: RADIUSSERVERPROPERTIES =
-    RADIUSSERVERPROPERTIES(1027i32);
+pub const PROPERTY_RADIUSSERVER_ACCT_SECRET: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1027i32);
 pub const PROPERTY_RADIUSSERVER_ADDRESS: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1028i32);
-pub const PROPERTY_RADIUSSERVER_FORWARD_ACCT_ONOFF: RADIUSSERVERPROPERTIES =
-    RADIUSSERVERPROPERTIES(1029i32);
+pub const PROPERTY_RADIUSSERVER_FORWARD_ACCT_ONOFF: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1029i32);
 pub const PROPERTY_RADIUSSERVER_PRIORITY: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1030i32);
 pub const PROPERTY_RADIUSSERVER_WEIGHT: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1031i32);
 pub const PROPERTY_RADIUSSERVER_TIMEOUT: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1032i32);
 pub const PROPERTY_RADIUSSERVER_MAX_LOST: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1033i32);
 pub const PROPERTY_RADIUSSERVER_BLACKOUT: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1034i32);
-pub const PROPERTY_RADIUSSERVER_SEND_SIGNATURE: RADIUSSERVERPROPERTIES =
-    RADIUSSERVERPROPERTIES(1035i32);
-pub const PROPERTY_RADIUSSERVER_AUTH_SECRET_TEMPLATE_GUID: RADIUSSERVERPROPERTIES =
-    RADIUSSERVERPROPERTIES(1036i32);
-pub const PROPERTY_RADIUSSERVER_ACCT_SECRET_TEMPLATE_GUID: RADIUSSERVERPROPERTIES =
-    RADIUSSERVERPROPERTIES(1037i32);
+pub const PROPERTY_RADIUSSERVER_SEND_SIGNATURE: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1035i32);
+pub const PROPERTY_RADIUSSERVER_AUTH_SECRET_TEMPLATE_GUID: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1036i32);
+pub const PROPERTY_RADIUSSERVER_ACCT_SECRET_TEMPLATE_GUID: RADIUSSERVERPROPERTIES = RADIUSSERVERPROPERTIES(1037i32);
 impl ::std::convert::From<i32> for RADIUSSERVERPROPERTIES {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3572,14 +1681,7 @@ unsafe impl ::windows::runtime::Abi for RADIUSSERVERPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RADIUS_ACTION(pub i32);
 pub const raContinue: RADIUS_ACTION = RADIUS_ACTION(0i32);
@@ -3659,26 +1761,12 @@ impl ::std::default::Default for RADIUS_ATTRIBUTE_ARRAY {
 }
 impl ::std::fmt::Debug for RADIUS_ATTRIBUTE_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RADIUS_ATTRIBUTE_ARRAY")
-            .field("cbSize", &self.cbSize)
-            .field("Add", &self.Add)
-            .field("AttributeAt", &self.AttributeAt)
-            .field("GetSize", &self.GetSize)
-            .field("InsertAt", &self.InsertAt)
-            .field("RemoveAt", &self.RemoveAt)
-            .field("SetAt", &self.SetAt)
-            .finish()
+        fmt.debug_struct("RADIUS_ATTRIBUTE_ARRAY").field("cbSize", &self.cbSize).field("Add", &self.Add).field("AttributeAt", &self.AttributeAt).field("GetSize", &self.GetSize).field("InsertAt", &self.InsertAt).field("RemoveAt", &self.RemoveAt).field("SetAt", &self.SetAt).finish()
     }
 }
 impl ::std::cmp::PartialEq for RADIUS_ATTRIBUTE_ARRAY {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.Add == other.Add
-            && self.AttributeAt == other.AttributeAt
-            && self.GetSize == other.GetSize
-            && self.InsertAt == other.InsertAt
-            && self.RemoveAt == other.RemoveAt
-            && self.SetAt == other.SetAt
+        self.cbSize == other.cbSize && self.Add == other.Add && self.AttributeAt == other.AttributeAt && self.GetSize == other.GetSize && self.InsertAt == other.InsertAt && self.RemoveAt == other.RemoveAt && self.SetAt == other.SetAt
     }
 }
 impl ::std::cmp::Eq for RADIUS_ATTRIBUTE_ARRAY {}
@@ -3686,14 +1774,7 @@ unsafe impl ::windows::runtime::Abi for RADIUS_ATTRIBUTE_ARRAY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RADIUS_ATTRIBUTE_TYPE(pub i32);
 pub const ratMinimum: RADIUS_ATTRIBUTE_TYPE = RADIUS_ATTRIBUTE_TYPE(0i32);
@@ -3784,14 +1865,7 @@ unsafe impl ::windows::runtime::Abi for RADIUS_ATTRIBUTE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RADIUS_AUTHENTICATION_PROVIDER(pub i32);
 pub const rapUnknown: RADIUS_AUTHENTICATION_PROVIDER = RADIUS_AUTHENTICATION_PROVIDER(0i32);
@@ -3810,14 +1884,7 @@ unsafe impl ::windows::runtime::Abi for RADIUS_AUTHENTICATION_PROVIDER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RADIUS_CODE(pub i32);
 pub const rcUnknown: RADIUS_CODE = RADIUS_CODE(0i32);
@@ -3837,14 +1904,7 @@ unsafe impl ::windows::runtime::Abi for RADIUS_CODE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RADIUS_DATA_TYPE(pub i32);
 pub const rdtUnknown: RADIUS_DATA_TYPE = RADIUS_DATA_TYPE(0i32);
@@ -3896,14 +1956,7 @@ impl ::std::fmt::Debug for RADIUS_EXTENSION_CONTROL_BLOCK {
 }
 impl ::std::cmp::PartialEq for RADIUS_EXTENSION_CONTROL_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.dwVersion == other.dwVersion
-            && self.repPoint == other.repPoint
-            && self.rcRequestType == other.rcRequestType
-            && self.rcResponseType == other.rcResponseType
-            && self.GetRequest == other.GetRequest
-            && self.GetResponse == other.GetResponse
-            && self.SetResponseType == other.SetResponseType
+        self.cbSize == other.cbSize && self.dwVersion == other.dwVersion && self.repPoint == other.repPoint && self.rcRequestType == other.rcRequestType && self.rcResponseType == other.rcResponseType && self.GetRequest == other.GetRequest && self.GetResponse == other.GetResponse && self.SetResponseType == other.SetResponseType
     }
 }
 impl ::std::cmp::Eq for RADIUS_EXTENSION_CONTROL_BLOCK {}
@@ -3911,14 +1964,7 @@ unsafe impl ::windows::runtime::Abi for RADIUS_EXTENSION_CONTROL_BLOCK {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RADIUS_EXTENSION_POINT(pub i32);
 pub const repAuthentication: RADIUS_EXTENSION_POINT = RADIUS_EXTENSION_POINT(0i32);
@@ -3933,14 +1979,7 @@ unsafe impl ::windows::runtime::Abi for RADIUS_EXTENSION_POINT {
     type DefaultType = Self;
 }
 pub const RADIUS_EXTENSION_VERSION: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RADIUS_REJECT_REASON_CODE(pub i32);
 pub const rrrcUndefined: RADIUS_REJECT_REASON_CODE = RADIUS_REJECT_REASON_CODE(0i32);
@@ -3973,20 +2012,12 @@ impl ::std::default::Default for RADIUS_VSA_FORMAT {
 }
 impl ::std::fmt::Debug for RADIUS_VSA_FORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RADIUS_VSA_FORMAT")
-            .field("VendorId", &self.VendorId)
-            .field("VendorType", &self.VendorType)
-            .field("VendorLength", &self.VendorLength)
-            .field("AttributeSpecific", &self.AttributeSpecific)
-            .finish()
+        fmt.debug_struct("RADIUS_VSA_FORMAT").field("VendorId", &self.VendorId).field("VendorType", &self.VendorType).field("VendorLength", &self.VendorLength).field("AttributeSpecific", &self.AttributeSpecific).finish()
     }
 }
 impl ::std::cmp::PartialEq for RADIUS_VSA_FORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.VendorId == other.VendorId
-            && self.VendorType == other.VendorType
-            && self.VendorLength == other.VendorLength
-            && self.AttributeSpecific == other.AttributeSpecific
+        self.VendorId == other.VendorId && self.VendorType == other.VendorType && self.VendorLength == other.VendorLength && self.AttributeSpecific == other.AttributeSpecific
     }
 }
 impl ::std::cmp::Eq for RADIUS_VSA_FORMAT {}
@@ -3994,18 +2025,10 @@ unsafe impl ::windows::runtime::Abi for RADIUS_VSA_FORMAT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REMEDIATIONSERVERGROUPPROPERTIES(pub i32);
-pub const PROPERTY_REMEDIATIONSERVERGROUP_SERVERS_COLLECTION: REMEDIATIONSERVERGROUPPROPERTIES =
-    REMEDIATIONSERVERGROUPPROPERTIES(1024i32);
+pub const PROPERTY_REMEDIATIONSERVERGROUP_SERVERS_COLLECTION: REMEDIATIONSERVERGROUPPROPERTIES = REMEDIATIONSERVERGROUPPROPERTIES(1024i32);
 impl ::std::convert::From<i32> for REMEDIATIONSERVERGROUPPROPERTIES {
     fn from(value: i32) -> Self {
         Self(value)
@@ -4015,20 +2038,11 @@ unsafe impl ::windows::runtime::Abi for REMEDIATIONSERVERGROUPPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REMEDIATIONSERVERPROPERTIES(pub i32);
-pub const PROPERTY_REMEDIATIONSERVER_ADDRESS: REMEDIATIONSERVERPROPERTIES =
-    REMEDIATIONSERVERPROPERTIES(1024i32);
-pub const PROPERTY_REMEDIATIONSERVER_FRIENDLY_NAME: REMEDIATIONSERVERPROPERTIES =
-    REMEDIATIONSERVERPROPERTIES(1025i32);
+pub const PROPERTY_REMEDIATIONSERVER_ADDRESS: REMEDIATIONSERVERPROPERTIES = REMEDIATIONSERVERPROPERTIES(1024i32);
+pub const PROPERTY_REMEDIATIONSERVER_FRIENDLY_NAME: REMEDIATIONSERVERPROPERTIES = REMEDIATIONSERVERPROPERTIES(1025i32);
 impl ::std::convert::From<i32> for REMEDIATIONSERVERPROPERTIES {
     fn from(value: i32) -> Self {
         Self(value)
@@ -4038,18 +2052,10 @@ unsafe impl ::windows::runtime::Abi for REMEDIATIONSERVERPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct REMEDIATIONSERVERSPROPERTIES(pub i32);
-pub const PROPERTY_REMEDIATIONSERVERS_SERVERGROUPS: REMEDIATIONSERVERSPROPERTIES =
-    REMEDIATIONSERVERSPROPERTIES(1026i32);
+pub const PROPERTY_REMEDIATIONSERVERS_SERVERGROUPS: REMEDIATIONSERVERSPROPERTIES = REMEDIATIONSERVERSPROPERTIES(1026i32);
 impl ::std::convert::From<i32> for REMEDIATIONSERVERSPROPERTIES {
     fn from(value: i32) -> Self {
         Self(value)
@@ -4059,14 +2065,7 @@ unsafe impl ::windows::runtime::Abi for REMEDIATIONSERVERSPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SERVICE_TYPE(pub i32);
 pub const SERVICE_TYPE_IAS: SERVICE_TYPE = SERVICE_TYPE(0i32);
@@ -4082,14 +2081,7 @@ unsafe impl ::windows::runtime::Abi for SERVICE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SHAREDSECRETPROPERTIES(pub i32);
 pub const PROPERTY_SHAREDSECRET_STRING: SHAREDSECRETPROPERTIES = SHAREDSECRETPROPERTIES(1024i32);
@@ -4102,14 +2094,7 @@ unsafe impl ::windows::runtime::Abi for SHAREDSECRETPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SHVTEMPLATEPROPERTIES(pub i32);
 pub const PROPERTY_SHV_COMBINATION_TYPE: SHVTEMPLATEPROPERTIES = SHVTEMPLATEPROPERTIES(1024i32);
@@ -4124,26 +2109,16 @@ unsafe impl ::windows::runtime::Abi for SHVTEMPLATEPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct SHV_COMBINATION_TYPE(pub i32);
 pub const SHV_COMBINATION_TYPE_ALL_PASS: SHV_COMBINATION_TYPE = SHV_COMBINATION_TYPE(0i32);
 pub const SHV_COMBINATION_TYPE_ALL_FAIL: SHV_COMBINATION_TYPE = SHV_COMBINATION_TYPE(1i32);
 pub const SHV_COMBINATION_TYPE_ONE_OR_MORE_PASS: SHV_COMBINATION_TYPE = SHV_COMBINATION_TYPE(2i32);
 pub const SHV_COMBINATION_TYPE_ONE_OR_MORE_FAIL: SHV_COMBINATION_TYPE = SHV_COMBINATION_TYPE(3i32);
-pub const SHV_COMBINATION_TYPE_ONE_OR_MORE_INFECTED: SHV_COMBINATION_TYPE =
-    SHV_COMBINATION_TYPE(4i32);
-pub const SHV_COMBINATION_TYPE_ONE_OR_MORE_TRANSITIONAL: SHV_COMBINATION_TYPE =
-    SHV_COMBINATION_TYPE(5i32);
-pub const SHV_COMBINATION_TYPE_ONE_OR_MORE_UNKNOWN: SHV_COMBINATION_TYPE =
-    SHV_COMBINATION_TYPE(6i32);
+pub const SHV_COMBINATION_TYPE_ONE_OR_MORE_INFECTED: SHV_COMBINATION_TYPE = SHV_COMBINATION_TYPE(4i32);
+pub const SHV_COMBINATION_TYPE_ONE_OR_MORE_TRANSITIONAL: SHV_COMBINATION_TYPE = SHV_COMBINATION_TYPE(5i32);
+pub const SHV_COMBINATION_TYPE_ONE_OR_MORE_UNKNOWN: SHV_COMBINATION_TYPE = SHV_COMBINATION_TYPE(6i32);
 pub const SHV_COMBINATION_TYPE_MAX: SHV_COMBINATION_TYPE = SHV_COMBINATION_TYPE(7i32);
 impl ::std::convert::From<i32> for SHV_COMBINATION_TYPE {
     fn from(value: i32) -> Self {
@@ -4154,43 +2129,22 @@ unsafe impl ::windows::runtime::Abi for SHV_COMBINATION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const SdoMachine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3911289575,
-    40593,
-    4561,
-    [191, 96, 0, 128, 199, 132, 107, 192],
-);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub const SdoMachine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3911289575, 40593, 4561, [191, 96, 0, 128, 199, 132, 107, 192]);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TEMPLATESPROPERTIES(pub i32);
 pub const PROPERTY_TEMPLATES_POLICIES_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1024i32);
 pub const PROPERTY_TEMPLATES_PROFILES_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1025i32);
-pub const PROPERTY_TEMPLATES_PROFILES_COLLECTION: TEMPLATESPROPERTIES =
-    TEMPLATESPROPERTIES(1026i32);
-pub const PROPERTY_TEMPLATES_PROXYPOLICIES_TEMPLATES: TEMPLATESPROPERTIES =
-    TEMPLATESPROPERTIES(1027i32);
-pub const PROPERTY_TEMPLATES_PROXYPROFILES_TEMPLATES: TEMPLATESPROPERTIES =
-    TEMPLATESPROPERTIES(1028i32);
-pub const PROPERTY_TEMPLATES_PROXYPROFILES_COLLECTION: TEMPLATESPROPERTIES =
-    TEMPLATESPROPERTIES(1029i32);
-pub const PROPERTY_TEMPLATES_REMEDIATIONSERVERGROUPS_TEMPLATES: TEMPLATESPROPERTIES =
-    TEMPLATESPROPERTIES(1030i32);
-pub const PROPERTY_TEMPLATES_SHVTEMPLATES_TEMPLATES: TEMPLATESPROPERTIES =
-    TEMPLATESPROPERTIES(1031i32);
+pub const PROPERTY_TEMPLATES_PROFILES_COLLECTION: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1026i32);
+pub const PROPERTY_TEMPLATES_PROXYPOLICIES_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1027i32);
+pub const PROPERTY_TEMPLATES_PROXYPROFILES_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1028i32);
+pub const PROPERTY_TEMPLATES_PROXYPROFILES_COLLECTION: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1029i32);
+pub const PROPERTY_TEMPLATES_REMEDIATIONSERVERGROUPS_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1030i32);
+pub const PROPERTY_TEMPLATES_SHVTEMPLATES_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1031i32);
 pub const PROPERTY_TEMPLATES_CLIENTS_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1032i32);
-pub const PROPERTY_TEMPLATES_RADIUSSERVERS_TEMPLATES: TEMPLATESPROPERTIES =
-    TEMPLATESPROPERTIES(1033i32);
-pub const PROPERTY_TEMPLATES_SHAREDSECRETS_TEMPLATES: TEMPLATESPROPERTIES =
-    TEMPLATESPROPERTIES(1034i32);
-pub const PROPERTY_TEMPLATES_IPFILTERS_TEMPLATES: TEMPLATESPROPERTIES =
-    TEMPLATESPROPERTIES(1035i32);
+pub const PROPERTY_TEMPLATES_RADIUSSERVERS_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1033i32);
+pub const PROPERTY_TEMPLATES_SHAREDSECRETS_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1034i32);
+pub const PROPERTY_TEMPLATES_IPFILTERS_TEMPLATES: TEMPLATESPROPERTIES = TEMPLATESPROPERTIES(1035i32);
 impl ::std::convert::From<i32> for TEMPLATESPROPERTIES {
     fn from(value: i32) -> Self {
         Self(value)
@@ -4200,14 +2154,7 @@ unsafe impl ::windows::runtime::Abi for TEMPLATESPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USERPROPERTIES(pub i32);
 pub const PROPERTY_USER_CALLING_STATION_ID: USERPROPERTIES = USERPROPERTIES(1024i32);
@@ -4235,14 +2182,7 @@ unsafe impl ::windows::runtime::Abi for USERPROPERTIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VENDORPROPERTIES(pub i32);
 pub const PROPERTY_NAS_VENDOR_ID: VENDORPROPERTIES = VENDORPROPERTIES(1024i32);

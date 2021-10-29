@@ -57,10 +57,7 @@ pub fn generate(stream: proc_macro::TokenStream) -> proc_macro::TokenStream {
 /// of its interfaces are implemented. Otherwise, whatever interfaces are contained within
 /// the attribute TokenStream are implemented.
 #[proc_macro_attribute]
-pub fn implement(
-    attribute: proc_macro::TokenStream,
-    input: proc_macro::TokenStream,
-) -> proc_macro::TokenStream {
+pub fn implement(attribute: proc_macro::TokenStream, input: proc_macro::TokenStream) -> proc_macro::TokenStream {
     implement::gen(attribute, input)
 }
 
@@ -68,20 +65,13 @@ pub fn implement(
 #[proc_macro]
 pub fn include_bindings(_: proc_macro::TokenStream) -> proc_macro::TokenStream {
     // TODO: check that input stream is empty
-    r#"::std::include!(::std::concat!(::std::env!("OUT_DIR"), "/windows.rs"));"#
-        .parse()
-        .unwrap()
+    r#"::std::include!(::std::concat!(::std::env!("OUT_DIR"), "/windows.rs"));"#.parse().unwrap()
 }
 
 // TODO: only use for blittable structs and unions? Anything else requires deep comparison?
 #[proc_macro_derive(StructDerive)]
 pub fn derive_struct_traits(input: proc_macro::TokenStream) -> proc_macro::TokenStream {
-    let name = format_token!(
-        "{}",
-        syn::parse_macro_input!(input as syn::DeriveInput)
-            .ident
-            .to_string()
-    );
+    let name = format_token!("{}", syn::parse_macro_input!(input as syn::DeriveInput).ident.to_string());
 
     let tokens = quote! {
         impl ::std::cmp::PartialEq for #name {

@@ -12,8 +12,7 @@ fn from_hresult() {
 
 #[test]
 fn originate() {
-    let error =
-        windows::runtime::Error::new(windows::runtime::HRESULT(0x80004004), "test originate");
+    let error = windows::runtime::Error::new(windows::runtime::HRESULT(0x80004004), "test originate");
 
     assert_eq!(error.code(), windows::runtime::HRESULT(0x80004004));
     assert_eq!(error.message(), "test originate");
@@ -51,8 +50,5 @@ fn convertible() {
     let result = convertible_error();
     let format = format!("{:?}", result);
 
-    assert_eq!(
-        format,
-        "Err(Error { code: 0x80004002, message: \"test message\" })"
-    );
+    assert_eq!(format, "Err(Error { code: 0x80004002, message: \"test message\" })");
 }

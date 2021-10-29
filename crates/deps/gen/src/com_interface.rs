@@ -9,76 +9,69 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
 
         let (bases, inspectable) = def.base_interfaces();
 
-        let abi_signatures = bases
-            .iter()
-            .rev()
-            .chain(std::iter::once(def))
-            .map(|def| def.methods())
-            .flatten()
-            .map(|method| {
-                let signature = method.signature(&[]);
-                let abi = gen_win32_abi(&signature, gen);
-                if gen.root.is_empty() {
+        let abi_signatures = bases.iter().rev().chain(std::iter::once(def)).map(|def| def.methods()).flatten().map(|method| {
+            let signature = method.signature(&[]);
+            let abi = gen_win32_abi(&signature, gen);
+            if gen.root.is_empty() {
+                quote! {
+                    pub unsafe extern "system" fn #abi,
+                }
+            } else {
+                let features = method_features(&signature, gen);
+                let not_features = not_method_features(&signature, gen);
+                if features.is_empty() {
                     quote! {
                         pub unsafe extern "system" fn #abi,
                     }
                 } else {
-                    let features = method_features(&signature, gen);
-                    let not_features = not_method_features(&signature, gen);
-                    if features.is_empty() {
-                        quote! {
-                            pub unsafe extern "system" fn #abi,
-                        }
-                    } else {
-                        quote! {
-                            #features
-                            pub unsafe extern "system" fn #abi,
-                            #not_features
-                            usize,
-                        }
+                    quote! {
+                        #features
+                        pub unsafe extern "system" fn #abi,
+                        #not_features
+                        usize,
                     }
                 }
-            });
+            }
+        });
 
         let mut method_names = BTreeMap::<String, u32>::new();
 
-        let base_offset = if inspectable { 3 } else { 0 };
+        let (method_bases, dispatch) = if !bases.is_empty() && bases[0].type_name() == TypeName::IDispatch { (bases.iter().skip(1), true) } else { (bases.iter().skip(0), false) };
 
-        let methods = bases
-            .iter()
-            .rev()
-            .chain(std::iter::once(def))
-            .map(|def| def.methods())
-            .flatten()
-            .enumerate()
-            .map(|(vtable_offset, method)| {
-                gen_method(base_offset + vtable_offset, &method, &mut method_names, gen)
-            });
+        let base_offset = if inspectable {
+            3
+        } else if dispatch {
+            4
+        } else {
+            0
+        };
+
+        let methods = method_bases.rev().chain(std::iter::once(def)).map(|def| def.methods()).flatten().enumerate().map(|(vtable_offset, method)| gen_method(base_offset + vtable_offset, &method, &mut method_names, gen));
 
         let mut conversions = TokenStream::with_capacity();
 
         conversions.combine(&quote! {
-                    impl ::std::convert::From<#name> for ::windows::runtime::IUnknown {
-                        fn from(value: #name) -> Self {
-                            unsafe { ::std::mem::transmute(value) }
-                        }
-                    }
-                    impl ::std::convert::From<&#name> for ::windows::runtime::IUnknown {
-                        fn from(value: &#name) -> Self {
-                            ::std::convert::From::from(::std::clone::Clone::clone(value))
-                        }
-                    }
-                    impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for #name {
-                        fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-                            ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
-                        }
-                    }
-                    impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &#name {
-                        fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-                            ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
-                        }
-                    }
-                });
+            impl ::std::convert::From<#name> for ::windows::runtime::IUnknown {
+                fn from(value: #name) -> Self {
+                    unsafe { ::std::mem::transmute(value) }
+                }
+            }
+            impl ::std::convert::From<&#name> for ::windows::runtime::IUnknown {
+                fn from(value: &#name) -> Self {
+                    ::std::convert::From::from(::std::clone::Clone::clone(value))
+                }
+            }
+            impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for #name {
+                fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                    ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
+                }
+            }
+            impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &#name {
+                fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
+                    ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
+                }
+            }
+        });
 
         for base in &bases {
             let into = gen_type_name(base, gen);
@@ -87,31 +80,31 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
             let cfg = gen.gen_cfg(&features);
 
             conversions.combine(&quote! {
-                        #cfg
-                        impl ::std::convert::From<#name> for #into {
-                            fn from(value: #name) -> Self {
-                                unsafe { ::std::mem::transmute(value) }
-                            }
-                        }
-                        #cfg
-                        impl ::std::convert::From<&#name> for #into {
-                            fn from(value: &#name) -> Self {
-                                ::std::convert::From::from(::std::clone::Clone::clone(value))
-                            }
-                        }
-                        #cfg
-                        impl<'a> ::windows::runtime::IntoParam<'a, #into> for #name {
-                            fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                                ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(self))
-                            }
-                        }
-                        #cfg
-                        impl<'a> ::windows::runtime::IntoParam<'a, #into> for &#name {
-                            fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
-                                ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
-                            }
-                        }
-                    });
+                #cfg
+                impl ::std::convert::From<#name> for #into {
+                    fn from(value: #name) -> Self {
+                        unsafe { ::std::mem::transmute(value) }
+                    }
+                }
+                #cfg
+                impl ::std::convert::From<&#name> for #into {
+                    fn from(value: &#name) -> Self {
+                        ::std::convert::From::from(::std::clone::Clone::clone(value))
+                    }
+                }
+                #cfg
+                impl<'a> ::windows::runtime::IntoParam<'a, #into> for #name {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
+                        ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(self))
+                    }
+                }
+                #cfg
+                impl<'a> ::windows::runtime::IntoParam<'a, #into> for &#name {
+                    fn into_param(self) -> ::windows::runtime::Param<'a, #into> {
+                        ::windows::runtime::Param::Owned(::std::convert::Into::<#into>::into(::std::clone::Clone::clone(self)))
+                    }
+                }
+            });
         }
 
         let send_sync = if def.type_name() == TypeName::IRestrictedErrorInfo {
@@ -170,12 +163,7 @@ pub fn gen_com_interface(def: &TypeDef, gen: &Gen, include: TypeInclude) -> Toke
     }
 }
 
-fn gen_method(
-    vtable_offset: usize,
-    method: &MethodDef,
-    method_names: &mut BTreeMap<String, u32>,
-    gen: &Gen,
-) -> TokenStream {
+fn gen_method(vtable_offset: usize, method: &MethodDef, method_names: &mut BTreeMap<String, u32>, gen: &Gen) -> TokenStream {
     let signature = method.signature(&[]);
     let constraints = gen_method_constraints(&signature.params, gen);
     let vtable_offset = Literal::usize_unsuffixed(vtable_offset + 3);
@@ -184,11 +172,7 @@ fn gen_method(
     let overload = method_names.entry(name.to_string()).or_insert(0);
     *overload += 1;
 
-    let name: TokenStream = if *overload > 1 {
-        format_token!("{}{}", name, overload)
-    } else {
-        to_ident(&name)
-    };
+    let name: TokenStream = if *overload > 1 { format_token!("{}{}", name, overload) } else { to_ident(&name) };
 
     let features = method_features(&signature, gen);
 

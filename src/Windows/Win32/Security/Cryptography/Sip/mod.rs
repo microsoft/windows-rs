@@ -1,345 +1,168 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptSIPAddProvider(
-    psnewprov: *mut SIP_ADD_NEWPROVIDER,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPAddProvider(psnewprov: *mut SIP_ADD_NEWPROVIDER) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPAddProvider(
-                psnewprov: *mut SIP_ADD_NEWPROVIDER,
-            ) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPAddProvider(psnewprov: *mut SIP_ADD_NEWPROVIDER) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(CryptSIPAddProvider(::std::mem::transmute(psnewprov)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
-pub unsafe fn CryptSIPCreateIndirectData(
-    psubjectinfo: *mut SIP_SUBJECTINFO,
-    pcbindirectdata: *mut u32,
-    pindirectdata: *mut SIP_INDIRECT_DATA,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPCreateIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPCreateIndirectData(
-                psubjectinfo: *mut SIP_SUBJECTINFO,
-                pcbindirectdata: *mut u32,
-                pindirectdata: *mut SIP_INDIRECT_DATA,
-            ) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPCreateIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptSIPCreateIndirectData(
-            ::std::mem::transmute(psubjectinfo),
-            ::std::mem::transmute(pcbindirectdata),
-            ::std::mem::transmute(pindirectdata),
-        ))
+        ::std::mem::transmute(CryptSIPCreateIndirectData(::std::mem::transmute(psubjectinfo), ::std::mem::transmute(pcbindirectdata), ::std::mem::transmute(pindirectdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
-pub unsafe fn CryptSIPGetCaps(
-    psubjinfo: *const SIP_SUBJECTINFO,
-    pcaps: *mut SIP_CAP_SET_V3,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPGetCaps(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET_V3) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPGetCaps(
-                psubjinfo: *const SIP_SUBJECTINFO,
-                pcaps: *mut SIP_CAP_SET_V3,
-            ) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPGetCaps(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET_V3) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptSIPGetCaps(
-            ::std::mem::transmute(psubjinfo),
-            ::std::mem::transmute(pcaps),
-        ))
+        ::std::mem::transmute(CryptSIPGetCaps(::std::mem::transmute(psubjinfo), ::std::mem::transmute(pcaps)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
-pub unsafe fn CryptSIPGetSealedDigest(
-    psubjectinfo: *const SIP_SUBJECTINFO,
-    psig: *const u8,
-    dwsig: u32,
-    pbdigest: *mut u8,
-    pcbdigest: *mut u32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPGetSealedDigest(
-                psubjectinfo: *const SIP_SUBJECTINFO,
-                psig: *const u8,
-                dwsig: u32,
-                pbdigest: *mut u8,
-                pcbdigest: *mut u32,
-            ) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPGetSealedDigest(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptSIPGetSealedDigest(
-            ::std::mem::transmute(psubjectinfo),
-            ::std::mem::transmute(psig),
-            ::std::mem::transmute(dwsig),
-            ::std::mem::transmute(pbdigest),
-            ::std::mem::transmute(pcbdigest),
-        ))
+        ::std::mem::transmute(CryptSIPGetSealedDigest(::std::mem::transmute(psubjectinfo), ::std::mem::transmute(psig), ::std::mem::transmute(dwsig), ::std::mem::transmute(pbdigest), ::std::mem::transmute(pcbdigest)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
-pub unsafe fn CryptSIPGetSignedDataMsg(
-    psubjectinfo: *mut SIP_SUBJECTINFO,
-    pdwencodingtype: *mut super::CERT_QUERY_ENCODING_TYPE,
-    dwindex: u32,
-    pcbsigneddatamsg: *mut u32,
-    pbsigneddatamsg: *mut u8,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut super::CERT_QUERY_ENCODING_TYPE, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPGetSignedDataMsg(
-                psubjectinfo: *mut SIP_SUBJECTINFO,
-                pdwencodingtype: *mut super::CERT_QUERY_ENCODING_TYPE,
-                dwindex: u32,
-                pcbsigneddatamsg: *mut u32,
-                pbsigneddatamsg: *mut u8,
-            ) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPGetSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut super::CERT_QUERY_ENCODING_TYPE, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptSIPGetSignedDataMsg(
-            ::std::mem::transmute(psubjectinfo),
-            ::std::mem::transmute(pdwencodingtype),
-            ::std::mem::transmute(dwindex),
-            ::std::mem::transmute(pcbsigneddatamsg),
-            ::std::mem::transmute(pbsigneddatamsg),
-        ))
+        ::std::mem::transmute(CryptSIPGetSignedDataMsg(::std::mem::transmute(psubjectinfo), ::std::mem::transmute(pdwencodingtype), ::std::mem::transmute(dwindex), ::std::mem::transmute(pcbsigneddatamsg), ::std::mem::transmute(pbsigneddatamsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
-pub unsafe fn CryptSIPLoad(
-    pgsubject: *const ::windows::runtime::GUID,
-    dwflags: u32,
-    psipdispatch: *mut SIP_DISPATCH_INFO,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPLoad(pgsubject: *const ::windows::runtime::GUID, dwflags: u32, psipdispatch: *mut SIP_DISPATCH_INFO) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPLoad(
-                pgsubject: *const ::windows::runtime::GUID,
-                dwflags: u32,
-                psipdispatch: *mut ::std::mem::ManuallyDrop<SIP_DISPATCH_INFO>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPLoad(pgsubject: *const ::windows::runtime::GUID, dwflags: u32, psipdispatch: *mut ::std::mem::ManuallyDrop<SIP_DISPATCH_INFO>) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptSIPLoad(
-            ::std::mem::transmute(pgsubject),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(psipdispatch),
-        ))
+        ::std::mem::transmute(CryptSIPLoad(::std::mem::transmute(pgsubject), ::std::mem::transmute(dwflags), ::std::mem::transmute(psipdispatch)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
-pub unsafe fn CryptSIPPutSignedDataMsg(
-    psubjectinfo: *mut SIP_SUBJECTINFO,
-    dwencodingtype: super::CERT_QUERY_ENCODING_TYPE,
-    pdwindex: *mut u32,
-    cbsigneddatamsg: u32,
-    pbsigneddatamsg: *mut u8,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: super::CERT_QUERY_ENCODING_TYPE, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPPutSignedDataMsg(
-                psubjectinfo: *mut SIP_SUBJECTINFO,
-                dwencodingtype: super::CERT_QUERY_ENCODING_TYPE,
-                pdwindex: *mut u32,
-                cbsigneddatamsg: u32,
-                pbsigneddatamsg: *mut u8,
-            ) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPPutSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: super::CERT_QUERY_ENCODING_TYPE, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptSIPPutSignedDataMsg(
-            ::std::mem::transmute(psubjectinfo),
-            ::std::mem::transmute(dwencodingtype),
-            ::std::mem::transmute(pdwindex),
-            ::std::mem::transmute(cbsigneddatamsg),
-            ::std::mem::transmute(pbsigneddatamsg),
-        ))
+        ::std::mem::transmute(CryptSIPPutSignedDataMsg(::std::mem::transmute(psubjectinfo), ::std::mem::transmute(dwencodingtype), ::std::mem::transmute(pdwindex), ::std::mem::transmute(cbsigneddatamsg), ::std::mem::transmute(pbsigneddatamsg)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptSIPRemoveProvider(
-    pgprov: *mut ::windows::runtime::GUID,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPRemoveProvider(pgprov: *mut ::windows::runtime::GUID) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPRemoveProvider(
-                pgprov: *mut ::windows::runtime::GUID,
-            ) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPRemoveProvider(pgprov: *mut ::windows::runtime::GUID) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(CryptSIPRemoveProvider(::std::mem::transmute(pgprov)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
-pub unsafe fn CryptSIPRemoveSignedDataMsg(
-    psubjectinfo: *mut SIP_SUBJECTINFO,
-    dwindex: u32,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPRemoveSignedDataMsg(
-                psubjectinfo: *mut SIP_SUBJECTINFO,
-                dwindex: u32,
-            ) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPRemoveSignedDataMsg(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptSIPRemoveSignedDataMsg(
-            ::std::mem::transmute(psubjectinfo),
-            ::std::mem::transmute(dwindex),
-        ))
+        ::std::mem::transmute(CryptSIPRemoveSignedDataMsg(::std::mem::transmute(psubjectinfo), ::std::mem::transmute(dwindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptSIPRetrieveSubjectGuid<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    filename: Param0,
-    hfilein: Param1,
-    pgsubject: *mut ::windows::runtime::GUID,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPRetrieveSubjectGuid<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filename: Param0, hfilein: Param1, pgsubject: *mut ::windows::runtime::GUID) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPRetrieveSubjectGuid(
-                filename: super::super::super::Foundation::PWSTR,
-                hfilein: super::super::super::Foundation::HANDLE,
-                pgsubject: *mut ::windows::runtime::GUID,
-            ) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPRetrieveSubjectGuid(filename: super::super::super::Foundation::PWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows::runtime::GUID) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptSIPRetrieveSubjectGuid(
-            filename.into_param().abi(),
-            hfilein.into_param().abi(),
-            ::std::mem::transmute(pgsubject),
-        ))
+        ::std::mem::transmute(CryptSIPRetrieveSubjectGuid(filename.into_param().abi(), hfilein.into_param().abi(), ::std::mem::transmute(pgsubject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
->(
-    filename: Param0,
-    hfilein: Param1,
-    pgsubject: *mut ::windows::runtime::GUID,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPRetrieveSubjectGuidForCatalogFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(filename: Param0, hfilein: Param1, pgsubject: *mut ::windows::runtime::GUID) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPRetrieveSubjectGuidForCatalogFile(
-                filename: super::super::super::Foundation::PWSTR,
-                hfilein: super::super::super::Foundation::HANDLE,
-                pgsubject: *mut ::windows::runtime::GUID,
-            ) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPRetrieveSubjectGuidForCatalogFile(filename: super::super::super::Foundation::PWSTR, hfilein: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows::runtime::GUID) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptSIPRetrieveSubjectGuidForCatalogFile(
-            filename.into_param().abi(),
-            hfilein.into_param().abi(),
-            ::std::mem::transmute(pgsubject),
-        ))
+        ::std::mem::transmute(CryptSIPRetrieveSubjectGuidForCatalogFile(filename.into_param().abi(), hfilein.into_param().abi(), ::std::mem::transmute(pgsubject)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 #[inline]
-pub unsafe fn CryptSIPVerifyIndirectData(
-    psubjectinfo: *mut SIP_SUBJECTINFO,
-    pindirectdata: *mut SIP_INDIRECT_DATA,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CryptSIPVerifyIndirectData(
-                psubjectinfo: *mut SIP_SUBJECTINFO,
-                pindirectdata: *mut SIP_INDIRECT_DATA,
-            ) -> super::super::super::Foundation::BOOL;
+            fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(CryptSIPVerifyIndirectData(
-            ::std::mem::transmute(psubjectinfo),
-            ::std::mem::transmute(pindirectdata),
-        ))
+        ::std::mem::transmute(CryptSIPVerifyIndirectData(::std::mem::transmute(psubjectinfo), ::std::mem::transmute(pindirectdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -364,22 +187,12 @@ impl ::std::default::Default for MS_ADDINFO_BLOB {
 }
 impl ::std::fmt::Debug for MS_ADDINFO_BLOB {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MS_ADDINFO_BLOB")
-            .field("cbStruct", &self.cbStruct)
-            .field("cbMemObject", &self.cbMemObject)
-            .field("pbMemObject", &self.pbMemObject)
-            .field("cbMemSignedMsg", &self.cbMemSignedMsg)
-            .field("pbMemSignedMsg", &self.pbMemSignedMsg)
-            .finish()
+        fmt.debug_struct("MS_ADDINFO_BLOB").field("cbStruct", &self.cbStruct).field("cbMemObject", &self.cbMemObject).field("pbMemObject", &self.pbMemObject).field("cbMemSignedMsg", &self.cbMemSignedMsg).field("pbMemSignedMsg", &self.pbMemSignedMsg).finish()
     }
 }
 impl ::std::cmp::PartialEq for MS_ADDINFO_BLOB {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.cbMemObject == other.cbMemObject
-            && self.pbMemObject == other.pbMemObject
-            && self.cbMemSignedMsg == other.cbMemSignedMsg
-            && self.pbMemSignedMsg == other.pbMemSignedMsg
+        self.cbStruct == other.cbStruct && self.cbMemObject == other.cbMemObject && self.pbMemObject == other.pbMemObject && self.cbMemSignedMsg == other.cbMemSignedMsg && self.pbMemSignedMsg == other.pbMemSignedMsg
     }
 }
 impl ::std::cmp::Eq for MS_ADDINFO_BLOB {}
@@ -389,62 +202,35 @@ unsafe impl ::windows::runtime::Abi for MS_ADDINFO_BLOB {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct MS_ADDINFO_CATALOGMEMBER {
     pub cbStruct: u32,
     pub pStore: *mut super::Catalog::CRYPTCATSTORE,
     pub pMember: *mut super::Catalog::CRYPTCATMEMBER,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl MS_ADDINFO_CATALOGMEMBER {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::default::Default for MS_ADDINFO_CATALOGMEMBER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::fmt::Debug for MS_ADDINFO_CATALOGMEMBER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MS_ADDINFO_CATALOGMEMBER")
-            .field("cbStruct", &self.cbStruct)
-            .field("pStore", &self.pStore)
-            .field("pMember", &self.pMember)
-            .finish()
+        fmt.debug_struct("MS_ADDINFO_CATALOGMEMBER").field("cbStruct", &self.cbStruct).field("pStore", &self.pStore).field("pMember", &self.pMember).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::cmp::PartialEq for MS_ADDINFO_CATALOGMEMBER {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.pStore == other.pStore
-            && self.pMember == other.pMember
+        self.cbStruct == other.cbStruct && self.pStore == other.pStore && self.pMember == other.pMember
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::cmp::Eq for MS_ADDINFO_CATALOGMEMBER {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 unsafe impl ::windows::runtime::Abi for MS_ADDINFO_CATALOGMEMBER {
     type Abi = Self;
     type DefaultType = Self;
@@ -467,10 +253,7 @@ impl ::std::default::Default for MS_ADDINFO_FLAT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MS_ADDINFO_FLAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MS_ADDINFO_FLAT")
-            .field("cbStruct", &self.cbStruct)
-            .field("pIndirectData", &self.pIndirectData)
-            .finish()
+        fmt.debug_struct("MS_ADDINFO_FLAT").field("cbStruct", &self.cbStruct).field("pIndirectData", &self.pIndirectData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -576,21 +359,13 @@ impl ::std::default::Default for SIP_CAP_SET_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SIP_CAP_SET_V2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SIP_CAP_SET_V2")
-            .field("cbSize", &self.cbSize)
-            .field("dwVersion", &self.dwVersion)
-            .field("isMultiSign", &self.isMultiSign)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("SIP_CAP_SET_V2").field("cbSize", &self.cbSize).field("dwVersion", &self.dwVersion).field("isMultiSign", &self.isMultiSign).field("dwReserved", &self.dwReserved).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SIP_CAP_SET_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.dwVersion == other.dwVersion
-            && self.isMultiSign == other.isMultiSign
-            && self.dwReserved == other.dwReserved
+        self.cbSize == other.cbSize && self.dwVersion == other.dwVersion && self.isMultiSign == other.isMultiSign && self.dwReserved == other.dwReserved
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -656,10 +431,7 @@ pub const SIP_CAP_SET_VERSION_2: u32 = 2u32;
 pub const SIP_CAP_SET_VERSION_3: u32 = 3u32;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct SIP_DISPATCH_INFO {
     pub cbSize: u32,
     pub hSIP: super::super::super::Foundation::HANDLE,
@@ -669,56 +441,29 @@ pub struct SIP_DISPATCH_INFO {
     pub pfVerify: ::std::option::Option<pCryptSIPVerifyIndirectData>,
     pub pfRemove: ::std::option::Option<pCryptSIPRemoveSignedDataMsg>,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl SIP_DISPATCH_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::default::Default for SIP_DISPATCH_INFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::fmt::Debug for SIP_DISPATCH_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SIP_DISPATCH_INFO")
-            .field("cbSize", &self.cbSize)
-            .field("hSIP", &self.hSIP)
-            .finish()
+        fmt.debug_struct("SIP_DISPATCH_INFO").field("cbSize", &self.cbSize).field("hSIP", &self.hSIP).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::cmp::PartialEq for SIP_DISPATCH_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.hSIP == other.hSIP
-            && self.pfGet.map(|f| f as usize) == other.pfGet.map(|f| f as usize)
-            && self.pfPut.map(|f| f as usize) == other.pfPut.map(|f| f as usize)
-            && self.pfCreate.map(|f| f as usize) == other.pfCreate.map(|f| f as usize)
-            && self.pfVerify.map(|f| f as usize) == other.pfVerify.map(|f| f as usize)
-            && self.pfRemove.map(|f| f as usize) == other.pfRemove.map(|f| f as usize)
+        self.cbSize == other.cbSize && self.hSIP == other.hSIP && self.pfGet.map(|f| f as usize) == other.pfGet.map(|f| f as usize) && self.pfPut.map(|f| f as usize) == other.pfPut.map(|f| f as usize) && self.pfCreate.map(|f| f as usize) == other.pfCreate.map(|f| f as usize) && self.pfVerify.map(|f| f as usize) == other.pfVerify.map(|f| f as usize) && self.pfRemove.map(|f| f as usize) == other.pfRemove.map(|f| f as usize)
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::cmp::Eq for SIP_DISPATCH_INFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 unsafe impl ::windows::runtime::Abi for SIP_DISPATCH_INFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -742,19 +487,13 @@ impl ::std::default::Default for SIP_INDIRECT_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for SIP_INDIRECT_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SIP_INDIRECT_DATA")
-            .field("Data", &self.Data)
-            .field("DigestAlgorithm", &self.DigestAlgorithm)
-            .field("Digest", &self.Digest)
-            .finish()
+        fmt.debug_struct("SIP_INDIRECT_DATA").field("Data", &self.Data).field("DigestAlgorithm", &self.DigestAlgorithm).field("Digest", &self.Digest).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SIP_INDIRECT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Data == other.Data
-            && self.DigestAlgorithm == other.DigestAlgorithm
-            && self.Digest == other.Digest
+        self.Data == other.Data && self.DigestAlgorithm == other.DigestAlgorithm && self.Digest == other.Digest
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -767,10 +506,7 @@ unsafe impl ::windows::runtime::Abi for SIP_INDIRECT_DATA {
 pub const SIP_MAX_MAGIC_NUMBER: u32 = 4u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub struct SIP_SUBJECTINFO {
     pub cbSize: u32,
     pub pgSubjectType: *mut ::windows::runtime::GUID,
@@ -791,85 +527,52 @@ pub struct SIP_SUBJECTINFO {
     pub Anonymous: SIP_SUBJECTINFO_0,
     pub pClientData: *mut ::std::ffi::c_void,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl SIP_SUBJECTINFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::default::Default for SIP_SUBJECTINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::cmp::PartialEq for SIP_SUBJECTINFO {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::cmp::Eq for SIP_SUBJECTINFO {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 unsafe impl ::windows::runtime::Abi for SIP_SUBJECTINFO {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 pub union SIP_SUBJECTINFO_0 {
     pub psFlat: *mut MS_ADDINFO_FLAT,
     pub psCatMember: *mut MS_ADDINFO_CATALOGMEMBER,
     pub psBlob: *mut MS_ADDINFO_BLOB,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl SIP_SUBJECTINFO_0 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::default::Default for SIP_SUBJECTINFO_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::cmp::PartialEq for SIP_SUBJECTINFO_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 impl ::std::cmp::Eq for SIP_SUBJECTINFO_0 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
 unsafe impl ::windows::runtime::Abi for SIP_SUBJECTINFO_0 {
     type Abi = Self;
     type DefaultType = Self;
@@ -885,86 +588,21 @@ pub const SPC_INC_PE_RESOURCES_FLAG: u32 = 128u32;
 pub const SPC_MARKER_CHECK_CURRENTLY_SUPPORTED_FLAGS: u32 = 1u32;
 pub const SPC_MARKER_CHECK_SKIP_SIP_INDIRECT_DATA_FLAG: u32 = 1u32;
 pub const SPC_RELAXED_PE_MARKER_CHECK: u32 = 2048u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
-pub type pCryptSIPCreateIndirectData =
-    unsafe extern "system" fn(
-        psubjectinfo: *mut SIP_SUBJECTINFO,
-        pcbindirectdata: *mut u32,
-        pindirectdata: *mut SIP_INDIRECT_DATA,
-    ) -> super::super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
-pub type pCryptSIPGetCaps = unsafe extern "system" fn(
-    psubjinfo: *const SIP_SUBJECTINFO,
-    pcaps: *mut SIP_CAP_SET_V3,
-) -> super::super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
-pub type pCryptSIPGetSealedDigest =
-    unsafe extern "system" fn(
-        psubjectinfo: *const SIP_SUBJECTINFO,
-        psig: *const u8,
-        dwsig: u32,
-        pbdigest: *mut u8,
-        pcbdigest: *mut u32,
-    ) -> super::super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
-pub type pCryptSIPGetSignedDataMsg =
-    unsafe extern "system" fn(
-        psubjectinfo: *mut SIP_SUBJECTINFO,
-        pdwencodingtype: *mut u32,
-        dwindex: u32,
-        pcbsigneddatamsg: *mut u32,
-        pbsigneddatamsg: *mut u8,
-    ) -> super::super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
-pub type pCryptSIPPutSignedDataMsg =
-    unsafe extern "system" fn(
-        psubjectinfo: *mut SIP_SUBJECTINFO,
-        dwencodingtype: u32,
-        pdwindex: *mut u32,
-        cbsigneddatamsg: u32,
-        pbsigneddatamsg: *mut u8,
-    ) -> super::super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
-pub type pCryptSIPRemoveSignedDataMsg =
-    unsafe extern "system" fn(
-        psubjectinfo: *mut SIP_SUBJECTINFO,
-        dwindex: u32,
-    ) -> super::super::super::Foundation::BOOL;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Catalog"
-))]
-pub type pCryptSIPVerifyIndirectData =
-    unsafe extern "system" fn(
-        psubjectinfo: *mut SIP_SUBJECTINFO,
-        pindirectdata: *mut SIP_INDIRECT_DATA,
-    ) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPCreateIndirectData = unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pcbindirectdata: *mut u32, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPGetCaps = unsafe extern "system" fn(psubjinfo: *const SIP_SUBJECTINFO, pcaps: *mut SIP_CAP_SET_V3) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPGetSealedDigest = unsafe extern "system" fn(psubjectinfo: *const SIP_SUBJECTINFO, psig: *const u8, dwsig: u32, pbdigest: *mut u8, pcbdigest: *mut u32) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPGetSignedDataMsg = unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pdwencodingtype: *mut u32, dwindex: u32, pcbsigneddatamsg: *mut u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPPutSignedDataMsg = unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwencodingtype: u32, pdwindex: *mut u32, cbsigneddatamsg: u32, pbsigneddatamsg: *mut u8) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPRemoveSignedDataMsg = unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, dwindex: u32) -> super::super::super::Foundation::BOOL;
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography_Catalog"))]
+pub type pCryptSIPVerifyIndirectData = unsafe extern "system" fn(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type pfnIsFileSupported = unsafe extern "system" fn(
-    hfile: super::super::super::Foundation::HANDLE,
-    pgsubject: *mut ::windows::runtime::GUID,
-) -> super::super::super::Foundation::BOOL;
+pub type pfnIsFileSupported = unsafe extern "system" fn(hfile: super::super::super::Foundation::HANDLE, pgsubject: *mut ::windows::runtime::GUID) -> super::super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type pfnIsFileSupportedName =
-    unsafe extern "system" fn(
-        pwszfilename: super::super::super::Foundation::PWSTR,
-        pgsubject: *mut ::windows::runtime::GUID,
-    ) -> super::super::super::Foundation::BOOL;
+pub type pfnIsFileSupportedName = unsafe extern "system" fn(pwszfilename: super::super::super::Foundation::PWSTR, pgsubject: *mut ::windows::runtime::GUID) -> super::super::super::Foundation::BOOL;

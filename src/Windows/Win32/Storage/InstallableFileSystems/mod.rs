@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION {
@@ -66,16 +58,12 @@ impl ::std::default::Default for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
 }
 impl ::std::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_LegacyFilter_e__Struct")
-            .field("FilterNameLength", &self.FilterNameLength)
-            .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
-            .finish()
+        fmt.debug_struct("_LegacyFilter_e__Struct").field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.FilterNameLength == other.FilterNameLength
-            && self.FilterNameBufferOffset == other.FilterNameBufferOffset
+        self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset
     }
 }
 impl ::std::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {}
@@ -107,21 +95,13 @@ impl ::std::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
             .field("FilterNameLength", &self.FilterNameLength)
             .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
             .field("FilterAltitudeLength", &self.FilterAltitudeLength)
-            .field(
-                "FilterAltitudeBufferOffset",
-                &self.FilterAltitudeBufferOffset,
-            )
+            .field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.FrameID == other.FrameID
-            && self.NumberOfInstances == other.NumberOfInstances
-            && self.FilterNameLength == other.FilterNameLength
-            && self.FilterNameBufferOffset == other.FilterNameBufferOffset
-            && self.FilterAltitudeLength == other.FilterAltitudeLength
-            && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
+        self.FrameID == other.FrameID && self.NumberOfInstances == other.NumberOfInstances && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.FilterAltitudeLength == other.FilterAltitudeLength && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
     }
 }
 impl ::std::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {}
@@ -196,20 +176,13 @@ impl ::std::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
             .field("FilterNameLength", &self.FilterNameLength)
             .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
             .field("FilterAltitudeLength", &self.FilterAltitudeLength)
-            .field(
-                "FilterAltitudeBufferOffset",
-                &self.FilterAltitudeBufferOffset,
-            )
+            .field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.FilterNameLength == other.FilterNameLength
-            && self.FilterNameBufferOffset == other.FilterNameBufferOffset
-            && self.FilterAltitudeLength == other.FilterAltitudeLength
-            && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
+        self.Flags == other.Flags && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.FilterAltitudeLength == other.FilterAltitudeLength && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
     }
 }
 impl ::std::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {}
@@ -243,22 +216,13 @@ impl ::std::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
             .field("FilterNameLength", &self.FilterNameLength)
             .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
             .field("FilterAltitudeLength", &self.FilterAltitudeLength)
-            .field(
-                "FilterAltitudeBufferOffset",
-                &self.FilterAltitudeBufferOffset,
-            )
+            .field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.FrameID == other.FrameID
-            && self.NumberOfInstances == other.NumberOfInstances
-            && self.FilterNameLength == other.FilterNameLength
-            && self.FilterNameBufferOffset == other.FilterNameBufferOffset
-            && self.FilterAltitudeLength == other.FilterAltitudeLength
-            && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
+        self.Flags == other.Flags && self.FrameID == other.FrameID && self.NumberOfInstances == other.NumberOfInstances && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.FilterAltitudeLength == other.FilterAltitudeLength && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
     }
 }
 impl ::std::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {}
@@ -283,22 +247,12 @@ impl ::std::default::Default for FILTER_FULL_INFORMATION {
 }
 impl ::std::fmt::Debug for FILTER_FULL_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILTER_FULL_INFORMATION")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("FrameID", &self.FrameID)
-            .field("NumberOfInstances", &self.NumberOfInstances)
-            .field("FilterNameLength", &self.FilterNameLength)
-            .field("FilterNameBuffer", &self.FilterNameBuffer)
-            .finish()
+        fmt.debug_struct("FILTER_FULL_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBuffer", &self.FilterNameBuffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILTER_FULL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.FrameID == other.FrameID
-            && self.NumberOfInstances == other.NumberOfInstances
-            && self.FilterNameLength == other.FilterNameLength
-            && self.FilterNameBuffer == other.FilterNameBuffer
+        self.NextEntryOffset == other.NextEntryOffset && self.FrameID == other.FrameID && self.NumberOfInstances == other.NumberOfInstances && self.FilterNameLength == other.FilterNameLength && self.FilterNameBuffer == other.FilterNameBuffer
     }
 }
 impl ::std::cmp::Eq for FILTER_FULL_INFORMATION {}
@@ -306,21 +260,12 @@ unsafe impl ::windows::runtime::Abi for FILTER_FULL_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILTER_INFORMATION_CLASS(pub i32);
 pub const FilterFullInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(0i32);
-pub const FilterAggregateBasicInformation: FILTER_INFORMATION_CLASS =
-    FILTER_INFORMATION_CLASS(1i32);
-pub const FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS =
-    FILTER_INFORMATION_CLASS(2i32);
+pub const FilterAggregateBasicInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(1i32);
+pub const FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(2i32);
 impl ::std::convert::From<i32> for FILTER_INFORMATION_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -344,10 +289,7 @@ impl ::std::default::Default for FILTER_MESSAGE_HEADER {
 }
 impl ::std::fmt::Debug for FILTER_MESSAGE_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILTER_MESSAGE_HEADER")
-            .field("ReplyLength", &self.ReplyLength)
-            .field("MessageId", &self.MessageId)
-            .finish()
+        fmt.debug_struct("FILTER_MESSAGE_HEADER").field("ReplyLength", &self.ReplyLength).field("MessageId", &self.MessageId).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILTER_MESSAGE_HEADER {
@@ -379,10 +321,7 @@ impl ::std::default::Default for FILTER_REPLY_HEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for FILTER_REPLY_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILTER_REPLY_HEADER")
-            .field("Status", &self.Status)
-            .field("MessageId", &self.MessageId)
-            .finish()
+        fmt.debug_struct("FILTER_REPLY_HEADER").field("Status", &self.Status).field("MessageId", &self.MessageId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -412,16 +351,12 @@ impl ::std::default::Default for FILTER_VOLUME_BASIC_INFORMATION {
 }
 impl ::std::fmt::Debug for FILTER_VOLUME_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILTER_VOLUME_BASIC_INFORMATION")
-            .field("FilterVolumeNameLength", &self.FilterVolumeNameLength)
-            .field("FilterVolumeName", &self.FilterVolumeName)
-            .finish()
+        fmt.debug_struct("FILTER_VOLUME_BASIC_INFORMATION").field("FilterVolumeNameLength", &self.FilterVolumeNameLength).field("FilterVolumeName", &self.FilterVolumeName).finish()
     }
 }
 impl ::std::cmp::PartialEq for FILTER_VOLUME_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.FilterVolumeNameLength == other.FilterVolumeNameLength
-            && self.FilterVolumeName == other.FilterVolumeName
+        self.FilterVolumeNameLength == other.FilterVolumeNameLength && self.FilterVolumeName == other.FilterVolumeName
     }
 }
 impl ::std::cmp::Eq for FILTER_VOLUME_BASIC_INFORMATION {}
@@ -429,20 +364,11 @@ unsafe impl ::windows::runtime::Abi for FILTER_VOLUME_BASIC_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FILTER_VOLUME_INFORMATION_CLASS(pub i32);
-pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS =
-    FILTER_VOLUME_INFORMATION_CLASS(0i32);
-pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS =
-    FILTER_VOLUME_INFORMATION_CLASS(1i32);
+pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(0i32);
+pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(1i32);
 impl ::std::convert::From<i32> for FILTER_VOLUME_INFORMATION_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -482,12 +408,7 @@ impl ::std::fmt::Debug for FILTER_VOLUME_STANDARD_INFORMATION {
 }
 impl ::std::cmp::PartialEq for FILTER_VOLUME_STANDARD_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.Flags == other.Flags
-            && self.FrameID == other.FrameID
-            && self.FileSystemType == other.FileSystemType
-            && self.FilterVolumeNameLength == other.FilterVolumeNameLength
-            && self.FilterVolumeName == other.FilterVolumeName
+        self.NextEntryOffset == other.NextEntryOffset && self.Flags == other.Flags && self.FrameID == other.FrameID && self.FileSystemType == other.FileSystemType && self.FilterVolumeNameLength == other.FilterVolumeNameLength && self.FilterVolumeName == other.FilterVolumeName
     }
 }
 impl ::std::cmp::Eq for FILTER_VOLUME_STANDARD_INFORMATION {}
@@ -504,14 +425,7 @@ pub const FLTFL_IASIM_DETACHED_VOLUME: u32 = 1u32;
 pub const FLTFL_IASI_IS_LEGACYFILTER: u32 = 2u32;
 pub const FLTFL_IASI_IS_MINIFILTER: u32 = 1u32;
 pub const FLTFL_VSI_DETACHED_VOLUME: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FLT_FILESYSTEM_TYPE(pub i32);
 pub const FLT_FSTYPE_UNKNOWN: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(0i32);
@@ -557,51 +471,21 @@ unsafe impl ::windows::runtime::Abi for FLT_FILESYSTEM_TYPE {
 pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterAttach<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpfiltername: Param0,
-    lpvolumename: Param1,
-    lpinstancename: Param2,
-    dwcreatedinstancenamelength: u32,
-    lpcreatedinstancename: super::super::Foundation::PWSTR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterAttach<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0, lpvolumename: Param1, lpinstancename: Param2, dwcreatedinstancenamelength: u32, lpcreatedinstancename: super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterAttach(
-                lpfiltername: super::super::Foundation::PWSTR,
-                lpvolumename: super::super::Foundation::PWSTR,
-                lpinstancename: super::super::Foundation::PWSTR,
-                dwcreatedinstancenamelength: u32,
-                lpcreatedinstancename: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterAttach(lpfiltername: super::super::Foundation::PWSTR, lpvolumename: super::super::Foundation::PWSTR, lpinstancename: super::super::Foundation::PWSTR, dwcreatedinstancenamelength: u32, lpcreatedinstancename: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        FilterAttach(
-            lpfiltername.into_param().abi(),
-            lpvolumename.into_param().abi(),
-            lpinstancename.into_param().abi(),
-            ::std::mem::transmute(dwcreatedinstancenamelength),
-            ::std::mem::transmute(lpcreatedinstancename),
-        )
-        .ok()
+        FilterAttach(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpinstancename.into_param().abi(), ::std::mem::transmute(dwcreatedinstancenamelength), ::std::mem::transmute(lpcreatedinstancename)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterAttachAtAltitude<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn FilterAttachAtAltitude<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     lpfiltername: Param0,
     lpvolumename: Param1,
     lpaltitude: Param2,
@@ -613,32 +497,15 @@ pub unsafe fn FilterAttachAtAltitude<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterAttachAtAltitude(
-                lpfiltername: super::super::Foundation::PWSTR,
-                lpvolumename: super::super::Foundation::PWSTR,
-                lpaltitude: super::super::Foundation::PWSTR,
-                lpinstancename: super::super::Foundation::PWSTR,
-                dwcreatedinstancenamelength: u32,
-                lpcreatedinstancename: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterAttachAtAltitude(lpfiltername: super::super::Foundation::PWSTR, lpvolumename: super::super::Foundation::PWSTR, lpaltitude: super::super::Foundation::PWSTR, lpinstancename: super::super::Foundation::PWSTR, dwcreatedinstancenamelength: u32, lpcreatedinstancename: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        FilterAttachAtAltitude(
-            lpfiltername.into_param().abi(),
-            lpvolumename.into_param().abi(),
-            lpaltitude.into_param().abi(),
-            lpinstancename.into_param().abi(),
-            ::std::mem::transmute(dwcreatedinstancenamelength),
-            ::std::mem::transmute(lpcreatedinstancename),
-        )
-        .ok()
+        FilterAttachAtAltitude(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpaltitude.into_param().abi(), lpinstancename.into_param().abi(), ::std::mem::transmute(dwcreatedinstancenamelength), ::std::mem::transmute(lpcreatedinstancename)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn FilterClose<'a, Param0: ::windows::runtime::IntoParam<'a, HFILTER>>(
-    hfilter: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterClose<'a, Param0: ::windows::runtime::IntoParam<'a, HFILTER>>(hfilter: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -652,60 +519,27 @@ pub unsafe fn FilterClose<'a, Param0: ::windows::runtime::IntoParam<'a, HFILTER>
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn FilterConnectCommunicationPort<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpportname: Param0,
-    dwoptions: u32,
-    lpcontext: *const ::std::ffi::c_void,
-    wsizeofcontext: u16,
-    lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn FilterConnectCommunicationPort<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpportname: Param0, dwoptions: u32, lpcontext: *const ::std::ffi::c_void, wsizeofcontext: u16, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterConnectCommunicationPort(
-                lpportname: super::super::Foundation::PWSTR,
-                dwoptions: u32,
-                lpcontext: *const ::std::ffi::c_void,
-                wsizeofcontext: u16,
-                lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
-                hport: *mut super::super::Foundation::HANDLE,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterConnectCommunicationPort(lpportname: super::super::Foundation::PWSTR, dwoptions: u32, lpcontext: *const ::std::ffi::c_void, wsizeofcontext: u16, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, hport: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        FilterConnectCommunicationPort(
-            lpportname.into_param().abi(),
-            ::std::mem::transmute(dwoptions),
-            ::std::mem::transmute(lpcontext),
-            ::std::mem::transmute(wsizeofcontext),
-            ::std::mem::transmute(lpsecurityattributes),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::HANDLE>(result__)
+        let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        FilterConnectCommunicationPort(lpportname.into_param().abi(), ::std::mem::transmute(dwoptions), ::std::mem::transmute(lpcontext), ::std::mem::transmute(wsizeofcontext), ::std::mem::transmute(lpsecurityattributes), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterCreate<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpfiltername: Param0,
-) -> ::windows::runtime::Result<HFILTER> {
+pub unsafe fn FilterCreate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0) -> ::windows::runtime::Result<HFILTER> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterCreate(
-                lpfiltername: super::super::Foundation::PWSTR,
-                hfilter: *mut HFILTER,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterCreate(lpfiltername: super::super::Foundation::PWSTR, hfilter: *mut HFILTER) -> ::windows::runtime::HRESULT;
         }
         let mut result__: <HFILTER as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         FilterCreate(lpfiltername.into_param().abi(), &mut result__).from_abi::<HFILTER>(result__)
@@ -715,51 +549,26 @@ pub unsafe fn FilterCreate<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterDetach<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpfiltername: Param0,
-    lpvolumename: Param1,
-    lpinstancename: Param2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterDetach<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0, lpvolumename: Param1, lpinstancename: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterDetach(
-                lpfiltername: super::super::Foundation::PWSTR,
-                lpvolumename: super::super::Foundation::PWSTR,
-                lpinstancename: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterDetach(lpfiltername: super::super::Foundation::PWSTR, lpvolumename: super::super::Foundation::PWSTR, lpinstancename: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
-        FilterDetach(
-            lpfiltername.into_param().abi(),
-            lpvolumename.into_param().abi(),
-            lpinstancename.into_param().abi(),
-        )
-        .ok()
+        FilterDetach(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpinstancename.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterFindClose<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfilterfind: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterFindClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilterfind: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterFindClose(
-                hfilterfind: super::super::Foundation::HANDLE,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterFindClose(hfilterfind: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
         }
         FilterFindClose(hfilterfind.into_param().abi()).ok()
     }
@@ -767,44 +576,19 @@ pub unsafe fn FilterFindClose<
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn FilterFindFirst(
-    dwinformationclass: FILTER_INFORMATION_CLASS,
-    lpbuffer: *mut ::std::ffi::c_void,
-    dwbuffersize: u32,
-    lpbytesreturned: *mut u32,
-    lpfilterfind: *mut FilterFindHandle,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterfind: *mut FilterFindHandle) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterFindFirst(
-                dwinformationclass: FILTER_INFORMATION_CLASS,
-                lpbuffer: *mut ::std::ffi::c_void,
-                dwbuffersize: u32,
-                lpbytesreturned: *mut u32,
-                lpfilterfind: *mut FilterFindHandle,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterfind: *mut FilterFindHandle) -> ::windows::runtime::HRESULT;
         }
-        FilterFindFirst(
-            ::std::mem::transmute(dwinformationclass),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-            ::std::mem::transmute(lpfilterfind),
-        )
-        .ok()
+        FilterFindFirst(::std::mem::transmute(dwinformationclass), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbuffersize), ::std::mem::transmute(lpbytesreturned), ::std::mem::transmute(lpfilterfind)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct FilterFindHandle(pub isize);
 impl ::std::default::Default for FilterFindHandle {
@@ -819,142 +603,61 @@ unsafe impl ::windows::runtime::Abi for FilterFindHandle {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterFindNext<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfilterfind: Param0,
-    dwinformationclass: FILTER_INFORMATION_CLASS,
-    lpbuffer: *mut ::std::ffi::c_void,
-    dwbuffersize: u32,
-    lpbytesreturned: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterFindNext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilterfind: Param0, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterFindNext(
-                hfilterfind: super::super::Foundation::HANDLE,
-                dwinformationclass: FILTER_INFORMATION_CLASS,
-                lpbuffer: *mut ::std::ffi::c_void,
-                dwbuffersize: u32,
-                lpbytesreturned: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterFindNext(hfilterfind: super::super::Foundation::HANDLE, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        FilterFindNext(
-            hfilterfind.into_param().abi(),
-            ::std::mem::transmute(dwinformationclass),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-        )
-        .ok()
+        FilterFindNext(hfilterfind.into_param().abi(), ::std::mem::transmute(dwinformationclass), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbuffersize), ::std::mem::transmute(lpbytesreturned)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterGetDosName<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpvolumename: Param0,
-    lpdosname: super::super::Foundation::PWSTR,
-    dwdosnamebuffersize: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterGetDosName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpvolumename: Param0, lpdosname: super::super::Foundation::PWSTR, dwdosnamebuffersize: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterGetDosName(
-                lpvolumename: super::super::Foundation::PWSTR,
-                lpdosname: super::super::Foundation::PWSTR,
-                dwdosnamebuffersize: u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterGetDosName(lpvolumename: super::super::Foundation::PWSTR, lpdosname: super::super::Foundation::PWSTR, dwdosnamebuffersize: u32) -> ::windows::runtime::HRESULT;
         }
-        FilterGetDosName(
-            lpvolumename.into_param().abi(),
-            ::std::mem::transmute(lpdosname),
-            ::std::mem::transmute(dwdosnamebuffersize),
-        )
-        .ok()
+        FilterGetDosName(lpvolumename.into_param().abi(), ::std::mem::transmute(lpdosname), ::std::mem::transmute(dwdosnamebuffersize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn FilterGetInformation<'a, Param0: ::windows::runtime::IntoParam<'a, HFILTER>>(
-    hfilter: Param0,
-    dwinformationclass: FILTER_INFORMATION_CLASS,
-    lpbuffer: *mut ::std::ffi::c_void,
-    dwbuffersize: u32,
-    lpbytesreturned: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterGetInformation<'a, Param0: ::windows::runtime::IntoParam<'a, HFILTER>>(hfilter: Param0, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterGetInformation(
-                hfilter: HFILTER,
-                dwinformationclass: FILTER_INFORMATION_CLASS,
-                lpbuffer: *mut ::std::ffi::c_void,
-                dwbuffersize: u32,
-                lpbytesreturned: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterGetInformation(hfilter: HFILTER, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        FilterGetInformation(
-            hfilter.into_param().abi(),
-            ::std::mem::transmute(dwinformationclass),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-        )
-        .ok()
+        FilterGetInformation(hfilter.into_param().abi(), ::std::mem::transmute(dwinformationclass), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbuffersize), ::std::mem::transmute(lpbytesreturned)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn FilterGetMessage<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hport: Param0,
-    lpmessagebuffer: *mut FILTER_MESSAGE_HEADER,
-    dwmessagebuffersize: u32,
-    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterGetMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hport: Param0, lpmessagebuffer: *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterGetMessage(
-                hport: super::super::Foundation::HANDLE,
-                lpmessagebuffer: *mut FILTER_MESSAGE_HEADER,
-                dwmessagebuffersize: u32,
-                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterGetMessage(hport: super::super::Foundation::HANDLE, lpmessagebuffer: *mut FILTER_MESSAGE_HEADER, dwmessagebuffersize: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
         }
-        FilterGetMessage(
-            hport.into_param().abi(),
-            ::std::mem::transmute(lpmessagebuffer),
-            ::std::mem::transmute(dwmessagebuffersize),
-            ::std::mem::transmute(lpoverlapped),
-        )
-        .ok()
+        FilterGetMessage(hport.into_param().abi(), ::std::mem::transmute(lpmessagebuffer), ::std::mem::transmute(dwmessagebuffersize), ::std::mem::transmute(lpoverlapped)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn FilterInstanceClose<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HFILTER_INSTANCE>,
->(
-    hinstance: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterInstanceClose<'a, Param0: ::windows::runtime::IntoParam<'a, HFILTER_INSTANCE>>(hinstance: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -968,54 +671,27 @@ pub unsafe fn FilterInstanceClose<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterInstanceCreate<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpfiltername: Param0,
-    lpvolumename: Param1,
-    lpinstancename: Param2,
-) -> ::windows::runtime::Result<HFILTER_INSTANCE> {
+pub unsafe fn FilterInstanceCreate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0, lpvolumename: Param1, lpinstancename: Param2) -> ::windows::runtime::Result<HFILTER_INSTANCE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterInstanceCreate(
-                lpfiltername: super::super::Foundation::PWSTR,
-                lpvolumename: super::super::Foundation::PWSTR,
-                lpinstancename: super::super::Foundation::PWSTR,
-                hinstance: *mut HFILTER_INSTANCE,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterInstanceCreate(lpfiltername: super::super::Foundation::PWSTR, lpvolumename: super::super::Foundation::PWSTR, lpinstancename: super::super::Foundation::PWSTR, hinstance: *mut HFILTER_INSTANCE) -> ::windows::runtime::HRESULT;
         }
         let mut result__: <HFILTER_INSTANCE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        FilterInstanceCreate(
-            lpfiltername.into_param().abi(),
-            lpvolumename.into_param().abi(),
-            lpinstancename.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<HFILTER_INSTANCE>(result__)
+        FilterInstanceCreate(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpinstancename.into_param().abi(), &mut result__).from_abi::<HFILTER_INSTANCE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterInstanceFindClose<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfilterinstancefind: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterInstanceFindClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilterinstancefind: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterInstanceFindClose(
-                hfilterinstancefind: super::super::Foundation::HANDLE,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterInstanceFindClose(hfilterinstancefind: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
         }
         FilterInstanceFindClose(hfilterinstancefind.into_param().abi()).ok()
     }
@@ -1024,50 +700,19 @@ pub unsafe fn FilterInstanceFindClose<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterInstanceFindFirst<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpfiltername: Param0,
-    dwinformationclass: INSTANCE_INFORMATION_CLASS,
-    lpbuffer: *mut ::std::ffi::c_void,
-    dwbuffersize: u32,
-    lpbytesreturned: *mut u32,
-    lpfilterinstancefind: *mut FilterInstanceFindHandle,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterInstanceFindFirst<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterinstancefind: *mut FilterInstanceFindHandle) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterInstanceFindFirst(
-                lpfiltername: super::super::Foundation::PWSTR,
-                dwinformationclass: INSTANCE_INFORMATION_CLASS,
-                lpbuffer: *mut ::std::ffi::c_void,
-                dwbuffersize: u32,
-                lpbytesreturned: *mut u32,
-                lpfilterinstancefind: *mut FilterInstanceFindHandle,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterInstanceFindFirst(lpfiltername: super::super::Foundation::PWSTR, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpfilterinstancefind: *mut FilterInstanceFindHandle) -> ::windows::runtime::HRESULT;
         }
-        FilterInstanceFindFirst(
-            lpfiltername.into_param().abi(),
-            ::std::mem::transmute(dwinformationclass),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-            ::std::mem::transmute(lpfilterinstancefind),
-        )
-        .ok()
+        FilterInstanceFindFirst(lpfiltername.into_param().abi(), ::std::mem::transmute(dwinformationclass), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbuffersize), ::std::mem::transmute(lpbytesreturned), ::std::mem::transmute(lpfilterinstancefind)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct FilterInstanceFindHandle(pub isize);
 impl ::std::default::Default for FilterInstanceFindHandle {
@@ -1082,90 +727,39 @@ unsafe impl ::windows::runtime::Abi for FilterInstanceFindHandle {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterInstanceFindNext<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfilterinstancefind: Param0,
-    dwinformationclass: INSTANCE_INFORMATION_CLASS,
-    lpbuffer: *mut ::std::ffi::c_void,
-    dwbuffersize: u32,
-    lpbytesreturned: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterInstanceFindNext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilterinstancefind: Param0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterInstanceFindNext(
-                hfilterinstancefind: super::super::Foundation::HANDLE,
-                dwinformationclass: INSTANCE_INFORMATION_CLASS,
-                lpbuffer: *mut ::std::ffi::c_void,
-                dwbuffersize: u32,
-                lpbytesreturned: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterInstanceFindNext(hfilterinstancefind: super::super::Foundation::HANDLE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        FilterInstanceFindNext(
-            hfilterinstancefind.into_param().abi(),
-            ::std::mem::transmute(dwinformationclass),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-        )
-        .ok()
+        FilterInstanceFindNext(hfilterinstancefind.into_param().abi(), ::std::mem::transmute(dwinformationclass), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbuffersize), ::std::mem::transmute(lpbytesreturned)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn FilterInstanceGetInformation<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, HFILTER_INSTANCE>,
->(
-    hinstance: Param0,
-    dwinformationclass: INSTANCE_INFORMATION_CLASS,
-    lpbuffer: *mut ::std::ffi::c_void,
-    dwbuffersize: u32,
-    lpbytesreturned: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterInstanceGetInformation<'a, Param0: ::windows::runtime::IntoParam<'a, HFILTER_INSTANCE>>(hinstance: Param0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterInstanceGetInformation(
-                hinstance: HFILTER_INSTANCE,
-                dwinformationclass: INSTANCE_INFORMATION_CLASS,
-                lpbuffer: *mut ::std::ffi::c_void,
-                dwbuffersize: u32,
-                lpbytesreturned: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterInstanceGetInformation(hinstance: HFILTER_INSTANCE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        FilterInstanceGetInformation(
-            hinstance.into_param().abi(),
-            ::std::mem::transmute(dwinformationclass),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-        )
-        .ok()
+        FilterInstanceGetInformation(hinstance.into_param().abi(), ::std::mem::transmute(dwinformationclass), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbuffersize), ::std::mem::transmute(lpbytesreturned)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterLoad<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpfiltername: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterLoad<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterLoad(
-                lpfiltername: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterLoad(lpfiltername: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
         FilterLoad(lpfiltername.into_param().abi()).ok()
     }
@@ -1174,88 +768,40 @@ pub unsafe fn FilterLoad<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterReplyMessage<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hport: Param0,
-    lpreplybuffer: *const FILTER_REPLY_HEADER,
-    dwreplybuffersize: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterReplyMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hport: Param0, lpreplybuffer: *const FILTER_REPLY_HEADER, dwreplybuffersize: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterReplyMessage(
-                hport: super::super::Foundation::HANDLE,
-                lpreplybuffer: *const FILTER_REPLY_HEADER,
-                dwreplybuffersize: u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterReplyMessage(hport: super::super::Foundation::HANDLE, lpreplybuffer: *const FILTER_REPLY_HEADER, dwreplybuffersize: u32) -> ::windows::runtime::HRESULT;
         }
-        FilterReplyMessage(
-            hport.into_param().abi(),
-            ::std::mem::transmute(lpreplybuffer),
-            ::std::mem::transmute(dwreplybuffersize),
-        )
-        .ok()
+        FilterReplyMessage(hport.into_param().abi(), ::std::mem::transmute(lpreplybuffer), ::std::mem::transmute(dwreplybuffersize)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterSendMessage<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hport: Param0,
-    lpinbuffer: *const ::std::ffi::c_void,
-    dwinbuffersize: u32,
-    lpoutbuffer: *mut ::std::ffi::c_void,
-    dwoutbuffersize: u32,
-    lpbytesreturned: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterSendMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hport: Param0, lpinbuffer: *const ::std::ffi::c_void, dwinbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, dwoutbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterSendMessage(
-                hport: super::super::Foundation::HANDLE,
-                lpinbuffer: *const ::std::ffi::c_void,
-                dwinbuffersize: u32,
-                lpoutbuffer: *mut ::std::ffi::c_void,
-                dwoutbuffersize: u32,
-                lpbytesreturned: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterSendMessage(hport: super::super::Foundation::HANDLE, lpinbuffer: *const ::std::ffi::c_void, dwinbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, dwoutbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        FilterSendMessage(
-            hport.into_param().abi(),
-            ::std::mem::transmute(lpinbuffer),
-            ::std::mem::transmute(dwinbuffersize),
-            ::std::mem::transmute(lpoutbuffer),
-            ::std::mem::transmute(dwoutbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-        )
-        .ok()
+        FilterSendMessage(hport.into_param().abi(), ::std::mem::transmute(lpinbuffer), ::std::mem::transmute(dwinbuffersize), ::std::mem::transmute(lpoutbuffer), ::std::mem::transmute(dwoutbuffersize), ::std::mem::transmute(lpbytesreturned)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterUnload<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpfiltername: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterUnload<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfiltername: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterUnload(
-                lpfiltername: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterUnload(lpfiltername: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
         FilterUnload(lpfiltername.into_param().abi()).ok()
     }
@@ -1264,19 +810,12 @@ pub unsafe fn FilterUnload<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterVolumeFindClose<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hvolumefind: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterVolumeFindClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumefind: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterVolumeFindClose(
-                hvolumefind: super::super::Foundation::HANDLE,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterVolumeFindClose(hvolumefind: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
         }
         FilterVolumeFindClose(hvolumefind.into_param().abi()).ok()
     }
@@ -1284,44 +823,19 @@ pub unsafe fn FilterVolumeFindClose<
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn FilterVolumeFindFirst(
-    dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS,
-    lpbuffer: *mut ::std::ffi::c_void,
-    dwbuffersize: u32,
-    lpbytesreturned: *mut u32,
-    lpvolumefind: *mut FilterVolumeFindHandle,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumefind: *mut FilterVolumeFindHandle) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterVolumeFindFirst(
-                dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS,
-                lpbuffer: *mut ::std::ffi::c_void,
-                dwbuffersize: u32,
-                lpbytesreturned: *mut u32,
-                lpvolumefind: *mut FilterVolumeFindHandle,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumefind: *mut FilterVolumeFindHandle) -> ::windows::runtime::HRESULT;
         }
-        FilterVolumeFindFirst(
-            ::std::mem::transmute(dwinformationclass),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-            ::std::mem::transmute(lpvolumefind),
-        )
-        .ok()
+        FilterVolumeFindFirst(::std::mem::transmute(dwinformationclass), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbuffersize), ::std::mem::transmute(lpbytesreturned), ::std::mem::transmute(lpvolumefind)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct FilterVolumeFindHandle(pub isize);
 impl ::std::default::Default for FilterVolumeFindHandle {
@@ -1336,55 +850,26 @@ unsafe impl ::windows::runtime::Abi for FilterVolumeFindHandle {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterVolumeFindNext<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hvolumefind: Param0,
-    dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS,
-    lpbuffer: *mut ::std::ffi::c_void,
-    dwbuffersize: u32,
-    lpbytesreturned: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterVolumeFindNext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumefind: Param0, dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterVolumeFindNext(
-                hvolumefind: super::super::Foundation::HANDLE,
-                dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS,
-                lpbuffer: *mut ::std::ffi::c_void,
-                dwbuffersize: u32,
-                lpbytesreturned: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterVolumeFindNext(hvolumefind: super::super::Foundation::HANDLE, dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        FilterVolumeFindNext(
-            hvolumefind.into_param().abi(),
-            ::std::mem::transmute(dwinformationclass),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-        )
-        .ok()
+        FilterVolumeFindNext(hvolumefind.into_param().abi(), ::std::mem::transmute(dwinformationclass), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbuffersize), ::std::mem::transmute(lpbytesreturned)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterVolumeInstanceFindClose<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hvolumeinstancefind: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterVolumeInstanceFindClose<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumeinstancefind: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterVolumeInstanceFindClose(
-                hvolumeinstancefind: super::super::Foundation::HANDLE,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterVolumeInstanceFindClose(hvolumeinstancefind: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
         }
         FilterVolumeInstanceFindClose(hvolumeinstancefind.into_param().abi()).ok()
     }
@@ -1393,50 +878,19 @@ pub unsafe fn FilterVolumeInstanceFindClose<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterVolumeInstanceFindFirst<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    lpvolumename: Param0,
-    dwinformationclass: INSTANCE_INFORMATION_CLASS,
-    lpbuffer: *mut ::std::ffi::c_void,
-    dwbuffersize: u32,
-    lpbytesreturned: *mut u32,
-    lpvolumeinstancefind: *mut FilterVolumeInstanceFindHandle,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterVolumeInstanceFindFirst<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(lpvolumename: Param0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumeinstancefind: *mut FilterVolumeInstanceFindHandle) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterVolumeInstanceFindFirst(
-                lpvolumename: super::super::Foundation::PWSTR,
-                dwinformationclass: INSTANCE_INFORMATION_CLASS,
-                lpbuffer: *mut ::std::ffi::c_void,
-                dwbuffersize: u32,
-                lpbytesreturned: *mut u32,
-                lpvolumeinstancefind: *mut FilterVolumeInstanceFindHandle,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterVolumeInstanceFindFirst(lpvolumename: super::super::Foundation::PWSTR, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32, lpvolumeinstancefind: *mut FilterVolumeInstanceFindHandle) -> ::windows::runtime::HRESULT;
         }
-        FilterVolumeInstanceFindFirst(
-            lpvolumename.into_param().abi(),
-            ::std::mem::transmute(dwinformationclass),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-            ::std::mem::transmute(lpvolumeinstancefind),
-        )
-        .ok()
+        FilterVolumeInstanceFindFirst(lpvolumename.into_param().abi(), ::std::mem::transmute(dwinformationclass), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbuffersize), ::std::mem::transmute(lpbytesreturned), ::std::mem::transmute(lpvolumeinstancefind)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct FilterVolumeInstanceFindHandle(pub isize);
 impl ::std::default::Default for FilterVolumeInstanceFindHandle {
@@ -1451,47 +905,19 @@ unsafe impl ::windows::runtime::Abi for FilterVolumeInstanceFindHandle {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn FilterVolumeInstanceFindNext<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hvolumeinstancefind: Param0,
-    dwinformationclass: INSTANCE_INFORMATION_CLASS,
-    lpbuffer: *mut ::std::ffi::c_void,
-    dwbuffersize: u32,
-    lpbytesreturned: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn FilterVolumeInstanceFindNext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumeinstancefind: Param0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FilterVolumeInstanceFindNext(
-                hvolumeinstancefind: super::super::Foundation::HANDLE,
-                dwinformationclass: INSTANCE_INFORMATION_CLASS,
-                lpbuffer: *mut ::std::ffi::c_void,
-                dwbuffersize: u32,
-                lpbytesreturned: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn FilterVolumeInstanceFindNext(hvolumeinstancefind: super::super::Foundation::HANDLE, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::std::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        FilterVolumeInstanceFindNext(
-            hvolumeinstancefind.into_param().abi(),
-            ::std::mem::transmute(dwinformationclass),
-            ::std::mem::transmute(lpbuffer),
-            ::std::mem::transmute(dwbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-        )
-        .ok()
+        FilterVolumeInstanceFindNext(hvolumeinstancefind.into_param().abi(), ::std::mem::transmute(dwinformationclass), ::std::mem::transmute(lpbuffer), ::std::mem::transmute(dwbuffersize), ::std::mem::transmute(lpbytesreturned)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HFILTER(pub isize);
 impl ::std::default::Default for HFILTER {
@@ -1504,13 +930,7 @@ unsafe impl ::windows::runtime::Abi for HFILTER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HFILTER_INSTANCE(pub isize);
 impl ::std::default::Default for HFILTER_INSTANCE {
@@ -1602,14 +1022,7 @@ impl ::std::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
 }
 impl ::std::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.AltitudeLength == other.AltitudeLength
-            && self.AltitudeBufferOffset == other.AltitudeBufferOffset
-            && self.VolumeNameLength == other.VolumeNameLength
-            && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset
-            && self.FilterNameLength == other.FilterNameLength
-            && self.FilterNameBufferOffset == other.FilterNameBufferOffset
-            && self.SupportedFeatures == other.SupportedFeatures
+        self.Flags == other.Flags && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset && self.VolumeNameLength == other.VolumeNameLength && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.SupportedFeatures == other.SupportedFeatures
     }
 }
 impl ::std::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {}
@@ -1693,18 +1106,12 @@ impl ::std::default::Default for INSTANCE_BASIC_INFORMATION {
 }
 impl ::std::fmt::Debug for INSTANCE_BASIC_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INSTANCE_BASIC_INFORMATION")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("InstanceNameLength", &self.InstanceNameLength)
-            .field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset)
-            .finish()
+        fmt.debug_struct("INSTANCE_BASIC_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("InstanceNameLength", &self.InstanceNameLength).field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for INSTANCE_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.InstanceNameLength == other.InstanceNameLength
-            && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset
+        self.NextEntryOffset == other.NextEntryOffset && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset
     }
 }
 impl ::std::cmp::Eq for INSTANCE_BASIC_INFORMATION {}
@@ -1764,21 +1171,13 @@ unsafe impl ::windows::runtime::Abi for INSTANCE_FULL_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INSTANCE_INFORMATION_CLASS(pub i32);
 pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(0i32);
 pub const InstancePartialInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(1i32);
 pub const InstanceFullInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(2i32);
-pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS =
-    INSTANCE_INFORMATION_CLASS(3i32);
+pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(3i32);
 impl ::std::convert::From<i32> for INSTANCE_INFORMATION_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1817,11 +1216,7 @@ impl ::std::fmt::Debug for INSTANCE_PARTIAL_INFORMATION {
 }
 impl ::std::cmp::PartialEq for INSTANCE_PARTIAL_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.InstanceNameLength == other.InstanceNameLength
-            && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset
-            && self.AltitudeLength == other.AltitudeLength
-            && self.AltitudeBufferOffset == other.AltitudeBufferOffset
+        self.NextEntryOffset == other.NextEntryOffset && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset
     }
 }
 impl ::std::cmp::Eq for INSTANCE_PARTIAL_INFORMATION {}

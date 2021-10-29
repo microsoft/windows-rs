@@ -1,32 +1,12 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-pub type CF_CALLBACK = unsafe extern "system" fn(
-    callbackinfo: *const CF_CALLBACK_INFO,
-    callbackparameters: *const CF_CALLBACK_PARAMETERS,
-);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub type CF_CALLBACK = unsafe extern "system" fn(callbackinfo: *const CF_CALLBACK_INFO, callbackparameters: *const CF_CALLBACK_PARAMETERS);
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_CANCEL_FLAGS(pub u32);
 pub const CF_CALLBACK_CANCEL_FLAG_NONE: CF_CALLBACK_CANCEL_FLAGS = CF_CALLBACK_CANCEL_FLAGS(0u32);
-pub const CF_CALLBACK_CANCEL_FLAG_IO_TIMEOUT: CF_CALLBACK_CANCEL_FLAGS =
-    CF_CALLBACK_CANCEL_FLAGS(1u32);
-pub const CF_CALLBACK_CANCEL_FLAG_IO_ABORTED: CF_CALLBACK_CANCEL_FLAGS =
-    CF_CALLBACK_CANCEL_FLAGS(2u32);
+pub const CF_CALLBACK_CANCEL_FLAG_IO_TIMEOUT: CF_CALLBACK_CANCEL_FLAGS = CF_CALLBACK_CANCEL_FLAGS(1u32);
+pub const CF_CALLBACK_CANCEL_FLAG_IO_ABORTED: CF_CALLBACK_CANCEL_FLAGS = CF_CALLBACK_CANCEL_FLAGS(2u32);
 impl ::std::convert::From<u32> for CF_CALLBACK_CANCEL_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -64,20 +44,11 @@ impl ::std::ops::Not for CF_CALLBACK_CANCEL_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_CLOSE_COMPLETION_FLAGS(pub u32);
-pub const CF_CALLBACK_CLOSE_COMPLETION_FLAG_NONE: CF_CALLBACK_CLOSE_COMPLETION_FLAGS =
-    CF_CALLBACK_CLOSE_COMPLETION_FLAGS(0u32);
-pub const CF_CALLBACK_CLOSE_COMPLETION_FLAG_DELETED: CF_CALLBACK_CLOSE_COMPLETION_FLAGS =
-    CF_CALLBACK_CLOSE_COMPLETION_FLAGS(1u32);
+pub const CF_CALLBACK_CLOSE_COMPLETION_FLAG_NONE: CF_CALLBACK_CLOSE_COMPLETION_FLAGS = CF_CALLBACK_CLOSE_COMPLETION_FLAGS(0u32);
+pub const CF_CALLBACK_CLOSE_COMPLETION_FLAG_DELETED: CF_CALLBACK_CLOSE_COMPLETION_FLAGS = CF_CALLBACK_CLOSE_COMPLETION_FLAGS(1u32);
 impl ::std::convert::From<u32> for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -115,22 +86,12 @@ impl ::std::ops::Not for CF_CALLBACK_CLOSE_COMPLETION_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(pub u32);
-pub const CF_CALLBACK_DEHYDRATE_COMPLETION_FLAG_NONE: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS =
-    CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(0u32);
-pub const CF_CALLBACK_DEHYDRATE_COMPLETION_FLAG_BACKGROUND: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS =
-    CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(1u32);
-pub const CF_CALLBACK_DEHYDRATE_COMPLETION_FLAG_DEHYDRATED: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS =
-    CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(2u32);
+pub const CF_CALLBACK_DEHYDRATE_COMPLETION_FLAG_NONE: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS = CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(0u32);
+pub const CF_CALLBACK_DEHYDRATE_COMPLETION_FLAG_BACKGROUND: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS = CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(1u32);
+pub const CF_CALLBACK_DEHYDRATE_COMPLETION_FLAG_DEHYDRATED: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS = CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS(2u32);
 impl ::std::convert::From<u32> for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -168,20 +129,11 @@ impl ::std::ops::Not for CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_DEHYDRATE_FLAGS(pub u32);
-pub const CF_CALLBACK_DEHYDRATE_FLAG_NONE: CF_CALLBACK_DEHYDRATE_FLAGS =
-    CF_CALLBACK_DEHYDRATE_FLAGS(0u32);
-pub const CF_CALLBACK_DEHYDRATE_FLAG_BACKGROUND: CF_CALLBACK_DEHYDRATE_FLAGS =
-    CF_CALLBACK_DEHYDRATE_FLAGS(1u32);
+pub const CF_CALLBACK_DEHYDRATE_FLAG_NONE: CF_CALLBACK_DEHYDRATE_FLAGS = CF_CALLBACK_DEHYDRATE_FLAGS(0u32);
+pub const CF_CALLBACK_DEHYDRATE_FLAG_BACKGROUND: CF_CALLBACK_DEHYDRATE_FLAGS = CF_CALLBACK_DEHYDRATE_FLAGS(1u32);
 impl ::std::convert::From<u32> for CF_CALLBACK_DEHYDRATE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -219,26 +171,14 @@ impl ::std::ops::Not for CF_CALLBACK_DEHYDRATE_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_DEHYDRATION_REASON(pub i32);
-pub const CF_CALLBACK_DEHYDRATION_REASON_NONE: CF_CALLBACK_DEHYDRATION_REASON =
-    CF_CALLBACK_DEHYDRATION_REASON(0i32);
-pub const CF_CALLBACK_DEHYDRATION_REASON_USER_MANUAL: CF_CALLBACK_DEHYDRATION_REASON =
-    CF_CALLBACK_DEHYDRATION_REASON(1i32);
-pub const CF_CALLBACK_DEHYDRATION_REASON_SYSTEM_LOW_SPACE: CF_CALLBACK_DEHYDRATION_REASON =
-    CF_CALLBACK_DEHYDRATION_REASON(2i32);
-pub const CF_CALLBACK_DEHYDRATION_REASON_SYSTEM_INACTIVITY: CF_CALLBACK_DEHYDRATION_REASON =
-    CF_CALLBACK_DEHYDRATION_REASON(3i32);
-pub const CF_CALLBACK_DEHYDRATION_REASON_SYSTEM_OS_UPGRADE: CF_CALLBACK_DEHYDRATION_REASON =
-    CF_CALLBACK_DEHYDRATION_REASON(4i32);
+pub const CF_CALLBACK_DEHYDRATION_REASON_NONE: CF_CALLBACK_DEHYDRATION_REASON = CF_CALLBACK_DEHYDRATION_REASON(0i32);
+pub const CF_CALLBACK_DEHYDRATION_REASON_USER_MANUAL: CF_CALLBACK_DEHYDRATION_REASON = CF_CALLBACK_DEHYDRATION_REASON(1i32);
+pub const CF_CALLBACK_DEHYDRATION_REASON_SYSTEM_LOW_SPACE: CF_CALLBACK_DEHYDRATION_REASON = CF_CALLBACK_DEHYDRATION_REASON(2i32);
+pub const CF_CALLBACK_DEHYDRATION_REASON_SYSTEM_INACTIVITY: CF_CALLBACK_DEHYDRATION_REASON = CF_CALLBACK_DEHYDRATION_REASON(3i32);
+pub const CF_CALLBACK_DEHYDRATION_REASON_SYSTEM_OS_UPGRADE: CF_CALLBACK_DEHYDRATION_REASON = CF_CALLBACK_DEHYDRATION_REASON(4i32);
 impl ::std::convert::From<i32> for CF_CALLBACK_DEHYDRATION_REASON {
     fn from(value: i32) -> Self {
         Self(value)
@@ -248,18 +188,10 @@ unsafe impl ::windows::runtime::Abi for CF_CALLBACK_DEHYDRATION_REASON {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_DELETE_COMPLETION_FLAGS(pub u32);
-pub const CF_CALLBACK_DELETE_COMPLETION_FLAG_NONE: CF_CALLBACK_DELETE_COMPLETION_FLAGS =
-    CF_CALLBACK_DELETE_COMPLETION_FLAGS(0u32);
+pub const CF_CALLBACK_DELETE_COMPLETION_FLAG_NONE: CF_CALLBACK_DELETE_COMPLETION_FLAGS = CF_CALLBACK_DELETE_COMPLETION_FLAGS(0u32);
 impl ::std::convert::From<u32> for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -297,21 +229,12 @@ impl ::std::ops::Not for CF_CALLBACK_DELETE_COMPLETION_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_DELETE_FLAGS(pub u32);
 pub const CF_CALLBACK_DELETE_FLAG_NONE: CF_CALLBACK_DELETE_FLAGS = CF_CALLBACK_DELETE_FLAGS(0u32);
-pub const CF_CALLBACK_DELETE_FLAG_IS_DIRECTORY: CF_CALLBACK_DELETE_FLAGS =
-    CF_CALLBACK_DELETE_FLAGS(1u32);
-pub const CF_CALLBACK_DELETE_FLAG_IS_UNDELETE: CF_CALLBACK_DELETE_FLAGS =
-    CF_CALLBACK_DELETE_FLAGS(2u32);
+pub const CF_CALLBACK_DELETE_FLAG_IS_DIRECTORY: CF_CALLBACK_DELETE_FLAGS = CF_CALLBACK_DELETE_FLAGS(1u32);
+pub const CF_CALLBACK_DELETE_FLAG_IS_UNDELETE: CF_CALLBACK_DELETE_FLAGS = CF_CALLBACK_DELETE_FLAGS(2u32);
 impl ::std::convert::From<u32> for CF_CALLBACK_DELETE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -349,22 +272,12 @@ impl ::std::ops::Not for CF_CALLBACK_DELETE_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_FETCH_DATA_FLAGS(pub u32);
-pub const CF_CALLBACK_FETCH_DATA_FLAG_NONE: CF_CALLBACK_FETCH_DATA_FLAGS =
-    CF_CALLBACK_FETCH_DATA_FLAGS(0u32);
-pub const CF_CALLBACK_FETCH_DATA_FLAG_RECOVERY: CF_CALLBACK_FETCH_DATA_FLAGS =
-    CF_CALLBACK_FETCH_DATA_FLAGS(1u32);
-pub const CF_CALLBACK_FETCH_DATA_FLAG_EXPLICIT_HYDRATION: CF_CALLBACK_FETCH_DATA_FLAGS =
-    CF_CALLBACK_FETCH_DATA_FLAGS(2u32);
+pub const CF_CALLBACK_FETCH_DATA_FLAG_NONE: CF_CALLBACK_FETCH_DATA_FLAGS = CF_CALLBACK_FETCH_DATA_FLAGS(0u32);
+pub const CF_CALLBACK_FETCH_DATA_FLAG_RECOVERY: CF_CALLBACK_FETCH_DATA_FLAGS = CF_CALLBACK_FETCH_DATA_FLAGS(1u32);
+pub const CF_CALLBACK_FETCH_DATA_FLAG_EXPLICIT_HYDRATION: CF_CALLBACK_FETCH_DATA_FLAGS = CF_CALLBACK_FETCH_DATA_FLAGS(2u32);
 impl ::std::convert::From<u32> for CF_CALLBACK_FETCH_DATA_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -402,18 +315,10 @@ impl ::std::ops::Not for CF_CALLBACK_FETCH_DATA_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS(pub u32);
-pub const CF_CALLBACK_FETCH_PLACEHOLDERS_FLAG_NONE: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS =
-    CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS(0u32);
+pub const CF_CALLBACK_FETCH_PLACEHOLDERS_FLAG_NONE: CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS = CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS(0u32);
 impl ::std::convert::From<u32> for CF_CALLBACK_FETCH_PLACEHOLDERS_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -540,22 +445,12 @@ unsafe impl ::windows::runtime::Abi for CF_CALLBACK_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_OPEN_COMPLETION_FLAGS(pub u32);
-pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_NONE: CF_CALLBACK_OPEN_COMPLETION_FLAGS =
-    CF_CALLBACK_OPEN_COMPLETION_FLAGS(0u32);
-pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_PLACEHOLDER_UNKNOWN: CF_CALLBACK_OPEN_COMPLETION_FLAGS =
-    CF_CALLBACK_OPEN_COMPLETION_FLAGS(1u32);
-pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_PLACEHOLDER_UNSUPPORTED:
-    CF_CALLBACK_OPEN_COMPLETION_FLAGS = CF_CALLBACK_OPEN_COMPLETION_FLAGS(2u32);
+pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_NONE: CF_CALLBACK_OPEN_COMPLETION_FLAGS = CF_CALLBACK_OPEN_COMPLETION_FLAGS(0u32);
+pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_PLACEHOLDER_UNKNOWN: CF_CALLBACK_OPEN_COMPLETION_FLAGS = CF_CALLBACK_OPEN_COMPLETION_FLAGS(1u32);
+pub const CF_CALLBACK_OPEN_COMPLETION_FLAG_PLACEHOLDER_UNSUPPORTED: CF_CALLBACK_OPEN_COMPLETION_FLAGS = CF_CALLBACK_OPEN_COMPLETION_FLAGS(2u32);
 impl ::std::convert::From<u32> for CF_CALLBACK_OPEN_COMPLETION_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -716,10 +611,7 @@ impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_0_0_0 {
 }
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_FetchData_e__Struct")
-            .field("FileOffset", &self.FileOffset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("_FetchData_e__Struct").field("FileOffset", &self.FileOffset).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_0_0_0 {
@@ -745,9 +637,7 @@ impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_1 {
 }
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_CloseCompletion_e__Struct")
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_CloseCompletion_e__Struct").field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_1 {
@@ -774,10 +664,7 @@ impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_2 {
 }
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_DehydrateCompletion_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("Reason", &self.Reason)
-            .finish()
+        fmt.debug_struct("_DehydrateCompletion_e__Struct").field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_2 {
@@ -804,10 +691,7 @@ impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_3 {
 }
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Dehydrate_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("Reason", &self.Reason)
-            .finish()
+        fmt.debug_struct("_Dehydrate_e__Struct").field("Flags", &self.Flags).field("Reason", &self.Reason).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_3 {
@@ -833,9 +717,7 @@ impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_4 {
 }
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_DeleteCompletion_e__Struct")
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_DeleteCompletion_e__Struct").field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_4 {
@@ -861,9 +743,7 @@ impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_5 {
 }
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Delete_e__Struct")
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_Delete_e__Struct").field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_5 {
@@ -908,13 +788,7 @@ impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_6 {
 }
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_6 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.RequiredFileOffset == other.RequiredFileOffset
-            && self.RequiredLength == other.RequiredLength
-            && self.OptionalFileOffset == other.OptionalFileOffset
-            && self.OptionalLength == other.OptionalLength
-            && self.LastDehydrationTime == other.LastDehydrationTime
-            && self.LastDehydrationReason == other.LastDehydrationReason
+        self.Flags == other.Flags && self.RequiredFileOffset == other.RequiredFileOffset && self.RequiredLength == other.RequiredLength && self.OptionalFileOffset == other.OptionalFileOffset && self.OptionalLength == other.OptionalLength && self.LastDehydrationTime == other.LastDehydrationTime && self.LastDehydrationReason == other.LastDehydrationReason
     }
 }
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_6 {}
@@ -940,10 +814,7 @@ impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_7 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_7 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_FetchPlaceholders_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("Pattern", &self.Pattern)
-            .finish()
+        fmt.debug_struct("_FetchPlaceholders_e__Struct").field("Flags", &self.Flags).field("Pattern", &self.Pattern).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -972,9 +843,7 @@ impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_8 {
 }
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_8 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_OpenCompletion_e__Struct")
-            .field("Flags", &self.Flags)
-            .finish()
+        fmt.debug_struct("_OpenCompletion_e__Struct").field("Flags", &self.Flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_8 {
@@ -1005,10 +874,7 @@ impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_9 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_9 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_RenameCompletion_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("SourcePath", &self.SourcePath)
-            .finish()
+        fmt.debug_struct("_RenameCompletion_e__Struct").field("Flags", &self.Flags).field("SourcePath", &self.SourcePath).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1042,10 +908,7 @@ impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_10 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_10 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Rename_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("TargetPath", &self.TargetPath)
-            .finish()
+        fmt.debug_struct("_Rename_e__Struct").field("Flags", &self.Flags).field("TargetPath", &self.TargetPath).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1076,18 +939,12 @@ impl ::std::default::Default for CF_CALLBACK_PARAMETERS_0_11 {
 }
 impl ::std::fmt::Debug for CF_CALLBACK_PARAMETERS_0_11 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_ValidateData_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("RequiredFileOffset", &self.RequiredFileOffset)
-            .field("RequiredLength", &self.RequiredLength)
-            .finish()
+        fmt.debug_struct("_ValidateData_e__Struct").field("Flags", &self.Flags).field("RequiredFileOffset", &self.RequiredFileOffset).field("RequiredLength", &self.RequiredLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_CALLBACK_PARAMETERS_0_11 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.RequiredFileOffset == other.RequiredFileOffset
-            && self.RequiredLength == other.RequiredLength
+        self.Flags == other.Flags && self.RequiredFileOffset == other.RequiredFileOffset && self.RequiredLength == other.RequiredLength
     }
 }
 impl ::std::cmp::Eq for CF_CALLBACK_PARAMETERS_0_11 {}
@@ -1113,16 +970,13 @@ impl ::std::default::Default for CF_CALLBACK_REGISTRATION {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::fmt::Debug for CF_CALLBACK_REGISTRATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_CALLBACK_REGISTRATION")
-            .field("Type", &self.Type)
-            .finish()
+        fmt.debug_struct("CF_CALLBACK_REGISTRATION").field("Type", &self.Type).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::PartialEq for CF_CALLBACK_REGISTRATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize)
+        self.Type == other.Type && self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize)
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
@@ -1132,18 +986,10 @@ unsafe impl ::windows::runtime::Abi for CF_CALLBACK_REGISTRATION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_RENAME_COMPLETION_FLAGS(pub u32);
-pub const CF_CALLBACK_RENAME_COMPLETION_FLAG_NONE: CF_CALLBACK_RENAME_COMPLETION_FLAGS =
-    CF_CALLBACK_RENAME_COMPLETION_FLAGS(0u32);
+pub const CF_CALLBACK_RENAME_COMPLETION_FLAG_NONE: CF_CALLBACK_RENAME_COMPLETION_FLAGS = CF_CALLBACK_RENAME_COMPLETION_FLAGS(0u32);
 impl ::std::convert::From<u32> for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -1181,23 +1027,13 @@ impl ::std::ops::Not for CF_CALLBACK_RENAME_COMPLETION_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_RENAME_FLAGS(pub u32);
 pub const CF_CALLBACK_RENAME_FLAG_NONE: CF_CALLBACK_RENAME_FLAGS = CF_CALLBACK_RENAME_FLAGS(0u32);
-pub const CF_CALLBACK_RENAME_FLAG_IS_DIRECTORY: CF_CALLBACK_RENAME_FLAGS =
-    CF_CALLBACK_RENAME_FLAGS(1u32);
-pub const CF_CALLBACK_RENAME_FLAG_SOURCE_IN_SCOPE: CF_CALLBACK_RENAME_FLAGS =
-    CF_CALLBACK_RENAME_FLAGS(2u32);
-pub const CF_CALLBACK_RENAME_FLAG_TARGET_IN_SCOPE: CF_CALLBACK_RENAME_FLAGS =
-    CF_CALLBACK_RENAME_FLAGS(4u32);
+pub const CF_CALLBACK_RENAME_FLAG_IS_DIRECTORY: CF_CALLBACK_RENAME_FLAGS = CF_CALLBACK_RENAME_FLAGS(1u32);
+pub const CF_CALLBACK_RENAME_FLAG_SOURCE_IN_SCOPE: CF_CALLBACK_RENAME_FLAGS = CF_CALLBACK_RENAME_FLAGS(2u32);
+pub const CF_CALLBACK_RENAME_FLAG_TARGET_IN_SCOPE: CF_CALLBACK_RENAME_FLAGS = CF_CALLBACK_RENAME_FLAGS(4u32);
 impl ::std::convert::From<u32> for CF_CALLBACK_RENAME_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -1235,14 +1071,7 @@ impl ::std::ops::Not for CF_CALLBACK_RENAME_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_TYPE(pub i32);
 pub const CF_CALLBACK_TYPE_FETCH_DATA: CF_CALLBACK_TYPE = CF_CALLBACK_TYPE(0i32);
@@ -1268,20 +1097,11 @@ unsafe impl ::windows::runtime::Abi for CF_CALLBACK_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CALLBACK_VALIDATE_DATA_FLAGS(pub u32);
-pub const CF_CALLBACK_VALIDATE_DATA_FLAG_NONE: CF_CALLBACK_VALIDATE_DATA_FLAGS =
-    CF_CALLBACK_VALIDATE_DATA_FLAGS(0u32);
-pub const CF_CALLBACK_VALIDATE_DATA_FLAG_EXPLICIT_HYDRATION: CF_CALLBACK_VALIDATE_DATA_FLAGS =
-    CF_CALLBACK_VALIDATE_DATA_FLAGS(2u32);
+pub const CF_CALLBACK_VALIDATE_DATA_FLAG_NONE: CF_CALLBACK_VALIDATE_DATA_FLAGS = CF_CALLBACK_VALIDATE_DATA_FLAGS(0u32);
+pub const CF_CALLBACK_VALIDATE_DATA_FLAG_EXPLICIT_HYDRATION: CF_CALLBACK_VALIDATE_DATA_FLAGS = CF_CALLBACK_VALIDATE_DATA_FLAGS(2u32);
 impl ::std::convert::From<u32> for CF_CALLBACK_VALIDATE_DATA_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -1319,13 +1139,7 @@ impl ::std::ops::Not for CF_CALLBACK_VALIDATE_DATA_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct CF_CONNECTION_KEY(pub isize);
 impl ::std::default::Default for CF_CONNECTION_KEY {
@@ -1338,14 +1152,7 @@ unsafe impl ::windows::runtime::Abi for CF_CONNECTION_KEY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CONNECT_FLAGS(pub u32);
 pub const CF_CONNECT_FLAG_NONE: CF_CONNECT_FLAGS = CF_CONNECT_FLAGS(0u32);
@@ -1389,14 +1196,7 @@ impl ::std::ops::Not for CF_CONNECT_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CONVERT_FLAGS(pub u32);
 pub const CF_CONVERT_FLAG_NONE: CF_CONVERT_FLAGS = CF_CONVERT_FLAGS(0u32);
@@ -1442,14 +1242,7 @@ impl ::std::ops::Not for CF_CONVERT_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_CREATE_FLAGS(pub u32);
 pub const CF_CREATE_FLAG_NONE: CF_CREATE_FLAGS = CF_CREATE_FLAGS(0u32);
@@ -1491,14 +1284,7 @@ impl ::std::ops::Not for CF_CREATE_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_DEHYDRATE_FLAGS(pub u32);
 pub const CF_DEHYDRATE_FLAG_NONE: CF_DEHYDRATE_FLAGS = CF_DEHYDRATE_FLAGS(0u32);
@@ -1554,10 +1340,7 @@ impl ::std::default::Default for CF_FILE_RANGE {
 }
 impl ::std::fmt::Debug for CF_FILE_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_FILE_RANGE")
-            .field("StartingOffset", &self.StartingOffset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("CF_FILE_RANGE").field("StartingOffset", &self.StartingOffset).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_FILE_RANGE {
@@ -1588,10 +1371,7 @@ impl ::std::default::Default for CF_FS_METADATA {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::fmt::Debug for CF_FS_METADATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_FS_METADATA")
-            .field("BasicInfo", &self.BasicInfo)
-            .field("FileSize", &self.FileSize)
-            .finish()
+        fmt.debug_struct("CF_FS_METADATA").field("BasicInfo", &self.BasicInfo).field("FileSize", &self.FileSize).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -1607,14 +1387,7 @@ unsafe impl ::windows::runtime::Abi for CF_FS_METADATA {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_HARDLINK_POLICY(pub u32);
 pub const CF_HARDLINK_POLICY_NONE: CF_HARDLINK_POLICY = CF_HARDLINK_POLICY(0u32);
@@ -1656,14 +1429,7 @@ impl ::std::ops::Not for CF_HARDLINK_POLICY {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_HYDRATE_FLAGS(pub u32);
 pub const CF_HYDRATE_FLAG_NONE: CF_HYDRATE_FLAGS = CF_HYDRATE_FLAGS(0u32);
@@ -1718,10 +1484,7 @@ impl ::std::default::Default for CF_HYDRATION_POLICY {
 }
 impl ::std::fmt::Debug for CF_HYDRATION_POLICY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_HYDRATION_POLICY")
-            .field("Primary", &self.Primary)
-            .field("Modifier", &self.Modifier)
-            .finish()
+        fmt.debug_struct("CF_HYDRATION_POLICY").field("Primary", &self.Primary).field("Modifier", &self.Modifier).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_HYDRATION_POLICY {
@@ -1734,26 +1497,14 @@ unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_HYDRATION_POLICY_MODIFIER(pub u32);
-pub const CF_HYDRATION_POLICY_MODIFIER_NONE: CF_HYDRATION_POLICY_MODIFIER =
-    CF_HYDRATION_POLICY_MODIFIER(0u32);
-pub const CF_HYDRATION_POLICY_MODIFIER_VALIDATION_REQUIRED: CF_HYDRATION_POLICY_MODIFIER =
-    CF_HYDRATION_POLICY_MODIFIER(1u32);
-pub const CF_HYDRATION_POLICY_MODIFIER_STREAMING_ALLOWED: CF_HYDRATION_POLICY_MODIFIER =
-    CF_HYDRATION_POLICY_MODIFIER(2u32);
-pub const CF_HYDRATION_POLICY_MODIFIER_AUTO_DEHYDRATION_ALLOWED: CF_HYDRATION_POLICY_MODIFIER =
-    CF_HYDRATION_POLICY_MODIFIER(4u32);
-pub const CF_HYDRATION_POLICY_MODIFIER_ALLOW_FULL_RESTART_HYDRATION: CF_HYDRATION_POLICY_MODIFIER =
-    CF_HYDRATION_POLICY_MODIFIER(8u32);
+pub const CF_HYDRATION_POLICY_MODIFIER_NONE: CF_HYDRATION_POLICY_MODIFIER = CF_HYDRATION_POLICY_MODIFIER(0u32);
+pub const CF_HYDRATION_POLICY_MODIFIER_VALIDATION_REQUIRED: CF_HYDRATION_POLICY_MODIFIER = CF_HYDRATION_POLICY_MODIFIER(1u32);
+pub const CF_HYDRATION_POLICY_MODIFIER_STREAMING_ALLOWED: CF_HYDRATION_POLICY_MODIFIER = CF_HYDRATION_POLICY_MODIFIER(2u32);
+pub const CF_HYDRATION_POLICY_MODIFIER_AUTO_DEHYDRATION_ALLOWED: CF_HYDRATION_POLICY_MODIFIER = CF_HYDRATION_POLICY_MODIFIER(4u32);
+pub const CF_HYDRATION_POLICY_MODIFIER_ALLOW_FULL_RESTART_HYDRATION: CF_HYDRATION_POLICY_MODIFIER = CF_HYDRATION_POLICY_MODIFIER(8u32);
 impl ::std::convert::From<u32> for CF_HYDRATION_POLICY_MODIFIER {
     fn from(value: u32) -> Self {
         Self(value)
@@ -1804,9 +1555,7 @@ impl ::std::default::Default for CF_HYDRATION_POLICY_MODIFIER_USHORT {
 }
 impl ::std::fmt::Debug for CF_HYDRATION_POLICY_MODIFIER_USHORT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_HYDRATION_POLICY_MODIFIER_USHORT")
-            .field("us", &self.us)
-            .finish()
+        fmt.debug_struct("CF_HYDRATION_POLICY_MODIFIER_USHORT").field("us", &self.us).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_HYDRATION_POLICY_MODIFIER_USHORT {
@@ -1819,23 +1568,13 @@ unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY_MODIFIER_USHORT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_HYDRATION_POLICY_PRIMARY(pub i32);
-pub const CF_HYDRATION_POLICY_PARTIAL: CF_HYDRATION_POLICY_PRIMARY =
-    CF_HYDRATION_POLICY_PRIMARY(0i32);
-pub const CF_HYDRATION_POLICY_PROGRESSIVE: CF_HYDRATION_POLICY_PRIMARY =
-    CF_HYDRATION_POLICY_PRIMARY(1i32);
+pub const CF_HYDRATION_POLICY_PARTIAL: CF_HYDRATION_POLICY_PRIMARY = CF_HYDRATION_POLICY_PRIMARY(0i32);
+pub const CF_HYDRATION_POLICY_PROGRESSIVE: CF_HYDRATION_POLICY_PRIMARY = CF_HYDRATION_POLICY_PRIMARY(1i32);
 pub const CF_HYDRATION_POLICY_FULL: CF_HYDRATION_POLICY_PRIMARY = CF_HYDRATION_POLICY_PRIMARY(2i32);
-pub const CF_HYDRATION_POLICY_ALWAYS_FULL: CF_HYDRATION_POLICY_PRIMARY =
-    CF_HYDRATION_POLICY_PRIMARY(3i32);
+pub const CF_HYDRATION_POLICY_ALWAYS_FULL: CF_HYDRATION_POLICY_PRIMARY = CF_HYDRATION_POLICY_PRIMARY(3i32);
 impl ::std::convert::From<i32> for CF_HYDRATION_POLICY_PRIMARY {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1858,9 +1597,7 @@ impl ::std::default::Default for CF_HYDRATION_POLICY_PRIMARY_USHORT {
 }
 impl ::std::fmt::Debug for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_HYDRATION_POLICY_PRIMARY_USHORT")
-            .field("us", &self.us)
-            .finish()
+        fmt.debug_struct("CF_HYDRATION_POLICY_PRIMARY_USHORT").field("us", &self.us).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_HYDRATION_POLICY_PRIMARY_USHORT {
@@ -1873,14 +1610,7 @@ unsafe impl ::windows::runtime::Abi for CF_HYDRATION_POLICY_PRIMARY_USHORT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_INSYNC_POLICY(pub u32);
 pub const CF_INSYNC_POLICY_NONE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(0u32);
@@ -1888,22 +1618,16 @@ pub const CF_INSYNC_POLICY_TRACK_FILE_CREATION_TIME: CF_INSYNC_POLICY = CF_INSYN
 pub const CF_INSYNC_POLICY_TRACK_FILE_READONLY_ATTRIBUTE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(2u32);
 pub const CF_INSYNC_POLICY_TRACK_FILE_HIDDEN_ATTRIBUTE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(4u32);
 pub const CF_INSYNC_POLICY_TRACK_FILE_SYSTEM_ATTRIBUTE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(8u32);
-pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_CREATION_TIME: CF_INSYNC_POLICY =
-    CF_INSYNC_POLICY(16u32);
-pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_READONLY_ATTRIBUTE: CF_INSYNC_POLICY =
-    CF_INSYNC_POLICY(32u32);
-pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_HIDDEN_ATTRIBUTE: CF_INSYNC_POLICY =
-    CF_INSYNC_POLICY(64u32);
-pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_SYSTEM_ATTRIBUTE: CF_INSYNC_POLICY =
-    CF_INSYNC_POLICY(128u32);
+pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_CREATION_TIME: CF_INSYNC_POLICY = CF_INSYNC_POLICY(16u32);
+pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_READONLY_ATTRIBUTE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(32u32);
+pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_HIDDEN_ATTRIBUTE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(64u32);
+pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_SYSTEM_ATTRIBUTE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(128u32);
 pub const CF_INSYNC_POLICY_TRACK_FILE_LAST_WRITE_TIME: CF_INSYNC_POLICY = CF_INSYNC_POLICY(256u32);
-pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_LAST_WRITE_TIME: CF_INSYNC_POLICY =
-    CF_INSYNC_POLICY(512u32);
+pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_LAST_WRITE_TIME: CF_INSYNC_POLICY = CF_INSYNC_POLICY(512u32);
 pub const CF_INSYNC_POLICY_TRACK_FILE_ALL: CF_INSYNC_POLICY = CF_INSYNC_POLICY(5592335u32);
 pub const CF_INSYNC_POLICY_TRACK_DIRECTORY_ALL: CF_INSYNC_POLICY = CF_INSYNC_POLICY(11184880u32);
 pub const CF_INSYNC_POLICY_TRACK_ALL: CF_INSYNC_POLICY = CF_INSYNC_POLICY(16777215u32);
-pub const CF_INSYNC_POLICY_PRESERVE_INSYNC_FOR_SYNC_ENGINE: CF_INSYNC_POLICY =
-    CF_INSYNC_POLICY(2147483648u32);
+pub const CF_INSYNC_POLICY_PRESERVE_INSYNC_FOR_SYNC_ENGINE: CF_INSYNC_POLICY = CF_INSYNC_POLICY(2147483648u32);
 impl ::std::convert::From<u32> for CF_INSYNC_POLICY {
     fn from(value: u32) -> Self {
         Self(value)
@@ -1941,14 +1665,7 @@ impl ::std::ops::Not for CF_INSYNC_POLICY {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_IN_SYNC_STATE(pub i32);
 pub const CF_IN_SYNC_STATE_NOT_IN_SYNC: CF_IN_SYNC_STATE = CF_IN_SYNC_STATE(0i32);
@@ -1965,14 +1682,7 @@ unsafe impl ::windows::runtime::Abi for CF_IN_SYNC_STATE {
 pub const CF_MAX_PRIORITY_HINT: u32 = 15u32;
 pub const CF_MAX_PROVIDER_NAME_LENGTH: u32 = 255u32;
 pub const CF_MAX_PROVIDER_VERSION_LENGTH: u32 = 255u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPEN_FILE_FLAGS(pub u32);
 pub const CF_OPEN_FILE_FLAG_NONE: CF_OPEN_FILE_FLAGS = CF_OPEN_FILE_FLAGS(0u32);
@@ -2017,18 +1727,10 @@ impl ::std::ops::Not for CF_OPEN_FILE_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_ACK_DATA_FLAGS(pub u32);
-pub const CF_OPERATION_ACK_DATA_FLAG_NONE: CF_OPERATION_ACK_DATA_FLAGS =
-    CF_OPERATION_ACK_DATA_FLAGS(0u32);
+pub const CF_OPERATION_ACK_DATA_FLAG_NONE: CF_OPERATION_ACK_DATA_FLAGS = CF_OPERATION_ACK_DATA_FLAGS(0u32);
 impl ::std::convert::From<u32> for CF_OPERATION_ACK_DATA_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2066,18 +1768,10 @@ impl ::std::ops::Not for CF_OPERATION_ACK_DATA_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_ACK_DEHYDRATE_FLAGS(pub u32);
-pub const CF_OPERATION_ACK_DEHYDRATE_FLAG_NONE: CF_OPERATION_ACK_DEHYDRATE_FLAGS =
-    CF_OPERATION_ACK_DEHYDRATE_FLAGS(0u32);
+pub const CF_OPERATION_ACK_DEHYDRATE_FLAG_NONE: CF_OPERATION_ACK_DEHYDRATE_FLAGS = CF_OPERATION_ACK_DEHYDRATE_FLAGS(0u32);
 impl ::std::convert::From<u32> for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2115,18 +1809,10 @@ impl ::std::ops::Not for CF_OPERATION_ACK_DEHYDRATE_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_ACK_DELETE_FLAGS(pub u32);
-pub const CF_OPERATION_ACK_DELETE_FLAG_NONE: CF_OPERATION_ACK_DELETE_FLAGS =
-    CF_OPERATION_ACK_DELETE_FLAGS(0u32);
+pub const CF_OPERATION_ACK_DELETE_FLAG_NONE: CF_OPERATION_ACK_DELETE_FLAGS = CF_OPERATION_ACK_DELETE_FLAGS(0u32);
 impl ::std::convert::From<u32> for CF_OPERATION_ACK_DELETE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2164,18 +1850,10 @@ impl ::std::ops::Not for CF_OPERATION_ACK_DELETE_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_ACK_RENAME_FLAGS(pub u32);
-pub const CF_OPERATION_ACK_RENAME_FLAG_NONE: CF_OPERATION_ACK_RENAME_FLAGS =
-    CF_OPERATION_ACK_RENAME_FLAGS(0u32);
+pub const CF_OPERATION_ACK_RENAME_FLAG_NONE: CF_OPERATION_ACK_RENAME_FLAGS = CF_OPERATION_ACK_RENAME_FLAGS(0u32);
 impl ::std::convert::From<u32> for CF_OPERATION_ACK_RENAME_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2250,13 +1928,7 @@ impl ::std::fmt::Debug for CF_OPERATION_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 impl ::std::cmp::PartialEq for CF_OPERATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize
-            && self.Type == other.Type
-            && self.ConnectionKey == other.ConnectionKey
-            && self.TransferKey == other.TransferKey
-            && self.CorrelationVector == other.CorrelationVector
-            && self.SyncStatus == other.SyncStatus
-            && self.RequestKey == other.RequestKey
+        self.StructSize == other.StructSize && self.Type == other.Type && self.ConnectionKey == other.ConnectionKey && self.TransferKey == other.TransferKey && self.CorrelationVector == other.CorrelationVector && self.SyncStatus == other.SyncStatus && self.RequestKey == other.RequestKey
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
@@ -2348,21 +2020,13 @@ impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_AckData_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("CompletionStatus", &self.CompletionStatus)
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("_AckData_e__Struct").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("Offset", &self.Offset).field("Length", &self.Length).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.CompletionStatus == other.CompletionStatus
-            && self.Offset == other.Offset
-            && self.Length == other.Length
+        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.Offset == other.Offset && self.Length == other.Length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2392,21 +2056,13 @@ impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_AckDehydrate_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("CompletionStatus", &self.CompletionStatus)
-            .field("FileIdentity", &self.FileIdentity)
-            .field("FileIdentityLength", &self.FileIdentityLength)
-            .finish()
+        fmt.debug_struct("_AckDehydrate_e__Struct").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.CompletionStatus == other.CompletionStatus
-            && self.FileIdentity == other.FileIdentity
-            && self.FileIdentityLength == other.FileIdentityLength
+        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2434,10 +2090,7 @@ impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_AckDelete_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("CompletionStatus", &self.CompletionStatus)
-            .finish()
+        fmt.debug_struct("_AckDelete_e__Struct").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2471,10 +2124,7 @@ impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_AckRename_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("CompletionStatus", &self.CompletionStatus)
-            .finish()
+        fmt.debug_struct("_AckRename_e__Struct").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2510,21 +2160,13 @@ impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_4 {
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_RestartHydration_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("FsMetadata", &self.FsMetadata)
-            .field("FileIdentity", &self.FileIdentity)
-            .field("FileIdentityLength", &self.FileIdentityLength)
-            .finish()
+        fmt.debug_struct("_RestartHydration_e__Struct").field("Flags", &self.Flags).field("FsMetadata", &self.FsMetadata).field("FileIdentity", &self.FileIdentity).field("FileIdentityLength", &self.FileIdentityLength).finish()
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_4 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.FsMetadata == other.FsMetadata
-            && self.FileIdentity == other.FileIdentity
-            && self.FileIdentityLength == other.FileIdentityLength
+        self.Flags == other.Flags && self.FsMetadata == other.FsMetadata && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength
     }
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -2551,22 +2193,12 @@ impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_5 {
 }
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_RetrieveData_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("Buffer", &self.Buffer)
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .field("ReturnedLength", &self.ReturnedLength)
-            .finish()
+        fmt.debug_struct("_RetrieveData_e__Struct").field("Flags", &self.Flags).field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("Length", &self.Length).field("ReturnedLength", &self.ReturnedLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_5 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.Buffer == other.Buffer
-            && self.Offset == other.Offset
-            && self.Length == other.Length
-            && self.ReturnedLength == other.ReturnedLength
+        self.Flags == other.Flags && self.Buffer == other.Buffer && self.Offset == other.Offset && self.Length == other.Length && self.ReturnedLength == other.ReturnedLength
     }
 }
 impl ::std::cmp::Eq for CF_OPERATION_PARAMETERS_0_5 {}
@@ -2595,23 +2227,13 @@ impl ::std::default::Default for CF_OPERATION_PARAMETERS_0_6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_TransferData_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("CompletionStatus", &self.CompletionStatus)
-            .field("Buffer", &self.Buffer)
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("_TransferData_e__Struct").field("Flags", &self.Flags).field("CompletionStatus", &self.CompletionStatus).field("Buffer", &self.Buffer).field("Offset", &self.Offset).field("Length", &self.Length).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_6 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.CompletionStatus == other.CompletionStatus
-            && self.Buffer == other.Buffer
-            && self.Offset == other.Offset
-            && self.Length == other.Length
+        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.Buffer == other.Buffer && self.Offset == other.Offset && self.Length == other.Length
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2656,12 +2278,7 @@ impl ::std::fmt::Debug for CF_OPERATION_PARAMETERS_0_7 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::PartialEq for CF_OPERATION_PARAMETERS_0_7 {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.CompletionStatus == other.CompletionStatus
-            && self.PlaceholderTotalCount == other.PlaceholderTotalCount
-            && self.PlaceholderArray == other.PlaceholderArray
-            && self.PlaceholderCount == other.PlaceholderCount
-            && self.EntriesProcessed == other.EntriesProcessed
+        self.Flags == other.Flags && self.CompletionStatus == other.CompletionStatus && self.PlaceholderTotalCount == other.PlaceholderTotalCount && self.PlaceholderArray == other.PlaceholderArray && self.PlaceholderCount == other.PlaceholderCount && self.EntriesProcessed == other.EntriesProcessed
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -2671,20 +2288,11 @@ unsafe impl ::windows::runtime::Abi for CF_OPERATION_PARAMETERS_0_7 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_RESTART_HYDRATION_FLAGS(pub u32);
-pub const CF_OPERATION_RESTART_HYDRATION_FLAG_NONE: CF_OPERATION_RESTART_HYDRATION_FLAGS =
-    CF_OPERATION_RESTART_HYDRATION_FLAGS(0u32);
-pub const CF_OPERATION_RESTART_HYDRATION_FLAG_MARK_IN_SYNC: CF_OPERATION_RESTART_HYDRATION_FLAGS =
-    CF_OPERATION_RESTART_HYDRATION_FLAGS(1u32);
+pub const CF_OPERATION_RESTART_HYDRATION_FLAG_NONE: CF_OPERATION_RESTART_HYDRATION_FLAGS = CF_OPERATION_RESTART_HYDRATION_FLAGS(0u32);
+pub const CF_OPERATION_RESTART_HYDRATION_FLAG_MARK_IN_SYNC: CF_OPERATION_RESTART_HYDRATION_FLAGS = CF_OPERATION_RESTART_HYDRATION_FLAGS(1u32);
 impl ::std::convert::From<u32> for CF_OPERATION_RESTART_HYDRATION_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2722,18 +2330,10 @@ impl ::std::ops::Not for CF_OPERATION_RESTART_HYDRATION_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_RETRIEVE_DATA_FLAGS(pub u32);
-pub const CF_OPERATION_RETRIEVE_DATA_FLAG_NONE: CF_OPERATION_RETRIEVE_DATA_FLAGS =
-    CF_OPERATION_RETRIEVE_DATA_FLAGS(0u32);
+pub const CF_OPERATION_RETRIEVE_DATA_FLAG_NONE: CF_OPERATION_RETRIEVE_DATA_FLAGS = CF_OPERATION_RETRIEVE_DATA_FLAGS(0u32);
 impl ::std::convert::From<u32> for CF_OPERATION_RETRIEVE_DATA_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2771,18 +2371,10 @@ impl ::std::ops::Not for CF_OPERATION_RETRIEVE_DATA_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_TRANSFER_DATA_FLAGS(pub u32);
-pub const CF_OPERATION_TRANSFER_DATA_FLAG_NONE: CF_OPERATION_TRANSFER_DATA_FLAGS =
-    CF_OPERATION_TRANSFER_DATA_FLAGS(0u32);
+pub const CF_OPERATION_TRANSFER_DATA_FLAG_NONE: CF_OPERATION_TRANSFER_DATA_FLAGS = CF_OPERATION_TRANSFER_DATA_FLAGS(0u32);
 impl ::std::convert::From<u32> for CF_OPERATION_TRANSFER_DATA_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2820,22 +2412,12 @@ impl ::std::ops::Not for CF_OPERATION_TRANSFER_DATA_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(pub u32);
-pub const CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAG_NONE: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS =
-    CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(0u32);
-pub const CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAG_STOP_ON_ERROR:
-    CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(1u32);
-pub const CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAG_DISABLE_ON_DEMAND_POPULATION:
-    CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(2u32);
+pub const CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAG_NONE: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(0u32);
+pub const CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAG_STOP_ON_ERROR: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(1u32);
+pub const CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAG_DISABLE_ON_DEMAND_POPULATION: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS = CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS(2u32);
 impl ::std::convert::From<u32> for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -2873,14 +2455,7 @@ impl ::std::ops::Not for CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_OPERATION_TYPE(pub i32);
 pub const CF_OPERATION_TYPE_TRANSFER_DATA: CF_OPERATION_TYPE = CF_OPERATION_TYPE(0i32);
@@ -2900,14 +2475,7 @@ unsafe impl ::windows::runtime::Abi for CF_OPERATION_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_PIN_STATE(pub i32);
 pub const CF_PIN_STATE_UNSPECIFIED: CF_PIN_STATE = CF_PIN_STATE(0i32);
@@ -2942,24 +2510,12 @@ impl ::std::default::Default for CF_PLACEHOLDER_BASIC_INFO {
 }
 impl ::std::fmt::Debug for CF_PLACEHOLDER_BASIC_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_PLACEHOLDER_BASIC_INFO")
-            .field("PinState", &self.PinState)
-            .field("InSyncState", &self.InSyncState)
-            .field("FileId", &self.FileId)
-            .field("SyncRootFileId", &self.SyncRootFileId)
-            .field("FileIdentityLength", &self.FileIdentityLength)
-            .field("FileIdentity", &self.FileIdentity)
-            .finish()
+        fmt.debug_struct("CF_PLACEHOLDER_BASIC_INFO").field("PinState", &self.PinState).field("InSyncState", &self.InSyncState).field("FileId", &self.FileId).field("SyncRootFileId", &self.SyncRootFileId).field("FileIdentityLength", &self.FileIdentityLength).field("FileIdentity", &self.FileIdentity).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_PLACEHOLDER_BASIC_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.PinState == other.PinState
-            && self.InSyncState == other.InSyncState
-            && self.FileId == other.FileId
-            && self.SyncRootFileId == other.SyncRootFileId
-            && self.FileIdentityLength == other.FileIdentityLength
-            && self.FileIdentity == other.FileIdentity
+        self.PinState == other.PinState && self.InSyncState == other.InSyncState && self.FileId == other.FileId && self.SyncRootFileId == other.SyncRootFileId && self.FileIdentityLength == other.FileIdentityLength && self.FileIdentity == other.FileIdentity
     }
 }
 impl ::std::cmp::Eq for CF_PLACEHOLDER_BASIC_INFO {}
@@ -2967,26 +2523,14 @@ unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_BASIC_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_PLACEHOLDER_CREATE_FLAGS(pub u32);
-pub const CF_PLACEHOLDER_CREATE_FLAG_NONE: CF_PLACEHOLDER_CREATE_FLAGS =
-    CF_PLACEHOLDER_CREATE_FLAGS(0u32);
-pub const CF_PLACEHOLDER_CREATE_FLAG_DISABLE_ON_DEMAND_POPULATION: CF_PLACEHOLDER_CREATE_FLAGS =
-    CF_PLACEHOLDER_CREATE_FLAGS(1u32);
-pub const CF_PLACEHOLDER_CREATE_FLAG_MARK_IN_SYNC: CF_PLACEHOLDER_CREATE_FLAGS =
-    CF_PLACEHOLDER_CREATE_FLAGS(2u32);
-pub const CF_PLACEHOLDER_CREATE_FLAG_SUPERSEDE: CF_PLACEHOLDER_CREATE_FLAGS =
-    CF_PLACEHOLDER_CREATE_FLAGS(4u32);
-pub const CF_PLACEHOLDER_CREATE_FLAG_ALWAYS_FULL: CF_PLACEHOLDER_CREATE_FLAGS =
-    CF_PLACEHOLDER_CREATE_FLAGS(8u32);
+pub const CF_PLACEHOLDER_CREATE_FLAG_NONE: CF_PLACEHOLDER_CREATE_FLAGS = CF_PLACEHOLDER_CREATE_FLAGS(0u32);
+pub const CF_PLACEHOLDER_CREATE_FLAG_DISABLE_ON_DEMAND_POPULATION: CF_PLACEHOLDER_CREATE_FLAGS = CF_PLACEHOLDER_CREATE_FLAGS(1u32);
+pub const CF_PLACEHOLDER_CREATE_FLAG_MARK_IN_SYNC: CF_PLACEHOLDER_CREATE_FLAGS = CF_PLACEHOLDER_CREATE_FLAGS(2u32);
+pub const CF_PLACEHOLDER_CREATE_FLAG_SUPERSEDE: CF_PLACEHOLDER_CREATE_FLAGS = CF_PLACEHOLDER_CREATE_FLAGS(4u32);
+pub const CF_PLACEHOLDER_CREATE_FLAG_ALWAYS_FULL: CF_PLACEHOLDER_CREATE_FLAGS = CF_PLACEHOLDER_CREATE_FLAGS(8u32);
 impl ::std::convert::From<u32> for CF_PLACEHOLDER_CREATE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -3061,13 +2605,7 @@ impl ::std::fmt::Debug for CF_PLACEHOLDER_CREATE_INFO {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::std::cmp::PartialEq for CF_PLACEHOLDER_CREATE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.RelativeFileName == other.RelativeFileName
-            && self.FsMetadata == other.FsMetadata
-            && self.FileIdentity == other.FileIdentity
-            && self.FileIdentityLength == other.FileIdentityLength
-            && self.Flags == other.Flags
-            && self.Result == other.Result
-            && self.CreateUsn == other.CreateUsn
+        self.RelativeFileName == other.RelativeFileName && self.FsMetadata == other.FsMetadata && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength && self.Flags == other.Flags && self.Result == other.Result && self.CreateUsn == other.CreateUsn
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
@@ -3077,14 +2615,7 @@ unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_CREATE_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_PLACEHOLDER_INFO_CLASS(pub i32);
 pub const CF_PLACEHOLDER_INFO_BASIC: CF_PLACEHOLDER_INFO_CLASS = CF_PLACEHOLDER_INFO_CLASS(0i32);
@@ -3098,24 +2629,13 @@ unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_INFO_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_PLACEHOLDER_MANAGEMENT_POLICY(pub i32);
-pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_DEFAULT: CF_PLACEHOLDER_MANAGEMENT_POLICY =
-    CF_PLACEHOLDER_MANAGEMENT_POLICY(0i32);
-pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_CREATE_UNRESTRICTED: CF_PLACEHOLDER_MANAGEMENT_POLICY =
-    CF_PLACEHOLDER_MANAGEMENT_POLICY(1i32);
-pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_CONVERT_TO_UNRESTRICTED:
-    CF_PLACEHOLDER_MANAGEMENT_POLICY = CF_PLACEHOLDER_MANAGEMENT_POLICY(2i32);
-pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_UPDATE_UNRESTRICTED: CF_PLACEHOLDER_MANAGEMENT_POLICY =
-    CF_PLACEHOLDER_MANAGEMENT_POLICY(4i32);
+pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_DEFAULT: CF_PLACEHOLDER_MANAGEMENT_POLICY = CF_PLACEHOLDER_MANAGEMENT_POLICY(0i32);
+pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_CREATE_UNRESTRICTED: CF_PLACEHOLDER_MANAGEMENT_POLICY = CF_PLACEHOLDER_MANAGEMENT_POLICY(1i32);
+pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_CONVERT_TO_UNRESTRICTED: CF_PLACEHOLDER_MANAGEMENT_POLICY = CF_PLACEHOLDER_MANAGEMENT_POLICY(2i32);
+pub const CF_PLACEHOLDER_MANAGEMENT_POLICY_UPDATE_UNRESTRICTED: CF_PLACEHOLDER_MANAGEMENT_POLICY = CF_PLACEHOLDER_MANAGEMENT_POLICY(4i32);
 impl ::std::convert::From<i32> for CF_PLACEHOLDER_MANAGEMENT_POLICY {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3126,22 +2646,12 @@ unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_MANAGEMENT_POLICY {
     type DefaultType = Self;
 }
 pub const CF_PLACEHOLDER_MAX_FILE_IDENTITY_LENGTH: u32 = 4096u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_PLACEHOLDER_RANGE_INFO_CLASS(pub i32);
-pub const CF_PLACEHOLDER_RANGE_INFO_ONDISK: CF_PLACEHOLDER_RANGE_INFO_CLASS =
-    CF_PLACEHOLDER_RANGE_INFO_CLASS(1i32);
-pub const CF_PLACEHOLDER_RANGE_INFO_VALIDATED: CF_PLACEHOLDER_RANGE_INFO_CLASS =
-    CF_PLACEHOLDER_RANGE_INFO_CLASS(2i32);
-pub const CF_PLACEHOLDER_RANGE_INFO_MODIFIED: CF_PLACEHOLDER_RANGE_INFO_CLASS =
-    CF_PLACEHOLDER_RANGE_INFO_CLASS(3i32);
+pub const CF_PLACEHOLDER_RANGE_INFO_ONDISK: CF_PLACEHOLDER_RANGE_INFO_CLASS = CF_PLACEHOLDER_RANGE_INFO_CLASS(1i32);
+pub const CF_PLACEHOLDER_RANGE_INFO_VALIDATED: CF_PLACEHOLDER_RANGE_INFO_CLASS = CF_PLACEHOLDER_RANGE_INFO_CLASS(2i32);
+pub const CF_PLACEHOLDER_RANGE_INFO_MODIFIED: CF_PLACEHOLDER_RANGE_INFO_CLASS = CF_PLACEHOLDER_RANGE_INFO_CLASS(3i32);
 impl ::std::convert::From<i32> for CF_PLACEHOLDER_RANGE_INFO_CLASS {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3189,16 +2699,7 @@ impl ::std::fmt::Debug for CF_PLACEHOLDER_STANDARD_INFO {
 }
 impl ::std::cmp::PartialEq for CF_PLACEHOLDER_STANDARD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.OnDiskDataSize == other.OnDiskDataSize
-            && self.ValidatedDataSize == other.ValidatedDataSize
-            && self.ModifiedDataSize == other.ModifiedDataSize
-            && self.PropertiesSize == other.PropertiesSize
-            && self.PinState == other.PinState
-            && self.InSyncState == other.InSyncState
-            && self.FileId == other.FileId
-            && self.SyncRootFileId == other.SyncRootFileId
-            && self.FileIdentityLength == other.FileIdentityLength
-            && self.FileIdentity == other.FileIdentity
+        self.OnDiskDataSize == other.OnDiskDataSize && self.ValidatedDataSize == other.ValidatedDataSize && self.ModifiedDataSize == other.ModifiedDataSize && self.PropertiesSize == other.PropertiesSize && self.PinState == other.PinState && self.InSyncState == other.InSyncState && self.FileId == other.FileId && self.SyncRootFileId == other.SyncRootFileId && self.FileIdentityLength == other.FileIdentityLength && self.FileIdentity == other.FileIdentity
     }
 }
 impl ::std::cmp::Eq for CF_PLACEHOLDER_STANDARD_INFO {}
@@ -3206,25 +2707,16 @@ unsafe impl ::windows::runtime::Abi for CF_PLACEHOLDER_STANDARD_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_PLACEHOLDER_STATE(pub u32);
 pub const CF_PLACEHOLDER_STATE_NO_STATES: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(0u32);
 pub const CF_PLACEHOLDER_STATE_PLACEHOLDER: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(1u32);
 pub const CF_PLACEHOLDER_STATE_SYNC_ROOT: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(2u32);
-pub const CF_PLACEHOLDER_STATE_ESSENTIAL_PROP_PRESENT: CF_PLACEHOLDER_STATE =
-    CF_PLACEHOLDER_STATE(4u32);
+pub const CF_PLACEHOLDER_STATE_ESSENTIAL_PROP_PRESENT: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(4u32);
 pub const CF_PLACEHOLDER_STATE_IN_SYNC: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(8u32);
 pub const CF_PLACEHOLDER_STATE_PARTIAL: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(16u32);
-pub const CF_PLACEHOLDER_STATE_PARTIALLY_ON_DISK: CF_PLACEHOLDER_STATE =
-    CF_PLACEHOLDER_STATE(32u32);
+pub const CF_PLACEHOLDER_STATE_PARTIALLY_ON_DISK: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(32u32);
 pub const CF_PLACEHOLDER_STATE_INVALID: CF_PLACEHOLDER_STATE = CF_PLACEHOLDER_STATE(4294967295u32);
 impl ::std::convert::From<u32> for CF_PLACEHOLDER_STATE {
     fn from(value: u32) -> Self {
@@ -3278,18 +2770,12 @@ impl ::std::default::Default for CF_PLATFORM_INFO {
 }
 impl ::std::fmt::Debug for CF_PLATFORM_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_PLATFORM_INFO")
-            .field("BuildNumber", &self.BuildNumber)
-            .field("RevisionNumber", &self.RevisionNumber)
-            .field("IntegrationNumber", &self.IntegrationNumber)
-            .finish()
+        fmt.debug_struct("CF_PLATFORM_INFO").field("BuildNumber", &self.BuildNumber).field("RevisionNumber", &self.RevisionNumber).field("IntegrationNumber", &self.IntegrationNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_PLATFORM_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.BuildNumber == other.BuildNumber
-            && self.RevisionNumber == other.RevisionNumber
-            && self.IntegrationNumber == other.IntegrationNumber
+        self.BuildNumber == other.BuildNumber && self.RevisionNumber == other.RevisionNumber && self.IntegrationNumber == other.IntegrationNumber
     }
 }
 impl ::std::cmp::Eq for CF_PLATFORM_INFO {}
@@ -3311,10 +2797,7 @@ impl ::std::default::Default for CF_POPULATION_POLICY {
 }
 impl ::std::fmt::Debug for CF_POPULATION_POLICY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_POPULATION_POLICY")
-            .field("Primary", &self.Primary)
-            .field("Modifier", &self.Modifier)
-            .finish()
+        fmt.debug_struct("CF_POPULATION_POLICY").field("Primary", &self.Primary).field("Modifier", &self.Modifier).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_POPULATION_POLICY {
@@ -3327,18 +2810,10 @@ unsafe impl ::windows::runtime::Abi for CF_POPULATION_POLICY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_POPULATION_POLICY_MODIFIER(pub u32);
-pub const CF_POPULATION_POLICY_MODIFIER_NONE: CF_POPULATION_POLICY_MODIFIER =
-    CF_POPULATION_POLICY_MODIFIER(0u32);
+pub const CF_POPULATION_POLICY_MODIFIER_NONE: CF_POPULATION_POLICY_MODIFIER = CF_POPULATION_POLICY_MODIFIER(0u32);
 impl ::std::convert::From<u32> for CF_POPULATION_POLICY_MODIFIER {
     fn from(value: u32) -> Self {
         Self(value)
@@ -3389,9 +2864,7 @@ impl ::std::default::Default for CF_POPULATION_POLICY_MODIFIER_USHORT {
 }
 impl ::std::fmt::Debug for CF_POPULATION_POLICY_MODIFIER_USHORT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_POPULATION_POLICY_MODIFIER_USHORT")
-            .field("us", &self.us)
-            .finish()
+        fmt.debug_struct("CF_POPULATION_POLICY_MODIFIER_USHORT").field("us", &self.us).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_POPULATION_POLICY_MODIFIER_USHORT {
@@ -3404,22 +2877,12 @@ unsafe impl ::windows::runtime::Abi for CF_POPULATION_POLICY_MODIFIER_USHORT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_POPULATION_POLICY_PRIMARY(pub i32);
-pub const CF_POPULATION_POLICY_PARTIAL: CF_POPULATION_POLICY_PRIMARY =
-    CF_POPULATION_POLICY_PRIMARY(0i32);
-pub const CF_POPULATION_POLICY_FULL: CF_POPULATION_POLICY_PRIMARY =
-    CF_POPULATION_POLICY_PRIMARY(2i32);
-pub const CF_POPULATION_POLICY_ALWAYS_FULL: CF_POPULATION_POLICY_PRIMARY =
-    CF_POPULATION_POLICY_PRIMARY(3i32);
+pub const CF_POPULATION_POLICY_PARTIAL: CF_POPULATION_POLICY_PRIMARY = CF_POPULATION_POLICY_PRIMARY(0i32);
+pub const CF_POPULATION_POLICY_FULL: CF_POPULATION_POLICY_PRIMARY = CF_POPULATION_POLICY_PRIMARY(2i32);
+pub const CF_POPULATION_POLICY_ALWAYS_FULL: CF_POPULATION_POLICY_PRIMARY = CF_POPULATION_POLICY_PRIMARY(3i32);
 impl ::std::convert::From<i32> for CF_POPULATION_POLICY_PRIMARY {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3442,9 +2905,7 @@ impl ::std::default::Default for CF_POPULATION_POLICY_PRIMARY_USHORT {
 }
 impl ::std::fmt::Debug for CF_POPULATION_POLICY_PRIMARY_USHORT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_POPULATION_POLICY_PRIMARY_USHORT")
-            .field("us", &self.us)
-            .finish()
+        fmt.debug_struct("CF_POPULATION_POLICY_PRIMARY_USHORT").field("us", &self.us).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_POPULATION_POLICY_PRIMARY_USHORT {
@@ -3494,13 +2955,7 @@ impl ::std::fmt::Debug for CF_PROCESS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_PROCESS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize
-            && self.ProcessId == other.ProcessId
-            && self.ImagePath == other.ImagePath
-            && self.PackageName == other.PackageName
-            && self.ApplicationId == other.ApplicationId
-            && self.CommandLine == other.CommandLine
-            && self.SessionId == other.SessionId
+        self.StructSize == other.StructSize && self.ProcessId == other.ProcessId && self.ImagePath == other.ImagePath && self.PackageName == other.PackageName && self.ApplicationId == other.ApplicationId && self.CommandLine == other.CommandLine && self.SessionId == other.SessionId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3510,20 +2965,12 @@ unsafe impl ::windows::runtime::Abi for CF_PROCESS_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_REGISTER_FLAGS(pub u32);
 pub const CF_REGISTER_FLAG_NONE: CF_REGISTER_FLAGS = CF_REGISTER_FLAGS(0u32);
 pub const CF_REGISTER_FLAG_UPDATE: CF_REGISTER_FLAGS = CF_REGISTER_FLAGS(1u32);
-pub const CF_REGISTER_FLAG_DISABLE_ON_DEMAND_POPULATION_ON_ROOT: CF_REGISTER_FLAGS =
-    CF_REGISTER_FLAGS(2u32);
+pub const CF_REGISTER_FLAG_DISABLE_ON_DEMAND_POPULATION_ON_ROOT: CF_REGISTER_FLAGS = CF_REGISTER_FLAGS(2u32);
 pub const CF_REGISTER_FLAG_MARK_IN_SYNC_ON_ROOT: CF_REGISTER_FLAGS = CF_REGISTER_FLAGS(4u32);
 impl ::std::convert::From<u32> for CF_REGISTER_FLAGS {
     fn from(value: u32) -> Self {
@@ -3563,14 +3010,7 @@ impl ::std::ops::Not for CF_REGISTER_FLAGS {
     }
 }
 pub const CF_REQUEST_KEY_DEFAULT: u32 = 0u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_REVERT_FLAGS(pub u32);
 pub const CF_REVERT_FLAG_NONE: CF_REVERT_FLAGS = CF_REVERT_FLAGS(0u32);
@@ -3611,14 +3051,7 @@ impl ::std::ops::Not for CF_REVERT_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_SET_IN_SYNC_FLAGS(pub u32);
 pub const CF_SET_IN_SYNC_FLAG_NONE: CF_SET_IN_SYNC_FLAGS = CF_SET_IN_SYNC_FLAGS(0u32);
@@ -3659,14 +3092,7 @@ impl ::std::ops::Not for CF_SET_IN_SYNC_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_SET_PIN_FLAGS(pub u32);
 pub const CF_SET_PIN_FLAG_NONE: CF_SET_PIN_FLAGS = CF_SET_PIN_FLAGS(0u32);
@@ -3728,24 +3154,12 @@ impl ::std::default::Default for CF_SYNC_POLICIES {
 }
 impl ::std::fmt::Debug for CF_SYNC_POLICIES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_SYNC_POLICIES")
-            .field("StructSize", &self.StructSize)
-            .field("Hydration", &self.Hydration)
-            .field("Population", &self.Population)
-            .field("InSync", &self.InSync)
-            .field("HardLink", &self.HardLink)
-            .field("PlaceholderManagement", &self.PlaceholderManagement)
-            .finish()
+        fmt.debug_struct("CF_SYNC_POLICIES").field("StructSize", &self.StructSize).field("Hydration", &self.Hydration).field("Population", &self.Population).field("InSync", &self.InSync).field("HardLink", &self.HardLink).field("PlaceholderManagement", &self.PlaceholderManagement).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_SYNC_POLICIES {
     fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize
-            && self.Hydration == other.Hydration
-            && self.Population == other.Population
-            && self.InSync == other.InSync
-            && self.HardLink == other.HardLink
-            && self.PlaceholderManagement == other.PlaceholderManagement
+        self.StructSize == other.StructSize && self.Hydration == other.Hydration && self.Population == other.Population && self.InSync == other.InSync && self.HardLink == other.HardLink && self.PlaceholderManagement == other.PlaceholderManagement
     }
 }
 impl ::std::cmp::Eq for CF_SYNC_POLICIES {}
@@ -3753,35 +3167,20 @@ unsafe impl ::windows::runtime::Abi for CF_SYNC_POLICIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_SYNC_PROVIDER_STATUS(pub u32);
 pub const CF_PROVIDER_STATUS_DISCONNECTED: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(0u32);
 pub const CF_PROVIDER_STATUS_IDLE: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(1u32);
-pub const CF_PROVIDER_STATUS_POPULATE_NAMESPACE: CF_SYNC_PROVIDER_STATUS =
-    CF_SYNC_PROVIDER_STATUS(2u32);
-pub const CF_PROVIDER_STATUS_POPULATE_METADATA: CF_SYNC_PROVIDER_STATUS =
-    CF_SYNC_PROVIDER_STATUS(4u32);
-pub const CF_PROVIDER_STATUS_POPULATE_CONTENT: CF_SYNC_PROVIDER_STATUS =
-    CF_SYNC_PROVIDER_STATUS(8u32);
-pub const CF_PROVIDER_STATUS_SYNC_INCREMENTAL: CF_SYNC_PROVIDER_STATUS =
-    CF_SYNC_PROVIDER_STATUS(16u32);
+pub const CF_PROVIDER_STATUS_POPULATE_NAMESPACE: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(2u32);
+pub const CF_PROVIDER_STATUS_POPULATE_METADATA: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(4u32);
+pub const CF_PROVIDER_STATUS_POPULATE_CONTENT: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(8u32);
+pub const CF_PROVIDER_STATUS_SYNC_INCREMENTAL: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(16u32);
 pub const CF_PROVIDER_STATUS_SYNC_FULL: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(32u32);
-pub const CF_PROVIDER_STATUS_CONNECTIVITY_LOST: CF_SYNC_PROVIDER_STATUS =
-    CF_SYNC_PROVIDER_STATUS(64u32);
-pub const CF_PROVIDER_STATUS_CLEAR_FLAGS: CF_SYNC_PROVIDER_STATUS =
-    CF_SYNC_PROVIDER_STATUS(2147483648u32);
-pub const CF_PROVIDER_STATUS_TERMINATED: CF_SYNC_PROVIDER_STATUS =
-    CF_SYNC_PROVIDER_STATUS(3221225473u32);
-pub const CF_PROVIDER_STATUS_ERROR: CF_SYNC_PROVIDER_STATUS =
-    CF_SYNC_PROVIDER_STATUS(3221225474u32);
+pub const CF_PROVIDER_STATUS_CONNECTIVITY_LOST: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(64u32);
+pub const CF_PROVIDER_STATUS_CLEAR_FLAGS: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(2147483648u32);
+pub const CF_PROVIDER_STATUS_TERMINATED: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(3221225473u32);
+pub const CF_PROVIDER_STATUS_ERROR: CF_SYNC_PROVIDER_STATUS = CF_SYNC_PROVIDER_STATUS(3221225474u32);
 impl ::std::convert::From<u32> for CF_SYNC_PROVIDER_STATUS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -3858,14 +3257,7 @@ impl ::std::fmt::Debug for CF_SYNC_REGISTRATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CF_SYNC_REGISTRATION {
     fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize
-            && self.ProviderName == other.ProviderName
-            && self.ProviderVersion == other.ProviderVersion
-            && self.SyncRootIdentity == other.SyncRootIdentity
-            && self.SyncRootIdentityLength == other.SyncRootIdentityLength
-            && self.FileIdentity == other.FileIdentity
-            && self.FileIdentityLength == other.FileIdentityLength
-            && self.ProviderId == other.ProviderId
+        self.StructSize == other.StructSize && self.ProviderName == other.ProviderName && self.ProviderVersion == other.ProviderVersion && self.SyncRootIdentity == other.SyncRootIdentity && self.SyncRootIdentityLength == other.SyncRootIdentityLength && self.FileIdentity == other.FileIdentity && self.FileIdentityLength == other.FileIdentityLength && self.ProviderId == other.ProviderId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3888,9 +3280,7 @@ impl ::std::default::Default for CF_SYNC_ROOT_BASIC_INFO {
 }
 impl ::std::fmt::Debug for CF_SYNC_ROOT_BASIC_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_SYNC_ROOT_BASIC_INFO")
-            .field("SyncRootFileId", &self.SyncRootFileId)
-            .finish()
+        fmt.debug_struct("CF_SYNC_ROOT_BASIC_INFO").field("SyncRootFileId", &self.SyncRootFileId).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_SYNC_ROOT_BASIC_INFO {
@@ -3903,14 +3293,7 @@ unsafe impl ::windows::runtime::Abi for CF_SYNC_ROOT_BASIC_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_SYNC_ROOT_INFO_CLASS(pub i32);
 pub const CF_SYNC_ROOT_INFO_BASIC: CF_SYNC_ROOT_INFO_CLASS = CF_SYNC_ROOT_INFO_CLASS(0i32);
@@ -3940,18 +3323,12 @@ impl ::std::default::Default for CF_SYNC_ROOT_PROVIDER_INFO {
 }
 impl ::std::fmt::Debug for CF_SYNC_ROOT_PROVIDER_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CF_SYNC_ROOT_PROVIDER_INFO")
-            .field("ProviderStatus", &self.ProviderStatus)
-            .field("ProviderName", &self.ProviderName)
-            .field("ProviderVersion", &self.ProviderVersion)
-            .finish()
+        fmt.debug_struct("CF_SYNC_ROOT_PROVIDER_INFO").field("ProviderStatus", &self.ProviderStatus).field("ProviderName", &self.ProviderName).field("ProviderVersion", &self.ProviderVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for CF_SYNC_ROOT_PROVIDER_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ProviderStatus == other.ProviderStatus
-            && self.ProviderName == other.ProviderName
-            && self.ProviderVersion == other.ProviderVersion
+        self.ProviderStatus == other.ProviderStatus && self.ProviderName == other.ProviderName && self.ProviderVersion == other.ProviderVersion
     }
 }
 impl ::std::cmp::Eq for CF_SYNC_ROOT_PROVIDER_INFO {}
@@ -3997,16 +3374,7 @@ impl ::std::fmt::Debug for CF_SYNC_ROOT_STANDARD_INFO {
 }
 impl ::std::cmp::PartialEq for CF_SYNC_ROOT_STANDARD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.SyncRootFileId == other.SyncRootFileId
-            && self.HydrationPolicy == other.HydrationPolicy
-            && self.PopulationPolicy == other.PopulationPolicy
-            && self.InSyncPolicy == other.InSyncPolicy
-            && self.HardLinkPolicy == other.HardLinkPolicy
-            && self.ProviderStatus == other.ProviderStatus
-            && self.ProviderName == other.ProviderName
-            && self.ProviderVersion == other.ProviderVersion
-            && self.SyncRootIdentityLength == other.SyncRootIdentityLength
-            && self.SyncRootIdentity == other.SyncRootIdentity
+        self.SyncRootFileId == other.SyncRootFileId && self.HydrationPolicy == other.HydrationPolicy && self.PopulationPolicy == other.PopulationPolicy && self.InSyncPolicy == other.InSyncPolicy && self.HardLinkPolicy == other.HardLinkPolicy && self.ProviderStatus == other.ProviderStatus && self.ProviderName == other.ProviderName && self.ProviderVersion == other.ProviderVersion && self.SyncRootIdentityLength == other.SyncRootIdentityLength && self.SyncRootIdentity == other.SyncRootIdentity
     }
 }
 impl ::std::cmp::Eq for CF_SYNC_ROOT_STANDARD_INFO {}
@@ -4044,12 +3412,7 @@ impl ::std::fmt::Debug for CF_SYNC_STATUS {
 }
 impl ::std::cmp::PartialEq for CF_SYNC_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.StructSize == other.StructSize
-            && self.Code == other.Code
-            && self.DescriptionOffset == other.DescriptionOffset
-            && self.DescriptionLength == other.DescriptionLength
-            && self.DeviceIdOffset == other.DeviceIdOffset
-            && self.DeviceIdLength == other.DeviceIdLength
+        self.StructSize == other.StructSize && self.Code == other.Code && self.DescriptionOffset == other.DescriptionOffset && self.DescriptionLength == other.DescriptionLength && self.DeviceIdOffset == other.DeviceIdOffset && self.DeviceIdLength == other.DeviceIdLength
     }
 }
 impl ::std::cmp::Eq for CF_SYNC_STATUS {}
@@ -4057,14 +3420,7 @@ unsafe impl ::windows::runtime::Abi for CF_SYNC_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CF_UPDATE_FLAGS(pub u32);
 pub const CF_UPDATE_FLAG_NONE: CF_UPDATE_FLAGS = CF_UPDATE_FLAGS(0u32);
@@ -4118,12 +3474,7 @@ impl ::std::ops::Not for CF_UPDATE_FLAGS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfCloseHandle<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-) {
+pub unsafe fn CfCloseHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4137,363 +3488,168 @@ pub unsafe fn CfCloseHandle<
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn CfConnectSyncRoot<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    syncrootpath: Param0,
-    callbacktable: *const CF_CALLBACK_REGISTRATION,
-    callbackcontext: *const ::std::ffi::c_void,
-    connectflags: CF_CONNECT_FLAGS,
-) -> ::windows::runtime::Result<CF_CONNECTION_KEY> {
+pub unsafe fn CfConnectSyncRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, callbacktable: *const CF_CALLBACK_REGISTRATION, callbackcontext: *const ::std::ffi::c_void, connectflags: CF_CONNECT_FLAGS) -> ::windows::runtime::Result<CF_CONNECTION_KEY> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfConnectSyncRoot(
-                syncrootpath: super::super::Foundation::PWSTR,
-                callbacktable: *const ::std::mem::ManuallyDrop<CF_CALLBACK_REGISTRATION>,
-                callbackcontext: *const ::std::ffi::c_void,
-                connectflags: CF_CONNECT_FLAGS,
-                connectionkey: *mut CF_CONNECTION_KEY,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfConnectSyncRoot(syncrootpath: super::super::Foundation::PWSTR, callbacktable: *const ::std::mem::ManuallyDrop<CF_CALLBACK_REGISTRATION>, callbackcontext: *const ::std::ffi::c_void, connectflags: CF_CONNECT_FLAGS, connectionkey: *mut CF_CONNECTION_KEY) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <CF_CONNECTION_KEY as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        CfConnectSyncRoot(
-            syncrootpath.into_param().abi(),
-            ::std::mem::transmute(callbacktable),
-            ::std::mem::transmute(callbackcontext),
-            ::std::mem::transmute(connectflags),
-            &mut result__,
-        )
-        .from_abi::<CF_CONNECTION_KEY>(result__)
+        let mut result__: <CF_CONNECTION_KEY as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        CfConnectSyncRoot(syncrootpath.into_param().abi(), ::std::mem::transmute(callbacktable), ::std::mem::transmute(callbackcontext), ::std::mem::transmute(connectflags), &mut result__).from_abi::<CF_CONNECTION_KEY>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfConvertToPlaceholder<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    fileidentity: *const ::std::ffi::c_void,
-    fileidentitylength: u32,
-    convertflags: CF_CONVERT_FLAGS,
-    convertusn: *mut i64,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfConvertToPlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, fileidentity: *const ::std::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfConvertToPlaceholder(
-                filehandle: super::super::Foundation::HANDLE,
-                fileidentity: *const ::std::ffi::c_void,
-                fileidentitylength: u32,
-                convertflags: CF_CONVERT_FLAGS,
-                convertusn: *mut i64,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfConvertToPlaceholder(filehandle: super::super::Foundation::HANDLE, fileidentity: *const ::std::ffi::c_void, fileidentitylength: u32, convertflags: CF_CONVERT_FLAGS, convertusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
         }
-        CfConvertToPlaceholder(
-            filehandle.into_param().abi(),
-            ::std::mem::transmute(fileidentity),
-            ::std::mem::transmute(fileidentitylength),
-            ::std::mem::transmute(convertflags),
-            ::std::mem::transmute(convertusn),
-            ::std::mem::transmute(overlapped),
-        )
-        .ok()
+        CfConvertToPlaceholder(filehandle.into_param().abi(), ::std::mem::transmute(fileidentity), ::std::mem::transmute(fileidentitylength), ::std::mem::transmute(convertflags), ::std::mem::transmute(convertusn), ::std::mem::transmute(overlapped)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 #[inline]
-pub unsafe fn CfCreatePlaceholders<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    basedirectorypath: Param0,
-    placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO,
-    placeholdercount: u32,
-    createflags: CF_CREATE_FLAGS,
-    entriesprocessed: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfCreatePlaceholders<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(basedirectorypath: Param0, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfCreatePlaceholders(
-                basedirectorypath: super::super::Foundation::PWSTR,
-                placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO,
-                placeholdercount: u32,
-                createflags: CF_CREATE_FLAGS,
-                entriesprocessed: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfCreatePlaceholders(basedirectorypath: super::super::Foundation::PWSTR, placeholderarray: *mut CF_PLACEHOLDER_CREATE_INFO, placeholdercount: u32, createflags: CF_CREATE_FLAGS, entriesprocessed: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        CfCreatePlaceholders(
-            basedirectorypath.into_param().abi(),
-            ::std::mem::transmute(placeholderarray),
-            ::std::mem::transmute(placeholdercount),
-            ::std::mem::transmute(createflags),
-            ::std::mem::transmute(entriesprocessed),
-        )
-        .ok()
+        CfCreatePlaceholders(basedirectorypath.into_param().abi(), ::std::mem::transmute(placeholderarray), ::std::mem::transmute(placeholdercount), ::std::mem::transmute(createflags), ::std::mem::transmute(entriesprocessed)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfDehydratePlaceholder<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    startingoffset: i64,
-    length: i64,
-    dehydrateflags: CF_DEHYDRATE_FLAGS,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfDehydratePlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfDehydratePlaceholder(
-                filehandle: super::super::Foundation::HANDLE,
-                startingoffset: i64,
-                length: i64,
-                dehydrateflags: CF_DEHYDRATE_FLAGS,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfDehydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, dehydrateflags: CF_DEHYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
         }
-        CfDehydratePlaceholder(
-            filehandle.into_param().abi(),
-            ::std::mem::transmute(startingoffset),
-            ::std::mem::transmute(length),
-            ::std::mem::transmute(dehydrateflags),
-            ::std::mem::transmute(overlapped),
-        )
-        .ok()
+        CfDehydratePlaceholder(filehandle.into_param().abi(), ::std::mem::transmute(startingoffset), ::std::mem::transmute(length), ::std::mem::transmute(dehydrateflags), ::std::mem::transmute(overlapped)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CfDisconnectSyncRoot<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>,
->(
-    connectionkey: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfDisconnectSyncRoot<'a, Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfDisconnectSyncRoot(
-                connectionkey: CF_CONNECTION_KEY,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfDisconnectSyncRoot(connectionkey: CF_CONNECTION_KEY) -> ::windows::runtime::HRESULT;
         }
         CfDisconnectSyncRoot(connectionkey.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Storage_FileSystem",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn CfExecute(
-    opinfo: *const CF_OPERATION_INFO,
-    opparams: *mut CF_OPERATION_PARAMETERS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfExecute(
-                opinfo: *const CF_OPERATION_INFO,
-                opparams: *mut CF_OPERATION_PARAMETERS,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfExecute(opinfo: *const CF_OPERATION_INFO, opparams: *mut CF_OPERATION_PARAMETERS) -> ::windows::runtime::HRESULT;
         }
-        CfExecute(
-            ::std::mem::transmute(opinfo),
-            ::std::mem::transmute(opparams),
-        )
-        .ok()
+        CfExecute(::std::mem::transmute(opinfo), ::std::mem::transmute(opparams)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn CfGetCorrelationVector<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-) -> ::windows::runtime::Result<super::super::System::SystemServices::CORRELATION_VECTOR> {
+pub unsafe fn CfGetCorrelationVector<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) -> ::windows::runtime::Result<super::super::System::SystemServices::CORRELATION_VECTOR> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetCorrelationVector(
-                filehandle: super::super::Foundation::HANDLE,
-                correlationvector: *mut super::super::System::SystemServices::CORRELATION_VECTOR,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfGetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *mut super::super::System::SystemServices::CORRELATION_VECTOR) -> ::windows::runtime::HRESULT;
         }
-        let mut result__ : < super::super::System::SystemServices:: CORRELATION_VECTOR as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        CfGetCorrelationVector(filehandle.into_param().abi(), &mut result__)
-            .from_abi::<super::super::System::SystemServices::CORRELATION_VECTOR>(result__)
+        let mut result__: <super::super::System::SystemServices::CORRELATION_VECTOR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        CfGetCorrelationVector(filehandle.into_param().abi(), &mut result__).from_abi::<super::super::System::SystemServices::CORRELATION_VECTOR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetPlaceholderInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    infoclass: CF_PLACEHOLDER_INFO_CLASS,
-    infobuffer: *mut ::std::ffi::c_void,
-    infobufferlength: u32,
-    returnedlength: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfGetPlaceholderInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::std::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetPlaceholderInfo(
-                filehandle: super::super::Foundation::HANDLE,
-                infoclass: CF_PLACEHOLDER_INFO_CLASS,
-                infobuffer: *mut ::std::ffi::c_void,
-                infobufferlength: u32,
-                returnedlength: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfGetPlaceholderInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_INFO_CLASS, infobuffer: *mut ::std::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        CfGetPlaceholderInfo(
-            filehandle.into_param().abi(),
-            ::std::mem::transmute(infoclass),
-            ::std::mem::transmute(infobuffer),
-            ::std::mem::transmute(infobufferlength),
-            ::std::mem::transmute(returnedlength),
-        )
-        .ok()
+        CfGetPlaceholderInfo(filehandle.into_param().abi(), ::std::mem::transmute(infoclass), ::std::mem::transmute(infobuffer), ::std::mem::transmute(infobufferlength), ::std::mem::transmute(returnedlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetPlaceholderRangeInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS,
-    startingoffset: i64,
-    length: i64,
-    infobuffer: *mut ::std::ffi::c_void,
-    infobufferlength: u32,
-    returnedlength: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfGetPlaceholderRangeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::std::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetPlaceholderRangeInfo(
-                filehandle: super::super::Foundation::HANDLE,
-                infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS,
-                startingoffset: i64,
-                length: i64,
-                infobuffer: *mut ::std::ffi::c_void,
-                infobufferlength: u32,
-                returnedlength: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfGetPlaceholderRangeInfo(filehandle: super::super::Foundation::HANDLE, infoclass: CF_PLACEHOLDER_RANGE_INFO_CLASS, startingoffset: i64, length: i64, infobuffer: *mut ::std::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        CfGetPlaceholderRangeInfo(
-            filehandle.into_param().abi(),
-            ::std::mem::transmute(infoclass),
-            ::std::mem::transmute(startingoffset),
-            ::std::mem::transmute(length),
-            ::std::mem::transmute(infobuffer),
-            ::std::mem::transmute(infobufferlength),
-            ::std::mem::transmute(returnedlength),
-        )
-        .ok()
+        CfGetPlaceholderRangeInfo(filehandle.into_param().abi(), ::std::mem::transmute(infoclass), ::std::mem::transmute(startingoffset), ::std::mem::transmute(length), ::std::mem::transmute(infobuffer), ::std::mem::transmute(infobufferlength), ::std::mem::transmute(returnedlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CfGetPlaceholderStateFromAttributeTag(
-    fileattributes: u32,
-    reparsetag: u32,
-) -> CF_PLACEHOLDER_STATE {
+pub unsafe fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetPlaceholderStateFromAttributeTag(
-                fileattributes: u32,
-                reparsetag: u32,
-            ) -> CF_PLACEHOLDER_STATE;
+            fn CfGetPlaceholderStateFromAttributeTag(fileattributes: u32, reparsetag: u32) -> CF_PLACEHOLDER_STATE;
         }
-        ::std::mem::transmute(CfGetPlaceholderStateFromAttributeTag(
-            ::std::mem::transmute(fileattributes),
-            ::std::mem::transmute(reparsetag),
-        ))
+        ::std::mem::transmute(CfGetPlaceholderStateFromAttributeTag(::std::mem::transmute(fileattributes), ::std::mem::transmute(reparsetag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[inline]
-pub unsafe fn CfGetPlaceholderStateFromFileInfo(
-    infobuffer: *const ::std::ffi::c_void,
-    infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS,
-) -> CF_PLACEHOLDER_STATE {
+pub unsafe fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::std::ffi::c_void, infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetPlaceholderStateFromFileInfo(
-                infobuffer: *const ::std::ffi::c_void,
-                infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS,
-            ) -> CF_PLACEHOLDER_STATE;
+            fn CfGetPlaceholderStateFromFileInfo(infobuffer: *const ::std::ffi::c_void, infoclass: super::FileSystem::FILE_INFO_BY_HANDLE_CLASS) -> CF_PLACEHOLDER_STATE;
         }
-        ::std::mem::transmute(CfGetPlaceholderStateFromFileInfo(
-            ::std::mem::transmute(infobuffer),
-            ::std::mem::transmute(infoclass),
-        ))
+        ::std::mem::transmute(CfGetPlaceholderStateFromFileInfo(::std::mem::transmute(infobuffer), ::std::mem::transmute(infoclass)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 #[inline]
-pub unsafe fn CfGetPlaceholderStateFromFindData(
-    finddata: *const super::FileSystem::WIN32_FIND_DATAA,
-) -> CF_PLACEHOLDER_STATE {
+pub unsafe fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSystem::WIN32_FIND_DATAA) -> CF_PLACEHOLDER_STATE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetPlaceholderStateFromFindData(
-                finddata: *const super::FileSystem::WIN32_FIND_DATAA,
-            ) -> CF_PLACEHOLDER_STATE;
+            fn CfGetPlaceholderStateFromFindData(finddata: *const super::FileSystem::WIN32_FIND_DATAA) -> CF_PLACEHOLDER_STATE;
         }
-        ::std::mem::transmute(CfGetPlaceholderStateFromFindData(::std::mem::transmute(
-            finddata,
-        )))
+        ::std::mem::transmute(CfGetPlaceholderStateFromFindData(::std::mem::transmute(finddata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4504,9 +3660,7 @@ pub unsafe fn CfGetPlatformInfo() -> ::windows::runtime::Result<CF_PLATFORM_INFO
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetPlatformInfo(
-                platformversion: *mut CF_PLATFORM_INFO,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfGetPlatformInfo(platformversion: *mut CF_PLATFORM_INFO) -> ::windows::runtime::HRESULT;
         }
         let mut result__: <CF_PLATFORM_INFO as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         CfGetPlatformInfo(&mut result__).from_abi::<CF_PLATFORM_INFO>(result__)
@@ -4516,92 +3670,40 @@ pub unsafe fn CfGetPlatformInfo() -> ::windows::runtime::Result<CF_PLATFORM_INFO
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetSyncRootInfoByHandle<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    infoclass: CF_SYNC_ROOT_INFO_CLASS,
-    infobuffer: *mut ::std::ffi::c_void,
-    infobufferlength: u32,
-    returnedlength: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfGetSyncRootInfoByHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::std::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetSyncRootInfoByHandle(
-                filehandle: super::super::Foundation::HANDLE,
-                infoclass: CF_SYNC_ROOT_INFO_CLASS,
-                infobuffer: *mut ::std::ffi::c_void,
-                infobufferlength: u32,
-                returnedlength: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfGetSyncRootInfoByHandle(filehandle: super::super::Foundation::HANDLE, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::std::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        CfGetSyncRootInfoByHandle(
-            filehandle.into_param().abi(),
-            ::std::mem::transmute(infoclass),
-            ::std::mem::transmute(infobuffer),
-            ::std::mem::transmute(infobufferlength),
-            ::std::mem::transmute(returnedlength),
-        )
-        .ok()
+        CfGetSyncRootInfoByHandle(filehandle.into_param().abi(), ::std::mem::transmute(infoclass), ::std::mem::transmute(infobuffer), ::std::mem::transmute(infobufferlength), ::std::mem::transmute(returnedlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetSyncRootInfoByPath<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    filepath: Param0,
-    infoclass: CF_SYNC_ROOT_INFO_CLASS,
-    infobuffer: *mut ::std::ffi::c_void,
-    infobufferlength: u32,
-    returnedlength: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfGetSyncRootInfoByPath<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::std::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetSyncRootInfoByPath(
-                filepath: super::super::Foundation::PWSTR,
-                infoclass: CF_SYNC_ROOT_INFO_CLASS,
-                infobuffer: *mut ::std::ffi::c_void,
-                infobufferlength: u32,
-                returnedlength: *mut u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfGetSyncRootInfoByPath(filepath: super::super::Foundation::PWSTR, infoclass: CF_SYNC_ROOT_INFO_CLASS, infobuffer: *mut ::std::ffi::c_void, infobufferlength: u32, returnedlength: *mut u32) -> ::windows::runtime::HRESULT;
         }
-        CfGetSyncRootInfoByPath(
-            filepath.into_param().abi(),
-            ::std::mem::transmute(infoclass),
-            ::std::mem::transmute(infobuffer),
-            ::std::mem::transmute(infobufferlength),
-            ::std::mem::transmute(returnedlength),
-        )
-        .ok()
+        CfGetSyncRootInfoByPath(filepath.into_param().abi(), ::std::mem::transmute(infoclass), ::std::mem::transmute(infobuffer), ::std::mem::transmute(infobufferlength), ::std::mem::transmute(returnedlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetTransferKey<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-) -> ::windows::runtime::Result<i64> {
+pub unsafe fn CfGetTransferKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0) -> ::windows::runtime::Result<i64> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetTransferKey(
-                filehandle: super::super::Foundation::HANDLE,
-                transferkey: *mut i64,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfGetTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64) -> ::windows::runtime::HRESULT;
         }
         let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         CfGetTransferKey(filehandle.into_param().abi(), &mut result__).from_abi::<i64>(result__)
@@ -4611,182 +3713,92 @@ pub unsafe fn CfGetTransferKey<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfGetWin32HandleFromProtectedHandle<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    protectedhandle: Param0,
-) -> super::super::Foundation::HANDLE {
+pub unsafe fn CfGetWin32HandleFromProtectedHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) -> super::super::Foundation::HANDLE {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfGetWin32HandleFromProtectedHandle(
-                protectedhandle: super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::HANDLE;
+            fn CfGetWin32HandleFromProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::HANDLE;
         }
-        ::std::mem::transmute(CfGetWin32HandleFromProtectedHandle(
-            protectedhandle.into_param().abi(),
-        ))
+        ::std::mem::transmute(CfGetWin32HandleFromProtectedHandle(protectedhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfHydratePlaceholder<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    startingoffset: i64,
-    length: i64,
-    hydrateflags: CF_HYDRATE_FLAGS,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfHydratePlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfHydratePlaceholder(
-                filehandle: super::super::Foundation::HANDLE,
-                startingoffset: i64,
-                length: i64,
-                hydrateflags: CF_HYDRATE_FLAGS,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfHydratePlaceholder(filehandle: super::super::Foundation::HANDLE, startingoffset: i64, length: i64, hydrateflags: CF_HYDRATE_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
         }
-        CfHydratePlaceholder(
-            filehandle.into_param().abi(),
-            ::std::mem::transmute(startingoffset),
-            ::std::mem::transmute(length),
-            ::std::mem::transmute(hydrateflags),
-            ::std::mem::transmute(overlapped),
-        )
-        .ok()
+        CfHydratePlaceholder(filehandle.into_param().abi(), ::std::mem::transmute(startingoffset), ::std::mem::transmute(length), ::std::mem::transmute(hydrateflags), ::std::mem::transmute(overlapped)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfOpenFileWithOplock<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    filepath: Param0,
-    flags: CF_OPEN_FILE_FLAGS,
-) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn CfOpenFileWithOplock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, flags: CF_OPEN_FILE_FLAGS) -> ::windows::runtime::Result<super::super::Foundation::HANDLE> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfOpenFileWithOplock(
-                filepath: super::super::Foundation::PWSTR,
-                flags: CF_OPEN_FILE_FLAGS,
-                protectedhandle: *mut super::super::Foundation::HANDLE,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfOpenFileWithOplock(filepath: super::super::Foundation::PWSTR, flags: CF_OPEN_FILE_FLAGS, protectedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        CfOpenFileWithOplock(
-            filepath.into_param().abi(),
-            ::std::mem::transmute(flags),
-            &mut result__,
-        )
-        .from_abi::<super::super::Foundation::HANDLE>(result__)
+        let mut result__: <super::super::Foundation::HANDLE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        CfOpenFileWithOplock(filepath.into_param().abi(), ::std::mem::transmute(flags), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CfQuerySyncProviderStatus<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>,
->(
-    connectionkey: Param0,
-) -> ::windows::runtime::Result<CF_SYNC_PROVIDER_STATUS> {
+pub unsafe fn CfQuerySyncProviderStatus<'a, Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0) -> ::windows::runtime::Result<CF_SYNC_PROVIDER_STATUS> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfQuerySyncProviderStatus(
-                connectionkey: CF_CONNECTION_KEY,
-                providerstatus: *mut CF_SYNC_PROVIDER_STATUS,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfQuerySyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: *mut CF_SYNC_PROVIDER_STATUS) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <CF_SYNC_PROVIDER_STATUS as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        CfQuerySyncProviderStatus(connectionkey.into_param().abi(), &mut result__)
-            .from_abi::<CF_SYNC_PROVIDER_STATUS>(result__)
+        let mut result__: <CF_SYNC_PROVIDER_STATUS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        CfQuerySyncProviderStatus(connectionkey.into_param().abi(), &mut result__).from_abi::<CF_SYNC_PROVIDER_STATUS>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfReferenceProtectedHandle<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    protectedhandle: Param0,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn CfReferenceProtectedHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfReferenceProtectedHandle(
-                protectedhandle: super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn CfReferenceProtectedHandle(protectedhandle: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(CfReferenceProtectedHandle(
-            protectedhandle.into_param().abi(),
-        ))
+        ::std::mem::transmute(CfReferenceProtectedHandle(protectedhandle.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfRegisterSyncRoot<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    syncrootpath: Param0,
-    registration: *const CF_SYNC_REGISTRATION,
-    policies: *const CF_SYNC_POLICIES,
-    registerflags: CF_REGISTER_FLAGS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfRegisterSyncRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfRegisterSyncRoot(
-                syncrootpath: super::super::Foundation::PWSTR,
-                registration: *const CF_SYNC_REGISTRATION,
-                policies: *const CF_SYNC_POLICIES,
-                registerflags: CF_REGISTER_FLAGS,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfRegisterSyncRoot(syncrootpath: super::super::Foundation::PWSTR, registration: *const CF_SYNC_REGISTRATION, policies: *const CF_SYNC_POLICIES, registerflags: CF_REGISTER_FLAGS) -> ::windows::runtime::HRESULT;
         }
-        CfRegisterSyncRoot(
-            syncrootpath.into_param().abi(),
-            ::std::mem::transmute(registration),
-            ::std::mem::transmute(policies),
-            ::std::mem::transmute(registerflags),
-        )
-        .ok()
+        CfRegisterSyncRoot(syncrootpath.into_param().abi(), ::std::mem::transmute(registration), ::std::mem::transmute(policies), ::std::mem::transmute(registerflags)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfReleaseProtectedHandle<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    protectedhandle: Param0,
-) {
+pub unsafe fn CfReleaseProtectedHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(protectedhandle: Param0) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4800,306 +3812,136 @@ pub unsafe fn CfReleaseProtectedHandle<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfReleaseTransferKey<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    transferkey: *mut i64,
-) {
+pub unsafe fn CfReleaseTransferKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, transferkey: *mut i64) {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfReleaseTransferKey(
-                filehandle: super::super::Foundation::HANDLE,
-                transferkey: *mut i64,
-            );
+            fn CfReleaseTransferKey(filehandle: super::super::Foundation::HANDLE, transferkey: *mut i64);
         }
-        ::std::mem::transmute(CfReleaseTransferKey(
-            filehandle.into_param().abi(),
-            ::std::mem::transmute(transferkey),
-        ))
+        ::std::mem::transmute(CfReleaseTransferKey(filehandle.into_param().abi(), ::std::mem::transmute(transferkey)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CfReportProviderProgress<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>,
->(
-    connectionkey: Param0,
-    transferkey: i64,
-    providerprogresstotal: i64,
-    providerprogresscompleted: i64,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfReportProviderProgress<'a, Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfReportProviderProgress(
-                connectionkey: CF_CONNECTION_KEY,
-                transferkey: i64,
-                providerprogresstotal: i64,
-                providerprogresscompleted: i64,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfReportProviderProgress(connectionkey: CF_CONNECTION_KEY, transferkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64) -> ::windows::runtime::HRESULT;
         }
-        CfReportProviderProgress(
-            connectionkey.into_param().abi(),
-            ::std::mem::transmute(transferkey),
-            ::std::mem::transmute(providerprogresstotal),
-            ::std::mem::transmute(providerprogresscompleted),
-        )
-        .ok()
+        CfReportProviderProgress(connectionkey.into_param().abi(), ::std::mem::transmute(transferkey), ::std::mem::transmute(providerprogresstotal), ::std::mem::transmute(providerprogresscompleted)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CfReportProviderProgress2<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>,
->(
-    connectionkey: Param0,
-    transferkey: i64,
-    requestkey: i64,
-    providerprogresstotal: i64,
-    providerprogresscompleted: i64,
-    targetsessionid: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfReportProviderProgress2<'a, Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfReportProviderProgress2(
-                connectionkey: CF_CONNECTION_KEY,
-                transferkey: i64,
-                requestkey: i64,
-                providerprogresstotal: i64,
-                providerprogresscompleted: i64,
-                targetsessionid: u32,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfReportProviderProgress2(connectionkey: CF_CONNECTION_KEY, transferkey: i64, requestkey: i64, providerprogresstotal: i64, providerprogresscompleted: i64, targetsessionid: u32) -> ::windows::runtime::HRESULT;
         }
-        CfReportProviderProgress2(
-            connectionkey.into_param().abi(),
-            ::std::mem::transmute(transferkey),
-            ::std::mem::transmute(requestkey),
-            ::std::mem::transmute(providerprogresstotal),
-            ::std::mem::transmute(providerprogresscompleted),
-            ::std::mem::transmute(targetsessionid),
-        )
-        .ok()
+        CfReportProviderProgress2(connectionkey.into_param().abi(), ::std::mem::transmute(transferkey), ::std::mem::transmute(requestkey), ::std::mem::transmute(providerprogresstotal), ::std::mem::transmute(providerprogresscompleted), ::std::mem::transmute(targetsessionid)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfReportSyncStatus<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    syncrootpath: Param0,
-    syncstatus: *const CF_SYNC_STATUS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfReportSyncStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0, syncstatus: *const CF_SYNC_STATUS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfReportSyncStatus(
-                syncrootpath: super::super::Foundation::PWSTR,
-                syncstatus: *const CF_SYNC_STATUS,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfReportSyncStatus(syncrootpath: super::super::Foundation::PWSTR, syncstatus: *const CF_SYNC_STATUS) -> ::windows::runtime::HRESULT;
         }
-        CfReportSyncStatus(
-            syncrootpath.into_param().abi(),
-            ::std::mem::transmute(syncstatus),
-        )
-        .ok()
+        CfReportSyncStatus(syncrootpath.into_param().abi(), ::std::mem::transmute(syncstatus)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfRevertPlaceholder<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    revertflags: CF_REVERT_FLAGS,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfRevertPlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfRevertPlaceholder(
-                filehandle: super::super::Foundation::HANDLE,
-                revertflags: CF_REVERT_FLAGS,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfRevertPlaceholder(filehandle: super::super::Foundation::HANDLE, revertflags: CF_REVERT_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
         }
-        CfRevertPlaceholder(
-            filehandle.into_param().abi(),
-            ::std::mem::transmute(revertflags),
-            ::std::mem::transmute(overlapped),
-        )
-        .ok()
+        CfRevertPlaceholder(filehandle.into_param().abi(), ::std::mem::transmute(revertflags), ::std::mem::transmute(overlapped)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
 #[inline]
-pub unsafe fn CfSetCorrelationVector<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    correlationvector: *const super::super::System::SystemServices::CORRELATION_VECTOR,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfSetCorrelationVector<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, correlationvector: *const super::super::System::SystemServices::CORRELATION_VECTOR) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfSetCorrelationVector(
-                filehandle: super::super::Foundation::HANDLE,
-                correlationvector: *const super::super::System::SystemServices::CORRELATION_VECTOR,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfSetCorrelationVector(filehandle: super::super::Foundation::HANDLE, correlationvector: *const super::super::System::SystemServices::CORRELATION_VECTOR) -> ::windows::runtime::HRESULT;
         }
-        CfSetCorrelationVector(
-            filehandle.into_param().abi(),
-            ::std::mem::transmute(correlationvector),
-        )
-        .ok()
+        CfSetCorrelationVector(filehandle.into_param().abi(), ::std::mem::transmute(correlationvector)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfSetInSyncState<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    insyncstate: CF_IN_SYNC_STATE,
-    insyncflags: CF_SET_IN_SYNC_FLAGS,
-    insyncusn: *mut i64,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfSetInSyncState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfSetInSyncState(
-                filehandle: super::super::Foundation::HANDLE,
-                insyncstate: CF_IN_SYNC_STATE,
-                insyncflags: CF_SET_IN_SYNC_FLAGS,
-                insyncusn: *mut i64,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfSetInSyncState(filehandle: super::super::Foundation::HANDLE, insyncstate: CF_IN_SYNC_STATE, insyncflags: CF_SET_IN_SYNC_FLAGS, insyncusn: *mut i64) -> ::windows::runtime::HRESULT;
         }
-        CfSetInSyncState(
-            filehandle.into_param().abi(),
-            ::std::mem::transmute(insyncstate),
-            ::std::mem::transmute(insyncflags),
-            ::std::mem::transmute(insyncusn),
-        )
-        .ok()
+        CfSetInSyncState(filehandle.into_param().abi(), ::std::mem::transmute(insyncstate), ::std::mem::transmute(insyncflags), ::std::mem::transmute(insyncusn)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfSetPinState<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    pinstate: CF_PIN_STATE,
-    pinflags: CF_SET_PIN_FLAGS,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfSetPinState<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfSetPinState(
-                filehandle: super::super::Foundation::HANDLE,
-                pinstate: CF_PIN_STATE,
-                pinflags: CF_SET_PIN_FLAGS,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfSetPinState(filehandle: super::super::Foundation::HANDLE, pinstate: CF_PIN_STATE, pinflags: CF_SET_PIN_FLAGS, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
         }
-        CfSetPinState(
-            filehandle.into_param().abi(),
-            ::std::mem::transmute(pinstate),
-            ::std::mem::transmute(pinflags),
-            ::std::mem::transmute(overlapped),
-        )
-        .ok()
+        CfSetPinState(filehandle.into_param().abi(), ::std::mem::transmute(pinstate), ::std::mem::transmute(pinflags), ::std::mem::transmute(overlapped)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CfUnregisterSyncRoot<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    syncrootpath: Param0,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfUnregisterSyncRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(syncrootpath: Param0) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfUnregisterSyncRoot(
-                syncrootpath: super::super::Foundation::PWSTR,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfUnregisterSyncRoot(syncrootpath: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT;
         }
         CfUnregisterSyncRoot(syncrootpath.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Storage_FileSystem",
-    feature = "Win32_System_IO"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn CfUpdatePlaceholder<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    fsmetadata: *const CF_FS_METADATA,
-    fileidentity: *const ::std::ffi::c_void,
-    fileidentitylength: u32,
-    dehydraterangearray: *const CF_FILE_RANGE,
-    dehydraterangecount: u32,
-    updateflags: CF_UPDATE_FLAGS,
-    updateusn: *mut i64,
-    overlapped: *mut super::super::System::IO::OVERLAPPED,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfUpdatePlaceholder<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::std::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfUpdatePlaceholder(
-                filehandle: super::super::Foundation::HANDLE,
-                fsmetadata: *const CF_FS_METADATA,
-                fileidentity: *const ::std::ffi::c_void,
-                fileidentitylength: u32,
-                dehydraterangearray: *const CF_FILE_RANGE,
-                dehydraterangecount: u32,
-                updateflags: CF_UPDATE_FLAGS,
-                updateusn: *mut i64,
-                overlapped: *mut super::super::System::IO::OVERLAPPED,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfUpdatePlaceholder(filehandle: super::super::Foundation::HANDLE, fsmetadata: *const CF_FS_METADATA, fileidentity: *const ::std::ffi::c_void, fileidentitylength: u32, dehydraterangearray: *const CF_FILE_RANGE, dehydraterangecount: u32, updateflags: CF_UPDATE_FLAGS, updateusn: *mut i64, overlapped: *mut super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT;
         }
         CfUpdatePlaceholder(
             filehandle.into_param().abi(),
@@ -5118,27 +3960,14 @@ pub unsafe fn CfUpdatePlaceholder<
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn CfUpdateSyncProviderStatus<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>,
->(
-    connectionkey: Param0,
-    providerstatus: CF_SYNC_PROVIDER_STATUS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn CfUpdateSyncProviderStatus<'a, Param0: ::windows::runtime::IntoParam<'a, CF_CONNECTION_KEY>>(connectionkey: Param0, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn CfUpdateSyncProviderStatus(
-                connectionkey: CF_CONNECTION_KEY,
-                providerstatus: CF_SYNC_PROVIDER_STATUS,
-            ) -> ::windows::runtime::HRESULT;
+            fn CfUpdateSyncProviderStatus(connectionkey: CF_CONNECTION_KEY, providerstatus: CF_SYNC_PROVIDER_STATUS) -> ::windows::runtime::HRESULT;
         }
-        CfUpdateSyncProviderStatus(
-            connectionkey.into_param().abi(),
-            ::std::mem::transmute(providerstatus),
-        )
-        .ok()
+        CfUpdateSyncProviderStatus(connectionkey.into_param().abi(), ::std::mem::transmute(providerstatus)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

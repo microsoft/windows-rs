@@ -35,24 +35,14 @@ impl Parse for BuildMacro {
                         let name = input.ident.to_string();
 
                         if !reader.import_type(&namespace, &name) {
-                            return Err(Error::new_spanned(
-                                input,
-                                format!(
-                                    "`{}.{}` not found in metadata",
-                                    render_namespace(&namespace),
-                                    name
-                                ),
-                            ));
+                            return Err(Error::new_spanned(input, format!("`{}.{}` not found in metadata", render_namespace(&namespace), name)));
                         }
                     }
                     UseTree::Glob(input) => {
                         let reader = TypeReader::get_mut();
 
                         if !reader.import_namespace(&namespace) {
-                            return Err(Error::new_spanned(
-                                input,
-                                format!("`{}` not found in metadata", render_namespace(&namespace)),
-                            ));
+                            return Err(Error::new_spanned(input, format!("`{}` not found in metadata", render_namespace(&namespace))));
                         }
                     }
                     UseTree::Group(input) => {

@@ -13,12 +13,7 @@ impl RustTest {
         *b = a;
         Ok(a)
     }
-    fn ArraySignatureInt16(
-        &self,
-        a: &[i16],
-        b: &mut [i16],
-        c: &mut Array<i16>,
-    ) -> Result<Array<i16>> {
+    fn ArraySignatureInt16(&self, a: &[i16], b: &mut [i16], c: &mut Array<i16>) -> Result<Array<i16>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);

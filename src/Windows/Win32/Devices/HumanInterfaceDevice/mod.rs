@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const BALLPOINT_I8042_HARDWARE: u32 = 8u32;
 pub const BALLPOINT_SERIAL_HARDWARE: u32 = 16u32;
 pub const BUTTON_BIT_ALLBUTTONSMASK: u32 = 16383u32;
@@ -26,14 +18,10 @@ pub const BUTTON_BIT_SEARCH: u32 = 64u32;
 pub const BUTTON_BIT_VOLUMEDOWN: u32 = 8u32;
 pub const BUTTON_BIT_VOLUMEUP: u32 = 4u32;
 pub const BUTTON_BIT_WINDOWS: u32 = 2u32;
-pub const CLSID_DirectInput: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(635832800, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const CLSID_DirectInput8: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(635832804, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const CLSID_DirectInputDevice: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(635832801, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
-pub const CLSID_DirectInputDevice8: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(635832805, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const CLSID_DirectInput: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635832800, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const CLSID_DirectInput8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635832804, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const CLSID_DirectInputDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635832801, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const CLSID_DirectInputDevice8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(635832805, 45657, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct CPOINT {
@@ -48,10 +36,7 @@ impl ::std::default::Default for CPOINT {
 }
 impl ::std::fmt::Debug for CPOINT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CPOINT")
-            .field("lP", &self.lP)
-            .field("dwLog", &self.dwLog)
-            .finish()
+        fmt.debug_struct("CPOINT").field("lP", &self.lP).field("dwLog", &self.dwLog).finish()
     }
 }
 impl ::std::cmp::PartialEq for CPOINT {
@@ -65,100 +50,45 @@ unsafe impl ::windows::runtime::Abi for CPOINT {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess:
-    super::super::System::PropertiesSystem::PROPERTYKEY =
-    super::super::System::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3421733648,
-            18967,
-            17168,
-            [161, 235, 36, 127, 11, 103, 89, 59],
-        ),
-        pid: 8u32,
-    };
+pub const DEVPKEY_DeviceInterface_HID_BackgroundAccess: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    pid: 8u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_IsReadOnly:
-    super::super::System::PropertiesSystem::PROPERTYKEY =
-    super::super::System::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3421733648,
-            18967,
-            17168,
-            [161, 235, 36, 127, 11, 103, 89, 59],
-        ),
-        pid: 4u32,
-    };
+pub const DEVPKEY_DeviceInterface_HID_IsReadOnly: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    pid: 4u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_ProductId:
-    super::super::System::PropertiesSystem::PROPERTYKEY =
-    super::super::System::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3421733648,
-            18967,
-            17168,
-            [161, 235, 36, 127, 11, 103, 89, 59],
-        ),
-        pid: 6u32,
-    };
+pub const DEVPKEY_DeviceInterface_HID_ProductId: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    pid: 6u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_UsageId: super::super::System::PropertiesSystem::PROPERTYKEY =
-    super::super::System::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3421733648,
-            18967,
-            17168,
-            [161, 235, 36, 127, 11, 103, 89, 59],
-        ),
-        pid: 3u32,
-    };
+pub const DEVPKEY_DeviceInterface_HID_UsageId: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    pid: 3u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_UsagePage:
-    super::super::System::PropertiesSystem::PROPERTYKEY =
-    super::super::System::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3421733648,
-            18967,
-            17168,
-            [161, 235, 36, 127, 11, 103, 89, 59],
-        ),
-        pid: 2u32,
-    };
+pub const DEVPKEY_DeviceInterface_HID_UsagePage: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    pid: 2u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_VendorId:
-    super::super::System::PropertiesSystem::PROPERTYKEY =
-    super::super::System::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3421733648,
-            18967,
-            17168,
-            [161, 235, 36, 127, 11, 103, 89, 59],
-        ),
-        pid: 5u32,
-    };
+pub const DEVPKEY_DeviceInterface_HID_VendorId: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    pid: 5u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_VersionNumber:
-    super::super::System::PropertiesSystem::PROPERTYKEY =
-    super::super::System::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3421733648,
-            18967,
-            17168,
-            [161, 235, 36, 127, 11, 103, 89, 59],
-        ),
-        pid: 7u32,
-    };
+pub const DEVPKEY_DeviceInterface_HID_VersionNumber: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    pid: 7u32,
+};
 #[cfg(feature = "Win32_System_PropertiesSystem")]
-pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable:
-    super::super::System::PropertiesSystem::PROPERTYKEY =
-    super::super::System::PropertiesSystem::PROPERTYKEY {
-        fmtid: ::windows::runtime::GUID::from_values(
-            3421733648,
-            18967,
-            17168,
-            [161, 235, 36, 127, 11, 103, 89, 59],
-        ),
-        pid: 9u32,
-    };
+pub const DEVPKEY_DeviceInterface_HID_WakeScreenOnInputCapable: super::super::System::PropertiesSystem::PROPERTYKEY = super::super::System::PropertiesSystem::PROPERTYKEY {
+    fmtid: ::windows::runtime::GUID::from_values(3421733648, 18967, 17168, [161, 235, 36, 127, 11, 103, 89, 59]),
+    pid: 9u32,
+};
 pub const DI8DEVCLASS_ALL: u32 = 0u32;
 pub const DI8DEVCLASS_DEVICE: u32 = 1u32;
 pub const DI8DEVCLASS_GAMECTRL: u32 = 4u32;
@@ -1383,15 +1313,7 @@ impl ::std::fmt::Debug for DICOLORSET {
 }
 impl ::std::cmp::PartialEq for DICOLORSET {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.cTextFore == other.cTextFore
-            && self.cTextHighlight == other.cTextHighlight
-            && self.cCalloutLine == other.cCalloutLine
-            && self.cCalloutHighlight == other.cCalloutHighlight
-            && self.cBorder == other.cBorder
-            && self.cControlFill == other.cControlFill
-            && self.cHighlightFill == other.cHighlightFill
-            && self.cAreaFill == other.cAreaFill
+        self.dwSize == other.dwSize && self.cTextFore == other.cTextFore && self.cTextHighlight == other.cTextHighlight && self.cCalloutLine == other.cCalloutLine && self.cCalloutHighlight == other.cCalloutHighlight && self.cBorder == other.cBorder && self.cControlFill == other.cControlFill && self.cHighlightFill == other.cHighlightFill && self.cAreaFill == other.cAreaFill
     }
 }
 impl ::std::cmp::Eq for DICOLORSET {}
@@ -1429,12 +1351,7 @@ impl ::std::fmt::Debug for DICONDITION {
 }
 impl ::std::cmp::PartialEq for DICONDITION {
     fn eq(&self, other: &Self) -> bool {
-        self.lOffset == other.lOffset
-            && self.lPositiveCoefficient == other.lPositiveCoefficient
-            && self.lNegativeCoefficient == other.lNegativeCoefficient
-            && self.dwPositiveSaturation == other.dwPositiveSaturation
-            && self.dwNegativeSaturation == other.dwNegativeSaturation
-            && self.lDeadBand == other.lDeadBand
+        self.lOffset == other.lOffset && self.lPositiveCoefficient == other.lPositiveCoefficient && self.lNegativeCoefficient == other.lNegativeCoefficient && self.dwPositiveSaturation == other.dwPositiveSaturation && self.dwNegativeSaturation == other.dwNegativeSaturation && self.lDeadBand == other.lDeadBand
     }
 }
 impl ::std::cmp::Eq for DICONDITION {}
@@ -1481,14 +1398,7 @@ impl ::std::fmt::Debug for DICONFIGUREDEVICESPARAMSA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DICONFIGUREDEVICESPARAMSA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwcUsers == other.dwcUsers
-            && self.lptszUserNames == other.lptszUserNames
-            && self.dwcFormats == other.dwcFormats
-            && self.lprgFormats == other.lprgFormats
-            && self.hwnd == other.hwnd
-            && self.dics == other.dics
-            && self.lpUnkDDSTarget == other.lpUnkDDSTarget
+        self.dwSize == other.dwSize && self.dwcUsers == other.dwcUsers && self.lptszUserNames == other.lptszUserNames && self.dwcFormats == other.dwcFormats && self.lprgFormats == other.lprgFormats && self.hwnd == other.hwnd && self.dics == other.dics && self.lpUnkDDSTarget == other.lpUnkDDSTarget
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1537,14 +1447,7 @@ impl ::std::fmt::Debug for DICONFIGUREDEVICESPARAMSW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DICONFIGUREDEVICESPARAMSW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwcUsers == other.dwcUsers
-            && self.lptszUserNames == other.lptszUserNames
-            && self.dwcFormats == other.dwcFormats
-            && self.lprgFormats == other.lprgFormats
-            && self.hwnd == other.hwnd
-            && self.dics == other.dics
-            && self.lpUnkDDSTarget == other.lpUnkDDSTarget
+        self.dwSize == other.dwSize && self.dwcUsers == other.dwcUsers && self.lptszUserNames == other.lptszUserNames && self.dwcFormats == other.dwcFormats && self.lprgFormats == other.lprgFormats && self.hwnd == other.hwnd && self.dics == other.dics && self.lpUnkDDSTarget == other.lpUnkDDSTarget
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1567,9 +1470,7 @@ impl ::std::default::Default for DICONSTANTFORCE {
 }
 impl ::std::fmt::Debug for DICONSTANTFORCE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DICONSTANTFORCE")
-            .field("lMagnitude", &self.lMagnitude)
-            .finish()
+        fmt.debug_struct("DICONSTANTFORCE").field("lMagnitude", &self.lMagnitude).finish()
     }
 }
 impl ::std::cmp::PartialEq for DICONSTANTFORCE {
@@ -1598,20 +1499,12 @@ impl ::std::default::Default for DICUSTOMFORCE {
 }
 impl ::std::fmt::Debug for DICUSTOMFORCE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DICUSTOMFORCE")
-            .field("cChannels", &self.cChannels)
-            .field("dwSamplePeriod", &self.dwSamplePeriod)
-            .field("cSamples", &self.cSamples)
-            .field("rglForceData", &self.rglForceData)
-            .finish()
+        fmt.debug_struct("DICUSTOMFORCE").field("cChannels", &self.cChannels).field("dwSamplePeriod", &self.dwSamplePeriod).field("cSamples", &self.cSamples).field("rglForceData", &self.rglForceData).finish()
     }
 }
 impl ::std::cmp::PartialEq for DICUSTOMFORCE {
     fn eq(&self, other: &Self) -> bool {
-        self.cChannels == other.cChannels
-            && self.dwSamplePeriod == other.dwSamplePeriod
-            && self.cSamples == other.cSamples
-            && self.rglForceData == other.rglForceData
+        self.cChannels == other.cChannels && self.dwSamplePeriod == other.dwSamplePeriod && self.cSamples == other.cSamples && self.rglForceData == other.rglForceData
     }
 }
 impl ::std::cmp::Eq for DICUSTOMFORCE {}
@@ -1643,24 +1536,12 @@ impl ::std::default::Default for DIDATAFORMAT {
 }
 impl ::std::fmt::Debug for DIDATAFORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIDATAFORMAT")
-            .field("dwSize", &self.dwSize)
-            .field("dwObjSize", &self.dwObjSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwDataSize", &self.dwDataSize)
-            .field("dwNumObjs", &self.dwNumObjs)
-            .field("rgodf", &self.rgodf)
-            .finish()
+        fmt.debug_struct("DIDATAFORMAT").field("dwSize", &self.dwSize).field("dwObjSize", &self.dwObjSize).field("dwFlags", &self.dwFlags).field("dwDataSize", &self.dwDataSize).field("dwNumObjs", &self.dwNumObjs).field("rgodf", &self.rgodf).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIDATAFORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwObjSize == other.dwObjSize
-            && self.dwFlags == other.dwFlags
-            && self.dwDataSize == other.dwDataSize
-            && self.dwNumObjs == other.dwNumObjs
-            && self.rgodf == other.rgodf
+        self.dwSize == other.dwSize && self.dwObjSize == other.dwObjSize && self.dwFlags == other.dwFlags && self.dwDataSize == other.dwDataSize && self.dwNumObjs == other.dwNumObjs && self.rgodf == other.rgodf
     }
 }
 impl ::std::cmp::Eq for DIDATAFORMAT {}
@@ -1727,17 +1608,7 @@ impl ::std::fmt::Debug for DIDEVCAPS {
 }
 impl ::std::cmp::PartialEq for DIDEVCAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwDevType == other.dwDevType
-            && self.dwAxes == other.dwAxes
-            && self.dwButtons == other.dwButtons
-            && self.dwPOVs == other.dwPOVs
-            && self.dwFFSamplePeriod == other.dwFFSamplePeriod
-            && self.dwFFMinTimeResolution == other.dwFFMinTimeResolution
-            && self.dwFirmwareRevision == other.dwFirmwareRevision
-            && self.dwHardwareRevision == other.dwHardwareRevision
-            && self.dwFFDriverVersion == other.dwFFDriverVersion
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDevType == other.dwDevType && self.dwAxes == other.dwAxes && self.dwButtons == other.dwButtons && self.dwPOVs == other.dwPOVs && self.dwFFSamplePeriod == other.dwFFSamplePeriod && self.dwFFMinTimeResolution == other.dwFFMinTimeResolution && self.dwFirmwareRevision == other.dwFirmwareRevision && self.dwHardwareRevision == other.dwHardwareRevision && self.dwFFDriverVersion == other.dwFFDriverVersion
     }
 }
 impl ::std::cmp::Eq for DIDEVCAPS {}
@@ -1763,24 +1634,12 @@ impl ::std::default::Default for DIDEVCAPS_DX3 {
 }
 impl ::std::fmt::Debug for DIDEVCAPS_DX3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIDEVCAPS_DX3")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwDevType", &self.dwDevType)
-            .field("dwAxes", &self.dwAxes)
-            .field("dwButtons", &self.dwButtons)
-            .field("dwPOVs", &self.dwPOVs)
-            .finish()
+        fmt.debug_struct("DIDEVCAPS_DX3").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwDevType", &self.dwDevType).field("dwAxes", &self.dwAxes).field("dwButtons", &self.dwButtons).field("dwPOVs", &self.dwPOVs).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIDEVCAPS_DX3 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwDevType == other.dwDevType
-            && self.dwAxes == other.dwAxes
-            && self.dwButtons == other.dwButtons
-            && self.dwPOVs == other.dwPOVs
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwDevType == other.dwDevType && self.dwAxes == other.dwAxes && self.dwButtons == other.dwButtons && self.dwPOVs == other.dwPOVs
     }
 }
 impl ::std::cmp::Eq for DIDEVCAPS_DX3 {}
@@ -1829,15 +1688,7 @@ impl ::std::fmt::Debug for DIDEVICEIMAGEINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEIMAGEINFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.tszImagePath == other.tszImagePath
-            && self.dwFlags == other.dwFlags
-            && self.dwViewID == other.dwViewID
-            && self.rcOverlay == other.rcOverlay
-            && self.dwObjID == other.dwObjID
-            && self.dwcValidPts == other.dwcValidPts
-            && self.rgptCalloutLine == other.rgptCalloutLine
-            && self.rcCalloutRect == other.rcCalloutRect
-            && self.dwTextAlign == other.dwTextAlign
+        self.tszImagePath == other.tszImagePath && self.dwFlags == other.dwFlags && self.dwViewID == other.dwViewID && self.rcOverlay == other.rcOverlay && self.dwObjID == other.dwObjID && self.dwcValidPts == other.dwcValidPts && self.rgptCalloutLine == other.rgptCalloutLine && self.rcCalloutRect == other.rcCalloutRect && self.dwTextAlign == other.dwTextAlign
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1888,15 +1739,7 @@ impl ::std::fmt::Debug for DIDEVICEIMAGEINFOHEADERA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwSizeImageInfo == other.dwSizeImageInfo
-            && self.dwcViews == other.dwcViews
-            && self.dwcButtons == other.dwcButtons
-            && self.dwcAxes == other.dwcAxes
-            && self.dwcPOVs == other.dwcPOVs
-            && self.dwBufferSize == other.dwBufferSize
-            && self.dwBufferUsed == other.dwBufferUsed
-            && self.lprgImageInfoArray == other.lprgImageInfoArray
+        self.dwSize == other.dwSize && self.dwSizeImageInfo == other.dwSizeImageInfo && self.dwcViews == other.dwcViews && self.dwcButtons == other.dwcButtons && self.dwcAxes == other.dwcAxes && self.dwcPOVs == other.dwcPOVs && self.dwBufferSize == other.dwBufferSize && self.dwBufferUsed == other.dwBufferUsed && self.lprgImageInfoArray == other.lprgImageInfoArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1947,15 +1790,7 @@ impl ::std::fmt::Debug for DIDEVICEIMAGEINFOHEADERW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEIMAGEINFOHEADERW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwSizeImageInfo == other.dwSizeImageInfo
-            && self.dwcViews == other.dwcViews
-            && self.dwcButtons == other.dwcButtons
-            && self.dwcAxes == other.dwcAxes
-            && self.dwcPOVs == other.dwcPOVs
-            && self.dwBufferSize == other.dwBufferSize
-            && self.dwBufferUsed == other.dwBufferUsed
-            && self.lprgImageInfoArray == other.lprgImageInfoArray
+        self.dwSize == other.dwSize && self.dwSizeImageInfo == other.dwSizeImageInfo && self.dwcViews == other.dwcViews && self.dwcButtons == other.dwcButtons && self.dwcAxes == other.dwcAxes && self.dwcPOVs == other.dwcPOVs && self.dwBufferSize == other.dwBufferSize && self.dwBufferUsed == other.dwBufferUsed && self.lprgImageInfoArray == other.lprgImageInfoArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2006,15 +1841,7 @@ impl ::std::fmt::Debug for DIDEVICEIMAGEINFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEIMAGEINFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.tszImagePath == other.tszImagePath
-            && self.dwFlags == other.dwFlags
-            && self.dwViewID == other.dwViewID
-            && self.rcOverlay == other.rcOverlay
-            && self.dwObjID == other.dwObjID
-            && self.dwcValidPts == other.dwcValidPts
-            && self.rgptCalloutLine == other.rgptCalloutLine
-            && self.rcCalloutRect == other.rcCalloutRect
-            && self.dwTextAlign == other.dwTextAlign
+        self.tszImagePath == other.tszImagePath && self.dwFlags == other.dwFlags && self.dwViewID == other.dwViewID && self.rcOverlay == other.rcOverlay && self.dwObjID == other.dwObjID && self.dwcValidPts == other.dwcValidPts && self.rgptCalloutLine == other.rgptCalloutLine && self.rcCalloutRect == other.rcCalloutRect && self.dwTextAlign == other.dwTextAlign
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2065,15 +1892,7 @@ impl ::std::fmt::Debug for DIDEVICEINSTANCEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEINSTANCEA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.guidInstance == other.guidInstance
-            && self.guidProduct == other.guidProduct
-            && self.dwDevType == other.dwDevType
-            && self.tszInstanceName == other.tszInstanceName
-            && self.tszProductName == other.tszProductName
-            && self.guidFFDriver == other.guidFFDriver
-            && self.wUsagePage == other.wUsagePage
-            && self.wUsage == other.wUsage
+        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName && self.guidFFDriver == other.guidFFDriver && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2119,15 +1938,7 @@ impl ::std::fmt::Debug for DIDEVICEINSTANCEW {
 }
 impl ::std::cmp::PartialEq for DIDEVICEINSTANCEW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.guidInstance == other.guidInstance
-            && self.guidProduct == other.guidProduct
-            && self.dwDevType == other.dwDevType
-            && self.tszInstanceName == other.tszInstanceName
-            && self.tszProductName == other.tszProductName
-            && self.guidFFDriver == other.guidFFDriver
-            && self.wUsagePage == other.wUsagePage
-            && self.wUsage == other.wUsage
+        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName && self.guidFFDriver == other.guidFFDriver && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
     }
 }
 impl ::std::cmp::Eq for DIDEVICEINSTANCEW {}
@@ -2157,25 +1968,13 @@ impl ::std::default::Default for DIDEVICEINSTANCE_DX3A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIDEVICEINSTANCE_DX3A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIDEVICEINSTANCE_DX3A")
-            .field("dwSize", &self.dwSize)
-            .field("guidInstance", &self.guidInstance)
-            .field("guidProduct", &self.guidProduct)
-            .field("dwDevType", &self.dwDevType)
-            .field("tszInstanceName", &self.tszInstanceName)
-            .field("tszProductName", &self.tszProductName)
-            .finish()
+        fmt.debug_struct("DIDEVICEINSTANCE_DX3A").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEINSTANCE_DX3A {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.guidInstance == other.guidInstance
-            && self.guidProduct == other.guidProduct
-            && self.dwDevType == other.dwDevType
-            && self.tszInstanceName == other.tszInstanceName
-            && self.tszProductName == other.tszProductName
+        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2203,24 +2002,12 @@ impl ::std::default::Default for DIDEVICEINSTANCE_DX3W {
 }
 impl ::std::fmt::Debug for DIDEVICEINSTANCE_DX3W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIDEVICEINSTANCE_DX3W")
-            .field("dwSize", &self.dwSize)
-            .field("guidInstance", &self.guidInstance)
-            .field("guidProduct", &self.guidProduct)
-            .field("dwDevType", &self.dwDevType)
-            .field("tszInstanceName", &self.tszInstanceName)
-            .field("tszProductName", &self.tszProductName)
-            .finish()
+        fmt.debug_struct("DIDEVICEINSTANCE_DX3W").field("dwSize", &self.dwSize).field("guidInstance", &self.guidInstance).field("guidProduct", &self.guidProduct).field("dwDevType", &self.dwDevType).field("tszInstanceName", &self.tszInstanceName).field("tszProductName", &self.tszProductName).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIDEVICEINSTANCE_DX3W {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.guidInstance == other.guidInstance
-            && self.guidProduct == other.guidProduct
-            && self.dwDevType == other.dwDevType
-            && self.tszInstanceName == other.tszInstanceName
-            && self.tszProductName == other.tszProductName
+        self.dwSize == other.dwSize && self.guidInstance == other.guidInstance && self.guidProduct == other.guidProduct && self.dwDevType == other.dwDevType && self.tszInstanceName == other.tszInstanceName && self.tszProductName == other.tszProductName
     }
 }
 impl ::std::cmp::Eq for DIDEVICEINSTANCE_DX3W {}
@@ -2245,22 +2032,12 @@ impl ::std::default::Default for DIDEVICEOBJECTDATA {
 }
 impl ::std::fmt::Debug for DIDEVICEOBJECTDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIDEVICEOBJECTDATA")
-            .field("dwOfs", &self.dwOfs)
-            .field("dwData", &self.dwData)
-            .field("dwTimeStamp", &self.dwTimeStamp)
-            .field("dwSequence", &self.dwSequence)
-            .field("uAppData", &self.uAppData)
-            .finish()
+        fmt.debug_struct("DIDEVICEOBJECTDATA").field("dwOfs", &self.dwOfs).field("dwData", &self.dwData).field("dwTimeStamp", &self.dwTimeStamp).field("dwSequence", &self.dwSequence).field("uAppData", &self.uAppData).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIDEVICEOBJECTDATA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwOfs == other.dwOfs
-            && self.dwData == other.dwData
-            && self.dwTimeStamp == other.dwTimeStamp
-            && self.dwSequence == other.dwSequence
-            && self.uAppData == other.uAppData
+        self.dwOfs == other.dwOfs && self.dwData == other.dwData && self.dwTimeStamp == other.dwTimeStamp && self.dwSequence == other.dwSequence && self.uAppData == other.uAppData
     }
 }
 impl ::std::cmp::Eq for DIDEVICEOBJECTDATA {}
@@ -2284,20 +2061,12 @@ impl ::std::default::Default for DIDEVICEOBJECTDATA_DX3 {
 }
 impl ::std::fmt::Debug for DIDEVICEOBJECTDATA_DX3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIDEVICEOBJECTDATA_DX3")
-            .field("dwOfs", &self.dwOfs)
-            .field("dwData", &self.dwData)
-            .field("dwTimeStamp", &self.dwTimeStamp)
-            .field("dwSequence", &self.dwSequence)
-            .finish()
+        fmt.debug_struct("DIDEVICEOBJECTDATA_DX3").field("dwOfs", &self.dwOfs).field("dwData", &self.dwData).field("dwTimeStamp", &self.dwTimeStamp).field("dwSequence", &self.dwSequence).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIDEVICEOBJECTDATA_DX3 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwOfs == other.dwOfs
-            && self.dwData == other.dwData
-            && self.dwTimeStamp == other.dwTimeStamp
-            && self.dwSequence == other.dwSequence
+        self.dwOfs == other.dwOfs && self.dwData == other.dwData && self.dwTimeStamp == other.dwTimeStamp && self.dwSequence == other.dwSequence
     }
 }
 impl ::std::cmp::Eq for DIDEVICEOBJECTDATA_DX3 {}
@@ -2474,25 +2243,13 @@ impl ::std::default::Default for DIDEVICEOBJECTINSTANCE_DX3A {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3A {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIDEVICEOBJECTINSTANCE_DX3A")
-            .field("dwSize", &self.dwSize)
-            .field("guidType", &self.guidType)
-            .field("dwOfs", &self.dwOfs)
-            .field("dwType", &self.dwType)
-            .field("dwFlags", &self.dwFlags)
-            .field("tszName", &self.tszName)
-            .finish()
+        fmt.debug_struct("DIDEVICEOBJECTINSTANCE_DX3A").field("dwSize", &self.dwSize).field("guidType", &self.guidType).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).field("tszName", &self.tszName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3A {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.guidType == other.guidType
-            && self.dwOfs == other.dwOfs
-            && self.dwType == other.dwType
-            && self.dwFlags == other.dwFlags
-            && self.tszName == other.tszName
+        self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2520,24 +2277,12 @@ impl ::std::default::Default for DIDEVICEOBJECTINSTANCE_DX3W {
 }
 impl ::std::fmt::Debug for DIDEVICEOBJECTINSTANCE_DX3W {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIDEVICEOBJECTINSTANCE_DX3W")
-            .field("dwSize", &self.dwSize)
-            .field("guidType", &self.guidType)
-            .field("dwOfs", &self.dwOfs)
-            .field("dwType", &self.dwType)
-            .field("dwFlags", &self.dwFlags)
-            .field("tszName", &self.tszName)
-            .finish()
+        fmt.debug_struct("DIDEVICEOBJECTINSTANCE_DX3W").field("dwSize", &self.dwSize).field("guidType", &self.guidType).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).field("tszName", &self.tszName).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIDEVICEOBJECTINSTANCE_DX3W {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.guidType == other.guidType
-            && self.dwOfs == other.dwOfs
-            && self.dwType == other.dwType
-            && self.dwFlags == other.dwFlags
-            && self.tszName == other.tszName
+        self.dwSize == other.dwSize && self.guidType == other.guidType && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags && self.tszName == other.tszName
     }
 }
 impl ::std::cmp::Eq for DIDEVICEOBJECTINSTANCE_DX3W {}
@@ -2560,11 +2305,7 @@ impl ::std::default::Default for DIDEVICESTATE {
 }
 impl ::std::fmt::Debug for DIDEVICESTATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIDEVICESTATE")
-            .field("dwSize", &self.dwSize)
-            .field("dwState", &self.dwState)
-            .field("dwLoad", &self.dwLoad)
-            .finish()
+        fmt.debug_struct("DIDEVICESTATE").field("dwSize", &self.dwSize).field("dwState", &self.dwState).field("dwLoad", &self.dwLoad).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIDEVICESTATE {
@@ -2655,20 +2396,12 @@ impl ::std::default::Default for DIDRIVERVERSIONS {
 }
 impl ::std::fmt::Debug for DIDRIVERVERSIONS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIDRIVERVERSIONS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFirmwareRevision", &self.dwFirmwareRevision)
-            .field("dwHardwareRevision", &self.dwHardwareRevision)
-            .field("dwFFDriverVersion", &self.dwFFDriverVersion)
-            .finish()
+        fmt.debug_struct("DIDRIVERVERSIONS").field("dwSize", &self.dwSize).field("dwFirmwareRevision", &self.dwFirmwareRevision).field("dwHardwareRevision", &self.dwHardwareRevision).field("dwFFDriverVersion", &self.dwFFDriverVersion).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIDRIVERVERSIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFirmwareRevision == other.dwFirmwareRevision
-            && self.dwHardwareRevision == other.dwHardwareRevision
-            && self.dwFFDriverVersion == other.dwFFDriverVersion
+        self.dwSize == other.dwSize && self.dwFirmwareRevision == other.dwFirmwareRevision && self.dwHardwareRevision == other.dwHardwareRevision && self.dwFFDriverVersion == other.dwFFDriverVersion
     }
 }
 impl ::std::cmp::Eq for DIDRIVERVERSIONS {}
@@ -2781,22 +2514,12 @@ impl ::std::default::Default for DIEFFECTATTRIBUTES {
 }
 impl ::std::fmt::Debug for DIEFFECTATTRIBUTES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIEFFECTATTRIBUTES")
-            .field("dwEffectId", &self.dwEffectId)
-            .field("dwEffType", &self.dwEffType)
-            .field("dwStaticParams", &self.dwStaticParams)
-            .field("dwDynamicParams", &self.dwDynamicParams)
-            .field("dwCoords", &self.dwCoords)
-            .finish()
+        fmt.debug_struct("DIEFFECTATTRIBUTES").field("dwEffectId", &self.dwEffectId).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("dwCoords", &self.dwCoords).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIEFFECTATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.dwEffectId == other.dwEffectId
-            && self.dwEffType == other.dwEffType
-            && self.dwStaticParams == other.dwStaticParams
-            && self.dwDynamicParams == other.dwDynamicParams
-            && self.dwCoords == other.dwCoords
+        self.dwEffectId == other.dwEffectId && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.dwCoords == other.dwCoords
     }
 }
 impl ::std::cmp::Eq for DIEFFECTATTRIBUTES {}
@@ -2826,25 +2549,13 @@ impl ::std::default::Default for DIEFFECTINFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIEFFECTINFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIEFFECTINFOA")
-            .field("dwSize", &self.dwSize)
-            .field("guid", &self.guid)
-            .field("dwEffType", &self.dwEffType)
-            .field("dwStaticParams", &self.dwStaticParams)
-            .field("dwDynamicParams", &self.dwDynamicParams)
-            .field("tszName", &self.tszName)
-            .finish()
+        fmt.debug_struct("DIEFFECTINFOA").field("dwSize", &self.dwSize).field("guid", &self.guid).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("tszName", &self.tszName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIEFFECTINFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.guid == other.guid
-            && self.dwEffType == other.dwEffType
-            && self.dwStaticParams == other.dwStaticParams
-            && self.dwDynamicParams == other.dwDynamicParams
-            && self.tszName == other.tszName
+        self.dwSize == other.dwSize && self.guid == other.guid && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.tszName == other.tszName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2872,24 +2583,12 @@ impl ::std::default::Default for DIEFFECTINFOW {
 }
 impl ::std::fmt::Debug for DIEFFECTINFOW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIEFFECTINFOW")
-            .field("dwSize", &self.dwSize)
-            .field("guid", &self.guid)
-            .field("dwEffType", &self.dwEffType)
-            .field("dwStaticParams", &self.dwStaticParams)
-            .field("dwDynamicParams", &self.dwDynamicParams)
-            .field("tszName", &self.tszName)
-            .finish()
+        fmt.debug_struct("DIEFFECTINFOW").field("dwSize", &self.dwSize).field("guid", &self.guid).field("dwEffType", &self.dwEffType).field("dwStaticParams", &self.dwStaticParams).field("dwDynamicParams", &self.dwDynamicParams).field("tszName", &self.tszName).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIEFFECTINFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.guid == other.guid
-            && self.dwEffType == other.dwEffType
-            && self.dwStaticParams == other.dwStaticParams
-            && self.dwDynamicParams == other.dwDynamicParams
-            && self.tszName == other.tszName
+        self.dwSize == other.dwSize && self.guid == other.guid && self.dwEffType == other.dwEffType && self.dwStaticParams == other.dwStaticParams && self.dwDynamicParams == other.dwDynamicParams && self.tszName == other.tszName
     }
 }
 impl ::std::cmp::Eq for DIEFFECTINFOW {}
@@ -2979,24 +2678,12 @@ impl ::std::default::Default for DIEFFESCAPE {
 }
 impl ::std::fmt::Debug for DIEFFESCAPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIEFFESCAPE")
-            .field("dwSize", &self.dwSize)
-            .field("dwCommand", &self.dwCommand)
-            .field("lpvInBuffer", &self.lpvInBuffer)
-            .field("cbInBuffer", &self.cbInBuffer)
-            .field("lpvOutBuffer", &self.lpvOutBuffer)
-            .field("cbOutBuffer", &self.cbOutBuffer)
-            .finish()
+        fmt.debug_struct("DIEFFESCAPE").field("dwSize", &self.dwSize).field("dwCommand", &self.dwCommand).field("lpvInBuffer", &self.lpvInBuffer).field("cbInBuffer", &self.cbInBuffer).field("lpvOutBuffer", &self.lpvOutBuffer).field("cbOutBuffer", &self.cbOutBuffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIEFFESCAPE {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwCommand == other.dwCommand
-            && self.lpvInBuffer == other.lpvInBuffer
-            && self.cbInBuffer == other.cbInBuffer
-            && self.lpvOutBuffer == other.lpvOutBuffer
-            && self.cbOutBuffer == other.cbOutBuffer
+        self.dwSize == other.dwSize && self.dwCommand == other.dwCommand && self.lpvInBuffer == other.lpvInBuffer && self.cbInBuffer == other.cbInBuffer && self.lpvOutBuffer == other.lpvOutBuffer && self.cbOutBuffer == other.cbOutBuffer
     }
 }
 impl ::std::cmp::Eq for DIEFFESCAPE {}
@@ -3044,22 +2731,12 @@ impl ::std::default::Default for DIENVELOPE {
 }
 impl ::std::fmt::Debug for DIENVELOPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIENVELOPE")
-            .field("dwSize", &self.dwSize)
-            .field("dwAttackLevel", &self.dwAttackLevel)
-            .field("dwAttackTime", &self.dwAttackTime)
-            .field("dwFadeLevel", &self.dwFadeLevel)
-            .field("dwFadeTime", &self.dwFadeTime)
-            .finish()
+        fmt.debug_struct("DIENVELOPE").field("dwSize", &self.dwSize).field("dwAttackLevel", &self.dwAttackLevel).field("dwAttackTime", &self.dwAttackTime).field("dwFadeLevel", &self.dwFadeLevel).field("dwFadeTime", &self.dwFadeTime).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIENVELOPE {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwAttackLevel == other.dwAttackLevel
-            && self.dwAttackTime == other.dwAttackTime
-            && self.dwFadeLevel == other.dwFadeLevel
-            && self.dwFadeTime == other.dwFadeTime
+        self.dwSize == other.dwSize && self.dwAttackLevel == other.dwAttackLevel && self.dwAttackTime == other.dwAttackTime && self.dwFadeLevel == other.dwFadeLevel && self.dwFadeTime == other.dwFadeTime
     }
 }
 impl ::std::cmp::Eq for DIENVELOPE {}
@@ -3082,15 +2759,11 @@ pub const DIEP_STARTDELAY: u32 = 512u32;
 pub const DIEP_TRIGGERBUTTON: u32 = 8u32;
 pub const DIEP_TRIGGERREPEATINTERVAL: u32 = 16u32;
 pub const DIEP_TYPESPECIFICPARAMS: u32 = 256u32;
-pub const DIERR_ACQUIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147024726i32 as _);
-pub const DIERR_ALREADYINITIALIZED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147023649i32 as _);
-pub const DIERR_BADDRIVERVER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147024777i32 as _);
+pub const DIERR_ACQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024726i32 as _);
+pub const DIERR_ALREADYINITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147023649i32 as _);
+pub const DIERR_BADDRIVERVER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024777i32 as _);
 pub const DIERR_BADINF: i32 = -2147220478i32;
-pub const DIERR_BETADIRECTINPUTVERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147023743i32 as _);
+pub const DIERR_BETADIRECTINPUTVERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147023743i32 as _);
 pub const DIERR_CANCELLED: i32 = -2147220479i32;
 pub const DIERR_DEVICEFULL: i32 = -2147220991i32;
 pub const DIERR_DEVICENOTREG: i32 = -2147221164i32;
@@ -3101,8 +2774,7 @@ pub const DIERR_GENERIC: i32 = -2147467259i32;
 pub const DIERR_HANDLEEXISTS: i32 = -2147024891i32;
 pub const DIERR_HASEFFECTS: i32 = -2147220988i32;
 pub const DIERR_INCOMPLETEEFFECT: i32 = -2147220986i32;
-pub const DIERR_INPUTLOST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147024866i32 as _);
+pub const DIERR_INPUTLOST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024866i32 as _);
 pub const DIERR_INSUFFICIENTPRIVS: i32 = -2147220992i32;
 pub const DIERR_INVALIDCLASSINSTALLER: i32 = -2147220480i32;
 pub const DIERR_INVALIDPARAM: i32 = -2147024809i32;
@@ -3110,21 +2782,15 @@ pub const DIERR_MAPFILEFAIL: i32 = -2147220981i32;
 pub const DIERR_MOREDATA: i32 = -2147220990i32;
 pub const DIERR_NOAGGREGATION: i32 = -2147221232i32;
 pub const DIERR_NOINTERFACE: i32 = -2147467262i32;
-pub const DIERR_NOMOREITEMS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147024637i32 as _);
-pub const DIERR_NOTACQUIRED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147024884i32 as _);
+pub const DIERR_NOMOREITEMS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024637i32 as _);
+pub const DIERR_NOTACQUIRED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024884i32 as _);
 pub const DIERR_NOTBUFFERED: i32 = -2147220985i32;
 pub const DIERR_NOTDOWNLOADED: i32 = -2147220989i32;
 pub const DIERR_NOTEXCLUSIVEACQUIRED: i32 = -2147220987i32;
-pub const DIERR_NOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147024894i32 as _);
-pub const DIERR_NOTINITIALIZED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147024875i32 as _);
-pub const DIERR_OBJECTNOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147024894i32 as _);
-pub const DIERR_OLDDIRECTINPUTVERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147023746i32 as _);
+pub const DIERR_NOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024894i32 as _);
+pub const DIERR_NOTINITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024875i32 as _);
+pub const DIERR_OBJECTNOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147024894i32 as _);
+pub const DIERR_OLDDIRECTINPUTVERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147023746i32 as _);
 pub const DIERR_OTHERAPPHASPRIO: i32 = -2147024891i32;
 pub const DIERR_OUTOFMEMORY: i32 = -2147024882i32;
 pub const DIERR_READONLY: i32 = -2147024891i32;
@@ -3151,18 +2817,12 @@ impl ::std::default::Default for DIFFDEVICEATTRIBUTES {
 }
 impl ::std::fmt::Debug for DIFFDEVICEATTRIBUTES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIFFDEVICEATTRIBUTES")
-            .field("dwFlags", &self.dwFlags)
-            .field("dwFFSamplePeriod", &self.dwFFSamplePeriod)
-            .field("dwFFMinTimeResolution", &self.dwFFMinTimeResolution)
-            .finish()
+        fmt.debug_struct("DIFFDEVICEATTRIBUTES").field("dwFlags", &self.dwFlags).field("dwFFSamplePeriod", &self.dwFFSamplePeriod).field("dwFFMinTimeResolution", &self.dwFFMinTimeResolution).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIFFDEVICEATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.dwFFSamplePeriod == other.dwFFSamplePeriod
-            && self.dwFFMinTimeResolution == other.dwFFMinTimeResolution
+        self.dwFlags == other.dwFlags && self.dwFFSamplePeriod == other.dwFFSamplePeriod && self.dwFFMinTimeResolution == other.dwFFMinTimeResolution
     }
 }
 impl ::std::cmp::Eq for DIFFDEVICEATTRIBUTES {}
@@ -3184,16 +2844,12 @@ impl ::std::default::Default for DIFFOBJECTATTRIBUTES {
 }
 impl ::std::fmt::Debug for DIFFOBJECTATTRIBUTES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIFFOBJECTATTRIBUTES")
-            .field("dwFFMaxForce", &self.dwFFMaxForce)
-            .field("dwFFForceResolution", &self.dwFFForceResolution)
-            .finish()
+        fmt.debug_struct("DIFFOBJECTATTRIBUTES").field("dwFFMaxForce", &self.dwFFMaxForce).field("dwFFForceResolution", &self.dwFFForceResolution).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIFFOBJECTATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFFMaxForce == other.dwFFMaxForce
-            && self.dwFFForceResolution == other.dwFFForceResolution
+        self.dwFFMaxForce == other.dwFFMaxForce && self.dwFFForceResolution == other.dwFFForceResolution
     }
 }
 impl ::std::cmp::Eq for DIFFOBJECTATTRIBUTES {}
@@ -3221,21 +2877,13 @@ impl ::std::default::Default for DIFILEEFFECT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIFILEEFFECT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIFILEEFFECT")
-            .field("dwSize", &self.dwSize)
-            .field("GuidEffect", &self.GuidEffect)
-            .field("lpDiEffect", &self.lpDiEffect)
-            .field("szFriendlyName", &self.szFriendlyName)
-            .finish()
+        fmt.debug_struct("DIFILEEFFECT").field("dwSize", &self.dwSize).field("GuidEffect", &self.GuidEffect).field("lpDiEffect", &self.lpDiEffect).field("szFriendlyName", &self.szFriendlyName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIFILEEFFECT {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.GuidEffect == other.GuidEffect
-            && self.lpDiEffect == other.lpDiEffect
-            && self.szFriendlyName == other.szFriendlyName
+        self.dwSize == other.dwSize && self.GuidEffect == other.GuidEffect && self.lpDiEffect == other.lpDiEffect && self.szFriendlyName == other.szFriendlyName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3308,19 +2956,13 @@ impl ::std::default::Default for DIHIDFFINITINFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DIHIDFFINITINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIHIDFFINITINFO")
-            .field("dwSize", &self.dwSize)
-            .field("pwszDeviceInterface", &self.pwszDeviceInterface)
-            .field("GuidInstance", &self.GuidInstance)
-            .finish()
+        fmt.debug_struct("DIHIDFFINITINFO").field("dwSize", &self.dwSize).field("pwszDeviceInterface", &self.pwszDeviceInterface).field("GuidInstance", &self.GuidInstance).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DIHIDFFINITINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.pwszDeviceInterface == other.pwszDeviceInterface
-            && self.GuidInstance == other.GuidInstance
+        self.dwSize == other.dwSize && self.pwszDeviceInterface == other.pwszDeviceInterface && self.GuidInstance == other.GuidInstance
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3421,30 +3063,12 @@ impl ::std::default::Default for DIJOYSTATE {
 }
 impl ::std::fmt::Debug for DIJOYSTATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIJOYSTATE")
-            .field("lX", &self.lX)
-            .field("lY", &self.lY)
-            .field("lZ", &self.lZ)
-            .field("lRx", &self.lRx)
-            .field("lRy", &self.lRy)
-            .field("lRz", &self.lRz)
-            .field("rglSlider", &self.rglSlider)
-            .field("rgdwPOV", &self.rgdwPOV)
-            .field("rgbButtons", &self.rgbButtons)
-            .finish()
+        fmt.debug_struct("DIJOYSTATE").field("lX", &self.lX).field("lY", &self.lY).field("lZ", &self.lZ).field("lRx", &self.lRx).field("lRy", &self.lRy).field("lRz", &self.lRz).field("rglSlider", &self.rglSlider).field("rgdwPOV", &self.rgdwPOV).field("rgbButtons", &self.rgbButtons).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIJOYSTATE {
     fn eq(&self, other: &Self) -> bool {
-        self.lX == other.lX
-            && self.lY == other.lY
-            && self.lZ == other.lZ
-            && self.lRx == other.lRx
-            && self.lRy == other.lRy
-            && self.lRz == other.lRz
-            && self.rglSlider == other.rglSlider
-            && self.rgdwPOV == other.rgdwPOV
-            && self.rgbButtons == other.rgbButtons
+        self.lX == other.lX && self.lY == other.lY && self.lZ == other.lZ && self.lRx == other.lRx && self.lRy == other.lRy && self.lRz == other.lRz && self.rglSlider == other.rglSlider && self.rgdwPOV == other.rgdwPOV && self.rgbButtons == other.rgbButtons
     }
 }
 impl ::std::cmp::Eq for DIJOYSTATE {}
@@ -4019,20 +3643,12 @@ impl ::std::default::Default for DIMOUSESTATE {
 }
 impl ::std::fmt::Debug for DIMOUSESTATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIMOUSESTATE")
-            .field("lX", &self.lX)
-            .field("lY", &self.lY)
-            .field("lZ", &self.lZ)
-            .field("rgbButtons", &self.rgbButtons)
-            .finish()
+        fmt.debug_struct("DIMOUSESTATE").field("lX", &self.lX).field("lY", &self.lY).field("lZ", &self.lZ).field("rgbButtons", &self.rgbButtons).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIMOUSESTATE {
     fn eq(&self, other: &Self) -> bool {
-        self.lX == other.lX
-            && self.lY == other.lY
-            && self.lZ == other.lZ
-            && self.rgbButtons == other.rgbButtons
+        self.lX == other.lX && self.lY == other.lY && self.lZ == other.lZ && self.rgbButtons == other.rgbButtons
     }
 }
 impl ::std::cmp::Eq for DIMOUSESTATE {}
@@ -4056,20 +3672,12 @@ impl ::std::default::Default for DIMOUSESTATE2 {
 }
 impl ::std::fmt::Debug for DIMOUSESTATE2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIMOUSESTATE2")
-            .field("lX", &self.lX)
-            .field("lY", &self.lY)
-            .field("lZ", &self.lZ)
-            .field("rgbButtons", &self.rgbButtons)
-            .finish()
+        fmt.debug_struct("DIMOUSESTATE2").field("lX", &self.lX).field("lY", &self.lY).field("lZ", &self.lZ).field("rgbButtons", &self.rgbButtons).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIMOUSESTATE2 {
     fn eq(&self, other: &Self) -> bool {
-        self.lX == other.lX
-            && self.lY == other.lY
-            && self.lZ == other.lZ
-            && self.rgbButtons == other.rgbButtons
+        self.lX == other.lX && self.lY == other.lY && self.lZ == other.lZ && self.rgbButtons == other.rgbButtons
     }
 }
 impl ::std::cmp::Eq for DIMOUSESTATE2 {}
@@ -4095,18 +3703,12 @@ impl ::std::default::Default for DIOBJECTATTRIBUTES {
 }
 impl ::std::fmt::Debug for DIOBJECTATTRIBUTES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIOBJECTATTRIBUTES")
-            .field("dwFlags", &self.dwFlags)
-            .field("wUsagePage", &self.wUsagePage)
-            .field("wUsage", &self.wUsage)
-            .finish()
+        fmt.debug_struct("DIOBJECTATTRIBUTES").field("dwFlags", &self.dwFlags).field("wUsagePage", &self.wUsagePage).field("wUsage", &self.wUsage).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIOBJECTATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags
-            && self.wUsagePage == other.wUsagePage
-            && self.wUsage == other.wUsage
+        self.dwFlags == other.dwFlags && self.wUsagePage == other.wUsagePage && self.wUsage == other.wUsage
     }
 }
 impl ::std::cmp::Eq for DIOBJECTATTRIBUTES {}
@@ -4129,11 +3731,7 @@ impl ::std::default::Default for DIOBJECTCALIBRATION {
 }
 impl ::std::fmt::Debug for DIOBJECTCALIBRATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIOBJECTCALIBRATION")
-            .field("lMin", &self.lMin)
-            .field("lCenter", &self.lCenter)
-            .field("lMax", &self.lMax)
-            .finish()
+        fmt.debug_struct("DIOBJECTCALIBRATION").field("lMin", &self.lMin).field("lCenter", &self.lCenter).field("lMax", &self.lMax).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIOBJECTCALIBRATION {
@@ -4162,20 +3760,12 @@ impl ::std::default::Default for DIOBJECTDATAFORMAT {
 }
 impl ::std::fmt::Debug for DIOBJECTDATAFORMAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIOBJECTDATAFORMAT")
-            .field("pguid", &self.pguid)
-            .field("dwOfs", &self.dwOfs)
-            .field("dwType", &self.dwType)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("DIOBJECTDATAFORMAT").field("pguid", &self.pguid).field("dwOfs", &self.dwOfs).field("dwType", &self.dwType).field("dwFlags", &self.dwFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIOBJECTDATAFORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.pguid == other.pguid
-            && self.dwOfs == other.dwOfs
-            && self.dwType == other.dwType
-            && self.dwFlags == other.dwFlags
+        self.pguid == other.pguid && self.dwOfs == other.dwOfs && self.dwType == other.dwType && self.dwFlags == other.dwFlags
     }
 }
 impl ::std::cmp::Eq for DIOBJECTDATAFORMAT {}
@@ -4199,20 +3789,12 @@ impl ::std::default::Default for DIPERIODIC {
 }
 impl ::std::fmt::Debug for DIPERIODIC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIPERIODIC")
-            .field("dwMagnitude", &self.dwMagnitude)
-            .field("lOffset", &self.lOffset)
-            .field("dwPhase", &self.dwPhase)
-            .field("dwPeriod", &self.dwPeriod)
-            .finish()
+        fmt.debug_struct("DIPERIODIC").field("dwMagnitude", &self.dwMagnitude).field("lOffset", &self.lOffset).field("dwPhase", &self.dwPhase).field("dwPeriod", &self.dwPeriod).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIPERIODIC {
     fn eq(&self, other: &Self) -> bool {
-        self.dwMagnitude == other.dwMagnitude
-            && self.lOffset == other.lOffset
-            && self.dwPhase == other.dwPhase
-            && self.dwPeriod == other.dwPeriod
+        self.dwMagnitude == other.dwMagnitude && self.lOffset == other.lOffset && self.dwPhase == other.dwPhase && self.dwPeriod == other.dwPeriod
     }
 }
 impl ::std::cmp::Eq for DIPERIODIC {}
@@ -4238,10 +3820,7 @@ impl ::std::default::Default for DIPOVCALIBRATION {
 }
 impl ::std::fmt::Debug for DIPOVCALIBRATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIPOVCALIBRATION")
-            .field("lMin", &self.lMin)
-            .field("lMax", &self.lMax)
-            .finish()
+        fmt.debug_struct("DIPOVCALIBRATION").field("lMin", &self.lMin).field("lMax", &self.lMax).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIPOVCALIBRATION {
@@ -4278,20 +3857,12 @@ impl ::std::default::Default for DIPROPCAL {
 }
 impl ::std::fmt::Debug for DIPROPCAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIPROPCAL")
-            .field("diph", &self.diph)
-            .field("lMin", &self.lMin)
-            .field("lCenter", &self.lCenter)
-            .field("lMax", &self.lMax)
-            .finish()
+        fmt.debug_struct("DIPROPCAL").field("diph", &self.diph).field("lMin", &self.lMin).field("lCenter", &self.lCenter).field("lMax", &self.lMax).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIPROPCAL {
     fn eq(&self, other: &Self) -> bool {
-        self.diph == other.diph
-            && self.lMin == other.lMin
-            && self.lCenter == other.lCenter
-            && self.lMax == other.lMax
+        self.diph == other.diph && self.lMin == other.lMin && self.lCenter == other.lCenter && self.lMax == other.lMax
     }
 }
 impl ::std::cmp::Eq for DIPROPCAL {}
@@ -4316,11 +3887,7 @@ impl ::std::default::Default for DIPROPCALPOV {
 }
 impl ::std::fmt::Debug for DIPROPCALPOV {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIPROPCALPOV")
-            .field("diph", &self.diph)
-            .field("lMin", &self.lMin)
-            .field("lMax", &self.lMax)
-            .finish()
+        fmt.debug_struct("DIPROPCALPOV").field("diph", &self.diph).field("lMin", &self.lMin).field("lMax", &self.lMax).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIPROPCALPOV {
@@ -4348,11 +3915,7 @@ impl ::std::default::Default for DIPROPCPOINTS {
 }
 impl ::std::fmt::Debug for DIPROPCPOINTS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIPROPCPOINTS")
-            .field("diph", &self.diph)
-            .field("dwCPointsNum", &self.dwCPointsNum)
-            .field("cp", &self.cp)
-            .finish()
+        fmt.debug_struct("DIPROPCPOINTS").field("diph", &self.diph).field("dwCPointsNum", &self.dwCPointsNum).field("cp", &self.cp).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIPROPCPOINTS {
@@ -4379,10 +3942,7 @@ impl ::std::default::Default for DIPROPDWORD {
 }
 impl ::std::fmt::Debug for DIPROPDWORD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIPROPDWORD")
-            .field("diph", &self.diph)
-            .field("dwData", &self.dwData)
-            .finish()
+        fmt.debug_struct("DIPROPDWORD").field("diph", &self.diph).field("dwData", &self.dwData).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIPROPDWORD {
@@ -4410,18 +3970,12 @@ impl ::std::default::Default for DIPROPGUIDANDPATH {
 }
 impl ::std::fmt::Debug for DIPROPGUIDANDPATH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIPROPGUIDANDPATH")
-            .field("diph", &self.diph)
-            .field("guidClass", &self.guidClass)
-            .field("wszPath", &self.wszPath)
-            .finish()
+        fmt.debug_struct("DIPROPGUIDANDPATH").field("diph", &self.diph).field("guidClass", &self.guidClass).field("wszPath", &self.wszPath).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIPROPGUIDANDPATH {
     fn eq(&self, other: &Self) -> bool {
-        self.diph == other.diph
-            && self.guidClass == other.guidClass
-            && self.wszPath == other.wszPath
+        self.diph == other.diph && self.guidClass == other.guidClass && self.wszPath == other.wszPath
     }
 }
 impl ::std::cmp::Eq for DIPROPGUIDANDPATH {}
@@ -4445,20 +3999,12 @@ impl ::std::default::Default for DIPROPHEADER {
 }
 impl ::std::fmt::Debug for DIPROPHEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIPROPHEADER")
-            .field("dwSize", &self.dwSize)
-            .field("dwHeaderSize", &self.dwHeaderSize)
-            .field("dwObj", &self.dwObj)
-            .field("dwHow", &self.dwHow)
-            .finish()
+        fmt.debug_struct("DIPROPHEADER").field("dwSize", &self.dwSize).field("dwHeaderSize", &self.dwHeaderSize).field("dwObj", &self.dwObj).field("dwHow", &self.dwHow).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIPROPHEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwHeaderSize == other.dwHeaderSize
-            && self.dwObj == other.dwObj
-            && self.dwHow == other.dwHow
+        self.dwSize == other.dwSize && self.dwHeaderSize == other.dwHeaderSize && self.dwObj == other.dwObj && self.dwHow == other.dwHow
     }
 }
 impl ::std::cmp::Eq for DIPROPHEADER {}
@@ -4480,10 +4026,7 @@ impl ::std::default::Default for DIPROPPOINTER {
 }
 impl ::std::fmt::Debug for DIPROPPOINTER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIPROPPOINTER")
-            .field("diph", &self.diph)
-            .field("uData", &self.uData)
-            .finish()
+        fmt.debug_struct("DIPROPPOINTER").field("diph", &self.diph).field("uData", &self.uData).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIPROPPOINTER {
@@ -4511,11 +4054,7 @@ impl ::std::default::Default for DIPROPRANGE {
 }
 impl ::std::fmt::Debug for DIPROPRANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIPROPRANGE")
-            .field("diph", &self.diph)
-            .field("lMin", &self.lMin)
-            .field("lMax", &self.lMax)
-            .finish()
+        fmt.debug_struct("DIPROPRANGE").field("diph", &self.diph).field("lMin", &self.lMin).field("lMax", &self.lMax).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIPROPRANGE {
@@ -4542,10 +4081,7 @@ impl ::std::default::Default for DIPROPSTRING {
 }
 impl ::std::fmt::Debug for DIPROPSTRING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIPROPSTRING")
-            .field("diph", &self.diph)
-            .field("wsz", &self.wsz)
-            .finish()
+        fmt.debug_struct("DIPROPSTRING").field("diph", &self.diph).field("wsz", &self.wsz).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIPROPSTRING {
@@ -4572,10 +4108,7 @@ impl ::std::default::Default for DIRAMPFORCE {
 }
 impl ::std::fmt::Debug for DIRAMPFORCE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DIRAMPFORCE")
-            .field("lStart", &self.lStart)
-            .field("lEnd", &self.lEnd)
-            .finish()
+        fmt.debug_struct("DIRAMPFORCE").field("lStart", &self.lStart).field("lEnd", &self.lEnd).finish()
     }
 }
 impl ::std::cmp::PartialEq for DIRAMPFORCE {
@@ -4676,57 +4209,25 @@ pub const DI_OK: i32 = 0i32;
 pub const DI_POLLEDDEVICE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(2i32 as _);
 pub const DI_PROPNOEFFECT: i32 = 1i32;
 pub const DI_SECONDS: u32 = 1000000u32;
-pub const DI_SETTINGSNOTSAVED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(11i32 as _);
+pub const DI_SETTINGSNOTSAVED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(11i32 as _);
 pub const DI_TRUNCATED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(8i32 as _);
-pub const DI_TRUNCATEDANDRESTARTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(12i32 as _);
+pub const DI_TRUNCATEDANDRESTARTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(12i32 as _);
 pub const DI_WRITEPROTECT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(19i32 as _);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectInput8Create<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
->(
-    hinst: Param0,
-    dwversion: u32,
-    riidltf: *const ::windows::runtime::GUID,
-    ppvout: *mut *mut ::std::ffi::c_void,
-    punkouter: Param4,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DirectInput8Create<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param4: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(hinst: Param0, dwversion: u32, riidltf: *const ::windows::runtime::GUID, ppvout: *mut *mut ::std::ffi::c_void, punkouter: Param4) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DirectInput8Create(
-                hinst: super::super::Foundation::HINSTANCE,
-                dwversion: u32,
-                riidltf: *const ::windows::runtime::GUID,
-                ppvout: *mut *mut ::std::ffi::c_void,
-                punkouter: ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn DirectInput8Create(hinst: super::super::Foundation::HINSTANCE, dwversion: u32, riidltf: *const ::windows::runtime::GUID, ppvout: *mut *mut ::std::ffi::c_void, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        DirectInput8Create(
-            hinst.into_param().abi(),
-            ::std::mem::transmute(dwversion),
-            ::std::mem::transmute(riidltf),
-            ::std::mem::transmute(ppvout),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+        DirectInput8Create(hinst.into_param().abi(), ::std::mem::transmute(dwversion), ::std::mem::transmute(riidltf), ::std::mem::transmute(ppvout), punkouter.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GPIOBUTTONS_BUTTON_TYPE(pub i32);
 pub const GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(0i32);
@@ -4756,239 +4257,45 @@ unsafe impl ::windows::runtime::Abi for GPIOBUTTONS_BUTTON_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const GUID_Button: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2741830384,
-    51699,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_ConstantForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    324279328,
-    36403,
-    4560,
-    [154, 208, 0, 160, 201, 160, 110, 53],
-);
-pub const GUID_CustomForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    324279339,
-    36403,
-    4560,
-    [154, 208, 0, 160, 201, 160, 110, 53],
-);
-pub const GUID_DEVINTERFACE_HID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(1293833650, 61807, 4559, [136, 203, 0, 17, 17, 0, 0, 48]);
-pub const GUID_DEVINTERFACE_KEYBOARD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2286655171,
-        22255,
-        4561,
-        [188, 140, 0, 160, 201, 20, 5, 221],
-    );
-pub const GUID_DEVINTERFACE_MOUSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    932045900,
-    22255,
-    4561,
-    [188, 140, 0, 160, 201, 20, 5, 221],
-);
-pub const GUID_Damper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    324279336,
-    36403,
-    4560,
-    [154, 208, 0, 160, 201, 160, 110, 53],
-);
-pub const GUID_Friction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    324279338,
-    36403,
-    4560,
-    [154, 208, 0, 160, 201, 160, 110, 53],
-);
-pub const GUID_HIDClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1952061344,
-    29907,
-    4560,
-    [182, 254, 0, 160, 201, 15, 87, 218],
-);
-pub const GUID_HID_INTERFACE_HIDPARSE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4123202981,
-        27052,
-        19394,
-        [146, 121, 208, 182, 69, 118, 244, 75],
-    );
-pub const GUID_HID_INTERFACE_NOTIFY: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        743321224,
-        9702,
-        19507,
-        [136, 47, 61, 130, 230, 7, 54, 129],
-    );
-pub const GUID_Inertia: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    324279337,
-    36403,
-    4560,
-    [154, 208, 0, 160, 201, 160, 110, 53],
-);
-pub const GUID_Joystick: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1864182640,
-    54688,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_Key: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1433567776,
-    54076,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_KeyboardClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1295444331,
-    58149,
-    4558,
-    [191, 193, 8, 0, 43, 225, 3, 24],
-);
-pub const GUID_MediaClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1295444332,
-    58149,
-    4558,
-    [191, 193, 8, 0, 43, 225, 3, 24],
-);
-pub const GUID_MouseClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1295444335,
-    58149,
-    4558,
-    [191, 193, 8, 0, 43, 225, 3, 24],
-);
-pub const GUID_POV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2741830386,
-    51699,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_RampForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    324279329,
-    36403,
-    4560,
-    [154, 208, 0, 160, 201, 160, 110, 53],
-);
-pub const GUID_RxAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2741830388,
-    51699,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_RyAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2741830389,
-    51699,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_RzAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2741830371,
-    51699,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_SawtoothDown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    324279334,
-    36403,
-    4560,
-    [154, 208, 0, 160, 201, 160, 110, 53],
-);
-pub const GUID_SawtoothUp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    324279333,
-    36403,
-    4560,
-    [154, 208, 0, 160, 201, 160, 110, 53],
-);
-pub const GUID_Sine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    324279331,
-    36403,
-    4560,
-    [154, 208, 0, 160, 201, 160, 110, 53],
-);
-pub const GUID_Slider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2741830372,
-    51699,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_Spring: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    324279335,
-    36403,
-    4560,
-    [154, 208, 0, 160, 201, 160, 110, 53],
-);
-pub const GUID_Square: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    324279330,
-    36403,
-    4560,
-    [154, 208, 0, 160, 201, 160, 110, 53],
-);
-pub const GUID_SysKeyboard: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1864182625,
-    54688,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_SysKeyboardEm: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1864182658,
-    54688,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_SysKeyboardEm2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1864182659,
-    54688,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_SysMouse: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1864182624,
-    54688,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_SysMouseEm: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1864182656,
-    54688,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_SysMouseEm2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1864182657,
-    54688,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_Triangle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    324279332,
-    36403,
-    4560,
-    [154, 208, 0, 160, 201, 160, 110, 53],
-);
-pub const GUID_Unknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2741830387,
-    51699,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_XAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2741830368,
-    51699,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_YAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2741830369,
-    51699,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
-pub const GUID_ZAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2741830370,
-    51699,
-    4559,
-    [191, 199, 68, 69, 83, 84, 0, 0],
-);
+pub const GUID_Button: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830384, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_ConstantForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279328, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+pub const GUID_CustomForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279339, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+pub const GUID_DEVINTERFACE_HID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1293833650, 61807, 4559, [136, 203, 0, 17, 17, 0, 0, 48]);
+pub const GUID_DEVINTERFACE_KEYBOARD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2286655171, 22255, 4561, [188, 140, 0, 160, 201, 20, 5, 221]);
+pub const GUID_DEVINTERFACE_MOUSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(932045900, 22255, 4561, [188, 140, 0, 160, 201, 20, 5, 221]);
+pub const GUID_Damper: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279336, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+pub const GUID_Friction: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279338, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+pub const GUID_HIDClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1952061344, 29907, 4560, [182, 254, 0, 160, 201, 15, 87, 218]);
+pub const GUID_HID_INTERFACE_HIDPARSE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4123202981, 27052, 19394, [146, 121, 208, 182, 69, 118, 244, 75]);
+pub const GUID_HID_INTERFACE_NOTIFY: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(743321224, 9702, 19507, [136, 47, 61, 130, 230, 7, 54, 129]);
+pub const GUID_Inertia: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279337, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+pub const GUID_Joystick: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182640, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_Key: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1433567776, 54076, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_KeyboardClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1295444331, 58149, 4558, [191, 193, 8, 0, 43, 225, 3, 24]);
+pub const GUID_MediaClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1295444332, 58149, 4558, [191, 193, 8, 0, 43, 225, 3, 24]);
+pub const GUID_MouseClass: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1295444335, 58149, 4558, [191, 193, 8, 0, 43, 225, 3, 24]);
+pub const GUID_POV: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830386, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_RampForce: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279329, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+pub const GUID_RxAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830388, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_RyAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830389, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_RzAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830371, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_SawtoothDown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279334, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+pub const GUID_SawtoothUp: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279333, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+pub const GUID_Sine: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279331, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+pub const GUID_Slider: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830372, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_Spring: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279335, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+pub const GUID_Square: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279330, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+pub const GUID_SysKeyboard: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182625, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_SysKeyboardEm: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182658, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_SysKeyboardEm2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182659, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_SysMouse: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182624, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_SysMouseEm: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182656, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_SysMouseEm2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1864182657, 54688, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_Triangle: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(324279332, 36403, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
+pub const GUID_Unknown: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830387, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_XAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830368, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_YAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830369, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
+pub const GUID_ZAxis: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2741830370, 51699, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct HIDD_ATTRIBUTES {
@@ -5005,20 +4312,12 @@ impl ::std::default::Default for HIDD_ATTRIBUTES {
 }
 impl ::std::fmt::Debug for HIDD_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HIDD_ATTRIBUTES")
-            .field("Size", &self.Size)
-            .field("VendorID", &self.VendorID)
-            .field("ProductID", &self.ProductID)
-            .field("VersionNumber", &self.VersionNumber)
-            .finish()
+        fmt.debug_struct("HIDD_ATTRIBUTES").field("Size", &self.Size).field("VendorID", &self.VendorID).field("ProductID", &self.ProductID).field("VersionNumber", &self.VersionNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for HIDD_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.VendorID == other.VendorID
-            && self.ProductID == other.ProductID
-            && self.VersionNumber == other.VersionNumber
+        self.Size == other.Size && self.VendorID == other.VendorID && self.ProductID == other.ProductID && self.VersionNumber == other.VersionNumber
     }
 }
 impl ::std::cmp::Eq for HIDD_ATTRIBUTES {}
@@ -5067,10 +4366,7 @@ impl ::std::default::Default for HIDP_BUTTON_ARRAY_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HIDP_BUTTON_ARRAY_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HIDP_BUTTON_ARRAY_DATA")
-            .field("ArrayIndex", &self.ArrayIndex)
-            .field("On", &self.On)
-            .finish()
+        fmt.debug_struct("HIDP_BUTTON_ARRAY_DATA").field("ArrayIndex", &self.ArrayIndex).field("On", &self.On).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5183,14 +4479,7 @@ impl ::std::fmt::Debug for HIDP_BUTTON_CAPS_0_0 {
 }
 impl ::std::cmp::PartialEq for HIDP_BUTTON_CAPS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Usage == other.Usage
-            && self.Reserved1 == other.Reserved1
-            && self.StringIndex == other.StringIndex
-            && self.Reserved2 == other.Reserved2
-            && self.DesignatorIndex == other.DesignatorIndex
-            && self.Reserved3 == other.Reserved3
-            && self.DataIndex == other.DataIndex
-            && self.Reserved4 == other.Reserved4
+        self.Usage == other.Usage && self.Reserved1 == other.Reserved1 && self.StringIndex == other.StringIndex && self.Reserved2 == other.Reserved2 && self.DesignatorIndex == other.DesignatorIndex && self.Reserved3 == other.Reserved3 && self.DataIndex == other.DataIndex && self.Reserved4 == other.Reserved4
     }
 }
 impl ::std::cmp::Eq for HIDP_BUTTON_CAPS_0_0 {}
@@ -5232,14 +4521,7 @@ impl ::std::fmt::Debug for HIDP_BUTTON_CAPS_0_1 {
 }
 impl ::std::cmp::PartialEq for HIDP_BUTTON_CAPS_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.UsageMin == other.UsageMin
-            && self.UsageMax == other.UsageMax
-            && self.StringMin == other.StringMin
-            && self.StringMax == other.StringMax
-            && self.DesignatorMin == other.DesignatorMin
-            && self.DesignatorMax == other.DesignatorMax
-            && self.DataIndexMin == other.DataIndexMin
-            && self.DataIndexMax == other.DataIndexMax
+        self.UsageMin == other.UsageMin && self.UsageMax == other.UsageMax && self.StringMin == other.StringMin && self.StringMax == other.StringMax && self.DesignatorMin == other.DesignatorMin && self.DesignatorMax == other.DesignatorMax && self.DataIndexMin == other.DataIndexMin && self.DataIndexMax == other.DataIndexMax
     }
 }
 impl ::std::cmp::Eq for HIDP_BUTTON_CAPS_0_1 {}
@@ -5401,14 +4683,7 @@ unsafe impl ::windows::runtime::Abi for HIDP_EXTENDED_ATTRIBUTES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HIDP_KEYBOARD_DIRECTION(pub i32);
 pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(0i32);
@@ -5478,9 +4753,7 @@ impl ::std::default::Default for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
 }
 impl ::std::fmt::Debug for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for HIDP_KEYBOARD_MODIFIER_STATE_0_0 {
@@ -5521,14 +4794,7 @@ unsafe impl ::windows::runtime::Abi for HIDP_LINK_COLLECTION_NODE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HIDP_REPORT_TYPE(pub i32);
 pub const HidP_Input: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(0i32);
@@ -5558,18 +4824,12 @@ impl ::std::default::Default for HIDP_UNKNOWN_TOKEN {
 }
 impl ::std::fmt::Debug for HIDP_UNKNOWN_TOKEN {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HIDP_UNKNOWN_TOKEN")
-            .field("Token", &self.Token)
-            .field("Reserved", &self.Reserved)
-            .field("BitField", &self.BitField)
-            .finish()
+        fmt.debug_struct("HIDP_UNKNOWN_TOKEN").field("Token", &self.Token).field("Reserved", &self.Reserved).field("BitField", &self.BitField).finish()
     }
 }
 impl ::std::cmp::PartialEq for HIDP_UNKNOWN_TOKEN {
     fn eq(&self, other: &Self) -> bool {
-        self.Token == other.Token
-            && self.Reserved == other.Reserved
-            && self.BitField == other.BitField
+        self.Token == other.Token && self.Reserved == other.Reserved && self.BitField == other.BitField
     }
 }
 impl ::std::cmp::Eq for HIDP_UNKNOWN_TOKEN {}
@@ -5682,14 +4942,7 @@ impl ::std::fmt::Debug for HIDP_VALUE_CAPS_0_0 {
 }
 impl ::std::cmp::PartialEq for HIDP_VALUE_CAPS_0_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Usage == other.Usage
-            && self.Reserved1 == other.Reserved1
-            && self.StringIndex == other.StringIndex
-            && self.Reserved2 == other.Reserved2
-            && self.DesignatorIndex == other.DesignatorIndex
-            && self.Reserved3 == other.Reserved3
-            && self.DataIndex == other.DataIndex
-            && self.Reserved4 == other.Reserved4
+        self.Usage == other.Usage && self.Reserved1 == other.Reserved1 && self.StringIndex == other.StringIndex && self.Reserved2 == other.Reserved2 && self.DesignatorIndex == other.DesignatorIndex && self.Reserved3 == other.Reserved3 && self.DataIndex == other.DataIndex && self.Reserved4 == other.Reserved4
     }
 }
 impl ::std::cmp::Eq for HIDP_VALUE_CAPS_0_0 {}
@@ -5731,14 +4984,7 @@ impl ::std::fmt::Debug for HIDP_VALUE_CAPS_0_1 {
 }
 impl ::std::cmp::PartialEq for HIDP_VALUE_CAPS_0_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.UsageMin == other.UsageMin
-            && self.UsageMax == other.UsageMax
-            && self.StringMin == other.StringMin
-            && self.StringMax == other.StringMax
-            && self.DesignatorMin == other.DesignatorMin
-            && self.DesignatorMax == other.DesignatorMax
-            && self.DataIndexMin == other.DataIndexMin
-            && self.DataIndexMax == other.DataIndexMax
+        self.UsageMin == other.UsageMin && self.UsageMax == other.UsageMax && self.StringMin == other.StringMin && self.StringMax == other.StringMax && self.DesignatorMin == other.DesignatorMin && self.DesignatorMax == other.DesignatorMax && self.DataIndexMin == other.DataIndexMin && self.DataIndexMax == other.DataIndexMax
     }
 }
 impl ::std::cmp::Eq for HIDP_VALUE_CAPS_0_1 {}
@@ -5768,25 +5014,13 @@ impl ::std::default::Default for HID_COLLECTION_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HID_COLLECTION_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HID_COLLECTION_INFORMATION")
-            .field("DescriptorSize", &self.DescriptorSize)
-            .field("Polled", &self.Polled)
-            .field("Reserved1", &self.Reserved1)
-            .field("VendorID", &self.VendorID)
-            .field("ProductID", &self.ProductID)
-            .field("VersionNumber", &self.VersionNumber)
-            .finish()
+        fmt.debug_struct("HID_COLLECTION_INFORMATION").field("DescriptorSize", &self.DescriptorSize).field("Polled", &self.Polled).field("Reserved1", &self.Reserved1).field("VendorID", &self.VendorID).field("ProductID", &self.ProductID).field("VersionNumber", &self.VersionNumber).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HID_COLLECTION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.DescriptorSize == other.DescriptorSize
-            && self.Polled == other.Polled
-            && self.Reserved1 == other.Reserved1
-            && self.VendorID == other.VendorID
-            && self.ProductID == other.ProductID
-            && self.VersionNumber == other.VersionNumber
+        self.DescriptorSize == other.DescriptorSize && self.Polled == other.Polled && self.Reserved1 == other.Reserved1 && self.VendorID == other.VendorID && self.ProductID == other.ProductID && self.VersionNumber == other.VersionNumber
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5810,10 +5044,7 @@ impl ::std::default::Default for HID_DRIVER_CONFIG {
 }
 impl ::std::fmt::Debug for HID_DRIVER_CONFIG {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HID_DRIVER_CONFIG")
-            .field("Size", &self.Size)
-            .field("RingBufferSize", &self.RingBufferSize)
-            .finish()
+        fmt.debug_struct("HID_DRIVER_CONFIG").field("Size", &self.Size).field("RingBufferSize", &self.RingBufferSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for HID_DRIVER_CONFIG {
@@ -6454,18 +5685,12 @@ impl ::std::default::Default for HID_XFER_PACKET {
 }
 impl ::std::fmt::Debug for HID_XFER_PACKET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HID_XFER_PACKET")
-            .field("reportBuffer", &self.reportBuffer)
-            .field("reportBufferLen", &self.reportBufferLen)
-            .field("reportId", &self.reportId)
-            .finish()
+        fmt.debug_struct("HID_XFER_PACKET").field("reportBuffer", &self.reportBuffer).field("reportBufferLen", &self.reportBufferLen).field("reportId", &self.reportId).finish()
     }
 }
 impl ::std::cmp::PartialEq for HID_XFER_PACKET {
     fn eq(&self, other: &Self) -> bool {
-        self.reportBuffer == other.reportBuffer
-            && self.reportBufferLen == other.reportBufferLen
-            && self.reportId == other.reportId
+        self.reportBuffer == other.reportBuffer && self.reportBufferLen == other.reportBufferLen && self.reportId == other.reportId
     }
 }
 impl ::std::cmp::Eq for HID_XFER_PACKET {}
@@ -6476,19 +5701,12 @@ unsafe impl ::windows::runtime::Abi for HID_XFER_PACKET {
 pub const HORIZONTAL_WHEEL_PRESENT: u32 = 32768u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_FlushQueue<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_FlushQueue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_FlushQueue(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_FlushQueue(hiddeviceobject: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOLEAN;
         }
         ::std::mem::transmute(HidD_FlushQueue(hiddeviceobject.into_param().abi()))
     }
@@ -6511,84 +5729,42 @@ pub unsafe fn HidD_FreePreparsedData(preparseddata: isize) -> super::super::Foun
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetAttributes<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    attributes: *mut HIDD_ATTRIBUTES,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, attributes: *mut HIDD_ATTRIBUTES) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetAttributes(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                attributes: *mut HIDD_ATTRIBUTES,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetAttributes(hiddeviceobject: super::super::Foundation::HANDLE, attributes: *mut HIDD_ATTRIBUTES) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetAttributes(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(attributes),
-        ))
+        ::std::mem::transmute(HidD_GetAttributes(hiddeviceobject.into_param().abi(), ::std::mem::transmute(attributes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetConfiguration<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    configuration: *mut HIDD_CONFIGURATION,
-    configurationlength: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetConfiguration(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                configuration: *mut HIDD_CONFIGURATION,
-                configurationlength: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *mut HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetConfiguration(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(configuration),
-            ::std::mem::transmute(configurationlength),
-        ))
+        ::std::mem::transmute(HidD_GetConfiguration(hiddeviceobject.into_param().abi(), ::std::mem::transmute(configuration), ::std::mem::transmute(configurationlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetFeature<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    reportbuffer: *mut ::std::ffi::c_void,
-    reportbufferlength: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *mut ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetFeature(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                reportbuffer: *mut ::std::ffi::c_void,
-                reportbufferlength: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetFeature(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(reportbuffer),
-            ::std::mem::transmute(reportbufferlength),
-        ))
+        ::std::mem::transmute(HidD_GetFeature(hiddeviceobject.into_param().abi(), ::std::mem::transmute(reportbuffer), ::std::mem::transmute(reportbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6608,406 +5784,194 @@ pub unsafe fn HidD_GetHidGuid(hidguid: *mut ::windows::runtime::GUID) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetIndexedString<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    stringindex: u32,
-    buffer: *mut ::std::ffi::c_void,
-    bufferlength: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetIndexedString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, stringindex: u32, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetIndexedString(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                stringindex: u32,
-                buffer: *mut ::std::ffi::c_void,
-                bufferlength: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetIndexedString(hiddeviceobject: super::super::Foundation::HANDLE, stringindex: u32, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetIndexedString(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(stringindex),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-        ))
+        ::std::mem::transmute(HidD_GetIndexedString(hiddeviceobject.into_param().abi(), ::std::mem::transmute(stringindex), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetInputReport<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    reportbuffer: *mut ::std::ffi::c_void,
-    reportbufferlength: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetInputReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *mut ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetInputReport(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                reportbuffer: *mut ::std::ffi::c_void,
-                reportbufferlength: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetInputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *mut ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetInputReport(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(reportbuffer),
-            ::std::mem::transmute(reportbufferlength),
-        ))
+        ::std::mem::transmute(HidD_GetInputReport(hiddeviceobject.into_param().abi(), ::std::mem::transmute(reportbuffer), ::std::mem::transmute(reportbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetManufacturerString<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    buffer: *mut ::std::ffi::c_void,
-    bufferlength: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetManufacturerString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetManufacturerString(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                buffer: *mut ::std::ffi::c_void,
-                bufferlength: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetManufacturerString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetManufacturerString(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-        ))
+        ::std::mem::transmute(HidD_GetManufacturerString(hiddeviceobject.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetMsGenreDescriptor<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    buffer: *mut ::std::ffi::c_void,
-    bufferlength: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetMsGenreDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetMsGenreDescriptor(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                buffer: *mut ::std::ffi::c_void,
-                bufferlength: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetMsGenreDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetMsGenreDescriptor(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-        ))
+        ::std::mem::transmute(HidD_GetMsGenreDescriptor(hiddeviceobject.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetNumInputBuffers<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    numberbuffers: *mut u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetNumInputBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, numberbuffers: *mut u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetNumInputBuffers(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                numberbuffers: *mut u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: *mut u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetNumInputBuffers(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(numberbuffers),
-        ))
+        ::std::mem::transmute(HidD_GetNumInputBuffers(hiddeviceobject.into_param().abi(), ::std::mem::transmute(numberbuffers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetPhysicalDescriptor<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    buffer: *mut ::std::ffi::c_void,
-    bufferlength: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetPhysicalDescriptor<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetPhysicalDescriptor(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                buffer: *mut ::std::ffi::c_void,
-                bufferlength: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetPhysicalDescriptor(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetPhysicalDescriptor(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-        ))
+        ::std::mem::transmute(HidD_GetPhysicalDescriptor(hiddeviceobject.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetPreparsedData<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    preparseddata: *mut isize,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetPreparsedData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, preparseddata: *mut isize) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetPreparsedData(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                preparseddata: *mut isize,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetPreparsedData(hiddeviceobject: super::super::Foundation::HANDLE, preparseddata: *mut isize) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetPreparsedData(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(preparseddata),
-        ))
+        ::std::mem::transmute(HidD_GetPreparsedData(hiddeviceobject.into_param().abi(), ::std::mem::transmute(preparseddata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetProductString<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    buffer: *mut ::std::ffi::c_void,
-    bufferlength: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetProductString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetProductString(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                buffer: *mut ::std::ffi::c_void,
-                bufferlength: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetProductString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetProductString(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-        ))
+        ::std::mem::transmute(HidD_GetProductString(hiddeviceobject.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_GetSerialNumberString<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    buffer: *mut ::std::ffi::c_void,
-    bufferlength: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_GetSerialNumberString<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_GetSerialNumberString(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                buffer: *mut ::std::ffi::c_void,
-                bufferlength: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_GetSerialNumberString(hiddeviceobject: super::super::Foundation::HANDLE, buffer: *mut ::std::ffi::c_void, bufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_GetSerialNumberString(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-        ))
+        ::std::mem::transmute(HidD_GetSerialNumberString(hiddeviceobject.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetConfiguration<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    configuration: *const HIDD_CONFIGURATION,
-    configurationlength: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_SetConfiguration<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_SetConfiguration(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                configuration: *const HIDD_CONFIGURATION,
-                configurationlength: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_SetConfiguration(hiddeviceobject: super::super::Foundation::HANDLE, configuration: *const HIDD_CONFIGURATION, configurationlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_SetConfiguration(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(configuration),
-            ::std::mem::transmute(configurationlength),
-        ))
+        ::std::mem::transmute(HidD_SetConfiguration(hiddeviceobject.into_param().abi(), ::std::mem::transmute(configuration), ::std::mem::transmute(configurationlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetFeature<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    reportbuffer: *const ::std::ffi::c_void,
-    reportbufferlength: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_SetFeature<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *const ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_SetFeature(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                reportbuffer: *const ::std::ffi::c_void,
-                reportbufferlength: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_SetFeature(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_SetFeature(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(reportbuffer),
-            ::std::mem::transmute(reportbufferlength),
-        ))
+        ::std::mem::transmute(HidD_SetFeature(hiddeviceobject.into_param().abi(), ::std::mem::transmute(reportbuffer), ::std::mem::transmute(reportbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetNumInputBuffers<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    numberbuffers: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_SetNumInputBuffers<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, numberbuffers: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_SetNumInputBuffers(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                numberbuffers: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_SetNumInputBuffers(hiddeviceobject: super::super::Foundation::HANDLE, numberbuffers: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_SetNumInputBuffers(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(numberbuffers),
-        ))
+        ::std::mem::transmute(HidD_SetNumInputBuffers(hiddeviceobject.into_param().abi(), ::std::mem::transmute(numberbuffers)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidD_SetOutputReport<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hiddeviceobject: Param0,
-    reportbuffer: *const ::std::ffi::c_void,
-    reportbufferlength: u32,
-) -> super::super::Foundation::BOOLEAN {
+pub unsafe fn HidD_SetOutputReport<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hiddeviceobject: Param0, reportbuffer: *const ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidD_SetOutputReport(
-                hiddeviceobject: super::super::Foundation::HANDLE,
-                reportbuffer: *const ::std::ffi::c_void,
-                reportbufferlength: u32,
-            ) -> super::super::Foundation::BOOLEAN;
+            fn HidD_SetOutputReport(hiddeviceobject: super::super::Foundation::HANDLE, reportbuffer: *const ::std::ffi::c_void, reportbufferlength: u32) -> super::super::Foundation::BOOLEAN;
         }
-        ::std::mem::transmute(HidD_SetOutputReport(
-            hiddeviceobject.into_param().abi(),
-            ::std::mem::transmute(reportbuffer),
-            ::std::mem::transmute(reportbufferlength),
-        ))
+        ::std::mem::transmute(HidD_SetOutputReport(hiddeviceobject.into_param().abi(), ::std::mem::transmute(reportbuffer), ::std::mem::transmute(reportbufferlength)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetButtonArray<
-    'a,
-    Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usage: u16,
-    buttondata: *mut HIDP_BUTTON_ARRAY_DATA,
-    buttondatalength: *mut u16,
-    preparseddata: isize,
-    report: Param7,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetButtonArray<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: isize, report: Param7, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetButtonArray(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usage: u16,
-                buttondata: *mut HIDP_BUTTON_ARRAY_DATA,
-                buttondatalength: *mut u16,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *mut HIDP_BUTTON_ARRAY_DATA, buttondatalength: *mut u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
         HidP_GetButtonArray(
             ::std::mem::transmute(reporttype),
@@ -7027,354 +5991,138 @@ pub unsafe fn HidP_GetButtonArray<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetButtonCaps(
-    reporttype: HIDP_REPORT_TYPE,
-    buttoncaps: *mut HIDP_BUTTON_CAPS,
-    buttoncapslength: *mut u16,
-    preparseddata: isize,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetButtonCaps(
-                reporttype: HIDP_REPORT_TYPE,
-                buttoncaps: *mut HIDP_BUTTON_CAPS,
-                buttoncapslength: *mut u16,
-                preparseddata: isize,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetButtonCaps(reporttype: HIDP_REPORT_TYPE, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetButtonCaps(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(buttoncaps),
-            ::std::mem::transmute(buttoncapslength),
-            ::std::mem::transmute(preparseddata),
-        )
-        .ok()
+        HidP_GetButtonCaps(::std::mem::transmute(reporttype), ::std::mem::transmute(buttoncaps), ::std::mem::transmute(buttoncapslength), ::std::mem::transmute(preparseddata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetCaps(
-    preparseddata: isize,
-    capabilities: *mut HIDP_CAPS,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetCaps(preparseddata: isize, capabilities: *mut HIDP_CAPS) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetCaps(
-                preparseddata: isize,
-                capabilities: *mut HIDP_CAPS,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetCaps(preparseddata: isize, capabilities: *mut HIDP_CAPS) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetCaps(
-            ::std::mem::transmute(preparseddata),
-            ::std::mem::transmute(capabilities),
-        )
-        .ok()
+        HidP_GetCaps(::std::mem::transmute(preparseddata), ::std::mem::transmute(capabilities)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetData(
-    reporttype: HIDP_REPORT_TYPE,
-    datalist: *mut HIDP_DATA,
-    datalength: *mut u32,
-    preparseddata: isize,
-    report: super::super::Foundation::PSTR,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetData(
-                reporttype: HIDP_REPORT_TYPE,
-                datalist: *mut HIDP_DATA,
-                datalength: *mut u32,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetData(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(datalist),
-            ::std::mem::transmute(datalength),
-            ::std::mem::transmute(preparseddata),
-            ::std::mem::transmute(report),
-            ::std::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_GetData(::std::mem::transmute(reporttype), ::std::mem::transmute(datalist), ::std::mem::transmute(datalength), ::std::mem::transmute(preparseddata), ::std::mem::transmute(report), ::std::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetExtendedAttributes(
-    reporttype: HIDP_REPORT_TYPE,
-    dataindex: u16,
-    preparseddata: isize,
-    attributes: *mut HIDP_EXTENDED_ATTRIBUTES,
-    lengthattributes: *mut u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: isize, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetExtendedAttributes(
-                reporttype: HIDP_REPORT_TYPE,
-                dataindex: u16,
-                preparseddata: isize,
-                attributes: *mut HIDP_EXTENDED_ATTRIBUTES,
-                lengthattributes: *mut u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetExtendedAttributes(reporttype: HIDP_REPORT_TYPE, dataindex: u16, preparseddata: isize, attributes: *mut HIDP_EXTENDED_ATTRIBUTES, lengthattributes: *mut u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetExtendedAttributes(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(dataindex),
-            ::std::mem::transmute(preparseddata),
-            ::std::mem::transmute(attributes),
-            ::std::mem::transmute(lengthattributes),
-        )
-        .ok()
+        HidP_GetExtendedAttributes(::std::mem::transmute(reporttype), ::std::mem::transmute(dataindex), ::std::mem::transmute(preparseddata), ::std::mem::transmute(attributes), ::std::mem::transmute(lengthattributes)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetLinkCollectionNodes(
-    linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE,
-    linkcollectionnodeslength: *mut u32,
-    preparseddata: isize,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetLinkCollectionNodes(linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength: *mut u32, preparseddata: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetLinkCollectionNodes(
-                linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE,
-                linkcollectionnodeslength: *mut u32,
-                preparseddata: isize,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetLinkCollectionNodes(linkcollectionnodes: *mut HIDP_LINK_COLLECTION_NODE, linkcollectionnodeslength: *mut u32, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetLinkCollectionNodes(
-            ::std::mem::transmute(linkcollectionnodes),
-            ::std::mem::transmute(linkcollectionnodeslength),
-            ::std::mem::transmute(preparseddata),
-        )
-        .ok()
+        HidP_GetLinkCollectionNodes(::std::mem::transmute(linkcollectionnodes), ::std::mem::transmute(linkcollectionnodeslength), ::std::mem::transmute(preparseddata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetScaledUsageValue<
-    'a,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usage: u16,
-    usagevalue: *mut i32,
-    preparseddata: isize,
-    report: Param6,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetScaledUsageValue<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetScaledUsageValue(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usage: u16,
-                usagevalue: *mut i32,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut i32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetScaledUsageValue(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usage),
-            ::std::mem::transmute(usagevalue),
-            ::std::mem::transmute(preparseddata),
-            report.into_param().abi(),
-            ::std::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_GetScaledUsageValue(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usage), ::std::mem::transmute(usagevalue), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetSpecificButtonCaps(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usage: u16,
-    buttoncaps: *mut HIDP_BUTTON_CAPS,
-    buttoncapslength: *mut u16,
-    preparseddata: isize,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetSpecificButtonCaps(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usage: u16,
-                buttoncaps: *mut HIDP_BUTTON_CAPS,
-                buttoncapslength: *mut u16,
-                preparseddata: isize,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetSpecificButtonCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttoncaps: *mut HIDP_BUTTON_CAPS, buttoncapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetSpecificButtonCaps(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usage),
-            ::std::mem::transmute(buttoncaps),
-            ::std::mem::transmute(buttoncapslength),
-            ::std::mem::transmute(preparseddata),
-        )
-        .ok()
+        HidP_GetSpecificButtonCaps(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usage), ::std::mem::transmute(buttoncaps), ::std::mem::transmute(buttoncapslength), ::std::mem::transmute(preparseddata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetSpecificValueCaps(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usage: u16,
-    valuecaps: *mut HIDP_VALUE_CAPS,
-    valuecapslength: *mut u16,
-    preparseddata: isize,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetSpecificValueCaps(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usage: u16,
-                valuecaps: *mut HIDP_VALUE_CAPS,
-                valuecapslength: *mut u16,
-                preparseddata: isize,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetSpecificValueCaps(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetSpecificValueCaps(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usage),
-            ::std::mem::transmute(valuecaps),
-            ::std::mem::transmute(valuecapslength),
-            ::std::mem::transmute(preparseddata),
-        )
-        .ok()
+        HidP_GetSpecificValueCaps(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usage), ::std::mem::transmute(valuecaps), ::std::mem::transmute(valuecapslength), ::std::mem::transmute(preparseddata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetUsageValue<
-    'a,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usage: u16,
-    usagevalue: *mut u32,
-    preparseddata: isize,
-    report: Param6,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetUsageValue<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetUsageValue(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usage: u16,
-                usagevalue: *mut u32,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetUsageValue(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usage),
-            ::std::mem::transmute(usagevalue),
-            ::std::mem::transmute(preparseddata),
-            report.into_param().abi(),
-            ::std::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_GetUsageValue(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usage), ::std::mem::transmute(usagevalue), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetUsageValueArray<
-    'a,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usage: u16,
-    usagevalue: Param4,
-    usagevaluebytelength: u16,
-    preparseddata: isize,
-    report: Param7,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetUsageValueArray<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: Param4, usagevaluebytelength: u16, preparseddata: isize, report: Param7, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetUsageValueArray(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usage: u16,
-                usagevalue: super::super::Foundation::PSTR,
-                usagevaluebytelength: u16,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: super::super::Foundation::PSTR, usagevaluebytelength: u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
         HidP_GetUsageValueArray(
             ::std::mem::transmute(reporttype),
@@ -7394,147 +6142,56 @@ pub unsafe fn HidP_GetUsageValueArray<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetUsages(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usagelist: *mut u16,
-    usagelength: *mut u32,
-    preparseddata: isize,
-    report: super::super::Foundation::PSTR,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetUsages(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usagelist: *mut u16,
-                usagelength: *mut u32,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetUsages(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usagelist),
-            ::std::mem::transmute(usagelength),
-            ::std::mem::transmute(preparseddata),
-            ::std::mem::transmute(report),
-            ::std::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_GetUsages(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usagelist), ::std::mem::transmute(usagelength), ::std::mem::transmute(preparseddata), ::std::mem::transmute(report), ::std::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetUsagesEx<
-    'a,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    reporttype: HIDP_REPORT_TYPE,
-    linkcollection: u16,
-    buttonlist: *mut USAGE_AND_PAGE,
-    usagelength: *mut u32,
-    preparseddata: isize,
-    report: Param5,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetUsagesEx<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: isize, report: Param5, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetUsagesEx(
-                reporttype: HIDP_REPORT_TYPE,
-                linkcollection: u16,
-                buttonlist: *mut USAGE_AND_PAGE,
-                usagelength: *mut u32,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetUsagesEx(reporttype: HIDP_REPORT_TYPE, linkcollection: u16, buttonlist: *mut USAGE_AND_PAGE, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetUsagesEx(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(buttonlist),
-            ::std::mem::transmute(usagelength),
-            ::std::mem::transmute(preparseddata),
-            report.into_param().abi(),
-            ::std::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_GetUsagesEx(::std::mem::transmute(reporttype), ::std::mem::transmute(linkcollection), ::std::mem::transmute(buttonlist), ::std::mem::transmute(usagelength), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_GetValueCaps(
-    reporttype: HIDP_REPORT_TYPE,
-    valuecaps: *mut HIDP_VALUE_CAPS,
-    valuecapslength: *mut u16,
-    preparseddata: isize,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_GetValueCaps(
-                reporttype: HIDP_REPORT_TYPE,
-                valuecaps: *mut HIDP_VALUE_CAPS,
-                valuecapslength: *mut u16,
-                preparseddata: isize,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_GetValueCaps(reporttype: HIDP_REPORT_TYPE, valuecaps: *mut HIDP_VALUE_CAPS, valuecapslength: *mut u16, preparseddata: isize) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_GetValueCaps(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(valuecaps),
-            ::std::mem::transmute(valuecapslength),
-            ::std::mem::transmute(preparseddata),
-        )
-        .ok()
+        HidP_GetValueCaps(::std::mem::transmute(reporttype), ::std::mem::transmute(valuecaps), ::std::mem::transmute(valuecapslength), ::std::mem::transmute(preparseddata)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_InitializeReportForID(
-    reporttype: HIDP_REPORT_TYPE,
-    reportid: u8,
-    preparseddata: isize,
-    report: super::super::Foundation::PSTR,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_InitializeReportForID(
-                reporttype: HIDP_REPORT_TYPE,
-                reportid: u8,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_InitializeReportForID(reporttype: HIDP_REPORT_TYPE, reportid: u8, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_InitializeReportForID(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(reportid),
-            ::std::mem::transmute(preparseddata),
-            ::std::mem::transmute(report),
-            ::std::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_InitializeReportForID(::std::mem::transmute(reporttype), ::std::mem::transmute(reportid), ::std::mem::transmute(preparseddata), ::std::mem::transmute(report), ::std::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7547,70 +6204,32 @@ pub unsafe fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata
         extern "system" {
             fn HidP_MaxDataListLength(reporttype: HIDP_REPORT_TYPE, preparseddata: isize) -> u32;
         }
-        ::std::mem::transmute(HidP_MaxDataListLength(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(preparseddata),
-        ))
+        ::std::mem::transmute(HidP_MaxDataListLength(::std::mem::transmute(reporttype), ::std::mem::transmute(preparseddata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn HidP_MaxUsageListLength(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    preparseddata: isize,
-) -> u32 {
+pub unsafe fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u16, preparseddata: isize) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_MaxUsageListLength(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                preparseddata: isize,
-            ) -> u32;
+            fn HidP_MaxUsageListLength(reporttype: HIDP_REPORT_TYPE, usagepage: u16, preparseddata: isize) -> u32;
         }
-        ::std::mem::transmute(HidP_MaxUsageListLength(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(preparseddata),
-        ))
+        ::std::mem::transmute(HidP_MaxUsageListLength(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(preparseddata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetButtonArray<
-    'a,
-    Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usage: u16,
-    buttondata: *const HIDP_BUTTON_ARRAY_DATA,
-    buttondatalength: u16,
-    preparseddata: isize,
-    report: Param7,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_SetButtonArray<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *const HIDP_BUTTON_ARRAY_DATA, buttondatalength: u16, preparseddata: isize, report: Param7, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_SetButtonArray(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usage: u16,
-                buttondata: *const HIDP_BUTTON_ARRAY_DATA,
-                buttondatalength: u16,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_SetButtonArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, buttondata: *const HIDP_BUTTON_ARRAY_DATA, buttondatalength: u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
         HidP_SetButtonArray(
             ::std::mem::transmute(reporttype),
@@ -7630,165 +6249,54 @@ pub unsafe fn HidP_SetButtonArray<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetData<
-    'a,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    reporttype: HIDP_REPORT_TYPE,
-    datalist: *mut HIDP_DATA,
-    datalength: *mut u32,
-    preparseddata: isize,
-    report: Param4,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_SetData<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: Param4, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_SetData(
-                reporttype: HIDP_REPORT_TYPE,
-                datalist: *mut HIDP_DATA,
-                datalength: *mut u32,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_SetData(reporttype: HIDP_REPORT_TYPE, datalist: *mut HIDP_DATA, datalength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_SetData(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(datalist),
-            ::std::mem::transmute(datalength),
-            ::std::mem::transmute(preparseddata),
-            report.into_param().abi(),
-            ::std::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_SetData(::std::mem::transmute(reporttype), ::std::mem::transmute(datalist), ::std::mem::transmute(datalength), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetScaledUsageValue<
-    'a,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usage: u16,
-    usagevalue: i32,
-    preparseddata: isize,
-    report: Param6,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_SetScaledUsageValue<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_SetScaledUsageValue(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usage: u16,
-                usagevalue: i32,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_SetScaledUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: i32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_SetScaledUsageValue(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usage),
-            ::std::mem::transmute(usagevalue),
-            ::std::mem::transmute(preparseddata),
-            report.into_param().abi(),
-            ::std::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_SetScaledUsageValue(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usage), ::std::mem::transmute(usagevalue), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetUsageValue<
-    'a,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usage: u16,
-    usagevalue: u32,
-    preparseddata: isize,
-    report: Param6,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_SetUsageValue<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_SetUsageValue(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usage: u16,
-                usagevalue: u32,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_SetUsageValue(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_SetUsageValue(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usage),
-            ::std::mem::transmute(usagevalue),
-            ::std::mem::transmute(preparseddata),
-            report.into_param().abi(),
-            ::std::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_SetUsageValue(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usage), ::std::mem::transmute(usagevalue), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetUsageValueArray<
-    'a,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usage: u16,
-    usagevalue: Param4,
-    usagevaluebytelength: u16,
-    preparseddata: isize,
-    report: Param7,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_SetUsageValueArray<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: Param4, usagevaluebytelength: u16, preparseddata: isize, report: Param7, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_SetUsageValueArray(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usage: u16,
-                usagevalue: super::super::Foundation::PSTR,
-                usagevaluebytelength: u16,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_SetUsageValueArray(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usage: u16, usagevalue: super::super::Foundation::PSTR, usagevaluebytelength: u16, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
         HidP_SetUsageValueArray(
             ::std::mem::transmute(reporttype),
@@ -7808,275 +6316,90 @@ pub unsafe fn HidP_SetUsageValueArray<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_SetUsages<
-    'a,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usagelist: *mut u16,
-    usagelength: *mut u32,
-    preparseddata: isize,
-    report: Param6,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_SetUsages<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_SetUsages(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usagelist: *mut u16,
-                usagelength: *mut u32,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_SetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_SetUsages(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usagelist),
-            ::std::mem::transmute(usagelength),
-            ::std::mem::transmute(preparseddata),
-            report.into_param().abi(),
-            ::std::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_SetUsages(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usagelist), ::std::mem::transmute(usagelength), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(
-    changedusagelist: *const u16,
-    usagelistlength: u32,
-    keyaction: HIDP_KEYBOARD_DIRECTION,
-    modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE,
-    insertcodesprocedure: ::std::option::Option<PHIDP_INSERT_SCANCODES>,
-    insertcodescontext: *const ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16, usagelistlength: u32, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: ::std::option::Option<PHIDP_INSERT_SCANCODES>, insertcodescontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_TranslateUsagesToI8042ScanCodes(
-                changedusagelist: *const u16,
-                usagelistlength: u32,
-                keyaction: HIDP_KEYBOARD_DIRECTION,
-                modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE,
-                insertcodesprocedure: ::windows::runtime::RawPtr,
-                insertcodescontext: *const ::std::ffi::c_void,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_TranslateUsagesToI8042ScanCodes(changedusagelist: *const u16, usagelistlength: u32, keyaction: HIDP_KEYBOARD_DIRECTION, modifierstate: *mut HIDP_KEYBOARD_MODIFIER_STATE, insertcodesprocedure: ::windows::runtime::RawPtr, insertcodescontext: *const ::std::ffi::c_void) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_TranslateUsagesToI8042ScanCodes(
-            ::std::mem::transmute(changedusagelist),
-            ::std::mem::transmute(usagelistlength),
-            ::std::mem::transmute(keyaction),
-            ::std::mem::transmute(modifierstate),
-            ::std::mem::transmute(insertcodesprocedure),
-            ::std::mem::transmute(insertcodescontext),
-        )
-        .ok()
+        HidP_TranslateUsagesToI8042ScanCodes(::std::mem::transmute(changedusagelist), ::std::mem::transmute(usagelistlength), ::std::mem::transmute(keyaction), ::std::mem::transmute(modifierstate), ::std::mem::transmute(insertcodesprocedure), ::std::mem::transmute(insertcodescontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_UnsetUsages<
-    'a,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    reporttype: HIDP_REPORT_TYPE,
-    usagepage: u16,
-    linkcollection: u16,
-    usagelist: *mut u16,
-    usagelength: *mut u32,
-    preparseddata: isize,
-    report: Param6,
-    reportlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_UnsetUsages<'a, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: Param6, reportlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_UnsetUsages(
-                reporttype: HIDP_REPORT_TYPE,
-                usagepage: u16,
-                linkcollection: u16,
-                usagelist: *mut u16,
-                usagelength: *mut u32,
-                preparseddata: isize,
-                report: super::super::Foundation::PSTR,
-                reportlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_UnsetUsages(reporttype: HIDP_REPORT_TYPE, usagepage: u16, linkcollection: u16, usagelist: *mut u16, usagelength: *mut u32, preparseddata: isize, report: super::super::Foundation::PSTR, reportlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_UnsetUsages(
-            ::std::mem::transmute(reporttype),
-            ::std::mem::transmute(usagepage),
-            ::std::mem::transmute(linkcollection),
-            ::std::mem::transmute(usagelist),
-            ::std::mem::transmute(usagelength),
-            ::std::mem::transmute(preparseddata),
-            report.into_param().abi(),
-            ::std::mem::transmute(reportlength),
-        )
-        .ok()
+        HidP_UnsetUsages(::std::mem::transmute(reporttype), ::std::mem::transmute(usagepage), ::std::mem::transmute(linkcollection), ::std::mem::transmute(usagelist), ::std::mem::transmute(usagelength), ::std::mem::transmute(preparseddata), report.into_param().abi(), ::std::mem::transmute(reportlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn HidP_UsageListDifference(
-    previoususagelist: *const u16,
-    currentusagelist: *const u16,
-    breakusagelist: *mut u16,
-    makeusagelist: *mut u16,
-    usagelistlength: u32,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn HidP_UsageListDifference(
-                previoususagelist: *const u16,
-                currentusagelist: *const u16,
-                breakusagelist: *mut u16,
-                makeusagelist: *mut u16,
-                usagelistlength: u32,
-            ) -> super::super::Foundation::NTSTATUS;
+            fn HidP_UsageListDifference(previoususagelist: *const u16, currentusagelist: *const u16, breakusagelist: *mut u16, makeusagelist: *mut u16, usagelistlength: u32) -> super::super::Foundation::NTSTATUS;
         }
-        HidP_UsageListDifference(
-            ::std::mem::transmute(previoususagelist),
-            ::std::mem::transmute(currentusagelist),
-            ::std::mem::transmute(breakusagelist),
-            ::std::mem::transmute(makeusagelist),
-            ::std::mem::transmute(usagelistlength),
-        )
-        .ok()
+        HidP_UsageListDifference(::std::mem::transmute(previoususagelist), ::std::mem::transmute(currentusagelist), ::std::mem::transmute(breakusagelist), ::std::mem::transmute(makeusagelist), ::std::mem::transmute(usagelistlength)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInput2A(::windows::runtime::IUnknown);
 impl IDirectInput2A {
-    pub unsafe fn CreateDevice<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::std::option::Option<IDirectInputDeviceA>,
-        param2: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            param2.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(
-        &self,
-        param0: u32,
-        param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKA>,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn GetDeviceStatus(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindDevice<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: Param1,
-        param2: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            param1.into_param().abi(),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn FindDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: *const ::windows::runtime::GUID, param1: Param1, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput2A {
     type Vtable = IDirectInput2A_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1497687650,
-        43658,
-        4559,
-        [191, 199, 68, 69, 83, 84, 0, 0],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687650, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
 impl ::std::convert::From<IDirectInput2A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput2A) -> Self {
@@ -8090,18 +6413,12 @@ impl ::std::convert::From<&IDirectInput2A> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInput2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInput2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectInput2A> for IDirectInputA {
@@ -8121,175 +6438,56 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for IDirectInput2A {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for &IDirectInput2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputA>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputA>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput2A_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::windows::runtime::RawPtr,
-        param2: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: ::windows::runtime::RawPtr,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: super::super::Foundation::PSTR,
-        param2: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInput2W(::windows::runtime::IUnknown);
 impl IDirectInput2W {
-    pub unsafe fn CreateDevice<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::std::option::Option<IDirectInputDeviceW>,
-        param2: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            param2.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(
-        &self,
-        param0: u32,
-        param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKW>,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn GetDeviceStatus(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindDevice<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: Param1,
-        param2: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            param1.into_param().abi(),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn FindDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: *const ::windows::runtime::GUID, param1: Param1, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput2W {
     type Vtable = IDirectInput2W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1497687651,
-        43658,
-        4559,
-        [191, 199, 68, 69, 83, 84, 0, 0],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687651, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
 impl ::std::convert::From<IDirectInput2W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput2W) -> Self {
@@ -8303,18 +6501,12 @@ impl ::std::convert::From<&IDirectInput2W> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInput2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInput2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectInput2W> for IDirectInputW {
@@ -8334,194 +6526,59 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for IDirectInput2W {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for &IDirectInput2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputW>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputW>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput2W_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::windows::runtime::RawPtr,
-        param2: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: ::windows::runtime::RawPtr,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: super::super::Foundation::PWSTR,
-        param2: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInput7A(::windows::runtime::IUnknown);
 impl IDirectInput7A {
-    pub unsafe fn CreateDevice<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::std::option::Option<IDirectInputDeviceA>,
-        param2: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            param2.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(
-        &self,
-        param0: u32,
-        param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKA>,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn GetDeviceStatus(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindDevice<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: Param1,
-        param2: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            param1.into_param().abi(),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn FindDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: *const ::windows::runtime::GUID, param1: Param1, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn CreateDeviceEx<
-        'a,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *const ::windows::runtime::GUID,
-        param2: *mut *mut ::std::ffi::c_void,
-        param3: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            param3.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateDeviceEx<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::std::ffi::c_void, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput7A {
     type Vtable = IDirectInput7A_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2588718724,
-        9069,
-        4563,
-        [142, 157, 0, 192, 79, 104, 68, 174],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2588718724, 9069, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
 }
 impl ::std::convert::From<IDirectInput7A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput7A) -> Self {
@@ -8535,18 +6592,12 @@ impl ::std::convert::From<&IDirectInput7A> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectInput7A> for IDirectInput2A {
@@ -8566,9 +6617,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2A> for IDirectInput7A {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2A> for &IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2A> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInput2A>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInput2A>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectInput7A> for IDirectInputA {
@@ -8588,201 +6637,60 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for IDirectInput7A {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputA> for &IDirectInput7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputA>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputA>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput7A_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::windows::runtime::RawPtr,
-        param2: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: ::windows::runtime::RawPtr,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: super::super::Foundation::PSTR,
-        param2: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *const ::windows::runtime::GUID,
-        param2: *mut *mut ::std::ffi::c_void,
-        param3: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::std::ffi::c_void, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInput7W(::windows::runtime::IUnknown);
 impl IDirectInput7W {
-    pub unsafe fn CreateDevice<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::std::option::Option<IDirectInputDeviceW>,
-        param2: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            param2.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(
-        &self,
-        param0: u32,
-        param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKW>,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn GetDeviceStatus(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindDevice<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: Param1,
-        param2: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            param1.into_param().abi(),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn FindDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: *const ::windows::runtime::GUID, param1: Param1, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn CreateDeviceEx<
-        'a,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *const ::windows::runtime::GUID,
-        param2: *mut *mut ::std::ffi::c_void,
-        param3: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            param3.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateDeviceEx<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::std::ffi::c_void, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput7W {
     type Vtable = IDirectInput7W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2588718725,
-        9069,
-        4563,
-        [142, 157, 0, 192, 79, 104, 68, 174],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2588718725, 9069, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
 }
 impl ::std::convert::From<IDirectInput7W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput7W) -> Self {
@@ -8796,18 +6704,12 @@ impl ::std::convert::From<&IDirectInput7W> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectInput7W> for IDirectInput2W {
@@ -8827,9 +6729,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2W> for IDirectInput7W {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInput2W> for &IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInput2W> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInput2W>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInput2W>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectInput7W> for IDirectInputW {
@@ -8849,221 +6749,65 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for IDirectInput7W {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputW> for &IDirectInput7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputW>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputW>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput7W_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::windows::runtime::RawPtr,
-        param2: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: ::windows::runtime::RawPtr,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: super::super::Foundation::PWSTR,
-        param2: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *const ::windows::runtime::GUID,
-        param2: *mut *mut ::std::ffi::c_void,
-        param3: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *const ::windows::runtime::GUID, param2: *mut *mut ::std::ffi::c_void, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInput8A(::windows::runtime::IUnknown);
 impl IDirectInput8A {
-    pub unsafe fn CreateDevice<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::std::option::Option<IDirectInputDevice8A>,
-        param2: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            param2.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDevice8A>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(
-        &self,
-        param0: u32,
-        param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKA>,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn GetDeviceStatus(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindDevice<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: Param1,
-        param2: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            param1.into_param().abi(),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn FindDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: *const ::windows::runtime::GUID, param1: Param1, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevicesBySemantics<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: *mut DIACTIONFORMATA,
-        param2: ::std::option::Option<LPDIENUMDEVICESBYSEMANTICSCBA>,
-        param3: *mut ::std::ffi::c_void,
-        param4: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-            ::std::mem::transmute(param4),
-        )
-        .ok()
+    pub unsafe fn EnumDevicesBySemantics<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: *mut DIACTIONFORMATA, param2: ::std::option::Option<LPDIENUMDEVICESBYSEMANTICSCBA>, param3: *mut ::std::ffi::c_void, param4: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConfigureDevices(
-        &self,
-        param0: ::std::option::Option<LPDICONFIGUREDEVICESCALLBACK>,
-        param1: *mut DICONFIGUREDEVICESPARAMSA,
-        param2: u32,
-        param3: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn ConfigureDevices(&self, param0: ::std::option::Option<LPDICONFIGUREDEVICESCALLBACK>, param1: *mut DICONFIGUREDEVICESPARAMSA, param2: u32, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput8A {
     type Vtable = IDirectInput8A_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3212410928,
-        18490,
-        19874,
-        [170, 153, 93, 100, 237, 54, 151, 0],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212410928, 18490, 19874, [170, 153, 93, 100, 237, 54, 151, 0]);
 }
 impl ::std::convert::From<IDirectInput8A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput8A) -> Self {
@@ -9077,242 +6821,73 @@ impl ::std::convert::From<&IDirectInput8A> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInput8A {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInput8A {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput8A_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::windows::runtime::RawPtr,
-        param2: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: ::windows::runtime::RawPtr,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: super::super::Foundation::PSTR,
-        param2: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: super::super::Foundation::PSTR, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PSTR,
-        param1: *mut DIACTIONFORMATA,
-        param2: ::windows::runtime::RawPtr,
-        param3: *mut ::std::ffi::c_void,
-        param4: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: *mut DIACTIONFORMATA, param2: ::windows::runtime::RawPtr, param3: *mut ::std::ffi::c_void, param4: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSA>,
-        param2: u32,
-        param3: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSA>, param2: u32, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInput8W(::windows::runtime::IUnknown);
 impl IDirectInput8W {
-    pub unsafe fn CreateDevice<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::std::option::Option<IDirectInputDevice8W>,
-        param2: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            param2.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDevice8W>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(
-        &self,
-        param0: u32,
-        param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKW>,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn GetDeviceStatus(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn FindDevice<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: Param1,
-        param2: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            param1.into_param().abi(),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn FindDevice<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: *const ::windows::runtime::GUID, param1: Param1, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevicesBySemantics<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: *mut DIACTIONFORMATW,
-        param2: ::std::option::Option<LPDIENUMDEVICESBYSEMANTICSCBW>,
-        param3: *mut ::std::ffi::c_void,
-        param4: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-            ::std::mem::transmute(param4),
-        )
-        .ok()
+    pub unsafe fn EnumDevicesBySemantics<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIACTIONFORMATW, param2: ::std::option::Option<LPDIENUMDEVICESBYSEMANTICSCBW>, param3: *mut ::std::ffi::c_void, param4: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn ConfigureDevices(
-        &self,
-        param0: ::std::option::Option<LPDICONFIGUREDEVICESCALLBACK>,
-        param1: *mut DICONFIGUREDEVICESPARAMSW,
-        param2: u32,
-        param3: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn ConfigureDevices(&self, param0: ::std::option::Option<LPDICONFIGUREDEVICESCALLBACK>, param1: *mut DICONFIGUREDEVICESPARAMSW, param2: u32, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInput8W {
     type Vtable = IDirectInput8W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3212410929,
-        18490,
-        19874,
-        [170, 153, 93, 100, 237, 54, 151, 0],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3212410929, 18490, 19874, [170, 153, 93, 100, 237, 54, 151, 0]);
 }
 impl ::std::convert::From<IDirectInput8W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInput8W) -> Self {
@@ -9326,185 +6901,61 @@ impl ::std::convert::From<&IDirectInput8W> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInput8W {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInput8W {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInput8W_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::windows::runtime::RawPtr,
-        param2: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: ::windows::runtime::RawPtr,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: super::super::Foundation::PWSTR,
-        param2: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: super::super::Foundation::PWSTR, param2: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-        param1: *mut DIACTIONFORMATW,
-        param2: ::windows::runtime::RawPtr,
-        param3: *mut ::std::ffi::c_void,
-        param4: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIACTIONFORMATW, param2: ::windows::runtime::RawPtr, param3: *mut ::std::ffi::c_void, param4: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSW>,
-        param2: u32,
-        param3: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::mem::ManuallyDrop<DICONFIGUREDEVICESPARAMSW>, param2: u32, param3: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputA(::windows::runtime::IUnknown);
 impl IDirectInputA {
-    pub unsafe fn CreateDevice<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::std::option::Option<IDirectInputDeviceA>,
-        param2: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            param2.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceA>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(
-        &self,
-        param0: u32,
-        param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKA>,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKA>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn GetDeviceStatus(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputA {
     type Vtable = IDirectInputA_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2303857504,
-        43658,
-        4559,
-        [191, 199, 68, 69, 83, 84, 0, 0],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2303857504, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
 impl ::std::convert::From<IDirectInputA> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputA) -> Self {
@@ -9518,118 +6969,45 @@ impl ::std::convert::From<&IDirectInputA> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputA {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputA {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputA_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::windows::runtime::RawPtr,
-        param2: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: ::windows::runtime::RawPtr,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputDevice2A(::windows::runtime::IUnknown);
 impl IDirectInputDevice2A {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn SetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
@@ -9637,245 +7015,73 @@ impl IDirectInputDevice2A {
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetDeviceState(
-        &self,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn SetDataFormat(
-        &self,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    >(
-        &self,
-        param0: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectInfo(
-        &self,
-        param0: *mut DIDEVICEOBJECTINSTANCEA,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceInfo(
-        &self,
-        param0: *mut DIDEVICEINSTANCEA,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn CreateEffect<
-        'a,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIEFFECT,
-        param2: *mut ::std::option::Option<IDirectInputEffect>,
-        param3: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            param3.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::std::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKA>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumEffects(&self, param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectInfo(
-        &self,
-        param0: *mut DIEFFECTINFOA,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumCreatedEffectObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn Poll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn SendDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice2A {
     type Vtable = IDirectInputDevice2A_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1497687682,
-        51502,
-        4559,
-        [191, 199, 68, 69, 83, 84, 0, 0],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687682, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
 impl ::std::convert::From<IDirectInputDevice2A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice2A) -> Self {
@@ -9889,18 +7095,12 @@ impl ::std::convert::From<&IDirectInputDevice2A> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDevice2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputDevice2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectInputDevice2A> for IDirectInputDeviceA {
@@ -9920,208 +7120,66 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for IDirectInput
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for &IDirectInputDevice2A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceA>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceA>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice2A_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HANDLE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEOBJECTINSTANCEA,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEINSTANCEA,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEINSTANCEA) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIEFFECT,
-        param2: *mut ::windows::runtime::RawPtr,
-        param3: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::runtime::RawPtr, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFECTINFOA,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECTINFOA, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFESCAPE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputDevice2W(::windows::runtime::IUnknown);
 impl IDirectInputDevice2W {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn SetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
@@ -10129,242 +7187,70 @@ impl IDirectInputDevice2W {
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetDeviceState(
-        &self,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn SetDataFormat(
-        &self,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    >(
-        &self,
-        param0: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetObjectInfo(
-        &self,
-        param0: *mut DIDEVICEOBJECTINSTANCEW,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetDeviceInfo(
-        &self,
-        param0: *mut DIDEVICEINSTANCEW,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn CreateEffect<
-        'a,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIEFFECT,
-        param2: *mut ::std::option::Option<IDirectInputEffect>,
-        param3: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            param3.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::std::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKW>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumEffects(&self, param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetEffectInfo(
-        &self,
-        param0: *mut DIEFFECTINFOW,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumCreatedEffectObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn Poll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn SendDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice2W {
     type Vtable = IDirectInputDevice2W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1497687683,
-        51502,
-        4559,
-        [191, 199, 68, 69, 83, 84, 0, 0],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687683, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
 impl ::std::convert::From<IDirectInputDevice2W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice2W) -> Self {
@@ -10378,18 +7264,12 @@ impl ::std::convert::From<&IDirectInputDevice2W> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDevice2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputDevice2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectInputDevice2W> for IDirectInputDeviceW {
@@ -10409,202 +7289,63 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for IDirectInput
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for &IDirectInputDevice2W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceW>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceW>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice2W_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HANDLE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEOBJECTINSTANCEW,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEINSTANCEW,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEINSTANCEW) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIEFFECT,
-        param2: *mut ::windows::runtime::RawPtr,
-        param3: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::runtime::RawPtr, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFECTINFOW,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECTINFOW, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFESCAPE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputDevice7A(::windows::runtime::IUnknown);
 impl IDirectInputDevice7A {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn SetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
@@ -10612,285 +7353,81 @@ impl IDirectInputDevice7A {
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetDeviceState(
-        &self,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn SetDataFormat(
-        &self,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    >(
-        &self,
-        param0: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectInfo(
-        &self,
-        param0: *mut DIDEVICEOBJECTINSTANCEA,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceInfo(
-        &self,
-        param0: *mut DIDEVICEINSTANCEA,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn CreateEffect<
-        'a,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIEFFECT,
-        param2: *mut ::std::option::Option<IDirectInputEffect>,
-        param3: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            param3.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::std::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKA>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumEffects(&self, param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectInfo(
-        &self,
-        param0: *mut DIEFFECTINFOA,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumCreatedEffectObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn Poll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn SendDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffectsInFile<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: ::std::option::Option<LPDIENUMEFFECTSINFILECALLBACK>,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).27)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: ::std::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteEffectToFile<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *mut DIFILEEFFECT,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn WriteEffectToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice7A {
     type Vtable = IDirectInputDevice7A_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1473758908,
-        9046,
-        4563,
-        [142, 157, 0, 192, 79, 104, 68, 174],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473758908, 9046, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
 }
 impl ::std::convert::From<IDirectInputDevice7A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice7A) -> Self {
@@ -10904,18 +7441,12 @@ impl ::std::convert::From<&IDirectInputDevice7A> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectInputDevice7A> for IDirectInputDevice2A {
@@ -10935,9 +7466,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2A> for IDirectInpu
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2A> for &IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2A> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDevice2A>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDevice2A>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectInputDevice7A> for IDirectInputDeviceA {
@@ -10957,226 +7486,70 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for IDirectInput
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceA> for &IDirectInputDevice7A {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceA> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceA>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceA>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice7A_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HANDLE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEOBJECTINSTANCEA,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEINSTANCEA,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEINSTANCEA) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIEFFECT,
-        param2: *mut ::windows::runtime::RawPtr,
-        param3: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::runtime::RawPtr, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFECTINFOA,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECTINFOA, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFESCAPE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PSTR,
-        param1: ::windows::runtime::RawPtr,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PSTR,
-        param1: u32,
-        param2: *mut DIFILEEFFECT,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputDevice7W(::windows::runtime::IUnknown);
 impl IDirectInputDevice7W {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn SetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
@@ -11184,282 +7557,78 @@ impl IDirectInputDevice7W {
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetDeviceState(
-        &self,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn SetDataFormat(
-        &self,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    >(
-        &self,
-        param0: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetObjectInfo(
-        &self,
-        param0: *mut DIDEVICEOBJECTINSTANCEW,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetDeviceInfo(
-        &self,
-        param0: *mut DIDEVICEINSTANCEW,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn CreateEffect<
-        'a,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIEFFECT,
-        param2: *mut ::std::option::Option<IDirectInputEffect>,
-        param3: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            param3.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::std::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKW>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumEffects(&self, param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetEffectInfo(
-        &self,
-        param0: *mut DIEFFECTINFOW,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumCreatedEffectObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn Poll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn SendDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffectsInFile<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: ::std::option::Option<LPDIENUMEFFECTSINFILECALLBACK>,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).27)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: ::std::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteEffectToFile<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *mut DIFILEEFFECT,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn WriteEffectToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice7W {
     type Vtable = IDirectInputDevice7W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1473758909,
-        9046,
-        4563,
-        [142, 157, 0, 192, 79, 104, 68, 174],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1473758909, 9046, 4563, [142, 157, 0, 192, 79, 104, 68, 174]);
 }
 impl ::std::convert::From<IDirectInputDevice7W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice7W) -> Self {
@@ -11473,18 +7642,12 @@ impl ::std::convert::From<&IDirectInputDevice7W> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectInputDevice7W> for IDirectInputDevice2W {
@@ -11504,9 +7667,7 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2W> for IDirectInpu
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDevice2W> for &IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDevice2W> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDevice2W>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDevice2W>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectInputDevice7W> for IDirectInputDeviceW {
@@ -11526,220 +7687,67 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for IDirectInput
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectInputDeviceW> for &IDirectInputDevice7W {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectInputDeviceW> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceW>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectInputDeviceW>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice7W_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HANDLE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEOBJECTINSTANCEW,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEINSTANCEW,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEINSTANCEW) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIEFFECT,
-        param2: *mut ::windows::runtime::RawPtr,
-        param3: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::runtime::RawPtr, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFECTINFOW,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECTINFOW, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFESCAPE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-        param1: ::windows::runtime::RawPtr,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-        param1: u32,
-        param2: *mut DIFILEEFFECT,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputDevice8A(::windows::runtime::IUnknown);
 impl IDirectInputDevice8A {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn SetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
@@ -11747,332 +7755,93 @@ impl IDirectInputDevice8A {
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetDeviceState(
-        &self,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn SetDataFormat(
-        &self,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    >(
-        &self,
-        param0: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectInfo(
-        &self,
-        param0: *mut DIDEVICEOBJECTINSTANCEA,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceInfo(
-        &self,
-        param0: *mut DIDEVICEINSTANCEA,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn CreateEffect<
-        'a,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIEFFECT,
-        param2: *mut ::std::option::Option<IDirectInputEffect>,
-        param3: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            param3.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::std::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKA>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumEffects(&self, param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectInfo(
-        &self,
-        param0: *mut DIEFFECTINFOA,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumCreatedEffectObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn Poll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn SendDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffectsInFile<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: ::std::option::Option<LPDIENUMEFFECTSINFILECALLBACK>,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).27)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: ::std::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteEffectToFile<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *mut DIFILEEFFECT,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn WriteEffectToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: Param0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BuildActionMap<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        param0: *mut DIACTIONFORMATA,
-        param1: Param1,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).29)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            param1.into_param().abi(),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn BuildActionMap<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: *mut DIACTIONFORMATA, param1: Param1, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActionMap<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    >(
-        &self,
-        param0: *mut DIACTIONFORMATA,
-        param1: Param1,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).30)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            param1.into_param().abi(),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn SetActionMap<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(&self, param0: *mut DIACTIONFORMATA, param1: Param1, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetImageInfo(
-        &self,
-        param0: *mut DIDEVICEIMAGEINFOHEADERA,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).31)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice8A {
     type Vtable = IDirectInputDevice8A_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1423184000,
-        56341,
-        18483,
-        [164, 27, 116, 143, 115, 163, 129, 121],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423184000, 56341, 18483, [164, 27, 116, 143, 115, 163, 129, 121]);
 }
 impl ::std::convert::From<IDirectInputDevice8A> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice8A) -> Self {
@@ -12086,257 +7855,81 @@ impl ::std::convert::From<&IDirectInputDevice8A> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDevice8A {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputDevice8A {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice8A_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HANDLE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEOBJECTINSTANCEA,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEINSTANCEA,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEINSTANCEA) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIEFFECT,
-        param2: *mut ::windows::runtime::RawPtr,
-        param3: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::runtime::RawPtr, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFECTINFOA,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECTINFOA, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFESCAPE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PSTR,
-        param1: ::windows::runtime::RawPtr,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PSTR,
-        param1: u32,
-        param2: *mut DIFILEEFFECT,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIACTIONFORMATA,
-        param1: super::super::Foundation::PSTR,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIACTIONFORMATA, param1: super::super::Foundation::PSTR, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIACTIONFORMATA,
-        param1: super::super::Foundation::PSTR,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIACTIONFORMATA, param1: super::super::Foundation::PSTR, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEIMAGEINFOHEADERA,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEIMAGEINFOHEADERA) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputDevice8W(::windows::runtime::IUnknown);
 impl IDirectInputDevice8W {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn SetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
@@ -12344,329 +7937,90 @@ impl IDirectInputDevice8W {
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetDeviceState(
-        &self,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn SetDataFormat(
-        &self,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    >(
-        &self,
-        param0: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetObjectInfo(
-        &self,
-        param0: *mut DIDEVICEOBJECTINSTANCEW,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetDeviceInfo(
-        &self,
-        param0: *mut DIDEVICEINSTANCEW,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn CreateEffect<
-        'a,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIEFFECT,
-        param2: *mut ::std::option::Option<IDirectInputEffect>,
-        param3: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            param3.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateEffect<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::std::option::Option<IDirectInputEffect>, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKW>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumEffects(&self, param0: ::std::option::Option<LPDIENUMEFFECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetEffectInfo(
-        &self,
-        param0: *mut DIEFFECTINFOW,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn GetForceFeedbackState(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn SendForceFeedbackCommand(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumCreatedEffectObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumCreatedEffectObjects(&self, param0: ::std::option::Option<LPDIENUMCREATEDEFFECTOBJECTSCALLBACK>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn Poll(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn SendDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn SendDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumEffectsInFile<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: ::std::option::Option<LPDIENUMEFFECTSINFILECALLBACK>,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).27)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn EnumEffectsInFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: ::std::option::Option<LPDIENUMEFFECTSINFILECALLBACK>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).27)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn WriteEffectToFile<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *mut DIFILEEFFECT,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).28)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn WriteEffectToFile<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).28)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn BuildActionMap<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: *mut DIACTIONFORMATW,
-        param1: Param1,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).29)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            param1.into_param().abi(),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn BuildActionMap<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: *mut DIACTIONFORMATW, param1: Param1, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetActionMap<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: *mut DIACTIONFORMATW,
-        param1: Param1,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).30)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            param1.into_param().abi(),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn SetActionMap<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: *mut DIACTIONFORMATW, param1: Param1, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), param1.into_param().abi(), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetImageInfo(
-        &self,
-        param0: *mut DIDEVICEIMAGEINFOHEADERW,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).31)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetImageInfo(&self, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDevice8W {
     type Vtable = IDirectInputDevice8W_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1423184001,
-        56341,
-        18483,
-        [164, 27, 116, 143, 115, 163, 129, 121],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1423184001, 56341, 18483, [164, 27, 116, 143, 115, 163, 129, 121]);
 }
 impl ::std::convert::From<IDirectInputDevice8W> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDevice8W) -> Self {
@@ -12680,251 +8034,78 @@ impl ::std::convert::From<&IDirectInputDevice8W> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDevice8W {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputDevice8W {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDevice8W_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HANDLE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEOBJECTINSTANCEW,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEINSTANCEW,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEINSTANCEW) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIEFFECT,
-        param2: *mut ::windows::runtime::RawPtr,
-        param3: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIEFFECT, param2: *mut ::windows::runtime::RawPtr, param3: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFECTINFOW,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECTINFOW, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFESCAPE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-        param1: ::windows::runtime::RawPtr,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-        param1: u32,
-        param2: *mut DIFILEEFFECT,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut DIFILEEFFECT, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIACTIONFORMATW,
-        param1: super::super::Foundation::PWSTR,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIACTIONFORMATW, param1: super::super::Foundation::PWSTR, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIACTIONFORMATW,
-        param1: super::super::Foundation::PWSTR,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIACTIONFORMATW, param1: super::super::Foundation::PWSTR, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEIMAGEINFOHEADERW,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEIMAGEINFOHEADERW) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputDeviceA(::windows::runtime::IUnknown);
 impl IDirectInputDeviceA {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKA>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn SetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
@@ -12932,143 +8113,43 @@ impl IDirectInputDeviceA {
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetDeviceState(
-        &self,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn SetDataFormat(
-        &self,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    >(
-        &self,
-        param0: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectInfo(
-        &self,
-        param0: *mut DIDEVICEOBJECTINSTANCEA,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetDeviceInfo(
-        &self,
-        param0: *mut DIDEVICEINSTANCEA,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDeviceA {
     type Vtable = IDirectInputDeviceA_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1497687680,
-        51502,
-        4559,
-        [191, 199, 68, 69, 83, 84, 0, 0],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687680, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
 impl ::std::convert::From<IDirectInputDeviceA> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDeviceA) -> Self {
@@ -13082,167 +8163,59 @@ impl ::std::convert::From<&IDirectInputDeviceA> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDeviceA {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputDeviceA {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDeviceA_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HANDLE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEOBJECTINSTANCEA,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEA, param1: u32, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEINSTANCEA,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEINSTANCEA) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputDeviceW(::windows::runtime::IUnknown);
 impl IDirectInputDeviceW {
     pub unsafe fn GetCapabilities(&self, param0: *mut DIDEVCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumObjects(
-        &self,
-        param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn EnumObjects(&self, param0: ::std::option::Option<LPDIENUMDEVICEOBJECTSCALLBACKW>, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn SetProperty(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetProperty(&self, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
@@ -13250,141 +8223,41 @@ impl IDirectInputDeviceW {
     pub unsafe fn Unacquire(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetDeviceState(
-        &self,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetDeviceState(&self, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetDeviceData(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn GetDeviceData(&self, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn SetDataFormat(
-        &self,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn SetDataFormat(&self, param0: *mut DIDATAFORMAT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetEventNotification<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    >(
-        &self,
-        param0: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetEventNotification<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetObjectInfo(
-        &self,
-        param0: *mut DIDEVICEOBJECTINSTANCEW,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetObjectInfo(&self, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetDeviceInfo(
-        &self,
-        param0: *mut DIDEVICEINSTANCEW,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputDeviceW {
     type Vtable = IDirectInputDeviceW_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1497687681,
-        51502,
-        4559,
-        [191, 199, 68, 69, 83, 84, 0, 0],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1497687681, 51502, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
 impl ::std::convert::From<IDirectInputDeviceW> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputDeviceW) -> Self {
@@ -13398,187 +8271,66 @@ impl ::std::convert::From<&IDirectInputDeviceW> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputDeviceW {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputDeviceW {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputDeviceW_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVCAPS) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut DIPROPHEADER,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut DIPROPHEADER) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICEOBJECTDATA,
-        param2: *mut u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDATAFORMAT,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HANDLE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICEOBJECTDATA, param2: *mut u32, param3: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDATAFORMAT) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEOBJECTINSTANCEW,
-        param1: u32,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDEVICEINSTANCEW,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEOBJECTINSTANCEW, param1: u32, param2: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDEVICEINSTANCEW) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputEffect(::windows::runtime::IUnknown);
 impl IDirectInputEffect {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
-    pub unsafe fn GetEffectGuid(
-        &self,
-        param0: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetEffectGuid(&self, param0: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
-    pub unsafe fn GetParameters(
-        &self,
-        param0: *mut DIEFFECT,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetParameters(&self, param0: *mut DIEFFECT, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn SetParameters(
-        &self,
-        param0: *mut DIEFFECT,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetParameters(&self, param0: *mut DIEFFECT, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn Start(&self, param0: u32, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn GetEffectStatus(&self, param0: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     pub unsafe fn Download(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
@@ -13587,21 +8339,12 @@ impl IDirectInputEffect {
         (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn Escape(&self, param0: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputEffect {
     type Vtable = IDirectInputEffect_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3890345920,
-        35026,
-        4560,
-        [154, 208, 0, 160, 201, 160, 110, 53],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3890345920, 35026, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
 }
 impl ::std::convert::From<IDirectInputEffect> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputEffect) -> Self {
@@ -13615,225 +8358,73 @@ impl ::std::convert::From<&IDirectInputEffect> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputEffect {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputEffect_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-        param2: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFECT,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFECT,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECT, param1: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFECT, param1: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIEFFESCAPE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputEffectDriver(::windows::runtime::IUnknown);
 impl IDirectInputEffectDriver {
-    pub unsafe fn DeviceID(
-        &self,
-        param0: u32,
-        param1: u32,
-        param2: u32,
-        param3: u32,
-        param4: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-            ::std::mem::transmute(param4),
-        )
-        .ok()
+    pub unsafe fn DeviceID(&self, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4)).ok()
     }
-    pub unsafe fn GetVersions(
-        &self,
-        param0: *mut DIDRIVERVERSIONS,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetVersions(&self, param0: *mut DIDRIVERVERSIONS) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
-    pub unsafe fn Escape(
-        &self,
-        param0: u32,
-        param1: u32,
-        param2: *mut DIEFFESCAPE,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn Escape(&self, param0: u32, param1: u32, param2: *mut DIEFFESCAPE) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     pub unsafe fn SetGain(&self, param0: u32, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn SendForceFeedbackCommand(
-        &self,
-        param0: u32,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SendForceFeedbackCommand(&self, param0: u32, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetForceFeedbackState(
-        &self,
-        param0: u32,
-        param1: *mut DIDEVICESTATE,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetForceFeedbackState(&self, param0: u32, param1: *mut DIDEVICESTATE) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn DownloadEffect(
-        &self,
-        param0: u32,
-        param1: u32,
-        param2: *mut u32,
-        param3: *mut DIEFFECT,
-        param4: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-            ::std::mem::transmute(param4),
-        )
-        .ok()
+    pub unsafe fn DownloadEffect(&self, param0: u32, param1: u32, param2: *mut u32, param3: *mut DIEFFECT, param4: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3), ::std::mem::transmute(param4)).ok()
     }
     pub unsafe fn DestroyEffect(&self, param0: u32, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn StartEffect(
-        &self,
-        param0: u32,
-        param1: u32,
-        param2: u32,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn StartEffect(&self, param0: u32, param1: u32, param2: u32, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
     pub unsafe fn StopEffect(&self, param0: u32, param1: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
-    pub unsafe fn GetEffectStatus(
-        &self,
-        param0: u32,
-        param1: u32,
-        param2: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetEffectStatus(&self, param0: u32, param1: u32, param2: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputEffectDriver {
     type Vtable = IDirectInputEffectDriver_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        39026992,
-        35215,
-        4560,
-        [154, 208, 0, 160, 201, 160, 110, 53],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(39026992, 35215, 4560, [154, 208, 0, 160, 201, 160, 110, 53]);
 }
 impl ::std::convert::From<IDirectInputEffectDriver> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputEffectDriver) -> Self {
@@ -13845,108 +8436,36 @@ impl ::std::convert::From<&IDirectInputEffectDriver> for ::windows::runtime::IUn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectInputEffectDriver
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputEffectDriver {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectInputEffectDriver
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputEffectDriver {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputEffectDriver_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: u32,
-        param2: u32,
-        param3: u32,
-        param4: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIDRIVERVERSIONS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: u32,
-        param2: *mut DIEFFESCAPE,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIDEVICESTATE,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: u32,
-        param2: *mut u32,
-        param3: *mut DIEFFECT,
-        param4: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: u32,
-        param2: u32,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: u32,
-        param2: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32, param2: u32, param3: u32, param4: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIDRIVERVERSIONS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32, param2: *mut DIEFFESCAPE) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIDEVICESTATE) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32, param2: *mut u32, param3: *mut DIEFFECT, param4: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32, param2: u32, param3: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32, param2: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputJoyConfig(::windows::runtime::IUnknown);
 impl IDirectInputJoyConfig {
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
@@ -13956,208 +8475,63 @@ impl IDirectInputJoyConfig {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn SendNotify(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumTypes(
-        &self,
-        param0: ::std::option::Option<LPDIJOYTYPECALLBACK>,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn EnumTypes(&self, param0: ::std::option::Option<LPDIJOYTYPECALLBACK>, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    pub unsafe fn GetTypeInfo<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: *mut DIJOYTYPEINFO,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    pub unsafe fn SetTypeInfo<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: *mut DIJOYTYPEINFO,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn SetTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteType<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn DeleteType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn GetConfig(
-        &self,
-        param0: u32,
-        param1: *mut DIJOYCONFIG,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn SetConfig(
-        &self,
-        param0: u32,
-        param1: *mut DIJOYCONFIG,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn SetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     pub unsafe fn DeleteConfig(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn GetUserValues(
-        &self,
-        param0: *mut DIJOYUSERVALUES,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn SetUserValues(
-        &self,
-        param0: *mut DIJOYUSERVALUES,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddNewHardware<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn AddNewHardware<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub unsafe fn OpenTypeKey<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *mut super::super::System::Registry::HKEY,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn OpenTypeKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn OpenConfigKey(
-        &self,
-        param0: u32,
-        param1: u32,
-        param2: *mut super::super::System::Registry::HKEY,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn OpenConfigKey(&self, param0: u32, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputJoyConfig {
     type Vtable = IDirectInputJoyConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        501295793,
-        51701,
-        4559,
-        [191, 199, 68, 69, 83, 84, 0, 0],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(501295793, 51701, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
 impl ::std::convert::From<IDirectInputJoyConfig> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputJoyConfig) -> Self {
@@ -14171,136 +8545,51 @@ impl ::std::convert::From<&IDirectInputJoyConfig> for ::windows::runtime::IUnkno
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputJoyConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectInputJoyConfig
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputJoyConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputJoyConfig_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-        param1: *mut DIJOYTYPEINFO,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-        param1: *mut DIJOYTYPEINFO,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIJOYCONFIG,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIJOYCONFIG,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIJOYUSERVALUES,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIJOYUSERVALUES,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-        param1: u32,
-        param2: *mut super::super::System::Registry::HKEY,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Registry")))] usize,
-    #[cfg(feature = "Win32_System_Registry")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: u32,
-        param2: *mut super::super::System::Registry::HKEY,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Registry")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputJoyConfig8(::windows::runtime::IUnknown);
 impl IDirectInputJoyConfig8 {
     pub unsafe fn Acquire(&self) -> ::windows::runtime::Result<()> {
@@ -14310,207 +8599,63 @@ impl IDirectInputJoyConfig8 {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     pub unsafe fn SendNotify(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumTypes(
-        &self,
-        param0: ::std::option::Option<LPDIJOYTYPECALLBACK>,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn EnumTypes(&self, param0: ::std::option::Option<LPDIJOYTYPECALLBACK>, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    pub unsafe fn GetTypeInfo<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: *mut DIJOYTYPEINFO,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    pub unsafe fn SetTypeInfo<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: *mut DIJOYTYPEINFO,
-        param2: u32,
-        param3: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            param3.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetTypeInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: *mut DIJOYTYPEINFO, param2: u32, param3: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2), param3.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn DeleteType<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn DeleteType<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), param0.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn GetConfig(
-        &self,
-        param0: u32,
-        param1: *mut DIJOYCONFIG,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn GetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn SetConfig(
-        &self,
-        param0: u32,
-        param1: *mut DIJOYCONFIG,
-        param2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn SetConfig(&self, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     pub unsafe fn DeleteConfig(&self, param0: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn GetUserValues(
-        &self,
-        param0: *mut DIJOYUSERVALUES,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn GetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn SetUserValues(
-        &self,
-        param0: *mut DIJOYUSERVALUES,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn SetUserValues(&self, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn AddNewHardware<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn AddNewHardware<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub unsafe fn OpenTypeKey<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-        param2: *mut super::super::System::Registry::HKEY,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-        )
-        .ok()
+    pub unsafe fn OpenTypeKey<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, param0: Param0, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1), ::std::mem::transmute(param2)).ok()
     }
     #[cfg(feature = "Win32_System_Registry")]
-    pub unsafe fn OpenAppStatusKey(
-        &self,
-        param0: *mut super::super::System::Registry::HKEY,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn OpenAppStatusKey(&self, param0: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputJoyConfig8 {
     type Vtable = IDirectInputJoyConfig8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3943529978,
-        6544,
-        20263,
-        [180, 214, 237, 242, 238, 196, 164, 76],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3943529978, 6544, 20263, [180, 214, 237, 242, 238, 196, 164, 76]);
 }
 impl ::std::convert::From<IDirectInputJoyConfig8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputJoyConfig8) -> Self {
@@ -14522,226 +8667,77 @@ impl ::std::convert::From<&IDirectInputJoyConfig8> for ::windows::runtime::IUnkn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectInputJoyConfig8
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputJoyConfig8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectInputJoyConfig8
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputJoyConfig8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputJoyConfig8_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-        param1: *mut DIJOYTYPEINFO,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-        param1: *mut DIJOYTYPEINFO,
-        param2: u32,
-        param3: super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: *mut DIJOYTYPEINFO, param2: u32, param3: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIJOYCONFIG,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: *mut DIJOYCONFIG,
-        param2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: *mut DIJOYCONFIG, param2: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIJOYUSERVALUES,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut DIJOYUSERVALUES,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut DIJOYUSERVALUES, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::PWSTR,
-        param1: u32,
-        param2: *mut super::super::System::Registry::HKEY,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Registry")))] usize,
-    #[cfg(feature = "Win32_System_Registry")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *mut super::super::System::Registry::HKEY,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Registry")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *mut super::super::System::Registry::HKEY) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectInputW(::windows::runtime::IUnknown);
 impl IDirectInputW {
-    pub unsafe fn CreateDevice<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::std::option::Option<IDirectInputDeviceW>,
-        param2: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            param2.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateDevice<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, param0: *const ::windows::runtime::GUID, param1: *mut ::std::option::Option<IDirectInputDeviceW>, param2: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), param2.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumDevices(
-        &self,
-        param0: u32,
-        param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKW>,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-            ::std::mem::transmute(param1),
-            ::std::mem::transmute(param2),
-            ::std::mem::transmute(param3),
-        )
-        .ok()
+    pub unsafe fn EnumDevices(&self, param0: u32, param1: ::std::option::Option<LPDIENUMDEVICESCALLBACKW>, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0), ::std::mem::transmute(param1), ::std::mem::transmute(param2), ::std::mem::transmute(param3)).ok()
     }
-    pub unsafe fn GetDeviceStatus(
-        &self,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(param0),
-        )
-        .ok()
+    pub unsafe fn GetDeviceStatus(&self, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(param0)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RunControlPanel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn RunControlPanel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Initialize<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>,
-    >(
-        &self,
-        param0: Param0,
-        param1: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            param0.into_param().abi(),
-            ::std::mem::transmute(param1),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HINSTANCE>>(&self, param0: Param0, param1: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), param0.into_param().abi(), ::std::mem::transmute(param1)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectInputW {
     type Vtable = IDirectInputW_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2303857505,
-        43658,
-        4559,
-        [191, 199, 68, 69, 83, 84, 0, 0],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2303857505, 43658, 4559, [191, 199, 68, 69, 83, 84, 0, 0]);
 }
 impl ::std::convert::From<IDirectInputW> for ::windows::runtime::IUnknown {
     fn from(value: IDirectInputW) -> Self {
@@ -14755,62 +8751,27 @@ impl ::std::convert::From<&IDirectInputW> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectInputW {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectInputW {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectInputW_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-        param1: *mut ::windows::runtime::RawPtr,
-        param2: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: u32,
-        param1: ::windows::runtime::RawPtr,
-        param2: *mut ::std::ffi::c_void,
-        param3: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID, param1: *mut ::windows::runtime::RawPtr, param2: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: u32, param1: ::windows::runtime::RawPtr, param2: *mut ::std::ffi::c_void, param3: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HWND,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HWND, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        param0: super::super::Foundation::HINSTANCE,
-        param1: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, param0: super::super::Foundation::HINSTANCE, param1: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -14827,10 +8788,7 @@ impl ::std::default::Default for INDICATOR_LIST {
 }
 impl ::std::fmt::Debug for INDICATOR_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INDICATOR_LIST")
-            .field("MakeCode", &self.MakeCode)
-            .field("IndicatorFlags", &self.IndicatorFlags)
-            .finish()
+        fmt.debug_struct("INDICATOR_LIST").field("MakeCode", &self.MakeCode).field("IndicatorFlags", &self.IndicatorFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for INDICATOR_LIST {
@@ -14861,10 +8819,7 @@ impl ::std::default::Default for INPUT_BUTTON_ENABLE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INPUT_BUTTON_ENABLE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INPUT_BUTTON_ENABLE_INFO")
-            .field("ButtonType", &self.ButtonType)
-            .field("Enabled", &self.Enabled)
-            .finish()
+        fmt.debug_struct("INPUT_BUTTON_ENABLE_INFO").field("ButtonType", &self.ButtonType).field("Enabled", &self.Enabled).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -15040,14 +8995,7 @@ impl ::std::fmt::Debug for KEYBOARD_ATTRIBUTES {
 }
 impl ::std::cmp::PartialEq for KEYBOARD_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.KeyboardIdentifier == other.KeyboardIdentifier
-            && self.KeyboardMode == other.KeyboardMode
-            && self.NumberOfFunctionKeys == other.NumberOfFunctionKeys
-            && self.NumberOfIndicators == other.NumberOfIndicators
-            && self.NumberOfKeysTotal == other.NumberOfKeysTotal
-            && self.InputDataQueueLength == other.InputDataQueueLength
-            && self.KeyRepeatMinimum == other.KeyRepeatMinimum
-            && self.KeyRepeatMaximum == other.KeyRepeatMaximum
+        self.KeyboardIdentifier == other.KeyboardIdentifier && self.KeyboardMode == other.KeyboardMode && self.NumberOfFunctionKeys == other.NumberOfFunctionKeys && self.NumberOfIndicators == other.NumberOfIndicators && self.NumberOfKeysTotal == other.NumberOfKeysTotal && self.InputDataQueueLength == other.InputDataQueueLength && self.KeyRepeatMinimum == other.KeyRepeatMinimum && self.KeyRepeatMaximum == other.KeyRepeatMaximum
     }
 }
 impl ::std::cmp::Eq for KEYBOARD_ATTRIBUTES {}
@@ -15081,27 +9029,15 @@ impl ::std::fmt::Debug for KEYBOARD_EXTENDED_ATTRIBUTES {
             .field("FormFactor", &self.FormFactor)
             .field("KeyType", &self.KeyType)
             .field("PhysicalLayout", &self.PhysicalLayout)
-            .field(
-                "VendorSpecificPhysicalLayout",
-                &self.VendorSpecificPhysicalLayout,
-            )
+            .field("VendorSpecificPhysicalLayout", &self.VendorSpecificPhysicalLayout)
             .field("IETFLanguageTagIndex", &self.IETFLanguageTagIndex)
-            .field(
-                "ImplementedInputAssistControls",
-                &self.ImplementedInputAssistControls,
-            )
+            .field("ImplementedInputAssistControls", &self.ImplementedInputAssistControls)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for KEYBOARD_EXTENDED_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.FormFactor == other.FormFactor
-            && self.KeyType == other.KeyType
-            && self.PhysicalLayout == other.PhysicalLayout
-            && self.VendorSpecificPhysicalLayout == other.VendorSpecificPhysicalLayout
-            && self.IETFLanguageTagIndex == other.IETFLanguageTagIndex
-            && self.ImplementedInputAssistControls == other.ImplementedInputAssistControls
+        self.Version == other.Version && self.FormFactor == other.FormFactor && self.KeyType == other.KeyType && self.PhysicalLayout == other.PhysicalLayout && self.VendorSpecificPhysicalLayout == other.VendorSpecificPhysicalLayout && self.IETFLanguageTagIndex == other.IETFLanguageTagIndex && self.ImplementedInputAssistControls == other.ImplementedInputAssistControls
     }
 }
 impl ::std::cmp::Eq for KEYBOARD_EXTENDED_ATTRIBUTES {}
@@ -15124,10 +9060,7 @@ impl ::std::default::Default for KEYBOARD_ID {
 }
 impl ::std::fmt::Debug for KEYBOARD_ID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KEYBOARD_ID")
-            .field("Type", &self.Type)
-            .field("Subtype", &self.Subtype)
-            .finish()
+        fmt.debug_struct("KEYBOARD_ID").field("Type", &self.Type).field("Subtype", &self.Subtype).finish()
     }
 }
 impl ::std::cmp::PartialEq for KEYBOARD_ID {
@@ -15155,18 +9088,12 @@ impl ::std::default::Default for KEYBOARD_IME_STATUS {
 }
 impl ::std::fmt::Debug for KEYBOARD_IME_STATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KEYBOARD_IME_STATUS")
-            .field("UnitId", &self.UnitId)
-            .field("ImeOpen", &self.ImeOpen)
-            .field("ImeConvMode", &self.ImeConvMode)
-            .finish()
+        fmt.debug_struct("KEYBOARD_IME_STATUS").field("UnitId", &self.UnitId).field("ImeOpen", &self.ImeOpen).field("ImeConvMode", &self.ImeConvMode).finish()
     }
 }
 impl ::std::cmp::PartialEq for KEYBOARD_IME_STATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.UnitId == other.UnitId
-            && self.ImeOpen == other.ImeOpen
-            && self.ImeConvMode == other.ImeConvMode
+        self.UnitId == other.UnitId && self.ImeOpen == other.ImeOpen && self.ImeConvMode == other.ImeConvMode
     }
 }
 impl ::std::cmp::Eq for KEYBOARD_IME_STATUS {}
@@ -15188,10 +9115,7 @@ impl ::std::default::Default for KEYBOARD_INDICATOR_PARAMETERS {
 }
 impl ::std::fmt::Debug for KEYBOARD_INDICATOR_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KEYBOARD_INDICATOR_PARAMETERS")
-            .field("UnitId", &self.UnitId)
-            .field("LedFlags", &self.LedFlags)
-            .finish()
+        fmt.debug_struct("KEYBOARD_INDICATOR_PARAMETERS").field("UnitId", &self.UnitId).field("LedFlags", &self.LedFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for KEYBOARD_INDICATOR_PARAMETERS {
@@ -15218,16 +9142,12 @@ impl ::std::default::Default for KEYBOARD_INDICATOR_TRANSLATION {
 }
 impl ::std::fmt::Debug for KEYBOARD_INDICATOR_TRANSLATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KEYBOARD_INDICATOR_TRANSLATION")
-            .field("NumberOfIndicatorKeys", &self.NumberOfIndicatorKeys)
-            .field("IndicatorList", &self.IndicatorList)
-            .finish()
+        fmt.debug_struct("KEYBOARD_INDICATOR_TRANSLATION").field("NumberOfIndicatorKeys", &self.NumberOfIndicatorKeys).field("IndicatorList", &self.IndicatorList).finish()
     }
 }
 impl ::std::cmp::PartialEq for KEYBOARD_INDICATOR_TRANSLATION {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfIndicatorKeys == other.NumberOfIndicatorKeys
-            && self.IndicatorList == other.IndicatorList
+        self.NumberOfIndicatorKeys == other.NumberOfIndicatorKeys && self.IndicatorList == other.IndicatorList
     }
 }
 impl ::std::cmp::Eq for KEYBOARD_INDICATOR_TRANSLATION {}
@@ -15252,22 +9172,12 @@ impl ::std::default::Default for KEYBOARD_INPUT_DATA {
 }
 impl ::std::fmt::Debug for KEYBOARD_INPUT_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KEYBOARD_INPUT_DATA")
-            .field("UnitId", &self.UnitId)
-            .field("MakeCode", &self.MakeCode)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("ExtraInformation", &self.ExtraInformation)
-            .finish()
+        fmt.debug_struct("KEYBOARD_INPUT_DATA").field("UnitId", &self.UnitId).field("MakeCode", &self.MakeCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("ExtraInformation", &self.ExtraInformation).finish()
     }
 }
 impl ::std::cmp::PartialEq for KEYBOARD_INPUT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.UnitId == other.UnitId
-            && self.MakeCode == other.MakeCode
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.ExtraInformation == other.ExtraInformation
+        self.UnitId == other.UnitId && self.MakeCode == other.MakeCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.ExtraInformation == other.ExtraInformation
     }
 }
 impl ::std::cmp::Eq for KEYBOARD_INPUT_DATA {}
@@ -15296,11 +9206,7 @@ impl ::std::default::Default for KEYBOARD_TYPEMATIC_PARAMETERS {
 }
 impl ::std::fmt::Debug for KEYBOARD_TYPEMATIC_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KEYBOARD_TYPEMATIC_PARAMETERS")
-            .field("UnitId", &self.UnitId)
-            .field("Rate", &self.Rate)
-            .field("Delay", &self.Delay)
-            .finish()
+        fmt.debug_struct("KEYBOARD_TYPEMATIC_PARAMETERS").field("UnitId", &self.UnitId).field("Rate", &self.Rate).field("Delay", &self.Delay).finish()
     }
 }
 impl ::std::cmp::PartialEq for KEYBOARD_TYPEMATIC_PARAMETERS {
@@ -15326,9 +9232,7 @@ impl ::std::default::Default for KEYBOARD_UNIT_ID_PARAMETER {
 }
 impl ::std::fmt::Debug for KEYBOARD_UNIT_ID_PARAMETER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("KEYBOARD_UNIT_ID_PARAMETER")
-            .field("UnitId", &self.UnitId)
-            .finish()
+        fmt.debug_struct("KEYBOARD_UNIT_ID_PARAMETER").field("UnitId", &self.UnitId).finish()
     }
 }
 impl ::std::cmp::PartialEq for KEYBOARD_UNIT_ID_PARAMETER {
@@ -15353,78 +9257,29 @@ pub const KEY_TERMSRV_VKPACKET: u32 = 32u32;
 pub const KEY_UNICODE_SEQUENCE_END: u32 = 512u32;
 pub const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDICONFIGUREDEVICESCALLBACK = unsafe extern "system" fn(
-    param0: ::windows::runtime::RawPtr,
-    param1: *mut ::std::ffi::c_void,
-)
-    -> super::super::Foundation::BOOL;
+pub type LPDICONFIGUREDEVICESCALLBACK = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK =
-    unsafe extern "system" fn(
-        param0: ::windows::runtime::RawPtr,
-        param1: *mut ::std::ffi::c_void,
-    ) -> super::super::Foundation::BOOL;
+pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = unsafe extern "system" fn(param0: ::windows::runtime::RawPtr, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICEOBJECTSCALLBACKA =
-    unsafe extern "system" fn(
-        param0: *mut DIDEVICEOBJECTINSTANCEA,
-        param1: *mut ::std::ffi::c_void,
-    ) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICEOBJECTSCALLBACKA = unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICEOBJECTSCALLBACKW =
-    unsafe extern "system" fn(
-        param0: *mut DIDEVICEOBJECTINSTANCEW,
-        param1: *mut ::std::ffi::c_void,
-    ) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICEOBJECTSCALLBACKW = unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESBYSEMANTICSCBA =
-    unsafe extern "system" fn(
-        param0: *mut DIDEVICEINSTANCEA,
-        param1: ::windows::runtime::RawPtr,
-        param2: u32,
-        param3: u32,
-        param4: *mut ::std::ffi::c_void,
-    ) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICESBYSEMANTICSCBA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: ::windows::runtime::RawPtr, param2: u32, param3: u32, param4: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESBYSEMANTICSCBW =
-    unsafe extern "system" fn(
-        param0: *mut DIDEVICEINSTANCEW,
-        param1: ::windows::runtime::RawPtr,
-        param2: u32,
-        param3: u32,
-        param4: *mut ::std::ffi::c_void,
-    ) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICESBYSEMANTICSCBW = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: ::windows::runtime::RawPtr, param2: u32, param3: u32, param4: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESCALLBACKA = unsafe extern "system" fn(
-    param0: *mut DIDEVICEINSTANCEA,
-    param1: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICESCALLBACKA = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMDEVICESCALLBACKW = unsafe extern "system" fn(
-    param0: *mut DIDEVICEINSTANCEW,
-    param1: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
+pub type LPDIENUMDEVICESCALLBACKW = unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMEFFECTSCALLBACKA = unsafe extern "system" fn(
-    param0: *mut DIEFFECTINFOA,
-    param1: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
+pub type LPDIENUMEFFECTSCALLBACKA = unsafe extern "system" fn(param0: *mut DIEFFECTINFOA, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMEFFECTSCALLBACKW = unsafe extern "system" fn(
-    param0: *mut DIEFFECTINFOW,
-    param1: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
+pub type LPDIENUMEFFECTSCALLBACKW = unsafe extern "system" fn(param0: *mut DIEFFECTINFOW, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIENUMEFFECTSINFILECALLBACK =
-    unsafe extern "system" fn(
-        param0: *mut DIFILEEFFECT,
-        param1: *mut ::std::ffi::c_void,
-    ) -> super::super::Foundation::BOOL;
+pub type LPDIENUMEFFECTSINFILECALLBACK = unsafe extern "system" fn(param0: *mut DIFILEEFFECT, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDIJOYTYPECALLBACK = unsafe extern "system" fn(
-    param0: super::super::Foundation::PWSTR,
-    param1: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL;
+pub type LPDIJOYTYPECALLBACK = unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNSHOWJOYCPL = unsafe extern "system" fn(hwnd: super::super::Foundation::HWND);
 pub const MAXCPOINTSNUM: u32 = 8u32;
@@ -15446,20 +9301,12 @@ impl ::std::default::Default for MOUSE_ATTRIBUTES {
 }
 impl ::std::fmt::Debug for MOUSE_ATTRIBUTES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MOUSE_ATTRIBUTES")
-            .field("MouseIdentifier", &self.MouseIdentifier)
-            .field("NumberOfButtons", &self.NumberOfButtons)
-            .field("SampleRate", &self.SampleRate)
-            .field("InputDataQueueLength", &self.InputDataQueueLength)
-            .finish()
+        fmt.debug_struct("MOUSE_ATTRIBUTES").field("MouseIdentifier", &self.MouseIdentifier).field("NumberOfButtons", &self.NumberOfButtons).field("SampleRate", &self.SampleRate).field("InputDataQueueLength", &self.InputDataQueueLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for MOUSE_ATTRIBUTES {
     fn eq(&self, other: &Self) -> bool {
-        self.MouseIdentifier == other.MouseIdentifier
-            && self.NumberOfButtons == other.NumberOfButtons
-            && self.SampleRate == other.SampleRate
-            && self.InputDataQueueLength == other.InputDataQueueLength
+        self.MouseIdentifier == other.MouseIdentifier && self.NumberOfButtons == other.NumberOfButtons && self.SampleRate == other.SampleRate && self.InputDataQueueLength == other.InputDataQueueLength
     }
 }
 impl ::std::cmp::Eq for MOUSE_ATTRIBUTES {}
@@ -15546,10 +9393,7 @@ impl ::std::default::Default for MOUSE_INPUT_DATA_0_0 {
 }
 impl ::std::fmt::Debug for MOUSE_INPUT_DATA_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("ButtonFlags", &self.ButtonFlags)
-            .field("ButtonData", &self.ButtonData)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("ButtonFlags", &self.ButtonFlags).field("ButtonData", &self.ButtonData).finish()
     }
 }
 impl ::std::cmp::PartialEq for MOUSE_INPUT_DATA_0_0 {
@@ -15586,9 +9430,7 @@ impl ::std::default::Default for MOUSE_UNIT_ID_PARAMETER {
 }
 impl ::std::fmt::Debug for MOUSE_UNIT_ID_PARAMETER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MOUSE_UNIT_ID_PARAMETER")
-            .field("UnitId", &self.UnitId)
-            .finish()
+        fmt.debug_struct("MOUSE_UNIT_ID_PARAMETER").field("UnitId", &self.UnitId).finish()
     }
 }
 impl ::std::cmp::PartialEq for MOUSE_UNIT_ID_PARAMETER {
@@ -15604,14 +9446,9 @@ unsafe impl ::windows::runtime::Abi for MOUSE_UNIT_ID_PARAMETER {
 pub const MOUSE_VIRTUAL_DESKTOP: u32 = 2u32;
 pub const MOUSE_WHEEL: u32 = 1024u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_HidP_GetVersionInternal =
-    unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS;
+pub type PFN_HidP_GetVersionInternal = unsafe extern "system" fn(version: *mut u32) -> super::super::Foundation::NTSTATUS;
 #[cfg(feature = "Win32_Foundation")]
-pub type PHIDP_INSERT_SCANCODES = unsafe extern "system" fn(
-    context: *const ::std::ffi::c_void,
-    newscancodes: super::super::Foundation::PSTR,
-    length: u32,
-) -> super::super::Foundation::BOOLEAN;
+pub type PHIDP_INSERT_SCANCODES = unsafe extern "system" fn(context: *const ::std::ffi::c_void, newscancodes: super::super::Foundation::PSTR, length: u32) -> super::super::Foundation::BOOLEAN;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct USAGE_AND_PAGE {
@@ -15626,10 +9463,7 @@ impl ::std::default::Default for USAGE_AND_PAGE {
 }
 impl ::std::fmt::Debug for USAGE_AND_PAGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USAGE_AND_PAGE")
-            .field("Usage", &self.Usage)
-            .field("UsagePage", &self.UsagePage)
-            .finish()
+        fmt.debug_struct("USAGE_AND_PAGE").field("Usage", &self.Usage).field("UsagePage", &self.UsagePage).finish()
     }
 }
 impl ::std::cmp::PartialEq for USAGE_AND_PAGE {
@@ -15646,14 +9480,7 @@ pub const WHEELMOUSE_HID_HARDWARE: u32 = 256u32;
 pub const WHEELMOUSE_I8042_HARDWARE: u32 = 32u32;
 pub const WHEELMOUSE_SERIAL_HARDWARE: u32 = 64u32;
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct _HIDP_PREPARSED_DATA(pub u8);
 #[inline]
 pub unsafe fn joyConfigChanged(dwflags: u32) -> u32 {

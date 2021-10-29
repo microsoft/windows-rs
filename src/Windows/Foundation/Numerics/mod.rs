@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct Matrix3x2 {
@@ -25,24 +17,12 @@ impl ::std::default::Default for Matrix3x2 {
 }
 impl ::std::fmt::Debug for Matrix3x2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("Matrix3x2")
-            .field("M11", &self.M11)
-            .field("M12", &self.M12)
-            .field("M21", &self.M21)
-            .field("M22", &self.M22)
-            .field("M31", &self.M31)
-            .field("M32", &self.M32)
-            .finish()
+        fmt.debug_struct("Matrix3x2").field("M11", &self.M11).field("M12", &self.M12).field("M21", &self.M21).field("M22", &self.M22).field("M31", &self.M31).field("M32", &self.M32).finish()
     }
 }
 impl ::std::cmp::PartialEq for Matrix3x2 {
     fn eq(&self, other: &Self) -> bool {
-        self.M11 == other.M11
-            && self.M12 == other.M12
-            && self.M21 == other.M21
-            && self.M22 == other.M22
-            && self.M31 == other.M31
-            && self.M32 == other.M32
+        self.M11 == other.M11 && self.M12 == other.M12 && self.M21 == other.M21 && self.M22 == other.M22 && self.M31 == other.M31 && self.M32 == other.M32
     }
 }
 impl ::std::cmp::Eq for Matrix3x2 {}
@@ -51,30 +31,14 @@ unsafe impl ::windows::runtime::Abi for Matrix3x2 {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Matrix3x2 {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"struct(Windows.Foundation.Numerics.Matrix3x2;f4;f4;f4;f4;f4;f4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix3x2;f4;f4;f4;f4;f4;f4)");
 }
 impl Matrix3x2 {
     pub fn identity() -> Self {
-        Self {
-            M11: 1.0,
-            M12: 0.0,
-            M21: 0.0,
-            M22: 1.0,
-            M31: 0.0,
-            M32: 0.0,
-        }
+        Self { M11: 1.0, M12: 0.0, M21: 0.0, M22: 1.0, M31: 0.0, M32: 0.0 }
     }
     pub fn translation(x: f32, y: f32) -> Self {
-        Self {
-            M11: 1.0,
-            M12: 0.0,
-            M21: 0.0,
-            M22: 1.0,
-            M31: x,
-            M32: y,
-        }
+        Self { M11: 1.0, M12: 0.0, M21: 0.0, M22: 1.0, M31: x, M32: y }
     }
     pub fn rotation(angle: f32, x: f32, y: f32) -> Self {
         #[repr(C)]
@@ -267,22 +231,7 @@ impl ::std::fmt::Debug for Matrix4x4 {
 }
 impl ::std::cmp::PartialEq for Matrix4x4 {
     fn eq(&self, other: &Self) -> bool {
-        self.M11 == other.M11
-            && self.M12 == other.M12
-            && self.M13 == other.M13
-            && self.M14 == other.M14
-            && self.M21 == other.M21
-            && self.M22 == other.M22
-            && self.M23 == other.M23
-            && self.M24 == other.M24
-            && self.M31 == other.M31
-            && self.M32 == other.M32
-            && self.M33 == other.M33
-            && self.M34 == other.M34
-            && self.M41 == other.M41
-            && self.M42 == other.M42
-            && self.M43 == other.M43
-            && self.M44 == other.M44
+        self.M11 == other.M11 && self.M12 == other.M12 && self.M13 == other.M13 && self.M14 == other.M14 && self.M21 == other.M21 && self.M22 == other.M22 && self.M23 == other.M23 && self.M24 == other.M24 && self.M31 == other.M31 && self.M32 == other.M32 && self.M33 == other.M33 && self.M34 == other.M34 && self.M41 == other.M41 && self.M42 == other.M42 && self.M43 == other.M43 && self.M44 == other.M44
     }
 }
 impl ::std::cmp::Eq for Matrix4x4 {}
@@ -291,7 +240,7 @@ unsafe impl ::windows::runtime::Abi for Matrix4x4 {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Matrix4x4 {
-    const SIGNATURE : :: windows :: runtime :: ConstBuffer = :: windows :: runtime :: ConstBuffer :: from_slice ( b"struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4)" ) ;
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Matrix4x4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4;f4)");
 }
 impl Matrix4x4 {
     fn impl_add(&self, rhs: &Self) -> Self {
@@ -473,10 +422,7 @@ impl ::std::default::Default for Plane {
 }
 impl ::std::fmt::Debug for Plane {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("Plane")
-            .field("Normal", &self.Normal)
-            .field("D", &self.D)
-            .finish()
+        fmt.debug_struct("Plane").field("Normal", &self.Normal).field("D", &self.D).finish()
     }
 }
 impl ::std::cmp::PartialEq for Plane {
@@ -490,7 +436,7 @@ unsafe impl ::windows::runtime::Abi for Plane {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Plane {
-    const SIGNATURE : :: windows :: runtime :: ConstBuffer = :: windows :: runtime :: ConstBuffer :: from_slice ( b"struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)" ) ;
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Plane;struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4);f4)");
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -508,12 +454,7 @@ impl ::std::default::Default for Quaternion {
 }
 impl ::std::fmt::Debug for Quaternion {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("Quaternion")
-            .field("X", &self.X)
-            .field("Y", &self.Y)
-            .field("Z", &self.Z)
-            .field("W", &self.W)
-            .finish()
+        fmt.debug_struct("Quaternion").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("W", &self.W).finish()
     }
 }
 impl ::std::cmp::PartialEq for Quaternion {
@@ -527,9 +468,7 @@ unsafe impl ::windows::runtime::Abi for Quaternion {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Quaternion {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Quaternion;f4;f4;f4;f4)");
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -545,10 +484,7 @@ impl ::std::default::Default for Rational {
 }
 impl ::std::fmt::Debug for Rational {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("Rational")
-            .field("Numerator", &self.Numerator)
-            .field("Denominator", &self.Denominator)
-            .finish()
+        fmt.debug_struct("Rational").field("Numerator", &self.Numerator).field("Denominator", &self.Denominator).finish()
     }
 }
 impl ::std::cmp::PartialEq for Rational {
@@ -562,9 +498,7 @@ unsafe impl ::windows::runtime::Abi for Rational {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Rational {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"struct(Windows.Foundation.Numerics.Rational;u4;u4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Rational;u4;u4)");
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -580,10 +514,7 @@ impl ::std::default::Default for Vector2 {
 }
 impl ::std::fmt::Debug for Vector2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("Vector2")
-            .field("X", &self.X)
-            .field("Y", &self.Y)
-            .finish()
+        fmt.debug_struct("Vector2").field("X", &self.X).field("Y", &self.Y).finish()
     }
 }
 impl ::std::cmp::PartialEq for Vector2 {
@@ -597,9 +528,7 @@ unsafe impl ::windows::runtime::Abi for Vector2 {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Vector2 {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector2;f4;f4)");
 }
 impl Vector2 {
     pub fn new(X: f32, Y: f32) -> Self {
@@ -636,40 +565,22 @@ impl Vector2 {
         self / self.length()
     }
     fn impl_add(&self, rhs: &Self) -> Self {
-        Self {
-            X: self.X + rhs.X,
-            Y: self.Y + rhs.Y,
-        }
+        Self { X: self.X + rhs.X, Y: self.Y + rhs.Y }
     }
     fn impl_sub(&self, rhs: &Self) -> Self {
-        Self {
-            X: self.X - rhs.X,
-            Y: self.Y - rhs.Y,
-        }
+        Self { X: self.X - rhs.X, Y: self.Y - rhs.Y }
     }
     fn impl_div(&self, rhs: &Self) -> Self {
-        Self {
-            X: self.X / rhs.X,
-            Y: self.Y / rhs.Y,
-        }
+        Self { X: self.X / rhs.X, Y: self.Y / rhs.Y }
     }
     fn impl_div_f32(&self, rhs: f32) -> Self {
-        Self {
-            X: self.X / rhs,
-            Y: self.Y / rhs,
-        }
+        Self { X: self.X / rhs, Y: self.Y / rhs }
     }
     fn impl_mul(&self, rhs: &Self) -> Self {
-        Self {
-            X: self.X * rhs.X,
-            Y: self.Y * rhs.Y,
-        }
+        Self { X: self.X * rhs.X, Y: self.Y * rhs.Y }
     }
     fn impl_mul_f32(&self, rhs: f32) -> Self {
-        Self {
-            X: self.X * rhs,
-            Y: self.Y * rhs,
-        }
+        Self { X: self.X * rhs, Y: self.Y * rhs }
     }
 }
 impl ::std::ops::Add<Vector2> for Vector2 {
@@ -807,11 +718,7 @@ impl ::std::default::Default for Vector3 {
 }
 impl ::std::fmt::Debug for Vector3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("Vector3")
-            .field("X", &self.X)
-            .field("Y", &self.Y)
-            .field("Z", &self.Z)
-            .finish()
+        fmt.debug_struct("Vector3").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
     }
 }
 impl ::std::cmp::PartialEq for Vector3 {
@@ -825,48 +732,26 @@ unsafe impl ::windows::runtime::Abi for Vector3 {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Vector3 {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector3;f4;f4;f4)");
 }
 impl Vector3 {
     pub fn new(X: f32, Y: f32, Z: f32) -> Self {
         Self { X, Y, Z }
     }
     pub fn zero() -> Self {
-        Self {
-            X: 0f32,
-            Y: 0f32,
-            Z: 0f32,
-        }
+        Self { X: 0f32, Y: 0f32, Z: 0f32 }
     }
     pub fn one() -> Self {
-        Self {
-            X: 1f32,
-            Y: 1f32,
-            Z: 1f32,
-        }
+        Self { X: 1f32, Y: 1f32, Z: 1f32 }
     }
     pub fn unit_x() -> Self {
-        Self {
-            X: 1.0,
-            Y: 0.0,
-            Z: 0.0,
-        }
+        Self { X: 1.0, Y: 0.0, Z: 0.0 }
     }
     pub fn unit_y() -> Self {
-        Self {
-            X: 0.0,
-            Y: 1.0,
-            Z: 0.0,
-        }
+        Self { X: 0.0, Y: 1.0, Z: 0.0 }
     }
     pub fn unit_z() -> Self {
-        Self {
-            X: 0.0,
-            Y: 0.0,
-            Z: 1.0,
-        }
+        Self { X: 0.0, Y: 0.0, Z: 1.0 }
     }
     pub fn dot(&self, rhs: &Self) -> f32 {
         self.X * rhs.X + self.Y * rhs.Y + self.Z * rhs.Z
@@ -887,46 +772,22 @@ impl Vector3 {
         self / self.length()
     }
     fn impl_add(&self, rhs: &Self) -> Self {
-        Self {
-            X: self.X + rhs.X,
-            Y: self.Y + rhs.Y,
-            Z: self.Z + rhs.Z,
-        }
+        Self { X: self.X + rhs.X, Y: self.Y + rhs.Y, Z: self.Z + rhs.Z }
     }
     fn impl_sub(&self, rhs: &Self) -> Self {
-        Self {
-            X: self.X - rhs.X,
-            Y: self.Y - rhs.Y,
-            Z: self.Z - rhs.Z,
-        }
+        Self { X: self.X - rhs.X, Y: self.Y - rhs.Y, Z: self.Z - rhs.Z }
     }
     fn impl_div(&self, rhs: &Self) -> Self {
-        Self {
-            X: self.X / rhs.X,
-            Y: self.Y / rhs.Y,
-            Z: self.Z / rhs.Z,
-        }
+        Self { X: self.X / rhs.X, Y: self.Y / rhs.Y, Z: self.Z / rhs.Z }
     }
     fn impl_div_f32(&self, rhs: f32) -> Self {
-        Self {
-            X: self.X / rhs,
-            Y: self.Y / rhs,
-            Z: self.Z / rhs,
-        }
+        Self { X: self.X / rhs, Y: self.Y / rhs, Z: self.Z / rhs }
     }
     fn impl_mul(&self, rhs: &Self) -> Self {
-        Self {
-            X: self.X * rhs.X,
-            Y: self.Y * rhs.Y,
-            Z: self.Z * rhs.Z,
-        }
+        Self { X: self.X * rhs.X, Y: self.Y * rhs.Y, Z: self.Z * rhs.Z }
     }
     fn impl_mul_f32(&self, rhs: f32) -> Self {
-        Self {
-            X: self.X * rhs,
-            Y: self.Y * rhs,
-            Z: self.Z * rhs,
-        }
+        Self { X: self.X * rhs, Y: self.Y * rhs, Z: self.Z * rhs }
     }
 }
 impl ::std::ops::Add<Vector3> for Vector3 {
@@ -1065,12 +926,7 @@ impl ::std::default::Default for Vector4 {
 }
 impl ::std::fmt::Debug for Vector4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("Vector4")
-            .field("X", &self.X)
-            .field("Y", &self.Y)
-            .field("Z", &self.Z)
-            .field("W", &self.W)
-            .finish()
+        fmt.debug_struct("Vector4").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).field("W", &self.W).finish()
     }
 }
 impl ::std::cmp::PartialEq for Vector4 {
@@ -1084,61 +940,29 @@ unsafe impl ::windows::runtime::Abi for Vector4 {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Vector4 {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"struct(Windows.Foundation.Numerics.Vector4;f4;f4;f4;f4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"struct(Windows.Foundation.Numerics.Vector4;f4;f4;f4;f4)");
 }
 impl Vector4 {
     pub fn new(X: f32, Y: f32, Z: f32, W: f32) -> Self {
         Self { X, Y, Z, W }
     }
     pub fn zero() -> Self {
-        Self {
-            X: 0f32,
-            Y: 0f32,
-            Z: 0f32,
-            W: 0f32,
-        }
+        Self { X: 0f32, Y: 0f32, Z: 0f32, W: 0f32 }
     }
     pub fn one() -> Self {
-        Self {
-            X: 1f32,
-            Y: 1f32,
-            Z: 1f32,
-            W: 1f32,
-        }
+        Self { X: 1f32, Y: 1f32, Z: 1f32, W: 1f32 }
     }
     pub fn unit_x() -> Self {
-        Self {
-            X: 1.0,
-            Y: 0.0,
-            Z: 0.0,
-            W: 0.0,
-        }
+        Self { X: 1.0, Y: 0.0, Z: 0.0, W: 0.0 }
     }
     pub fn unit_y() -> Self {
-        Self {
-            X: 0.0,
-            Y: 1.0,
-            Z: 0.0,
-            W: 0.0,
-        }
+        Self { X: 0.0, Y: 1.0, Z: 0.0, W: 0.0 }
     }
     pub fn unit_z() -> Self {
-        Self {
-            X: 0.0,
-            Y: 0.0,
-            Z: 1.0,
-            W: 0.0,
-        }
+        Self { X: 0.0, Y: 0.0, Z: 1.0, W: 0.0 }
     }
     pub fn unit_w() -> Self {
-        Self {
-            X: 0.0,
-            Y: 0.0,
-            Z: 0.0,
-            W: 1.0,
-        }
+        Self { X: 0.0, Y: 0.0, Z: 0.0, W: 1.0 }
     }
     pub fn dot(&self, rhs: &Self) -> f32 {
         self.X * rhs.X + self.Y * rhs.Y + self.Z * rhs.Z + self.W * rhs.W
@@ -1159,52 +983,22 @@ impl Vector4 {
         self / self.length()
     }
     fn impl_add(&self, rhs: &Self) -> Self {
-        Self {
-            X: self.X + rhs.X,
-            Y: self.Y + rhs.Y,
-            Z: self.Z + rhs.Z,
-            W: self.W + rhs.W,
-        }
+        Self { X: self.X + rhs.X, Y: self.Y + rhs.Y, Z: self.Z + rhs.Z, W: self.W + rhs.W }
     }
     fn impl_sub(&self, rhs: &Self) -> Self {
-        Self {
-            X: self.X - rhs.X,
-            Y: self.Y - rhs.Y,
-            Z: self.Z - rhs.Z,
-            W: self.W - rhs.W,
-        }
+        Self { X: self.X - rhs.X, Y: self.Y - rhs.Y, Z: self.Z - rhs.Z, W: self.W - rhs.W }
     }
     fn impl_div(&self, rhs: &Self) -> Self {
-        Self {
-            X: self.X / rhs.X,
-            Y: self.Y / rhs.Y,
-            Z: self.Z / rhs.Z,
-            W: self.W / rhs.W,
-        }
+        Self { X: self.X / rhs.X, Y: self.Y / rhs.Y, Z: self.Z / rhs.Z, W: self.W / rhs.W }
     }
     fn impl_div_f32(&self, rhs: f32) -> Self {
-        Self {
-            X: self.X / rhs,
-            Y: self.Y / rhs,
-            Z: self.Z / rhs,
-            W: self.W / rhs,
-        }
+        Self { X: self.X / rhs, Y: self.Y / rhs, Z: self.Z / rhs, W: self.W / rhs }
     }
     fn impl_mul(&self, rhs: &Self) -> Self {
-        Self {
-            X: self.X * rhs.X,
-            Y: self.Y * rhs.Y,
-            Z: self.Z * rhs.Z,
-            W: self.W * rhs.W,
-        }
+        Self { X: self.X * rhs.X, Y: self.Y * rhs.Y, Z: self.Z * rhs.Z, W: self.W * rhs.W }
     }
     fn impl_mul_f32(&self, rhs: f32) -> Self {
-        Self {
-            X: self.X * rhs,
-            Y: self.Y * rhs,
-            Z: self.Z * rhs,
-            W: self.W * rhs,
-        }
+        Self { X: self.X * rhs, Y: self.Y * rhs, Z: self.Z * rhs, W: self.W * rhs }
     }
 }
 impl ::std::ops::Add<Vector4> for Vector4 {

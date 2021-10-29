@@ -1,10 +1,7 @@
 use super::*;
 
 pub fn gen_winrt_upcall(sig: &MethodSignature, inner: TokenStream, gen: &Gen) -> TokenStream {
-    let invoke_args = sig
-        .params
-        .iter()
-        .map(|param| gen_winrt_invoke_arg(param, gen));
+    let invoke_args = sig.params.iter().map(|param| gen_winrt_invoke_arg(param, gen));
 
     match &sig.return_sig {
         Some(return_sig) if return_sig.is_array => {
@@ -145,23 +142,10 @@ pub fn gen_winrt_params(params: &[MethodParam], gen: &Gen) -> TokenStream {
         .collect()
 }
 
-pub fn gen_winrt_method(
-    sig: &MethodSignature,
-    method: &MethodInfo,
-    interface: &InterfaceInfo,
-    gen: &Gen,
-) -> TokenStream {
-    let params =
-        if interface.kind == InterfaceKind::Composable || interface.kind == InterfaceKind::Extend {
-            &sig.params[..sig.params.len() - 2]
-        } else {
-            &sig.params
-        };
+pub fn gen_winrt_method(sig: &MethodSignature, method: &MethodInfo, interface: &InterfaceInfo, gen: &Gen) -> TokenStream {
+    let params = if interface.kind == InterfaceKind::Composable || interface.kind == InterfaceKind::Extend { &sig.params[..sig.params.len() - 2] } else { &sig.params };
 
-    let name = if (interface.kind == InterfaceKind::Composable
-        || interface.kind == InterfaceKind::Extend)
-        && sig.params.len() == 2
-    {
+    let name = if (interface.kind == InterfaceKind::Composable || interface.kind == InterfaceKind::Extend) && sig.params.len() == 2 {
         "new".into()
     } else if method.overload > 1 {
         format_token!("{}{}", &method.name, method.overload)
@@ -315,9 +299,7 @@ pub fn gen_winrt_abi_arg(param: &MethodParam) -> TokenStream {
         } else {
             quote! { ::std::mem::transmute(#name) }
         }
-    } else if param.signature.kind.is_blittable()
-        || (param.signature.pointers > 0 && !param.signature.kind.is_nullable())
-    {
+    } else if param.signature.kind.is_blittable() || (param.signature.pointers > 0 && !param.signature.kind.is_nullable()) {
         quote! { #name }
     } else {
         quote! { #name as *mut _ as _ }

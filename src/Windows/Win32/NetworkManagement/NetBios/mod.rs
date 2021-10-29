@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct ACTION_HEADER {
@@ -22,18 +14,12 @@ impl ::std::default::Default for ACTION_HEADER {
 }
 impl ::std::fmt::Debug for ACTION_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ACTION_HEADER")
-            .field("transport_id", &self.transport_id)
-            .field("action_code", &self.action_code)
-            .field("reserved", &self.reserved)
-            .finish()
+        fmt.debug_struct("ACTION_HEADER").field("transport_id", &self.transport_id).field("action_code", &self.action_code).field("reserved", &self.reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for ACTION_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.transport_id == other.transport_id
-            && self.action_code == other.action_code
-            && self.reserved == other.reserved
+        self.transport_id == other.transport_id && self.action_code == other.action_code && self.reserved == other.reserved
     }
 }
 impl ::std::cmp::Eq for ACTION_HEADER {}
@@ -170,24 +156,12 @@ impl ::std::default::Default for FIND_NAME_BUFFER {
 }
 impl ::std::fmt::Debug for FIND_NAME_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FIND_NAME_BUFFER")
-            .field("length", &self.length)
-            .field("access_control", &self.access_control)
-            .field("frame_control", &self.frame_control)
-            .field("destination_addr", &self.destination_addr)
-            .field("source_addr", &self.source_addr)
-            .field("routing_info", &self.routing_info)
-            .finish()
+        fmt.debug_struct("FIND_NAME_BUFFER").field("length", &self.length).field("access_control", &self.access_control).field("frame_control", &self.frame_control).field("destination_addr", &self.destination_addr).field("source_addr", &self.source_addr).field("routing_info", &self.routing_info).finish()
     }
 }
 impl ::std::cmp::PartialEq for FIND_NAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.length == other.length
-            && self.access_control == other.access_control
-            && self.frame_control == other.frame_control
-            && self.destination_addr == other.destination_addr
-            && self.source_addr == other.source_addr
-            && self.routing_info == other.routing_info
+        self.length == other.length && self.access_control == other.access_control && self.frame_control == other.frame_control && self.destination_addr == other.destination_addr && self.source_addr == other.source_addr && self.routing_info == other.routing_info
     }
 }
 impl ::std::cmp::Eq for FIND_NAME_BUFFER {}
@@ -210,18 +184,12 @@ impl ::std::default::Default for FIND_NAME_HEADER {
 }
 impl ::std::fmt::Debug for FIND_NAME_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FIND_NAME_HEADER")
-            .field("node_count", &self.node_count)
-            .field("reserved", &self.reserved)
-            .field("unique_group", &self.unique_group)
-            .finish()
+        fmt.debug_struct("FIND_NAME_HEADER").field("node_count", &self.node_count).field("reserved", &self.reserved).field("unique_group", &self.unique_group).finish()
     }
 }
 impl ::std::cmp::PartialEq for FIND_NAME_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.node_count == other.node_count
-            && self.reserved == other.reserved
-            && self.unique_group == other.unique_group
+        self.node_count == other.node_count && self.reserved == other.reserved && self.unique_group == other.unique_group
     }
 }
 impl ::std::cmp::Eq for FIND_NAME_HEADER {}
@@ -246,10 +214,7 @@ impl ::std::default::Default for LANA_ENUM {
 }
 impl ::std::fmt::Debug for LANA_ENUM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LANA_ENUM")
-            .field("length", &self.length)
-            .field("lana", &self.lana)
-            .finish()
+        fmt.debug_struct("LANA_ENUM").field("length", &self.length).field("lana", &self.lana).finish()
     }
 }
 impl ::std::cmp::PartialEq for LANA_ENUM {
@@ -279,18 +244,12 @@ impl ::std::default::Default for NAME_BUFFER {
 }
 impl ::std::fmt::Debug for NAME_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NAME_BUFFER")
-            .field("name", &self.name)
-            .field("name_num", &self.name_num)
-            .field("name_flags", &self.name_flags)
-            .finish()
+        fmt.debug_struct("NAME_BUFFER").field("name", &self.name).field("name_num", &self.name_num).field("name_flags", &self.name_flags).finish()
     }
 }
 impl ::std::cmp::PartialEq for NAME_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.name == other.name
-            && self.name_num == other.name_num
-            && self.name_flags == other.name_flags
+        self.name == other.name && self.name_num == other.name_num && self.name_flags == other.name_flags
     }
 }
 impl ::std::cmp::Eq for NAME_BUFFER {}
@@ -477,24 +436,12 @@ impl ::std::default::Default for SESSION_BUFFER {
 }
 impl ::std::fmt::Debug for SESSION_BUFFER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SESSION_BUFFER")
-            .field("lsn", &self.lsn)
-            .field("state", &self.state)
-            .field("local_name", &self.local_name)
-            .field("remote_name", &self.remote_name)
-            .field("rcvs_outstanding", &self.rcvs_outstanding)
-            .field("sends_outstanding", &self.sends_outstanding)
-            .finish()
+        fmt.debug_struct("SESSION_BUFFER").field("lsn", &self.lsn).field("state", &self.state).field("local_name", &self.local_name).field("remote_name", &self.remote_name).field("rcvs_outstanding", &self.rcvs_outstanding).field("sends_outstanding", &self.sends_outstanding).finish()
     }
 }
 impl ::std::cmp::PartialEq for SESSION_BUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.lsn == other.lsn
-            && self.state == other.state
-            && self.local_name == other.local_name
-            && self.remote_name == other.remote_name
-            && self.rcvs_outstanding == other.rcvs_outstanding
-            && self.sends_outstanding == other.sends_outstanding
+        self.lsn == other.lsn && self.state == other.state && self.local_name == other.local_name && self.remote_name == other.remote_name && self.rcvs_outstanding == other.rcvs_outstanding && self.sends_outstanding == other.sends_outstanding
     }
 }
 impl ::std::cmp::Eq for SESSION_BUFFER {}
@@ -519,20 +466,12 @@ impl ::std::default::Default for SESSION_HEADER {
 }
 impl ::std::fmt::Debug for SESSION_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SESSION_HEADER")
-            .field("sess_name", &self.sess_name)
-            .field("num_sess", &self.num_sess)
-            .field("rcv_dg_outstanding", &self.rcv_dg_outstanding)
-            .field("rcv_any_outstanding", &self.rcv_any_outstanding)
-            .finish()
+        fmt.debug_struct("SESSION_HEADER").field("sess_name", &self.sess_name).field("num_sess", &self.num_sess).field("rcv_dg_outstanding", &self.rcv_dg_outstanding).field("rcv_any_outstanding", &self.rcv_any_outstanding).finish()
     }
 }
 impl ::std::cmp::PartialEq for SESSION_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.sess_name == other.sess_name
-            && self.num_sess == other.num_sess
-            && self.rcv_dg_outstanding == other.rcv_dg_outstanding
-            && self.rcv_any_outstanding == other.rcv_any_outstanding
+        self.sess_name == other.sess_name && self.num_sess == other.num_sess && self.rcv_dg_outstanding == other.rcv_dg_outstanding && self.rcv_any_outstanding == other.rcv_any_outstanding
     }
 }
 impl ::std::cmp::Eq for SESSION_HEADER {}

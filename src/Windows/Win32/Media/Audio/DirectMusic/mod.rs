@@ -1,40 +1,18 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-pub const APOERR_ALREADY_INITIALIZED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073919i32 as _);
-pub const APOERR_ALREADY_UNLOCKED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073914i32 as _);
-pub const APOERR_APO_LOCKED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073910i32 as _);
-pub const APOERR_BUFFERS_OVERLAP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073915i32 as _);
-pub const APOERR_FORMAT_NOT_SUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073917i32 as _);
-pub const APOERR_INVALID_APO_CLSID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073916i32 as _);
-pub const APOERR_INVALID_COEFFCOUNT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073909i32 as _);
-pub const APOERR_INVALID_COEFFICIENT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073908i32 as _);
-pub const APOERR_INVALID_CONNECTION_FORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073911i32 as _);
-pub const APOERR_INVALID_CURVE_PARAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073907i32 as _);
-pub const APOERR_INVALID_INPUTID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073906i32 as _);
-pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073912i32 as _);
-pub const APOERR_NOT_INITIALIZED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073918i32 as _);
-pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2005073913i32 as _);
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+pub const APOERR_ALREADY_INITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073919i32 as _);
+pub const APOERR_ALREADY_UNLOCKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073914i32 as _);
+pub const APOERR_APO_LOCKED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073910i32 as _);
+pub const APOERR_BUFFERS_OVERLAP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073915i32 as _);
+pub const APOERR_FORMAT_NOT_SUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073917i32 as _);
+pub const APOERR_INVALID_APO_CLSID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073916i32 as _);
+pub const APOERR_INVALID_COEFFCOUNT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073909i32 as _);
+pub const APOERR_INVALID_COEFFICIENT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073908i32 as _);
+pub const APOERR_INVALID_CONNECTION_FORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073911i32 as _);
+pub const APOERR_INVALID_CURVE_PARAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073907i32 as _);
+pub const APOERR_INVALID_INPUTID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073906i32 as _);
+pub const APOERR_INVALID_OUTPUT_MAXFRAMECOUNT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073912i32 as _);
+pub const APOERR_NOT_INITIALIZED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073918i32 as _);
+pub const APOERR_NUM_CONNECTIONS_INVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2005073913i32 as _);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct APOInitBaseStruct {
@@ -49,10 +27,7 @@ impl ::std::default::Default for APOInitBaseStruct {
 }
 impl ::std::fmt::Debug for APOInitBaseStruct {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("APOInitBaseStruct")
-            .field("cbSize", &self.cbSize)
-            .field("clsid", &self.clsid)
-            .finish()
+        fmt.debug_struct("APOInitBaseStruct").field("cbSize", &self.cbSize).field("clsid", &self.clsid).finish()
     }
 }
 impl ::std::cmp::PartialEq for APOInitBaseStruct {
@@ -67,90 +42,54 @@ unsafe impl ::windows::runtime::Abi for APOInitBaseStruct {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 pub struct APOInitSystemEffects {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties:
-        ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
-    pub pAPOSystemEffectsProperties:
-        ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
+    pub pAPOEndpointProperties: ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
+    pub pAPOSystemEffectsProperties: ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
     pub pReserved: *mut ::std::ffi::c_void,
     pub pDeviceCollection: ::std::option::Option<super::CoreAudio::IMMDeviceCollection>,
 }
-#[cfg(all(
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 impl APOInitSystemEffects {}
-#[cfg(all(
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::default::Default for APOInitSystemEffects {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::fmt::Debug for APOInitSystemEffects {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("APOInitSystemEffects")
             .field("APOInit", &self.APOInit)
             .field("pAPOEndpointProperties", &self.pAPOEndpointProperties)
-            .field(
-                "pAPOSystemEffectsProperties",
-                &self.pAPOSystemEffectsProperties,
-            )
+            .field("pAPOSystemEffectsProperties", &self.pAPOSystemEffectsProperties)
             .field("pReserved", &self.pReserved)
             .field("pDeviceCollection", &self.pDeviceCollection)
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::cmp::PartialEq for APOInitSystemEffects {
     fn eq(&self, other: &Self) -> bool {
-        self.APOInit == other.APOInit
-            && self.pAPOEndpointProperties == other.pAPOEndpointProperties
-            && self.pAPOSystemEffectsProperties == other.pAPOSystemEffectsProperties
-            && self.pReserved == other.pReserved
-            && self.pDeviceCollection == other.pDeviceCollection
+        self.APOInit == other.APOInit && self.pAPOEndpointProperties == other.pAPOEndpointProperties && self.pAPOSystemEffectsProperties == other.pAPOSystemEffectsProperties && self.pReserved == other.pReserved && self.pDeviceCollection == other.pDeviceCollection
     }
 }
-#[cfg(all(
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::cmp::Eq for APOInitSystemEffects {}
-#[cfg(all(
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 unsafe impl ::windows::runtime::Abi for APOInitSystemEffects {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 pub struct APOInitSystemEffects2 {
     pub APOInit: APOInitBaseStruct,
-    pub pAPOEndpointProperties:
-        ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
-    pub pAPOSystemEffectsProperties:
-        ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
+    pub pAPOEndpointProperties: ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
+    pub pAPOSystemEffectsProperties: ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
     pub pReserved: *mut ::std::ffi::c_void,
     pub pDeviceCollection: ::std::option::Option<super::CoreAudio::IMMDeviceCollection>,
     pub nSoftwareIoDeviceInCollection: u32,
@@ -158,56 +97,31 @@ pub struct APOInitSystemEffects2 {
     pub AudioProcessingMode: ::windows::runtime::GUID,
     pub InitializeForDiscoveryOnly: super::super::super::Foundation::BOOL,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 impl APOInitSystemEffects2 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::default::Default for APOInitSystemEffects2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::fmt::Debug for APOInitSystemEffects2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("APOInitSystemEffects2")
             .field("APOInit", &self.APOInit)
             .field("pAPOEndpointProperties", &self.pAPOEndpointProperties)
-            .field(
-                "pAPOSystemEffectsProperties",
-                &self.pAPOSystemEffectsProperties,
-            )
+            .field("pAPOSystemEffectsProperties", &self.pAPOSystemEffectsProperties)
             .field("pReserved", &self.pReserved)
             .field("pDeviceCollection", &self.pDeviceCollection)
-            .field(
-                "nSoftwareIoDeviceInCollection",
-                &self.nSoftwareIoDeviceInCollection,
-            )
+            .field("nSoftwareIoDeviceInCollection", &self.nSoftwareIoDeviceInCollection)
             .field("nSoftwareIoConnectorIndex", &self.nSoftwareIoConnectorIndex)
             .field("AudioProcessingMode", &self.AudioProcessingMode)
-            .field(
-                "InitializeForDiscoveryOnly",
-                &self.InitializeForDiscoveryOnly,
-            )
+            .field("InitializeForDiscoveryOnly", &self.InitializeForDiscoveryOnly)
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::cmp::PartialEq for APOInitSystemEffects2 {
     fn eq(&self, other: &Self) -> bool {
         self.APOInit == other.APOInit
@@ -221,37 +135,19 @@ impl ::std::cmp::PartialEq for APOInitSystemEffects2 {
             && self.InitializeForDiscoveryOnly == other.InitializeForDiscoveryOnly
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::cmp::Eq for APOInitSystemEffects2 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Media_Audio_CoreAudio",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Audio_CoreAudio", feature = "Win32_System_PropertiesSystem"))]
 unsafe impl ::windows::runtime::Abi for APOInitSystemEffects2 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APO_CONNECTION_BUFFER_TYPE(pub i32);
-pub const APO_CONNECTION_BUFFER_TYPE_ALLOCATED: APO_CONNECTION_BUFFER_TYPE =
-    APO_CONNECTION_BUFFER_TYPE(0i32);
-pub const APO_CONNECTION_BUFFER_TYPE_EXTERNAL: APO_CONNECTION_BUFFER_TYPE =
-    APO_CONNECTION_BUFFER_TYPE(1i32);
-pub const APO_CONNECTION_BUFFER_TYPE_DEPENDANT: APO_CONNECTION_BUFFER_TYPE =
-    APO_CONNECTION_BUFFER_TYPE(2i32);
+pub const APO_CONNECTION_BUFFER_TYPE_ALLOCATED: APO_CONNECTION_BUFFER_TYPE = APO_CONNECTION_BUFFER_TYPE(0i32);
+pub const APO_CONNECTION_BUFFER_TYPE_EXTERNAL: APO_CONNECTION_BUFFER_TYPE = APO_CONNECTION_BUFFER_TYPE(1i32);
+pub const APO_CONNECTION_BUFFER_TYPE_DEPENDANT: APO_CONNECTION_BUFFER_TYPE = APO_CONNECTION_BUFFER_TYPE(2i32);
 impl ::std::convert::From<i32> for APO_CONNECTION_BUFFER_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -278,22 +174,12 @@ impl ::std::default::Default for APO_CONNECTION_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for APO_CONNECTION_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("APO_CONNECTION_DESCRIPTOR")
-            .field("Type", &self.Type)
-            .field("pBuffer", &self.pBuffer)
-            .field("u32MaxFrameCount", &self.u32MaxFrameCount)
-            .field("pFormat", &self.pFormat)
-            .field("u32Signature", &self.u32Signature)
-            .finish()
+        fmt.debug_struct("APO_CONNECTION_DESCRIPTOR").field("Type", &self.Type).field("pBuffer", &self.pBuffer).field("u32MaxFrameCount", &self.u32MaxFrameCount).field("pFormat", &self.pFormat).field("u32Signature", &self.u32Signature).finish()
     }
 }
 impl ::std::cmp::PartialEq for APO_CONNECTION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.pBuffer == other.pBuffer
-            && self.u32MaxFrameCount == other.u32MaxFrameCount
-            && self.pFormat == other.pFormat
-            && self.u32Signature == other.u32Signature
+        self.Type == other.Type && self.pBuffer == other.pBuffer && self.u32MaxFrameCount == other.u32MaxFrameCount && self.pFormat == other.pFormat && self.u32Signature == other.u32Signature
     }
 }
 impl ::std::cmp::Eq for APO_CONNECTION_DESCRIPTOR {}
@@ -301,14 +187,7 @@ unsafe impl ::windows::runtime::Abi for APO_CONNECTION_DESCRIPTOR {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct APO_FLAG(pub i32);
 pub const APO_FLAG_NONE: APO_FLAG = APO_FLAG(0i32);
@@ -394,14 +273,7 @@ unsafe impl ::windows::runtime::Abi for APO_REG_PROPERTIES {
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_DATA: u32 = 4u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_TYPES: u32 = 2u32;
 pub const AUDIOMEDIATYPE_EQUAL_FORMAT_USER_DATA: u32 = 8u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AUDIO_FLOW_TYPE(pub i32);
 pub const AUDIO_FLOW_PULL: AUDIO_FLOW_TYPE = AUDIO_FLOW_TYPE(0i32);
@@ -421,133 +293,49 @@ pub const AUDIO_MIN_CHANNELS: u32 = 1u32;
 pub const AUDIO_MIN_FRAMERATE: f64 = 10f64;
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 pub struct AudioFXExtensionParams {
     pub AddPageParam: super::super::super::Foundation::LPARAM,
     pub pwstrEndpointID: super::super::super::Foundation::PWSTR,
-    pub pFxProperties:
-        ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
+    pub pFxProperties: ::std::option::Option<super::super::super::System::PropertiesSystem::IPropertyStore>,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 impl AudioFXExtensionParams {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::default::Default for AudioFXExtensionParams {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::fmt::Debug for AudioFXExtensionParams {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("AudioFXExtensionParams")
-            .field("AddPageParam", &self.AddPageParam)
-            .field("pwstrEndpointID", &self.pwstrEndpointID)
-            .field("pFxProperties", &self.pFxProperties)
-            .finish()
+        fmt.debug_struct("AudioFXExtensionParams").field("AddPageParam", &self.AddPageParam).field("pwstrEndpointID", &self.pwstrEndpointID).field("pFxProperties", &self.pFxProperties).finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::cmp::PartialEq for AudioFXExtensionParams {
     fn eq(&self, other: &Self) -> bool {
-        self.AddPageParam == other.AddPageParam
-            && self.pwstrEndpointID == other.pwstrEndpointID
-            && self.pFxProperties == other.pFxProperties
+        self.AddPageParam == other.AddPageParam && self.pwstrEndpointID == other.pwstrEndpointID && self.pFxProperties == other.pFxProperties
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 impl ::std::cmp::Eq for AudioFXExtensionParams {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_PropertiesSystem"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_PropertiesSystem"))]
 unsafe impl ::windows::runtime::Abi for AudioFXExtensionParams {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-pub const CLSID_DirectMusic: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1667997456,
-    3197,
-    4561,
-    [149, 178, 0, 32, 175, 220, 116, 33],
-);
-pub const CLSID_DirectMusicCollection: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1209005232,
-        10418,
-        4561,
-        [190, 247, 0, 192, 79, 191, 143, 239],
-    );
-pub const CLSID_DirectMusicSynth: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1489155280,
-    18151,
-    4561,
-    [137, 172, 0, 160, 201, 5, 65, 41],
-);
-pub const CLSID_DirectMusicSynthSink: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2931916003,
-        42260,
-        4561,
-        [175, 166, 0, 170, 0, 36, 216, 182],
-    );
-pub const CLSID_DirectSound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1205131590,
-    25320,
-    4559,
-    [147, 188, 68, 69, 83, 84, 0, 0],
-);
-pub const CLSID_DirectSound8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    956419135,
-    33973,
-    20388,
-    [186, 53, 170, 129, 114, 184, 160, 155],
-);
-pub const CLSID_DirectSoundCapture: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2954954624,
-        35277,
-        4560,
-        [175, 8, 0, 160, 201, 37, 205, 22],
-    );
-pub const CLSID_DirectSoundCapture8: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3837570067,
-        32665,
-        18696,
-        [154, 142, 116, 227, 191, 36, 182, 225],
-    );
-pub const CLSID_DirectSoundFullDuplex: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4272173068,
-        31065,
-        16711,
-        [178, 106, 35, 119, 185, 231, 169, 29],
-    );
-pub const CLSID_DirectSoundPrivate: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        296435392,
-        9708,
-        4561,
-        [164, 216, 0, 192, 79, 194, 138, 202],
-    );
+pub const CLSID_DirectMusic: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1667997456, 3197, 4561, [149, 178, 0, 32, 175, 220, 116, 33]);
+pub const CLSID_DirectMusicCollection: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1209005232, 10418, 4561, [190, 247, 0, 192, 79, 191, 143, 239]);
+pub const CLSID_DirectMusicSynth: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1489155280, 18151, 4561, [137, 172, 0, 160, 201, 5, 65, 41]);
+pub const CLSID_DirectMusicSynthSink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2931916003, 42260, 4561, [175, 166, 0, 170, 0, 36, 216, 182]);
+pub const CLSID_DirectSound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1205131590, 25320, 4559, [147, 188, 68, 69, 83, 84, 0, 0]);
+pub const CLSID_DirectSound8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(956419135, 33973, 20388, [186, 53, 170, 129, 114, 184, 160, 155]);
+pub const CLSID_DirectSoundCapture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954954624, 35277, 4560, [175, 8, 0, 160, 201, 37, 205, 22]);
+pub const CLSID_DirectSoundCapture8: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3837570067, 32665, 18696, [154, 142, 116, 227, 191, 36, 182, 225]);
+pub const CLSID_DirectSoundFullDuplex: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4272173068, 31065, 16711, [178, 106, 35, 119, 185, 231, 169, 29]);
+pub const CLSID_DirectSoundPrivate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(296435392, 9708, 4561, [164, 216, 0, 192, 79, 194, 138, 202]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct CONNECTION {
@@ -565,22 +353,12 @@ impl ::std::default::Default for CONNECTION {
 }
 impl ::std::fmt::Debug for CONNECTION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CONNECTION")
-            .field("usSource", &self.usSource)
-            .field("usControl", &self.usControl)
-            .field("usDestination", &self.usDestination)
-            .field("usTransform", &self.usTransform)
-            .field("lScale", &self.lScale)
-            .finish()
+        fmt.debug_struct("CONNECTION").field("usSource", &self.usSource).field("usControl", &self.usControl).field("usDestination", &self.usDestination).field("usTransform", &self.usTransform).field("lScale", &self.lScale).finish()
     }
 }
 impl ::std::cmp::PartialEq for CONNECTION {
     fn eq(&self, other: &Self) -> bool {
-        self.usSource == other.usSource
-            && self.usControl == other.usControl
-            && self.usDestination == other.usDestination
-            && self.usTransform == other.usTransform
-            && self.lScale == other.lScale
+        self.usSource == other.usSource && self.usControl == other.usControl && self.usDestination == other.usDestination && self.usTransform == other.usTransform && self.lScale == other.lScale
     }
 }
 impl ::std::cmp::Eq for CONNECTION {}
@@ -602,10 +380,7 @@ impl ::std::default::Default for CONNECTIONLIST {
 }
 impl ::std::fmt::Debug for CONNECTIONLIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CONNECTIONLIST")
-            .field("cbSize", &self.cbSize)
-            .field("cConnections", &self.cConnections)
-            .finish()
+        fmt.debug_struct("CONNECTIONLIST").field("cbSize", &self.cbSize).field("cConnections", &self.cConnections).finish()
     }
 }
 impl ::std::cmp::PartialEq for CONNECTIONLIST {
@@ -693,20 +468,11 @@ pub const DAUD_HIGH_VOICE_PRIORITY: u32 = 3221225472u32;
 pub const DAUD_LOW_VOICE_PRIORITY: u32 = 1073741824u32;
 pub const DAUD_PERSIST_VOICE_PRIORITY: u32 = 268435456u32;
 pub const DAUD_STANDARD_VOICE_PRIORITY: u32 = 2147483648u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DIRECTSOUNDDEVICE_DATAFLOW(pub i32);
-pub const DIRECTSOUNDDEVICE_DATAFLOW_RENDER: DIRECTSOUNDDEVICE_DATAFLOW =
-    DIRECTSOUNDDEVICE_DATAFLOW(0i32);
-pub const DIRECTSOUNDDEVICE_DATAFLOW_CAPTURE: DIRECTSOUNDDEVICE_DATAFLOW =
-    DIRECTSOUNDDEVICE_DATAFLOW(1i32);
+pub const DIRECTSOUNDDEVICE_DATAFLOW_RENDER: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(0i32);
+pub const DIRECTSOUNDDEVICE_DATAFLOW_CAPTURE: DIRECTSOUNDDEVICE_DATAFLOW = DIRECTSOUNDDEVICE_DATAFLOW(1i32);
 impl ::std::convert::From<i32> for DIRECTSOUNDDEVICE_DATAFLOW {
     fn from(value: i32) -> Self {
         Self(value)
@@ -716,14 +482,7 @@ unsafe impl ::windows::runtime::Abi for DIRECTSOUNDDEVICE_DATAFLOW {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DIRECTSOUNDDEVICE_TYPE(pub i32);
 pub const DIRECTSOUNDDEVICE_TYPE_EMULATED: DIRECTSOUNDDEVICE_TYPE = DIRECTSOUNDDEVICE_TYPE(0i32);
@@ -752,9 +511,7 @@ impl ::std::default::Default for DLSHEADER {
 }
 impl ::std::fmt::Debug for DLSHEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DLSHEADER")
-            .field("cInstruments", &self.cInstruments)
-            .finish()
+        fmt.debug_struct("DLSHEADER").field("cInstruments", &self.cInstruments).finish()
     }
 }
 impl ::std::cmp::PartialEq for DLSHEADER {
@@ -783,20 +540,12 @@ impl ::std::default::Default for DLSID {
 }
 impl ::std::fmt::Debug for DLSID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DLSID")
-            .field("ulData1", &self.ulData1)
-            .field("usData2", &self.usData2)
-            .field("usData3", &self.usData3)
-            .field("abData4", &self.abData4)
-            .finish()
+        fmt.debug_struct("DLSID").field("ulData1", &self.ulData1).field("usData2", &self.usData2).field("usData3", &self.usData3).field("abData4", &self.abData4).finish()
     }
 }
 impl ::std::cmp::PartialEq for DLSID {
     fn eq(&self, other: &Self) -> bool {
-        self.ulData1 == other.ulData1
-            && self.usData2 == other.usData2
-            && self.usData3 == other.usData3
-            && self.abData4 == other.abData4
+        self.ulData1 == other.ulData1 && self.usData2 == other.usData2 && self.usData3 == other.usData3 && self.abData4 == other.abData4
     }
 }
 impl ::std::cmp::Eq for DLSID {}
@@ -804,61 +553,15 @@ unsafe impl ::windows::runtime::Abi for DLSID {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const DLSID_GMInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    395259684,
-    50020,
-    4561,
-    [167, 96, 0, 0, 248, 117, 172, 18],
-);
-pub const DLSID_GSInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    395259685,
-    50020,
-    4561,
-    [167, 96, 0, 0, 248, 117, 172, 18],
-);
-pub const DLSID_ManufacturersID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2956857729,
-    32917,
-    4562,
-    [161, 239, 0, 96, 8, 51, 219, 216],
-);
-pub const DLSID_ProductID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2956857730,
-    32917,
-    4562,
-    [161, 239, 0, 96, 8, 51, 219, 216],
-);
-pub const DLSID_SampleMemorySize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    395259688,
-    50020,
-    4561,
-    [167, 96, 0, 0, 248, 117, 172, 18],
-);
-pub const DLSID_SamplePlaybackRate: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        714209043,
-        42175,
-        4562,
-        [187, 223, 0, 96, 8, 51, 219, 216],
-    );
-pub const DLSID_SupportsDLS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    395259687,
-    50020,
-    4561,
-    [167, 96, 0, 0, 248, 117, 172, 18],
-);
-pub const DLSID_SupportsDLS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    4047870437,
-    18057,
-    4562,
-    [175, 166, 0, 170, 0, 36, 216, 182],
-);
-pub const DLSID_XGInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    395259686,
-    50020,
-    4561,
-    [167, 96, 0, 0, 248, 117, 172, 18],
-);
+pub const DLSID_GMInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259684, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
+pub const DLSID_GSInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259685, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
+pub const DLSID_ManufacturersID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2956857729, 32917, 4562, [161, 239, 0, 96, 8, 51, 219, 216]);
+pub const DLSID_ProductID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2956857730, 32917, 4562, [161, 239, 0, 96, 8, 51, 219, 216]);
+pub const DLSID_SampleMemorySize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259688, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
+pub const DLSID_SamplePlaybackRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(714209043, 42175, 4562, [187, 223, 0, 96, 8, 51, 219, 216]);
+pub const DLSID_SupportsDLS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259687, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
+pub const DLSID_SupportsDLS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4047870437, 18057, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
+pub const DLSID_XGInHardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259686, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct DLSVERSION {
@@ -873,10 +576,7 @@ impl ::std::default::Default for DLSVERSION {
 }
 impl ::std::fmt::Debug for DLSVERSION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DLSVERSION")
-            .field("dwVersionMS", &self.dwVersionMS)
-            .field("dwVersionLS", &self.dwVersionLS)
-            .finish()
+        fmt.debug_struct("DLSVERSION").field("dwVersionMS", &self.dwVersionMS).field("dwVersionLS", &self.dwVersionLS).finish()
     }
 }
 impl ::std::cmp::PartialEq for DLSVERSION {
@@ -923,20 +623,12 @@ impl ::std::default::Default for DMUS_ARTICPARAMS {
 }
 impl ::std::fmt::Debug for DMUS_ARTICPARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_ARTICPARAMS")
-            .field("LFO", &self.LFO)
-            .field("VolEG", &self.VolEG)
-            .field("PitchEG", &self.PitchEG)
-            .field("Misc", &self.Misc)
-            .finish()
+        fmt.debug_struct("DMUS_ARTICPARAMS").field("LFO", &self.LFO).field("VolEG", &self.VolEG).field("PitchEG", &self.PitchEG).field("Misc", &self.Misc).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_ARTICPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.LFO == other.LFO
-            && self.VolEG == other.VolEG
-            && self.PitchEG == other.PitchEG
-            && self.Misc == other.Misc
+        self.LFO == other.LFO && self.VolEG == other.VolEG && self.PitchEG == other.PitchEG && self.Misc == other.Misc
     }
 }
 impl ::std::cmp::Eq for DMUS_ARTICPARAMS {}
@@ -958,10 +650,7 @@ impl ::std::default::Default for DMUS_ARTICULATION {
 }
 impl ::std::fmt::Debug for DMUS_ARTICULATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_ARTICULATION")
-            .field("ulArt1Idx", &self.ulArt1Idx)
-            .field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx)
-            .finish()
+        fmt.debug_struct("DMUS_ARTICULATION").field("ulArt1Idx", &self.ulArt1Idx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_ARTICULATION {
@@ -989,18 +678,12 @@ impl ::std::default::Default for DMUS_ARTICULATION2 {
 }
 impl ::std::fmt::Debug for DMUS_ARTICULATION2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_ARTICULATION2")
-            .field("ulArtIdx", &self.ulArtIdx)
-            .field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx)
-            .field("ulNextArtIdx", &self.ulNextArtIdx)
-            .finish()
+        fmt.debug_struct("DMUS_ARTICULATION2").field("ulArtIdx", &self.ulArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulNextArtIdx", &self.ulNextArtIdx).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_ARTICULATION2 {
     fn eq(&self, other: &Self) -> bool {
-        self.ulArtIdx == other.ulArtIdx
-            && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx
-            && self.ulNextArtIdx == other.ulNextArtIdx
+        self.ulArtIdx == other.ulArtIdx && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx && self.ulNextArtIdx == other.ulNextArtIdx
     }
 }
 impl ::std::cmp::Eq for DMUS_ARTICULATION2 {}
@@ -1024,20 +707,12 @@ impl ::std::default::Default for DMUS_BUFFERDESC {
 }
 impl ::std::fmt::Debug for DMUS_BUFFERDESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_BUFFERDESC")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("guidBufferFormat", &self.guidBufferFormat)
-            .field("cbBuffer", &self.cbBuffer)
-            .finish()
+        fmt.debug_struct("DMUS_BUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidBufferFormat", &self.guidBufferFormat).field("cbBuffer", &self.cbBuffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_BUFFERDESC {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.guidBufferFormat == other.guidBufferFormat
-            && self.cbBuffer == other.cbBuffer
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidBufferFormat == other.guidBufferFormat && self.cbBuffer == other.cbBuffer
     }
 }
 impl ::std::cmp::Eq for DMUS_BUFFERDESC {}
@@ -1062,20 +737,12 @@ impl ::std::default::Default for DMUS_CLOCKINFO7 {
 }
 impl ::std::fmt::Debug for DMUS_CLOCKINFO7 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_CLOCKINFO7")
-            .field("dwSize", &self.dwSize)
-            .field("ctType", &self.ctType)
-            .field("guidClock", &self.guidClock)
-            .field("wszDescription", &self.wszDescription)
-            .finish()
+        fmt.debug_struct("DMUS_CLOCKINFO7").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_CLOCKINFO7 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.ctType == other.ctType
-            && self.guidClock == other.guidClock
-            && self.wszDescription == other.wszDescription
+        self.dwSize == other.dwSize && self.ctType == other.ctType && self.guidClock == other.guidClock && self.wszDescription == other.wszDescription
     }
 }
 impl ::std::cmp::Eq for DMUS_CLOCKINFO7 {}
@@ -1100,22 +767,12 @@ impl ::std::default::Default for DMUS_CLOCKINFO8 {
 }
 impl ::std::fmt::Debug for DMUS_CLOCKINFO8 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_CLOCKINFO8")
-            .field("dwSize", &self.dwSize)
-            .field("ctType", &self.ctType)
-            .field("guidClock", &self.guidClock)
-            .field("wszDescription", &self.wszDescription)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("DMUS_CLOCKINFO8").field("dwSize", &self.dwSize).field("ctType", &self.ctType).field("guidClock", &self.guidClock).field("wszDescription", &self.wszDescription).field("dwFlags", &self.dwFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_CLOCKINFO8 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.ctType == other.ctType
-            && self.guidClock == other.guidClock
-            && self.wszDescription == other.wszDescription
-            && self.dwFlags == other.dwFlags
+        self.dwSize == other.dwSize && self.ctType == other.ctType && self.guidClock == other.guidClock && self.wszDescription == other.wszDescription && self.dwFlags == other.dwFlags
     }
 }
 impl ::std::cmp::Eq for DMUS_CLOCKINFO8 {}
@@ -1123,14 +780,7 @@ unsafe impl ::windows::runtime::Abi for DMUS_CLOCKINFO8 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DMUS_CLOCKTYPE(pub i32);
 pub const DMUS_CLOCK_SYSTEM: DMUS_CLOCKTYPE = DMUS_CLOCKTYPE(0i32);
@@ -1158,10 +808,7 @@ impl ::std::default::Default for DMUS_COPYRIGHT {
 }
 impl ::std::fmt::Debug for DMUS_COPYRIGHT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_COPYRIGHT")
-            .field("cbSize", &self.cbSize)
-            .field("byCopyright", &self.byCopyright)
-            .finish()
+        fmt.debug_struct("DMUS_COPYRIGHT").field("cbSize", &self.cbSize).field("byCopyright", &self.byCopyright).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_COPYRIGHT {
@@ -1191,20 +838,12 @@ impl ::std::default::Default for DMUS_DOWNLOADINFO {
 }
 impl ::std::fmt::Debug for DMUS_DOWNLOADINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_DOWNLOADINFO")
-            .field("dwDLType", &self.dwDLType)
-            .field("dwDLId", &self.dwDLId)
-            .field("dwNumOffsetTableEntries", &self.dwNumOffsetTableEntries)
-            .field("cbSize", &self.cbSize)
-            .finish()
+        fmt.debug_struct("DMUS_DOWNLOADINFO").field("dwDLType", &self.dwDLType).field("dwDLId", &self.dwDLId).field("dwNumOffsetTableEntries", &self.dwNumOffsetTableEntries).field("cbSize", &self.cbSize).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_DOWNLOADINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.dwDLType == other.dwDLType
-            && self.dwDLId == other.dwDLId
-            && self.dwNumOffsetTableEntries == other.dwNumOffsetTableEntries
-            && self.cbSize == other.cbSize
+        self.dwDLType == other.dwDLType && self.dwDLId == other.dwDLId && self.dwNumOffsetTableEntries == other.dwNumOffsetTableEntries && self.cbSize == other.cbSize
     }
 }
 impl ::std::cmp::Eq for DMUS_DOWNLOADINFO {}
@@ -1263,20 +902,12 @@ impl ::std::default::Default for DMUS_EXTENSIONCHUNK {
 }
 impl ::std::fmt::Debug for DMUS_EXTENSIONCHUNK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_EXTENSIONCHUNK")
-            .field("cbSize", &self.cbSize)
-            .field("ulNextExtCkIdx", &self.ulNextExtCkIdx)
-            .field("ExtCkID", &self.ExtCkID)
-            .field("byExtCk", &self.byExtCk)
-            .finish()
+        fmt.debug_struct("DMUS_EXTENSIONCHUNK").field("cbSize", &self.cbSize).field("ulNextExtCkIdx", &self.ulNextExtCkIdx).field("ExtCkID", &self.ExtCkID).field("byExtCk", &self.byExtCk).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_EXTENSIONCHUNK {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.ulNextExtCkIdx == other.ulNextExtCkIdx
-            && self.ExtCkID == other.ExtCkID
-            && self.byExtCk == other.byExtCk
+        self.cbSize == other.cbSize && self.ulNextExtCkIdx == other.ulNextExtCkIdx && self.ExtCkID == other.ExtCkID && self.byExtCk == other.byExtCk
     }
 }
 impl ::std::cmp::Eq for DMUS_EXTENSIONCHUNK {}
@@ -1302,24 +933,12 @@ impl ::std::default::Default for DMUS_INSTRUMENT {
 }
 impl ::std::fmt::Debug for DMUS_INSTRUMENT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_INSTRUMENT")
-            .field("ulPatch", &self.ulPatch)
-            .field("ulFirstRegionIdx", &self.ulFirstRegionIdx)
-            .field("ulGlobalArtIdx", &self.ulGlobalArtIdx)
-            .field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx)
-            .field("ulCopyrightIdx", &self.ulCopyrightIdx)
-            .field("ulFlags", &self.ulFlags)
-            .finish()
+        fmt.debug_struct("DMUS_INSTRUMENT").field("ulPatch", &self.ulPatch).field("ulFirstRegionIdx", &self.ulFirstRegionIdx).field("ulGlobalArtIdx", &self.ulGlobalArtIdx).field("ulFirstExtCkIdx", &self.ulFirstExtCkIdx).field("ulCopyrightIdx", &self.ulCopyrightIdx).field("ulFlags", &self.ulFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_INSTRUMENT {
     fn eq(&self, other: &Self) -> bool {
-        self.ulPatch == other.ulPatch
-            && self.ulFirstRegionIdx == other.ulFirstRegionIdx
-            && self.ulGlobalArtIdx == other.ulGlobalArtIdx
-            && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx
-            && self.ulCopyrightIdx == other.ulCopyrightIdx
-            && self.ulFlags == other.ulFlags
+        self.ulPatch == other.ulPatch && self.ulFirstRegionIdx == other.ulFirstRegionIdx && self.ulGlobalArtIdx == other.ulGlobalArtIdx && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx && self.ulCopyrightIdx == other.ulCopyrightIdx && self.ulFlags == other.ulFlags
     }
 }
 impl ::std::cmp::Eq for DMUS_INSTRUMENT {}
@@ -1346,24 +965,12 @@ impl ::std::default::Default for DMUS_LFOPARAMS {
 }
 impl ::std::fmt::Debug for DMUS_LFOPARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_LFOPARAMS")
-            .field("pcFrequency", &self.pcFrequency)
-            .field("tcDelay", &self.tcDelay)
-            .field("gcVolumeScale", &self.gcVolumeScale)
-            .field("pcPitchScale", &self.pcPitchScale)
-            .field("gcMWToVolume", &self.gcMWToVolume)
-            .field("pcMWToPitch", &self.pcMWToPitch)
-            .finish()
+        fmt.debug_struct("DMUS_LFOPARAMS").field("pcFrequency", &self.pcFrequency).field("tcDelay", &self.tcDelay).field("gcVolumeScale", &self.gcVolumeScale).field("pcPitchScale", &self.pcPitchScale).field("gcMWToVolume", &self.gcMWToVolume).field("pcMWToPitch", &self.pcMWToPitch).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_LFOPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.pcFrequency == other.pcFrequency
-            && self.tcDelay == other.tcDelay
-            && self.gcVolumeScale == other.gcVolumeScale
-            && self.pcPitchScale == other.pcPitchScale
-            && self.gcMWToVolume == other.gcMWToVolume
-            && self.pcMWToPitch == other.pcMWToPitch
+        self.pcFrequency == other.pcFrequency && self.tcDelay == other.tcDelay && self.gcVolumeScale == other.gcVolumeScale && self.pcPitchScale == other.pcPitchScale && self.gcMWToVolume == other.gcMWToVolume && self.pcMWToPitch == other.pcMWToPitch
     }
 }
 impl ::std::cmp::Eq for DMUS_LFOPARAMS {}
@@ -1387,9 +994,7 @@ impl ::std::default::Default for DMUS_MSCPARAMS {
 }
 impl ::std::fmt::Debug for DMUS_MSCPARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_MSCPARAMS")
-            .field("ptDefaultPan", &self.ptDefaultPan)
-            .finish()
+        fmt.debug_struct("DMUS_MSCPARAMS").field("ptDefaultPan", &self.ptDefaultPan).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_MSCPARAMS {
@@ -1416,10 +1021,7 @@ impl ::std::default::Default for DMUS_NOTERANGE {
 }
 impl ::std::fmt::Debug for DMUS_NOTERANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_NOTERANGE")
-            .field("dwLowNote", &self.dwLowNote)
-            .field("dwHighNote", &self.dwHighNote)
-            .finish()
+        fmt.debug_struct("DMUS_NOTERANGE").field("dwLowNote", &self.dwLowNote).field("dwHighNote", &self.dwHighNote).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_NOTERANGE {
@@ -1445,9 +1047,7 @@ impl ::std::default::Default for DMUS_OFFSETTABLE {
 }
 impl ::std::fmt::Debug for DMUS_OFFSETTABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_OFFSETTABLE")
-            .field("ulOffsetTable", &self.ulOffsetTable)
-            .finish()
+        fmt.debug_struct("DMUS_OFFSETTABLE").field("ulOffsetTable", &self.ulOffsetTable).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_OFFSETTABLE {
@@ -1494,26 +1094,12 @@ impl ::std::default::Default for DMUS_PEGPARAMS {
 }
 impl ::std::fmt::Debug for DMUS_PEGPARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_PEGPARAMS")
-            .field("tcAttack", &self.tcAttack)
-            .field("tcDecay", &self.tcDecay)
-            .field("ptSustain", &self.ptSustain)
-            .field("tcRelease", &self.tcRelease)
-            .field("tcVel2Attack", &self.tcVel2Attack)
-            .field("tcKey2Decay", &self.tcKey2Decay)
-            .field("pcRange", &self.pcRange)
-            .finish()
+        fmt.debug_struct("DMUS_PEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).field("pcRange", &self.pcRange).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_PEGPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.tcAttack == other.tcAttack
-            && self.tcDecay == other.tcDecay
-            && self.ptSustain == other.ptSustain
-            && self.tcRelease == other.tcRelease
-            && self.tcVel2Attack == other.tcVel2Attack
-            && self.tcKey2Decay == other.tcKey2Decay
-            && self.pcRange == other.pcRange
+        self.tcAttack == other.tcAttack && self.tcDecay == other.tcDecay && self.ptSustain == other.ptSustain && self.tcRelease == other.tcRelease && self.tcVel2Attack == other.tcVel2Attack && self.tcKey2Decay == other.tcKey2Decay && self.pcRange == other.pcRange
     }
 }
 impl ::std::cmp::Eq for DMUS_PEGPARAMS {}
@@ -1561,17 +1147,7 @@ impl ::std::fmt::Debug for DMUS_PORTCAPS {
 }
 impl ::std::cmp::PartialEq for DMUS_PORTCAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.guidPort == other.guidPort
-            && self.dwClass == other.dwClass
-            && self.dwType == other.dwType
-            && self.dwMemorySize == other.dwMemorySize
-            && self.dwMaxChannelGroups == other.dwMaxChannelGroups
-            && self.dwMaxVoices == other.dwMaxVoices
-            && self.dwMaxAudioChannels == other.dwMaxAudioChannels
-            && self.dwEffectFlags == other.dwEffectFlags
-            && self.wszDescription == other.wszDescription
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidPort == other.guidPort && self.dwClass == other.dwClass && self.dwType == other.dwType && self.dwMemorySize == other.dwMemorySize && self.dwMaxChannelGroups == other.dwMaxChannelGroups && self.dwMaxVoices == other.dwMaxVoices && self.dwMaxAudioChannels == other.dwMaxAudioChannels && self.dwEffectFlags == other.dwEffectFlags && self.wszDescription == other.wszDescription
     }
 }
 impl ::std::cmp::Eq for DMUS_PORTCAPS {}
@@ -1620,15 +1196,7 @@ impl ::std::fmt::Debug for DMUS_PORTPARAMS8 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DMUS_PORTPARAMS8 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwValidParams == other.dwValidParams
-            && self.dwVoices == other.dwVoices
-            && self.dwChannelGroups == other.dwChannelGroups
-            && self.dwAudioChannels == other.dwAudioChannels
-            && self.dwSampleRate == other.dwSampleRate
-            && self.dwEffectFlags == other.dwEffectFlags
-            && self.fShare == other.fShare
-            && self.dwFeatures == other.dwFeatures
+        self.dwSize == other.dwSize && self.dwValidParams == other.dwValidParams && self.dwVoices == other.dwVoices && self.dwChannelGroups == other.dwChannelGroups && self.dwAudioChannels == other.dwAudioChannels && self.dwSampleRate == other.dwSampleRate && self.dwEffectFlags == other.dwEffectFlags && self.fShare == other.fShare && self.dwFeatures == other.dwFeatures
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1688,16 +1256,7 @@ impl ::std::fmt::Debug for DMUS_REGION {
 }
 impl ::std::cmp::PartialEq for DMUS_REGION {
     fn eq(&self, other: &Self) -> bool {
-        self.RangeKey == other.RangeKey
-            && self.RangeVelocity == other.RangeVelocity
-            && self.fusOptions == other.fusOptions
-            && self.usKeyGroup == other.usKeyGroup
-            && self.ulRegionArtIdx == other.ulRegionArtIdx
-            && self.ulNextRegionIdx == other.ulNextRegionIdx
-            && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx
-            && self.WaveLink == other.WaveLink
-            && self.WSMP == other.WSMP
-            && self.WLOOP == other.WLOOP
+        self.RangeKey == other.RangeKey && self.RangeVelocity == other.RangeVelocity && self.fusOptions == other.fusOptions && self.usKeyGroup == other.usKeyGroup && self.ulRegionArtIdx == other.ulRegionArtIdx && self.ulNextRegionIdx == other.ulNextRegionIdx && self.ulFirstExtCkIdx == other.ulFirstExtCkIdx && self.WaveLink == other.WaveLink && self.WSMP == other.WSMP && self.WLOOP == other.WLOOP
     }
 }
 impl ::std::cmp::Eq for DMUS_REGION {}
@@ -1739,14 +1298,7 @@ impl ::std::fmt::Debug for DMUS_SYNTHSTATS {
 }
 impl ::std::cmp::PartialEq for DMUS_SYNTHSTATS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwValidStats == other.dwValidStats
-            && self.dwVoices == other.dwVoices
-            && self.dwTotalCPU == other.dwTotalCPU
-            && self.dwCPUPerVoice == other.dwCPUPerVoice
-            && self.dwLostNotes == other.dwLostNotes
-            && self.dwFreeMemory == other.dwFreeMemory
-            && self.lPeakVolume == other.lPeakVolume
+        self.dwSize == other.dwSize && self.dwValidStats == other.dwValidStats && self.dwVoices == other.dwVoices && self.dwTotalCPU == other.dwTotalCPU && self.dwCPUPerVoice == other.dwCPUPerVoice && self.dwLostNotes == other.dwLostNotes && self.dwFreeMemory == other.dwFreeMemory && self.lPeakVolume == other.lPeakVolume
     }
 }
 impl ::std::cmp::Eq for DMUS_SYNTHSTATS {}
@@ -1790,15 +1342,7 @@ impl ::std::fmt::Debug for DMUS_SYNTHSTATS8 {
 }
 impl ::std::cmp::PartialEq for DMUS_SYNTHSTATS8 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwValidStats == other.dwValidStats
-            && self.dwVoices == other.dwVoices
-            && self.dwTotalCPU == other.dwTotalCPU
-            && self.dwCPUPerVoice == other.dwCPUPerVoice
-            && self.dwLostNotes == other.dwLostNotes
-            && self.dwFreeMemory == other.dwFreeMemory
-            && self.lPeakVolume == other.lPeakVolume
-            && self.dwSynthMemUse == other.dwSynthMemUse
+        self.dwSize == other.dwSize && self.dwValidStats == other.dwValidStats && self.dwVoices == other.dwVoices && self.dwTotalCPU == other.dwTotalCPU && self.dwCPUPerVoice == other.dwCPUPerVoice && self.dwLostNotes == other.dwLostNotes && self.dwFreeMemory == other.dwFreeMemory && self.lPeakVolume == other.lPeakVolume && self.dwSynthMemUse == other.dwSynthMemUse
     }
 }
 impl ::std::cmp::Eq for DMUS_SYNTHSTATS8 {}
@@ -1831,24 +1375,12 @@ impl ::std::default::Default for DMUS_VEGPARAMS {
 }
 impl ::std::fmt::Debug for DMUS_VEGPARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_VEGPARAMS")
-            .field("tcAttack", &self.tcAttack)
-            .field("tcDecay", &self.tcDecay)
-            .field("ptSustain", &self.ptSustain)
-            .field("tcRelease", &self.tcRelease)
-            .field("tcVel2Attack", &self.tcVel2Attack)
-            .field("tcKey2Decay", &self.tcKey2Decay)
-            .finish()
+        fmt.debug_struct("DMUS_VEGPARAMS").field("tcAttack", &self.tcAttack).field("tcDecay", &self.tcDecay).field("ptSustain", &self.ptSustain).field("tcRelease", &self.tcRelease).field("tcVel2Attack", &self.tcVel2Attack).field("tcKey2Decay", &self.tcKey2Decay).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_VEGPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.tcAttack == other.tcAttack
-            && self.tcDecay == other.tcDecay
-            && self.ptSustain == other.ptSustain
-            && self.tcRelease == other.tcRelease
-            && self.tcVel2Attack == other.tcVel2Attack
-            && self.tcKey2Decay == other.tcKey2Decay
+        self.tcAttack == other.tcAttack && self.tcDecay == other.tcDecay && self.ptSustain == other.ptSustain && self.tcRelease == other.tcRelease && self.tcVel2Attack == other.tcVel2Attack && self.tcKey2Decay == other.tcKey2Decay
     }
 }
 impl ::std::cmp::Eq for DMUS_VEGPARAMS {}
@@ -1874,10 +1406,7 @@ impl ::std::default::Default for DMUS_VOICE_STATE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DMUS_VOICE_STATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_VOICE_STATE")
-            .field("bExists", &self.bExists)
-            .field("spPosition", &self.spPosition)
-            .finish()
+        fmt.debug_struct("DMUS_VOICE_STATE").field("bExists", &self.bExists).field("spPosition", &self.spPosition).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1942,22 +1471,12 @@ impl ::std::default::Default for DMUS_WAVEARTDL {
 }
 impl ::std::fmt::Debug for DMUS_WAVEARTDL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_WAVEARTDL")
-            .field("ulDownloadIdIdx", &self.ulDownloadIdIdx)
-            .field("ulBus", &self.ulBus)
-            .field("ulBuffers", &self.ulBuffers)
-            .field("ulMasterDLId", &self.ulMasterDLId)
-            .field("usOptions", &self.usOptions)
-            .finish()
+        fmt.debug_struct("DMUS_WAVEARTDL").field("ulDownloadIdIdx", &self.ulDownloadIdIdx).field("ulBus", &self.ulBus).field("ulBuffers", &self.ulBuffers).field("ulMasterDLId", &self.ulMasterDLId).field("usOptions", &self.usOptions).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_WAVEARTDL {
     fn eq(&self, other: &Self) -> bool {
-        self.ulDownloadIdIdx == other.ulDownloadIdIdx
-            && self.ulBus == other.ulBus
-            && self.ulBuffers == other.ulBuffers
-            && self.ulMasterDLId == other.ulMasterDLId
-            && self.usOptions == other.usOptions
+        self.ulDownloadIdIdx == other.ulDownloadIdIdx && self.ulBus == other.ulBus && self.ulBuffers == other.ulBuffers && self.ulMasterDLId == other.ulMasterDLId && self.usOptions == other.usOptions
     }
 }
 impl ::std::cmp::Eq for DMUS_WAVEARTDL {}
@@ -1979,10 +1498,7 @@ impl ::std::default::Default for DMUS_WAVEDATA {
 }
 impl ::std::fmt::Debug for DMUS_WAVEDATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_WAVEDATA")
-            .field("cbSize", &self.cbSize)
-            .field("byData", &self.byData)
-            .finish()
+        fmt.debug_struct("DMUS_WAVEDATA").field("cbSize", &self.cbSize).field("byData", &self.byData).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_WAVEDATA {
@@ -2008,9 +1524,7 @@ impl ::std::default::Default for DMUS_WAVEDL {
 }
 impl ::std::fmt::Debug for DMUS_WAVEDL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_WAVEDL")
-            .field("cbWaveData", &self.cbWaveData)
-            .finish()
+        fmt.debug_struct("DMUS_WAVEDL").field("cbWaveData", &self.cbWaveData).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_WAVEDL {
@@ -2039,20 +1553,12 @@ impl ::std::default::Default for DMUS_WAVES_REVERB_PARAMS {
 }
 impl ::std::fmt::Debug for DMUS_WAVES_REVERB_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DMUS_WAVES_REVERB_PARAMS")
-            .field("fInGain", &self.fInGain)
-            .field("fReverbMix", &self.fReverbMix)
-            .field("fReverbTime", &self.fReverbTime)
-            .field("fHighFreqRTRatio", &self.fHighFreqRTRatio)
-            .finish()
+        fmt.debug_struct("DMUS_WAVES_REVERB_PARAMS").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
     }
 }
 impl ::std::cmp::PartialEq for DMUS_WAVES_REVERB_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.fInGain == other.fInGain
-            && self.fReverbMix == other.fReverbMix
-            && self.fReverbTime == other.fReverbTime
-            && self.fHighFreqRTRatio == other.fHighFreqRTRatio
+        self.fInGain == other.fInGain && self.fReverbMix == other.fReverbMix && self.fReverbTime == other.fReverbTime && self.fHighFreqRTRatio == other.fHighFreqRTRatio
     }
 }
 impl ::std::cmp::Eq for DMUS_WAVES_REVERB_PARAMS {}
@@ -2060,25 +1566,9 @@ unsafe impl ::windows::runtime::Abi for DMUS_WAVES_REVERB_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const DS3DALG_HRTF_FULL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3259052864,
-    7195,
-    4562,
-    [148, 245, 0, 192, 79, 194, 138, 202],
-);
-pub const DS3DALG_HRTF_LIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3259052866,
-    7195,
-    4562,
-    [148, 245, 0, 192, 79, 194, 138, 202],
-);
-pub const DS3DALG_NO_VIRTUALIZATION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3259052863,
-        7195,
-        4562,
-        [148, 245, 0, 192, 79, 194, 138, 202],
-    );
+pub const DS3DALG_HRTF_FULL: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259052864, 7195, 4562, [148, 245, 0, 192, 79, 194, 138, 202]);
+pub const DS3DALG_HRTF_LIGHT: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259052866, 7195, 4562, [148, 245, 0, 192, 79, 194, 138, 202]);
+pub const DS3DALG_NO_VIRTUALIZATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3259052863, 7195, 4562, [148, 245, 0, 192, 79, 194, 138, 202]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -2122,16 +1612,7 @@ impl ::std::fmt::Debug for DS3DBUFFER {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for DS3DBUFFER {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.vPosition == other.vPosition
-            && self.vVelocity == other.vVelocity
-            && self.dwInsideConeAngle == other.dwInsideConeAngle
-            && self.dwOutsideConeAngle == other.dwOutsideConeAngle
-            && self.vConeOrientation == other.vConeOrientation
-            && self.lConeOutsideVolume == other.lConeOutsideVolume
-            && self.flMinDistance == other.flMinDistance
-            && self.flMaxDistance == other.flMaxDistance
-            && self.dwMode == other.dwMode
+        self.dwSize == other.dwSize && self.vPosition == other.vPosition && self.vVelocity == other.vVelocity && self.dwInsideConeAngle == other.dwInsideConeAngle && self.dwOutsideConeAngle == other.dwOutsideConeAngle && self.vConeOrientation == other.vConeOrientation && self.lConeOutsideVolume == other.lConeOutsideVolume && self.flMinDistance == other.flMinDistance && self.flMaxDistance == other.flMaxDistance && self.dwMode == other.dwMode
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -2180,14 +1661,7 @@ impl ::std::fmt::Debug for DS3DLISTENER {
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 impl ::std::cmp::PartialEq for DS3DLISTENER {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.vPosition == other.vPosition
-            && self.vVelocity == other.vVelocity
-            && self.vOrientFront == other.vOrientFront
-            && self.vOrientTop == other.vOrientTop
-            && self.flDistanceFactor == other.flDistanceFactor
-            && self.flRolloffFactor == other.flRolloffFactor
-            && self.flDopplerFactor == other.flDopplerFactor
+        self.dwSize == other.dwSize && self.vPosition == other.vPosition && self.vVelocity == other.vVelocity && self.vOrientFront == other.vOrientFront && self.vOrientTop == other.vOrientTop && self.flDistanceFactor == other.flDistanceFactor && self.flRolloffFactor == other.flRolloffFactor && self.flDopplerFactor == other.flDopplerFactor
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -2232,22 +1706,12 @@ impl ::std::default::Default for DSBCAPS {
 }
 impl ::std::fmt::Debug for DSBCAPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSBCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwBufferBytes", &self.dwBufferBytes)
-            .field("dwUnlockTransferRate", &self.dwUnlockTransferRate)
-            .field("dwPlayCpuOverhead", &self.dwPlayCpuOverhead)
-            .finish()
+        fmt.debug_struct("DSBCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwUnlockTransferRate", &self.dwUnlockTransferRate).field("dwPlayCpuOverhead", &self.dwPlayCpuOverhead).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSBCAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwBufferBytes == other.dwBufferBytes
-            && self.dwUnlockTransferRate == other.dwUnlockTransferRate
-            && self.dwPlayCpuOverhead == other.dwPlayCpuOverhead
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwUnlockTransferRate == other.dwUnlockTransferRate && self.dwPlayCpuOverhead == other.dwPlayCpuOverhead
     }
 }
 impl ::std::cmp::Eq for DSBCAPS {}
@@ -2305,10 +1769,7 @@ impl ::std::default::Default for DSBPOSITIONNOTIFY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DSBPOSITIONNOTIFY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSBPOSITIONNOTIFY")
-            .field("dwOffset", &self.dwOffset)
-            .field("hEventNotify", &self.hEventNotify)
-            .finish()
+        fmt.debug_struct("DSBPOSITIONNOTIFY").field("dwOffset", &self.dwOffset).field("hEventNotify", &self.hEventNotify).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2355,25 +1816,13 @@ impl ::std::default::Default for DSBUFFERDESC {
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl ::std::fmt::Debug for DSBUFFERDESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSBUFFERDESC")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwBufferBytes", &self.dwBufferBytes)
-            .field("dwReserved", &self.dwReserved)
-            .field("lpwfxFormat", &self.lpwfxFormat)
-            .field("guid3DAlgorithm", &self.guid3DAlgorithm)
-            .finish()
+        fmt.debug_struct("DSBUFFERDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).field("guid3DAlgorithm", &self.guid3DAlgorithm).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl ::std::cmp::PartialEq for DSBUFFERDESC {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwBufferBytes == other.dwBufferBytes
-            && self.dwReserved == other.dwReserved
-            && self.lpwfxFormat == other.lpwfxFormat
-            && self.guid3DAlgorithm == other.guid3DAlgorithm
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved && self.lpwfxFormat == other.lpwfxFormat && self.guid3DAlgorithm == other.guid3DAlgorithm
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
@@ -2404,23 +1853,13 @@ impl ::std::default::Default for DSBUFFERDESC1 {
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl ::std::fmt::Debug for DSBUFFERDESC1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSBUFFERDESC1")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwBufferBytes", &self.dwBufferBytes)
-            .field("dwReserved", &self.dwReserved)
-            .field("lpwfxFormat", &self.lpwfxFormat)
-            .finish()
+        fmt.debug_struct("DSBUFFERDESC1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl ::std::cmp::PartialEq for DSBUFFERDESC1 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwBufferBytes == other.dwBufferBytes
-            && self.dwReserved == other.dwReserved
-            && self.lpwfxFormat == other.lpwfxFormat
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved && self.lpwfxFormat == other.lpwfxFormat
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
@@ -2501,43 +1940,22 @@ impl ::std::fmt::Debug for DSCAPS {
             .field("dwMaxSecondarySampleRate", &self.dwMaxSecondarySampleRate)
             .field("dwPrimaryBuffers", &self.dwPrimaryBuffers)
             .field("dwMaxHwMixingAllBuffers", &self.dwMaxHwMixingAllBuffers)
-            .field(
-                "dwMaxHwMixingStaticBuffers",
-                &self.dwMaxHwMixingStaticBuffers,
-            )
-            .field(
-                "dwMaxHwMixingStreamingBuffers",
-                &self.dwMaxHwMixingStreamingBuffers,
-            )
+            .field("dwMaxHwMixingStaticBuffers", &self.dwMaxHwMixingStaticBuffers)
+            .field("dwMaxHwMixingStreamingBuffers", &self.dwMaxHwMixingStreamingBuffers)
             .field("dwFreeHwMixingAllBuffers", &self.dwFreeHwMixingAllBuffers)
-            .field(
-                "dwFreeHwMixingStaticBuffers",
-                &self.dwFreeHwMixingStaticBuffers,
-            )
-            .field(
-                "dwFreeHwMixingStreamingBuffers",
-                &self.dwFreeHwMixingStreamingBuffers,
-            )
+            .field("dwFreeHwMixingStaticBuffers", &self.dwFreeHwMixingStaticBuffers)
+            .field("dwFreeHwMixingStreamingBuffers", &self.dwFreeHwMixingStreamingBuffers)
             .field("dwMaxHw3DAllBuffers", &self.dwMaxHw3DAllBuffers)
             .field("dwMaxHw3DStaticBuffers", &self.dwMaxHw3DStaticBuffers)
             .field("dwMaxHw3DStreamingBuffers", &self.dwMaxHw3DStreamingBuffers)
             .field("dwFreeHw3DAllBuffers", &self.dwFreeHw3DAllBuffers)
             .field("dwFreeHw3DStaticBuffers", &self.dwFreeHw3DStaticBuffers)
-            .field(
-                "dwFreeHw3DStreamingBuffers",
-                &self.dwFreeHw3DStreamingBuffers,
-            )
+            .field("dwFreeHw3DStreamingBuffers", &self.dwFreeHw3DStreamingBuffers)
             .field("dwTotalHwMemBytes", &self.dwTotalHwMemBytes)
             .field("dwFreeHwMemBytes", &self.dwFreeHwMemBytes)
             .field("dwMaxContigFreeHwMemBytes", &self.dwMaxContigFreeHwMemBytes)
-            .field(
-                "dwUnlockTransferRateHwBuffers",
-                &self.dwUnlockTransferRateHwBuffers,
-            )
-            .field(
-                "dwPlayCpuOverheadSwBuffers",
-                &self.dwPlayCpuOverheadSwBuffers,
-            )
+            .field("dwUnlockTransferRateHwBuffers", &self.dwUnlockTransferRateHwBuffers)
+            .field("dwPlayCpuOverheadSwBuffers", &self.dwPlayCpuOverheadSwBuffers)
             .field("dwReserved1", &self.dwReserved1)
             .field("dwReserved2", &self.dwReserved2)
             .finish()
@@ -2603,20 +2021,12 @@ impl ::std::default::Default for DSCBCAPS {
 }
 impl ::std::fmt::Debug for DSCBCAPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSCBCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwBufferBytes", &self.dwBufferBytes)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("DSCBCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSCBCAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwBufferBytes == other.dwBufferBytes
-            && self.dwReserved == other.dwReserved
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved
     }
 }
 impl ::std::cmp::Eq for DSCBCAPS {}
@@ -2667,13 +2077,7 @@ impl ::std::fmt::Debug for DSCBUFFERDESC {
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl ::std::cmp::PartialEq for DSCBUFFERDESC {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwBufferBytes == other.dwBufferBytes
-            && self.dwReserved == other.dwReserved
-            && self.lpwfxFormat == other.lpwfxFormat
-            && self.dwFXCount == other.dwFXCount
-            && self.lpDSCFXDesc == other.lpDSCFXDesc
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved && self.lpwfxFormat == other.lpwfxFormat && self.dwFXCount == other.dwFXCount && self.lpDSCFXDesc == other.lpDSCFXDesc
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
@@ -2704,23 +2108,13 @@ impl ::std::default::Default for DSCBUFFERDESC1 {
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl ::std::fmt::Debug for DSCBUFFERDESC1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSCBUFFERDESC1")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwBufferBytes", &self.dwBufferBytes)
-            .field("dwReserved", &self.dwReserved)
-            .field("lpwfxFormat", &self.lpwfxFormat)
-            .finish()
+        fmt.debug_struct("DSCBUFFERDESC1").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwBufferBytes", &self.dwBufferBytes).field("dwReserved", &self.dwReserved).field("lpwfxFormat", &self.lpwfxFormat).finish()
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
 impl ::std::cmp::PartialEq for DSCBUFFERDESC1 {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwBufferBytes == other.dwBufferBytes
-            && self.dwReserved == other.dwReserved
-            && self.lpwfxFormat == other.lpwfxFormat
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwBufferBytes == other.dwBufferBytes && self.dwReserved == other.dwReserved && self.lpwfxFormat == other.lpwfxFormat
     }
 }
 #[cfg(feature = "Win32_Media_Multimedia")]
@@ -2746,20 +2140,12 @@ impl ::std::default::Default for DSCCAPS {
 }
 impl ::std::fmt::Debug for DSCCAPS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSCCAPS")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("dwFormats", &self.dwFormats)
-            .field("dwChannels", &self.dwChannels)
-            .finish()
+        fmt.debug_struct("DSCCAPS").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("dwFormats", &self.dwFormats).field("dwChannels", &self.dwChannels).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSCCAPS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.dwFormats == other.dwFormats
-            && self.dwChannels == other.dwChannels
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.dwFormats == other.dwFormats && self.dwChannels == other.dwChannels
     }
 }
 impl ::std::cmp::Eq for DSCCAPS {}
@@ -2788,24 +2174,12 @@ impl ::std::default::Default for DSCEFFECTDESC {
 }
 impl ::std::fmt::Debug for DSCEFFECTDESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSCEFFECTDESC")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("guidDSCFXClass", &self.guidDSCFXClass)
-            .field("guidDSCFXInstance", &self.guidDSCFXInstance)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .finish()
+        fmt.debug_struct("DSCEFFECTDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidDSCFXClass", &self.guidDSCFXClass).field("guidDSCFXInstance", &self.guidDSCFXInstance).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSCEFFECTDESC {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.guidDSCFXClass == other.guidDSCFXClass
-            && self.guidDSCFXInstance == other.guidDSCFXInstance
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidDSCFXClass == other.guidDSCFXClass && self.guidDSCFXInstance == other.guidDSCFXInstance && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 impl ::std::cmp::Eq for DSCEFFECTDESC {}
@@ -2832,19 +2206,13 @@ impl ::std::default::Default for DSCFXAec {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DSCFXAec {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSCFXAec")
-            .field("fEnable", &self.fEnable)
-            .field("fNoiseFill", &self.fNoiseFill)
-            .field("dwMode", &self.dwMode)
-            .finish()
+        fmt.debug_struct("DSCFXAec").field("fEnable", &self.fEnable).field("fNoiseFill", &self.fNoiseFill).field("dwMode", &self.dwMode).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DSCFXAec {
     fn eq(&self, other: &Self) -> bool {
-        self.fEnable == other.fEnable
-            && self.fNoiseFill == other.fNoiseFill
-            && self.dwMode == other.dwMode
+        self.fEnable == other.fEnable && self.fNoiseFill == other.fNoiseFill && self.dwMode == other.dwMode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2871,9 +2239,7 @@ impl ::std::default::Default for DSCFXNoiseSuppress {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DSCFXNoiseSuppress {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSCFXNoiseSuppress")
-            .field("fEnable", &self.fEnable)
-            .finish()
+        fmt.debug_struct("DSCFXNoiseSuppress").field("fEnable", &self.fEnable).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2900,32 +2266,10 @@ pub const DSCFX_AEC_STATUS_HISTORY_PREVIOUSLY_DIVERGED: u32 = 2u32;
 pub const DSCFX_AEC_STATUS_HISTORY_UNINITIALIZED: u32 = 0u32;
 pub const DSCFX_LOCHARDWARE: u32 = 1u32;
 pub const DSCFX_LOCSOFTWARE: u32 = 2u32;
-pub const DSDEVID_DefaultCapture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3740270593,
-    40045,
-    18413,
-    [170, 241, 77, 218, 143, 43, 92, 3],
-);
-pub const DSDEVID_DefaultPlayback: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3740270592,
-    40045,
-    18413,
-    [170, 241, 77, 218, 143, 43, 92, 3],
-);
-pub const DSDEVID_DefaultVoiceCapture: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3740270595,
-        40045,
-        18413,
-        [170, 241, 77, 218, 143, 43, 92, 3],
-    );
-pub const DSDEVID_DefaultVoicePlayback: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3740270594,
-        40045,
-        18413,
-        [170, 241, 77, 218, 143, 43, 92, 3],
-    );
+pub const DSDEVID_DefaultCapture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740270593, 40045, 18413, [170, 241, 77, 218, 143, 43, 92, 3]);
+pub const DSDEVID_DefaultPlayback: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740270592, 40045, 18413, [170, 241, 77, 218, 143, 43, 92, 3]);
+pub const DSDEVID_DefaultVoiceCapture: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740270595, 40045, 18413, [170, 241, 77, 218, 143, 43, 92, 3]);
+pub const DSDEVID_DefaultVoicePlayback: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3740270594, 40045, 18413, [170, 241, 77, 218, 143, 43, 92, 3]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct DSEFFECTDESC {
@@ -2943,22 +2287,12 @@ impl ::std::default::Default for DSEFFECTDESC {
 }
 impl ::std::fmt::Debug for DSEFFECTDESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSEFFECTDESC")
-            .field("dwSize", &self.dwSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("guidDSFXClass", &self.guidDSFXClass)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwReserved2", &self.dwReserved2)
-            .finish()
+        fmt.debug_struct("DSEFFECTDESC").field("dwSize", &self.dwSize).field("dwFlags", &self.dwFlags).field("guidDSFXClass", &self.guidDSFXClass).field("dwReserved1", &self.dwReserved1).field("dwReserved2", &self.dwReserved2).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSEFFECTDESC {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwFlags == other.dwFlags
-            && self.guidDSFXClass == other.guidDSFXClass
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwReserved2 == other.dwReserved2
+        self.dwSize == other.dwSize && self.dwFlags == other.dwFlags && self.guidDSFXClass == other.guidDSFXClass && self.dwReserved1 == other.dwReserved1 && self.dwReserved2 == other.dwReserved2
     }
 }
 impl ::std::cmp::Eq for DSEFFECTDESC {}
@@ -3016,26 +2350,12 @@ impl ::std::default::Default for DSFXChorus {
 }
 impl ::std::fmt::Debug for DSFXChorus {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSFXChorus")
-            .field("fWetDryMix", &self.fWetDryMix)
-            .field("fDepth", &self.fDepth)
-            .field("fFeedback", &self.fFeedback)
-            .field("fFrequency", &self.fFrequency)
-            .field("lWaveform", &self.lWaveform)
-            .field("fDelay", &self.fDelay)
-            .field("lPhase", &self.lPhase)
-            .finish()
+        fmt.debug_struct("DSFXChorus").field("fWetDryMix", &self.fWetDryMix).field("fDepth", &self.fDepth).field("fFeedback", &self.fFeedback).field("fFrequency", &self.fFrequency).field("lWaveform", &self.lWaveform).field("fDelay", &self.fDelay).field("lPhase", &self.lPhase).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSFXChorus {
     fn eq(&self, other: &Self) -> bool {
-        self.fWetDryMix == other.fWetDryMix
-            && self.fDepth == other.fDepth
-            && self.fFeedback == other.fFeedback
-            && self.fFrequency == other.fFrequency
-            && self.lWaveform == other.lWaveform
-            && self.fDelay == other.fDelay
-            && self.lPhase == other.lPhase
+        self.fWetDryMix == other.fWetDryMix && self.fDepth == other.fDepth && self.fFeedback == other.fFeedback && self.fFrequency == other.fFrequency && self.lWaveform == other.lWaveform && self.fDelay == other.fDelay && self.lPhase == other.lPhase
     }
 }
 impl ::std::cmp::Eq for DSFXChorus {}
@@ -3061,24 +2381,12 @@ impl ::std::default::Default for DSFXCompressor {
 }
 impl ::std::fmt::Debug for DSFXCompressor {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSFXCompressor")
-            .field("fGain", &self.fGain)
-            .field("fAttack", &self.fAttack)
-            .field("fRelease", &self.fRelease)
-            .field("fThreshold", &self.fThreshold)
-            .field("fRatio", &self.fRatio)
-            .field("fPredelay", &self.fPredelay)
-            .finish()
+        fmt.debug_struct("DSFXCompressor").field("fGain", &self.fGain).field("fAttack", &self.fAttack).field("fRelease", &self.fRelease).field("fThreshold", &self.fThreshold).field("fRatio", &self.fRatio).field("fPredelay", &self.fPredelay).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSFXCompressor {
     fn eq(&self, other: &Self) -> bool {
-        self.fGain == other.fGain
-            && self.fAttack == other.fAttack
-            && self.fRelease == other.fRelease
-            && self.fThreshold == other.fThreshold
-            && self.fRatio == other.fRatio
-            && self.fPredelay == other.fPredelay
+        self.fGain == other.fGain && self.fAttack == other.fAttack && self.fRelease == other.fRelease && self.fThreshold == other.fThreshold && self.fRatio == other.fRatio && self.fPredelay == other.fPredelay
     }
 }
 impl ::std::cmp::Eq for DSFXCompressor {}
@@ -3113,22 +2421,12 @@ impl ::std::default::Default for DSFXDistortion {
 }
 impl ::std::fmt::Debug for DSFXDistortion {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSFXDistortion")
-            .field("fGain", &self.fGain)
-            .field("fEdge", &self.fEdge)
-            .field("fPostEQCenterFrequency", &self.fPostEQCenterFrequency)
-            .field("fPostEQBandwidth", &self.fPostEQBandwidth)
-            .field("fPreLowpassCutoff", &self.fPreLowpassCutoff)
-            .finish()
+        fmt.debug_struct("DSFXDistortion").field("fGain", &self.fGain).field("fEdge", &self.fEdge).field("fPostEQCenterFrequency", &self.fPostEQCenterFrequency).field("fPostEQBandwidth", &self.fPostEQBandwidth).field("fPreLowpassCutoff", &self.fPreLowpassCutoff).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSFXDistortion {
     fn eq(&self, other: &Self) -> bool {
-        self.fGain == other.fGain
-            && self.fEdge == other.fEdge
-            && self.fPostEQCenterFrequency == other.fPostEQCenterFrequency
-            && self.fPostEQBandwidth == other.fPostEQBandwidth
-            && self.fPreLowpassCutoff == other.fPreLowpassCutoff
+        self.fGain == other.fGain && self.fEdge == other.fEdge && self.fPostEQCenterFrequency == other.fPostEQCenterFrequency && self.fPostEQBandwidth == other.fPostEQBandwidth && self.fPreLowpassCutoff == other.fPreLowpassCutoff
     }
 }
 impl ::std::cmp::Eq for DSFXDistortion {}
@@ -3163,22 +2461,12 @@ impl ::std::default::Default for DSFXEcho {
 }
 impl ::std::fmt::Debug for DSFXEcho {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSFXEcho")
-            .field("fWetDryMix", &self.fWetDryMix)
-            .field("fFeedback", &self.fFeedback)
-            .field("fLeftDelay", &self.fLeftDelay)
-            .field("fRightDelay", &self.fRightDelay)
-            .field("lPanDelay", &self.lPanDelay)
-            .finish()
+        fmt.debug_struct("DSFXEcho").field("fWetDryMix", &self.fWetDryMix).field("fFeedback", &self.fFeedback).field("fLeftDelay", &self.fLeftDelay).field("fRightDelay", &self.fRightDelay).field("lPanDelay", &self.lPanDelay).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSFXEcho {
     fn eq(&self, other: &Self) -> bool {
-        self.fWetDryMix == other.fWetDryMix
-            && self.fFeedback == other.fFeedback
-            && self.fLeftDelay == other.fLeftDelay
-            && self.fRightDelay == other.fRightDelay
-            && self.lPanDelay == other.lPanDelay
+        self.fWetDryMix == other.fWetDryMix && self.fFeedback == other.fFeedback && self.fLeftDelay == other.fLeftDelay && self.fRightDelay == other.fRightDelay && self.lPanDelay == other.lPanDelay
     }
 }
 impl ::std::cmp::Eq for DSFXEcho {}
@@ -3224,26 +2512,12 @@ impl ::std::default::Default for DSFXFlanger {
 }
 impl ::std::fmt::Debug for DSFXFlanger {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSFXFlanger")
-            .field("fWetDryMix", &self.fWetDryMix)
-            .field("fDepth", &self.fDepth)
-            .field("fFeedback", &self.fFeedback)
-            .field("fFrequency", &self.fFrequency)
-            .field("lWaveform", &self.lWaveform)
-            .field("fDelay", &self.fDelay)
-            .field("lPhase", &self.lPhase)
-            .finish()
+        fmt.debug_struct("DSFXFlanger").field("fWetDryMix", &self.fWetDryMix).field("fDepth", &self.fDepth).field("fFeedback", &self.fFeedback).field("fFrequency", &self.fFrequency).field("lWaveform", &self.lWaveform).field("fDelay", &self.fDelay).field("lPhase", &self.lPhase).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSFXFlanger {
     fn eq(&self, other: &Self) -> bool {
-        self.fWetDryMix == other.fWetDryMix
-            && self.fDepth == other.fDepth
-            && self.fFeedback == other.fFeedback
-            && self.fFrequency == other.fFrequency
-            && self.lWaveform == other.lWaveform
-            && self.fDelay == other.fDelay
-            && self.lPhase == other.lPhase
+        self.fWetDryMix == other.fWetDryMix && self.fDepth == other.fDepth && self.fFeedback == other.fFeedback && self.fFrequency == other.fFrequency && self.lWaveform == other.lWaveform && self.fDelay == other.fDelay && self.lPhase == other.lPhase
     }
 }
 impl ::std::cmp::Eq for DSFXFlanger {}
@@ -3269,10 +2543,7 @@ impl ::std::default::Default for DSFXGargle {
 }
 impl ::std::fmt::Debug for DSFXGargle {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSFXGargle")
-            .field("dwRateHz", &self.dwRateHz)
-            .field("dwWaveShape", &self.dwWaveShape)
-            .finish()
+        fmt.debug_struct("DSFXGargle").field("dwRateHz", &self.dwRateHz).field("dwWaveShape", &self.dwWaveShape).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSFXGargle {
@@ -3367,18 +2638,12 @@ impl ::std::default::Default for DSFXParamEq {
 }
 impl ::std::fmt::Debug for DSFXParamEq {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSFXParamEq")
-            .field("fCenter", &self.fCenter)
-            .field("fBandwidth", &self.fBandwidth)
-            .field("fGain", &self.fGain)
-            .finish()
+        fmt.debug_struct("DSFXParamEq").field("fCenter", &self.fCenter).field("fBandwidth", &self.fBandwidth).field("fGain", &self.fGain).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSFXParamEq {
     fn eq(&self, other: &Self) -> bool {
-        self.fCenter == other.fCenter
-            && self.fBandwidth == other.fBandwidth
-            && self.fGain == other.fGain
+        self.fCenter == other.fCenter && self.fBandwidth == other.fBandwidth && self.fGain == other.fGain
     }
 }
 impl ::std::cmp::Eq for DSFXParamEq {}
@@ -3409,20 +2674,12 @@ impl ::std::default::Default for DSFXWavesReverb {
 }
 impl ::std::fmt::Debug for DSFXWavesReverb {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSFXWavesReverb")
-            .field("fInGain", &self.fInGain)
-            .field("fReverbMix", &self.fReverbMix)
-            .field("fReverbTime", &self.fReverbTime)
-            .field("fHighFreqRTRatio", &self.fHighFreqRTRatio)
-            .finish()
+        fmt.debug_struct("DSFXWavesReverb").field("fInGain", &self.fInGain).field("fReverbMix", &self.fReverbMix).field("fReverbTime", &self.fReverbTime).field("fHighFreqRTRatio", &self.fHighFreqRTRatio).finish()
     }
 }
 impl ::std::cmp::PartialEq for DSFXWavesReverb {
     fn eq(&self, other: &Self) -> bool {
-        self.fInGain == other.fInGain
-            && self.fReverbMix == other.fReverbMix
-            && self.fReverbTime == other.fReverbTime
-            && self.fHighFreqRTRatio == other.fHighFreqRTRatio
+        self.fInGain == other.fInGain && self.fReverbMix == other.fReverbMix && self.fReverbTime == other.fReverbTime && self.fHighFreqRTRatio == other.fHighFreqRTRatio
     }
 }
 impl ::std::cmp::Eq for DSFXWavesReverb {}
@@ -3521,32 +2778,17 @@ pub const DSFX_WAVESREVERB_REVERBMIX_MIN: f32 = -96f32;
 pub const DSFX_WAVESREVERB_REVERBTIME_DEFAULT: f32 = 1000f32;
 pub const DSFX_WAVESREVERB_REVERBTIME_MAX: f32 = 3000f32;
 pub const DSFX_WAVESREVERB_REVERBTIME_MIN: f32 = 0.001f32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DSPROPERTY_DIRECTSOUNDDEVICE(pub i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A: DSPROPERTY_DIRECTSOUNDDEVICE =
-    DSPROPERTY_DIRECTSOUNDDEVICE(1i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1: DSPROPERTY_DIRECTSOUNDDEVICE =
-    DSPROPERTY_DIRECTSOUNDDEVICE(2i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1: DSPROPERTY_DIRECTSOUNDDEVICE =
-    DSPROPERTY_DIRECTSOUNDDEVICE(3i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W: DSPROPERTY_DIRECTSOUNDDEVICE =
-    DSPROPERTY_DIRECTSOUNDDEVICE(4i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A: DSPROPERTY_DIRECTSOUNDDEVICE =
-    DSPROPERTY_DIRECTSOUNDDEVICE(5i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W: DSPROPERTY_DIRECTSOUNDDEVICE =
-    DSPROPERTY_DIRECTSOUNDDEVICE(6i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A: DSPROPERTY_DIRECTSOUNDDEVICE =
-    DSPROPERTY_DIRECTSOUNDDEVICE(7i32);
-pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W: DSPROPERTY_DIRECTSOUNDDEVICE =
-    DSPROPERTY_DIRECTSOUNDDEVICE(8i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(1i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(2i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(3i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(4i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(5i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(6i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(7i32);
+pub const DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W: DSPROPERTY_DIRECTSOUNDDEVICE = DSPROPERTY_DIRECTSOUNDDEVICE(8i32);
 impl ::std::convert::From<i32> for DSPROPERTY_DIRECTSOUNDDEVICE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3597,15 +2839,7 @@ impl ::std::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.DeviceId == other.DeviceId
-            && self.DescriptionA == other.DescriptionA
-            && self.DescriptionW == other.DescriptionW
-            && self.ModuleA == other.ModuleA
-            && self.ModuleW == other.ModuleW
-            && self.Type == other.Type
-            && self.DataFlow == other.DataFlow
-            && self.WaveDeviceId == other.WaveDeviceId
-            && self.Devnode == other.Devnode
+        self.DeviceId == other.DeviceId && self.DescriptionA == other.DescriptionA && self.DescriptionW == other.DescriptionW && self.ModuleA == other.ModuleA && self.ModuleW == other.ModuleW && self.Type == other.Type && self.DataFlow == other.DataFlow && self.WaveDeviceId == other.WaveDeviceId && self.Devnode == other.Devnode
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3652,13 +2886,7 @@ impl ::std::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.DataFlow == other.DataFlow
-            && self.DeviceId == other.DeviceId
-            && self.Description == other.Description
-            && self.Module == other.Module
-            && self.Interface == other.Interface
-            && self.WaveDeviceId == other.WaveDeviceId
+        self.Type == other.Type && self.DataFlow == other.DataFlow && self.DeviceId == other.DeviceId && self.Description == other.Description && self.Module == other.Module && self.Interface == other.Interface && self.WaveDeviceId == other.WaveDeviceId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3705,13 +2933,7 @@ impl ::std::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type
-            && self.DataFlow == other.DataFlow
-            && self.DeviceId == other.DeviceId
-            && self.Description == other.Description
-            && self.Module == other.Module
-            && self.Interface == other.Interface
-            && self.WaveDeviceId == other.WaveDeviceId
+        self.Type == other.Type && self.DataFlow == other.DataFlow && self.DeviceId == other.DeviceId && self.Description == other.Description && self.Module == other.Module && self.Interface == other.Interface && self.WaveDeviceId == other.WaveDeviceId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3739,16 +2961,13 @@ impl ::std::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA")
-            .field("Context", &self.Context)
-            .finish()
+        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA").field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_1_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize)
-            && self.Context == other.Context
+        self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize) && self.Context == other.Context
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3776,16 +2995,13 @@ impl ::std::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA")
-            .field("Context", &self.Context)
-            .finish()
+        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA").field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_A_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize)
-            && self.Context == other.Context
+        self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize) && self.Context == other.Context
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3813,16 +3029,13 @@ impl ::std::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA")
-            .field("Context", &self.Context)
-            .finish()
+        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA").field("Context", &self.Context).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_ENUMERATE_W_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize)
-            && self.Context == other.Context
+        self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize) && self.Context == other.Context
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3851,19 +3064,13 @@ impl ::std::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA")
-            .field("DeviceName", &self.DeviceName)
-            .field("DataFlow", &self.DataFlow)
-            .field("DeviceId", &self.DeviceId)
-            .finish()
+        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_A_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.DeviceName == other.DeviceName
-            && self.DataFlow == other.DataFlow
-            && self.DeviceId == other.DeviceId
+        self.DeviceName == other.DeviceName && self.DataFlow == other.DataFlow && self.DeviceId == other.DeviceId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3892,19 +3099,13 @@ impl ::std::default::Default for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA")
-            .field("DeviceName", &self.DeviceName)
-            .field("DataFlow", &self.DataFlow)
-            .field("DeviceId", &self.DeviceId)
-            .finish()
+        fmt.debug_struct("DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA").field("DeviceName", &self.DeviceName).field("DataFlow", &self.DataFlow).field("DeviceId", &self.DeviceId).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEMAPPING_W_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.DeviceName == other.DeviceName
-            && self.DataFlow == other.DataFlow
-            && self.DeviceId == other.DeviceId
+        self.DeviceName == other.DeviceName && self.DataFlow == other.DataFlow && self.DeviceId == other.DeviceId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3914,13 +3115,7 @@ unsafe impl ::windows::runtime::Abi for DSPROPERTY_DIRECTSOUNDDEVICE_WAVEDEVICEM
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const DSPROPSETID_DirectSoundDevice: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2221035394,
-        9708,
-        4561,
-        [164, 216, 0, 192, 79, 194, 138, 202],
-    );
+pub const DSPROPSETID_DirectSoundDevice: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2221035394, 9708, 4561, [164, 216, 0, 192, 79, 194, 138, 202]);
 pub const DSSCL_EXCLUSIVE: u32 = 3u32;
 pub const DSSCL_NORMAL: u32 = 1u32;
 pub const DSSCL_PRIORITY: u32 = 2u32;
@@ -3942,8 +3137,7 @@ pub const DSSPEAKER_QUAD: u32 = 3u32;
 pub const DSSPEAKER_STEREO: u32 = 4u32;
 pub const DSSPEAKER_SURROUND: u32 = 5u32;
 pub const DS_CERTIFIED: u32 = 0u32;
-pub const DS_NO_VIRTUALIZATION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(142082058i32 as _);
+pub const DS_NO_VIRTUALIZATION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(142082058i32 as _);
 pub const DS_UNCERTIFIED: u32 = 1u32;
 pub const DV_AUDIOMODE: u32 = 3840u32;
 pub const DV_AUDIOQU: u32 = 117440512u32;
@@ -3961,224 +3155,116 @@ pub const DV_SL: u32 = 2u32;
 pub const DV_SMCHN: u32 = 57344u32;
 pub const DV_STYPE: u32 = 2031616u32;
 #[inline]
-pub unsafe fn DirectSoundCaptureCreate<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
->(
-    pcguiddevice: *const ::windows::runtime::GUID,
-    ppdsc: *mut ::std::option::Option<IDirectSoundCapture>,
-    punkouter: Param2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DirectSoundCaptureCreate<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pcguiddevice: *const ::windows::runtime::GUID, ppdsc: *mut ::std::option::Option<IDirectSoundCapture>, punkouter: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DirectSoundCaptureCreate(
-                pcguiddevice: *const ::windows::runtime::GUID,
-                ppdsc: *mut ::windows::runtime::RawPtr,
-                punkouter: ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn DirectSoundCaptureCreate(pcguiddevice: *const ::windows::runtime::GUID, ppdsc: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        DirectSoundCaptureCreate(
-            ::std::mem::transmute(pcguiddevice),
-            ::std::mem::transmute(ppdsc),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+        DirectSoundCaptureCreate(::std::mem::transmute(pcguiddevice), ::std::mem::transmute(ppdsc), punkouter.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DirectSoundCaptureCreate8<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
->(
-    pcguiddevice: *const ::windows::runtime::GUID,
-    ppdsc8: *mut ::std::option::Option<IDirectSoundCapture>,
-    punkouter: Param2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DirectSoundCaptureCreate8<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pcguiddevice: *const ::windows::runtime::GUID, ppdsc8: *mut ::std::option::Option<IDirectSoundCapture>, punkouter: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DirectSoundCaptureCreate8(
-                pcguiddevice: *const ::windows::runtime::GUID,
-                ppdsc8: *mut ::windows::runtime::RawPtr,
-                punkouter: ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn DirectSoundCaptureCreate8(pcguiddevice: *const ::windows::runtime::GUID, ppdsc8: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        DirectSoundCaptureCreate8(
-            ::std::mem::transmute(pcguiddevice),
-            ::std::mem::transmute(ppdsc8),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+        DirectSoundCaptureCreate8(::std::mem::transmute(pcguiddevice), ::std::mem::transmute(ppdsc8), punkouter.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectSoundCaptureEnumerateA(
-    pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>,
-    pcontext: *const ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DirectSoundCaptureEnumerateA(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DirectSoundCaptureEnumerateA(
-                pdsenumcallback: ::windows::runtime::RawPtr,
-                pcontext: *const ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn DirectSoundCaptureEnumerateA(pdsenumcallback: ::windows::runtime::RawPtr, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        DirectSoundCaptureEnumerateA(
-            ::std::mem::transmute(pdsenumcallback),
-            ::std::mem::transmute(pcontext),
-        )
-        .ok()
+        DirectSoundCaptureEnumerateA(::std::mem::transmute(pdsenumcallback), ::std::mem::transmute(pcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectSoundCaptureEnumerateW(
-    pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>,
-    pcontext: *const ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DirectSoundCaptureEnumerateW(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DirectSoundCaptureEnumerateW(
-                pdsenumcallback: ::windows::runtime::RawPtr,
-                pcontext: *const ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn DirectSoundCaptureEnumerateW(pdsenumcallback: ::windows::runtime::RawPtr, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        DirectSoundCaptureEnumerateW(
-            ::std::mem::transmute(pdsenumcallback),
-            ::std::mem::transmute(pcontext),
-        )
-        .ok()
+        DirectSoundCaptureEnumerateW(::std::mem::transmute(pdsenumcallback), ::std::mem::transmute(pcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DirectSoundCreate<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
->(
-    pcguiddevice: *const ::windows::runtime::GUID,
-    ppds: *mut ::std::option::Option<IDirectSound>,
-    punkouter: Param2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DirectSoundCreate<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pcguiddevice: *const ::windows::runtime::GUID, ppds: *mut ::std::option::Option<IDirectSound>, punkouter: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DirectSoundCreate(
-                pcguiddevice: *const ::windows::runtime::GUID,
-                ppds: *mut ::windows::runtime::RawPtr,
-                punkouter: ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn DirectSoundCreate(pcguiddevice: *const ::windows::runtime::GUID, ppds: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        DirectSoundCreate(
-            ::std::mem::transmute(pcguiddevice),
-            ::std::mem::transmute(ppds),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+        DirectSoundCreate(::std::mem::transmute(pcguiddevice), ::std::mem::transmute(ppds), punkouter.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DirectSoundCreate8<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
->(
-    pcguiddevice: *const ::windows::runtime::GUID,
-    ppds8: *mut ::std::option::Option<IDirectSound8>,
-    punkouter: Param2,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DirectSoundCreate8<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(pcguiddevice: *const ::windows::runtime::GUID, ppds8: *mut ::std::option::Option<IDirectSound8>, punkouter: Param2) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DirectSoundCreate8(
-                pcguiddevice: *const ::windows::runtime::GUID,
-                ppds8: *mut ::windows::runtime::RawPtr,
-                punkouter: ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn DirectSoundCreate8(pcguiddevice: *const ::windows::runtime::GUID, ppds8: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        DirectSoundCreate8(
-            ::std::mem::transmute(pcguiddevice),
-            ::std::mem::transmute(ppds8),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+        DirectSoundCreate8(::std::mem::transmute(pcguiddevice), ::std::mem::transmute(ppds8), punkouter.into_param().abi()).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectSoundEnumerateA(
-    pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>,
-    pcontext: *const ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DirectSoundEnumerateA(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKA>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DirectSoundEnumerateA(
-                pdsenumcallback: ::windows::runtime::RawPtr,
-                pcontext: *const ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn DirectSoundEnumerateA(pdsenumcallback: ::windows::runtime::RawPtr, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        DirectSoundEnumerateA(
-            ::std::mem::transmute(pdsenumcallback),
-            ::std::mem::transmute(pcontext),
-        )
-        .ok()
+        DirectSoundEnumerateA(::std::mem::transmute(pdsenumcallback), ::std::mem::transmute(pcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DirectSoundEnumerateW(
-    pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>,
-    pcontext: *const ::std::ffi::c_void,
-) -> ::windows::runtime::Result<()> {
+pub unsafe fn DirectSoundEnumerateW(pdsenumcallback: ::std::option::Option<LPDSENUMCALLBACKW>, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DirectSoundEnumerateW(
-                pdsenumcallback: ::windows::runtime::RawPtr,
-                pcontext: *const ::std::ffi::c_void,
-            ) -> ::windows::runtime::HRESULT;
+            fn DirectSoundEnumerateW(pdsenumcallback: ::windows::runtime::RawPtr, pcontext: *const ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
         }
-        DirectSoundEnumerateW(
-            ::std::mem::transmute(pdsenumcallback),
-            ::std::mem::transmute(pcontext),
-        )
-        .ok()
+        DirectSoundEnumerateW(::std::mem::transmute(pdsenumcallback), ::std::mem::transmute(pcontext)).ok()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
 #[inline]
-pub unsafe fn DirectSoundFullDuplexCreate<
-    'a,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
-    Param9: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
->(
+pub unsafe fn DirectSoundFullDuplexCreate<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param9: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(
     pcguidcapturedevice: *const ::windows::runtime::GUID,
     pcguidrenderdevice: *const ::windows::runtime::GUID,
     pcdscbufferdesc: *const DSCBUFFERDESC,
@@ -4194,18 +3280,7 @@ pub unsafe fn DirectSoundFullDuplexCreate<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DirectSoundFullDuplexCreate(
-                pcguidcapturedevice: *const ::windows::runtime::GUID,
-                pcguidrenderdevice: *const ::windows::runtime::GUID,
-                pcdscbufferdesc: *const DSCBUFFERDESC,
-                pcdsbufferdesc: *const DSBUFFERDESC,
-                hwnd: super::super::super::Foundation::HWND,
-                dwlevel: u32,
-                ppdsfd: *mut ::windows::runtime::RawPtr,
-                ppdscbuffer8: *mut ::windows::runtime::RawPtr,
-                ppdsbuffer8: *mut ::windows::runtime::RawPtr,
-                punkouter: ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn DirectSoundFullDuplexCreate(pcguidcapturedevice: *const ::windows::runtime::GUID, pcguidrenderdevice: *const ::windows::runtime::GUID, pcdscbufferdesc: *const DSCBUFFERDESC, pcdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, ppdsfd: *mut ::windows::runtime::RawPtr, ppdscbuffer8: *mut ::windows::runtime::RawPtr, ppdsbuffer8: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
         DirectSoundFullDuplexCreate(
             ::std::mem::transmute(pcguidcapturedevice),
@@ -4224,14 +3299,7 @@ pub unsafe fn DirectSoundFullDuplexCreate<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct EAudioConstriction(pub i32);
 pub const eAudioConstrictionOff: EAudioConstriction = EAudioConstriction(0i32);
@@ -4248,300 +3316,71 @@ unsafe impl ::windows::runtime::Abi for EAudioConstriction {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type FNAPONOTIFICATIONCALLBACK = unsafe extern "system" fn(
-    pproperties: *mut APO_REG_PROPERTIES,
-    pvrefdata: *mut ::std::ffi::c_void,
-) -> ::windows::runtime::HRESULT;
+pub type FNAPONOTIFICATIONCALLBACK = unsafe extern "system" fn(pproperties: *mut APO_REG_PROPERTIES, pvrefdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT;
 pub const F_INSTRUMENT_DRUMS: u32 = 2147483648u32;
 pub const F_RGN_OPTION_SELFNONEXCLUSIVE: u32 = 1u32;
 pub const F_WAVELINK_MULTICHANNEL: u32 = 2u32;
 pub const F_WAVELINK_PHASE_MASTER: u32 = 1u32;
 pub const F_WSMP_NO_COMPRESSION: i32 = 2i32;
 pub const F_WSMP_NO_TRUNCATION: i32 = 1i32;
-pub const GUID_All_Objects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2853260773,
-    49762,
-    16745,
-    [161, 200, 35, 214, 152, 204, 115, 181],
-);
-pub const GUID_DMUS_PROP_DLS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    395259687,
-    50020,
-    4561,
-    [167, 96, 0, 0, 248, 117, 172, 18],
-);
-pub const GUID_DMUS_PROP_DLS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    4047870437,
-    18057,
-    4562,
-    [175, 166, 0, 170, 0, 36, 216, 182],
-);
-pub const GUID_DMUS_PROP_Effects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3450394129,
-    26698,
-    4562,
-    [135, 30, 0, 96, 8, 147, 177, 189],
-);
-pub const GUID_DMUS_PROP_GM_Hardware: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        395259684,
-        50020,
-        4561,
-        [167, 96, 0, 0, 248, 117, 172, 18],
-    );
-pub const GUID_DMUS_PROP_GS_Capable: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1687595938,
-        25008,
-        4562,
-        [175, 166, 0, 170, 0, 36, 216, 182],
-    );
-pub const GUID_DMUS_PROP_GS_Hardware: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        395259685,
-        50020,
-        4561,
-        [167, 96, 0, 0, 248, 117, 172, 18],
-    );
-pub const GUID_DMUS_PROP_INSTRUMENT2: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2254426994,
-        40807,
-        4562,
-        [135, 42, 0, 96, 8, 147, 177, 189],
-    );
-pub const GUID_DMUS_PROP_LegacyCaps: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3483880898,
-        161,
-        4562,
-        [170, 213, 0, 0, 248, 117, 172, 18],
-    );
-pub const GUID_DMUS_PROP_MemorySize: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        395259688,
-        50020,
-        4561,
-        [167, 96, 0, 0, 248, 117, 172, 18],
-    );
-pub const GUID_DMUS_PROP_SampleMemorySize: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        395259688,
-        50020,
-        4561,
-        [167, 96, 0, 0, 248, 117, 172, 18],
-    );
-pub const GUID_DMUS_PROP_SamplePlaybackRate: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        714209043,
-        42175,
-        4562,
-        [187, 223, 0, 96, 8, 51, 219, 216],
-    );
-pub const GUID_DMUS_PROP_SetSynthSink: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        171596709,
-        14262,
-        4562,
-        [185, 249, 0, 0, 248, 117, 172, 18],
-    );
-pub const GUID_DMUS_PROP_SinkUsesDSound: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3189803095,
-        35154,
-        4562,
-        [186, 28, 0, 0, 248, 117, 172, 18],
-    );
-pub const GUID_DMUS_PROP_SynthSink_DSOUND: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        178878532,
-        51319,
-        4561,
-        [135, 12, 0, 96, 8, 147, 177, 189],
-    );
-pub const GUID_DMUS_PROP_SynthSink_WAVE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        178878533,
-        51319,
-        4561,
-        [135, 12, 0, 96, 8, 147, 177, 189],
-    );
-pub const GUID_DMUS_PROP_Volume: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    4276071973,
-    58478,
-    4561,
-    [170, 206, 0, 0, 248, 117, 172, 18],
-);
-pub const GUID_DMUS_PROP_WavesReverb: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        80434722,
-        13029,
-        4562,
-        [175, 166, 0, 170, 0, 36, 216, 182],
-    );
-pub const GUID_DMUS_PROP_WriteLatency: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        646582176,
-        24818,
-        4562,
-        [175, 166, 0, 170, 0, 36, 216, 182],
-    );
-pub const GUID_DMUS_PROP_WritePeriod: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        646582177,
-        24818,
-        4562,
-        [175, 166, 0, 170, 0, 36, 216, 182],
-    );
-pub const GUID_DMUS_PROP_XG_Capable: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1687595937,
-        25008,
-        4562,
-        [175, 166, 0, 170, 0, 36, 216, 182],
-    );
-pub const GUID_DMUS_PROP_XG_Hardware: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        395259686,
-        50020,
-        4561,
-        [167, 96, 0, 0, 248, 117, 172, 18],
-    );
-pub const GUID_DSCFX_CLASS_AEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3214294400,
-    50521,
-    4560,
-    [138, 43, 0, 160, 201, 37, 90, 193],
-);
-pub const GUID_DSCFX_CLASS_NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3766456383,
-    25341,
-    20064,
-    [140, 221, 222, 167, 35, 102, 101, 181],
-);
-pub const GUID_DSCFX_MS_AEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3454777625,
-    14234,
-    18570,
-    [135, 101, 245, 60, 253, 54, 222, 64],
-);
-pub const GUID_DSCFX_MS_NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    298174267,
-    26345,
-    19361,
-    [160, 186, 232, 20, 198, 238, 217, 45],
-);
-pub const GUID_DSCFX_SYSTEM_AEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    472040813,
-    39033,
-    20315,
-    [163, 137, 39, 153, 109, 220, 40, 16],
-);
-pub const GUID_DSCFX_SYSTEM_NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1521518638,
-    29300,
-    17686,
-    [135, 125, 78, 238, 153, 186, 79, 208],
-);
-pub const GUID_DSFX_STANDARD_CHORUS: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4024853148,
-        33271,
-        17025,
-        [189, 145, 201, 214, 4, 169, 90, 246],
-    );
-pub const GUID_DSFX_STANDARD_COMPRESSOR: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4009828217,
-        16384,
-        16493,
-        [135, 175, 191, 251, 63, 195, 157, 87],
-    );
-pub const GUID_DSFX_STANDARD_DISTORTION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4010888336,
-        52509,
-        18510,
-        [150, 229, 9, 207, 175, 145, 42, 33],
-    );
-pub const GUID_DSFX_STANDARD_ECHO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    4013855532,
-    54283,
-    20305,
-    [140, 207, 63, 152, 241, 178, 157, 93],
-);
-pub const GUID_DSFX_STANDARD_FLANGER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4023008658,
-        57304,
-        18034,
-        [166, 3, 116, 32, 137, 75, 173, 152],
-    );
-pub const GUID_DSFX_STANDARD_GARGLE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3674046992,
-        22289,
-        19345,
-        [159, 227, 247, 91, 122, 226, 121, 191],
-    );
-pub const GUID_DSFX_STANDARD_I3DL2REVERB: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4019740273,
-        54727,
-        17108,
-        [186, 77, 45, 7, 62, 46, 150, 244],
-    );
-pub const GUID_DSFX_STANDARD_PARAMEQ: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        302837129,
-        15348,
-        16755,
-        [161, 50, 60, 180, 6, 207, 50, 49],
-    );
-pub const GUID_DSFX_WAVES_REVERB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2281439848,
-    39509,
-    17248,
-    [149, 170, 0, 74, 29, 157, 226, 108],
-);
+pub const GUID_All_Objects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2853260773, 49762, 16745, [161, 200, 35, 214, 152, 204, 115, 181]);
+pub const GUID_DMUS_PROP_DLS1: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259687, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
+pub const GUID_DMUS_PROP_DLS2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4047870437, 18057, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
+pub const GUID_DMUS_PROP_Effects: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3450394129, 26698, 4562, [135, 30, 0, 96, 8, 147, 177, 189]);
+pub const GUID_DMUS_PROP_GM_Hardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259684, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
+pub const GUID_DMUS_PROP_GS_Capable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1687595938, 25008, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
+pub const GUID_DMUS_PROP_GS_Hardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259685, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
+pub const GUID_DMUS_PROP_INSTRUMENT2: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2254426994, 40807, 4562, [135, 42, 0, 96, 8, 147, 177, 189]);
+pub const GUID_DMUS_PROP_LegacyCaps: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3483880898, 161, 4562, [170, 213, 0, 0, 248, 117, 172, 18]);
+pub const GUID_DMUS_PROP_MemorySize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259688, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
+pub const GUID_DMUS_PROP_SampleMemorySize: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259688, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
+pub const GUID_DMUS_PROP_SamplePlaybackRate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(714209043, 42175, 4562, [187, 223, 0, 96, 8, 51, 219, 216]);
+pub const GUID_DMUS_PROP_SetSynthSink: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(171596709, 14262, 4562, [185, 249, 0, 0, 248, 117, 172, 18]);
+pub const GUID_DMUS_PROP_SinkUsesDSound: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3189803095, 35154, 4562, [186, 28, 0, 0, 248, 117, 172, 18]);
+pub const GUID_DMUS_PROP_SynthSink_DSOUND: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(178878532, 51319, 4561, [135, 12, 0, 96, 8, 147, 177, 189]);
+pub const GUID_DMUS_PROP_SynthSink_WAVE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(178878533, 51319, 4561, [135, 12, 0, 96, 8, 147, 177, 189]);
+pub const GUID_DMUS_PROP_Volume: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4276071973, 58478, 4561, [170, 206, 0, 0, 248, 117, 172, 18]);
+pub const GUID_DMUS_PROP_WavesReverb: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(80434722, 13029, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
+pub const GUID_DMUS_PROP_WriteLatency: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(646582176, 24818, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
+pub const GUID_DMUS_PROP_WritePeriod: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(646582177, 24818, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
+pub const GUID_DMUS_PROP_XG_Capable: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1687595937, 25008, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
+pub const GUID_DMUS_PROP_XG_Hardware: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(395259686, 50020, 4561, [167, 96, 0, 0, 248, 117, 172, 18]);
+pub const GUID_DSCFX_CLASS_AEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3214294400, 50521, 4560, [138, 43, 0, 160, 201, 37, 90, 193]);
+pub const GUID_DSCFX_CLASS_NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3766456383, 25341, 20064, [140, 221, 222, 167, 35, 102, 101, 181]);
+pub const GUID_DSCFX_MS_AEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3454777625, 14234, 18570, [135, 101, 245, 60, 253, 54, 222, 64]);
+pub const GUID_DSCFX_MS_NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(298174267, 26345, 19361, [160, 186, 232, 20, 198, 238, 217, 45]);
+pub const GUID_DSCFX_SYSTEM_AEC: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(472040813, 39033, 20315, [163, 137, 39, 153, 109, 220, 40, 16]);
+pub const GUID_DSCFX_SYSTEM_NS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1521518638, 29300, 17686, [135, 125, 78, 238, 153, 186, 79, 208]);
+pub const GUID_DSFX_STANDARD_CHORUS: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4024853148, 33271, 17025, [189, 145, 201, 214, 4, 169, 90, 246]);
+pub const GUID_DSFX_STANDARD_COMPRESSOR: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4009828217, 16384, 16493, [135, 175, 191, 251, 63, 195, 157, 87]);
+pub const GUID_DSFX_STANDARD_DISTORTION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4010888336, 52509, 18510, [150, 229, 9, 207, 175, 145, 42, 33]);
+pub const GUID_DSFX_STANDARD_ECHO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4013855532, 54283, 20305, [140, 207, 63, 152, 241, 178, 157, 93]);
+pub const GUID_DSFX_STANDARD_FLANGER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4023008658, 57304, 18034, [166, 3, 116, 32, 137, 75, 173, 152]);
+pub const GUID_DSFX_STANDARD_GARGLE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3674046992, 22289, 19345, [159, 227, 247, 91, 122, 226, 121, 191]);
+pub const GUID_DSFX_STANDARD_I3DL2REVERB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4019740273, 54727, 17108, [186, 77, 45, 7, 62, 46, 150, 244]);
+pub const GUID_DSFX_STANDARD_PARAMEQ: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(302837129, 15348, 16755, [161, 50, 60, 180, 6, 207, 50, 49]);
+pub const GUID_DSFX_WAVES_REVERB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2281439848, 39509, 17248, [149, 170, 0, 74, 29, 157, 226, 108]);
 #[inline]
-pub unsafe fn GetDeviceID(
-    pguidsrc: *const ::windows::runtime::GUID,
-) -> ::windows::runtime::Result<::windows::runtime::GUID> {
+pub unsafe fn GetDeviceID(pguidsrc: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<::windows::runtime::GUID> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDeviceID(
-                pguidsrc: *const ::windows::runtime::GUID,
-                pguiddest: *mut ::windows::runtime::GUID,
-            ) -> ::windows::runtime::HRESULT;
+            fn GetDeviceID(pguidsrc: *const ::windows::runtime::GUID, pguiddest: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        GetDeviceID(::std::mem::transmute(pguidsrc), &mut result__)
-            .from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        GetDeviceID(::std::mem::transmute(pguidsrc), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IApoAcousticEchoCancellation(::windows::runtime::IUnknown);
 impl IApoAcousticEchoCancellation {}
 unsafe impl ::windows::runtime::Interface for IApoAcousticEchoCancellation {
     type Vtable = IApoAcousticEchoCancellation_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        624449369,
-        12854,
-        16641,
-        [169, 67, 37, 105, 61, 251, 93, 45],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(624449369, 12854, 16641, [169, 67, 37, 105, 61, 251, 93, 45]);
 }
 impl ::std::convert::From<IApoAcousticEchoCancellation> for ::windows::runtime::IUnknown {
     fn from(value: IApoAcousticEchoCancellation) -> Self {
@@ -4553,93 +3392,41 @@ impl ::std::convert::From<&IApoAcousticEchoCancellation> for ::windows::runtime:
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IApoAcousticEchoCancellation
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IApoAcousticEchoCancellation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IApoAcousticEchoCancellation
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IApoAcousticEchoCancellation {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApoAcousticEchoCancellation_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IApoAuxiliaryInputConfiguration(::windows::runtime::IUnknown);
 impl IApoAuxiliaryInputConfiguration {
-    pub unsafe fn AddAuxiliaryInput(
-        &self,
-        dwinputid: u32,
-        cbdatasize: u32,
-        pbydata: *const u8,
-        pinputconnection: *const APO_CONNECTION_DESCRIPTOR,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwinputid),
-            ::std::mem::transmute(cbdatasize),
-            ::std::mem::transmute(pbydata),
-            ::std::mem::transmute(pinputconnection),
-        )
-        .ok()
+    pub unsafe fn AddAuxiliaryInput(&self, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputid), ::std::mem::transmute(cbdatasize), ::std::mem::transmute(pbydata), ::std::mem::transmute(pinputconnection)).ok()
     }
     pub unsafe fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwinputid),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputid)).ok()
     }
-    pub unsafe fn IsInputFormatSupported<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IAudioMediaType>,
-    >(
-        &self,
-        prequestedinputformat: Param0,
-    ) -> ::windows::runtime::Result<IAudioMediaType> {
+    pub unsafe fn IsInputFormatSupported<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioMediaType>>(&self, prequestedinputformat: Param0) -> ::windows::runtime::Result<IAudioMediaType> {
         let mut result__: <IAudioMediaType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            prequestedinputformat.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IAudioMediaType>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), prequestedinputformat.into_param().abi(), &mut result__).from_abi::<IAudioMediaType>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IApoAuxiliaryInputConfiguration {
     type Vtable = IApoAuxiliaryInputConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1290472107,
-        64025,
-        18669,
-        [168, 87, 135, 119, 26, 225, 183, 104],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1290472107, 64025, 18669, [168, 87, 135, 119, 26, 225, 183, 104]);
 }
 impl ::std::convert::From<IApoAuxiliaryInputConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: IApoAuxiliaryInputConfiguration) -> Self {
@@ -4651,83 +3438,38 @@ impl ::std::convert::From<&IApoAuxiliaryInputConfiguration> for ::windows::runti
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IApoAuxiliaryInputConfiguration
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IApoAuxiliaryInputConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IApoAuxiliaryInputConfiguration
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IApoAuxiliaryInputConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApoAuxiliaryInputConfiguration_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwinputid: u32,
-        cbdatasize: u32,
-        pbydata: *const u8,
-        pinputconnection: *const ::std::mem::ManuallyDrop<APO_CONNECTION_DESCRIPTOR>,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwinputid: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        prequestedinputformat: ::windows::runtime::RawPtr,
-        ppsupportedinputformat: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const ::std::mem::ManuallyDrop<APO_CONNECTION_DESCRIPTOR>) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwinputid: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prequestedinputformat: ::windows::runtime::RawPtr, ppsupportedinputformat: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IApoAuxiliaryInputRT(::windows::runtime::IUnknown);
 impl IApoAuxiliaryInputRT {
     #[cfg(feature = "Win32_System_RemoteDesktop")]
-    pub unsafe fn AcceptInput(
-        &self,
-        dwinputid: u32,
-        pinputconnection : * const super::super::super::System::RemoteDesktop:: APO_CONNECTION_PROPERTY,
-    ) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwinputid),
-            ::std::mem::transmute(pinputconnection),
-        ))
+    pub unsafe fn AcceptInput(&self, dwinputid: u32, pinputconnection: *const super::super::super::System::RemoteDesktop::APO_CONNECTION_PROPERTY) {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinputid), ::std::mem::transmute(pinputconnection)))
     }
 }
 unsafe impl ::windows::runtime::Interface for IApoAuxiliaryInputRT {
     type Vtable = IApoAuxiliaryInputRT_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        4166090908,
-        49527,
-        18848,
-        [177, 178, 182, 111, 1, 121, 67, 171],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4166090908, 49527, 18848, [177, 178, 182, 111, 1, 121, 67, 171]);
 }
 impl ::std::convert::From<IApoAuxiliaryInputRT> for ::windows::runtime::IUnknown {
     fn from(value: IApoAuxiliaryInputRT) -> Self {
@@ -4741,69 +3483,34 @@ impl ::std::convert::From<&IApoAuxiliaryInputRT> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IApoAuxiliaryInputRT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IApoAuxiliaryInputRT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApoAuxiliaryInputRT_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_RemoteDesktop")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwinputid: u32,
-        pinputconnection: *const super::super::super::System::RemoteDesktop::APO_CONNECTION_PROPERTY,
-    ),
+    #[cfg(feature = "Win32_System_RemoteDesktop")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwinputid: u32, pinputconnection: *const super::super::super::System::RemoteDesktop::APO_CONNECTION_PROPERTY),
     #[cfg(not(feature = "Win32_System_RemoteDesktop"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioDeviceModulesClient(::windows::runtime::IUnknown);
 impl IAudioDeviceModulesClient {
-    pub unsafe fn SetAudioDeviceModulesManager<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        paudiodevicemodulesmanager: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            paudiodevicemodulesmanager.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetAudioDeviceModulesManager<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, paudiodevicemodulesmanager: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), paudiodevicemodulesmanager.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IAudioDeviceModulesClient {
     type Vtable = IAudioDeviceModulesClient_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2566094252,
-        53430,
-        18933,
-        [137, 106, 170, 77, 22, 154, 76, 72],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2566094252, 53430, 18933, [137, 106, 170, 77, 22, 154, 76, 72]);
 }
 impl ::std::convert::From<IAudioDeviceModulesClient> for ::windows::runtime::IUnknown {
     fn from(value: IAudioDeviceModulesClient) -> Self {
@@ -4815,100 +3522,49 @@ impl ::std::convert::From<&IAudioDeviceModulesClient> for ::windows::runtime::IU
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IAudioDeviceModulesClient
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioDeviceModulesClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IAudioDeviceModulesClient
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioDeviceModulesClient {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioDeviceModulesClient_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        paudiodevicemodulesmanager: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, paudiodevicemodulesmanager: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioMediaType(::windows::runtime::IUnknown);
 impl IAudioMediaType {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn IsCompressedFormat(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
-        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::super::Foundation::BOOL>(result__)
+    pub unsafe fn IsCompressedFormat(&self) -> ::windows::runtime::Result<super::super::super::Foundation::BOOL> {
+        let mut result__: <super::super::super::Foundation::BOOL as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Foundation::BOOL>(result__)
     }
-    pub unsafe fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioMediaType>>(
-        &self,
-        piaudiotype: Param0,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn IsEqual<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioMediaType>>(&self, piaudiotype: Param0) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            piaudiotype.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), piaudiotype.into_param().abi(), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
     pub unsafe fn GetAudioFormat(&self) -> *mut super::super::Multimedia::WAVEFORMATEX {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)))
     }
-    pub unsafe fn GetUncompressedAudioFormat(
-        &self,
-    ) -> ::windows::runtime::Result<UNCOMPRESSEDAUDIOFORMAT> {
-        let mut result__: <UNCOMPRESSEDAUDIOFORMAT as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<UNCOMPRESSEDAUDIOFORMAT>(result__)
+    pub unsafe fn GetUncompressedAudioFormat(&self) -> ::windows::runtime::Result<UNCOMPRESSEDAUDIOFORMAT> {
+        let mut result__: <UNCOMPRESSEDAUDIOFORMAT as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<UNCOMPRESSEDAUDIOFORMAT>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IAudioMediaType {
     type Vtable = IAudioMediaType_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1318682483,
-        46879,
-        18328,
-        [135, 59, 237, 125, 252, 241, 91, 77],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1318682483, 46879, 18328, [135, 59, 237, 125, 252, 241, 91, 77]);
 }
 impl ::std::convert::From<IAudioMediaType> for ::windows::runtime::IUnknown {
     fn from(value: IAudioMediaType) -> Self {
@@ -4922,58 +3578,29 @@ impl ::std::convert::From<&IAudioMediaType> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioMediaType {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioMediaType {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioMediaType_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pfcompressed: *mut super::super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfcompressed: *mut super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        piaudiotype: ::windows::runtime::RawPtr,
-        pdwflags: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-    ) -> *mut super::super::Multimedia::WAVEFORMATEX,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piaudiotype: ::windows::runtime::RawPtr, pdwflags: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> *mut super::super::Multimedia::WAVEFORMATEX,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioProcessingObject(::windows::runtime::IUnknown);
 impl IAudioProcessingObject {
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
@@ -4981,88 +3608,31 @@ impl IAudioProcessingObject {
     }
     pub unsafe fn GetLatency(&self) -> ::windows::runtime::Result<i64> {
         let mut result__: <i64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<i64>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i64>(result__)
     }
-    pub unsafe fn GetRegistrationProperties(
-        &self,
-    ) -> ::windows::runtime::Result<*mut APO_REG_PROPERTIES> {
-        let mut result__: <*mut APO_REG_PROPERTIES as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<*mut APO_REG_PROPERTIES>(result__)
+    pub unsafe fn GetRegistrationProperties(&self) -> ::windows::runtime::Result<*mut APO_REG_PROPERTIES> {
+        let mut result__: <*mut APO_REG_PROPERTIES as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut APO_REG_PROPERTIES>(result__)
     }
-    pub unsafe fn Initialize(
-        &self,
-        cbdatasize: u32,
-        pbydata: *const u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(cbdatasize),
-            ::std::mem::transmute(pbydata),
-        )
-        .ok()
+    pub unsafe fn Initialize(&self, cbdatasize: u32, pbydata: *const u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(cbdatasize), ::std::mem::transmute(pbydata)).ok()
     }
-    pub unsafe fn IsInputFormatSupported<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IAudioMediaType>,
-        Param1: ::windows::runtime::IntoParam<'a, IAudioMediaType>,
-    >(
-        &self,
-        poppositeformat: Param0,
-        prequestedinputformat: Param1,
-    ) -> ::windows::runtime::Result<IAudioMediaType> {
+    pub unsafe fn IsInputFormatSupported<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioMediaType>, Param1: ::windows::runtime::IntoParam<'a, IAudioMediaType>>(&self, poppositeformat: Param0, prequestedinputformat: Param1) -> ::windows::runtime::Result<IAudioMediaType> {
         let mut result__: <IAudioMediaType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            poppositeformat.into_param().abi(),
-            prequestedinputformat.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IAudioMediaType>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), poppositeformat.into_param().abi(), prequestedinputformat.into_param().abi(), &mut result__).from_abi::<IAudioMediaType>(result__)
     }
-    pub unsafe fn IsOutputFormatSupported<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IAudioMediaType>,
-        Param1: ::windows::runtime::IntoParam<'a, IAudioMediaType>,
-    >(
-        &self,
-        poppositeformat: Param0,
-        prequestedoutputformat: Param1,
-    ) -> ::windows::runtime::Result<IAudioMediaType> {
+    pub unsafe fn IsOutputFormatSupported<'a, Param0: ::windows::runtime::IntoParam<'a, IAudioMediaType>, Param1: ::windows::runtime::IntoParam<'a, IAudioMediaType>>(&self, poppositeformat: Param0, prequestedoutputformat: Param1) -> ::windows::runtime::Result<IAudioMediaType> {
         let mut result__: <IAudioMediaType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            poppositeformat.into_param().abi(),
-            prequestedoutputformat.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IAudioMediaType>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), poppositeformat.into_param().abi(), prequestedoutputformat.into_param().abi(), &mut result__).from_abi::<IAudioMediaType>(result__)
     }
     pub unsafe fn GetInputChannelCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IAudioProcessingObject {
     type Vtable = IAudioProcessingObject_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        4252969769,
-        9424,
-        19292,
-        [177, 119, 89, 44, 57, 249, 202, 16],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4252969769, 9424, 19292, [177, 119, 89, 44, 57, 249, 202, 16]);
 }
 impl ::std::convert::From<IAudioProcessingObject> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObject) -> Self {
@@ -5074,91 +3644,36 @@ impl ::std::convert::From<&IAudioProcessingObject> for ::windows::runtime::IUnkn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IAudioProcessingObject
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioProcessingObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IAudioProcessingObject
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioProcessingObject {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObject_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ptime: *mut i64,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppregprops: *mut *mut APO_REG_PROPERTIES,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        cbdatasize: u32,
-        pbydata: *const u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        poppositeformat: ::windows::runtime::RawPtr,
-        prequestedinputformat: ::windows::runtime::RawPtr,
-        ppsupportedinputformat: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        poppositeformat: ::windows::runtime::RawPtr,
-        prequestedoutputformat: ::windows::runtime::RawPtr,
-        ppsupportedoutputformat: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pu32channelcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ptime: *mut i64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppregprops: *mut *mut APO_REG_PROPERTIES) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cbdatasize: u32, pbydata: *const u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, poppositeformat: ::windows::runtime::RawPtr, prequestedinputformat: ::windows::runtime::RawPtr, ppsupportedinputformat: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, poppositeformat: ::windows::runtime::RawPtr, prequestedoutputformat: ::windows::runtime::RawPtr, ppsupportedoutputformat: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pu32channelcount: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioProcessingObjectConfiguration(::windows::runtime::IUnknown);
 impl IAudioProcessingObjectConfiguration {
-    pub unsafe fn LockForProcess(
-        &self,
-        u32numinputconnections: u32,
-        ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR,
-        u32numoutputconnections: u32,
-        ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(u32numinputconnections),
-            ::std::mem::transmute(ppinputconnections),
-            ::std::mem::transmute(u32numoutputconnections),
-            ::std::mem::transmute(ppoutputconnections),
-        )
-        .ok()
+    pub unsafe fn LockForProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32numinputconnections), ::std::mem::transmute(ppinputconnections), ::std::mem::transmute(u32numoutputconnections), ::std::mem::transmute(ppoutputconnections)).ok()
     }
     pub unsafe fn UnlockForProcess(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
@@ -5166,12 +3681,7 @@ impl IAudioProcessingObjectConfiguration {
 }
 unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectConfiguration {
     type Vtable = IAudioProcessingObjectConfiguration_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        241096709,
-        43942,
-        18883,
-        [143, 154, 43, 140, 136, 156, 79, 168],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(241096709, 43942, 18883, [143, 154, 43, 140, 136, 156, 79, 168]);
 }
 impl ::std::convert::From<IAudioProcessingObjectConfiguration> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObjectConfiguration) -> Self {
@@ -5183,91 +3693,43 @@ impl ::std::convert::From<&IAudioProcessingObjectConfiguration> for ::windows::r
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IAudioProcessingObjectConfiguration
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioProcessingObjectConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IAudioProcessingObjectConfiguration
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioProcessingObjectConfiguration {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectConfiguration_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        u32numinputconnections: u32,
-        ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR,
-        u32numoutputconnections: u32,
-        ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, u32numinputconnections: u32, ppinputconnections: *const *const APO_CONNECTION_DESCRIPTOR, u32numoutputconnections: u32, ppoutputconnections: *const *const APO_CONNECTION_DESCRIPTOR) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioProcessingObjectRT(::windows::runtime::IUnknown);
 impl IAudioProcessingObjectRT {
     #[cfg(feature = "Win32_System_RemoteDesktop")]
-    pub unsafe fn APOProcess(
-        &self,
-        u32numinputconnections: u32,
-        ppinputconnections : * const * const super::super::super::System::RemoteDesktop:: APO_CONNECTION_PROPERTY,
-        u32numoutputconnections: u32,
-        ppoutputconnections : * mut * mut super::super::super::System::RemoteDesktop:: APO_CONNECTION_PROPERTY,
-    ) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(u32numinputconnections),
-            ::std::mem::transmute(ppinputconnections),
-            ::std::mem::transmute(u32numoutputconnections),
-            ::std::mem::transmute(ppoutputconnections),
-        ))
+    pub unsafe fn APOProcess(&self, u32numinputconnections: u32, ppinputconnections: *const *const super::super::super::System::RemoteDesktop::APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut super::super::super::System::RemoteDesktop::APO_CONNECTION_PROPERTY) {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32numinputconnections), ::std::mem::transmute(ppinputconnections), ::std::mem::transmute(u32numoutputconnections), ::std::mem::transmute(ppoutputconnections)))
     }
     pub unsafe fn CalcInputFrames(&self, u32outputframecount: u32) -> u32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(u32outputframecount),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32outputframecount)))
     }
     pub unsafe fn CalcOutputFrames(&self, u32inputframecount: u32) -> u32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(u32inputframecount),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32inputframecount)))
     }
 }
 unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectRT {
     type Vtable = IAudioProcessingObjectRT_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2652727917,
-        56764,
-        20117,
-        [164, 199, 173, 100, 186, 55, 132, 108],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2652727917, 56764, 20117, [164, 199, 173, 100, 186, 55, 132, 108]);
 }
 impl ::std::convert::From<IAudioProcessingObjectRT> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObjectRT) -> Self {
@@ -5279,71 +3741,43 @@ impl ::std::convert::From<&IAudioProcessingObjectRT> for ::windows::runtime::IUn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IAudioProcessingObjectRT
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioProcessingObjectRT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IAudioProcessingObjectRT
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioProcessingObjectRT {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IAudioProcessingObjectRT_abi ( pub unsafe extern "system" fn ( this : :: windows :: runtime :: RawPtr , iid : & :: windows :: runtime :: GUID , interface : * mut :: windows :: runtime :: RawPtr ) -> :: windows :: runtime :: HRESULT , pub unsafe extern "system" fn ( this : :: windows :: runtime :: RawPtr ) -> u32 , pub unsafe extern "system" fn ( this : :: windows :: runtime :: RawPtr ) -> u32 , #[cfg(feature = "Win32_System_RemoteDesktop")] pub unsafe extern "system" fn ( this : :: windows :: runtime :: RawPtr , u32numinputconnections : u32 , ppinputconnections : * const * const super::super::super::System::RemoteDesktop:: APO_CONNECTION_PROPERTY , u32numoutputconnections : u32 , ppoutputconnections : * mut * mut super::super::super::System::RemoteDesktop:: APO_CONNECTION_PROPERTY ) , #[cfg(not(feature = "Win32_System_RemoteDesktop"))] usize , pub unsafe extern "system" fn ( this : :: windows :: runtime :: RawPtr , u32outputframecount : u32 ) -> u32 , pub unsafe extern "system" fn ( this : :: windows :: runtime :: RawPtr , u32inputframecount : u32 ) -> u32 , ) ;
+pub struct IAudioProcessingObjectRT_abi(
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
+    #[cfg(feature = "Win32_System_RemoteDesktop")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, u32numinputconnections: u32, ppinputconnections: *const *const super::super::super::System::RemoteDesktop::APO_CONNECTION_PROPERTY, u32numoutputconnections: u32, ppoutputconnections: *mut *mut super::super::super::System::RemoteDesktop::APO_CONNECTION_PROPERTY),
+    #[cfg(not(feature = "Win32_System_RemoteDesktop"))] usize,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, u32outputframecount: u32) -> u32,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, u32inputframecount: u32) -> u32,
+);
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioProcessingObjectVBR(::windows::runtime::IUnknown);
 impl IAudioProcessingObjectVBR {
-    pub unsafe fn CalcMaxInputFrames(
-        &self,
-        u32maxoutputframecount: u32,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn CalcMaxInputFrames(&self, u32maxoutputframecount: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(u32maxoutputframecount),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32maxoutputframecount), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn CalcMaxOutputFrames(
-        &self,
-        u32maxinputframecount: u32,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn CalcMaxOutputFrames(&self, u32maxinputframecount: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(u32maxinputframecount),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(u32maxinputframecount), &mut result__).from_abi::<u32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IAudioProcessingObjectVBR {
     type Vtable = IAudioProcessingObjectVBR_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2074205071,
-        30893,
-        18893,
-        [149, 145, 247, 157, 128, 161, 124, 129],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2074205071, 30893, 18893, [149, 145, 247, 157, 128, 161, 124, 129]);
 }
 impl ::std::convert::From<IAudioProcessingObjectVBR> for ::windows::runtime::IUnknown {
     fn from(value: IAudioProcessingObjectVBR) -> Self {
@@ -5355,64 +3789,32 @@ impl ::std::convert::From<&IAudioProcessingObjectVBR> for ::windows::runtime::IU
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IAudioProcessingObjectVBR
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioProcessingObjectVBR {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IAudioProcessingObjectVBR
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioProcessingObjectVBR {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioProcessingObjectVBR_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        u32maxoutputframecount: u32,
-        pu32inputframecount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        u32maxinputframecount: u32,
-        pu32outputframecount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, u32maxoutputframecount: u32, pu32inputframecount: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, u32maxinputframecount: u32, pu32outputframecount: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioSystemEffects(::windows::runtime::IUnknown);
 impl IAudioSystemEffects {}
 unsafe impl ::windows::runtime::Interface for IAudioSystemEffects {
     type Vtable = IAudioSystemEffects_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1604325159,
-        44502,
-        18842,
-        [138, 157, 107, 152, 82, 31, 167, 91],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1604325159, 44502, 18842, [138, 157, 107, 152, 82, 31, 167, 91]);
 }
 impl ::std::convert::From<IAudioSystemEffects> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSystemEffects) -> Self {
@@ -5426,67 +3828,33 @@ impl ::std::convert::From<&IAudioSystemEffects> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSystemEffects {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSystemEffects {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSystemEffects_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioSystemEffects2(::windows::runtime::IUnknown);
 impl IAudioSystemEffects2 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetEffectsList<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
-    >(
-        &self,
-        ppeffectsids: *mut *mut ::windows::runtime::GUID,
-        pceffects: *mut u32,
-        event: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppeffectsids),
-            ::std::mem::transmute(pceffects),
-            event.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetEffectsList<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, ppeffectsids: *mut *mut ::windows::runtime::GUID, pceffects: *mut u32, event: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppeffectsids), ::std::mem::transmute(pceffects), event.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IAudioSystemEffects2 {
     type Vtable = IAudioSystemEffects2_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3137247698,
-        29750,
-        17614,
-        [158, 14, 77, 137, 175, 191, 255, 86],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3137247698, 29750, 17614, [158, 14, 77, 137, 175, 191, 255, 86]);
 }
 impl ::std::convert::From<IAudioSystemEffects2> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSystemEffects2) -> Self {
@@ -5500,18 +3868,12 @@ impl ::std::convert::From<&IAudioSystemEffects2> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSystemEffects2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSystemEffects2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IAudioSystemEffects2> for IAudioSystemEffects {
@@ -5531,79 +3893,39 @@ impl<'a> ::windows::runtime::IntoParam<'a, IAudioSystemEffects> for IAudioSystem
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IAudioSystemEffects> for &IAudioSystemEffects2 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IAudioSystemEffects> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioSystemEffects>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IAudioSystemEffects>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSystemEffects2_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppeffectsids: *mut *mut ::windows::runtime::GUID,
-        pceffects: *mut u32,
-        event: super::super::super::Foundation::HANDLE,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppeffectsids: *mut *mut ::windows::runtime::GUID, pceffects: *mut u32, event: super::super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IAudioSystemEffectsCustomFormats(::windows::runtime::IUnknown);
 impl IAudioSystemEffectsCustomFormats {
     pub unsafe fn GetFormatCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetFormat(&self, nformat: u32) -> ::windows::runtime::Result<IAudioMediaType> {
         let mut result__: <IAudioMediaType as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(nformat),
-            &mut result__,
-        )
-        .from_abi::<IAudioMediaType>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(nformat), &mut result__).from_abi::<IAudioMediaType>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetFormatRepresentation(
-        &self,
-        nformat: u32,
-    ) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
-        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(nformat),
-            &mut result__,
-        )
-        .from_abi::<super::super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetFormatRepresentation(&self, nformat: u32) -> ::windows::runtime::Result<super::super::super::Foundation::PWSTR> {
+        let mut result__: <super::super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(nformat), &mut result__).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IAudioSystemEffectsCustomFormats {
     type Vtable = IAudioSystemEffectsCustomFormats_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2971102772,
-        47999,
-        20229,
-        [190, 189, 27, 24, 165, 52, 224, 151],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2971102772, 47999, 20229, [190, 189, 27, 24, 165, 52, 224, 151]);
 }
 impl ::std::convert::From<IAudioSystemEffectsCustomFormats> for ::windows::runtime::IUnknown {
     fn from(value: IAudioSystemEffectsCustomFormats) -> Self {
@@ -5615,198 +3937,66 @@ impl ::std::convert::From<&IAudioSystemEffectsCustomFormats> for ::windows::runt
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IAudioSystemEffectsCustomFormats
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IAudioSystemEffectsCustomFormats {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IAudioSystemEffectsCustomFormats
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IAudioSystemEffectsCustomFormats {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAudioSystemEffectsCustomFormats_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcformats: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        nformat: u32,
-        ppformat: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        nformat: u32,
-        ppwstrformatrep: *mut super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcformats: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nformat: u32, ppformat: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, nformat: u32, ppwstrformatrep: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusic(::windows::runtime::IUnknown);
 impl IDirectMusic {
-    pub unsafe fn EnumPort(
-        &self,
-        dwindex: u32,
-        pportcaps: *mut DMUS_PORTCAPS,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwindex),
-            ::std::mem::transmute(pportcaps),
-        )
-        .ok()
+    pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pportcaps)).ok()
     }
-    pub unsafe fn CreateMusicBuffer<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        pbufferdesc: *mut DMUS_BUFFERDESC,
-        ppbuffer: *mut ::std::option::Option<IDirectMusicBuffer>,
-        punkouter: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pbufferdesc),
-            ::std::mem::transmute(ppbuffer),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateMusicBuffer<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::std::option::Option<IDirectMusicBuffer>, punkouter: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbufferdesc), ::std::mem::transmute(ppbuffer), punkouter.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreatePort<
-        'a,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        rclsidport: *const ::windows::runtime::GUID,
-        pportparams: *mut DMUS_PORTPARAMS8,
-        ppport: *mut ::std::option::Option<IDirectMusicPort>,
-        punkouter: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rclsidport),
-            ::std::mem::transmute(pportparams),
-            ::std::mem::transmute(ppport),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreatePort<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, rclsidport: *const ::windows::runtime::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::std::option::Option<IDirectMusicPort>, punkouter: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsidport), ::std::mem::transmute(pportparams), ::std::mem::transmute(ppport), punkouter.into_param().abi()).ok()
     }
-    pub unsafe fn EnumMasterClock(
-        &self,
-        dwindex: u32,
-        lpclockinfo: *mut DMUS_CLOCKINFO8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwindex),
-            ::std::mem::transmute(lpclockinfo),
-        )
-        .ok()
+    pub unsafe fn EnumMasterClock(&self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(lpclockinfo)).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub unsafe fn GetMasterClock(
-        &self,
-        pguidclock: *mut ::windows::runtime::GUID,
-        ppreferenceclock: *mut ::std::option::Option<
-            super::super::super::Graphics::DirectShow::IReferenceClock,
-        >,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pguidclock),
-            ::std::mem::transmute(ppreferenceclock),
-        )
-        .ok()
+    pub unsafe fn GetMasterClock(&self, pguidclock: *mut ::windows::runtime::GUID, ppreferenceclock: *mut ::std::option::Option<super::super::super::Graphics::DirectShow::IReferenceClock>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidclock), ::std::mem::transmute(ppreferenceclock)).ok()
     }
-    pub unsafe fn SetMasterClock(
-        &self,
-        rguidclock: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rguidclock),
-        )
-        .ok()
+    pub unsafe fn SetMasterClock(&self, rguidclock: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguidclock)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
-    >(
-        &self,
-        fenable: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            fenable.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
-    pub unsafe fn GetDefaultPort(
-        &self,
-        pguidport: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pguidport),
-        )
-        .ok()
+    pub unsafe fn GetDefaultPort(&self, pguidport: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidport)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDirectSound<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IDirectSound>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
-    >(
-        &self,
-        pdirectsound: Param0,
-        hwnd: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            pdirectsound.into_param().abi(),
-            hwnd.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetDirectSound<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, pdirectsound: Param0, hwnd: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pdirectsound.into_param().abi(), hwnd.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusic {
     type Vtable = IDirectMusic_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1698042202,
-        31533,
-        4562,
-        [186, 24, 0, 0, 248, 117, 172, 18],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1698042202, 31533, 4562, [186, 24, 0, 0, 248, 117, 172, 18]);
 }
 impl ::std::convert::From<IDirectMusic> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusic) -> Self {
@@ -5820,246 +4010,77 @@ impl ::std::convert::From<&IDirectMusic> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusic {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusic {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusic_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwindex: u32,
-        pportcaps: *mut DMUS_PORTCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pbufferdesc: *mut DMUS_BUFFERDESC,
-        ppbuffer: *mut ::windows::runtime::RawPtr,
-        punkouter: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rclsidport: *const ::windows::runtime::GUID,
-        pportparams: *mut DMUS_PORTPARAMS8,
-        ppport: *mut ::windows::runtime::RawPtr,
-        punkouter: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rclsidport: *const ::windows::runtime::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwindex: u32,
-        lpclockinfo: *mut DMUS_CLOCKINFO8,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pguidclock: *mut ::windows::runtime::GUID,
-        ppreferenceclock: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidclock: *mut ::windows::runtime::GUID, ppreferenceclock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rguidclock: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fenable: super::super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rguidclock: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fenable: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pguidport: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdirectsound: ::windows::runtime::RawPtr,
-        hwnd: super::super::super::Foundation::HWND,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidport: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectsound: ::windows::runtime::RawPtr, hwnd: super::super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusic8(::windows::runtime::IUnknown);
 impl IDirectMusic8 {
-    pub unsafe fn EnumPort(
-        &self,
-        dwindex: u32,
-        pportcaps: *mut DMUS_PORTCAPS,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwindex),
-            ::std::mem::transmute(pportcaps),
-        )
-        .ok()
+    pub unsafe fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pportcaps)).ok()
     }
-    pub unsafe fn CreateMusicBuffer<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        pbufferdesc: *mut DMUS_BUFFERDESC,
-        ppbuffer: *mut ::std::option::Option<IDirectMusicBuffer>,
-        punkouter: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pbufferdesc),
-            ::std::mem::transmute(ppbuffer),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateMusicBuffer<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::std::option::Option<IDirectMusicBuffer>, punkouter: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbufferdesc), ::std::mem::transmute(ppbuffer), punkouter.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreatePort<
-        'a,
-        Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        rclsidport: *const ::windows::runtime::GUID,
-        pportparams: *mut DMUS_PORTPARAMS8,
-        ppport: *mut ::std::option::Option<IDirectMusicPort>,
-        punkouter: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rclsidport),
-            ::std::mem::transmute(pportparams),
-            ::std::mem::transmute(ppport),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreatePort<'a, Param3: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, rclsidport: *const ::windows::runtime::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::std::option::Option<IDirectMusicPort>, punkouter: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsidport), ::std::mem::transmute(pportparams), ::std::mem::transmute(ppport), punkouter.into_param().abi()).ok()
     }
-    pub unsafe fn EnumMasterClock(
-        &self,
-        dwindex: u32,
-        lpclockinfo: *mut DMUS_CLOCKINFO8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwindex),
-            ::std::mem::transmute(lpclockinfo),
-        )
-        .ok()
+    pub unsafe fn EnumMasterClock(&self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(lpclockinfo)).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub unsafe fn GetMasterClock(
-        &self,
-        pguidclock: *mut ::windows::runtime::GUID,
-        ppreferenceclock: *mut ::std::option::Option<
-            super::super::super::Graphics::DirectShow::IReferenceClock,
-        >,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pguidclock),
-            ::std::mem::transmute(ppreferenceclock),
-        )
-        .ok()
+    pub unsafe fn GetMasterClock(&self, pguidclock: *mut ::windows::runtime::GUID, ppreferenceclock: *mut ::std::option::Option<super::super::super::Graphics::DirectShow::IReferenceClock>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidclock), ::std::mem::transmute(ppreferenceclock)).ok()
     }
-    pub unsafe fn SetMasterClock(
-        &self,
-        rguidclock: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rguidclock),
-        )
-        .ok()
+    pub unsafe fn SetMasterClock(&self, rguidclock: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguidclock)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
-    >(
-        &self,
-        fenable: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            fenable.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
-    pub unsafe fn GetDefaultPort(
-        &self,
-        pguidport: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pguidport),
-        )
-        .ok()
+    pub unsafe fn GetDefaultPort(&self, pguidport: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidport)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetDirectSound<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IDirectSound>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
-    >(
-        &self,
-        pdirectsound: Param0,
-        hwnd: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            pdirectsound.into_param().abi(),
-            hwnd.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetDirectSound<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>, Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, pdirectsound: Param0, hwnd: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pdirectsound.into_param().abi(), hwnd.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub unsafe fn SetExternalMasterClock<
-        'a,
-        Param0: ::windows::runtime::IntoParam<
-            'a,
-            super::super::super::Graphics::DirectShow::IReferenceClock,
-        >,
-    >(
-        &self,
-        pclock: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            pclock.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetExternalMasterClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::DirectShow::IReferenceClock>>(&self, pclock: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), pclock.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusic8 {
     type Vtable = IDirectMusic8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        758524407,
-        33085,
-        18745,
-        [133, 8, 240, 92, 107, 117, 253, 151],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(758524407, 33085, 18745, [133, 8, 240, 92, 107, 117, 253, 151]);
 }
 impl ::std::convert::From<IDirectMusic8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusic8) -> Self {
@@ -6073,18 +4094,12 @@ impl ::std::convert::From<&IDirectMusic8> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusic8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusic8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectMusic8> for IDirectMusic {
@@ -6104,210 +4119,78 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectMusic> for IDirectMusic8 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectMusic> for &IDirectMusic8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectMusic> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectMusic>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectMusic>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusic8_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwindex: u32,
-        pportcaps: *mut DMUS_PORTCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pbufferdesc: *mut DMUS_BUFFERDESC,
-        ppbuffer: *mut ::windows::runtime::RawPtr,
-        punkouter: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rclsidport: *const ::windows::runtime::GUID,
-        pportparams: *mut DMUS_PORTPARAMS8,
-        ppport: *mut ::windows::runtime::RawPtr,
-        punkouter: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rclsidport: *const ::windows::runtime::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwindex: u32,
-        lpclockinfo: *mut DMUS_CLOCKINFO8,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pguidclock: *mut ::windows::runtime::GUID,
-        ppreferenceclock: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidclock: *mut ::windows::runtime::GUID, ppreferenceclock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rguidclock: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fenable: super::super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rguidclock: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fenable: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pguidport: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdirectsound: ::windows::runtime::RawPtr,
-        hwnd: super::super::super::Foundation::HWND,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidport: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectsound: ::windows::runtime::RawPtr, hwnd: super::super::super::Foundation::HWND) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pclock: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclock: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicBuffer(::windows::runtime::IUnknown);
 impl IDirectMusicBuffer {
     pub unsafe fn Flush(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn TotalTime(&self, prttime: *mut i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(prttime),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(prttime)).ok()
     }
-    pub unsafe fn PackStructured(
-        &self,
-        rt: i64,
-        dwchannelgroup: u32,
-        dwchannelmessage: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rt),
-            ::std::mem::transmute(dwchannelgroup),
-            ::std::mem::transmute(dwchannelmessage),
-        )
-        .ok()
+    pub unsafe fn PackStructured(&self, rt: i64, dwchannelgroup: u32, dwchannelmessage: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rt), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannelmessage)).ok()
     }
-    pub unsafe fn PackUnstructured(
-        &self,
-        rt: i64,
-        dwchannelgroup: u32,
-        cb: u32,
-        lpb: *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rt),
-            ::std::mem::transmute(dwchannelgroup),
-            ::std::mem::transmute(cb),
-            ::std::mem::transmute(lpb),
-        )
-        .ok()
+    pub unsafe fn PackUnstructured(&self, rt: i64, dwchannelgroup: u32, cb: u32, lpb: *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(rt), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(cb), ::std::mem::transmute(lpb)).ok()
     }
     pub unsafe fn ResetReadPtr(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetNextEvent(
-        &self,
-        prt: *mut i64,
-        pdwchannelgroup: *mut u32,
-        pdwlength: *mut u32,
-        ppdata: *mut *mut u8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(prt),
-            ::std::mem::transmute(pdwchannelgroup),
-            ::std::mem::transmute(pdwlength),
-            ::std::mem::transmute(ppdata),
-        )
-        .ok()
+    pub unsafe fn GetNextEvent(&self, prt: *mut i64, pdwchannelgroup: *mut u32, pdwlength: *mut u32, ppdata: *mut *mut u8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(prt), ::std::mem::transmute(pdwchannelgroup), ::std::mem::transmute(pdwlength), ::std::mem::transmute(ppdata)).ok()
     }
     pub unsafe fn GetRawBufferPtr(&self, ppdata: *mut *mut u8) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppdata),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppdata)).ok()
     }
     pub unsafe fn GetStartTime(&self, prt: *mut i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(prt),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(prt)).ok()
     }
     pub unsafe fn GetUsedBytes(&self, pcb: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcb),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcb)).ok()
     }
     pub unsafe fn GetMaxBytes(&self, pcb: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcb),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcb)).ok()
     }
-    pub unsafe fn GetBufferFormat(
-        &self,
-        pguidformat: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pguidformat),
-        )
-        .ok()
+    pub unsafe fn GetBufferFormat(&self, pguidformat: *mut ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(pguidformat)).ok()
     }
     pub unsafe fn SetStartTime(&self, rt: i64) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rt),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(rt)).ok()
     }
     pub unsafe fn SetUsedBytes(&self, cb: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(cb),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(cb)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicBuffer {
     type Vtable = IDirectMusicBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3534497912,
-        45979,
-        4561,
-        [135, 4, 0, 96, 8, 147, 177, 189],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497912, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
 }
 impl ::std::convert::From<IDirectMusicBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicBuffer) -> Self {
@@ -6321,136 +4204,50 @@ impl ::std::convert::From<&IDirectMusicBuffer> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusicBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicBuffer_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        prttime: *mut i64,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rt: i64,
-        dwchannelgroup: u32,
-        dwchannelmessage: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rt: i64,
-        dwchannelgroup: u32,
-        cb: u32,
-        lpb: *mut u8,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prttime: *mut i64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rt: i64, dwchannelgroup: u32, dwchannelmessage: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rt: i64, dwchannelgroup: u32, cb: u32, lpb: *mut u8) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        prt: *mut i64,
-        pdwchannelgroup: *mut u32,
-        pdwlength: *mut u32,
-        ppdata: *mut *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppdata: *mut *mut u8,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        prt: *mut i64,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcb: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcb: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pguidformat: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rt: i64,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        cb: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prt: *mut i64, pdwchannelgroup: *mut u32, pdwlength: *mut u32, ppdata: *mut *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdata: *mut *mut u8) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prt: *mut i64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcb: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcb: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pguidformat: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rt: i64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cb: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicCollection(::windows::runtime::IUnknown);
 impl IDirectMusicCollection {
-    pub unsafe fn GetInstrument(
-        &self,
-        dwpatch: u32,
-    ) -> ::windows::runtime::Result<IDirectMusicInstrument> {
-        let mut result__: <IDirectMusicInstrument as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwpatch),
-            &mut result__,
-        )
-        .from_abi::<IDirectMusicInstrument>(result__)
+    pub unsafe fn GetInstrument(&self, dwpatch: u32) -> ::windows::runtime::Result<IDirectMusicInstrument> {
+        let mut result__: <IDirectMusicInstrument as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwpatch), &mut result__).from_abi::<IDirectMusicInstrument>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumInstrument<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        dwindex: u32,
-        pdwpatch: *mut u32,
-        pwszname: Param2,
-        dwnamelen: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwindex),
-            ::std::mem::transmute(pdwpatch),
-            pwszname.into_param().abi(),
-            ::std::mem::transmute(dwnamelen),
-        )
-        .ok()
+    pub unsafe fn EnumInstrument<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, dwindex: u32, pdwpatch: *mut u32, pwszname: Param2, dwnamelen: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwindex), ::std::mem::transmute(pdwpatch), pwszname.into_param().abi(), ::std::mem::transmute(dwnamelen)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicCollection {
     type Vtable = IDirectMusicCollection_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3534497916,
-        45979,
-        4561,
-        [135, 4, 0, 96, 8, 147, 177, 189],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497916, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
 }
 impl ::std::convert::From<IDirectMusicCollection> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicCollection) -> Self {
@@ -6462,81 +4259,37 @@ impl ::std::convert::From<&IDirectMusicCollection> for ::windows::runtime::IUnkn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectMusicCollection
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectMusicCollection
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusicCollection {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicCollection_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwpatch: u32,
-        ppinstrument: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwindex: u32,
-        pdwpatch: *mut u32,
-        pwszname: super::super::super::Foundation::PWSTR,
-        dwnamelen: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwpatch: u32, ppinstrument: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwindex: u32, pdwpatch: *mut u32, pwszname: super::super::super::Foundation::PWSTR, dwnamelen: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicDownload(::windows::runtime::IUnknown);
 impl IDirectMusicDownload {
-    pub unsafe fn GetBuffer(
-        &self,
-        ppvbuffer: *mut *mut ::std::ffi::c_void,
-        pdwsize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppvbuffer),
-            ::std::mem::transmute(pdwsize),
-        )
-        .ok()
+    pub unsafe fn GetBuffer(&self, ppvbuffer: *mut *mut ::std::ffi::c_void, pdwsize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppvbuffer), ::std::mem::transmute(pdwsize)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicDownload {
     type Vtable = IDirectMusicDownload_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3534497915,
-        45979,
-        4561,
-        [135, 4, 0, 96, 8, 147, 177, 189],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497915, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
 }
 impl ::std::convert::From<IDirectMusicDownload> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicDownload) -> Self {
@@ -6550,53 +4303,29 @@ impl ::std::convert::From<&IDirectMusicDownload> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicDownload {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusicDownload {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicDownload_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppvbuffer: *mut *mut ::std::ffi::c_void,
-        pdwsize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppvbuffer: *mut *mut ::std::ffi::c_void, pdwsize: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicDownloadedInstrument(::windows::runtime::IUnknown);
 impl IDirectMusicDownloadedInstrument {}
 unsafe impl ::windows::runtime::Interface for IDirectMusicDownloadedInstrument {
     type Vtable = IDirectMusicDownloadedInstrument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3534497918,
-        45979,
-        4561,
-        [135, 4, 0, 96, 8, 147, 177, 189],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497918, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
 }
 impl ::std::convert::From<IDirectMusicDownloadedInstrument> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicDownloadedInstrument) -> Self {
@@ -6608,69 +4337,37 @@ impl ::std::convert::From<&IDirectMusicDownloadedInstrument> for ::windows::runt
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectMusicDownloadedInstrument
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicDownloadedInstrument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectMusicDownloadedInstrument
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusicDownloadedInstrument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicDownloadedInstrument_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicInstrument(::windows::runtime::IUnknown);
 impl IDirectMusicInstrument {
     pub unsafe fn GetPatch(&self, pdwpatch: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwpatch),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwpatch)).ok()
     }
     pub unsafe fn SetPatch(&self, dwpatch: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwpatch),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwpatch)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicInstrument {
     type Vtable = IDirectMusicInstrument_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3534497917,
-        45979,
-        4561,
-        [135, 4, 0, 96, 8, 147, 177, 189],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497917, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
 }
 impl ::std::convert::From<IDirectMusicInstrument> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicInstrument) -> Self {
@@ -6682,277 +4379,90 @@ impl ::std::convert::From<&IDirectMusicInstrument> for ::windows::runtime::IUnkn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectMusicInstrument
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicInstrument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectMusicInstrument
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusicInstrument {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicInstrument_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwpatch: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwpatch: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwpatch: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwpatch: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicPort(::windows::runtime::IUnknown);
 impl IDirectMusicPort {
-    pub unsafe fn PlayBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicBuffer>>(
-        &self,
-        pbuffer: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            pbuffer.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn PlayBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicBuffer>>(&self, pbuffer: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pbuffer.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetReadNotificationHandle<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
-    >(
-        &self,
-        hevent: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            hevent.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetReadNotificationHandle<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, hevent: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), hevent.into_param().abi()).ok()
     }
-    pub unsafe fn Read<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicBuffer>>(
-        &self,
-        pbuffer: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            pbuffer.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Read<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicBuffer>>(&self, pbuffer: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pbuffer.into_param().abi()).ok()
     }
-    pub unsafe fn DownloadInstrument<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IDirectMusicInstrument>,
-    >(
-        &self,
-        pinstrument: Param0,
-        ppdownloadedinstrument: *mut ::std::option::Option<IDirectMusicDownloadedInstrument>,
-        pnoteranges: *mut DMUS_NOTERANGE,
-        dwnumnoteranges: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            pinstrument.into_param().abi(),
-            ::std::mem::transmute(ppdownloadedinstrument),
-            ::std::mem::transmute(pnoteranges),
-            ::std::mem::transmute(dwnumnoteranges),
-        )
-        .ok()
+    pub unsafe fn DownloadInstrument<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicInstrument>>(&self, pinstrument: Param0, ppdownloadedinstrument: *mut ::std::option::Option<IDirectMusicDownloadedInstrument>, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pinstrument.into_param().abi(), ::std::mem::transmute(ppdownloadedinstrument), ::std::mem::transmute(pnoteranges), ::std::mem::transmute(dwnumnoteranges)).ok()
     }
-    pub unsafe fn UnloadInstrument<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IDirectMusicDownloadedInstrument>,
-    >(
-        &self,
-        pdownloadedinstrument: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            pdownloadedinstrument.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn UnloadInstrument<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicDownloadedInstrument>>(&self, pdownloadedinstrument: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pdownloadedinstrument.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub unsafe fn GetLatencyClock(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Graphics::DirectShow::IReferenceClock>
-    {
-        let mut result__ : < super::super::super::Graphics::DirectShow:: IReferenceClock as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::super::Graphics::DirectShow::IReferenceClock>(result__)
+    pub unsafe fn GetLatencyClock(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectShow::IReferenceClock> {
+        let mut result__: <super::super::super::Graphics::DirectShow::IReferenceClock as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::DirectShow::IReferenceClock>(result__)
     }
-    pub unsafe fn GetRunningStats(
-        &self,
-        pstats: *mut DMUS_SYNTHSTATS,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pstats),
-        )
-        .ok()
+    pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstats)).ok()
     }
     pub unsafe fn Compact(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn GetCaps(&self, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pportcaps),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pportcaps)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub unsafe fn DeviceIoControl(
-        &self,
-        dwiocontrolcode: u32,
-        lpinbuffer: *mut ::std::ffi::c_void,
-        ninbuffersize: u32,
-        lpoutbuffer: *mut ::std::ffi::c_void,
-        noutbuffersize: u32,
-        lpbytesreturned: *mut u32,
-        lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwiocontrolcode),
-            ::std::mem::transmute(lpinbuffer),
-            ::std::mem::transmute(ninbuffersize),
-            ::std::mem::transmute(lpoutbuffer),
-            ::std::mem::transmute(noutbuffersize),
-            ::std::mem::transmute(lpbytesreturned),
-            ::std::mem::transmute(lpoverlapped),
-        )
-        .ok()
+    pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *mut ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwiocontrolcode), ::std::mem::transmute(lpinbuffer), ::std::mem::transmute(ninbuffersize), ::std::mem::transmute(lpoutbuffer), ::std::mem::transmute(noutbuffersize), ::std::mem::transmute(lpbytesreturned), ::std::mem::transmute(lpoverlapped)).ok()
     }
-    pub unsafe fn SetNumChannelGroups(
-        &self,
-        dwchannelgroups: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwchannelgroups),
-        )
-        .ok()
+    pub unsafe fn SetNumChannelGroups(&self, dwchannelgroups: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroups)).ok()
     }
-    pub unsafe fn GetNumChannelGroups(
-        &self,
-        pdwchannelgroups: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwchannelgroups),
-        )
-        .ok()
+    pub unsafe fn GetNumChannelGroups(&self, pdwchannelgroups: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwchannelgroups)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
-    >(
-        &self,
-        factive: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            factive.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, factive: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), factive.into_param().abi()).ok()
     }
-    pub unsafe fn SetChannelPriority(
-        &self,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        dwpriority: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwchannelgroup),
-            ::std::mem::transmute(dwchannel),
-            ::std::mem::transmute(dwpriority),
-        )
-        .ok()
+    pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(dwpriority)).ok()
     }
-    pub unsafe fn GetChannelPriority(
-        &self,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        pdwpriority: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwchannelgroup),
-            ::std::mem::transmute(dwchannel),
-            ::std::mem::transmute(pdwpriority),
-        )
-        .ok()
+    pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(pdwpriority)).ok()
     }
-    pub unsafe fn SetDirectSound<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IDirectSound>,
-        Param1: ::windows::runtime::IntoParam<'a, IDirectSoundBuffer>,
-    >(
-        &self,
-        pdirectsound: Param0,
-        pdirectsoundbuffer: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            pdirectsound.into_param().abi(),
-            pdirectsoundbuffer.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetDirectSound<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>, Param1: ::windows::runtime::IntoParam<'a, IDirectSoundBuffer>>(&self, pdirectsound: Param0, pdirectsoundbuffer: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), pdirectsound.into_param().abi(), pdirectsoundbuffer.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn GetFormat(
-        &self,
-        pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX,
-        pdwwaveformatexsize: *mut u32,
-        pdwbuffersize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwaveformatex),
-            ::std::mem::transmute(pdwwaveformatexsize),
-            ::std::mem::transmute(pdwbuffersize),
-        )
-        .ok()
+    pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX, pdwwaveformatexsize: *mut u32, pdwbuffersize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwaveformatex), ::std::mem::transmute(pdwwaveformatexsize), ::std::mem::transmute(pdwbuffersize)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicPort {
     type Vtable = IDirectMusicPort_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        150132937,
-        14274,
-        4562,
-        [185, 249, 0, 0, 248, 117, 172, 18],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(150132937, 14274, 4562, [185, 249, 0, 0, 248, 117, 172, 18]);
 }
 impl ::std::convert::From<IDirectMusicPort> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicPort) -> Self {
@@ -6966,205 +4476,71 @@ impl ::std::convert::From<&IDirectMusicPort> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusicPort {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicPort_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pbuffer: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hevent: super::super::super::Foundation::HANDLE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbuffer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hevent: super::super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pbuffer: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pinstrument: ::windows::runtime::RawPtr,
-        ppdownloadedinstrument: *mut ::windows::runtime::RawPtr,
-        pnoteranges: *mut DMUS_NOTERANGE,
-        dwnumnoteranges: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdownloadedinstrument: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppclock: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbuffer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pinstrument: ::windows::runtime::RawPtr, ppdownloadedinstrument: *mut ::windows::runtime::RawPtr, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdownloadedinstrument: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppclock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pstats: *mut DMUS_SYNTHSTATS,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pportcaps: *mut DMUS_PORTCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwiocontrolcode: u32,
-        lpinbuffer: *mut ::std::ffi::c_void,
-        ninbuffersize: u32,
-        lpoutbuffer: *mut ::std::ffi::c_void,
-        noutbuffersize: u32,
-        lpbytesreturned: *mut u32,
-        lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pportcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwiocontrolcode: u32, lpinbuffer: *mut ::std::ffi::c_void, ninbuffersize: u32, lpoutbuffer: *mut ::std::ffi::c_void, noutbuffersize: u32, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::super::System::IO::OVERLAPPED) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_IO")))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwchannelgroups: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwchannelgroups: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        factive: super::super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchannelgroups: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwchannelgroups: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, factive: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        dwpriority: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        pdwpriority: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdirectsound: ::windows::runtime::RawPtr,
-        pdirectsoundbuffer: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX,
-        pdwwaveformatexsize: *mut u32,
-        pdwbuffersize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectsound: ::windows::runtime::RawPtr, pdirectsoundbuffer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX, pdwwaveformatexsize: *mut u32, pdwbuffersize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicPortDownload(::windows::runtime::IUnknown);
 impl IDirectMusicPortDownload {
-    pub unsafe fn GetBuffer(
-        &self,
-        dwdlid: u32,
-    ) -> ::windows::runtime::Result<IDirectMusicDownload> {
-        let mut result__: <IDirectMusicDownload as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwdlid),
-            &mut result__,
-        )
-        .from_abi::<IDirectMusicDownload>(result__)
+    pub unsafe fn GetBuffer(&self, dwdlid: u32) -> ::windows::runtime::Result<IDirectMusicDownload> {
+        let mut result__: <IDirectMusicDownload as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdlid), &mut result__).from_abi::<IDirectMusicDownload>(result__)
     }
-    pub unsafe fn AllocateBuffer(
-        &self,
-        dwsize: u32,
-    ) -> ::windows::runtime::Result<IDirectMusicDownload> {
-        let mut result__: <IDirectMusicDownload as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwsize),
-            &mut result__,
-        )
-        .from_abi::<IDirectMusicDownload>(result__)
+    pub unsafe fn AllocateBuffer(&self, dwsize: u32) -> ::windows::runtime::Result<IDirectMusicDownload> {
+        let mut result__: <IDirectMusicDownload as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsize), &mut result__).from_abi::<IDirectMusicDownload>(result__)
     }
-    pub unsafe fn GetDLId(
-        &self,
-        pdwstartdlid: *mut u32,
-        dwcount: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwstartdlid),
-            ::std::mem::transmute(dwcount),
-        )
-        .ok()
+    pub unsafe fn GetDLId(&self, pdwstartdlid: *mut u32, dwcount: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwstartdlid), ::std::mem::transmute(dwcount)).ok()
     }
     pub unsafe fn GetAppend(&self, pdwappend: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwappend),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwappend)).ok()
     }
-    pub unsafe fn Download<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicDownload>>(
-        &self,
-        pidmdownload: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            pidmdownload.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Download<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicDownload>>(&self, pidmdownload: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pidmdownload.into_param().abi()).ok()
     }
-    pub unsafe fn Unload<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicDownload>>(
-        &self,
-        pidmdownload: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            pidmdownload.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Unload<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicDownload>>(&self, pidmdownload: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), pidmdownload.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicPortDownload {
     type Vtable = IDirectMusicPortDownload_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3534497914,
-        45979,
-        4561,
-        [135, 4, 0, 96, 8, 147, 177, 189],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3534497914, 45979, 4561, [135, 4, 0, 96, 8, 147, 177, 189]);
 }
 impl ::std::convert::From<IDirectMusicPortDownload> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicPortDownload) -> Self {
@@ -7176,286 +4552,96 @@ impl ::std::convert::From<&IDirectMusicPortDownload> for ::windows::runtime::IUn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectMusicPortDownload
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicPortDownload {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectMusicPortDownload
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusicPortDownload {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicPortDownload_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwdlid: u32,
-        ppidmdownload: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwsize: u32,
-        ppidmdownload: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstartdlid: *mut u32,
-        dwcount: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwappend: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pidmdownload: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pidmdownload: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwdlid: u32, ppidmdownload: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwsize: u32, ppidmdownload: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstartdlid: *mut u32, dwcount: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwappend: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pidmdownload: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pidmdownload: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicSynth(::windows::runtime::IUnknown);
 impl IDirectMusicSynth {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Open(
-        &self,
-        pportparams: *mut DMUS_PORTPARAMS8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pportparams),
-        )
-        .ok()
+    pub unsafe fn Open(&self, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pportparams)).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn SetNumChannelGroups(&self, dwgroups: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwgroups),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwgroups)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Download(
-        &self,
-        phdownload: *mut super::super::super::Foundation::HANDLE,
-        pvdata: *mut ::std::ffi::c_void,
-        pbfree: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(phdownload),
-            ::std::mem::transmute(pvdata),
-            ::std::mem::transmute(pbfree),
-        )
-        .ok()
+    pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::std::ffi::c_void, pbfree: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(phdownload), ::std::mem::transmute(pvdata), ::std::mem::transmute(pbfree)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unload<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
-    >(
-        &self,
-        hdownload: Param0,
-        lpfreehandle: isize,
-        huserdata: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            hdownload.into_param().abi(),
-            ::std::mem::transmute(lpfreehandle),
-            huserdata.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Unload<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, hdownload: Param0, lpfreehandle: isize, huserdata: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), hdownload.into_param().abi(), ::std::mem::transmute(lpfreehandle), huserdata.into_param().abi()).ok()
     }
-    pub unsafe fn PlayBuffer(
-        &self,
-        rt: i64,
-        pbbuffer: *mut u8,
-        cbbuffer: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rt),
-            ::std::mem::transmute(pbbuffer),
-            ::std::mem::transmute(cbbuffer),
-        )
-        .ok()
+    pub unsafe fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(rt), ::std::mem::transmute(pbbuffer), ::std::mem::transmute(cbbuffer)).ok()
     }
-    pub unsafe fn GetRunningStats(
-        &self,
-        pstats: *mut DMUS_SYNTHSTATS,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pstats),
-        )
-        .ok()
+    pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstats)).ok()
     }
     pub unsafe fn GetPortCaps(&self, pcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcaps),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcaps)).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub unsafe fn SetMasterClock<
-        'a,
-        Param0: ::windows::runtime::IntoParam<
-            'a,
-            super::super::super::Graphics::DirectShow::IReferenceClock,
-        >,
-    >(
-        &self,
-        pclock: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            pclock.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetMasterClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::DirectShow::IReferenceClock>>(&self, pclock: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pclock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub unsafe fn GetLatencyClock(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Graphics::DirectShow::IReferenceClock>
-    {
-        let mut result__ : < super::super::super::Graphics::DirectShow:: IReferenceClock as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::super::Graphics::DirectShow::IReferenceClock>(result__)
+    pub unsafe fn GetLatencyClock(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectShow::IReferenceClock> {
+        let mut result__: <super::super::super::Graphics::DirectShow::IReferenceClock as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::DirectShow::IReferenceClock>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
-    >(
-        &self,
-        fenable: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            fenable.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
-    pub unsafe fn SetSynthSink<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IDirectMusicSynthSink>,
-    >(
-        &self,
-        psynthsink: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            psynthsink.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetSynthSink<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicSynthSink>>(&self, psynthsink: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), psynthsink.into_param().abi()).ok()
     }
-    pub unsafe fn Render(
-        &self,
-        pbuffer: *mut i16,
-        dwlength: u32,
-        llposition: i64,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(dwlength),
-            ::std::mem::transmute(llposition),
-        )
-        .ok()
+    pub unsafe fn Render(&self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbuffer), ::std::mem::transmute(dwlength), ::std::mem::transmute(llposition)).ok()
     }
-    pub unsafe fn SetChannelPriority(
-        &self,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        dwpriority: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwchannelgroup),
-            ::std::mem::transmute(dwchannel),
-            ::std::mem::transmute(dwpriority),
-        )
-        .ok()
+    pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(dwpriority)).ok()
     }
-    pub unsafe fn GetChannelPriority(
-        &self,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        pdwpriority: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwchannelgroup),
-            ::std::mem::transmute(dwchannel),
-            ::std::mem::transmute(pdwpriority),
-        )
-        .ok()
+    pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(pdwpriority)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn GetFormat(
-        &self,
-        pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX,
-        pdwwaveformatexsize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwaveformatex),
-            ::std::mem::transmute(pdwwaveformatexsize),
-        )
-        .ok()
+    pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwaveformatex), ::std::mem::transmute(pdwwaveformatexsize)).ok()
     }
     pub unsafe fn GetAppend(&self, pdwappend: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwappend),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwappend)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicSynth {
     type Vtable = IDirectMusicSynth_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        159528545,
-        23685,
-        4562,
-        [175, 166, 0, 170, 0, 36, 216, 182],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(159528545, 23685, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
 }
 impl ::std::convert::From<IDirectMusicSynth> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicSynth) -> Self {
@@ -7469,349 +4655,109 @@ impl ::std::convert::From<&IDirectMusicSynth> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicSynth {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusicSynth {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicSynth_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pportparams: *mut DMUS_PORTPARAMS8,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwgroups: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        phdownload: *mut super::super::super::Foundation::HANDLE,
-        pvdata: *mut ::std::ffi::c_void,
-        pbfree: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwgroups: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::std::ffi::c_void, pbfree: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hdownload: super::super::super::Foundation::HANDLE,
-        lpfreehandle: isize,
-        huserdata: super::super::super::Foundation::HANDLE,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hdownload: super::super::super::Foundation::HANDLE, lpfreehandle: isize, huserdata: super::super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rt: i64,
-        pbbuffer: *mut u8,
-        cbbuffer: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pstats: *mut DMUS_SYNTHSTATS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcaps: *mut DMUS_PORTCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pclock: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclock: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppclock: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppclock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fenable: super::super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fenable: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        psynthsink: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pbuffer: *mut i16,
-        dwlength: u32,
-        llposition: i64,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        dwpriority: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        pdwpriority: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX,
-        pdwwaveformatexsize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psynthsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwappend: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwappend: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicSynth8(::windows::runtime::IUnknown);
 impl IDirectMusicSynth8 {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Open(
-        &self,
-        pportparams: *mut DMUS_PORTPARAMS8,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pportparams),
-        )
-        .ok()
+    pub unsafe fn Open(&self, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pportparams)).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn SetNumChannelGroups(&self, dwgroups: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwgroups),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwgroups)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Download(
-        &self,
-        phdownload: *mut super::super::super::Foundation::HANDLE,
-        pvdata: *mut ::std::ffi::c_void,
-        pbfree: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(phdownload),
-            ::std::mem::transmute(pvdata),
-            ::std::mem::transmute(pbfree),
-        )
-        .ok()
+    pub unsafe fn Download(&self, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::std::ffi::c_void, pbfree: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(phdownload), ::std::mem::transmute(pvdata), ::std::mem::transmute(pbfree)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Unload<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>,
-    >(
-        &self,
-        hdownload: Param0,
-        lpfreehandle: isize,
-        huserdata: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            hdownload.into_param().abi(),
-            ::std::mem::transmute(lpfreehandle),
-            huserdata.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Unload<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HANDLE>>(&self, hdownload: Param0, lpfreehandle: isize, huserdata: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), hdownload.into_param().abi(), ::std::mem::transmute(lpfreehandle), huserdata.into_param().abi()).ok()
     }
-    pub unsafe fn PlayBuffer(
-        &self,
-        rt: i64,
-        pbbuffer: *mut u8,
-        cbbuffer: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rt),
-            ::std::mem::transmute(pbbuffer),
-            ::std::mem::transmute(cbbuffer),
-        )
-        .ok()
+    pub unsafe fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(rt), ::std::mem::transmute(pbbuffer), ::std::mem::transmute(cbbuffer)).ok()
     }
-    pub unsafe fn GetRunningStats(
-        &self,
-        pstats: *mut DMUS_SYNTHSTATS,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pstats),
-        )
-        .ok()
+    pub unsafe fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(pstats)).ok()
     }
     pub unsafe fn GetPortCaps(&self, pcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcaps),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcaps)).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub unsafe fn SetMasterClock<
-        'a,
-        Param0: ::windows::runtime::IntoParam<
-            'a,
-            super::super::super::Graphics::DirectShow::IReferenceClock,
-        >,
-    >(
-        &self,
-        pclock: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            pclock.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetMasterClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::DirectShow::IReferenceClock>>(&self, pclock: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), pclock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub unsafe fn GetLatencyClock(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Graphics::DirectShow::IReferenceClock>
-    {
-        let mut result__ : < super::super::super::Graphics::DirectShow:: IReferenceClock as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::super::Graphics::DirectShow::IReferenceClock>(result__)
+    pub unsafe fn GetLatencyClock(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectShow::IReferenceClock> {
+        let mut result__: <super::super::super::Graphics::DirectShow::IReferenceClock as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::DirectShow::IReferenceClock>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
-    >(
-        &self,
-        fenable: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            fenable.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
-    pub unsafe fn SetSynthSink<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IDirectMusicSynthSink>,
-    >(
-        &self,
-        psynthsink: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            psynthsink.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetSynthSink<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicSynthSink>>(&self, psynthsink: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), psynthsink.into_param().abi()).ok()
     }
-    pub unsafe fn Render(
-        &self,
-        pbuffer: *mut i16,
-        dwlength: u32,
-        llposition: i64,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pbuffer),
-            ::std::mem::transmute(dwlength),
-            ::std::mem::transmute(llposition),
-        )
-        .ok()
+    pub unsafe fn Render(&self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(pbuffer), ::std::mem::transmute(dwlength), ::std::mem::transmute(llposition)).ok()
     }
-    pub unsafe fn SetChannelPriority(
-        &self,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        dwpriority: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwchannelgroup),
-            ::std::mem::transmute(dwchannel),
-            ::std::mem::transmute(dwpriority),
-        )
-        .ok()
+    pub unsafe fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(dwpriority)).ok()
     }
-    pub unsafe fn GetChannelPriority(
-        &self,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        pdwpriority: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwchannelgroup),
-            ::std::mem::transmute(dwchannel),
-            ::std::mem::transmute(pdwpriority),
-        )
-        .ok()
+    pub unsafe fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(pdwpriority)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn GetFormat(
-        &self,
-        pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX,
-        pdwwaveformatexsize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwaveformatex),
-            ::std::mem::transmute(pdwwaveformatexsize),
-        )
-        .ok()
+    pub unsafe fn GetFormat(&self, pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwaveformatex), ::std::mem::transmute(pdwwaveformatexsize)).ok()
     }
     pub unsafe fn GetAppend(&self, pdwappend: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwappend),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwappend)).ok()
     }
-    pub unsafe fn PlayVoice(
-        &self,
-        rt: i64,
-        dwvoiceid: u32,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        dwdlid: u32,
-        prpitch: i32,
-        vrvolume: i32,
-        stvoicestart: u64,
-        stloopstart: u64,
-        stloopend: u64,
-    ) -> ::windows::runtime::Result<()> {
+    pub unsafe fn PlayVoice(&self, rt: i64, dwvoiceid: u32, dwchannelgroup: u32, dwchannel: u32, dwdlid: u32, prpitch: i32, vrvolume: i32, stvoicestart: u64, stloopstart: u64, stloopend: u64) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(rt),
@@ -7828,65 +4774,22 @@ impl IDirectMusicSynth8 {
         .ok()
     }
     pub unsafe fn StopVoice(&self, rt: i64, dwvoiceid: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rt),
-            ::std::mem::transmute(dwvoiceid),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(rt), ::std::mem::transmute(dwvoiceid)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetVoiceState(
-        &self,
-        dwvoice: *mut u32,
-        cbvoice: u32,
-        dwvoicestate: *mut DMUS_VOICE_STATE,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwvoice),
-            ::std::mem::transmute(cbvoice),
-            ::std::mem::transmute(dwvoicestate),
-        )
-        .ok()
+    pub unsafe fn GetVoiceState(&self, dwvoice: *mut u32, cbvoice: u32, dwvoicestate: *mut DMUS_VOICE_STATE) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwvoice), ::std::mem::transmute(cbvoice), ::std::mem::transmute(dwvoicestate)).ok()
     }
-    pub unsafe fn Refresh(
-        &self,
-        dwdownloadid: u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwdownloadid),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn Refresh(&self, dwdownloadid: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwdownloadid), ::std::mem::transmute(dwflags)).ok()
     }
-    pub unsafe fn AssignChannelToBuses(
-        &self,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        pdwbuses: *mut u32,
-        cbuses: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwchannelgroup),
-            ::std::mem::transmute(dwchannel),
-            ::std::mem::transmute(pdwbuses),
-            ::std::mem::transmute(cbuses),
-        )
-        .ok()
+    pub unsafe fn AssignChannelToBuses(&self, dwchannelgroup: u32, dwchannel: u32, pdwbuses: *mut u32, cbuses: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwchannelgroup), ::std::mem::transmute(dwchannel), ::std::mem::transmute(pdwbuses), ::std::mem::transmute(cbuses)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicSynth8 {
     type Vtable = IDirectMusicSynth8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1405793829,
-        10001,
-        19615,
-        [157, 231, 27, 127, 146, 95, 111, 200],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1405793829, 10001, 19615, [157, 231, 27, 127, 146, 95, 111, 200]);
 }
 impl ::std::convert::From<IDirectMusicSynth8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicSynth8) -> Self {
@@ -7900,18 +4803,12 @@ impl ::std::convert::From<&IDirectMusicSynth8> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicSynth8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusicSynth8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectMusicSynth8> for IDirectMusicSynth {
@@ -7931,273 +4828,82 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectMusicSynth> for IDirectMusicSy
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectMusicSynth> for &IDirectMusicSynth8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectMusicSynth> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectMusicSynth>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectMusicSynth>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicSynth8_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pportparams: *mut DMUS_PORTPARAMS8,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pportparams: *mut DMUS_PORTPARAMS8) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwgroups: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        phdownload: *mut super::super::super::Foundation::HANDLE,
-        pvdata: *mut ::std::ffi::c_void,
-        pbfree: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwgroups: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, phdownload: *mut super::super::super::Foundation::HANDLE, pvdata: *mut ::std::ffi::c_void, pbfree: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hdownload: super::super::super::Foundation::HANDLE,
-        lpfreehandle: isize,
-        huserdata: super::super::super::Foundation::HANDLE,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hdownload: super::super::super::Foundation::HANDLE, lpfreehandle: isize, huserdata: super::super::super::Foundation::HANDLE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rt: i64,
-        pbbuffer: *mut u8,
-        cbbuffer: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pstats: *mut DMUS_SYNTHSTATS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcaps: *mut DMUS_PORTCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pclock: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstats: *mut DMUS_SYNTHSTATS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcaps: *mut DMUS_PORTCAPS) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclock: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppclock: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppclock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fenable: super::super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fenable: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        psynthsink: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pbuffer: *mut i16,
-        dwlength: u32,
-        llposition: i64,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        dwpriority: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        pdwpriority: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX,
-        pdwwaveformatexsize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psynthsink: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwaveformatex: *mut super::super::Multimedia::WAVEFORMATEX, pdwwaveformatexsize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwappend: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rt: i64,
-        dwvoiceid: u32,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        dwdlid: u32,
-        prpitch: i32,
-        vrvolume: i32,
-        stvoicestart: u64,
-        stloopstart: u64,
-        stloopend: u64,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rt: i64,
-        dwvoiceid: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwvoice: *mut u32,
-        cbvoice: u32,
-        dwvoicestate: *mut DMUS_VOICE_STATE,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwappend: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rt: i64, dwvoiceid: u32, dwchannelgroup: u32, dwchannel: u32, dwdlid: u32, prpitch: i32, vrvolume: i32, stvoicestart: u64, stloopstart: u64, stloopend: u64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rt: i64, dwvoiceid: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwvoice: *mut u32, cbvoice: u32, dwvoicestate: *mut DMUS_VOICE_STATE) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwdownloadid: u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwchannelgroup: u32,
-        dwchannel: u32,
-        pdwbuses: *mut u32,
-        cbuses: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwdownloadid: u32, dwflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwchannelgroup: u32, dwchannel: u32, pdwbuses: *mut u32, cbuses: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicSynthSink(::windows::runtime::IUnknown);
 impl IDirectMusicSynthSink {
-    pub unsafe fn Init<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicSynth>>(
-        &self,
-        psynth: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            psynth.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Init<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectMusicSynth>>(&self, psynth: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), psynth.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub unsafe fn SetMasterClock<
-        'a,
-        Param0: ::windows::runtime::IntoParam<
-            'a,
-            super::super::super::Graphics::DirectShow::IReferenceClock,
-        >,
-    >(
-        &self,
-        pclock: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            pclock.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetMasterClock<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::DirectShow::IReferenceClock>>(&self, pclock: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pclock.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub unsafe fn GetLatencyClock(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Graphics::DirectShow::IReferenceClock>
-    {
-        let mut result__ : < super::super::super::Graphics::DirectShow:: IReferenceClock as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::super::Graphics::DirectShow::IReferenceClock>(result__)
+    pub unsafe fn GetLatencyClock(&self) -> ::windows::runtime::Result<super::super::super::Graphics::DirectShow::IReferenceClock> {
+        let mut result__: <super::super::super::Graphics::DirectShow::IReferenceClock as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::DirectShow::IReferenceClock>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Activate<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>,
-    >(
-        &self,
-        fenable: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            fenable.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Activate<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::BOOL>>(&self, fenable: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), fenable.into_param().abi()).ok()
     }
-    pub unsafe fn SampleToRefTime(
-        &self,
-        llsampletime: i64,
-        prftime: *mut i64,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(llsampletime),
-            ::std::mem::transmute(prftime),
-        )
-        .ok()
+    pub unsafe fn SampleToRefTime(&self, llsampletime: i64, prftime: *mut i64) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(llsampletime), ::std::mem::transmute(prftime)).ok()
     }
-    pub unsafe fn RefTimeToSample(
-        &self,
-        rftime: i64,
-        pllsampletime: *mut i64,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rftime),
-            ::std::mem::transmute(pllsampletime),
-        )
-        .ok()
+    pub unsafe fn RefTimeToSample(&self, rftime: i64, pllsampletime: *mut i64) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(rftime), ::std::mem::transmute(pllsampletime)).ok()
     }
-    pub unsafe fn SetDirectSound<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IDirectSound>,
-        Param1: ::windows::runtime::IntoParam<'a, IDirectSoundBuffer>,
-    >(
-        &self,
-        pdirectsound: Param0,
-        pdirectsoundbuffer: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            pdirectsound.into_param().abi(),
-            pdirectsoundbuffer.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetDirectSound<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>, Param1: ::windows::runtime::IntoParam<'a, IDirectSoundBuffer>>(&self, pdirectsound: Param0, pdirectsoundbuffer: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pdirectsound.into_param().abi(), pdirectsoundbuffer.into_param().abi()).ok()
     }
-    pub unsafe fn GetDesiredBufferSize(
-        &self,
-        pdwbuffersizeinsamples: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwbuffersizeinsamples),
-        )
-        .ok()
+    pub unsafe fn GetDesiredBufferSize(&self, pdwbuffersizeinsamples: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwbuffersizeinsamples)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicSynthSink {
     type Vtable = IDirectMusicSynthSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        159528547,
-        23685,
-        4562,
-        [175, 166, 0, 170, 0, 36, 216, 182],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(159528547, 23685, 4562, [175, 166, 0, 170, 0, 36, 216, 182]);
 }
 impl ::std::convert::From<IDirectMusicSynthSink> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicSynthSink) -> Self {
@@ -8211,110 +4917,43 @@ impl ::std::convert::From<&IDirectMusicSynthSink> for ::windows::runtime::IUnkno
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicSynthSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectMusicSynthSink
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusicSynthSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicSynthSink_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        psynth: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pclock: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, psynth: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclock: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
-    #[cfg(feature = "Win32_Graphics_DirectShow")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppclock: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_DirectShow")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppclock: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_DirectShow"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fenable: super::super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fenable: super::super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        llsampletime: i64,
-        prftime: *mut i64,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rftime: i64,
-        pllsampletime: *mut i64,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdirectsound: ::windows::runtime::RawPtr,
-        pdirectsoundbuffer: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwbuffersizeinsamples: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, llsampletime: i64, prftime: *mut i64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rftime: i64, pllsampletime: *mut i64) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectsound: ::windows::runtime::RawPtr, pdirectsoundbuffer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwbuffersizeinsamples: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectMusicThru(::windows::runtime::IUnknown);
 impl IDirectMusicThru {
-    pub unsafe fn ThruChannel<'a, Param4: ::windows::runtime::IntoParam<'a, IDirectMusicPort>>(
-        &self,
-        dwsourcechannelgroup: u32,
-        dwsourcechannel: u32,
-        dwdestinationchannelgroup: u32,
-        dwdestinationchannel: u32,
-        pdestinationport: Param4,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwsourcechannelgroup),
-            ::std::mem::transmute(dwsourcechannel),
-            ::std::mem::transmute(dwdestinationchannelgroup),
-            ::std::mem::transmute(dwdestinationchannel),
-            pdestinationport.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn ThruChannel<'a, Param4: ::windows::runtime::IntoParam<'a, IDirectMusicPort>>(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: Param4) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwsourcechannelgroup), ::std::mem::transmute(dwsourcechannel), ::std::mem::transmute(dwdestinationchannelgroup), ::std::mem::transmute(dwdestinationchannel), pdestinationport.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectMusicThru {
     type Vtable = IDirectMusicThru_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3469824999,
-        13830,
-        4562,
-        [185, 249, 0, 0, 248, 117, 172, 18],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3469824999, 13830, 4562, [185, 249, 0, 0, 248, 117, 172, 18]);
 }
 impl ::std::convert::From<IDirectMusicThru> for ::windows::runtime::IUnknown {
     fn from(value: IDirectMusicThru) -> Self {
@@ -8328,143 +4967,59 @@ impl ::std::convert::From<&IDirectMusicThru> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectMusicThru {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectMusicThru {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectMusicThru_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwsourcechannelgroup: u32,
-        dwsourcechannel: u32,
-        dwdestinationchannelgroup: u32,
-        dwdestinationchannel: u32,
-        pdestinationport: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSound(::windows::runtime::IUnknown);
 impl IDirectSound {
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn CreateSoundBuffer<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        pcdsbufferdesc: *const DSBUFFERDESC,
-        ppdsbuffer: *mut ::std::option::Option<IDirectSoundBuffer>,
-        punkouter: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdsbufferdesc),
-            ::std::mem::transmute(ppdsbuffer),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateSoundBuffer<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::std::option::Option<IDirectSoundBuffer>, punkouter: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsbufferdesc), ::std::mem::transmute(ppdsbuffer), punkouter.into_param().abi()).ok()
     }
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSCAPS> {
         let mut result__: <DSCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSCAPS>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCAPS>(result__)
     }
-    pub unsafe fn DuplicateSoundBuffer<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IDirectSoundBuffer>,
-    >(
-        &self,
-        pdsbufferoriginal: Param0,
-    ) -> ::windows::runtime::Result<IDirectSoundBuffer> {
-        let mut result__: <IDirectSoundBuffer as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            pdsbufferoriginal.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IDirectSoundBuffer>(result__)
+    pub unsafe fn DuplicateSoundBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSoundBuffer>>(&self, pdsbufferoriginal: Param0) -> ::windows::runtime::Result<IDirectSoundBuffer> {
+        let mut result__: <IDirectSoundBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pdsbufferoriginal.into_param().abi(), &mut result__).from_abi::<IDirectSoundBuffer>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
-    >(
-        &self,
-        hwnd: Param0,
-        dwlevel: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(dwlevel),
-        )
-        .ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, dwlevel: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), ::std::mem::transmute(dwlevel)).ok()
     }
     pub unsafe fn Compact(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn GetSpeakerConfig(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn SetSpeakerConfig(&self, dwspeakerconfig: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwspeakerconfig),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwspeakerconfig)).ok()
     }
-    pub unsafe fn Initialize(
-        &self,
-        pcguiddevice: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcguiddevice),
-        )
-        .ok()
+    pub unsafe fn Initialize(&self, pcguiddevice: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcguiddevice)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSound {
     type Vtable = IDirectSound_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        664468099,
-        18817,
-        4558,
-        [165, 33, 0, 32, 175, 11, 229, 96],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664468099, 18817, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
 impl ::std::convert::From<IDirectSound> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSound) -> Self {
@@ -8478,291 +5033,106 @@ impl ::std::convert::From<&IDirectSound> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSound {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSound {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSound_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdsbufferdesc: *const DSBUFFERDESC,
-        ppdsbuffer: *mut ::windows::runtime::RawPtr,
-        punkouter: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdscaps: *mut DSCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsbufferoriginal: ::windows::runtime::RawPtr,
-        ppdsbufferduplicate: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hwnd: super::super::super::Foundation::HWND,
-        dwlevel: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdscaps: *mut DSCAPS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsbufferoriginal: ::windows::runtime::RawPtr, ppdsbufferduplicate: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::super::Foundation::HWND, dwlevel: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwspeakerconfig: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwspeakerconfig: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcguiddevice: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwspeakerconfig: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwspeakerconfig: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcguiddevice: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSound3DBuffer(::windows::runtime::IUnknown);
 impl IDirectSound3DBuffer {
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DS3DBUFFER> {
         let mut result__: <DS3DBUFFER as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DS3DBUFFER>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DS3DBUFFER>(result__)
     }
-    pub unsafe fn GetConeAngles(
-        &self,
-        pdwinsideconeangle: *mut u32,
-        pdwoutsideconeangle: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwinsideconeangle),
-            ::std::mem::transmute(pdwoutsideconeangle),
-        )
-        .ok()
+    pub unsafe fn GetConeAngles(&self, pdwinsideconeangle: *mut u32, pdwoutsideconeangle: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwinsideconeangle), ::std::mem::transmute(pdwoutsideconeangle)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetConeOrientation(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
-        let mut result__ : < super::super::super::Graphics::Direct3D9:: D3DVECTOR as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
+    pub unsafe fn GetConeOrientation(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
+        let mut result__: <super::super::super::Graphics::Direct3D9::D3DVECTOR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
     }
     pub unsafe fn GetConeOutsideVolume(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<i32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     pub unsafe fn GetMaxDistance(&self) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<f32>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     pub unsafe fn GetMinDistance(&self) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<f32>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     pub unsafe fn GetMode(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetPosition(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
-        let mut result__ : < super::super::super::Graphics::Direct3D9:: D3DVECTOR as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
+    pub unsafe fn GetPosition(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
+        let mut result__: <super::super::super::Graphics::Direct3D9::D3DVECTOR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetVelocity(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
-        let mut result__ : < super::super::super::Graphics::Direct3D9:: D3DVECTOR as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
+    pub unsafe fn GetVelocity(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
+        let mut result__: <super::super::super::Graphics::Direct3D9::D3DVECTOR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn SetAllParameters(
-        &self,
-        pcds3dbuffer: *const DS3DBUFFER,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcds3dbuffer),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pcds3dbuffer: *const DS3DBUFFER, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcds3dbuffer), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetConeAngles(
-        &self,
-        dwinsideconeangle: u32,
-        dwoutsideconeangle: u32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwinsideconeangle),
-            ::std::mem::transmute(dwoutsideconeangle),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetConeAngles(&self, dwinsideconeangle: u32, dwoutsideconeangle: u32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwinsideconeangle), ::std::mem::transmute(dwoutsideconeangle), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetConeOrientation(
-        &self,
-        x: f32,
-        y: f32,
-        z: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetConeOrientation(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetConeOutsideVolume(
-        &self,
-        lconeoutsidevolume: i32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lconeoutsidevolume),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetConeOutsideVolume(&self, lconeoutsidevolume: i32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(lconeoutsidevolume), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetMaxDistance(
-        &self,
-        flmaxdistance: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(flmaxdistance),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetMaxDistance(&self, flmaxdistance: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(flmaxdistance), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetMinDistance(
-        &self,
-        flmindistance: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(flmindistance),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetMinDistance(&self, flmindistance: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(flmindistance), ::std::mem::transmute(dwapply)).ok()
     }
     pub unsafe fn SetMode(&self, dwmode: u32, dwapply: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwmode),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwmode), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetPosition(
-        &self,
-        x: f32,
-        y: f32,
-        z: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetPosition(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetVelocity(
-        &self,
-        x: f32,
-        y: f32,
-        z: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetVelocity(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(dwapply)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSound3DBuffer {
     type Vtable = IDirectSound3DBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        664468102,
-        18817,
-        4558,
-        [165, 33, 0, 32, 175, 11, 229, 96],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664468102, 18817, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
 impl ::std::convert::From<IDirectSound3DBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSound3DBuffer) -> Self {
@@ -8776,309 +5146,100 @@ impl ::std::convert::From<&IDirectSound3DBuffer> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSound3DBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSound3DBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSound3DBuffer_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pds3dbuffer: *mut DS3DBUFFER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pds3dbuffer: *mut DS3DBUFFER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwinsideconeangle: *mut u32,
-        pdwoutsideconeangle: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pvorientation: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwinsideconeangle: *mut u32, pdwoutsideconeangle: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvorientation: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        plconeoutsidevolume: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pflmaxdistance: *mut f32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pflmindistance: *mut f32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwmode: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pvposition: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plconeoutsidevolume: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pflmaxdistance: *mut f32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pflmindistance: *mut f32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwmode: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvposition: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pvvelocity: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvvelocity: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcds3dbuffer: *const DS3DBUFFER,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcds3dbuffer: *const DS3DBUFFER, dwapply: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwinsideconeangle: u32,
-        dwoutsideconeangle: u32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        x: f32,
-        y: f32,
-        z: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lconeoutsidevolume: i32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        flmaxdistance: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        flmindistance: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwmode: u32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        x: f32,
-        y: f32,
-        z: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        x: f32,
-        y: f32,
-        z: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwinsideconeangle: u32, dwoutsideconeangle: u32, dwapply: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lconeoutsidevolume: i32, dwapply: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flmaxdistance: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flmindistance: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwmode: u32, dwapply: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSound3DListener(::windows::runtime::IUnknown);
 impl IDirectSound3DListener {
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DS3DLISTENER> {
         let mut result__: <DS3DLISTENER as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DS3DLISTENER>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DS3DLISTENER>(result__)
     }
     pub unsafe fn GetDistanceFactor(&self) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<f32>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     pub unsafe fn GetDopplerFactor(&self) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<f32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetOrientation(
-        &self,
-        pvorientfront: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR,
-        pvorienttop: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pvorientfront),
-            ::std::mem::transmute(pvorienttop),
-        )
-        .ok()
+    pub unsafe fn GetOrientation(&self, pvorientfront: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR, pvorienttop: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvorientfront), ::std::mem::transmute(pvorienttop)).ok()
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetPosition(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
-        let mut result__ : < super::super::super::Graphics::Direct3D9:: D3DVECTOR as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
+    pub unsafe fn GetPosition(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
+        let mut result__: <super::super::super::Graphics::Direct3D9::D3DVECTOR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
     }
     pub unsafe fn GetRolloffFactor(&self) -> ::windows::runtime::Result<f32> {
         let mut result__: <f32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<f32>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<f32>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn GetVelocity(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
-        let mut result__ : < super::super::super::Graphics::Direct3D9:: D3DVECTOR as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
+    pub unsafe fn GetVelocity(&self) -> ::windows::runtime::Result<super::super::super::Graphics::Direct3D9::D3DVECTOR> {
+        let mut result__: <super::super::super::Graphics::Direct3D9::D3DVECTOR as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::super::Graphics::Direct3D9::D3DVECTOR>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub unsafe fn SetAllParameters(
-        &self,
-        pclistener: *const DS3DLISTENER,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pclistener),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pclistener: *const DS3DLISTENER, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pclistener), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetDistanceFactor(
-        &self,
-        fldistancefactor: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fldistancefactor),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetDistanceFactor(&self, fldistancefactor: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(fldistancefactor), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetDopplerFactor(
-        &self,
-        fldopplerfactor: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(fldopplerfactor),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetDopplerFactor(&self, fldopplerfactor: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(fldopplerfactor), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetOrientation(
-        &self,
-        xfront: f32,
-        yfront: f32,
-        zfront: f32,
-        xtop: f32,
-        ytop: f32,
-        ztop: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(xfront),
-            ::std::mem::transmute(yfront),
-            ::std::mem::transmute(zfront),
-            ::std::mem::transmute(xtop),
-            ::std::mem::transmute(ytop),
-            ::std::mem::transmute(ztop),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetOrientation(&self, xfront: f32, yfront: f32, zfront: f32, xtop: f32, ytop: f32, ztop: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(xfront), ::std::mem::transmute(yfront), ::std::mem::transmute(zfront), ::std::mem::transmute(xtop), ::std::mem::transmute(ytop), ::std::mem::transmute(ztop), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetPosition(
-        &self,
-        x: f32,
-        y: f32,
-        z: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetPosition(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetRolloffFactor(
-        &self,
-        flrollofffactor: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(flrollofffactor),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetRolloffFactor(&self, flrollofffactor: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(flrollofffactor), ::std::mem::transmute(dwapply)).ok()
     }
-    pub unsafe fn SetVelocity(
-        &self,
-        x: f32,
-        y: f32,
-        z: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(x),
-            ::std::mem::transmute(y),
-            ::std::mem::transmute(z),
-            ::std::mem::transmute(dwapply),
-        )
-        .ok()
+    pub unsafe fn SetVelocity(&self, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(x), ::std::mem::transmute(y), ::std::mem::transmute(z), ::std::mem::transmute(dwapply)).ok()
     }
     pub unsafe fn CommitDeferredSettings(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self)).ok()
@@ -9086,12 +5247,7 @@ impl IDirectSound3DListener {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSound3DListener {
     type Vtable = IDirectSound3DListener_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        664468100,
-        18817,
-        4558,
-        [165, 33, 0, 32, 175, 11, 229, 96],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664468100, 18817, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
 impl ::std::convert::From<IDirectSound3DListener> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSound3DListener) -> Self {
@@ -9103,233 +5259,84 @@ impl ::std::convert::From<&IDirectSound3DListener> for ::windows::runtime::IUnkn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectSound3DListener
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSound3DListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectSound3DListener
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSound3DListener {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSound3DListener_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        plistener: *mut DS3DLISTENER,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plistener: *mut DS3DLISTENER) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pfldistancefactor: *mut f32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pfldopplerfactor: *mut f32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pvorientfront: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR,
-        pvorienttop: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfldistancefactor: *mut f32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pfldopplerfactor: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvorientfront: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR, pvorienttop: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pvposition: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvposition: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pflrollofffactor: *mut f32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pvvelocity: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pflrollofffactor: *mut f32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvvelocity: *mut super::super::super::Graphics::Direct3D9::D3DVECTOR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D9")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pclistener: *const DS3DLISTENER,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclistener: *const DS3DLISTENER, dwapply: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fldistancefactor: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fldopplerfactor: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        xfront: f32,
-        yfront: f32,
-        zfront: f32,
-        xtop: f32,
-        ytop: f32,
-        ztop: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        x: f32,
-        y: f32,
-        z: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        flrollofffactor: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        x: f32,
-        y: f32,
-        z: f32,
-        dwapply: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fldistancefactor: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fldopplerfactor: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, xfront: f32, yfront: f32, zfront: f32, xtop: f32, ytop: f32, ztop: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, flrollofffactor: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, x: f32, y: f32, z: f32, dwapply: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSound8(::windows::runtime::IUnknown);
 impl IDirectSound8 {
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn CreateSoundBuffer<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        pcdsbufferdesc: *const DSBUFFERDESC,
-        ppdsbuffer: *mut ::std::option::Option<IDirectSoundBuffer>,
-        punkouter: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdsbufferdesc),
-            ::std::mem::transmute(ppdsbuffer),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateSoundBuffer<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::std::option::Option<IDirectSoundBuffer>, punkouter: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsbufferdesc), ::std::mem::transmute(ppdsbuffer), punkouter.into_param().abi()).ok()
     }
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSCAPS> {
         let mut result__: <DSCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSCAPS>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCAPS>(result__)
     }
-    pub unsafe fn DuplicateSoundBuffer<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IDirectSoundBuffer>,
-    >(
-        &self,
-        pdsbufferoriginal: Param0,
-    ) -> ::windows::runtime::Result<IDirectSoundBuffer> {
-        let mut result__: <IDirectSoundBuffer as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            pdsbufferoriginal.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IDirectSoundBuffer>(result__)
+    pub unsafe fn DuplicateSoundBuffer<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSoundBuffer>>(&self, pdsbufferoriginal: Param0) -> ::windows::runtime::Result<IDirectSoundBuffer> {
+        let mut result__: <IDirectSoundBuffer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pdsbufferoriginal.into_param().abi(), &mut result__).from_abi::<IDirectSoundBuffer>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetCooperativeLevel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
-    >(
-        &self,
-        hwnd: Param0,
-        dwlevel: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            hwnd.into_param().abi(),
-            ::std::mem::transmute(dwlevel),
-        )
-        .ok()
+    pub unsafe fn SetCooperativeLevel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, hwnd: Param0, dwlevel: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), hwnd.into_param().abi(), ::std::mem::transmute(dwlevel)).ok()
     }
     pub unsafe fn Compact(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)).ok()
     }
     pub unsafe fn GetSpeakerConfig(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn SetSpeakerConfig(&self, dwspeakerconfig: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwspeakerconfig),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwspeakerconfig)).ok()
     }
-    pub unsafe fn Initialize(
-        &self,
-        pcguiddevice: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcguiddevice),
-        )
-        .ok()
+    pub unsafe fn Initialize(&self, pcguiddevice: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcguiddevice)).ok()
     }
     pub unsafe fn VerifyCertification(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSound8 {
     type Vtable = IDirectSound8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3305799315,
-        62357,
-        18484,
-        [158, 246, 127, 169, 157, 229, 9, 102],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3305799315, 62357, 18484, [158, 246, 127, 169, 157, 229, 9, 102]);
 }
 impl ::std::convert::From<IDirectSound8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSound8) -> Self {
@@ -9343,18 +5350,12 @@ impl ::std::convert::From<&IDirectSound8> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSound8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSound8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectSound8> for IDirectSound {
@@ -9374,245 +5375,89 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectSound> for IDirectSound8 {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSound> for &IDirectSound8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSound> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSound>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSound>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSound8_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdsbufferdesc: *const DSBUFFERDESC,
-        ppdsbuffer: *mut ::windows::runtime::RawPtr,
-        punkouter: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsbufferdesc: *const DSBUFFERDESC, ppdsbuffer: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdscaps: *mut DSCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsbufferoriginal: ::windows::runtime::RawPtr,
-        ppdsbufferduplicate: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hwnd: super::super::super::Foundation::HWND,
-        dwlevel: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdscaps: *mut DSCAPS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsbufferoriginal: ::windows::runtime::RawPtr, ppdsbufferduplicate: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hwnd: super::super::super::Foundation::HWND, dwlevel: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwspeakerconfig: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwspeakerconfig: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcguiddevice: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcertified: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwspeakerconfig: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwspeakerconfig: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcguiddevice: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcertified: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundBuffer(::windows::runtime::IUnknown);
 impl IDirectSoundBuffer {
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSBCAPS> {
         let mut result__: <DSBCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSBCAPS>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSBCAPS>(result__)
     }
-    pub unsafe fn GetCurrentPosition(
-        &self,
-        pdwcurrentplaycursor: *mut u32,
-        pdwcurrentwritecursor: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwcurrentplaycursor),
-            ::std::mem::transmute(pdwcurrentwritecursor),
-        )
-        .ok()
+    pub unsafe fn GetCurrentPosition(&self, pdwcurrentplaycursor: *mut u32, pdwcurrentwritecursor: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcurrentplaycursor), ::std::mem::transmute(pdwcurrentwritecursor)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn GetFormat(
-        &self,
-        pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX,
-        dwsizeallocated: u32,
-        pdwsizewritten: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwfxformat),
-            ::std::mem::transmute(dwsizeallocated),
-            ::std::mem::transmute(pdwsizewritten),
-        )
-        .ok()
+    pub unsafe fn GetFormat(&self, pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwfxformat), ::std::mem::transmute(dwsizeallocated), ::std::mem::transmute(pdwsizewritten)).ok()
     }
     pub unsafe fn GetVolume(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<i32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     pub unsafe fn GetPan(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<i32>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     pub unsafe fn GetFrequency(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>>(
-        &self,
-        pdirectsound: Param0,
-        pcdsbufferdesc: *const DSBUFFERDESC,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            pdirectsound.into_param().abi(),
-            ::std::mem::transmute(pcdsbufferdesc),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>>(&self, pdirectsound: Param0, pcdsbufferdesc: *const DSBUFFERDESC) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pdirectsound.into_param().abi(), ::std::mem::transmute(pcdsbufferdesc)).ok()
     }
-    pub unsafe fn Lock(
-        &self,
-        dwoffset: u32,
-        dwbytes: u32,
-        ppvaudioptr1: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes1: *mut u32,
-        ppvaudioptr2: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes2: *mut u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwoffset),
-            ::std::mem::transmute(dwbytes),
-            ::std::mem::transmute(ppvaudioptr1),
-            ::std::mem::transmute(pdwaudiobytes1),
-            ::std::mem::transmute(ppvaudioptr2),
-            ::std::mem::transmute(pdwaudiobytes2),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::std::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::std::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoffset), ::std::mem::transmute(dwbytes), ::std::mem::transmute(ppvaudioptr1), ::std::mem::transmute(pdwaudiobytes1), ::std::mem::transmute(ppvaudioptr2), ::std::mem::transmute(pdwaudiobytes2), ::std::mem::transmute(dwflags)).ok()
     }
-    pub unsafe fn Play(
-        &self,
-        dwreserved1: u32,
-        dwpriority: u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwreserved1),
-            ::std::mem::transmute(dwpriority),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn Play(&self, dwreserved1: u32, dwpriority: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwreserved1), ::std::mem::transmute(dwpriority), ::std::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn SetCurrentPosition(&self, dwnewposition: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwnewposition),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwnewposition)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn SetFormat(
-        &self,
-        pcfxformat: *const super::super::Multimedia::WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcfxformat),
-        )
-        .ok()
+    pub unsafe fn SetFormat(&self, pcfxformat: *const super::super::Multimedia::WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcfxformat)).ok()
     }
     pub unsafe fn SetVolume(&self, lvolume: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lvolume),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(lvolume)).ok()
     }
     pub unsafe fn SetPan(&self, lpan: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpan),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpan)).ok()
     }
     pub unsafe fn SetFrequency(&self, dwfrequency: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwfrequency),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwfrequency)).ok()
     }
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn Unlock(
-        &self,
-        pvaudioptr1: *const ::std::ffi::c_void,
-        dwaudiobytes1: u32,
-        pvaudioptr2: *const ::std::ffi::c_void,
-        dwaudiobytes2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pvaudioptr1),
-            ::std::mem::transmute(dwaudiobytes1),
-            ::std::mem::transmute(pvaudioptr2),
-            ::std::mem::transmute(dwaudiobytes2),
-        )
-        .ok()
+    pub unsafe fn Unlock(&self, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvaudioptr1), ::std::mem::transmute(dwaudiobytes1), ::std::mem::transmute(pvaudioptr2), ::std::mem::transmute(dwaudiobytes2)).ok()
     }
     pub unsafe fn Restore(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)).ok()
@@ -9620,12 +5465,7 @@ impl IDirectSoundBuffer {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundBuffer {
     type Vtable = IDirectSoundBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        664468101,
-        18817,
-        4558,
-        [165, 33, 0, 32, 175, 11, 229, 96],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(664468101, 18817, 4558, [165, 33, 0, 32, 175, 11, 229, 96]);
 }
 impl ::std::convert::From<IDirectSoundBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundBuffer) -> Self {
@@ -9639,357 +5479,121 @@ impl ::std::convert::From<&IDirectSoundBuffer> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundBuffer_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsbuffercaps: *mut DSBCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcurrentplaycursor: *mut u32,
-        pdwcurrentwritecursor: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX,
-        dwsizeallocated: u32,
-        pdwsizewritten: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsbuffercaps: *mut DSBCAPS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcurrentplaycursor: *mut u32, pdwcurrentwritecursor: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        plvolume: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        plpan: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwfrequency: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdirectsound: ::windows::runtime::RawPtr,
-        pcdsbufferdesc: *const DSBUFFERDESC,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plvolume: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plpan: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwfrequency: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectsound: ::windows::runtime::RawPtr, pcdsbufferdesc: *const DSBUFFERDESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwoffset: u32,
-        dwbytes: u32,
-        ppvaudioptr1: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes1: *mut u32,
-        ppvaudioptr2: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes2: *mut u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwreserved1: u32,
-        dwpriority: u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwnewposition: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcfxformat: *const super::super::Multimedia::WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::std::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::std::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwreserved1: u32, dwpriority: u32, dwflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwnewposition: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcfxformat: *const super::super::Multimedia::WAVEFORMATEX) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lvolume: i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpan: i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwfrequency: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lvolume: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpan: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwfrequency: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pvaudioptr1: *const ::std::ffi::c_void,
-        dwaudiobytes1: u32,
-        pvaudioptr2: *const ::std::ffi::c_void,
-        dwaudiobytes2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundBuffer8(::windows::runtime::IUnknown);
 impl IDirectSoundBuffer8 {
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSBCAPS> {
         let mut result__: <DSBCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSBCAPS>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSBCAPS>(result__)
     }
-    pub unsafe fn GetCurrentPosition(
-        &self,
-        pdwcurrentplaycursor: *mut u32,
-        pdwcurrentwritecursor: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwcurrentplaycursor),
-            ::std::mem::transmute(pdwcurrentwritecursor),
-        )
-        .ok()
+    pub unsafe fn GetCurrentPosition(&self, pdwcurrentplaycursor: *mut u32, pdwcurrentwritecursor: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcurrentplaycursor), ::std::mem::transmute(pdwcurrentwritecursor)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn GetFormat(
-        &self,
-        pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX,
-        dwsizeallocated: u32,
-        pdwsizewritten: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwfxformat),
-            ::std::mem::transmute(dwsizeallocated),
-            ::std::mem::transmute(pdwsizewritten),
-        )
-        .ok()
+    pub unsafe fn GetFormat(&self, pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwfxformat), ::std::mem::transmute(dwsizeallocated), ::std::mem::transmute(pdwsizewritten)).ok()
     }
     pub unsafe fn GetVolume(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<i32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     pub unsafe fn GetPan(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<i32>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
     pub unsafe fn GetFrequency(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>>(
-        &self,
-        pdirectsound: Param0,
-        pcdsbufferdesc: *const DSBUFFERDESC,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            pdirectsound.into_param().abi(),
-            ::std::mem::transmute(pcdsbufferdesc),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSound>>(&self, pdirectsound: Param0, pcdsbufferdesc: *const DSBUFFERDESC) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), pdirectsound.into_param().abi(), ::std::mem::transmute(pcdsbufferdesc)).ok()
     }
-    pub unsafe fn Lock(
-        &self,
-        dwoffset: u32,
-        dwbytes: u32,
-        ppvaudioptr1: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes1: *mut u32,
-        ppvaudioptr2: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes2: *mut u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwoffset),
-            ::std::mem::transmute(dwbytes),
-            ::std::mem::transmute(ppvaudioptr1),
-            ::std::mem::transmute(pdwaudiobytes1),
-            ::std::mem::transmute(ppvaudioptr2),
-            ::std::mem::transmute(pdwaudiobytes2),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::std::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::std::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoffset), ::std::mem::transmute(dwbytes), ::std::mem::transmute(ppvaudioptr1), ::std::mem::transmute(pdwaudiobytes1), ::std::mem::transmute(ppvaudioptr2), ::std::mem::transmute(pdwaudiobytes2), ::std::mem::transmute(dwflags)).ok()
     }
-    pub unsafe fn Play(
-        &self,
-        dwreserved1: u32,
-        dwpriority: u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwreserved1),
-            ::std::mem::transmute(dwpriority),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn Play(&self, dwreserved1: u32, dwpriority: u32, dwflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwreserved1), ::std::mem::transmute(dwpriority), ::std::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn SetCurrentPosition(&self, dwnewposition: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwnewposition),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwnewposition)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn SetFormat(
-        &self,
-        pcfxformat: *const super::super::Multimedia::WAVEFORMATEX,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcfxformat),
-        )
-        .ok()
+    pub unsafe fn SetFormat(&self, pcfxformat: *const super::super::Multimedia::WAVEFORMATEX) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcfxformat)).ok()
     }
     pub unsafe fn SetVolume(&self, lvolume: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lvolume),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(lvolume)).ok()
     }
     pub unsafe fn SetPan(&self, lpan: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpan),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpan)).ok()
     }
     pub unsafe fn SetFrequency(&self, dwfrequency: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwfrequency),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwfrequency)).ok()
     }
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn Unlock(
-        &self,
-        pvaudioptr1: *const ::std::ffi::c_void,
-        dwaudiobytes1: u32,
-        pvaudioptr2: *const ::std::ffi::c_void,
-        dwaudiobytes2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pvaudioptr1),
-            ::std::mem::transmute(dwaudiobytes1),
-            ::std::mem::transmute(pvaudioptr2),
-            ::std::mem::transmute(dwaudiobytes2),
-        )
-        .ok()
+    pub unsafe fn Unlock(&self, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvaudioptr1), ::std::mem::transmute(dwaudiobytes1), ::std::mem::transmute(pvaudioptr2), ::std::mem::transmute(dwaudiobytes2)).ok()
     }
     pub unsafe fn Restore(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn SetFX(
-        &self,
-        dweffectscount: u32,
-        pdsfxdesc: *const DSEFFECTDESC,
-        pdwresultcodes: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dweffectscount),
-            ::std::mem::transmute(pdsfxdesc),
-            ::std::mem::transmute(pdwresultcodes),
-        )
-        .ok()
+    pub unsafe fn SetFX(&self, dweffectscount: u32, pdsfxdesc: *const DSEFFECTDESC, pdwresultcodes: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(dweffectscount), ::std::mem::transmute(pdsfxdesc), ::std::mem::transmute(pdwresultcodes)).ok()
     }
-    pub unsafe fn AcquireResources(
-        &self,
-        dwflags: u32,
-        dweffectscount: u32,
-        pdwresultcodes: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwflags),
-            ::std::mem::transmute(dweffectscount),
-            ::std::mem::transmute(pdwresultcodes),
-        )
-        .ok()
+    pub unsafe fn AcquireResources(&self, dwflags: u32, dweffectscount: u32, pdwresultcodes: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags), ::std::mem::transmute(dweffectscount), ::std::mem::transmute(pdwresultcodes)).ok()
     }
-    pub unsafe fn GetObjectInPath(
-        &self,
-        rguidobject: *const ::windows::runtime::GUID,
-        dwindex: u32,
-        rguidinterface: *const ::windows::runtime::GUID,
-        ppobject: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rguidobject),
-            ::std::mem::transmute(dwindex),
-            ::std::mem::transmute(rguidinterface),
-            ::std::mem::transmute(ppobject),
-        )
-        .ok()
+    pub unsafe fn GetObjectInPath(&self, rguidobject: *const ::windows::runtime::GUID, dwindex: u32, rguidinterface: *const ::windows::runtime::GUID, ppobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguidobject), ::std::mem::transmute(dwindex), ::std::mem::transmute(rguidinterface), ::std::mem::transmute(ppobject)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundBuffer8 {
     type Vtable = IDirectSoundBuffer8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1747297353,
-        29988,
-        19842,
-        [146, 15, 80, 227, 106, 179, 171, 30],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1747297353, 29988, 19842, [146, 15, 80, 227, 106, 179, 171, 30]);
 }
 impl ::std::convert::From<IDirectSoundBuffer8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundBuffer8) -> Self {
@@ -10003,18 +5607,12 @@ impl ::std::convert::From<&IDirectSoundBuffer8> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectSoundBuffer8> for IDirectSoundBuffer {
@@ -10034,182 +5632,59 @@ impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundBuffer> for IDirectSoundB
 }
 impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundBuffer> for &IDirectSoundBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSoundBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundBuffer>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundBuffer>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundBuffer8_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsbuffercaps: *mut DSBCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcurrentplaycursor: *mut u32,
-        pdwcurrentwritecursor: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX,
-        dwsizeallocated: u32,
-        pdwsizewritten: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsbuffercaps: *mut DSBCAPS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcurrentplaycursor: *mut u32, pdwcurrentwritecursor: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        plvolume: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        plpan: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwfrequency: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdirectsound: ::windows::runtime::RawPtr,
-        pcdsbufferdesc: *const DSBUFFERDESC,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plvolume: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plpan: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwfrequency: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectsound: ::windows::runtime::RawPtr, pcdsbufferdesc: *const DSBUFFERDESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwoffset: u32,
-        dwbytes: u32,
-        ppvaudioptr1: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes1: *mut u32,
-        ppvaudioptr2: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes2: *mut u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwreserved1: u32,
-        dwpriority: u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwnewposition: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcfxformat: *const super::super::Multimedia::WAVEFORMATEX,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::std::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::std::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwreserved1: u32, dwpriority: u32, dwflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwnewposition: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcfxformat: *const super::super::Multimedia::WAVEFORMATEX) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lvolume: i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpan: i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwfrequency: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lvolume: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpan: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwfrequency: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pvaudioptr1: *const ::std::ffi::c_void,
-        dwaudiobytes1: u32,
-        pvaudioptr2: *const ::std::ffi::c_void,
-        dwaudiobytes2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dweffectscount: u32,
-        pdsfxdesc: *const DSEFFECTDESC,
-        pdwresultcodes: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwflags: u32,
-        dweffectscount: u32,
-        pdwresultcodes: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rguidobject: *const ::windows::runtime::GUID,
-        dwindex: u32,
-        rguidinterface: *const ::windows::runtime::GUID,
-        ppobject: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dweffectscount: u32, pdsfxdesc: *const DSEFFECTDESC, pdwresultcodes: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32, dweffectscount: u32, pdwresultcodes: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rguidobject: *const ::windows::runtime::GUID, dwindex: u32, rguidinterface: *const ::windows::runtime::GUID, ppobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundCapture(::windows::runtime::IUnknown);
 impl IDirectSoundCapture {
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn CreateCaptureBuffer<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
-    >(
-        &self,
-        pcdscbufferdesc: *const DSCBUFFERDESC,
-        ppdscbuffer: *mut ::std::option::Option<IDirectSoundCaptureBuffer>,
-        punkouter: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdscbufferdesc),
-            ::std::mem::transmute(ppdscbuffer),
-            punkouter.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn CreateCaptureBuffer<'a, Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>>(&self, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut ::std::option::Option<IDirectSoundCaptureBuffer>, punkouter: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdscbufferdesc), ::std::mem::transmute(ppdscbuffer), punkouter.into_param().abi()).ok()
     }
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSCCAPS> {
         let mut result__: <DSCCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSCCAPS>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCCAPS>(result__)
     }
-    pub unsafe fn Initialize(
-        &self,
-        pcguiddevice: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcguiddevice),
-        )
-        .ok()
+    pub unsafe fn Initialize(&self, pcguiddevice: *const ::windows::runtime::GUID) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcguiddevice)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundCapture {
     type Vtable = IDirectSoundCapture_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2954954625,
-        35277,
-        4560,
-        [175, 8, 0, 160, 201, 37, 205, 22],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954954625, 35277, 4560, [175, 8, 0, 160, 201, 37, 205, 22]);
 }
 impl ::std::convert::From<IDirectSoundCapture> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundCapture) -> Self {
@@ -10223,169 +5698,64 @@ impl ::std::convert::From<&IDirectSoundCapture> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundCapture {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundCapture {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundCapture_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdscbufferdesc: *const DSCBUFFERDESC,
-        ppdscbuffer: *mut ::windows::runtime::RawPtr,
-        punkouter: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdscbufferdesc: *const DSCBUFFERDESC, ppdscbuffer: *mut ::windows::runtime::RawPtr, punkouter: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsccaps: *mut DSCCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcguiddevice: *const ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsccaps: *mut DSCCAPS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcguiddevice: *const ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundCaptureBuffer(::windows::runtime::IUnknown);
 impl IDirectSoundCaptureBuffer {
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSCBCAPS> {
         let mut result__: <DSCBCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSCBCAPS>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCBCAPS>(result__)
     }
-    pub unsafe fn GetCurrentPosition(
-        &self,
-        pdwcaptureposition: *mut u32,
-        pdwreadposition: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwcaptureposition),
-            ::std::mem::transmute(pdwreadposition),
-        )
-        .ok()
+    pub unsafe fn GetCurrentPosition(&self, pdwcaptureposition: *mut u32, pdwreadposition: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcaptureposition), ::std::mem::transmute(pdwreadposition)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn GetFormat(
-        &self,
-        pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX,
-        dwsizeallocated: u32,
-        pdwsizewritten: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwfxformat),
-            ::std::mem::transmute(dwsizeallocated),
-            ::std::mem::transmute(pdwsizewritten),
-        )
-        .ok()
+    pub unsafe fn GetFormat(&self, pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwfxformat), ::std::mem::transmute(dwsizeallocated), ::std::mem::transmute(pdwsizewritten)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSoundCapture>>(
-        &self,
-        pdirectsoundcapture: Param0,
-        pcdscbufferdesc: *const DSCBUFFERDESC,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            pdirectsoundcapture.into_param().abi(),
-            ::std::mem::transmute(pcdscbufferdesc),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSoundCapture>>(&self, pdirectsoundcapture: Param0, pcdscbufferdesc: *const DSCBUFFERDESC) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pdirectsoundcapture.into_param().abi(), ::std::mem::transmute(pcdscbufferdesc)).ok()
     }
-    pub unsafe fn Lock(
-        &self,
-        dwoffset: u32,
-        dwbytes: u32,
-        ppvaudioptr1: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes1: *mut u32,
-        ppvaudioptr2: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes2: *mut u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwoffset),
-            ::std::mem::transmute(dwbytes),
-            ::std::mem::transmute(ppvaudioptr1),
-            ::std::mem::transmute(pdwaudiobytes1),
-            ::std::mem::transmute(ppvaudioptr2),
-            ::std::mem::transmute(pdwaudiobytes2),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::std::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::std::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoffset), ::std::mem::transmute(dwbytes), ::std::mem::transmute(ppvaudioptr1), ::std::mem::transmute(pdwaudiobytes1), ::std::mem::transmute(ppvaudioptr2), ::std::mem::transmute(pdwaudiobytes2), ::std::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn Start(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn Unlock(
-        &self,
-        pvaudioptr1: *const ::std::ffi::c_void,
-        dwaudiobytes1: u32,
-        pvaudioptr2: *const ::std::ffi::c_void,
-        dwaudiobytes2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pvaudioptr1),
-            ::std::mem::transmute(dwaudiobytes1),
-            ::std::mem::transmute(pvaudioptr2),
-            ::std::mem::transmute(dwaudiobytes2),
-        )
-        .ok()
+    pub unsafe fn Unlock(&self, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvaudioptr1), ::std::mem::transmute(dwaudiobytes1), ::std::mem::transmute(pvaudioptr2), ::std::mem::transmute(dwaudiobytes2)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundCaptureBuffer {
     type Vtable = IDirectSoundCaptureBuffer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2954954626,
-        35277,
-        4560,
-        [175, 8, 0, 160, 201, 37, 205, 22],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954954626, 35277, 4560, [175, 8, 0, 160, 201, 37, 205, 22]);
 }
 impl ::std::convert::From<IDirectSoundCaptureBuffer> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundCaptureBuffer) -> Self {
@@ -10397,237 +5767,79 @@ impl ::std::convert::From<&IDirectSoundCaptureBuffer> for ::windows::runtime::IU
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectSoundCaptureBuffer
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundCaptureBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectSoundCaptureBuffer
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundCaptureBuffer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundCaptureBuffer_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdscbcaps: *mut DSCBCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcaptureposition: *mut u32,
-        pdwreadposition: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX,
-        dwsizeallocated: u32,
-        pdwsizewritten: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdscbcaps: *mut DSCBCAPS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcaptureposition: *mut u32, pdwreadposition: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdirectsoundcapture: ::windows::runtime::RawPtr,
-        pcdscbufferdesc: *const DSCBUFFERDESC,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectsoundcapture: ::windows::runtime::RawPtr, pcdscbufferdesc: *const DSCBUFFERDESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwoffset: u32,
-        dwbytes: u32,
-        ppvaudioptr1: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes1: *mut u32,
-        ppvaudioptr2: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes2: *mut u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::std::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::std::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pvaudioptr1: *const ::std::ffi::c_void,
-        dwaudiobytes1: u32,
-        pvaudioptr2: *const ::std::ffi::c_void,
-        dwaudiobytes2: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundCaptureBuffer8(::windows::runtime::IUnknown);
 impl IDirectSoundCaptureBuffer8 {
     pub unsafe fn GetCaps(&self) -> ::windows::runtime::Result<DSCBCAPS> {
         let mut result__: <DSCBCAPS as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSCBCAPS>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCBCAPS>(result__)
     }
-    pub unsafe fn GetCurrentPosition(
-        &self,
-        pdwcaptureposition: *mut u32,
-        pdwreadposition: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwcaptureposition),
-            ::std::mem::transmute(pdwreadposition),
-        )
-        .ok()
+    pub unsafe fn GetCurrentPosition(&self, pdwcaptureposition: *mut u32, pdwreadposition: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcaptureposition), ::std::mem::transmute(pdwreadposition)).ok()
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn GetFormat(
-        &self,
-        pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX,
-        dwsizeallocated: u32,
-        pdwsizewritten: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pwfxformat),
-            ::std::mem::transmute(dwsizeallocated),
-            ::std::mem::transmute(pdwsizewritten),
-        )
-        .ok()
+    pub unsafe fn GetFormat(&self, pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pwfxformat), ::std::mem::transmute(dwsizeallocated), ::std::mem::transmute(pdwsizewritten)).ok()
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Media_Multimedia")]
-    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSoundCapture>>(
-        &self,
-        pdirectsoundcapture: Param0,
-        pcdscbufferdesc: *const DSCBUFFERDESC,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            pdirectsoundcapture.into_param().abi(),
-            ::std::mem::transmute(pcdscbufferdesc),
-        )
-        .ok()
+    pub unsafe fn Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, IDirectSoundCapture>>(&self, pdirectsoundcapture: Param0, pcdscbufferdesc: *const DSCBUFFERDESC) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pdirectsoundcapture.into_param().abi(), ::std::mem::transmute(pcdscbufferdesc)).ok()
     }
-    pub unsafe fn Lock(
-        &self,
-        dwoffset: u32,
-        dwbytes: u32,
-        ppvaudioptr1: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes1: *mut u32,
-        ppvaudioptr2: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes2: *mut u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwoffset),
-            ::std::mem::transmute(dwbytes),
-            ::std::mem::transmute(ppvaudioptr1),
-            ::std::mem::transmute(pdwaudiobytes1),
-            ::std::mem::transmute(ppvaudioptr2),
-            ::std::mem::transmute(pdwaudiobytes2),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn Lock(&self, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::std::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::std::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwoffset), ::std::mem::transmute(dwbytes), ::std::mem::transmute(ppvaudioptr1), ::std::mem::transmute(pdwaudiobytes1), ::std::mem::transmute(ppvaudioptr2), ::std::mem::transmute(pdwaudiobytes2), ::std::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn Start(&self, dwflags: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn Stop(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn Unlock(
-        &self,
-        pvaudioptr1: *const ::std::ffi::c_void,
-        dwaudiobytes1: u32,
-        pvaudioptr2: *const ::std::ffi::c_void,
-        dwaudiobytes2: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pvaudioptr1),
-            ::std::mem::transmute(dwaudiobytes1),
-            ::std::mem::transmute(pvaudioptr2),
-            ::std::mem::transmute(dwaudiobytes2),
-        )
-        .ok()
+    pub unsafe fn Unlock(&self, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(pvaudioptr1), ::std::mem::transmute(dwaudiobytes1), ::std::mem::transmute(pvaudioptr2), ::std::mem::transmute(dwaudiobytes2)).ok()
     }
-    pub unsafe fn GetObjectInPath(
-        &self,
-        rguidobject: *const ::windows::runtime::GUID,
-        dwindex: u32,
-        rguidinterface: *const ::windows::runtime::GUID,
-        ppobject: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rguidobject),
-            ::std::mem::transmute(dwindex),
-            ::std::mem::transmute(rguidinterface),
-            ::std::mem::transmute(ppobject),
-        )
-        .ok()
+    pub unsafe fn GetObjectInPath(&self, rguidobject: *const ::windows::runtime::GUID, dwindex: u32, rguidinterface: *const ::windows::runtime::GUID, ppobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(rguidobject), ::std::mem::transmute(dwindex), ::std::mem::transmute(rguidinterface), ::std::mem::transmute(ppobject)).ok()
     }
-    pub unsafe fn GetFXStatus(
-        &self,
-        dweffectscount: u32,
-        pdwfxstatus: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dweffectscount),
-            ::std::mem::transmute(pdwfxstatus),
-        )
-        .ok()
+    pub unsafe fn GetFXStatus(&self, dweffectscount: u32, pdwfxstatus: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(dweffectscount), ::std::mem::transmute(pdwfxstatus)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundCaptureBuffer8 {
     type Vtable = IDirectSoundCaptureBuffer8_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        10030580,
-        3515,
-        18546,
-        [131, 62, 109, 48, 62, 128, 174, 182],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(10030580, 3515, 18546, [131, 62, 109, 48, 62, 128, 174, 182]);
 }
 impl ::std::convert::From<IDirectSoundCaptureBuffer8> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundCaptureBuffer8) -> Self {
@@ -10639,24 +5851,14 @@ impl ::std::convert::From<&IDirectSoundCaptureBuffer8> for ::windows::runtime::I
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectSoundCaptureBuffer8
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundCaptureBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectSoundCaptureBuffer8
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundCaptureBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IDirectSoundCaptureBuffer8> for IDirectSoundCaptureBuffer {
@@ -10669,133 +5871,52 @@ impl ::std::convert::From<&IDirectSoundCaptureBuffer8> for IDirectSoundCaptureBu
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundCaptureBuffer>
-    for IDirectSoundCaptureBuffer8
-{
+impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundCaptureBuffer> for IDirectSoundCaptureBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSoundCaptureBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundCaptureBuffer>::into(
-            self,
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundCaptureBuffer>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundCaptureBuffer>
-    for &IDirectSoundCaptureBuffer8
-{
+impl<'a> ::windows::runtime::IntoParam<'a, IDirectSoundCaptureBuffer> for &IDirectSoundCaptureBuffer8 {
     fn into_param(self) -> ::windows::runtime::Param<'a, IDirectSoundCaptureBuffer> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundCaptureBuffer>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IDirectSoundCaptureBuffer>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundCaptureBuffer8_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdscbcaps: *mut DSCBCAPS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcaptureposition: *mut u32,
-        pdwreadposition: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX,
-        dwsizeallocated: u32,
-        pdwsizewritten: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdscbcaps: *mut DSCBCAPS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcaptureposition: *mut u32, pdwreadposition: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwfxformat: *mut super::super::Multimedia::WAVEFORMATEX, dwsizeallocated: u32, pdwsizewritten: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Media_Multimedia")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdirectsoundcapture: ::windows::runtime::RawPtr,
-        pcdscbufferdesc: *const DSCBUFFERDESC,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Media_Multimedia")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdirectsoundcapture: ::windows::runtime::RawPtr, pcdscbufferdesc: *const DSCBUFFERDESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Media_Multimedia"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwoffset: u32,
-        dwbytes: u32,
-        ppvaudioptr1: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes1: *mut u32,
-        ppvaudioptr2: *mut *mut ::std::ffi::c_void,
-        pdwaudiobytes2: *mut u32,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwoffset: u32, dwbytes: u32, ppvaudioptr1: *mut *mut ::std::ffi::c_void, pdwaudiobytes1: *mut u32, ppvaudioptr2: *mut *mut ::std::ffi::c_void, pdwaudiobytes2: *mut u32, dwflags: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwflags: u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pvaudioptr1: *const ::std::ffi::c_void,
-        dwaudiobytes1: u32,
-        pvaudioptr2: *const ::std::ffi::c_void,
-        dwaudiobytes2: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rguidobject: *const ::windows::runtime::GUID,
-        dwindex: u32,
-        rguidinterface: *const ::windows::runtime::GUID,
-        ppobject: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dweffectscount: u32,
-        pdwfxstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pvaudioptr1: *const ::std::ffi::c_void, dwaudiobytes1: u32, pvaudioptr2: *const ::std::ffi::c_void, dwaudiobytes2: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rguidobject: *const ::windows::runtime::GUID, dwindex: u32, rguidinterface: *const ::windows::runtime::GUID, ppobject: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dweffectscount: u32, pdwfxstatus: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundCaptureFXAec(::windows::runtime::IUnknown);
 impl IDirectSoundCaptureFXAec {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllParameters(
-        &self,
-        pdscfxaec: *const DSCFXAec,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdscfxaec),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pdscfxaec: *const DSCFXAec) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdscfxaec)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSCFXAec> {
         let mut result__: <DSCFXAec as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSCFXAec>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCFXAec>(result__)
     }
     pub unsafe fn GetStatus(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)).ok()
@@ -10803,12 +5924,7 @@ impl IDirectSoundCaptureFXAec {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundCaptureFXAec {
     type Vtable = IDirectSoundCaptureFXAec_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2910065725,
-        36925,
-        19127,
-        [128, 102, 40, 211, 99, 3, 109, 101],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2910065725, 36925, 19127, [128, 102, 40, 211, 99, 3, 109, 101]);
 }
 impl ::std::convert::From<IDirectSoundCaptureFXAec> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundCaptureFXAec) -> Self {
@@ -10820,83 +5936,41 @@ impl ::std::convert::From<&IDirectSoundCaptureFXAec> for ::windows::runtime::IUn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectSoundCaptureFXAec
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundCaptureFXAec {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectSoundCaptureFXAec
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundCaptureFXAec {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundCaptureFXAec_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdscfxaec: *const DSCFXAec,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdscfxaec: *const DSCFXAec) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdscfxaec: *mut DSCFXAec,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdscfxaec: *mut DSCFXAec) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwstatus: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwstatus: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundCaptureFXNoiseSuppress(::windows::runtime::IUnknown);
 impl IDirectSoundCaptureFXNoiseSuppress {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetAllParameters(
-        &self,
-        pcdscfxnoisesuppress: *const DSCFXNoiseSuppress,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdscfxnoisesuppress),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pcdscfxnoisesuppress: *const DSCFXNoiseSuppress) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdscfxnoisesuppress)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSCFXNoiseSuppress> {
-        let mut result__: <DSCFXNoiseSuppress as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSCFXNoiseSuppress>(result__)
+        let mut result__: <DSCFXNoiseSuppress as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSCFXNoiseSuppress>(result__)
     }
     pub unsafe fn Reset(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
@@ -10904,12 +5978,7 @@ impl IDirectSoundCaptureFXNoiseSuppress {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundCaptureFXNoiseSuppress {
     type Vtable = IDirectSoundCaptureFXNoiseSuppress_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3979419201,
-        64430,
-        16757,
-        [150, 37, 205, 8, 84, 246, 147, 202],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3979419201, 64430, 16757, [150, 37, 205, 8, 84, 246, 147, 202]);
 }
 impl ::std::convert::From<IDirectSoundCaptureFXNoiseSuppress> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundCaptureFXNoiseSuppress) -> Self {
@@ -10921,86 +5990,43 @@ impl ::std::convert::From<&IDirectSoundCaptureFXNoiseSuppress> for ::windows::ru
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectSoundCaptureFXNoiseSuppress
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundCaptureFXNoiseSuppress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectSoundCaptureFXNoiseSuppress
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundCaptureFXNoiseSuppress {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundCaptureFXNoiseSuppress_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdscfxnoisesuppress: *const DSCFXNoiseSuppress,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdscfxnoisesuppress: *const DSCFXNoiseSuppress) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdscfxnoisesuppress: *mut DSCFXNoiseSuppress,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdscfxnoisesuppress: *mut DSCFXNoiseSuppress) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXChorus(::windows::runtime::IUnknown);
 impl IDirectSoundFXChorus {
-    pub unsafe fn SetAllParameters(
-        &self,
-        pcdsfxchorus: *const DSFXChorus,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdsfxchorus),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pcdsfxchorus: *const DSFXChorus) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxchorus)).ok()
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXChorus> {
         let mut result__: <DSFXChorus as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSFXChorus>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXChorus>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXChorus {
     type Vtable = IDirectSoundFXChorus_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2282242787,
-        5215,
-        17382,
-        [169, 52, 167, 24, 6, 229, 5, 71],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2282242787, 5215, 17382, [169, 52, 167, 24, 6, 229, 5, 71]);
 }
 impl ::std::convert::From<IDirectSoundFXChorus> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXChorus) -> Self {
@@ -11014,75 +6040,38 @@ impl ::std::convert::From<&IDirectSoundFXChorus> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXChorus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundFXChorus {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXChorus_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdsfxchorus: *const DSFXChorus,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsfxchorus: *mut DSFXChorus,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxchorus: *const DSFXChorus) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxchorus: *mut DSFXChorus) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXCompressor(::windows::runtime::IUnknown);
 impl IDirectSoundFXCompressor {
-    pub unsafe fn SetAllParameters(
-        &self,
-        pcdsfxcompressor: *const DSFXCompressor,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdsfxcompressor),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pcdsfxcompressor: *const DSFXCompressor) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxcompressor)).ok()
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXCompressor> {
         let mut result__: <DSFXCompressor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSFXCompressor>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXCompressor>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXCompressor {
     type Vtable = IDirectSoundFXCompressor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1270681940,
-        25334,
-        20012,
-        [161, 92, 211, 182, 196, 23, 247, 160],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1270681940, 25334, 20012, [161, 92, 211, 182, 196, 23, 247, 160]);
 }
 impl ::std::convert::From<IDirectSoundFXCompressor> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXCompressor) -> Self {
@@ -11094,81 +6083,40 @@ impl ::std::convert::From<&IDirectSoundFXCompressor> for ::windows::runtime::IUn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectSoundFXCompressor
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXCompressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectSoundFXCompressor
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundFXCompressor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXCompressor_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdsfxcompressor: *const DSFXCompressor,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsfxcompressor: *mut DSFXCompressor,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxcompressor: *const DSFXCompressor) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxcompressor: *mut DSFXCompressor) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXDistortion(::windows::runtime::IUnknown);
 impl IDirectSoundFXDistortion {
-    pub unsafe fn SetAllParameters(
-        &self,
-        pcdsfxdistortion: *const DSFXDistortion,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdsfxdistortion),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pcdsfxdistortion: *const DSFXDistortion) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxdistortion)).ok()
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXDistortion> {
         let mut result__: <DSFXDistortion as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSFXDistortion>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXDistortion>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXDistortion {
     type Vtable = IDirectSoundFXDistortion_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2395947814,
-        17759,
-        19851,
-        [189, 169, 141, 93, 62, 158, 62, 11],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2395947814, 17759, 19851, [189, 169, 141, 93, 62, 158, 62, 11]);
 }
 impl ::std::convert::From<IDirectSoundFXDistortion> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXDistortion) -> Self {
@@ -11180,81 +6128,40 @@ impl ::std::convert::From<&IDirectSoundFXDistortion> for ::windows::runtime::IUn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectSoundFXDistortion
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXDistortion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectSoundFXDistortion
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundFXDistortion {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXDistortion_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdsfxdistortion: *const DSFXDistortion,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsfxdistortion: *mut DSFXDistortion,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxdistortion: *const DSFXDistortion) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxdistortion: *mut DSFXDistortion) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXEcho(::windows::runtime::IUnknown);
 impl IDirectSoundFXEcho {
-    pub unsafe fn SetAllParameters(
-        &self,
-        pcdsfxecho: *const DSFXEcho,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdsfxecho),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pcdsfxecho: *const DSFXEcho) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxecho)).ok()
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXEcho> {
         let mut result__: <DSFXEcho as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSFXEcho>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXEcho>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXEcho {
     type Vtable = IDirectSoundFXEcho_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2345832159,
-        20699,
-        20114,
-        [162, 189, 68, 84, 136, 209, 237, 66],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2345832159, 20699, 20114, [162, 189, 68, 84, 136, 209, 237, 66]);
 }
 impl ::std::convert::From<IDirectSoundFXEcho> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXEcho) -> Self {
@@ -11268,75 +6175,38 @@ impl ::std::convert::From<&IDirectSoundFXEcho> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXEcho {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundFXEcho {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXEcho_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdsfxecho: *const DSFXEcho,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsfxecho: *mut DSFXEcho,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxecho: *const DSFXEcho) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxecho: *mut DSFXEcho) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXFlanger(::windows::runtime::IUnknown);
 impl IDirectSoundFXFlanger {
-    pub unsafe fn SetAllParameters(
-        &self,
-        pcdsfxflanger: *const DSFXFlanger,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdsfxflanger),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pcdsfxflanger: *const DSFXFlanger) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxflanger)).ok()
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXFlanger> {
         let mut result__: <DSFXFlanger as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSFXFlanger>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXFlanger>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXFlanger {
     type Vtable = IDirectSoundFXFlanger_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2420021368,
-        11410,
-        16498,
-        [155, 44, 234, 104, 245, 57, 103, 131],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2420021368, 11410, 16498, [155, 44, 234, 104, 245, 57, 103, 131]);
 }
 impl ::std::convert::From<IDirectSoundFXFlanger> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXFlanger) -> Self {
@@ -11350,77 +6220,38 @@ impl ::std::convert::From<&IDirectSoundFXFlanger> for ::windows::runtime::IUnkno
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXFlanger {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectSoundFXFlanger
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundFXFlanger {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXFlanger_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdsfxflanger: *const DSFXFlanger,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsfxflanger: *mut DSFXFlanger,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxflanger: *const DSFXFlanger) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxflanger: *mut DSFXFlanger) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXGargle(::windows::runtime::IUnknown);
 impl IDirectSoundFXGargle {
-    pub unsafe fn SetAllParameters(
-        &self,
-        pcdsfxgargle: *const DSFXGargle,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdsfxgargle),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pcdsfxgargle: *const DSFXGargle) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxgargle)).ok()
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXGargle> {
         let mut result__: <DSFXGargle as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSFXGargle>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXGargle>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXGargle {
     type Vtable = IDirectSoundFXGargle_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3591828306,
-        54818,
-        4558,
-        [170, 197, 0, 32, 175, 11, 153, 163],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3591828306, 54818, 4558, [170, 197, 0, 32, 175, 11, 153, 163]);
 }
 impl ::std::convert::From<IDirectSoundFXGargle> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXGargle) -> Self {
@@ -11434,105 +6265,52 @@ impl ::std::convert::From<&IDirectSoundFXGargle> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXGargle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundFXGargle {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXGargle_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdsfxgargle: *const DSFXGargle,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsfxgargle: *mut DSFXGargle,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxgargle: *const DSFXGargle) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxgargle: *mut DSFXGargle) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXI3DL2Reverb(::windows::runtime::IUnknown);
 impl IDirectSoundFXI3DL2Reverb {
-    pub unsafe fn SetAllParameters(
-        &self,
-        pcdsfxi3dl2reverb: *const DSFXI3DL2Reverb,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdsfxi3dl2reverb),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pcdsfxi3dl2reverb: *const DSFXI3DL2Reverb) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxi3dl2reverb)).ok()
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXI3DL2Reverb> {
         let mut result__: <DSFXI3DL2Reverb as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSFXI3DL2Reverb>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXI3DL2Reverb>(result__)
     }
     pub unsafe fn SetPreset(&self, dwpreset: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwpreset),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwpreset)).ok()
     }
     pub unsafe fn GetPreset(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u32>(result__)
     }
     pub unsafe fn SetQuality(&self, lquality: i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lquality),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(lquality)).ok()
     }
     pub unsafe fn GetQuality(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<i32>(result__)
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), &mut result__).from_abi::<i32>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXI3DL2Reverb {
     type Vtable = IDirectSoundFXI3DL2Reverb_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1259760234,
-        3430,
-        17395,
-        [128, 227, 238, 98, 128, 222, 225, 164],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1259760234, 3430, 17395, [128, 227, 238, 98, 128, 222, 225, 164]);
 }
 impl ::std::convert::From<IDirectSoundFXI3DL2Reverb> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXI3DL2Reverb) -> Self {
@@ -11544,97 +6322,44 @@ impl ::std::convert::From<&IDirectSoundFXI3DL2Reverb> for ::windows::runtime::IU
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectSoundFXI3DL2Reverb
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXI3DL2Reverb {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectSoundFXI3DL2Reverb
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundFXI3DL2Reverb {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXI3DL2Reverb_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdsfxi3dl2reverb: *const DSFXI3DL2Reverb,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsfxi3dl2reverb: *mut DSFXI3DL2Reverb,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwpreset: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwpreset: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lquality: i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        plquality: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxi3dl2reverb: *const DSFXI3DL2Reverb) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxi3dl2reverb: *mut DSFXI3DL2Reverb) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwpreset: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwpreset: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lquality: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, plquality: *mut i32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXParamEq(::windows::runtime::IUnknown);
 impl IDirectSoundFXParamEq {
-    pub unsafe fn SetAllParameters(
-        &self,
-        pcdsfxparameq: *const DSFXParamEq,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdsfxparameq),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pcdsfxparameq: *const DSFXParamEq) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxparameq)).ok()
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXParamEq> {
         let mut result__: <DSFXParamEq as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSFXParamEq>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXParamEq>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXParamEq {
     type Vtable = IDirectSoundFXParamEq_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3225201150,
-        65168,
-        16900,
-        [128, 120, 130, 51, 76, 209, 119, 218],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3225201150, 65168, 16900, [128, 120, 130, 51, 76, 209, 119, 218]);
 }
 impl ::std::convert::From<IDirectSoundFXParamEq> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXParamEq) -> Self {
@@ -11648,77 +6373,38 @@ impl ::std::convert::From<&IDirectSoundFXParamEq> for ::windows::runtime::IUnkno
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXParamEq {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectSoundFXParamEq
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundFXParamEq {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXParamEq_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdsfxparameq: *const DSFXParamEq,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsfxparameq: *mut DSFXParamEq,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxparameq: *const DSFXParamEq) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxparameq: *mut DSFXParamEq) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFXWavesReverb(::windows::runtime::IUnknown);
 impl IDirectSoundFXWavesReverb {
-    pub unsafe fn SetAllParameters(
-        &self,
-        pcdsfxwavesreverb: *const DSFXWavesReverb,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcdsfxwavesreverb),
-        )
-        .ok()
+    pub unsafe fn SetAllParameters(&self, pcdsfxwavesreverb: *const DSFXWavesReverb) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcdsfxwavesreverb)).ok()
     }
     pub unsafe fn GetAllParameters(&self) -> ::windows::runtime::Result<DSFXWavesReverb> {
         let mut result__: <DSFXWavesReverb as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<DSFXWavesReverb>(result__)
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), &mut result__).from_abi::<DSFXWavesReverb>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFXWavesReverb {
     type Vtable = IDirectSoundFXWavesReverb_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1183157306,
-        3526,
-        17891,
-        [183, 96, 212, 238, 241, 108, 179, 37],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1183157306, 3526, 17891, [183, 96, 212, 238, 241, 108, 179, 37]);
 }
 impl ::std::convert::From<IDirectSoundFXWavesReverb> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFXWavesReverb) -> Self {
@@ -11730,59 +6416,31 @@ impl ::std::convert::From<&IDirectSoundFXWavesReverb> for ::windows::runtime::IU
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectSoundFXWavesReverb
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFXWavesReverb {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectSoundFXWavesReverb
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundFXWavesReverb {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFXWavesReverb_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcdsfxwavesreverb: *const DSFXWavesReverb,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdsfxwavesreverb: *mut DSFXWavesReverb,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcdsfxwavesreverb: *const DSFXWavesReverb) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdsfxwavesreverb: *mut DSFXWavesReverb) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundFullDuplex(::windows::runtime::IUnknown);
 impl IDirectSoundFullDuplex {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    pub unsafe fn Initialize<
-        'a,
-        Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
-    >(
+    pub unsafe fn Initialize<'a, Param4: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>>(
         &self,
         pcaptureguid: *const ::windows::runtime::GUID,
         prenderguid: *const ::windows::runtime::GUID,
@@ -11809,12 +6467,7 @@ impl IDirectSoundFullDuplex {
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundFullDuplex {
     type Vtable = IDirectSoundFullDuplex_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3989523578,
-        55979,
-        16918,
-        [164, 46, 108, 80, 89, 109, 220, 29],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3989523578, 55979, 16918, [164, 46, 108, 80, 89, 109, 220, 29]);
 }
 impl ::std::convert::From<IDirectSoundFullDuplex> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundFullDuplex) -> Self {
@@ -11826,81 +6479,38 @@ impl ::std::convert::From<&IDirectSoundFullDuplex> for ::windows::runtime::IUnkn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IDirectSoundFullDuplex
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundFullDuplex {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IDirectSoundFullDuplex
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundFullDuplex {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundFullDuplex_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcaptureguid: *const ::windows::runtime::GUID,
-        prenderguid: *const ::windows::runtime::GUID,
-        lpdscbufferdesc: *const DSCBUFFERDESC,
-        lpdsbufferdesc: *const DSBUFFERDESC,
-        hwnd: super::super::super::Foundation::HWND,
-        dwlevel: u32,
-        lplpdirectsoundcapturebuffer8: *mut ::windows::runtime::RawPtr,
-        lplpdirectsoundbuffer8: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub  unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcaptureguid: *const ::windows::runtime::GUID, prenderguid: *const ::windows::runtime::GUID, lpdscbufferdesc: *const DSCBUFFERDESC, lpdsbufferdesc: *const DSBUFFERDESC, hwnd: super::super::super::Foundation::HWND, dwlevel: u32, lplpdirectsoundcapturebuffer8: *mut ::windows::runtime::RawPtr, lplpdirectsoundbuffer8: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_Multimedia")))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IDirectSoundNotify(::windows::runtime::IUnknown);
 impl IDirectSoundNotify {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetNotificationPositions(
-        &self,
-        dwpositionnotifies: u32,
-        pcpositionnotifies: *const DSBPOSITIONNOTIFY,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwpositionnotifies),
-            ::std::mem::transmute(pcpositionnotifies),
-        )
-        .ok()
+    pub unsafe fn SetNotificationPositions(&self, dwpositionnotifies: u32, pcpositionnotifies: *const DSBPOSITIONNOTIFY) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwpositionnotifies), ::std::mem::transmute(pcpositionnotifies)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IDirectSoundNotify {
     type Vtable = IDirectSoundNotify_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2954954627,
-        35277,
-        4560,
-        [175, 8, 0, 160, 201, 37, 205, 22],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2954954627, 35277, 4560, [175, 8, 0, 160, 201, 37, 205, 22]);
 }
 impl ::std::convert::From<IDirectSoundNotify> for ::windows::runtime::IUnknown {
     fn from(value: IDirectSoundNotify) -> Self {
@@ -11914,36 +6524,21 @@ impl ::std::convert::From<&IDirectSoundNotify> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IDirectSoundNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IDirectSoundNotify {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDirectSoundNotify_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwpositionnotifies: u32,
-        pcpositionnotifies: *const DSBPOSITIONNOTIFY,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwpositionnotifies: u32, pcpositionnotifies: *const DSBPOSITIONNOTIFY) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -11960,10 +6555,7 @@ impl ::std::default::Default for INSTHEADER {
 }
 impl ::std::fmt::Debug for INSTHEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INSTHEADER")
-            .field("cRegions", &self.cRegions)
-            .field("Locale", &self.Locale)
-            .finish()
+        fmt.debug_struct("INSTHEADER").field("cRegions", &self.cRegions).field("Locale", &self.Locale).finish()
     }
 }
 impl ::std::cmp::PartialEq for INSTHEADER {
@@ -11976,18 +6568,10 @@ unsafe impl ::windows::runtime::Abi for INSTHEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct KSPROPERTY_AUDIOEFFECTSDISCOVERY(pub i32);
-pub const KSPROPERTY_AUDIOEFFECTSDISCOVERY_EFFECTSLIST: KSPROPERTY_AUDIOEFFECTSDISCOVERY =
-    KSPROPERTY_AUDIOEFFECTSDISCOVERY(1i32);
+pub const KSPROPERTY_AUDIOEFFECTSDISCOVERY_EFFECTSLIST: KSPROPERTY_AUDIOEFFECTSDISCOVERY = KSPROPERTY_AUDIOEFFECTSDISCOVERY(1i32);
 impl ::std::convert::From<i32> for KSPROPERTY_AUDIOEFFECTSDISCOVERY {
     fn from(value: i32) -> Self {
         Self(value)
@@ -11999,13 +6583,7 @@ unsafe impl ::windows::runtime::Abi for KSPROPERTY_AUDIOEFFECTSDISCOVERY {
 }
 pub const KSPROPERTY_SUPPORT_GET: u32 = 1u32;
 pub const KSPROPERTY_SUPPORT_SET: u32 = 2u32;
-pub const KSPROPSETID_AudioEffectsDiscovery: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        186743410,
-        5816,
-        19021,
-        [189, 237, 249, 214, 187, 237, 205, 143],
-    );
+pub const KSPROPSETID_AudioEffectsDiscovery: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(186743410, 5816, 19021, [189, 237, 249, 214, 187, 237, 205, 143]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Media_Audio_CoreAudio")]
@@ -12035,37 +6613,15 @@ unsafe impl ::windows::runtime::Abi for KSP_PINMODE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDSENUMCALLBACKA = unsafe extern "system" fn(
-    param0: *mut ::windows::runtime::GUID,
-    param1: super::super::super::Foundation::PSTR,
-    param2: super::super::super::Foundation::PSTR,
-    param3: *mut ::std::ffi::c_void,
-) -> super::super::super::Foundation::BOOL;
+pub type LPDSENUMCALLBACKA = unsafe extern "system" fn(param0: *mut ::windows::runtime::GUID, param1: super::super::super::Foundation::PSTR, param2: super::super::super::Foundation::PSTR, param3: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDSENUMCALLBACKW = unsafe extern "system" fn(
-    param0: *mut ::windows::runtime::GUID,
-    param1: super::super::super::Foundation::PWSTR,
-    param2: super::super::super::Foundation::PWSTR,
-    param3: *mut ::std::ffi::c_void,
-) -> super::super::super::Foundation::BOOL;
+pub type LPDSENUMCALLBACKW = unsafe extern "system" fn(param0: *mut ::windows::runtime::GUID, param1: super::super::super::Foundation::PWSTR, param2: super::super::super::Foundation::PWSTR, param3: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 =
-    unsafe extern "system" fn(
-        param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA,
-        param1: *mut ::std::ffi::c_void,
-    ) -> super::super::super::Foundation::BOOL;
+pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACK1 = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_1_DATA, param1: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA =
-    unsafe extern "system" fn(
-        param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA,
-        param1: *mut ::std::ffi::c_void,
-    ) -> super::super::super::Foundation::BOOL;
+pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKA = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_A_DATA, param1: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW =
-    unsafe extern "system" fn(
-        param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA,
-        param1: *mut ::std::ffi::c_void,
-    ) -> super::super::super::Foundation::BOOL;
+pub type LPFNDIRECTSOUNDDEVICEENUMERATECALLBACKW = unsafe extern "system" fn(param0: *mut DSPROPERTY_DIRECTSOUNDDEVICE_DESCRIPTION_W_DATA, param1: *mut ::std::ffi::c_void) -> super::super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct MDEVICECAPSEX {
@@ -12102,10 +6658,7 @@ impl ::std::default::Default for MIDILOCALE {
 }
 impl ::std::fmt::Debug for MIDILOCALE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MIDILOCALE")
-            .field("ulBank", &self.ulBank)
-            .field("ulInstrument", &self.ulInstrument)
-            .finish()
+        fmt.debug_struct("MIDILOCALE").field("ulBank", &self.ulBank).field("ulInstrument", &self.ulInstrument).finish()
     }
 }
 impl ::std::cmp::PartialEq for MIDILOCALE {
@@ -12163,9 +6716,7 @@ impl ::std::default::Default for POOLCUE {
 }
 impl ::std::fmt::Debug for POOLCUE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POOLCUE")
-            .field("ulOffset", &self.ulOffset)
-            .finish()
+        fmt.debug_struct("POOLCUE").field("ulOffset", &self.ulOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for POOLCUE {
@@ -12192,10 +6743,7 @@ impl ::std::default::Default for POOLTABLE {
 }
 impl ::std::fmt::Debug for POOLTABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("POOLTABLE")
-            .field("cbSize", &self.cbSize)
-            .field("cCues", &self.cCues)
-            .finish()
+        fmt.debug_struct("POOLTABLE").field("cbSize", &self.cbSize).field("cCues", &self.cCues).finish()
     }
 }
 impl ::std::cmp::PartialEq for POOLTABLE {
@@ -12226,20 +6774,12 @@ impl ::std::default::Default for RGNHEADER {
 }
 impl ::std::fmt::Debug for RGNHEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RGNHEADER")
-            .field("RangeKey", &self.RangeKey)
-            .field("RangeVelocity", &self.RangeVelocity)
-            .field("fusOptions", &self.fusOptions)
-            .field("usKeyGroup", &self.usKeyGroup)
-            .finish()
+        fmt.debug_struct("RGNHEADER").field("RangeKey", &self.RangeKey).field("RangeVelocity", &self.RangeVelocity).field("fusOptions", &self.fusOptions).field("usKeyGroup", &self.usKeyGroup).finish()
     }
 }
 impl ::std::cmp::PartialEq for RGNHEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.RangeKey == other.RangeKey
-            && self.RangeVelocity == other.RangeVelocity
-            && self.fusOptions == other.fusOptions
-            && self.usKeyGroup == other.usKeyGroup
+        self.RangeKey == other.RangeKey && self.RangeVelocity == other.RangeVelocity && self.fusOptions == other.fusOptions && self.usKeyGroup == other.usKeyGroup
     }
 }
 impl ::std::cmp::Eq for RGNHEADER {}
@@ -12261,10 +6801,7 @@ impl ::std::default::Default for RGNRANGE {
 }
 impl ::std::fmt::Debug for RGNRANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RGNRANGE")
-            .field("usLow", &self.usLow)
-            .field("usHigh", &self.usHigh)
-            .finish()
+        fmt.debug_struct("RGNRANGE").field("usLow", &self.usLow).field("usHigh", &self.usHigh).finish()
     }
 }
 impl ::std::cmp::PartialEq for RGNRANGE {
@@ -12310,13 +6847,7 @@ impl ::std::fmt::Debug for Tag_DVAudInfo {
 }
 impl ::std::cmp::PartialEq for Tag_DVAudInfo {
     fn eq(&self, other: &Self) -> bool {
-        self.bAudStyle == other.bAudStyle
-            && self.bAudQu == other.bAudQu
-            && self.bNumAudPin == other.bNumAudPin
-            && self.wAvgSamplesPerPinPerFrm == other.wAvgSamplesPerPinPerFrm
-            && self.wBlkMode == other.wBlkMode
-            && self.wDIFMode == other.wDIFMode
-            && self.wBlkDiv == other.wBlkDiv
+        self.bAudStyle == other.bAudStyle && self.bAudQu == other.bAudQu && self.bNumAudPin == other.bNumAudPin && self.wAvgSamplesPerPinPerFrm == other.wAvgSamplesPerPinPerFrm && self.wBlkMode == other.wBlkMode && self.wDIFMode == other.wDIFMode && self.wBlkDiv == other.wBlkDiv
     }
 }
 impl ::std::cmp::Eq for Tag_DVAudInfo {}
@@ -12354,12 +6885,7 @@ impl ::std::fmt::Debug for UNCOMPRESSEDAUDIOFORMAT {
 }
 impl ::std::cmp::PartialEq for UNCOMPRESSEDAUDIOFORMAT {
     fn eq(&self, other: &Self) -> bool {
-        self.guidFormatType == other.guidFormatType
-            && self.dwSamplesPerFrame == other.dwSamplesPerFrame
-            && self.dwBytesPerSampleContainer == other.dwBytesPerSampleContainer
-            && self.dwValidBitsPerSample == other.dwValidBitsPerSample
-            && self.fFramesPerSecond == other.fFramesPerSecond
-            && self.dwChannelMask == other.dwChannelMask
+        self.guidFormatType == other.guidFormatType && self.dwSamplesPerFrame == other.dwSamplesPerFrame && self.dwBytesPerSampleContainer == other.dwBytesPerSampleContainer && self.dwValidBitsPerSample == other.dwValidBitsPerSample && self.fFramesPerSecond == other.fFramesPerSecond && self.dwChannelMask == other.dwChannelMask
     }
 }
 impl ::std::cmp::Eq for UNCOMPRESSEDAUDIOFORMAT {}
@@ -12383,20 +6909,12 @@ impl ::std::default::Default for WAVELINK {
 }
 impl ::std::fmt::Debug for WAVELINK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WAVELINK")
-            .field("fusOptions", &self.fusOptions)
-            .field("usPhaseGroup", &self.usPhaseGroup)
-            .field("ulChannel", &self.ulChannel)
-            .field("ulTableIndex", &self.ulTableIndex)
-            .finish()
+        fmt.debug_struct("WAVELINK").field("fusOptions", &self.fusOptions).field("usPhaseGroup", &self.usPhaseGroup).field("ulChannel", &self.ulChannel).field("ulTableIndex", &self.ulTableIndex).finish()
     }
 }
 impl ::std::cmp::PartialEq for WAVELINK {
     fn eq(&self, other: &Self) -> bool {
-        self.fusOptions == other.fusOptions
-            && self.usPhaseGroup == other.usPhaseGroup
-            && self.ulChannel == other.ulChannel
-            && self.ulTableIndex == other.ulTableIndex
+        self.fusOptions == other.fusOptions && self.usPhaseGroup == other.usPhaseGroup && self.ulChannel == other.ulChannel && self.ulTableIndex == other.ulTableIndex
     }
 }
 impl ::std::cmp::Eq for WAVELINK {}
@@ -12447,14 +6965,7 @@ impl ::std::fmt::Debug for _DMUS_PORTPARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for _DMUS_PORTPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize
-            && self.dwValidParams == other.dwValidParams
-            && self.dwVoices == other.dwVoices
-            && self.dwChannelGroups == other.dwChannelGroups
-            && self.dwAudioChannels == other.dwAudioChannels
-            && self.dwSampleRate == other.dwSampleRate
-            && self.dwEffectFlags == other.dwEffectFlags
-            && self.fShare == other.fShare
+        self.dwSize == other.dwSize && self.dwValidParams == other.dwValidParams && self.dwVoices == other.dwVoices && self.dwChannelGroups == other.dwChannelGroups && self.dwAudioChannels == other.dwAudioChannels && self.dwSampleRate == other.dwSampleRate && self.dwEffectFlags == other.dwEffectFlags && self.fShare == other.fShare
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -12481,20 +6992,12 @@ impl ::std::default::Default for _rloop {
 }
 impl ::std::fmt::Debug for _rloop {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_rloop")
-            .field("cbSize", &self.cbSize)
-            .field("ulType", &self.ulType)
-            .field("ulStart", &self.ulStart)
-            .field("ulLength", &self.ulLength)
-            .finish()
+        fmt.debug_struct("_rloop").field("cbSize", &self.cbSize).field("ulType", &self.ulType).field("ulStart", &self.ulStart).field("ulLength", &self.ulLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for _rloop {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.ulType == other.ulType
-            && self.ulStart == other.ulStart
-            && self.ulLength == other.ulLength
+        self.cbSize == other.cbSize && self.ulType == other.ulType && self.ulStart == other.ulStart && self.ulLength == other.ulLength
     }
 }
 impl ::std::cmp::Eq for _rloop {}
@@ -12520,24 +7023,12 @@ impl ::std::default::Default for _rwsmp {
 }
 impl ::std::fmt::Debug for _rwsmp {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_rwsmp")
-            .field("cbSize", &self.cbSize)
-            .field("usUnityNote", &self.usUnityNote)
-            .field("sFineTune", &self.sFineTune)
-            .field("lAttenuation", &self.lAttenuation)
-            .field("fulOptions", &self.fulOptions)
-            .field("cSampleLoops", &self.cSampleLoops)
-            .finish()
+        fmt.debug_struct("_rwsmp").field("cbSize", &self.cbSize).field("usUnityNote", &self.usUnityNote).field("sFineTune", &self.sFineTune).field("lAttenuation", &self.lAttenuation).field("fulOptions", &self.fulOptions).field("cSampleLoops", &self.cSampleLoops).finish()
     }
 }
 impl ::std::cmp::PartialEq for _rwsmp {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize
-            && self.usUnityNote == other.usUnityNote
-            && self.sFineTune == other.sFineTune
-            && self.lAttenuation == other.lAttenuation
-            && self.fulOptions == other.fulOptions
-            && self.cSampleLoops == other.cSampleLoops
+        self.cbSize == other.cbSize && self.usUnityNote == other.usUnityNote && self.sFineTune == other.sFineTune && self.lAttenuation == other.lAttenuation && self.fulOptions == other.fulOptions && self.cSampleLoops == other.cSampleLoops
     }
 }
 impl ::std::cmp::Eq for _rwsmp {}

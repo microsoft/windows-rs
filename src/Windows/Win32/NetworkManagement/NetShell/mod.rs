@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -29,23 +21,13 @@ impl ::std::default::Default for CMD_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CMD_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CMD_ENTRY")
-            .field("pwszCmdToken", &self.pwszCmdToken)
-            .field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken)
-            .field("dwCmdHlpToken", &self.dwCmdHlpToken)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
+        fmt.debug_struct("CMD_ENTRY").field("pwszCmdToken", &self.pwszCmdToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("dwCmdHlpToken", &self.dwCmdHlpToken).field("dwFlags", &self.dwFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CMD_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszCmdToken == other.pwszCmdToken
-            && self.pfnCmdHandler.map(|f| f as usize) == other.pfnCmdHandler.map(|f| f as usize)
-            && self.dwShortCmdHelpToken == other.dwShortCmdHelpToken
-            && self.dwCmdHlpToken == other.dwCmdHlpToken
-            && self.dwFlags == other.dwFlags
-            && self.pOsVersionCheck.map(|f| f as usize) == other.pOsVersionCheck.map(|f| f as usize)
+        self.pwszCmdToken == other.pwszCmdToken && self.pfnCmdHandler.map(|f| f as usize) == other.pfnCmdHandler.map(|f| f as usize) && self.dwShortCmdHelpToken == other.dwShortCmdHelpToken && self.dwCmdHlpToken == other.dwCmdHlpToken && self.dwFlags == other.dwFlags && self.pOsVersionCheck.map(|f| f as usize) == other.pOsVersionCheck.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -77,24 +59,13 @@ impl ::std::default::Default for CMD_GROUP_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for CMD_GROUP_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CMD_GROUP_ENTRY")
-            .field("pwszCmdGroupToken", &self.pwszCmdGroupToken)
-            .field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken)
-            .field("ulCmdGroupSize", &self.ulCmdGroupSize)
-            .field("dwFlags", &self.dwFlags)
-            .field("pCmdGroup", &self.pCmdGroup)
-            .finish()
+        fmt.debug_struct("CMD_GROUP_ENTRY").field("pwszCmdGroupToken", &self.pwszCmdGroupToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("ulCmdGroupSize", &self.ulCmdGroupSize).field("dwFlags", &self.dwFlags).field("pCmdGroup", &self.pCmdGroup).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CMD_GROUP_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszCmdGroupToken == other.pwszCmdGroupToken
-            && self.dwShortCmdHelpToken == other.dwShortCmdHelpToken
-            && self.ulCmdGroupSize == other.ulCmdGroupSize
-            && self.dwFlags == other.dwFlags
-            && self.pCmdGroup == other.pCmdGroup
-            && self.pOsVersionCheck.map(|f| f as usize) == other.pOsVersionCheck.map(|f| f as usize)
+        self.pwszCmdGroupToken == other.pwszCmdGroupToken && self.dwShortCmdHelpToken == other.dwShortCmdHelpToken && self.ulCmdGroupSize == other.ulCmdGroupSize && self.dwFlags == other.dwFlags && self.pCmdGroup == other.pCmdGroup && self.pOsVersionCheck.map(|f| f as usize) == other.pOsVersionCheck.map(|f| f as usize)
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -129,63 +100,28 @@ pub const ERROR_TRANSPORT_NOT_PRESENT: u32 = 15012u32;
 pub const MAX_NAME_LEN: u32 = 48u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MatchEnumTag<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    hmodule: Param0,
-    pwcarg: Param1,
-    dwnumarg: u32,
-    penumtable: *const TOKEN_VALUE,
-    pdwvalue: *mut u32,
-) -> u32 {
+pub unsafe fn MatchEnumTag<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(hmodule: Param0, pwcarg: Param1, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MatchEnumTag(
-                hmodule: super::super::Foundation::HANDLE,
-                pwcarg: super::super::Foundation::PWSTR,
-                dwnumarg: u32,
-                penumtable: *const TOKEN_VALUE,
-                pdwvalue: *mut u32,
-            ) -> u32;
+            fn MatchEnumTag(hmodule: super::super::Foundation::HANDLE, pwcarg: super::super::Foundation::PWSTR, dwnumarg: u32, penumtable: *const TOKEN_VALUE, pdwvalue: *mut u32) -> u32;
         }
-        ::std::mem::transmute(MatchEnumTag(
-            hmodule.into_param().abi(),
-            pwcarg.into_param().abi(),
-            ::std::mem::transmute(dwnumarg),
-            ::std::mem::transmute(penumtable),
-            ::std::mem::transmute(pdwvalue),
-        ))
+        ::std::mem::transmute(MatchEnumTag(hmodule.into_param().abi(), pwcarg.into_param().abi(), ::std::mem::transmute(dwnumarg), ::std::mem::transmute(penumtable), ::std::mem::transmute(pdwvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn MatchToken<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszusertoken: Param0,
-    pwszcmdtoken: Param1,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn MatchToken<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszusertoken: Param0, pwszcmdtoken: Param1) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MatchToken(
-                pwszusertoken: super::super::Foundation::PWSTR,
-                pwszcmdtoken: super::super::Foundation::PWSTR,
-            ) -> super::super::Foundation::BOOL;
+            fn MatchToken(pwszusertoken: super::super::Foundation::PWSTR, pwszcmdtoken: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(MatchToken(
-            pwszusertoken.into_param().abi(),
-            pwszcmdtoken.into_param().abi(),
-        ))
+        ::std::mem::transmute(MatchToken(pwszusertoken.into_param().abi(), pwszcmdtoken.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -195,14 +131,7 @@ pub const NETSH_ERROR_END: u32 = 15019u32;
 pub const NETSH_MAX_CMD_TOKEN_LENGTH: u32 = 128u32;
 pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 pub const NETSH_VERSION_50: u32 = 20480u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NS_CMD_FLAGS(pub i32);
 pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = NS_CMD_FLAGS(1i32);
@@ -302,10 +231,7 @@ impl ::std::default::Default for NS_CONTEXT_ATTRIBUTES_0_0 {
 }
 impl ::std::fmt::Debug for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("dwVersion", &self.dwVersion)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
@@ -318,14 +244,7 @@ unsafe impl ::windows::runtime::Abi for NS_CONTEXT_ATTRIBUTES_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NS_EVENTS(pub i32);
 pub const NS_EVENT_LOOP: NS_EVENTS = NS_EVENTS(65536i32);
@@ -406,10 +325,7 @@ impl ::std::default::Default for NS_HELPER_ATTRIBUTES_0_0 {
 }
 impl ::std::fmt::Debug for NS_HELPER_ATTRIBUTES_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("dwVersion", &self.dwVersion)
-            .field("dwReserved", &self.dwReserved)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0_0 {
@@ -422,14 +338,7 @@ unsafe impl ::windows::runtime::Abi for NS_HELPER_ATTRIBUTES_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NS_MODE_CHANGE(pub i32);
 pub const NETSH_COMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(0i32);
@@ -446,14 +355,7 @@ unsafe impl ::windows::runtime::Abi for NS_MODE_CHANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NS_REQS(pub i32);
 pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);
@@ -470,80 +372,28 @@ unsafe impl ::windows::runtime::Abi for NS_REQS {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
-pub type PFN_HANDLE_CMD = unsafe extern "system" fn(
-    pwszmachine: super::super::Foundation::PWSTR,
-    ppwcarguments: *mut super::super::Foundation::PWSTR,
-    dwcurrentindex: u32,
-    dwargcount: u32,
-    dwflags: u32,
-    pvdata: *const ::std::ffi::c_void,
-    pbdone: *mut super::super::Foundation::BOOL,
-) -> u32;
+pub type PFN_HANDLE_CMD = unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::std::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PGET_RESOURCE_STRING_FN = unsafe extern "system" fn(
-    dwmsgid: u32,
-    lpbuffer: super::super::Foundation::PWSTR,
-    nbuffermax: u32,
-) -> u32;
+pub type PGET_RESOURCE_STRING_FN = unsafe extern "system" fn(dwmsgid: u32, lpbuffer: super::super::Foundation::PWSTR, nbuffermax: u32) -> u32;
 pub type PNS_CONTEXT_COMMIT_FN = unsafe extern "system" fn(dwaction: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PNS_CONTEXT_CONNECT_FN =
-    unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR) -> u32;
+pub type PNS_CONTEXT_CONNECT_FN = unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PNS_CONTEXT_DUMP_FN = unsafe extern "system" fn(
-    pwszrouter: super::super::Foundation::PWSTR,
-    ppwcarguments: *const super::super::Foundation::PWSTR,
-    dwargcount: u32,
-    pvdata: *const ::std::ffi::c_void,
-) -> u32;
-pub type PNS_DLL_INIT_FN =
-    unsafe extern "system" fn(dwnetshversion: u32, preserved: *mut ::std::ffi::c_void) -> u32;
+pub type PNS_CONTEXT_DUMP_FN = unsafe extern "system" fn(pwszrouter: super::super::Foundation::PWSTR, ppwcarguments: *const super::super::Foundation::PWSTR, dwargcount: u32, pvdata: *const ::std::ffi::c_void) -> u32;
+pub type PNS_DLL_INIT_FN = unsafe extern "system" fn(dwnetshversion: u32, preserved: *mut ::std::ffi::c_void) -> u32;
 pub type PNS_DLL_STOP_FN = unsafe extern "system" fn(dwreserved: u32) -> u32;
-pub type PNS_HELPER_START_FN =
-    unsafe extern "system" fn(pguidparent: *const ::windows::runtime::GUID, dwversion: u32) -> u32;
+pub type PNS_HELPER_START_FN = unsafe extern "system" fn(pguidparent: *const ::windows::runtime::GUID, dwversion: u32) -> u32;
 pub type PNS_HELPER_STOP_FN = unsafe extern "system" fn(dwreserved: u32) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type PNS_OSVERSIONCHECK = unsafe extern "system" fn(
-    cimostype: u32,
-    cimosproductsuite: u32,
-    cimosversion: super::super::Foundation::PWSTR,
-    cimosbuildnumber: super::super::Foundation::PWSTR,
-    cimservicepackmajorversion: super::super::Foundation::PWSTR,
-    cimservicepackminorversion: super::super::Foundation::PWSTR,
-    uireserved: u32,
-    dwreserved: u32,
-) -> super::super::Foundation::BOOL;
+pub type PNS_OSVERSIONCHECK = unsafe extern "system" fn(cimostype: u32, cimosproductsuite: u32, cimosversion: super::super::Foundation::PWSTR, cimosbuildnumber: super::super::Foundation::PWSTR, cimservicepackmajorversion: super::super::Foundation::PWSTR, cimservicepackminorversion: super::super::Foundation::PWSTR, uireserved: u32, dwreserved: u32) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PreprocessCommand<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmodule: Param0,
-    ppwcarguments: *mut super::super::Foundation::PWSTR,
-    dwcurrentindex: u32,
-    dwargcount: u32,
-    ptttags: *mut TAG_TYPE,
-    dwtagcount: u32,
-    dwminargs: u32,
-    dwmaxargs: u32,
-    pdwtagtype: *mut u32,
-) -> u32 {
+pub unsafe fn PreprocessCommand<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PreprocessCommand(
-                hmodule: super::super::Foundation::HANDLE,
-                ppwcarguments: *mut super::super::Foundation::PWSTR,
-                dwcurrentindex: u32,
-                dwargcount: u32,
-                ptttags: *mut TAG_TYPE,
-                dwtagcount: u32,
-                dwminargs: u32,
-                dwmaxargs: u32,
-                pdwtagtype: *mut u32,
-            ) -> u32;
+            fn PreprocessCommand(hmodule: super::super::Foundation::HANDLE, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, ptttags: *mut TAG_TYPE, dwtagcount: u32, dwminargs: u32, dwmaxargs: u32, pdwtagtype: *mut u32) -> u32;
         }
         ::std::mem::transmute(PreprocessCommand(
             hmodule.into_param().abi(),
@@ -562,35 +412,21 @@ pub unsafe fn PreprocessCommand<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrintError<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmodule: Param0,
-    dwerrid: u32,
-) -> u32 {
+pub unsafe fn PrintError<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwerrid: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
             fn PrintError(hmodule: super::super::Foundation::HANDLE, dwerrid: u32) -> u32;
         }
-        ::std::mem::transmute(PrintError(
-            hmodule.into_param().abi(),
-            ::std::mem::transmute(dwerrid),
-        ))
+        ::std::mem::transmute(PrintError(hmodule.into_param().abi(), ::std::mem::transmute(dwerrid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrintMessage<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pwszformat: Param0,
-) -> u32 {
+pub unsafe fn PrintMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszformat: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -604,26 +440,14 @@ pub unsafe fn PrintMessage<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn PrintMessageFromModule<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hmodule: Param0,
-    dwmsgid: u32,
-) -> u32 {
+pub unsafe fn PrintMessageFromModule<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hmodule: Param0, dwmsgid: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrintMessageFromModule(
-                hmodule: super::super::Foundation::HANDLE,
-                dwmsgid: u32,
-            ) -> u32;
+            fn PrintMessageFromModule(hmodule: super::super::Foundation::HANDLE, dwmsgid: u32) -> u32;
         }
-        ::std::mem::transmute(PrintMessageFromModule(
-            hmodule.into_param().abi(),
-            ::std::mem::transmute(dwmsgid),
-        ))
+        ::std::mem::transmute(PrintMessageFromModule(hmodule.into_param().abi(), ::std::mem::transmute(dwmsgid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -635,9 +459,7 @@ pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u3
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterContext(
-                pchildcontext: *const ::std::mem::ManuallyDrop<NS_CONTEXT_ATTRIBUTES>,
-            ) -> u32;
+            fn RegisterContext(pchildcontext: *const ::std::mem::ManuallyDrop<NS_CONTEXT_ATTRIBUTES>) -> u32;
         }
         ::std::mem::transmute(RegisterContext(::std::mem::transmute(pchildcontext)))
     }
@@ -645,23 +467,14 @@ pub unsafe fn RegisterContext(pchildcontext: *const NS_CONTEXT_ATTRIBUTES) -> u3
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RegisterHelper(
-    pguidparentcontext: *const ::windows::runtime::GUID,
-    pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES,
-) -> u32 {
+pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::runtime::GUID, pfnregistersubcontext: *const NS_HELPER_ATTRIBUTES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterHelper(
-                pguidparentcontext: *const ::windows::runtime::GUID,
-                pfnregistersubcontext: *const ::std::mem::ManuallyDrop<NS_HELPER_ATTRIBUTES>,
-            ) -> u32;
+            fn RegisterHelper(pguidparentcontext: *const ::windows::runtime::GUID, pfnregistersubcontext: *const ::std::mem::ManuallyDrop<NS_HELPER_ATTRIBUTES>) -> u32;
         }
-        ::std::mem::transmute(RegisterHelper(
-            ::std::mem::transmute(pguidparentcontext),
-            ::std::mem::transmute(pfnregistersubcontext),
-        ))
+        ::std::mem::transmute(RegisterHelper(::std::mem::transmute(pguidparentcontext), ::std::mem::transmute(pfnregistersubcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -685,19 +498,13 @@ impl ::std::default::Default for TAG_TYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TAG_TYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TAG_TYPE")
-            .field("pwszTag", &self.pwszTag)
-            .field("dwRequired", &self.dwRequired)
-            .field("bPresent", &self.bPresent)
-            .finish()
+        fmt.debug_struct("TAG_TYPE").field("pwszTag", &self.pwszTag).field("dwRequired", &self.dwRequired).field("bPresent", &self.bPresent).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for TAG_TYPE {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszTag == other.pwszTag
-            && self.dwRequired == other.dwRequired
-            && self.bPresent == other.bPresent
+        self.pwszTag == other.pwszTag && self.dwRequired == other.dwRequired && self.bPresent == other.bPresent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -725,10 +532,7 @@ impl ::std::default::Default for TOKEN_VALUE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for TOKEN_VALUE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TOKEN_VALUE")
-            .field("pwszToken", &self.pwszToken)
-            .field("dwValue", &self.dwValue)
-            .finish()
+        fmt.debug_struct("TOKEN_VALUE").field("pwszToken", &self.pwszToken).field("dwValue", &self.dwValue).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]

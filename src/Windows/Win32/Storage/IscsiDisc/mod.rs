@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const ATA_FLAGS_48BIT_COMMAND: u32 = 8u32;
 pub const ATA_FLAGS_DATA_IN: u32 = 2u32;
 pub const ATA_FLAGS_DATA_OUT: u32 = 4u32;
@@ -55,18 +47,7 @@ impl ::std::fmt::Debug for ATA_PASS_THROUGH_DIRECT {
 }
 impl ::std::cmp::PartialEq for ATA_PASS_THROUGH_DIRECT {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.AtaFlags == other.AtaFlags
-            && self.PathId == other.PathId
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
-            && self.ReservedAsUchar == other.ReservedAsUchar
-            && self.DataTransferLength == other.DataTransferLength
-            && self.TimeOutValue == other.TimeOutValue
-            && self.ReservedAsUlong == other.ReservedAsUlong
-            && self.DataBuffer == other.DataBuffer
-            && self.PreviousTaskFile == other.PreviousTaskFile
-            && self.CurrentTaskFile == other.CurrentTaskFile
+        self.Length == other.Length && self.AtaFlags == other.AtaFlags && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun && self.ReservedAsUchar == other.ReservedAsUchar && self.DataTransferLength == other.DataTransferLength && self.TimeOutValue == other.TimeOutValue && self.ReservedAsUlong == other.ReservedAsUlong && self.DataBuffer == other.DataBuffer && self.PreviousTaskFile == other.PreviousTaskFile && self.CurrentTaskFile == other.CurrentTaskFile
     }
 }
 impl ::std::cmp::Eq for ATA_PASS_THROUGH_DIRECT {}
@@ -116,18 +97,7 @@ impl ::std::fmt::Debug for ATA_PASS_THROUGH_DIRECT32 {
 }
 impl ::std::cmp::PartialEq for ATA_PASS_THROUGH_DIRECT32 {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.AtaFlags == other.AtaFlags
-            && self.PathId == other.PathId
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
-            && self.ReservedAsUchar == other.ReservedAsUchar
-            && self.DataTransferLength == other.DataTransferLength
-            && self.TimeOutValue == other.TimeOutValue
-            && self.ReservedAsUlong == other.ReservedAsUlong
-            && self.DataBuffer == other.DataBuffer
-            && self.PreviousTaskFile == other.PreviousTaskFile
-            && self.CurrentTaskFile == other.CurrentTaskFile
+        self.Length == other.Length && self.AtaFlags == other.AtaFlags && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun && self.ReservedAsUchar == other.ReservedAsUchar && self.DataTransferLength == other.DataTransferLength && self.TimeOutValue == other.TimeOutValue && self.ReservedAsUlong == other.ReservedAsUlong && self.DataBuffer == other.DataBuffer && self.PreviousTaskFile == other.PreviousTaskFile && self.CurrentTaskFile == other.CurrentTaskFile
     }
 }
 impl ::std::cmp::Eq for ATA_PASS_THROUGH_DIRECT32 {}
@@ -259,12 +229,7 @@ unsafe impl ::windows::runtime::Abi for ATA_PASS_THROUGH_EX32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddISNSServerA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    address: Param0,
-) -> u32 {
+pub unsafe fn AddISNSServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -278,12 +243,7 @@ pub unsafe fn AddISNSServerA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddISNSServerW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    address: Param0,
-) -> u32 {
+pub unsafe fn AddISNSServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -297,35 +257,12 @@ pub unsafe fn AddISNSServerW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiConnectionA<
-    'a,
-    Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-    reserved: *mut ::std::ffi::c_void,
-    initiatorportnumber: u32,
-    targetportal: *mut ISCSI_TARGET_PORTALA,
-    securityflags: u64,
-    loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-    keysize: u32,
-    key: Param7,
-    connectionid: *mut ISCSI_UNIQUE_SESSION_ID,
-) -> u32 {
+pub unsafe fn AddIScsiConnectionA<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::std::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: Param7, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddIScsiConnectionA(
-                uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-                reserved: *mut ::std::ffi::c_void,
-                initiatorportnumber: u32,
-                targetportal: *mut ISCSI_TARGET_PORTALA,
-                securityflags: u64,
-                loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-                keysize: u32,
-                key: super::super::Foundation::PSTR,
-                connectionid: *mut ISCSI_UNIQUE_SESSION_ID,
-            ) -> u32;
+            fn AddIScsiConnectionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::std::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALA, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
         ::std::mem::transmute(AddIScsiConnectionA(
             ::std::mem::transmute(uniquesessionid),
@@ -344,35 +281,12 @@ pub unsafe fn AddIScsiConnectionA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiConnectionW<
-    'a,
-    Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-    reserved: *mut ::std::ffi::c_void,
-    initiatorportnumber: u32,
-    targetportal: *mut ISCSI_TARGET_PORTALW,
-    securityflags: u64,
-    loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-    keysize: u32,
-    key: Param7,
-    connectionid: *mut ISCSI_UNIQUE_SESSION_ID,
-) -> u32 {
+pub unsafe fn AddIScsiConnectionW<'a, Param7: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::std::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: Param7, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddIScsiConnectionW(
-                uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-                reserved: *mut ::std::ffi::c_void,
-                initiatorportnumber: u32,
-                targetportal: *mut ISCSI_TARGET_PORTALW,
-                securityflags: u64,
-                loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-                keysize: u32,
-                key: super::super::Foundation::PSTR,
-                connectionid: *mut ISCSI_UNIQUE_SESSION_ID,
-            ) -> u32;
+            fn AddIScsiConnectionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, reserved: *mut ::std::ffi::c_void, initiatorportnumber: u32, targetportal: *mut ISCSI_TARGET_PORTALW, securityflags: u64, loginoptions: *mut ISCSI_LOGIN_OPTIONS, keysize: u32, key: super::super::Foundation::PSTR, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
         ::std::mem::transmute(AddIScsiConnectionW(
             ::std::mem::transmute(uniquesessionid),
@@ -391,168 +305,63 @@ pub unsafe fn AddIScsiConnectionW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiSendTargetPortalA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    initiatorinstance: Param0,
-    initiatorportnumber: u32,
-    loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-    securityflags: u64,
-    portal: *mut ISCSI_TARGET_PORTALA,
-) -> u32 {
+pub unsafe fn AddIScsiSendTargetPortalA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddIScsiSendTargetPortalA(
-                initiatorinstance: super::super::Foundation::PSTR,
-                initiatorportnumber: u32,
-                loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-                securityflags: u64,
-                portal: *mut ISCSI_TARGET_PORTALA,
-            ) -> u32;
+            fn AddIScsiSendTargetPortalA(initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
         }
-        ::std::mem::transmute(AddIScsiSendTargetPortalA(
-            initiatorinstance.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            ::std::mem::transmute(loginoptions),
-            ::std::mem::transmute(securityflags),
-            ::std::mem::transmute(portal),
-        ))
+        ::std::mem::transmute(AddIScsiSendTargetPortalA(initiatorinstance.into_param().abi(), ::std::mem::transmute(initiatorportnumber), ::std::mem::transmute(loginoptions), ::std::mem::transmute(securityflags), ::std::mem::transmute(portal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiSendTargetPortalW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    initiatorinstance: Param0,
-    initiatorportnumber: u32,
-    loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-    securityflags: u64,
-    portal: *mut ISCSI_TARGET_PORTALW,
-) -> u32 {
+pub unsafe fn AddIScsiSendTargetPortalW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddIScsiSendTargetPortalW(
-                initiatorinstance: super::super::Foundation::PWSTR,
-                initiatorportnumber: u32,
-                loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-                securityflags: u64,
-                portal: *mut ISCSI_TARGET_PORTALW,
-            ) -> u32;
+            fn AddIScsiSendTargetPortalW(initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, loginoptions: *mut ISCSI_LOGIN_OPTIONS, securityflags: u64, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
         }
-        ::std::mem::transmute(AddIScsiSendTargetPortalW(
-            initiatorinstance.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            ::std::mem::transmute(loginoptions),
-            ::std::mem::transmute(securityflags),
-            ::std::mem::transmute(portal),
-        ))
+        ::std::mem::transmute(AddIScsiSendTargetPortalW(initiatorinstance.into_param().abi(), ::std::mem::transmute(initiatorportnumber), ::std::mem::transmute(loginoptions), ::std::mem::transmute(securityflags), ::std::mem::transmute(portal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiStaticTargetA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    targetname: Param0,
-    targetalias: Param1,
-    targetflags: u32,
-    persist: Param3,
-    mappings: *mut ISCSI_TARGET_MAPPINGA,
-    loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-    portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA,
-) -> u32 {
+pub unsafe fn AddIScsiStaticTargetA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(targetname: Param0, targetalias: Param1, targetflags: u32, persist: Param3, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddIScsiStaticTargetA(
-                targetname: super::super::Foundation::PSTR,
-                targetalias: super::super::Foundation::PSTR,
-                targetflags: u32,
-                persist: super::super::Foundation::BOOLEAN,
-                mappings: *mut ISCSI_TARGET_MAPPINGA,
-                loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-                portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA,
-            ) -> u32;
+            fn AddIScsiStaticTargetA(targetname: super::super::Foundation::PSTR, targetalias: super::super::Foundation::PSTR, targetflags: u32, persist: super::super::Foundation::BOOLEAN, mappings: *mut ISCSI_TARGET_MAPPINGA, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPA) -> u32;
         }
-        ::std::mem::transmute(AddIScsiStaticTargetA(
-            targetname.into_param().abi(),
-            targetalias.into_param().abi(),
-            ::std::mem::transmute(targetflags),
-            persist.into_param().abi(),
-            ::std::mem::transmute(mappings),
-            ::std::mem::transmute(loginoptions),
-            ::std::mem::transmute(portalgroup),
-        ))
+        ::std::mem::transmute(AddIScsiStaticTargetA(targetname.into_param().abi(), targetalias.into_param().abi(), ::std::mem::transmute(targetflags), persist.into_param().abi(), ::std::mem::transmute(mappings), ::std::mem::transmute(loginoptions), ::std::mem::transmute(portalgroup)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddIScsiStaticTargetW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    targetname: Param0,
-    targetalias: Param1,
-    targetflags: u32,
-    persist: Param3,
-    mappings: *mut ISCSI_TARGET_MAPPINGW,
-    loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-    portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW,
-) -> u32 {
+pub unsafe fn AddIScsiStaticTargetW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(targetname: Param0, targetalias: Param1, targetflags: u32, persist: Param3, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn AddIScsiStaticTargetW(
-                targetname: super::super::Foundation::PWSTR,
-                targetalias: super::super::Foundation::PWSTR,
-                targetflags: u32,
-                persist: super::super::Foundation::BOOLEAN,
-                mappings: *mut ISCSI_TARGET_MAPPINGW,
-                loginoptions: *mut ISCSI_LOGIN_OPTIONS,
-                portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW,
-            ) -> u32;
+            fn AddIScsiStaticTargetW(targetname: super::super::Foundation::PWSTR, targetalias: super::super::Foundation::PWSTR, targetflags: u32, persist: super::super::Foundation::BOOLEAN, mappings: *mut ISCSI_TARGET_MAPPINGW, loginoptions: *mut ISCSI_LOGIN_OPTIONS, portalgroup: *mut ISCSI_TARGET_PORTAL_GROUPW) -> u32;
         }
-        ::std::mem::transmute(AddIScsiStaticTargetW(
-            targetname.into_param().abi(),
-            targetalias.into_param().abi(),
-            ::std::mem::transmute(targetflags),
-            persist.into_param().abi(),
-            ::std::mem::transmute(mappings),
-            ::std::mem::transmute(loginoptions),
-            ::std::mem::transmute(portalgroup),
-        ))
+        ::std::mem::transmute(AddIScsiStaticTargetW(targetname.into_param().abi(), targetalias.into_param().abi(), ::std::mem::transmute(targetflags), persist.into_param().abi(), ::std::mem::transmute(mappings), ::std::mem::transmute(loginoptions), ::std::mem::transmute(portalgroup)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPersistentIScsiDeviceA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    devicepath: Param0,
-) -> u32 {
+pub unsafe fn AddPersistentIScsiDeviceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(devicepath: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -566,12 +375,7 @@ pub unsafe fn AddPersistentIScsiDeviceA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddPersistentIScsiDeviceW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    devicepath: Param0,
-) -> u32 {
+pub unsafe fn AddPersistentIScsiDeviceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(devicepath: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -585,12 +389,7 @@ pub unsafe fn AddPersistentIScsiDeviceW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddRadiusServerA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    address: Param0,
-) -> u32 {
+pub unsafe fn AddRadiusServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -604,12 +403,7 @@ pub unsafe fn AddRadiusServerA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn AddRadiusServerW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    address: Param0,
-) -> u32 {
+pub unsafe fn AddRadiusServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -666,13 +460,7 @@ impl ::std::fmt::Debug for DSM_NOTIFICATION_REQUEST_BLOCK {
 }
 impl ::std::cmp::PartialEq for DSM_NOTIFICATION_REQUEST_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Version == other.Version
-            && self.NotifyFlags == other.NotifyFlags
-            && self.DataSetProfile == other.DataSetProfile
-            && self.Reserved == other.Reserved
-            && self.DataSetRangesCount == other.DataSetRangesCount
-            && self.DataSetRanges == other.DataSetRanges
+        self.Size == other.Size && self.Version == other.Version && self.NotifyFlags == other.NotifyFlags && self.DataSetProfile == other.DataSetProfile && self.Reserved == other.Reserved && self.DataSetRangesCount == other.DataSetRangesCount && self.DataSetRanges == other.DataSetRanges
     }
 }
 impl ::std::cmp::Eq for DSM_NOTIFICATION_REQUEST_BLOCK {}
@@ -680,8 +468,7 @@ unsafe impl ::windows::runtime::Abi for DSM_NOTIFICATION_REQUEST_BLOCK {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type DUMP_DEVICE_POWERON_ROUTINE =
-    unsafe extern "system" fn(context: *const ::std::ffi::c_void) -> i32;
+pub type DUMP_DEVICE_POWERON_ROUTINE = unsafe extern "system" fn(context: *const ::std::ffi::c_void) -> i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct DUMP_DRIVER {
@@ -697,18 +484,12 @@ impl ::std::default::Default for DUMP_DRIVER {
 }
 impl ::std::fmt::Debug for DUMP_DRIVER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DUMP_DRIVER")
-            .field("DumpDriverList", &self.DumpDriverList)
-            .field("DriverName", &self.DriverName)
-            .field("BaseName", &self.BaseName)
-            .finish()
+        fmt.debug_struct("DUMP_DRIVER").field("DumpDriverList", &self.DumpDriverList).field("DriverName", &self.DriverName).field("BaseName", &self.BaseName).finish()
     }
 }
 impl ::std::cmp::PartialEq for DUMP_DRIVER {
     fn eq(&self, other: &Self) -> bool {
-        self.DumpDriverList == other.DumpDriverList
-            && self.DriverName == other.DriverName
-            && self.BaseName == other.BaseName
+        self.DumpDriverList == other.DumpDriverList && self.DriverName == other.DriverName && self.BaseName == other.BaseName
     }
 }
 impl ::std::cmp::Eq for DUMP_DRIVER {}
@@ -736,21 +517,13 @@ impl ::std::default::Default for DUMP_DRIVER_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DUMP_DRIVER_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DUMP_DRIVER_EX")
-            .field("DumpDriverList", &self.DumpDriverList)
-            .field("DriverName", &self.DriverName)
-            .field("BaseName", &self.BaseName)
-            .field("DriverFullPath", &self.DriverFullPath)
-            .finish()
+        fmt.debug_struct("DUMP_DRIVER_EX").field("DumpDriverList", &self.DumpDriverList).field("DriverName", &self.DriverName).field("BaseName", &self.BaseName).field("DriverFullPath", &self.DriverFullPath).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DUMP_DRIVER_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.DumpDriverList == other.DumpDriverList
-            && self.DriverName == other.DriverName
-            && self.BaseName == other.BaseName
-            && self.DriverFullPath == other.DriverFullPath
+        self.DumpDriverList == other.DumpDriverList && self.DriverName == other.DriverName && self.BaseName == other.BaseName && self.DriverFullPath == other.DriverFullPath
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -808,16 +581,7 @@ impl ::std::fmt::Debug for DUMP_POINTERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DUMP_POINTERS {
     fn eq(&self, other: &Self) -> bool {
-        self.AdapterObject == other.AdapterObject
-            && self.MappedRegisterBase == other.MappedRegisterBase
-            && self.DumpData == other.DumpData
-            && self.CommonBufferVa == other.CommonBufferVa
-            && self.CommonBufferPa == other.CommonBufferPa
-            && self.CommonBufferSize == other.CommonBufferSize
-            && self.AllocateCommonBuffers == other.AllocateCommonBuffers
-            && self.UseDiskDump == other.UseDiskDump
-            && self.Spare1 == other.Spare1
-            && self.DeviceObject == other.DeviceObject
+        self.AdapterObject == other.AdapterObject && self.MappedRegisterBase == other.MappedRegisterBase && self.DumpData == other.DumpData && self.CommonBufferVa == other.CommonBufferVa && self.CommonBufferPa == other.CommonBufferPa && self.CommonBufferSize == other.CommonBufferSize && self.AllocateCommonBuffers == other.AllocateCommonBuffers && self.UseDiskDump == other.UseDiskDump && self.Spare1 == other.Spare1 && self.DeviceObject == other.DeviceObject
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -895,8 +659,7 @@ impl ::std::cmp::PartialEq for DUMP_POINTERS_EX {
             && self.AdapterObject == other.AdapterObject
             && self.MappedRegisterBase == other.MappedRegisterBase
             && self.DeviceReady == other.DeviceReady
-            && self.DumpDevicePowerOn.map(|f| f as usize)
-                == other.DumpDevicePowerOn.map(|f| f as usize)
+            && self.DumpDevicePowerOn.map(|f| f as usize) == other.DumpDevicePowerOn.map(|f| f as usize)
             && self.DumpDevicePowerOnContext == other.DumpDevicePowerOnContext
     }
 }
@@ -921,10 +684,7 @@ impl ::std::default::Default for DUMP_POINTERS_VERSION {
 }
 impl ::std::fmt::Debug for DUMP_POINTERS_VERSION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DUMP_POINTERS_VERSION")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .finish()
+        fmt.debug_struct("DUMP_POINTERS_VERSION").field("Version", &self.Version).field("Size", &self.Size).finish()
     }
 }
 impl ::std::cmp::PartialEq for DUMP_POINTERS_VERSION {
@@ -963,24 +723,12 @@ impl ::std::default::Default for FIRMWARE_REQUEST_BLOCK {
 }
 impl ::std::fmt::Debug for FIRMWARE_REQUEST_BLOCK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FIRMWARE_REQUEST_BLOCK")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Function", &self.Function)
-            .field("Flags", &self.Flags)
-            .field("DataBufferOffset", &self.DataBufferOffset)
-            .field("DataBufferLength", &self.DataBufferLength)
-            .finish()
+        fmt.debug_struct("FIRMWARE_REQUEST_BLOCK").field("Version", &self.Version).field("Size", &self.Size).field("Function", &self.Function).field("Flags", &self.Flags).field("DataBufferOffset", &self.DataBufferOffset).field("DataBufferLength", &self.DataBufferLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for FIRMWARE_REQUEST_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Function == other.Function
-            && self.Flags == other.Flags
-            && self.DataBufferOffset == other.DataBufferOffset
-            && self.DataBufferLength == other.DataBufferLength
+        self.Version == other.Version && self.Size == other.Size && self.Function == other.Function && self.Flags == other.Flags && self.DataBufferOffset == other.DataBufferOffset && self.DataBufferLength == other.DataBufferLength
     }
 }
 impl ::std::cmp::Eq for FIRMWARE_REQUEST_BLOCK {}
@@ -1014,116 +762,56 @@ pub const FIRMWARE_STATUS_SUCCESS: u32 = 0u32;
 pub const FIRMWARE_STATUS_UNCORRECTABLE_DATA_ERROR: u32 = 129u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 #[inline]
-pub unsafe fn GetDevicesForIScsiSessionA(
-    uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-    devicecount: *mut u32,
-    devices: *mut ISCSI_DEVICE_ON_SESSIONA,
-) -> u32 {
+pub unsafe fn GetDevicesForIScsiSessionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, devicecount: *mut u32, devices: *mut ISCSI_DEVICE_ON_SESSIONA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDevicesForIScsiSessionA(
-                uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-                devicecount: *mut u32,
-                devices: *mut ISCSI_DEVICE_ON_SESSIONA,
-            ) -> u32;
+            fn GetDevicesForIScsiSessionA(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, devicecount: *mut u32, devices: *mut ISCSI_DEVICE_ON_SESSIONA) -> u32;
         }
-        ::std::mem::transmute(GetDevicesForIScsiSessionA(
-            ::std::mem::transmute(uniquesessionid),
-            ::std::mem::transmute(devicecount),
-            ::std::mem::transmute(devices),
-        ))
+        ::std::mem::transmute(GetDevicesForIScsiSessionA(::std::mem::transmute(uniquesessionid), ::std::mem::transmute(devicecount), ::std::mem::transmute(devices)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_Ioctl")]
 #[inline]
-pub unsafe fn GetDevicesForIScsiSessionW(
-    uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-    devicecount: *mut u32,
-    devices: *mut ISCSI_DEVICE_ON_SESSIONW,
-) -> u32 {
+pub unsafe fn GetDevicesForIScsiSessionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, devicecount: *mut u32, devices: *mut ISCSI_DEVICE_ON_SESSIONW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetDevicesForIScsiSessionW(
-                uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-                devicecount: *mut u32,
-                devices: *mut ISCSI_DEVICE_ON_SESSIONW,
-            ) -> u32;
+            fn GetDevicesForIScsiSessionW(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, devicecount: *mut u32, devices: *mut ISCSI_DEVICE_ON_SESSIONW) -> u32;
         }
-        ::std::mem::transmute(GetDevicesForIScsiSessionW(
-            ::std::mem::transmute(uniquesessionid),
-            ::std::mem::transmute(devicecount),
-            ::std::mem::transmute(devices),
-        ))
+        ::std::mem::transmute(GetDevicesForIScsiSessionW(::std::mem::transmute(uniquesessionid), ::std::mem::transmute(devicecount), ::std::mem::transmute(devices)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIScsiIKEInfoA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    initiatorname: Param0,
-    initiatorportnumber: u32,
-    reserved: *mut u32,
-    authinfo: *mut IKE_AUTHENTICATION_INFORMATION,
-) -> u32 {
+pub unsafe fn GetIScsiIKEInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorname: Param0, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIScsiIKEInfoA(
-                initiatorname: super::super::Foundation::PSTR,
-                initiatorportnumber: u32,
-                reserved: *mut u32,
-                authinfo: *mut IKE_AUTHENTICATION_INFORMATION,
-            ) -> u32;
+            fn GetIScsiIKEInfoA(initiatorname: super::super::Foundation::PSTR, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32;
         }
-        ::std::mem::transmute(GetIScsiIKEInfoA(
-            initiatorname.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            ::std::mem::transmute(reserved),
-            ::std::mem::transmute(authinfo),
-        ))
+        ::std::mem::transmute(GetIScsiIKEInfoA(initiatorname.into_param().abi(), ::std::mem::transmute(initiatorportnumber), ::std::mem::transmute(reserved), ::std::mem::transmute(authinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIScsiIKEInfoW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    initiatorname: Param0,
-    initiatorportnumber: u32,
-    reserved: *mut u32,
-    authinfo: *mut IKE_AUTHENTICATION_INFORMATION,
-) -> u32 {
+pub unsafe fn GetIScsiIKEInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorname: Param0, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIScsiIKEInfoW(
-                initiatorname: super::super::Foundation::PWSTR,
-                initiatorportnumber: u32,
-                reserved: *mut u32,
-                authinfo: *mut IKE_AUTHENTICATION_INFORMATION,
-            ) -> u32;
+            fn GetIScsiIKEInfoW(initiatorname: super::super::Foundation::PWSTR, initiatorportnumber: u32, reserved: *mut u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION) -> u32;
         }
-        ::std::mem::transmute(GetIScsiIKEInfoW(
-            initiatorname.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            ::std::mem::transmute(reserved),
-            ::std::mem::transmute(authinfo),
-        ))
+        ::std::mem::transmute(GetIScsiIKEInfoW(initiatorname.into_param().abi(), ::std::mem::transmute(initiatorportnumber), ::std::mem::transmute(reserved), ::std::mem::transmute(authinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1135,182 +823,93 @@ pub unsafe fn GetIScsiInitiatorNodeNameA(initiatornodename: super::super::Founda
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIScsiInitiatorNodeNameA(initiatornodename: super::super::Foundation::PSTR)
-                -> u32;
+            fn GetIScsiInitiatorNodeNameA(initiatornodename: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(GetIScsiInitiatorNodeNameA(::std::mem::transmute(
-            initiatornodename,
-        )))
+        ::std::mem::transmute(GetIScsiInitiatorNodeNameA(::std::mem::transmute(initiatornodename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIScsiInitiatorNodeNameW(
-    initiatornodename: super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn GetIScsiInitiatorNodeNameW(initiatornodename: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIScsiInitiatorNodeNameW(
-                initiatornodename: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn GetIScsiInitiatorNodeNameW(initiatornodename: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(GetIScsiInitiatorNodeNameW(::std::mem::transmute(
-            initiatornodename,
-        )))
+        ::std::mem::transmute(GetIScsiInitiatorNodeNameW(::std::mem::transmute(initiatornodename)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIScsiSessionListA(
-    buffersize: *mut u32,
-    sessioncount: *mut u32,
-    sessioninfo: *mut ISCSI_SESSION_INFOA,
-) -> u32 {
+pub unsafe fn GetIScsiSessionListA(buffersize: *mut u32, sessioncount: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFOA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIScsiSessionListA(
-                buffersize: *mut u32,
-                sessioncount: *mut u32,
-                sessioninfo: *mut ISCSI_SESSION_INFOA,
-            ) -> u32;
+            fn GetIScsiSessionListA(buffersize: *mut u32, sessioncount: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFOA) -> u32;
         }
-        ::std::mem::transmute(GetIScsiSessionListA(
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(sessioncount),
-            ::std::mem::transmute(sessioninfo),
-        ))
+        ::std::mem::transmute(GetIScsiSessionListA(::std::mem::transmute(buffersize), ::std::mem::transmute(sessioncount), ::std::mem::transmute(sessioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIScsiSessionListEx(
-    buffersize: *mut u32,
-    sessioncountptr: *mut u32,
-    sessioninfo: *mut ISCSI_SESSION_INFO_EX,
-) -> u32 {
+pub unsafe fn GetIScsiSessionListEx(buffersize: *mut u32, sessioncountptr: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFO_EX) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIScsiSessionListEx(
-                buffersize: *mut u32,
-                sessioncountptr: *mut u32,
-                sessioninfo: *mut ISCSI_SESSION_INFO_EX,
-            ) -> u32;
+            fn GetIScsiSessionListEx(buffersize: *mut u32, sessioncountptr: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFO_EX) -> u32;
         }
-        ::std::mem::transmute(GetIScsiSessionListEx(
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(sessioncountptr),
-            ::std::mem::transmute(sessioninfo),
-        ))
+        ::std::mem::transmute(GetIScsiSessionListEx(::std::mem::transmute(buffersize), ::std::mem::transmute(sessioncountptr), ::std::mem::transmute(sessioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIScsiSessionListW(
-    buffersize: *mut u32,
-    sessioncount: *mut u32,
-    sessioninfo: *mut ISCSI_SESSION_INFOW,
-) -> u32 {
+pub unsafe fn GetIScsiSessionListW(buffersize: *mut u32, sessioncount: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFOW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIScsiSessionListW(
-                buffersize: *mut u32,
-                sessioncount: *mut u32,
-                sessioninfo: *mut ISCSI_SESSION_INFOW,
-            ) -> u32;
+            fn GetIScsiSessionListW(buffersize: *mut u32, sessioncount: *mut u32, sessioninfo: *mut ISCSI_SESSION_INFOW) -> u32;
         }
-        ::std::mem::transmute(GetIScsiSessionListW(
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(sessioncount),
-            ::std::mem::transmute(sessioninfo),
-        ))
+        ::std::mem::transmute(GetIScsiSessionListW(::std::mem::transmute(buffersize), ::std::mem::transmute(sessioncount), ::std::mem::transmute(sessioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIScsiTargetInformationA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    targetname: Param0,
-    discoverymechanism: Param1,
-    infoclass: TARGET_INFORMATION_CLASS,
-    buffersize: *mut u32,
-    buffer: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn GetIScsiTargetInformationA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0, discoverymechanism: Param1, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIScsiTargetInformationA(
-                targetname: super::super::Foundation::PSTR,
-                discoverymechanism: super::super::Foundation::PSTR,
-                infoclass: TARGET_INFORMATION_CLASS,
-                buffersize: *mut u32,
-                buffer: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn GetIScsiTargetInformationA(targetname: super::super::Foundation::PSTR, discoverymechanism: super::super::Foundation::PSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(GetIScsiTargetInformationA(
-            targetname.into_param().abi(),
-            discoverymechanism.into_param().abi(),
-            ::std::mem::transmute(infoclass),
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(GetIScsiTargetInformationA(targetname.into_param().abi(), discoverymechanism.into_param().abi(), ::std::mem::transmute(infoclass), ::std::mem::transmute(buffersize), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetIScsiTargetInformationW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    targetname: Param0,
-    discoverymechanism: Param1,
-    infoclass: TARGET_INFORMATION_CLASS,
-    buffersize: *mut u32,
-    buffer: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn GetIScsiTargetInformationW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0, discoverymechanism: Param1, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetIScsiTargetInformationW(
-                targetname: super::super::Foundation::PWSTR,
-                discoverymechanism: super::super::Foundation::PWSTR,
-                infoclass: TARGET_INFORMATION_CLASS,
-                buffersize: *mut u32,
-                buffer: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn GetIScsiTargetInformationW(targetname: super::super::Foundation::PWSTR, discoverymechanism: super::super::Foundation::PWSTR, infoclass: TARGET_INFORMATION_CLASS, buffersize: *mut u32, buffer: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(GetIScsiTargetInformationW(
-            targetname.into_param().abi(),
-            discoverymechanism.into_param().abi(),
-            ::std::mem::transmute(infoclass),
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(GetIScsiTargetInformationW(targetname.into_param().abi(), discoverymechanism.into_param().abi(), ::std::mem::transmute(infoclass), ::std::mem::transmute(buffersize), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1323,9 +922,7 @@ pub unsafe fn GetIScsiVersionInformation(versioninfo: *mut ISCSI_VERSION_INFO) -
         extern "system" {
             fn GetIScsiVersionInformation(versioninfo: *mut ISCSI_VERSION_INFO) -> u32;
         }
-        ::std::mem::transmute(GetIScsiVersionInformation(::std::mem::transmute(
-            versioninfo,
-        )))
+        ::std::mem::transmute(GetIScsiVersionInformation(::std::mem::transmute(versioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1362,13 +959,7 @@ impl ::std::fmt::Debug for HYBRID_DEMOTE_BY_SIZE {
 }
 impl ::std::cmp::PartialEq for HYBRID_DEMOTE_BY_SIZE {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.SourcePriority == other.SourcePriority
-            && self.TargetPriority == other.TargetPriority
-            && self.Reserved0 == other.Reserved0
-            && self.Reserved1 == other.Reserved1
-            && self.LbaCount == other.LbaCount
+        self.Version == other.Version && self.Size == other.Size && self.SourcePriority == other.SourcePriority && self.TargetPriority == other.TargetPriority && self.Reserved0 == other.Reserved0 && self.Reserved1 == other.Reserved1 && self.LbaCount == other.LbaCount
     }
 }
 impl ::std::cmp::Eq for HYBRID_DEMOTE_BY_SIZE {}
@@ -1392,20 +983,12 @@ impl ::std::default::Default for HYBRID_DIRTY_THRESHOLDS {
 }
 impl ::std::fmt::Debug for HYBRID_DIRTY_THRESHOLDS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HYBRID_DIRTY_THRESHOLDS")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("DirtyLowThreshold", &self.DirtyLowThreshold)
-            .field("DirtyHighThreshold", &self.DirtyHighThreshold)
-            .finish()
+        fmt.debug_struct("HYBRID_DIRTY_THRESHOLDS").field("Version", &self.Version).field("Size", &self.Size).field("DirtyLowThreshold", &self.DirtyLowThreshold).field("DirtyHighThreshold", &self.DirtyHighThreshold).finish()
     }
 }
 impl ::std::cmp::PartialEq for HYBRID_DIRTY_THRESHOLDS {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.DirtyLowThreshold == other.DirtyLowThreshold
-            && self.DirtyHighThreshold == other.DirtyHighThreshold
+        self.Version == other.Version && self.Size == other.Size && self.DirtyLowThreshold == other.DirtyLowThreshold && self.DirtyHighThreshold == other.DirtyHighThreshold
     }
 }
 impl ::std::cmp::Eq for HYBRID_DIRTY_THRESHOLDS {}
@@ -1461,16 +1044,7 @@ impl ::std::fmt::Debug for HYBRID_INFORMATION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HYBRID_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.HybridSupported == other.HybridSupported
-            && self.Status == other.Status
-            && self.CacheTypeEffective == other.CacheTypeEffective
-            && self.CacheTypeDefault == other.CacheTypeDefault
-            && self.FractionBase == other.FractionBase
-            && self.CacheSize == other.CacheSize
-            && self.Attributes == other.Attributes
-            && self.Priorities == other.Priorities
+        self.Version == other.Version && self.Size == other.Size && self.HybridSupported == other.HybridSupported && self.Status == other.Status && self.CacheTypeEffective == other.CacheTypeEffective && self.CacheTypeDefault == other.CacheTypeDefault && self.FractionBase == other.FractionBase && self.CacheSize == other.CacheSize && self.Attributes == other.Attributes && self.Priorities == other.Priorities
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1493,9 +1067,7 @@ impl ::std::default::Default for HYBRID_INFORMATION_0 {
 }
 impl ::std::fmt::Debug for HYBRID_INFORMATION_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Attributes_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Attributes_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for HYBRID_INFORMATION_0 {
@@ -1547,14 +1119,7 @@ impl ::std::fmt::Debug for HYBRID_INFORMATION_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HYBRID_INFORMATION_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.PriorityLevelCount == other.PriorityLevelCount
-            && self.MaxPriorityBehavior == other.MaxPriorityBehavior
-            && self.OptimalWriteGranularity == other.OptimalWriteGranularity
-            && self.Reserved == other.Reserved
-            && self.DirtyThresholdLow == other.DirtyThresholdLow
-            && self.DirtyThresholdHigh == other.DirtyThresholdHigh
-            && self.SupportedCommands == other.SupportedCommands
-            && self.Priority == other.Priority
+        self.PriorityLevelCount == other.PriorityLevelCount && self.MaxPriorityBehavior == other.MaxPriorityBehavior && self.OptimalWriteGranularity == other.OptimalWriteGranularity && self.Reserved == other.Reserved && self.DirtyThresholdLow == other.DirtyThresholdLow && self.DirtyThresholdHigh == other.DirtyThresholdHigh && self.SupportedCommands == other.SupportedCommands && self.Priority == other.Priority
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1580,23 +1145,12 @@ impl ::std::default::Default for HYBRID_INFORMATION_1_0 {
 }
 impl ::std::fmt::Debug for HYBRID_INFORMATION_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_SupportedCommands_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .field("MaxEvictCommands", &self.MaxEvictCommands)
-            .field("MaxLbaRangeCountForEvict", &self.MaxLbaRangeCountForEvict)
-            .field(
-                "MaxLbaRangeCountForChangeLba",
-                &self.MaxLbaRangeCountForChangeLba,
-            )
-            .finish()
+        fmt.debug_struct("_SupportedCommands_e__Struct").field("_bitfield", &self._bitfield).field("MaxEvictCommands", &self.MaxEvictCommands).field("MaxLbaRangeCountForEvict", &self.MaxLbaRangeCountForEvict).field("MaxLbaRangeCountForChangeLba", &self.MaxLbaRangeCountForChangeLba).finish()
     }
 }
 impl ::std::cmp::PartialEq for HYBRID_INFORMATION_1_0 {
     fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-            && self.MaxEvictCommands == other.MaxEvictCommands
-            && self.MaxLbaRangeCountForEvict == other.MaxLbaRangeCountForEvict
-            && self.MaxLbaRangeCountForChangeLba == other.MaxLbaRangeCountForChangeLba
+        self._bitfield == other._bitfield && self.MaxEvictCommands == other.MaxEvictCommands && self.MaxLbaRangeCountForEvict == other.MaxLbaRangeCountForEvict && self.MaxLbaRangeCountForChangeLba == other.MaxLbaRangeCountForChangeLba
     }
 }
 impl ::std::cmp::Eq for HYBRID_INFORMATION_1_0 {}
@@ -1622,24 +1176,12 @@ impl ::std::default::Default for HYBRID_REQUEST_BLOCK {
 }
 impl ::std::fmt::Debug for HYBRID_REQUEST_BLOCK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HYBRID_REQUEST_BLOCK")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Function", &self.Function)
-            .field("Flags", &self.Flags)
-            .field("DataBufferOffset", &self.DataBufferOffset)
-            .field("DataBufferLength", &self.DataBufferLength)
-            .finish()
+        fmt.debug_struct("HYBRID_REQUEST_BLOCK").field("Version", &self.Version).field("Size", &self.Size).field("Function", &self.Function).field("Flags", &self.Flags).field("DataBufferOffset", &self.DataBufferOffset).field("DataBufferLength", &self.DataBufferLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for HYBRID_REQUEST_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Function == other.Function
-            && self.Flags == other.Flags
-            && self.DataBufferOffset == other.DataBufferOffset
-            && self.DataBufferLength == other.DataBufferLength
+        self.Version == other.Version && self.Size == other.Size && self.Function == other.Function && self.Flags == other.Flags && self.DataBufferOffset == other.DataBufferOffset && self.DataBufferLength == other.DataBufferLength
     }
 }
 impl ::std::cmp::Eq for HYBRID_REQUEST_BLOCK {}
@@ -1672,24 +1214,12 @@ impl ::std::default::Default for IDE_IO_CONTROL {
 }
 impl ::std::fmt::Debug for IDE_IO_CONTROL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IDE_IO_CONTROL")
-            .field("HeaderLength", &self.HeaderLength)
-            .field("Signature", &self.Signature)
-            .field("Timeout", &self.Timeout)
-            .field("ControlCode", &self.ControlCode)
-            .field("ReturnStatus", &self.ReturnStatus)
-            .field("DataLength", &self.DataLength)
-            .finish()
+        fmt.debug_struct("IDE_IO_CONTROL").field("HeaderLength", &self.HeaderLength).field("Signature", &self.Signature).field("Timeout", &self.Timeout).field("ControlCode", &self.ControlCode).field("ReturnStatus", &self.ReturnStatus).field("DataLength", &self.DataLength).finish()
     }
 }
 impl ::std::cmp::PartialEq for IDE_IO_CONTROL {
     fn eq(&self, other: &Self) -> bool {
-        self.HeaderLength == other.HeaderLength
-            && self.Signature == other.Signature
-            && self.Timeout == other.Timeout
-            && self.ControlCode == other.ControlCode
-            && self.ReturnStatus == other.ReturnStatus
-            && self.DataLength == other.DataLength
+        self.HeaderLength == other.HeaderLength && self.Signature == other.Signature && self.Timeout == other.Timeout && self.ControlCode == other.ControlCode && self.ReturnStatus == other.ReturnStatus && self.DataLength == other.DataLength
     }
 }
 impl ::std::cmp::Eq for IDE_IO_CONTROL {}
@@ -1744,18 +1274,10 @@ unsafe impl ::windows::runtime::Abi for IKE_AUTHENTICATION_INFORMATION_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct IKE_AUTHENTICATION_METHOD(pub i32);
-pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD =
-    IKE_AUTHENTICATION_METHOD(1i32);
+pub const IKE_AUTHENTICATION_PRESHARED_KEY_METHOD: IKE_AUTHENTICATION_METHOD = IKE_AUTHENTICATION_METHOD(1i32);
 impl ::std::convert::From<i32> for IKE_AUTHENTICATION_METHOD {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1783,24 +1305,12 @@ impl ::std::default::Default for IKE_AUTHENTICATION_PRESHARED_KEY {
 }
 impl ::std::fmt::Debug for IKE_AUTHENTICATION_PRESHARED_KEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IKE_AUTHENTICATION_PRESHARED_KEY")
-            .field("SecurityFlags", &self.SecurityFlags)
-            .field("IdType", &self.IdType)
-            .field("IdLengthInBytes", &self.IdLengthInBytes)
-            .field("Id", &self.Id)
-            .field("KeyLengthInBytes", &self.KeyLengthInBytes)
-            .field("Key", &self.Key)
-            .finish()
+        fmt.debug_struct("IKE_AUTHENTICATION_PRESHARED_KEY").field("SecurityFlags", &self.SecurityFlags).field("IdType", &self.IdType).field("IdLengthInBytes", &self.IdLengthInBytes).field("Id", &self.Id).field("KeyLengthInBytes", &self.KeyLengthInBytes).field("Key", &self.Key).finish()
     }
 }
 impl ::std::cmp::PartialEq for IKE_AUTHENTICATION_PRESHARED_KEY {
     fn eq(&self, other: &Self) -> bool {
-        self.SecurityFlags == other.SecurityFlags
-            && self.IdType == other.IdType
-            && self.IdLengthInBytes == other.IdLengthInBytes
-            && self.Id == other.Id
-            && self.KeyLengthInBytes == other.KeyLengthInBytes
-            && self.Key == other.Key
+        self.SecurityFlags == other.SecurityFlags && self.IdType == other.IdType && self.IdLengthInBytes == other.IdLengthInBytes && self.Id == other.Id && self.KeyLengthInBytes == other.KeyLengthInBytes && self.Key == other.Key
     }
 }
 impl ::std::cmp::Eq for IKE_AUTHENTICATION_PRESHARED_KEY {}
@@ -1857,10 +1367,7 @@ impl ::std::fmt::Debug for IO_SCSI_CAPABILITIES {
             .field("Length", &self.Length)
             .field("MaximumTransferLength", &self.MaximumTransferLength)
             .field("MaximumPhysicalPages", &self.MaximumPhysicalPages)
-            .field(
-                "SupportedAsynchronousEvents",
-                &self.SupportedAsynchronousEvents,
-            )
+            .field("SupportedAsynchronousEvents", &self.SupportedAsynchronousEvents)
             .field("AlignmentMask", &self.AlignmentMask)
             .field("TaggedQueuing", &self.TaggedQueuing)
             .field("AdapterScansDown", &self.AdapterScansDown)
@@ -1871,14 +1378,7 @@ impl ::std::fmt::Debug for IO_SCSI_CAPABILITIES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for IO_SCSI_CAPABILITIES {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.MaximumTransferLength == other.MaximumTransferLength
-            && self.MaximumPhysicalPages == other.MaximumPhysicalPages
-            && self.SupportedAsynchronousEvents == other.SupportedAsynchronousEvents
-            && self.AlignmentMask == other.AlignmentMask
-            && self.TaggedQueuing == other.TaggedQueuing
-            && self.AdapterScansDown == other.AdapterScansDown
-            && self.AdapterUsesPio == other.AdapterUsesPio
+        self.Length == other.Length && self.MaximumTransferLength == other.MaximumTransferLength && self.MaximumPhysicalPages == other.MaximumPhysicalPages && self.SupportedAsynchronousEvents == other.SupportedAsynchronousEvents && self.AlignmentMask == other.AlignmentMask && self.TaggedQueuing == other.TaggedQueuing && self.AdapterScansDown == other.AdapterScansDown && self.AdapterUsesPio == other.AdapterUsesPio
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1888,14 +1388,7 @@ unsafe impl ::windows::runtime::Abi for IO_SCSI_CAPABILITIES {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ISCSI_AUTH_TYPES(pub i32);
 pub const ISCSI_NO_AUTH_TYPE: ISCSI_AUTH_TYPES = ISCSI_AUTH_TYPES(0i32);
@@ -1945,12 +1438,7 @@ impl ::std::fmt::Debug for ISCSI_CONNECTION_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_CONNECTION_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.ConnectionId == other.ConnectionId
-            && self.InitiatorAddress == other.InitiatorAddress
-            && self.TargetAddress == other.TargetAddress
-            && self.InitiatorSocket == other.InitiatorSocket
-            && self.TargetSocket == other.TargetSocket
-            && self.CID == other.CID
+        self.ConnectionId == other.ConnectionId && self.InitiatorAddress == other.InitiatorAddress && self.TargetAddress == other.TargetAddress && self.InitiatorSocket == other.InitiatorSocket && self.TargetSocket == other.TargetSocket && self.CID == other.CID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1995,12 +1483,7 @@ impl ::std::fmt::Debug for ISCSI_CONNECTION_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_CONNECTION_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.ConnectionId == other.ConnectionId
-            && self.InitiatorAddress == other.InitiatorAddress
-            && self.TargetAddress == other.TargetAddress
-            && self.InitiatorSocket == other.InitiatorSocket
-            && self.TargetSocket == other.TargetSocket
-            && self.CID == other.CID
+        self.ConnectionId == other.ConnectionId && self.InitiatorAddress == other.InitiatorAddress && self.TargetAddress == other.TargetAddress && self.InitiatorSocket == other.InitiatorSocket && self.TargetSocket == other.TargetSocket && self.CID == other.CID
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2046,15 +1529,7 @@ impl ::std::fmt::Debug for ISCSI_CONNECTION_INFO_EX {
 }
 impl ::std::cmp::PartialEq for ISCSI_CONNECTION_INFO_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.ConnectionId == other.ConnectionId
-            && self.State == other.State
-            && self.Protocol == other.Protocol
-            && self.HeaderDigest == other.HeaderDigest
-            && self.DataDigest == other.DataDigest
-            && self.MaxRecvDataSegmentLength == other.MaxRecvDataSegmentLength
-            && self.AuthType == other.AuthType
-            && self.EstimatedThroughput == other.EstimatedThroughput
-            && self.MaxDatagramSize == other.MaxDatagramSize
+        self.ConnectionId == other.ConnectionId && self.State == other.State && self.Protocol == other.Protocol && self.HeaderDigest == other.HeaderDigest && self.DataDigest == other.DataDigest && self.MaxRecvDataSegmentLength == other.MaxRecvDataSegmentLength && self.AuthType == other.AuthType && self.EstimatedThroughput == other.EstimatedThroughput && self.MaxDatagramSize == other.MaxDatagramSize
     }
 }
 impl ::std::cmp::Eq for ISCSI_CONNECTION_INFO_EX {}
@@ -2101,14 +1576,7 @@ impl ::std::fmt::Debug for ISCSI_DEVICE_ON_SESSIONA {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
 impl ::std::cmp::PartialEq for ISCSI_DEVICE_ON_SESSIONA {
     fn eq(&self, other: &Self) -> bool {
-        self.InitiatorName == other.InitiatorName
-            && self.TargetName == other.TargetName
-            && self.ScsiAddress == other.ScsiAddress
-            && self.DeviceInterfaceType == other.DeviceInterfaceType
-            && self.DeviceInterfaceName == other.DeviceInterfaceName
-            && self.LegacyName == other.LegacyName
-            && self.StorageDeviceNumber == other.StorageDeviceNumber
-            && self.DeviceInstance == other.DeviceInstance
+        self.InitiatorName == other.InitiatorName && self.TargetName == other.TargetName && self.ScsiAddress == other.ScsiAddress && self.DeviceInterfaceType == other.DeviceInterfaceType && self.DeviceInterfaceName == other.DeviceInterfaceName && self.LegacyName == other.LegacyName && self.StorageDeviceNumber == other.StorageDeviceNumber && self.DeviceInstance == other.DeviceInstance
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ioctl"))]
@@ -2157,14 +1625,7 @@ impl ::std::fmt::Debug for ISCSI_DEVICE_ON_SESSIONW {
 #[cfg(feature = "Win32_System_Ioctl")]
 impl ::std::cmp::PartialEq for ISCSI_DEVICE_ON_SESSIONW {
     fn eq(&self, other: &Self) -> bool {
-        self.InitiatorName == other.InitiatorName
-            && self.TargetName == other.TargetName
-            && self.ScsiAddress == other.ScsiAddress
-            && self.DeviceInterfaceType == other.DeviceInterfaceType
-            && self.DeviceInterfaceName == other.DeviceInterfaceName
-            && self.LegacyName == other.LegacyName
-            && self.StorageDeviceNumber == other.StorageDeviceNumber
-            && self.DeviceInstance == other.DeviceInstance
+        self.InitiatorName == other.InitiatorName && self.TargetName == other.TargetName && self.ScsiAddress == other.ScsiAddress && self.DeviceInterfaceType == other.DeviceInterfaceType && self.DeviceInterfaceName == other.DeviceInterfaceName && self.LegacyName == other.LegacyName && self.StorageDeviceNumber == other.StorageDeviceNumber && self.DeviceInstance == other.DeviceInstance
     }
 }
 #[cfg(feature = "Win32_System_Ioctl")]
@@ -2174,14 +1635,7 @@ unsafe impl ::windows::runtime::Abi for ISCSI_DEVICE_ON_SESSIONW {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ISCSI_DIGEST_TYPES(pub i32);
 pub const ISCSI_DIGEST_TYPE_NONE: ISCSI_DIGEST_TYPES = ISCSI_DIGEST_TYPES(0i32);
@@ -2320,14 +1774,7 @@ impl ::std::fmt::Debug for ISCSI_SESSION_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_SESSION_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId
-            && self.InitiatorName == other.InitiatorName
-            && self.TargetNodeName == other.TargetNodeName
-            && self.TargetName == other.TargetName
-            && self.ISID == other.ISID
-            && self.TSID == other.TSID
-            && self.ConnectionCount == other.ConnectionCount
-            && self.Connections == other.Connections
+        self.SessionId == other.SessionId && self.InitiatorName == other.InitiatorName && self.TargetNodeName == other.TargetNodeName && self.TargetName == other.TargetName && self.ISID == other.ISID && self.TSID == other.TSID && self.ConnectionCount == other.ConnectionCount && self.Connections == other.Connections
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2376,14 +1823,7 @@ impl ::std::fmt::Debug for ISCSI_SESSION_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_SESSION_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.SessionId == other.SessionId
-            && self.InitiatorName == other.InitiatorName
-            && self.TargetNodeName == other.TargetNodeName
-            && self.TargetName == other.TargetName
-            && self.ISID == other.ISID
-            && self.TSID == other.TSID
-            && self.ConnectionCount == other.ConnectionCount
-            && self.Connections == other.Connections
+        self.SessionId == other.SessionId && self.InitiatorName == other.InitiatorName && self.TargetNodeName == other.TargetNodeName && self.TargetName == other.TargetName && self.ISID == other.ISID && self.TSID == other.TSID && self.ConnectionCount == other.ConnectionCount && self.Connections == other.Connections
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2505,14 +1945,7 @@ impl ::std::fmt::Debug for ISCSI_TARGET_MAPPINGA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_TARGET_MAPPINGA {
     fn eq(&self, other: &Self) -> bool {
-        self.InitiatorName == other.InitiatorName
-            && self.TargetName == other.TargetName
-            && self.OSDeviceName == other.OSDeviceName
-            && self.SessionId == other.SessionId
-            && self.OSBusNumber == other.OSBusNumber
-            && self.OSTargetNumber == other.OSTargetNumber
-            && self.LUNCount == other.LUNCount
-            && self.LUNList == other.LUNList
+        self.InitiatorName == other.InitiatorName && self.TargetName == other.TargetName && self.OSDeviceName == other.OSDeviceName && self.SessionId == other.SessionId && self.OSBusNumber == other.OSBusNumber && self.OSTargetNumber == other.OSTargetNumber && self.LUNCount == other.LUNCount && self.LUNList == other.LUNList
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2556,14 +1989,7 @@ impl ::std::fmt::Debug for ISCSI_TARGET_MAPPINGW {
 }
 impl ::std::cmp::PartialEq for ISCSI_TARGET_MAPPINGW {
     fn eq(&self, other: &Self) -> bool {
-        self.InitiatorName == other.InitiatorName
-            && self.TargetName == other.TargetName
-            && self.OSDeviceName == other.OSDeviceName
-            && self.SessionId == other.SessionId
-            && self.OSBusNumber == other.OSBusNumber
-            && self.OSTargetNumber == other.OSTargetNumber
-            && self.LUNCount == other.LUNCount
-            && self.LUNList == other.LUNList
+        self.InitiatorName == other.InitiatorName && self.TargetName == other.TargetName && self.OSDeviceName == other.OSDeviceName && self.SessionId == other.SessionId && self.OSBusNumber == other.OSBusNumber && self.OSTargetNumber == other.OSTargetNumber && self.LUNCount == other.LUNCount && self.LUNList == other.LUNList
     }
 }
 impl ::std::cmp::Eq for ISCSI_TARGET_MAPPINGW {}
@@ -2590,19 +2016,13 @@ impl ::std::default::Default for ISCSI_TARGET_PORTALA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ISCSI_TARGET_PORTALA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ISCSI_TARGET_PORTALA")
-            .field("SymbolicName", &self.SymbolicName)
-            .field("Address", &self.Address)
-            .field("Socket", &self.Socket)
-            .finish()
+        fmt.debug_struct("ISCSI_TARGET_PORTALA").field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTALA {
     fn eq(&self, other: &Self) -> bool {
-        self.SymbolicName == other.SymbolicName
-            && self.Address == other.Address
-            && self.Socket == other.Socket
+        self.SymbolicName == other.SymbolicName && self.Address == other.Address && self.Socket == other.Socket
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2627,18 +2047,12 @@ impl ::std::default::Default for ISCSI_TARGET_PORTALW {
 }
 impl ::std::fmt::Debug for ISCSI_TARGET_PORTALW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ISCSI_TARGET_PORTALW")
-            .field("SymbolicName", &self.SymbolicName)
-            .field("Address", &self.Address)
-            .field("Socket", &self.Socket)
-            .finish()
+        fmt.debug_struct("ISCSI_TARGET_PORTALW").field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).finish()
     }
 }
 impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTALW {
     fn eq(&self, other: &Self) -> bool {
-        self.SymbolicName == other.SymbolicName
-            && self.Address == other.Address
-            && self.Socket == other.Socket
+        self.SymbolicName == other.SymbolicName && self.Address == other.Address && self.Socket == other.Socket
     }
 }
 impl ::std::cmp::Eq for ISCSI_TARGET_PORTALW {}
@@ -2664,10 +2078,7 @@ impl ::std::default::Default for ISCSI_TARGET_PORTAL_GROUPA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ISCSI_TARGET_PORTAL_GROUPA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ISCSI_TARGET_PORTAL_GROUPA")
-            .field("Count", &self.Count)
-            .field("Portals", &self.Portals)
-            .finish()
+        fmt.debug_struct("ISCSI_TARGET_PORTAL_GROUPA").field("Count", &self.Count).field("Portals", &self.Portals).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2697,10 +2108,7 @@ impl ::std::default::Default for ISCSI_TARGET_PORTAL_GROUPW {
 }
 impl ::std::fmt::Debug for ISCSI_TARGET_PORTAL_GROUPW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ISCSI_TARGET_PORTAL_GROUPW")
-            .field("Count", &self.Count)
-            .field("Portals", &self.Portals)
-            .finish()
+        fmt.debug_struct("ISCSI_TARGET_PORTAL_GROUPW").field("Count", &self.Count).field("Portals", &self.Portals).finish()
     }
 }
 impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_GROUPW {
@@ -2734,23 +2142,13 @@ impl ::std::default::Default for ISCSI_TARGET_PORTAL_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for ISCSI_TARGET_PORTAL_INFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ISCSI_TARGET_PORTAL_INFOA")
-            .field("InitiatorName", &self.InitiatorName)
-            .field("InitiatorPortNumber", &self.InitiatorPortNumber)
-            .field("SymbolicName", &self.SymbolicName)
-            .field("Address", &self.Address)
-            .field("Socket", &self.Socket)
-            .finish()
+        fmt.debug_struct("ISCSI_TARGET_PORTAL_INFOA").field("InitiatorName", &self.InitiatorName).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.InitiatorName == other.InitiatorName
-            && self.InitiatorPortNumber == other.InitiatorPortNumber
-            && self.SymbolicName == other.SymbolicName
-            && self.Address == other.Address
-            && self.Socket == other.Socket
+        self.InitiatorName == other.InitiatorName && self.InitiatorPortNumber == other.InitiatorPortNumber && self.SymbolicName == other.SymbolicName && self.Address == other.Address && self.Socket == other.Socket
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2777,22 +2175,12 @@ impl ::std::default::Default for ISCSI_TARGET_PORTAL_INFOW {
 }
 impl ::std::fmt::Debug for ISCSI_TARGET_PORTAL_INFOW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ISCSI_TARGET_PORTAL_INFOW")
-            .field("InitiatorName", &self.InitiatorName)
-            .field("InitiatorPortNumber", &self.InitiatorPortNumber)
-            .field("SymbolicName", &self.SymbolicName)
-            .field("Address", &self.Address)
-            .field("Socket", &self.Socket)
-            .finish()
+        fmt.debug_struct("ISCSI_TARGET_PORTAL_INFOW").field("InitiatorName", &self.InitiatorName).field("InitiatorPortNumber", &self.InitiatorPortNumber).field("SymbolicName", &self.SymbolicName).field("Address", &self.Address).field("Socket", &self.Socket).finish()
     }
 }
 impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.InitiatorName == other.InitiatorName
-            && self.InitiatorPortNumber == other.InitiatorPortNumber
-            && self.SymbolicName == other.SymbolicName
-            && self.Address == other.Address
-            && self.Socket == other.Socket
+        self.InitiatorName == other.InitiatorName && self.InitiatorPortNumber == other.InitiatorPortNumber && self.SymbolicName == other.SymbolicName && self.Address == other.Address && self.Socket == other.Socket
     }
 }
 impl ::std::cmp::Eq for ISCSI_TARGET_PORTAL_INFOW {}
@@ -2837,13 +2225,7 @@ impl ::std::fmt::Debug for ISCSI_TARGET_PORTAL_INFO_EXA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFO_EXA {
     fn eq(&self, other: &Self) -> bool {
-        self.InitiatorName == other.InitiatorName
-            && self.InitiatorPortNumber == other.InitiatorPortNumber
-            && self.SymbolicName == other.SymbolicName
-            && self.Address == other.Address
-            && self.Socket == other.Socket
-            && self.SecurityFlags == other.SecurityFlags
-            && self.LoginOptions == other.LoginOptions
+        self.InitiatorName == other.InitiatorName && self.InitiatorPortNumber == other.InitiatorPortNumber && self.SymbolicName == other.SymbolicName && self.Address == other.Address && self.Socket == other.Socket && self.SecurityFlags == other.SecurityFlags && self.LoginOptions == other.LoginOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2885,13 +2267,7 @@ impl ::std::fmt::Debug for ISCSI_TARGET_PORTAL_INFO_EXW {
 }
 impl ::std::cmp::PartialEq for ISCSI_TARGET_PORTAL_INFO_EXW {
     fn eq(&self, other: &Self) -> bool {
-        self.InitiatorName == other.InitiatorName
-            && self.InitiatorPortNumber == other.InitiatorPortNumber
-            && self.SymbolicName == other.SymbolicName
-            && self.Address == other.Address
-            && self.Socket == other.Socket
-            && self.SecurityFlags == other.SecurityFlags
-            && self.LoginOptions == other.LoginOptions
+        self.InitiatorName == other.InitiatorName && self.InitiatorPortNumber == other.InitiatorPortNumber && self.SymbolicName == other.SymbolicName && self.Address == other.Address && self.Socket == other.Socket && self.SecurityFlags == other.SecurityFlags && self.LoginOptions == other.LoginOptions
     }
 }
 impl ::std::cmp::Eq for ISCSI_TARGET_PORTAL_INFO_EXW {}
@@ -2913,10 +2289,7 @@ impl ::std::default::Default for ISCSI_UNIQUE_SESSION_ID {
 }
 impl ::std::fmt::Debug for ISCSI_UNIQUE_SESSION_ID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ISCSI_UNIQUE_SESSION_ID")
-            .field("AdapterUnique", &self.AdapterUnique)
-            .field("AdapterSpecific", &self.AdapterSpecific)
-            .finish()
+        fmt.debug_struct("ISCSI_UNIQUE_SESSION_ID").field("AdapterUnique", &self.AdapterUnique).field("AdapterSpecific", &self.AdapterSpecific).finish()
     }
 }
 impl ::std::cmp::PartialEq for ISCSI_UNIQUE_SESSION_ID {
@@ -2944,18 +2317,12 @@ impl ::std::default::Default for ISCSI_VERSION_INFO {
 }
 impl ::std::fmt::Debug for ISCSI_VERSION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ISCSI_VERSION_INFO")
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("BuildNumber", &self.BuildNumber)
-            .finish()
+        fmt.debug_struct("ISCSI_VERSION_INFO").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("BuildNumber", &self.BuildNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for ISCSI_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.BuildNumber == other.BuildNumber
+        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.BuildNumber == other.BuildNumber
     }
 }
 impl ::std::cmp::Eq for ISCSI_VERSION_INFO {}
@@ -2965,14 +2332,7 @@ unsafe impl ::windows::runtime::Abi for ISCSI_VERSION_INFO {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoginIScsiTargetA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
+pub unsafe fn LoginIScsiTargetA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(
     targetname: Param0,
     isinformationalsession: Param1,
     initiatorinstance: Param2,
@@ -3028,14 +2388,7 @@ pub unsafe fn LoginIScsiTargetA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn LoginIScsiTargetW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
+pub unsafe fn LoginIScsiTargetW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param9: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param10: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(
     targetname: Param0,
     isinformationalsession: Param1,
     initiatorinstance: Param2,
@@ -3140,24 +2493,12 @@ impl ::std::default::Default for MPIO_PASS_THROUGH_PATH {
 }
 impl ::std::fmt::Debug for MPIO_PASS_THROUGH_PATH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MPIO_PASS_THROUGH_PATH")
-            .field("PassThrough", &self.PassThrough)
-            .field("Version", &self.Version)
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .field("PortNumber", &self.PortNumber)
-            .field("MpioPathId", &self.MpioPathId)
-            .finish()
+        fmt.debug_struct("MPIO_PASS_THROUGH_PATH").field("PassThrough", &self.PassThrough).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
 impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH {
     fn eq(&self, other: &Self) -> bool {
-        self.PassThrough == other.PassThrough
-            && self.Version == other.Version
-            && self.Length == other.Length
-            && self.Flags == other.Flags
-            && self.PortNumber == other.PortNumber
-            && self.MpioPathId == other.MpioPathId
+        self.PassThrough == other.PassThrough && self.Version == other.Version && self.Length == other.Length && self.Flags == other.Flags && self.PortNumber == other.PortNumber && self.MpioPathId == other.MpioPathId
     }
 }
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH {}
@@ -3183,24 +2524,12 @@ impl ::std::default::Default for MPIO_PASS_THROUGH_PATH32 {
 }
 impl ::std::fmt::Debug for MPIO_PASS_THROUGH_PATH32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MPIO_PASS_THROUGH_PATH32")
-            .field("PassThrough", &self.PassThrough)
-            .field("Version", &self.Version)
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .field("PortNumber", &self.PortNumber)
-            .field("MpioPathId", &self.MpioPathId)
-            .finish()
+        fmt.debug_struct("MPIO_PASS_THROUGH_PATH32").field("PassThrough", &self.PassThrough).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
 impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH32 {
     fn eq(&self, other: &Self) -> bool {
-        self.PassThrough == other.PassThrough
-            && self.Version == other.Version
-            && self.Length == other.Length
-            && self.Flags == other.Flags
-            && self.PortNumber == other.PortNumber
-            && self.MpioPathId == other.MpioPathId
+        self.PassThrough == other.PassThrough && self.Version == other.Version && self.Length == other.Length && self.Flags == other.Flags && self.PortNumber == other.PortNumber && self.MpioPathId == other.MpioPathId
     }
 }
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH32 {}
@@ -3226,24 +2555,12 @@ impl ::std::default::Default for MPIO_PASS_THROUGH_PATH32_EX {
 }
 impl ::std::fmt::Debug for MPIO_PASS_THROUGH_PATH32_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MPIO_PASS_THROUGH_PATH32_EX")
-            .field("PassThroughOffset", &self.PassThroughOffset)
-            .field("Version", &self.Version)
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .field("PortNumber", &self.PortNumber)
-            .field("MpioPathId", &self.MpioPathId)
-            .finish()
+        fmt.debug_struct("MPIO_PASS_THROUGH_PATH32_EX").field("PassThroughOffset", &self.PassThroughOffset).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
 impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH32_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.PassThroughOffset == other.PassThroughOffset
-            && self.Version == other.Version
-            && self.Length == other.Length
-            && self.Flags == other.Flags
-            && self.PortNumber == other.PortNumber
-            && self.MpioPathId == other.MpioPathId
+        self.PassThroughOffset == other.PassThroughOffset && self.Version == other.Version && self.Length == other.Length && self.Flags == other.Flags && self.PortNumber == other.PortNumber && self.MpioPathId == other.MpioPathId
     }
 }
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH32_EX {}
@@ -3269,24 +2586,12 @@ impl ::std::default::Default for MPIO_PASS_THROUGH_PATH_DIRECT {
 }
 impl ::std::fmt::Debug for MPIO_PASS_THROUGH_PATH_DIRECT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT")
-            .field("PassThrough", &self.PassThrough)
-            .field("Version", &self.Version)
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .field("PortNumber", &self.PortNumber)
-            .field("MpioPathId", &self.MpioPathId)
-            .finish()
+        fmt.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT").field("PassThrough", &self.PassThrough).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
 impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT {
     fn eq(&self, other: &Self) -> bool {
-        self.PassThrough == other.PassThrough
-            && self.Version == other.Version
-            && self.Length == other.Length
-            && self.Flags == other.Flags
-            && self.PortNumber == other.PortNumber
-            && self.MpioPathId == other.MpioPathId
+        self.PassThrough == other.PassThrough && self.Version == other.Version && self.Length == other.Length && self.Flags == other.Flags && self.PortNumber == other.PortNumber && self.MpioPathId == other.MpioPathId
     }
 }
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT {}
@@ -3312,24 +2617,12 @@ impl ::std::default::Default for MPIO_PASS_THROUGH_PATH_DIRECT32 {
 }
 impl ::std::fmt::Debug for MPIO_PASS_THROUGH_PATH_DIRECT32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT32")
-            .field("PassThrough", &self.PassThrough)
-            .field("Version", &self.Version)
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .field("PortNumber", &self.PortNumber)
-            .field("MpioPathId", &self.MpioPathId)
-            .finish()
+        fmt.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT32").field("PassThrough", &self.PassThrough).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
 impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT32 {
     fn eq(&self, other: &Self) -> bool {
-        self.PassThrough == other.PassThrough
-            && self.Version == other.Version
-            && self.Length == other.Length
-            && self.Flags == other.Flags
-            && self.PortNumber == other.PortNumber
-            && self.MpioPathId == other.MpioPathId
+        self.PassThrough == other.PassThrough && self.Version == other.Version && self.Length == other.Length && self.Flags == other.Flags && self.PortNumber == other.PortNumber && self.MpioPathId == other.MpioPathId
     }
 }
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT32 {}
@@ -3355,24 +2648,12 @@ impl ::std::default::Default for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
 }
 impl ::std::fmt::Debug for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT32_EX")
-            .field("PassThroughOffset", &self.PassThroughOffset)
-            .field("Version", &self.Version)
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .field("PortNumber", &self.PortNumber)
-            .field("MpioPathId", &self.MpioPathId)
-            .finish()
+        fmt.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT32_EX").field("PassThroughOffset", &self.PassThroughOffset).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
 impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.PassThroughOffset == other.PassThroughOffset
-            && self.Version == other.Version
-            && self.Length == other.Length
-            && self.Flags == other.Flags
-            && self.PortNumber == other.PortNumber
-            && self.MpioPathId == other.MpioPathId
+        self.PassThroughOffset == other.PassThroughOffset && self.Version == other.Version && self.Length == other.Length && self.Flags == other.Flags && self.PortNumber == other.PortNumber && self.MpioPathId == other.MpioPathId
     }
 }
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT32_EX {}
@@ -3398,24 +2679,12 @@ impl ::std::default::Default for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
 }
 impl ::std::fmt::Debug for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT_EX")
-            .field("PassThroughOffset", &self.PassThroughOffset)
-            .field("Version", &self.Version)
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .field("PortNumber", &self.PortNumber)
-            .field("MpioPathId", &self.MpioPathId)
-            .finish()
+        fmt.debug_struct("MPIO_PASS_THROUGH_PATH_DIRECT_EX").field("PassThroughOffset", &self.PassThroughOffset).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
 impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_DIRECT_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.PassThroughOffset == other.PassThroughOffset
-            && self.Version == other.Version
-            && self.Length == other.Length
-            && self.Flags == other.Flags
-            && self.PortNumber == other.PortNumber
-            && self.MpioPathId == other.MpioPathId
+        self.PassThroughOffset == other.PassThroughOffset && self.Version == other.Version && self.Length == other.Length && self.Flags == other.Flags && self.PortNumber == other.PortNumber && self.MpioPathId == other.MpioPathId
     }
 }
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH_DIRECT_EX {}
@@ -3441,24 +2710,12 @@ impl ::std::default::Default for MPIO_PASS_THROUGH_PATH_EX {
 }
 impl ::std::fmt::Debug for MPIO_PASS_THROUGH_PATH_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MPIO_PASS_THROUGH_PATH_EX")
-            .field("PassThroughOffset", &self.PassThroughOffset)
-            .field("Version", &self.Version)
-            .field("Length", &self.Length)
-            .field("Flags", &self.Flags)
-            .field("PortNumber", &self.PortNumber)
-            .field("MpioPathId", &self.MpioPathId)
-            .finish()
+        fmt.debug_struct("MPIO_PASS_THROUGH_PATH_EX").field("PassThroughOffset", &self.PassThroughOffset).field("Version", &self.Version).field("Length", &self.Length).field("Flags", &self.Flags).field("PortNumber", &self.PortNumber).field("MpioPathId", &self.MpioPathId).finish()
     }
 }
 impl ::std::cmp::PartialEq for MPIO_PASS_THROUGH_PATH_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.PassThroughOffset == other.PassThroughOffset
-            && self.Version == other.Version
-            && self.Length == other.Length
-            && self.Flags == other.Flags
-            && self.PortNumber == other.PortNumber
-            && self.MpioPathId == other.MpioPathId
+        self.PassThroughOffset == other.PassThroughOffset && self.Version == other.Version && self.Length == other.Length && self.Flags == other.Flags && self.PortNumber == other.PortNumber && self.MpioPathId == other.MpioPathId
     }
 }
 impl ::std::cmp::Eq for MPIO_PASS_THROUGH_PATH_EX {}
@@ -3480,10 +2737,7 @@ impl ::std::default::Default for MP_DEVICE_DATA_SET_RANGE {
 }
 impl ::std::fmt::Debug for MP_DEVICE_DATA_SET_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MP_DEVICE_DATA_SET_RANGE")
-            .field("StartingOffset", &self.StartingOffset)
-            .field("LengthInBytes", &self.LengthInBytes)
-            .finish()
+        fmt.debug_struct("MP_DEVICE_DATA_SET_RANGE").field("StartingOffset", &self.StartingOffset).field("LengthInBytes", &self.LengthInBytes).finish()
     }
 }
 impl ::std::cmp::PartialEq for MP_DEVICE_DATA_SET_RANGE {
@@ -3496,20 +2750,11 @@ unsafe impl ::windows::runtime::Abi for MP_DEVICE_DATA_SET_RANGE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MP_STORAGE_DIAGNOSTIC_LEVEL(pub i32);
-pub const MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL =
-    MP_STORAGE_DIAGNOSTIC_LEVEL(0i32);
-pub const MpStorageDiagnosticLevelMax: MP_STORAGE_DIAGNOSTIC_LEVEL =
-    MP_STORAGE_DIAGNOSTIC_LEVEL(1i32);
+pub const MpStorageDiagnosticLevelDefault: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(0i32);
+pub const MpStorageDiagnosticLevelMax: MP_STORAGE_DIAGNOSTIC_LEVEL = MP_STORAGE_DIAGNOSTIC_LEVEL(1i32);
 impl ::std::convert::From<i32> for MP_STORAGE_DIAGNOSTIC_LEVEL {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3519,24 +2764,13 @@ unsafe impl ::windows::runtime::Abi for MP_STORAGE_DIAGNOSTIC_LEVEL {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(pub i32);
-pub const MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE =
-    MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(0i32);
-pub const MpStorageDiagnosticTargetTypeMiniport: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE =
-    MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(2i32);
-pub const MpStorageDiagnosticTargetTypeHbaFirmware: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE =
-    MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(3i32);
-pub const MpStorageDiagnosticTargetTypeMax: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE =
-    MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(4i32);
+pub const MpStorageDiagnosticTargetTypeUndefined: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(0i32);
+pub const MpStorageDiagnosticTargetTypeMiniport: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(2i32);
+pub const MpStorageDiagnosticTargetTypeHbaFirmware: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(3i32);
+pub const MpStorageDiagnosticTargetTypeMax: MP_STORAGE_DIAGNOSTIC_TARGET_TYPE = MP_STORAGE_DIAGNOSTIC_TARGET_TYPE(4i32);
 impl ::std::convert::From<i32> for MP_STORAGE_DIAGNOSTIC_TARGET_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -3588,19 +2822,13 @@ impl ::std::default::Default for NTSCSI_UNICODE_STRING {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTSCSI_UNICODE_STRING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NTSCSI_UNICODE_STRING")
-            .field("Length", &self.Length)
-            .field("MaximumLength", &self.MaximumLength)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("NTSCSI_UNICODE_STRING").field("Length", &self.Length).field("MaximumLength", &self.MaximumLength).field("Buffer", &self.Buffer).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTSCSI_UNICODE_STRING {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.MaximumLength == other.MaximumLength
-            && self.Buffer == other.Buffer
+        self.Length == other.Length && self.MaximumLength == other.MaximumLength && self.Buffer == other.Buffer
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3654,19 +2882,7 @@ impl ::std::fmt::Debug for NVCACHE_HINT_PAYLOAD {
 }
 impl ::std::cmp::PartialEq for NVCACHE_HINT_PAYLOAD {
     fn eq(&self, other: &Self) -> bool {
-        self.Command == other.Command
-            && self.Feature7_0 == other.Feature7_0
-            && self.Feature15_8 == other.Feature15_8
-            && self.Count15_8 == other.Count15_8
-            && self.LBA7_0 == other.LBA7_0
-            && self.LBA15_8 == other.LBA15_8
-            && self.LBA23_16 == other.LBA23_16
-            && self.LBA31_24 == other.LBA31_24
-            && self.LBA39_32 == other.LBA39_32
-            && self.LBA47_40 == other.LBA47_40
-            && self.Auxiliary7_0 == other.Auxiliary7_0
-            && self.Auxiliary23_16 == other.Auxiliary23_16
-            && self.Reserved == other.Reserved
+        self.Command == other.Command && self.Feature7_0 == other.Feature7_0 && self.Feature15_8 == other.Feature15_8 && self.Count15_8 == other.Count15_8 && self.LBA7_0 == other.LBA7_0 && self.LBA15_8 == other.LBA15_8 && self.LBA23_16 == other.LBA23_16 && self.LBA31_24 == other.LBA31_24 && self.LBA39_32 == other.LBA39_32 && self.LBA47_40 == other.LBA47_40 && self.Auxiliary7_0 == other.Auxiliary7_0 && self.Auxiliary23_16 == other.Auxiliary23_16 && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for NVCACHE_HINT_PAYLOAD {}
@@ -3697,32 +2913,16 @@ impl ::std::fmt::Debug for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
             .field("PriorityLevel", &self.PriorityLevel)
             .field("Reserved0", &self.Reserved0)
             .field("ConsumedNVMSizeFraction", &self.ConsumedNVMSizeFraction)
-            .field(
-                "ConsumedMappingResourcesFraction",
-                &self.ConsumedMappingResourcesFraction,
-            )
-            .field(
-                "ConsumedNVMSizeForDirtyDataFraction",
-                &self.ConsumedNVMSizeForDirtyDataFraction,
-            )
-            .field(
-                "ConsumedMappingResourcesForDirtyDataFraction",
-                &self.ConsumedMappingResourcesForDirtyDataFraction,
-            )
+            .field("ConsumedMappingResourcesFraction", &self.ConsumedMappingResourcesFraction)
+            .field("ConsumedNVMSizeForDirtyDataFraction", &self.ConsumedNVMSizeForDirtyDataFraction)
+            .field("ConsumedMappingResourcesForDirtyDataFraction", &self.ConsumedMappingResourcesForDirtyDataFraction)
             .field("Reserved1", &self.Reserved1)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.PriorityLevel == other.PriorityLevel
-            && self.Reserved0 == other.Reserved0
-            && self.ConsumedNVMSizeFraction == other.ConsumedNVMSizeFraction
-            && self.ConsumedMappingResourcesFraction == other.ConsumedMappingResourcesFraction
-            && self.ConsumedNVMSizeForDirtyDataFraction == other.ConsumedNVMSizeForDirtyDataFraction
-            && self.ConsumedMappingResourcesForDirtyDataFraction
-                == other.ConsumedMappingResourcesForDirtyDataFraction
-            && self.Reserved1 == other.Reserved1
+        self.PriorityLevel == other.PriorityLevel && self.Reserved0 == other.Reserved0 && self.ConsumedNVMSizeFraction == other.ConsumedNVMSizeFraction && self.ConsumedMappingResourcesFraction == other.ConsumedMappingResourcesFraction && self.ConsumedNVMSizeForDirtyDataFraction == other.ConsumedNVMSizeForDirtyDataFraction && self.ConsumedMappingResourcesForDirtyDataFraction == other.ConsumedMappingResourcesForDirtyDataFraction && self.Reserved1 == other.Reserved1
     }
 }
 impl ::std::cmp::Eq for NVCACHE_PRIORITY_LEVEL_DESCRIPTOR {}
@@ -3766,15 +2966,7 @@ impl ::std::fmt::Debug for NVCACHE_REQUEST_BLOCK {
 }
 impl ::std::cmp::PartialEq for NVCACHE_REQUEST_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        self.NRBSize == other.NRBSize
-            && self.Function == other.Function
-            && self.NRBFlags == other.NRBFlags
-            && self.NRBStatus == other.NRBStatus
-            && self.Count == other.Count
-            && self.LBA == other.LBA
-            && self.DataBufSize == other.DataBufSize
-            && self.NVCacheStatus == other.NVCacheStatus
-            && self.NVCacheSubStatus == other.NVCacheSubStatus
+        self.NRBSize == other.NRBSize && self.Function == other.Function && self.NRBFlags == other.NRBFlags && self.NRBStatus == other.NRBStatus && self.Count == other.Count && self.LBA == other.LBA && self.DataBufSize == other.DataBufSize && self.NVCacheStatus == other.NVCacheStatus && self.NVCacheSubStatus == other.NVCacheSubStatus
     }
 }
 impl ::std::cmp::Eq for NVCACHE_REQUEST_BLOCK {}
@@ -3782,14 +2974,7 @@ unsafe impl ::windows::runtime::Abi for NVCACHE_REQUEST_BLOCK {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NVCACHE_STATUS(pub i32);
 pub const NvCacheStatusUnknown: NVCACHE_STATUS = NVCACHE_STATUS(0i32);
@@ -3805,14 +2990,7 @@ unsafe impl ::windows::runtime::Abi for NVCACHE_STATUS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NVCACHE_TYPE(pub i32);
 pub const NvCacheTypeUnknown: NVCACHE_TYPE = NVCACHE_TYPE(0i32);
@@ -3866,16 +3044,7 @@ impl ::std::fmt::Debug for NV_FEATURE_PARAMETER {
 }
 impl ::std::cmp::PartialEq for NV_FEATURE_PARAMETER {
     fn eq(&self, other: &Self) -> bool {
-        self.NVPowerModeEnabled == other.NVPowerModeEnabled
-            && self.NVParameterReserv1 == other.NVParameterReserv1
-            && self.NVCmdEnabled == other.NVCmdEnabled
-            && self.NVParameterReserv2 == other.NVParameterReserv2
-            && self.NVPowerModeVer == other.NVPowerModeVer
-            && self.NVCmdVer == other.NVCmdVer
-            && self.NVSize == other.NVSize
-            && self.NVReadSpeed == other.NVReadSpeed
-            && self.NVWrtSpeed == other.NVWrtSpeed
-            && self.DeviceSpinUpTime == other.DeviceSpinUpTime
+        self.NVPowerModeEnabled == other.NVPowerModeEnabled && self.NVParameterReserv1 == other.NVParameterReserv1 && self.NVCmdEnabled == other.NVCmdEnabled && self.NVParameterReserv2 == other.NVParameterReserv2 && self.NVPowerModeVer == other.NVPowerModeVer && self.NVCmdVer == other.NVCmdVer && self.NVSize == other.NVSize && self.NVReadSpeed == other.NVReadSpeed && self.NVWrtSpeed == other.NVWrtSpeed && self.DeviceSpinUpTime == other.DeviceSpinUpTime
     }
 }
 impl ::std::cmp::Eq for NV_FEATURE_PARAMETER {}
@@ -3944,9 +3113,7 @@ impl ::std::default::Default for NV_SEP_CACHE_PARAMETER_0_0 {
 }
 impl ::std::fmt::Debug for NV_SEP_CACHE_PARAMETER_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_CacheFlags_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_CacheFlags_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for NV_SEP_CACHE_PARAMETER_0_0 {
@@ -3961,14 +3128,7 @@ unsafe impl ::windows::runtime::Abi for NV_SEP_CACHE_PARAMETER_0_0 {
 }
 pub const NV_SEP_CACHE_PARAMETER_VERSION: u32 = 1u32;
 pub const NV_SEP_CACHE_PARAMETER_VERSION_1: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct NV_SEP_WRITE_CACHE_TYPE(pub i32);
 pub const NVSEPWriteCacheTypeUnknown: NV_SEP_WRITE_CACHE_TYPE = NV_SEP_WRITE_CACHE_TYPE(0i32);
@@ -4024,14 +3184,7 @@ impl ::std::fmt::Debug for PERSISTENT_ISCSI_LOGIN_INFOA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PERSISTENT_ISCSI_LOGIN_INFOA {
     fn eq(&self, other: &Self) -> bool {
-        self.TargetName == other.TargetName
-            && self.IsInformationalSession == other.IsInformationalSession
-            && self.InitiatorInstance == other.InitiatorInstance
-            && self.InitiatorPortNumber == other.InitiatorPortNumber
-            && self.TargetPortal == other.TargetPortal
-            && self.SecurityFlags == other.SecurityFlags
-            && self.Mappings == other.Mappings
-            && self.LoginOptions == other.LoginOptions
+        self.TargetName == other.TargetName && self.IsInformationalSession == other.IsInformationalSession && self.InitiatorInstance == other.InitiatorInstance && self.InitiatorPortNumber == other.InitiatorPortNumber && self.TargetPortal == other.TargetPortal && self.SecurityFlags == other.SecurityFlags && self.Mappings == other.Mappings && self.LoginOptions == other.LoginOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4080,14 +3233,7 @@ impl ::std::fmt::Debug for PERSISTENT_ISCSI_LOGIN_INFOW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PERSISTENT_ISCSI_LOGIN_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.TargetName == other.TargetName
-            && self.IsInformationalSession == other.IsInformationalSession
-            && self.InitiatorInstance == other.InitiatorInstance
-            && self.InitiatorPortNumber == other.InitiatorPortNumber
-            && self.TargetPortal == other.TargetPortal
-            && self.SecurityFlags == other.SecurityFlags
-            && self.Mappings == other.Mappings
-            && self.LoginOptions == other.LoginOptions
+        self.TargetName == other.TargetName && self.IsInformationalSession == other.IsInformationalSession && self.InitiatorInstance == other.InitiatorInstance && self.InitiatorPortNumber == other.InitiatorPortNumber && self.TargetPortal == other.TargetPortal && self.SecurityFlags == other.SecurityFlags && self.Mappings == other.Mappings && self.LoginOptions == other.LoginOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4099,12 +3245,7 @@ unsafe impl ::windows::runtime::Abi for PERSISTENT_ISCSI_LOGIN_INFOW {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RefreshISNSServerA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    address: Param0,
-) -> u32 {
+pub unsafe fn RefreshISNSServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4118,12 +3259,7 @@ pub unsafe fn RefreshISNSServerA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RefreshISNSServerW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    address: Param0,
-) -> u32 {
+pub unsafe fn RefreshISNSServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4137,70 +3273,35 @@ pub unsafe fn RefreshISNSServerW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RefreshIScsiSendTargetPortalA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    initiatorinstance: Param0,
-    initiatorportnumber: u32,
-    portal: *mut ISCSI_TARGET_PORTALA,
-) -> u32 {
+pub unsafe fn RefreshIScsiSendTargetPortalA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RefreshIScsiSendTargetPortalA(
-                initiatorinstance: super::super::Foundation::PSTR,
-                initiatorportnumber: u32,
-                portal: *mut ISCSI_TARGET_PORTALA,
-            ) -> u32;
+            fn RefreshIScsiSendTargetPortalA(initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
         }
-        ::std::mem::transmute(RefreshIScsiSendTargetPortalA(
-            initiatorinstance.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            ::std::mem::transmute(portal),
-        ))
+        ::std::mem::transmute(RefreshIScsiSendTargetPortalA(initiatorinstance.into_param().abi(), ::std::mem::transmute(initiatorportnumber), ::std::mem::transmute(portal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RefreshIScsiSendTargetPortalW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    initiatorinstance: Param0,
-    initiatorportnumber: u32,
-    portal: *mut ISCSI_TARGET_PORTALW,
-) -> u32 {
+pub unsafe fn RefreshIScsiSendTargetPortalW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RefreshIScsiSendTargetPortalW(
-                initiatorinstance: super::super::Foundation::PWSTR,
-                initiatorportnumber: u32,
-                portal: *mut ISCSI_TARGET_PORTALW,
-            ) -> u32;
+            fn RefreshIScsiSendTargetPortalW(initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
         }
-        ::std::mem::transmute(RefreshIScsiSendTargetPortalW(
-            initiatorinstance.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            ::std::mem::transmute(portal),
-        ))
+        ::std::mem::transmute(RefreshIScsiSendTargetPortalW(initiatorinstance.into_param().abi(), ::std::mem::transmute(initiatorportnumber), ::std::mem::transmute(portal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveISNSServerA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    address: Param0,
-) -> u32 {
+pub unsafe fn RemoveISNSServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4214,12 +3315,7 @@ pub unsafe fn RemoveISNSServerA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveISNSServerW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    address: Param0,
-) -> u32 {
+pub unsafe fn RemoveISNSServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4232,159 +3328,77 @@ pub unsafe fn RemoveISNSServerW<
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn RemoveIScsiConnection(
-    uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-    connectionid: *mut ISCSI_UNIQUE_SESSION_ID,
-) -> u32 {
+pub unsafe fn RemoveIScsiConnection(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RemoveIScsiConnection(
-                uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-                connectionid: *mut ISCSI_UNIQUE_SESSION_ID,
-            ) -> u32;
+            fn RemoveIScsiConnection(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, connectionid: *mut ISCSI_UNIQUE_SESSION_ID) -> u32;
         }
-        ::std::mem::transmute(RemoveIScsiConnection(
-            ::std::mem::transmute(uniquesessionid),
-            ::std::mem::transmute(connectionid),
-        ))
+        ::std::mem::transmute(RemoveIScsiConnection(::std::mem::transmute(uniquesessionid), ::std::mem::transmute(connectionid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveIScsiPersistentTargetA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    initiatorinstance: Param0,
-    initiatorportnumber: u32,
-    targetname: Param2,
-    portal: *mut ISCSI_TARGET_PORTALA,
-) -> u32 {
+pub unsafe fn RemoveIScsiPersistentTargetA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, targetname: Param2, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RemoveIScsiPersistentTargetA(
-                initiatorinstance: super::super::Foundation::PSTR,
-                initiatorportnumber: u32,
-                targetname: super::super::Foundation::PSTR,
-                portal: *mut ISCSI_TARGET_PORTALA,
-            ) -> u32;
+            fn RemoveIScsiPersistentTargetA(initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, targetname: super::super::Foundation::PSTR, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
         }
-        ::std::mem::transmute(RemoveIScsiPersistentTargetA(
-            initiatorinstance.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            targetname.into_param().abi(),
-            ::std::mem::transmute(portal),
-        ))
+        ::std::mem::transmute(RemoveIScsiPersistentTargetA(initiatorinstance.into_param().abi(), ::std::mem::transmute(initiatorportnumber), targetname.into_param().abi(), ::std::mem::transmute(portal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveIScsiPersistentTargetW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    initiatorinstance: Param0,
-    initiatorportnumber: u32,
-    targetname: Param2,
-    portal: *mut ISCSI_TARGET_PORTALW,
-) -> u32 {
+pub unsafe fn RemoveIScsiPersistentTargetW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, targetname: Param2, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RemoveIScsiPersistentTargetW(
-                initiatorinstance: super::super::Foundation::PWSTR,
-                initiatorportnumber: u32,
-                targetname: super::super::Foundation::PWSTR,
-                portal: *mut ISCSI_TARGET_PORTALW,
-            ) -> u32;
+            fn RemoveIScsiPersistentTargetW(initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, targetname: super::super::Foundation::PWSTR, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
         }
-        ::std::mem::transmute(RemoveIScsiPersistentTargetW(
-            initiatorinstance.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            targetname.into_param().abi(),
-            ::std::mem::transmute(portal),
-        ))
+        ::std::mem::transmute(RemoveIScsiPersistentTargetW(initiatorinstance.into_param().abi(), ::std::mem::transmute(initiatorportnumber), targetname.into_param().abi(), ::std::mem::transmute(portal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveIScsiSendTargetPortalA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    initiatorinstance: Param0,
-    initiatorportnumber: u32,
-    portal: *mut ISCSI_TARGET_PORTALA,
-) -> u32 {
+pub unsafe fn RemoveIScsiSendTargetPortalA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RemoveIScsiSendTargetPortalA(
-                initiatorinstance: super::super::Foundation::PSTR,
-                initiatorportnumber: u32,
-                portal: *mut ISCSI_TARGET_PORTALA,
-            ) -> u32;
+            fn RemoveIScsiSendTargetPortalA(initiatorinstance: super::super::Foundation::PSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALA) -> u32;
         }
-        ::std::mem::transmute(RemoveIScsiSendTargetPortalA(
-            initiatorinstance.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            ::std::mem::transmute(portal),
-        ))
+        ::std::mem::transmute(RemoveIScsiSendTargetPortalA(initiatorinstance.into_param().abi(), ::std::mem::transmute(initiatorportnumber), ::std::mem::transmute(portal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveIScsiSendTargetPortalW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    initiatorinstance: Param0,
-    initiatorportnumber: u32,
-    portal: *mut ISCSI_TARGET_PORTALW,
-) -> u32 {
+pub unsafe fn RemoveIScsiSendTargetPortalW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorinstance: Param0, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RemoveIScsiSendTargetPortalW(
-                initiatorinstance: super::super::Foundation::PWSTR,
-                initiatorportnumber: u32,
-                portal: *mut ISCSI_TARGET_PORTALW,
-            ) -> u32;
+            fn RemoveIScsiSendTargetPortalW(initiatorinstance: super::super::Foundation::PWSTR, initiatorportnumber: u32, portal: *mut ISCSI_TARGET_PORTALW) -> u32;
         }
-        ::std::mem::transmute(RemoveIScsiSendTargetPortalW(
-            initiatorinstance.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            ::std::mem::transmute(portal),
-        ))
+        ::std::mem::transmute(RemoveIScsiSendTargetPortalW(initiatorinstance.into_param().abi(), ::std::mem::transmute(initiatorportnumber), ::std::mem::transmute(portal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveIScsiStaticTargetA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    targetname: Param0,
-) -> u32 {
+pub unsafe fn RemoveIScsiStaticTargetA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(targetname: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4398,12 +3412,7 @@ pub unsafe fn RemoveIScsiStaticTargetA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveIScsiStaticTargetW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    targetname: Param0,
-) -> u32 {
+pub unsafe fn RemoveIScsiStaticTargetW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(targetname: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4417,12 +3426,7 @@ pub unsafe fn RemoveIScsiStaticTargetW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemovePersistentIScsiDeviceA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    devicepath: Param0,
-) -> u32 {
+pub unsafe fn RemovePersistentIScsiDeviceA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(devicepath: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4436,12 +3440,7 @@ pub unsafe fn RemovePersistentIScsiDeviceA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemovePersistentIScsiDeviceW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    devicepath: Param0,
-) -> u32 {
+pub unsafe fn RemovePersistentIScsiDeviceW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(devicepath: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4455,12 +3454,7 @@ pub unsafe fn RemovePersistentIScsiDeviceW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveRadiusServerA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    address: Param0,
-) -> u32 {
+pub unsafe fn RemoveRadiusServerA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4474,12 +3468,7 @@ pub unsafe fn RemoveRadiusServerA<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RemoveRadiusServerW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    address: Param0,
-) -> u32 {
+pub unsafe fn RemoveRadiusServerW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(address: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -4493,521 +3482,277 @@ pub unsafe fn RemoveRadiusServerW<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportActiveIScsiTargetMappingsA(
-    buffersize: *mut u32,
-    mappingcount: *mut u32,
-    mappings: *mut ISCSI_TARGET_MAPPINGA,
-) -> u32 {
+pub unsafe fn ReportActiveIScsiTargetMappingsA(buffersize: *mut u32, mappingcount: *mut u32, mappings: *mut ISCSI_TARGET_MAPPINGA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportActiveIScsiTargetMappingsA(
-                buffersize: *mut u32,
-                mappingcount: *mut u32,
-                mappings: *mut ISCSI_TARGET_MAPPINGA,
-            ) -> u32;
+            fn ReportActiveIScsiTargetMappingsA(buffersize: *mut u32, mappingcount: *mut u32, mappings: *mut ISCSI_TARGET_MAPPINGA) -> u32;
         }
-        ::std::mem::transmute(ReportActiveIScsiTargetMappingsA(
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(mappingcount),
-            ::std::mem::transmute(mappings),
-        ))
+        ::std::mem::transmute(ReportActiveIScsiTargetMappingsA(::std::mem::transmute(buffersize), ::std::mem::transmute(mappingcount), ::std::mem::transmute(mappings)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ReportActiveIScsiTargetMappingsW(
-    buffersize: *mut u32,
-    mappingcount: *mut u32,
-    mappings: *mut ISCSI_TARGET_MAPPINGW,
-) -> u32 {
+pub unsafe fn ReportActiveIScsiTargetMappingsW(buffersize: *mut u32, mappingcount: *mut u32, mappings: *mut ISCSI_TARGET_MAPPINGW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportActiveIScsiTargetMappingsW(
-                buffersize: *mut u32,
-                mappingcount: *mut u32,
-                mappings: *mut ISCSI_TARGET_MAPPINGW,
-            ) -> u32;
+            fn ReportActiveIScsiTargetMappingsW(buffersize: *mut u32, mappingcount: *mut u32, mappings: *mut ISCSI_TARGET_MAPPINGW) -> u32;
         }
-        ::std::mem::transmute(ReportActiveIScsiTargetMappingsW(
-            ::std::mem::transmute(buffersize),
-            ::std::mem::transmute(mappingcount),
-            ::std::mem::transmute(mappings),
-        ))
+        ::std::mem::transmute(ReportActiveIScsiTargetMappingsW(::std::mem::transmute(buffersize), ::std::mem::transmute(mappingcount), ::std::mem::transmute(mappings)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportISNSServerListA(
-    buffersizeinchar: *mut u32,
-    buffer: super::super::Foundation::PSTR,
-) -> u32 {
+pub unsafe fn ReportISNSServerListA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportISNSServerListA(
-                buffersizeinchar: *mut u32,
-                buffer: super::super::Foundation::PSTR,
-            ) -> u32;
+            fn ReportISNSServerListA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(ReportISNSServerListA(
-            ::std::mem::transmute(buffersizeinchar),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(ReportISNSServerListA(::std::mem::transmute(buffersizeinchar), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportISNSServerListW(
-    buffersizeinchar: *mut u32,
-    buffer: super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn ReportISNSServerListW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportISNSServerListW(
-                buffersizeinchar: *mut u32,
-                buffer: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn ReportISNSServerListW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(ReportISNSServerListW(
-            ::std::mem::transmute(buffersizeinchar),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(ReportISNSServerListW(::std::mem::transmute(buffersizeinchar), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiInitiatorListA<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    buffersize: *mut u32,
-    buffer: Param1,
-) -> u32 {
+pub unsafe fn ReportIScsiInitiatorListA<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(buffersize: *mut u32, buffer: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportIScsiInitiatorListA(
-                buffersize: *mut u32,
-                buffer: super::super::Foundation::PSTR,
-            ) -> u32;
+            fn ReportIScsiInitiatorListA(buffersize: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(ReportIScsiInitiatorListA(
-            ::std::mem::transmute(buffersize),
-            buffer.into_param().abi(),
-        ))
+        ::std::mem::transmute(ReportIScsiInitiatorListA(::std::mem::transmute(buffersize), buffer.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiInitiatorListW<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    buffersize: *mut u32,
-    buffer: Param1,
-) -> u32 {
+pub unsafe fn ReportIScsiInitiatorListW<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(buffersize: *mut u32, buffer: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportIScsiInitiatorListW(
-                buffersize: *mut u32,
-                buffer: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn ReportIScsiInitiatorListW(buffersize: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(ReportIScsiInitiatorListW(
-            ::std::mem::transmute(buffersize),
-            buffer.into_param().abi(),
-        ))
+        ::std::mem::transmute(ReportIScsiInitiatorListW(::std::mem::transmute(buffersize), buffer.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiPersistentLoginsA(
-    count: *mut u32,
-    persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOA,
-    buffersizeinbytes: *mut u32,
-) -> u32 {
+pub unsafe fn ReportIScsiPersistentLoginsA(count: *mut u32, persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOA, buffersizeinbytes: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportIScsiPersistentLoginsA(
-                count: *mut u32,
-                persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOA,
-                buffersizeinbytes: *mut u32,
-            ) -> u32;
+            fn ReportIScsiPersistentLoginsA(count: *mut u32, persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOA, buffersizeinbytes: *mut u32) -> u32;
         }
-        ::std::mem::transmute(ReportIScsiPersistentLoginsA(
-            ::std::mem::transmute(count),
-            ::std::mem::transmute(persistentlogininfo),
-            ::std::mem::transmute(buffersizeinbytes),
-        ))
+        ::std::mem::transmute(ReportIScsiPersistentLoginsA(::std::mem::transmute(count), ::std::mem::transmute(persistentlogininfo), ::std::mem::transmute(buffersizeinbytes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiPersistentLoginsW(
-    count: *mut u32,
-    persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOW,
-    buffersizeinbytes: *mut u32,
-) -> u32 {
+pub unsafe fn ReportIScsiPersistentLoginsW(count: *mut u32, persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOW, buffersizeinbytes: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportIScsiPersistentLoginsW(
-                count: *mut u32,
-                persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOW,
-                buffersizeinbytes: *mut u32,
-            ) -> u32;
+            fn ReportIScsiPersistentLoginsW(count: *mut u32, persistentlogininfo: *mut PERSISTENT_ISCSI_LOGIN_INFOW, buffersizeinbytes: *mut u32) -> u32;
         }
-        ::std::mem::transmute(ReportIScsiPersistentLoginsW(
-            ::std::mem::transmute(count),
-            ::std::mem::transmute(persistentlogininfo),
-            ::std::mem::transmute(buffersizeinbytes),
-        ))
+        ::std::mem::transmute(ReportIScsiPersistentLoginsW(::std::mem::transmute(count), ::std::mem::transmute(persistentlogininfo), ::std::mem::transmute(buffersizeinbytes)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiSendTargetPortalsA(
-    portalcount: *mut u32,
-    portalinfo: *mut ISCSI_TARGET_PORTAL_INFOA,
-) -> u32 {
+pub unsafe fn ReportIScsiSendTargetPortalsA(portalcount: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFOA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportIScsiSendTargetPortalsA(
-                portalcount: *mut u32,
-                portalinfo: *mut ISCSI_TARGET_PORTAL_INFOA,
-            ) -> u32;
+            fn ReportIScsiSendTargetPortalsA(portalcount: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFOA) -> u32;
         }
-        ::std::mem::transmute(ReportIScsiSendTargetPortalsA(
-            ::std::mem::transmute(portalcount),
-            ::std::mem::transmute(portalinfo),
-        ))
+        ::std::mem::transmute(ReportIScsiSendTargetPortalsA(::std::mem::transmute(portalcount), ::std::mem::transmute(portalinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiSendTargetPortalsExA(
-    portalcount: *mut u32,
-    portalinfosize: *mut u32,
-    portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXA,
-) -> u32 {
+pub unsafe fn ReportIScsiSendTargetPortalsExA(portalcount: *mut u32, portalinfosize: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportIScsiSendTargetPortalsExA(
-                portalcount: *mut u32,
-                portalinfosize: *mut u32,
-                portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXA,
-            ) -> u32;
+            fn ReportIScsiSendTargetPortalsExA(portalcount: *mut u32, portalinfosize: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXA) -> u32;
         }
-        ::std::mem::transmute(ReportIScsiSendTargetPortalsExA(
-            ::std::mem::transmute(portalcount),
-            ::std::mem::transmute(portalinfosize),
-            ::std::mem::transmute(portalinfo),
-        ))
+        ::std::mem::transmute(ReportIScsiSendTargetPortalsExA(::std::mem::transmute(portalcount), ::std::mem::transmute(portalinfosize), ::std::mem::transmute(portalinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ReportIScsiSendTargetPortalsExW(
-    portalcount: *mut u32,
-    portalinfosize: *mut u32,
-    portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXW,
-) -> u32 {
+pub unsafe fn ReportIScsiSendTargetPortalsExW(portalcount: *mut u32, portalinfosize: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportIScsiSendTargetPortalsExW(
-                portalcount: *mut u32,
-                portalinfosize: *mut u32,
-                portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXW,
-            ) -> u32;
+            fn ReportIScsiSendTargetPortalsExW(portalcount: *mut u32, portalinfosize: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFO_EXW) -> u32;
         }
-        ::std::mem::transmute(ReportIScsiSendTargetPortalsExW(
-            ::std::mem::transmute(portalcount),
-            ::std::mem::transmute(portalinfosize),
-            ::std::mem::transmute(portalinfo),
-        ))
+        ::std::mem::transmute(ReportIScsiSendTargetPortalsExW(::std::mem::transmute(portalcount), ::std::mem::transmute(portalinfosize), ::std::mem::transmute(portalinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn ReportIScsiSendTargetPortalsW(
-    portalcount: *mut u32,
-    portalinfo: *mut ISCSI_TARGET_PORTAL_INFOW,
-) -> u32 {
+pub unsafe fn ReportIScsiSendTargetPortalsW(portalcount: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFOW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportIScsiSendTargetPortalsW(
-                portalcount: *mut u32,
-                portalinfo: *mut ISCSI_TARGET_PORTAL_INFOW,
-            ) -> u32;
+            fn ReportIScsiSendTargetPortalsW(portalcount: *mut u32, portalinfo: *mut ISCSI_TARGET_PORTAL_INFOW) -> u32;
         }
-        ::std::mem::transmute(ReportIScsiSendTargetPortalsW(
-            ::std::mem::transmute(portalcount),
-            ::std::mem::transmute(portalinfo),
-        ))
+        ::std::mem::transmute(ReportIScsiSendTargetPortalsW(::std::mem::transmute(portalcount), ::std::mem::transmute(portalinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiTargetPortalsA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    initiatorname: Param0,
-    targetname: Param1,
-    targetportaltag: *mut u16,
-    elementcount: *mut u32,
-    portals: *mut ISCSI_TARGET_PORTALA,
-) -> u32 {
+pub unsafe fn ReportIScsiTargetPortalsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatorname: Param0, targetname: Param1, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportIScsiTargetPortalsA(
-                initiatorname: super::super::Foundation::PSTR,
-                targetname: super::super::Foundation::PSTR,
-                targetportaltag: *mut u16,
-                elementcount: *mut u32,
-                portals: *mut ISCSI_TARGET_PORTALA,
-            ) -> u32;
+            fn ReportIScsiTargetPortalsA(initiatorname: super::super::Foundation::PSTR, targetname: super::super::Foundation::PSTR, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALA) -> u32;
         }
-        ::std::mem::transmute(ReportIScsiTargetPortalsA(
-            initiatorname.into_param().abi(),
-            targetname.into_param().abi(),
-            ::std::mem::transmute(targetportaltag),
-            ::std::mem::transmute(elementcount),
-            ::std::mem::transmute(portals),
-        ))
+        ::std::mem::transmute(ReportIScsiTargetPortalsA(initiatorname.into_param().abi(), targetname.into_param().abi(), ::std::mem::transmute(targetportaltag), ::std::mem::transmute(elementcount), ::std::mem::transmute(portals)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiTargetPortalsW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    initiatorname: Param0,
-    targetname: Param1,
-    targetportaltag: *mut u16,
-    elementcount: *mut u32,
-    portals: *mut ISCSI_TARGET_PORTALW,
-) -> u32 {
+pub unsafe fn ReportIScsiTargetPortalsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatorname: Param0, targetname: Param1, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALW) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportIScsiTargetPortalsW(
-                initiatorname: super::super::Foundation::PWSTR,
-                targetname: super::super::Foundation::PWSTR,
-                targetportaltag: *mut u16,
-                elementcount: *mut u32,
-                portals: *mut ISCSI_TARGET_PORTALW,
-            ) -> u32;
+            fn ReportIScsiTargetPortalsW(initiatorname: super::super::Foundation::PWSTR, targetname: super::super::Foundation::PWSTR, targetportaltag: *mut u16, elementcount: *mut u32, portals: *mut ISCSI_TARGET_PORTALW) -> u32;
         }
-        ::std::mem::transmute(ReportIScsiTargetPortalsW(
-            initiatorname.into_param().abi(),
-            targetname.into_param().abi(),
-            ::std::mem::transmute(targetportaltag),
-            ::std::mem::transmute(elementcount),
-            ::std::mem::transmute(portals),
-        ))
+        ::std::mem::transmute(ReportIScsiTargetPortalsW(initiatorname.into_param().abi(), targetname.into_param().abi(), ::std::mem::transmute(targetportaltag), ::std::mem::transmute(elementcount), ::std::mem::transmute(portals)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiTargetsA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    forceupdate: Param0,
-    buffersize: *mut u32,
-    buffer: Param2,
-) -> u32 {
+pub unsafe fn ReportIScsiTargetsA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(forceupdate: Param0, buffersize: *mut u32, buffer: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportIScsiTargetsA(
-                forceupdate: super::super::Foundation::BOOLEAN,
-                buffersize: *mut u32,
-                buffer: super::super::Foundation::PSTR,
-            ) -> u32;
+            fn ReportIScsiTargetsA(forceupdate: super::super::Foundation::BOOLEAN, buffersize: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(ReportIScsiTargetsA(
-            forceupdate.into_param().abi(),
-            ::std::mem::transmute(buffersize),
-            buffer.into_param().abi(),
-        ))
+        ::std::mem::transmute(ReportIScsiTargetsA(forceupdate.into_param().abi(), ::std::mem::transmute(buffersize), buffer.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportIScsiTargetsW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    forceupdate: Param0,
-    buffersize: *mut u32,
-    buffer: Param2,
-) -> u32 {
+pub unsafe fn ReportIScsiTargetsW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(forceupdate: Param0, buffersize: *mut u32, buffer: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportIScsiTargetsW(
-                forceupdate: super::super::Foundation::BOOLEAN,
-                buffersize: *mut u32,
-                buffer: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn ReportIScsiTargetsW(forceupdate: super::super::Foundation::BOOLEAN, buffersize: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(ReportIScsiTargetsW(
-            forceupdate.into_param().abi(),
-            ::std::mem::transmute(buffersize),
-            buffer.into_param().abi(),
-        ))
+        ::std::mem::transmute(ReportIScsiTargetsW(forceupdate.into_param().abi(), ::std::mem::transmute(buffersize), buffer.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportPersistentIScsiDevicesA(
-    buffersizeinchar: *mut u32,
-    buffer: super::super::Foundation::PSTR,
-) -> u32 {
+pub unsafe fn ReportPersistentIScsiDevicesA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportPersistentIScsiDevicesA(
-                buffersizeinchar: *mut u32,
-                buffer: super::super::Foundation::PSTR,
-            ) -> u32;
+            fn ReportPersistentIScsiDevicesA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(ReportPersistentIScsiDevicesA(
-            ::std::mem::transmute(buffersizeinchar),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(ReportPersistentIScsiDevicesA(::std::mem::transmute(buffersizeinchar), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportPersistentIScsiDevicesW(
-    buffersizeinchar: *mut u32,
-    buffer: super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn ReportPersistentIScsiDevicesW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportPersistentIScsiDevicesW(
-                buffersizeinchar: *mut u32,
-                buffer: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn ReportPersistentIScsiDevicesW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(ReportPersistentIScsiDevicesW(
-            ::std::mem::transmute(buffersizeinchar),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(ReportPersistentIScsiDevicesW(::std::mem::transmute(buffersizeinchar), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportRadiusServerListA(
-    buffersizeinchar: *mut u32,
-    buffer: super::super::Foundation::PSTR,
-) -> u32 {
+pub unsafe fn ReportRadiusServerListA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportRadiusServerListA(
-                buffersizeinchar: *mut u32,
-                buffer: super::super::Foundation::PSTR,
-            ) -> u32;
+            fn ReportRadiusServerListA(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(ReportRadiusServerListA(
-            ::std::mem::transmute(buffersizeinchar),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(ReportRadiusServerListA(::std::mem::transmute(buffersizeinchar), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn ReportRadiusServerListW(
-    buffersizeinchar: *mut u32,
-    buffer: super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn ReportRadiusServerListW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReportRadiusServerListW(
-                buffersizeinchar: *mut u32,
-                buffer: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn ReportRadiusServerListW(buffersizeinchar: *mut u32, buffer: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(ReportRadiusServerListW(
-            ::std::mem::transmute(buffersizeinchar),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(ReportRadiusServerListW(::std::mem::transmute(buffersizeinchar), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5026,10 +3771,7 @@ impl ::std::default::Default for SCSI_ADAPTER_BUS_INFO {
 }
 impl ::std::fmt::Debug for SCSI_ADAPTER_BUS_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCSI_ADAPTER_BUS_INFO")
-            .field("NumberOfBuses", &self.NumberOfBuses)
-            .field("BusData", &self.BusData)
-            .finish()
+        fmt.debug_struct("SCSI_ADAPTER_BUS_INFO").field("NumberOfBuses", &self.NumberOfBuses).field("BusData", &self.BusData).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCSI_ADAPTER_BUS_INFO {
@@ -5059,22 +3801,12 @@ impl ::std::default::Default for SCSI_ADDRESS {
 }
 impl ::std::fmt::Debug for SCSI_ADDRESS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCSI_ADDRESS")
-            .field("Length", &self.Length)
-            .field("PortNumber", &self.PortNumber)
-            .field("PathId", &self.PathId)
-            .field("TargetId", &self.TargetId)
-            .field("Lun", &self.Lun)
-            .finish()
+        fmt.debug_struct("SCSI_ADDRESS").field("Length", &self.Length).field("PortNumber", &self.PortNumber).field("PathId", &self.PathId).field("TargetId", &self.TargetId).field("Lun", &self.Lun).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCSI_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.PortNumber == other.PortNumber
-            && self.PathId == other.PathId
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
+        self.Length == other.Length && self.PortNumber == other.PortNumber && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun
     }
 }
 impl ::std::cmp::Eq for SCSI_ADDRESS {}
@@ -5097,18 +3829,12 @@ impl ::std::default::Default for SCSI_BUS_DATA {
 }
 impl ::std::fmt::Debug for SCSI_BUS_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCSI_BUS_DATA")
-            .field("NumberOfLogicalUnits", &self.NumberOfLogicalUnits)
-            .field("InitiatorBusId", &self.InitiatorBusId)
-            .field("InquiryDataOffset", &self.InquiryDataOffset)
-            .finish()
+        fmt.debug_struct("SCSI_BUS_DATA").field("NumberOfLogicalUnits", &self.NumberOfLogicalUnits).field("InitiatorBusId", &self.InitiatorBusId).field("InquiryDataOffset", &self.InquiryDataOffset).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCSI_BUS_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.NumberOfLogicalUnits == other.NumberOfLogicalUnits
-            && self.InitiatorBusId == other.InitiatorBusId
-            && self.InquiryDataOffset == other.InquiryDataOffset
+        self.NumberOfLogicalUnits == other.NumberOfLogicalUnits && self.InitiatorBusId == other.InitiatorBusId && self.InquiryDataOffset == other.InquiryDataOffset
     }
 }
 impl ::std::cmp::Eq for SCSI_BUS_DATA {}
@@ -5153,13 +3879,7 @@ impl ::std::fmt::Debug for SCSI_INQUIRY_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for SCSI_INQUIRY_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.PathId == other.PathId
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
-            && self.DeviceClaimed == other.DeviceClaimed
-            && self.InquiryDataLength == other.InquiryDataLength
-            && self.NextInquiryDataOffset == other.NextInquiryDataOffset
-            && self.InquiryData == other.InquiryData
+        self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun && self.DeviceClaimed == other.DeviceClaimed && self.InquiryDataLength == other.InquiryDataLength && self.NextInquiryDataOffset == other.NextInquiryDataOffset && self.InquiryData == other.InquiryData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5187,10 +3907,7 @@ impl ::std::default::Default for SCSI_LUN_LIST {
 }
 impl ::std::fmt::Debug for SCSI_LUN_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCSI_LUN_LIST")
-            .field("OSLUN", &self.OSLUN)
-            .field("TargetLUN", &self.TargetLUN)
-            .finish()
+        fmt.debug_struct("SCSI_LUN_LIST").field("OSLUN", &self.OSLUN).field("TargetLUN", &self.TargetLUN).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCSI_LUN_LIST {
@@ -5448,19 +4165,7 @@ impl ::std::fmt::Debug for SCSI_PASS_THROUGH_DIRECT {
 }
 impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.ScsiStatus == other.ScsiStatus
-            && self.PathId == other.PathId
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
-            && self.CdbLength == other.CdbLength
-            && self.SenseInfoLength == other.SenseInfoLength
-            && self.DataIn == other.DataIn
-            && self.DataTransferLength == other.DataTransferLength
-            && self.TimeOutValue == other.TimeOutValue
-            && self.DataBuffer == other.DataBuffer
-            && self.SenseInfoOffset == other.SenseInfoOffset
-            && self.Cdb == other.Cdb
+        self.Length == other.Length && self.ScsiStatus == other.ScsiStatus && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun && self.CdbLength == other.CdbLength && self.SenseInfoLength == other.SenseInfoLength && self.DataIn == other.DataIn && self.DataTransferLength == other.DataTransferLength && self.TimeOutValue == other.TimeOutValue && self.DataBuffer == other.DataBuffer && self.SenseInfoOffset == other.SenseInfoOffset && self.Cdb == other.Cdb
     }
 }
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH_DIRECT {}
@@ -5512,19 +4217,7 @@ impl ::std::fmt::Debug for SCSI_PASS_THROUGH_DIRECT32 {
 }
 impl ::std::cmp::PartialEq for SCSI_PASS_THROUGH_DIRECT32 {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.ScsiStatus == other.ScsiStatus
-            && self.PathId == other.PathId
-            && self.TargetId == other.TargetId
-            && self.Lun == other.Lun
-            && self.CdbLength == other.CdbLength
-            && self.SenseInfoLength == other.SenseInfoLength
-            && self.DataIn == other.DataIn
-            && self.DataTransferLength == other.DataTransferLength
-            && self.TimeOutValue == other.TimeOutValue
-            && self.DataBuffer == other.DataBuffer
-            && self.SenseInfoOffset == other.SenseInfoOffset
-            && self.Cdb == other.Cdb
+        self.Length == other.Length && self.ScsiStatus == other.ScsiStatus && self.PathId == other.PathId && self.TargetId == other.TargetId && self.Lun == other.Lun && self.CdbLength == other.CdbLength && self.SenseInfoLength == other.SenseInfoLength && self.DataIn == other.DataIn && self.DataTransferLength == other.DataTransferLength && self.TimeOutValue == other.TimeOutValue && self.DataBuffer == other.DataBuffer && self.SenseInfoOffset == other.SenseInfoOffset && self.Cdb == other.Cdb
     }
 }
 impl ::std::cmp::Eq for SCSI_PASS_THROUGH_DIRECT32 {}
@@ -5769,24 +4462,12 @@ impl ::std::default::Default for SRB_IO_CONTROL {
 }
 impl ::std::fmt::Debug for SRB_IO_CONTROL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SRB_IO_CONTROL")
-            .field("HeaderLength", &self.HeaderLength)
-            .field("Signature", &self.Signature)
-            .field("Timeout", &self.Timeout)
-            .field("ControlCode", &self.ControlCode)
-            .field("ReturnCode", &self.ReturnCode)
-            .field("Length", &self.Length)
-            .finish()
+        fmt.debug_struct("SRB_IO_CONTROL").field("HeaderLength", &self.HeaderLength).field("Signature", &self.Signature).field("Timeout", &self.Timeout).field("ControlCode", &self.ControlCode).field("ReturnCode", &self.ReturnCode).field("Length", &self.Length).finish()
     }
 }
 impl ::std::cmp::PartialEq for SRB_IO_CONTROL {
     fn eq(&self, other: &Self) -> bool {
-        self.HeaderLength == other.HeaderLength
-            && self.Signature == other.Signature
-            && self.Timeout == other.Timeout
-            && self.ControlCode == other.ControlCode
-            && self.ReturnCode == other.ReturnCode
-            && self.Length == other.Length
+        self.HeaderLength == other.HeaderLength && self.Signature == other.Signature && self.Timeout == other.Timeout && self.ControlCode == other.ControlCode && self.ReturnCode == other.ReturnCode && self.Length == other.Length
     }
 }
 impl ::std::cmp::Eq for SRB_IO_CONTROL {}
@@ -5828,14 +4509,7 @@ impl ::std::fmt::Debug for STORAGE_DIAGNOSTIC_MP_REQUEST {
 }
 impl ::std::cmp::PartialEq for STORAGE_DIAGNOSTIC_MP_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.TargetType == other.TargetType
-            && self.Level == other.Level
-            && self.ProviderId == other.ProviderId
-            && self.BufferSize == other.BufferSize
-            && self.Reserved == other.Reserved
-            && self.DataBuffer == other.DataBuffer
+        self.Version == other.Version && self.Size == other.Size && self.TargetType == other.TargetType && self.Level == other.Level && self.ProviderId == other.ProviderId && self.BufferSize == other.BufferSize && self.Reserved == other.Reserved && self.DataBuffer == other.DataBuffer
     }
 }
 impl ::std::cmp::Eq for STORAGE_DIAGNOSTIC_MP_REQUEST {}
@@ -5865,18 +4539,12 @@ impl ::std::default::Default for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_ENDURANCE_DATA_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("EnduranceInfo", &self.EnduranceInfo)
-            .finish()
+        fmt.debug_struct("STORAGE_ENDURANCE_DATA_DESCRIPTOR").field("Version", &self.Version).field("Size", &self.Size).field("EnduranceInfo", &self.EnduranceInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_ENDURANCE_DATA_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.EnduranceInfo == other.EnduranceInfo
+        self.Version == other.Version && self.Size == other.Size && self.EnduranceInfo == other.EnduranceInfo
     }
 }
 impl ::std::cmp::Eq for STORAGE_ENDURANCE_DATA_DESCRIPTOR {}
@@ -5902,24 +4570,12 @@ impl ::std::default::Default for STORAGE_ENDURANCE_INFO {
 }
 impl ::std::fmt::Debug for STORAGE_ENDURANCE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_ENDURANCE_INFO")
-            .field("ValidFields", &self.ValidFields)
-            .field("GroupId", &self.GroupId)
-            .field("Flags", &self.Flags)
-            .field("LifePercentage", &self.LifePercentage)
-            .field("BytesReadCount", &self.BytesReadCount)
-            .field("ByteWriteCount", &self.ByteWriteCount)
-            .finish()
+        fmt.debug_struct("STORAGE_ENDURANCE_INFO").field("ValidFields", &self.ValidFields).field("GroupId", &self.GroupId).field("Flags", &self.Flags).field("LifePercentage", &self.LifePercentage).field("BytesReadCount", &self.BytesReadCount).field("ByteWriteCount", &self.ByteWriteCount).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_ENDURANCE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ValidFields == other.ValidFields
-            && self.GroupId == other.GroupId
-            && self.Flags == other.Flags
-            && self.LifePercentage == other.LifePercentage
-            && self.BytesReadCount == other.BytesReadCount
-            && self.ByteWriteCount == other.ByteWriteCount
+        self.ValidFields == other.ValidFields && self.GroupId == other.GroupId && self.Flags == other.Flags && self.LifePercentage == other.LifePercentage && self.BytesReadCount == other.BytesReadCount && self.ByteWriteCount == other.ByteWriteCount
     }
 }
 impl ::std::cmp::Eq for STORAGE_ENDURANCE_INFO {}
@@ -5940,9 +4596,7 @@ impl ::std::default::Default for STORAGE_ENDURANCE_INFO_0 {
 }
 impl ::std::fmt::Debug for STORAGE_ENDURANCE_INFO_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Flags_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Flags_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_ENDURANCE_INFO_0 {
@@ -5971,20 +4625,12 @@ impl ::std::default::Default for STORAGE_FIRMWARE_ACTIVATE {
 }
 impl ::std::fmt::Debug for STORAGE_FIRMWARE_ACTIVATE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_FIRMWARE_ACTIVATE")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("SlotToActivate", &self.SlotToActivate)
-            .field("Reserved0", &self.Reserved0)
-            .finish()
+        fmt.debug_struct("STORAGE_FIRMWARE_ACTIVATE").field("Version", &self.Version).field("Size", &self.Size).field("SlotToActivate", &self.SlotToActivate).field("Reserved0", &self.Reserved0).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_FIRMWARE_ACTIVATE {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.SlotToActivate == other.SlotToActivate
-            && self.Reserved0 == other.Reserved0
+        self.Version == other.Version && self.Size == other.Size && self.SlotToActivate == other.SlotToActivate && self.Reserved0 == other.Reserved0
     }
 }
 impl ::std::cmp::Eq for STORAGE_FIRMWARE_ACTIVATE {}
@@ -6010,22 +4656,12 @@ impl ::std::default::Default for STORAGE_FIRMWARE_DOWNLOAD {
 }
 impl ::std::fmt::Debug for STORAGE_FIRMWARE_DOWNLOAD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_FIRMWARE_DOWNLOAD")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Offset", &self.Offset)
-            .field("BufferSize", &self.BufferSize)
-            .field("ImageBuffer", &self.ImageBuffer)
-            .finish()
+        fmt.debug_struct("STORAGE_FIRMWARE_DOWNLOAD").field("Version", &self.Version).field("Size", &self.Size).field("Offset", &self.Offset).field("BufferSize", &self.BufferSize).field("ImageBuffer", &self.ImageBuffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for STORAGE_FIRMWARE_DOWNLOAD {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Offset == other.Offset
-            && self.BufferSize == other.BufferSize
-            && self.ImageBuffer == other.ImageBuffer
+        self.Version == other.Version && self.Size == other.Size && self.Offset == other.Offset && self.BufferSize == other.BufferSize && self.ImageBuffer == other.ImageBuffer
     }
 }
 impl ::std::cmp::Eq for STORAGE_FIRMWARE_DOWNLOAD {}
@@ -6069,14 +4705,7 @@ impl ::std::fmt::Debug for STORAGE_FIRMWARE_DOWNLOAD_V2 {
 }
 impl ::std::cmp::PartialEq for STORAGE_FIRMWARE_DOWNLOAD_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Offset == other.Offset
-            && self.BufferSize == other.BufferSize
-            && self.Slot == other.Slot
-            && self.Reserved == other.Reserved
-            && self.ImageSize == other.ImageSize
-            && self.ImageBuffer == other.ImageBuffer
+        self.Version == other.Version && self.Size == other.Size && self.Offset == other.Offset && self.BufferSize == other.BufferSize && self.Slot == other.Slot && self.Reserved == other.Reserved && self.ImageSize == other.ImageSize && self.ImageBuffer == other.ImageBuffer
     }
 }
 impl ::std::cmp::Eq for STORAGE_FIRMWARE_DOWNLOAD_V2 {}
@@ -6166,17 +4795,7 @@ impl ::std::fmt::Debug for STORAGE_FIRMWARE_INFO_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_FIRMWARE_INFO_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.UpgradeSupport == other.UpgradeSupport
-            && self.SlotCount == other.SlotCount
-            && self.ActiveSlot == other.ActiveSlot
-            && self.PendingActivateSlot == other.PendingActivateSlot
-            && self.FirmwareShared == other.FirmwareShared
-            && self.Reserved == other.Reserved
-            && self.ImagePayloadAlignment == other.ImagePayloadAlignment
-            && self.ImagePayloadMaxSize == other.ImagePayloadMaxSize
-            && self.Slot == other.Slot
+        self.Version == other.Version && self.Size == other.Size && self.UpgradeSupport == other.UpgradeSupport && self.SlotCount == other.SlotCount && self.ActiveSlot == other.ActiveSlot && self.PendingActivateSlot == other.PendingActivateSlot && self.FirmwareShared == other.FirmwareShared && self.Reserved == other.Reserved && self.ImagePayloadAlignment == other.ImagePayloadAlignment && self.ImagePayloadMaxSize == other.ImagePayloadMaxSize && self.Slot == other.Slot
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6258,21 +4877,13 @@ impl ::std::default::Default for STORAGE_FIRMWARE_SLOT_INFO_V2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for STORAGE_FIRMWARE_SLOT_INFO_V2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_FIRMWARE_SLOT_INFO_V2")
-            .field("SlotNumber", &self.SlotNumber)
-            .field("ReadOnly", &self.ReadOnly)
-            .field("Reserved", &self.Reserved)
-            .field("Revision", &self.Revision)
-            .finish()
+        fmt.debug_struct("STORAGE_FIRMWARE_SLOT_INFO_V2").field("SlotNumber", &self.SlotNumber).field("ReadOnly", &self.ReadOnly).field("Reserved", &self.Reserved).field("Revision", &self.Revision).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for STORAGE_FIRMWARE_SLOT_INFO_V2 {
     fn eq(&self, other: &Self) -> bool {
-        self.SlotNumber == other.SlotNumber
-            && self.ReadOnly == other.ReadOnly
-            && self.Reserved == other.Reserved
-            && self.Revision == other.Revision
+        self.SlotNumber == other.SlotNumber && self.ReadOnly == other.ReadOnly && self.Reserved == other.Reserved && self.Revision == other.Revision
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6283,39 +4894,14 @@ unsafe impl ::windows::runtime::Abi for STORAGE_FIRMWARE_SLOT_INFO_V2 {
     type DefaultType = Self;
 }
 pub const STORAGE_FIRMWARE_SLOT_INFO_V2_REVISION_LENGTH: u32 = 16u32;
-pub const ScsiRawInterfaceGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1408590601,
-    46783,
-    4560,
-    [148, 242, 0, 160, 201, 30, 251, 139],
-);
+pub const ScsiRawInterfaceGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590601, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
 #[inline]
-pub unsafe fn SendScsiInquiry(
-    uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-    lun: u64,
-    evpdcmddt: u8,
-    pagecode: u8,
-    scsistatus: *mut u8,
-    responsesize: *mut u32,
-    responsebuffer: *mut u8,
-    sensesize: *mut u32,
-    sensebuffer: *mut u8,
-) -> u32 {
+pub unsafe fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, evpdcmddt: u8, pagecode: u8, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SendScsiInquiry(
-                uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-                lun: u64,
-                evpdcmddt: u8,
-                pagecode: u8,
-                scsistatus: *mut u8,
-                responsesize: *mut u32,
-                responsebuffer: *mut u8,
-                sensesize: *mut u32,
-                sensebuffer: *mut u8,
-            ) -> u32;
+            fn SendScsiInquiry(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, evpdcmddt: u8, pagecode: u8, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32;
         }
         ::std::mem::transmute(SendScsiInquiry(
             ::std::mem::transmute(uniquesessionid),
@@ -6333,332 +4919,151 @@ pub unsafe fn SendScsiInquiry(
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SendScsiReadCapacity(
-    uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-    lun: u64,
-    scsistatus: *mut u8,
-    responsesize: *mut u32,
-    responsebuffer: *mut u8,
-    sensesize: *mut u32,
-    sensebuffer: *mut u8,
-) -> u32 {
+pub unsafe fn SendScsiReadCapacity(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SendScsiReadCapacity(
-                uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-                lun: u64,
-                scsistatus: *mut u8,
-                responsesize: *mut u32,
-                responsebuffer: *mut u8,
-                sensesize: *mut u32,
-                sensebuffer: *mut u8,
-            ) -> u32;
+            fn SendScsiReadCapacity(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, lun: u64, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32;
         }
-        ::std::mem::transmute(SendScsiReadCapacity(
-            ::std::mem::transmute(uniquesessionid),
-            ::std::mem::transmute(lun),
-            ::std::mem::transmute(scsistatus),
-            ::std::mem::transmute(responsesize),
-            ::std::mem::transmute(responsebuffer),
-            ::std::mem::transmute(sensesize),
-            ::std::mem::transmute(sensebuffer),
-        ))
+        ::std::mem::transmute(SendScsiReadCapacity(::std::mem::transmute(uniquesessionid), ::std::mem::transmute(lun), ::std::mem::transmute(scsistatus), ::std::mem::transmute(responsesize), ::std::mem::transmute(responsebuffer), ::std::mem::transmute(sensesize), ::std::mem::transmute(sensebuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SendScsiReportLuns(
-    uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-    scsistatus: *mut u8,
-    responsesize: *mut u32,
-    responsebuffer: *mut u8,
-    sensesize: *mut u32,
-    sensebuffer: *mut u8,
-) -> u32 {
+pub unsafe fn SendScsiReportLuns(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SendScsiReportLuns(
-                uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID,
-                scsistatus: *mut u8,
-                responsesize: *mut u32,
-                responsebuffer: *mut u8,
-                sensesize: *mut u32,
-                sensebuffer: *mut u8,
-            ) -> u32;
+            fn SendScsiReportLuns(uniquesessionid: *mut ISCSI_UNIQUE_SESSION_ID, scsistatus: *mut u8, responsesize: *mut u32, responsebuffer: *mut u8, sensesize: *mut u32, sensebuffer: *mut u8) -> u32;
         }
-        ::std::mem::transmute(SendScsiReportLuns(
-            ::std::mem::transmute(uniquesessionid),
-            ::std::mem::transmute(scsistatus),
-            ::std::mem::transmute(responsesize),
-            ::std::mem::transmute(responsebuffer),
-            ::std::mem::transmute(sensesize),
-            ::std::mem::transmute(sensebuffer),
-        ))
+        ::std::mem::transmute(SendScsiReportLuns(::std::mem::transmute(uniquesessionid), ::std::mem::transmute(scsistatus), ::std::mem::transmute(responsesize), ::std::mem::transmute(responsebuffer), ::std::mem::transmute(sensesize), ::std::mem::transmute(sensebuffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiGroupPresharedKey<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    keylength: u32,
-    key: *mut u8,
-    persist: Param2,
-) -> u32 {
+pub unsafe fn SetIScsiGroupPresharedKey<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(keylength: u32, key: *mut u8, persist: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetIScsiGroupPresharedKey(
-                keylength: u32,
-                key: *mut u8,
-                persist: super::super::Foundation::BOOLEAN,
-            ) -> u32;
+            fn SetIScsiGroupPresharedKey(keylength: u32, key: *mut u8, persist: super::super::Foundation::BOOLEAN) -> u32;
         }
-        ::std::mem::transmute(SetIScsiGroupPresharedKey(
-            ::std::mem::transmute(keylength),
-            ::std::mem::transmute(key),
-            persist.into_param().abi(),
-        ))
+        ::std::mem::transmute(SetIScsiGroupPresharedKey(::std::mem::transmute(keylength), ::std::mem::transmute(key), persist.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiIKEInfoA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    initiatorname: Param0,
-    initiatorportnumber: u32,
-    authinfo: *mut IKE_AUTHENTICATION_INFORMATION,
-    persist: Param3,
-) -> u32 {
+pub unsafe fn SetIScsiIKEInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetIScsiIKEInfoA(
-                initiatorname: super::super::Foundation::PSTR,
-                initiatorportnumber: u32,
-                authinfo: *mut IKE_AUTHENTICATION_INFORMATION,
-                persist: super::super::Foundation::BOOLEAN,
-            ) -> u32;
+            fn SetIScsiIKEInfoA(initiatorname: super::super::Foundation::PSTR, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: super::super::Foundation::BOOLEAN) -> u32;
         }
-        ::std::mem::transmute(SetIScsiIKEInfoA(
-            initiatorname.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            ::std::mem::transmute(authinfo),
-            persist.into_param().abi(),
-        ))
+        ::std::mem::transmute(SetIScsiIKEInfoA(initiatorname.into_param().abi(), ::std::mem::transmute(initiatorportnumber), ::std::mem::transmute(authinfo), persist.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiIKEInfoW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    initiatorname: Param0,
-    initiatorportnumber: u32,
-    authinfo: *mut IKE_AUTHENTICATION_INFORMATION,
-    persist: Param3,
-) -> u32 {
+pub unsafe fn SetIScsiIKEInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetIScsiIKEInfoW(
-                initiatorname: super::super::Foundation::PWSTR,
-                initiatorportnumber: u32,
-                authinfo: *mut IKE_AUTHENTICATION_INFORMATION,
-                persist: super::super::Foundation::BOOLEAN,
-            ) -> u32;
+            fn SetIScsiIKEInfoW(initiatorname: super::super::Foundation::PWSTR, initiatorportnumber: u32, authinfo: *mut IKE_AUTHENTICATION_INFORMATION, persist: super::super::Foundation::BOOLEAN) -> u32;
         }
-        ::std::mem::transmute(SetIScsiIKEInfoW(
-            initiatorname.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            ::std::mem::transmute(authinfo),
-            persist.into_param().abi(),
-        ))
+        ::std::mem::transmute(SetIScsiIKEInfoW(initiatorname.into_param().abi(), ::std::mem::transmute(initiatorportnumber), ::std::mem::transmute(authinfo), persist.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SetIScsiInitiatorCHAPSharedSecret(
-    sharedsecretlength: u32,
-    sharedsecret: *mut u8,
-) -> u32 {
+pub unsafe fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetIScsiInitiatorCHAPSharedSecret(
-                sharedsecretlength: u32,
-                sharedsecret: *mut u8,
-            ) -> u32;
+            fn SetIScsiInitiatorCHAPSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32;
         }
-        ::std::mem::transmute(SetIScsiInitiatorCHAPSharedSecret(
-            ::std::mem::transmute(sharedsecretlength),
-            ::std::mem::transmute(sharedsecret),
-        ))
+        ::std::mem::transmute(SetIScsiInitiatorCHAPSharedSecret(::std::mem::transmute(sharedsecretlength), ::std::mem::transmute(sharedsecret)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiInitiatorNodeNameA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
->(
-    initiatornodename: Param0,
-) -> u32 {
+pub unsafe fn SetIScsiInitiatorNodeNameA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>>(initiatornodename: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetIScsiInitiatorNodeNameA(initiatornodename: super::super::Foundation::PSTR)
-                -> u32;
+            fn SetIScsiInitiatorNodeNameA(initiatornodename: super::super::Foundation::PSTR) -> u32;
         }
-        ::std::mem::transmute(SetIScsiInitiatorNodeNameA(
-            initiatornodename.into_param().abi(),
-        ))
+        ::std::mem::transmute(SetIScsiInitiatorNodeNameA(initiatornodename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiInitiatorNodeNameW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    initiatornodename: Param0,
-) -> u32 {
+pub unsafe fn SetIScsiInitiatorNodeNameW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(initiatornodename: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetIScsiInitiatorNodeNameW(
-                initiatornodename: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn SetIScsiInitiatorNodeNameW(initiatornodename: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(SetIScsiInitiatorNodeNameW(
-            initiatornodename.into_param().abi(),
-        ))
+        ::std::mem::transmute(SetIScsiInitiatorNodeNameW(initiatornodename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn SetIScsiInitiatorRADIUSSharedSecret(
-    sharedsecretlength: u32,
-    sharedsecret: *mut u8,
-) -> u32 {
+pub unsafe fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetIScsiInitiatorRADIUSSharedSecret(
-                sharedsecretlength: u32,
-                sharedsecret: *mut u8,
-            ) -> u32;
+            fn SetIScsiInitiatorRADIUSSharedSecret(sharedsecretlength: u32, sharedsecret: *mut u8) -> u32;
         }
-        ::std::mem::transmute(SetIScsiInitiatorRADIUSSharedSecret(
-            ::std::mem::transmute(sharedsecretlength),
-            ::std::mem::transmute(sharedsecret),
-        ))
+        ::std::mem::transmute(SetIScsiInitiatorRADIUSSharedSecret(::std::mem::transmute(sharedsecretlength), ::std::mem::transmute(sharedsecret)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiTunnelModeOuterAddressA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    initiatorname: Param0,
-    initiatorportnumber: u32,
-    destinationaddress: Param2,
-    outermodeaddress: Param3,
-    persist: Param4,
-) -> u32 {
+pub unsafe fn SetIScsiTunnelModeOuterAddressA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, destinationaddress: Param2, outermodeaddress: Param3, persist: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetIScsiTunnelModeOuterAddressA(
-                initiatorname: super::super::Foundation::PSTR,
-                initiatorportnumber: u32,
-                destinationaddress: super::super::Foundation::PSTR,
-                outermodeaddress: super::super::Foundation::PSTR,
-                persist: super::super::Foundation::BOOLEAN,
-            ) -> u32;
+            fn SetIScsiTunnelModeOuterAddressA(initiatorname: super::super::Foundation::PSTR, initiatorportnumber: u32, destinationaddress: super::super::Foundation::PSTR, outermodeaddress: super::super::Foundation::PSTR, persist: super::super::Foundation::BOOLEAN) -> u32;
         }
-        ::std::mem::transmute(SetIScsiTunnelModeOuterAddressA(
-            initiatorname.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            destinationaddress.into_param().abi(),
-            outermodeaddress.into_param().abi(),
-            persist.into_param().abi(),
-        ))
+        ::std::mem::transmute(SetIScsiTunnelModeOuterAddressA(initiatorname.into_param().abi(), ::std::mem::transmute(initiatorportnumber), destinationaddress.into_param().abi(), outermodeaddress.into_param().abi(), persist.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn SetIScsiTunnelModeOuterAddressW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>,
->(
-    initiatorname: Param0,
-    initiatorportnumber: u32,
-    destinationaddress: Param2,
-    outermodeaddress: Param3,
-    persist: Param4,
-) -> u32 {
+pub unsafe fn SetIScsiTunnelModeOuterAddressW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOLEAN>>(initiatorname: Param0, initiatorportnumber: u32, destinationaddress: Param2, outermodeaddress: Param3, persist: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn SetIScsiTunnelModeOuterAddressW(
-                initiatorname: super::super::Foundation::PWSTR,
-                initiatorportnumber: u32,
-                destinationaddress: super::super::Foundation::PWSTR,
-                outermodeaddress: super::super::Foundation::PWSTR,
-                persist: super::super::Foundation::BOOLEAN,
-            ) -> u32;
+            fn SetIScsiTunnelModeOuterAddressW(initiatorname: super::super::Foundation::PWSTR, initiatorportnumber: u32, destinationaddress: super::super::Foundation::PWSTR, outermodeaddress: super::super::Foundation::PWSTR, persist: super::super::Foundation::BOOLEAN) -> u32;
         }
-        ::std::mem::transmute(SetIScsiTunnelModeOuterAddressW(
-            initiatorname.into_param().abi(),
-            ::std::mem::transmute(initiatorportnumber),
-            destinationaddress.into_param().abi(),
-            outermodeaddress.into_param().abi(),
-            persist.into_param().abi(),
-        ))
+        ::std::mem::transmute(SetIScsiTunnelModeOuterAddressW(initiatorname.into_param().abi(), ::std::mem::transmute(initiatorportnumber), destinationaddress.into_param().abi(), outermodeaddress.into_param().abi(), persist.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6689,14 +5094,7 @@ pub unsafe fn SetupPersistentIScsiVolumes() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TARGETPROTOCOLTYPE(pub i32);
 pub const ISCSI_TCP_PROTOCOL_TYPE: TARGETPROTOCOLTYPE = TARGETPROTOCOLTYPE(0i32);
@@ -6709,14 +5107,7 @@ unsafe impl ::windows::runtime::Abi for TARGETPROTOCOLTYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct TARGET_INFORMATION_CLASS(pub i32);
 pub const ProtocolType: TARGET_INFORMATION_CLASS = TARGET_INFORMATION_CLASS(0i32);
@@ -6736,19 +5127,7 @@ unsafe impl ::windows::runtime::Abi for TARGET_INFORMATION_CLASS {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const WmiScsiAddressGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1408590607,
-    46783,
-    4560,
-    [148, 242, 0, 160, 201, 30, 251, 139],
-);
+pub const WmiScsiAddressGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1408590607, 46783, 4560, [148, 242, 0, 160, 201, 30, 251, 139]);
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct _ADAPTER_OBJECT(pub u8);

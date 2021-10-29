@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const ADDRESS_TYPE_IANA: u32 = 0u32;
 pub const ADDRESS_TYPE_IATA: u32 = 1u32;
 pub const CHANGESTATE: u32 = 4u32;
@@ -29,10 +21,7 @@ impl ::std::default::Default for DATE_TIME {
 }
 impl ::std::fmt::Debug for DATE_TIME {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DATE_TIME")
-            .field("dwLowDateTime", &self.dwLowDateTime)
-            .field("dwHighDateTime", &self.dwHighDateTime)
-            .finish()
+        fmt.debug_struct("DATE_TIME").field("dwLowDateTime", &self.dwLowDateTime).field("dwHighDateTime", &self.dwHighDateTime).finish()
     }
 }
 impl ::std::cmp::PartialEq for DATE_TIME {
@@ -66,23 +55,13 @@ impl ::std::default::Default for DHCPAPI_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCPAPI_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPAPI_PARAMS")
-            .field("Flags", &self.Flags)
-            .field("OptionId", &self.OptionId)
-            .field("IsVendor", &self.IsVendor)
-            .field("Data", &self.Data)
-            .field("nBytesData", &self.nBytesData)
-            .finish()
+        fmt.debug_struct("DHCPAPI_PARAMS").field("Flags", &self.Flags).field("OptionId", &self.OptionId).field("IsVendor", &self.IsVendor).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCPAPI_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.OptionId == other.OptionId
-            && self.IsVendor == other.IsVendor
-            && self.Data == other.Data
-            && self.nBytesData == other.nBytesData
+        self.Flags == other.Flags && self.OptionId == other.OptionId && self.IsVendor == other.IsVendor && self.Data == other.Data && self.nBytesData == other.nBytesData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -107,11 +86,7 @@ impl ::std::default::Default for DHCPCAPI_CLASSID {
 }
 impl ::std::fmt::Debug for DHCPCAPI_CLASSID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPCAPI_CLASSID")
-            .field("Flags", &self.Flags)
-            .field("Data", &self.Data)
-            .field("nBytesData", &self.nBytesData)
-            .finish()
+        fmt.debug_struct("DHCPCAPI_CLASSID").field("Flags", &self.Flags).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCPCAPI_CLASSID {
@@ -143,10 +118,7 @@ impl ::std::default::Default for DHCPCAPI_PARAMS_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCPCAPI_PARAMS_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPCAPI_PARAMS_ARRAY")
-            .field("nParams", &self.nParams)
-            .field("Params", &self.Params)
-            .finish()
+        fmt.debug_struct("DHCPCAPI_PARAMS_ARRAY").field("nParams", &self.nParams).field("Params", &self.Params).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -191,27 +163,13 @@ impl ::std::default::Default for DHCPDS_SERVER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCPDS_SERVER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPDS_SERVER")
-            .field("Version", &self.Version)
-            .field("ServerName", &self.ServerName)
-            .field("ServerAddress", &self.ServerAddress)
-            .field("Flags", &self.Flags)
-            .field("State", &self.State)
-            .field("DsLocation", &self.DsLocation)
-            .field("DsLocType", &self.DsLocType)
-            .finish()
+        fmt.debug_struct("DHCPDS_SERVER").field("Version", &self.Version).field("ServerName", &self.ServerName).field("ServerAddress", &self.ServerAddress).field("Flags", &self.Flags).field("State", &self.State).field("DsLocation", &self.DsLocation).field("DsLocType", &self.DsLocType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCPDS_SERVER {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.ServerName == other.ServerName
-            && self.ServerAddress == other.ServerAddress
-            && self.Flags == other.Flags
-            && self.State == other.State
-            && self.DsLocation == other.DsLocation
-            && self.DsLocType == other.DsLocType
+        self.Version == other.Version && self.ServerName == other.ServerName && self.ServerAddress == other.ServerAddress && self.Flags == other.Flags && self.State == other.State && self.DsLocation == other.DsLocation && self.DsLocType == other.DsLocType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -240,19 +198,13 @@ impl ::std::default::Default for DHCPDS_SERVERS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCPDS_SERVERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPDS_SERVERS")
-            .field("Flags", &self.Flags)
-            .field("NumElements", &self.NumElements)
-            .field("Servers", &self.Servers)
-            .finish()
+        fmt.debug_struct("DHCPDS_SERVERS").field("Flags", &self.Flags).field("NumElements", &self.NumElements).field("Servers", &self.Servers).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCPDS_SERVERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.NumElements == other.NumElements
-            && self.Servers == other.Servers
+        self.Flags == other.Flags && self.NumElements == other.NumElements && self.Servers == other.Servers
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -375,10 +327,7 @@ impl ::std::default::Default for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCPV4_FAILOVER_CLIENT_INFO_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPV4_FAILOVER_CLIENT_INFO_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Clients", &self.Clients)
-            .finish()
+        fmt.debug_struct("DHCPV4_FAILOVER_CLIENT_INFO_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -507,11 +456,7 @@ impl ::std::default::Default for DHCPV6CAPI_CLASSID {
 }
 impl ::std::fmt::Debug for DHCPV6CAPI_CLASSID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPV6CAPI_CLASSID")
-            .field("Flags", &self.Flags)
-            .field("Data", &self.Data)
-            .field("nBytesData", &self.nBytesData)
-            .finish()
+        fmt.debug_struct("DHCPV6CAPI_CLASSID").field("Flags", &self.Flags).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCPV6CAPI_CLASSID {
@@ -545,23 +490,13 @@ impl ::std::default::Default for DHCPV6CAPI_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCPV6CAPI_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPV6CAPI_PARAMS")
-            .field("Flags", &self.Flags)
-            .field("OptionId", &self.OptionId)
-            .field("IsVendor", &self.IsVendor)
-            .field("Data", &self.Data)
-            .field("nBytesData", &self.nBytesData)
-            .finish()
+        fmt.debug_struct("DHCPV6CAPI_PARAMS").field("Flags", &self.Flags).field("OptionId", &self.OptionId).field("IsVendor", &self.IsVendor).field("Data", &self.Data).field("nBytesData", &self.nBytesData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCPV6CAPI_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.OptionId == other.OptionId
-            && self.IsVendor == other.IsVendor
-            && self.Data == other.Data
-            && self.nBytesData == other.nBytesData
+        self.Flags == other.Flags && self.OptionId == other.OptionId && self.IsVendor == other.IsVendor && self.Data == other.Data && self.nBytesData == other.nBytesData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -589,10 +524,7 @@ impl ::std::default::Default for DHCPV6CAPI_PARAMS_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCPV6CAPI_PARAMS_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPV6CAPI_PARAMS_ARRAY")
-            .field("nParams", &self.nParams)
-            .field("Params", &self.Params)
-            .finish()
+        fmt.debug_struct("DHCPV6CAPI_PARAMS_ARRAY").field("nParams", &self.nParams).field("Params", &self.Params).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -625,22 +557,12 @@ impl ::std::default::Default for DHCPV6Prefix {
 }
 impl ::std::fmt::Debug for DHCPV6Prefix {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPV6Prefix")
-            .field("prefix", &self.prefix)
-            .field("prefixLength", &self.prefixLength)
-            .field("preferredLifeTime", &self.preferredLifeTime)
-            .field("validLifeTime", &self.validLifeTime)
-            .field("status", &self.status)
-            .finish()
+        fmt.debug_struct("DHCPV6Prefix").field("prefix", &self.prefix).field("prefixLength", &self.prefixLength).field("preferredLifeTime", &self.preferredLifeTime).field("validLifeTime", &self.validLifeTime).field("status", &self.status).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCPV6Prefix {
     fn eq(&self, other: &Self) -> bool {
-        self.prefix == other.prefix
-            && self.prefixLength == other.prefixLength
-            && self.preferredLifeTime == other.preferredLifeTime
-            && self.validLifeTime == other.validLifeTime
-            && self.status == other.status
+        self.prefix == other.prefix && self.prefixLength == other.prefixLength && self.preferredLifeTime == other.preferredLifeTime && self.validLifeTime == other.validLifeTime && self.status == other.status
     }
 }
 impl ::std::cmp::Eq for DHCPV6Prefix {}
@@ -686,16 +608,7 @@ impl ::std::fmt::Debug for DHCPV6PrefixLeaseInformation {
 }
 impl ::std::cmp::PartialEq for DHCPV6PrefixLeaseInformation {
     fn eq(&self, other: &Self) -> bool {
-        self.nPrefixes == other.nPrefixes
-            && self.prefixArray == other.prefixArray
-            && self.iaid == other.iaid
-            && self.T1 == other.T1
-            && self.T2 == other.T2
-            && self.MaxLeaseExpirationTime == other.MaxLeaseExpirationTime
-            && self.LastRenewalTime == other.LastRenewalTime
-            && self.status == other.status
-            && self.ServerId == other.ServerId
-            && self.ServerIdLen == other.ServerIdLen
+        self.nPrefixes == other.nPrefixes && self.prefixArray == other.prefixArray && self.iaid == other.iaid && self.T1 == other.T1 && self.T2 == other.T2 && self.MaxLeaseExpirationTime == other.MaxLeaseExpirationTime && self.LastRenewalTime == other.LastRenewalTime && self.status == other.status && self.ServerId == other.ServerId && self.ServerIdLen == other.ServerIdLen
     }
 }
 impl ::std::cmp::Eq for DHCPV6PrefixLeaseInformation {}
@@ -742,14 +655,7 @@ impl ::std::fmt::Debug for DHCPV6_BIND_ELEMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCPV6_BIND_ELEMENT {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.fBoundToDHCPServer == other.fBoundToDHCPServer
-            && self.AdapterPrimaryAddress == other.AdapterPrimaryAddress
-            && self.AdapterSubnetAddress == other.AdapterSubnetAddress
-            && self.IfDescription == other.IfDescription
-            && self.IpV6IfIndex == other.IpV6IfIndex
-            && self.IfIdSize == other.IfIdSize
-            && self.IfId == other.IfId
+        self.Flags == other.Flags && self.fBoundToDHCPServer == other.fBoundToDHCPServer && self.AdapterPrimaryAddress == other.AdapterPrimaryAddress && self.AdapterSubnetAddress == other.AdapterSubnetAddress && self.IfDescription == other.IfDescription && self.IpV6IfIndex == other.IpV6IfIndex && self.IfIdSize == other.IfIdSize && self.IfId == other.IfId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -777,10 +683,7 @@ impl ::std::default::Default for DHCPV6_BIND_ELEMENT_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCPV6_BIND_ELEMENT_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPV6_BIND_ELEMENT_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCPV6_BIND_ELEMENT_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -810,10 +713,7 @@ impl ::std::default::Default for DHCPV6_IP_ARRAY {
 }
 impl ::std::fmt::Debug for DHCPV6_IP_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPV6_IP_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCPV6_IP_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCPV6_IP_ARRAY {
@@ -865,10 +765,7 @@ impl ::std::default::Default for DHCPV6_STATELESS_PARAMS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCPV6_STATELESS_PARAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPV6_STATELESS_PARAMS")
-            .field("Status", &self.Status)
-            .field("PurgeInterval", &self.PurgeInterval)
-            .finish()
+        fmt.debug_struct("DHCPV6_STATELESS_PARAMS").field("Status", &self.Status).field("PurgeInterval", &self.PurgeInterval).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -884,18 +781,10 @@ unsafe impl ::windows::runtime::Abi for DHCPV6_STATELESS_PARAMS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCPV6_STATELESS_PARAM_TYPE(pub i32);
-pub const DhcpStatelessPurgeInterval: DHCPV6_STATELESS_PARAM_TYPE =
-    DHCPV6_STATELESS_PARAM_TYPE(1i32);
+pub const DhcpStatelessPurgeInterval: DHCPV6_STATELESS_PARAM_TYPE = DHCPV6_STATELESS_PARAM_TYPE(1i32);
 pub const DhcpStatelessStatus: DHCPV6_STATELESS_PARAM_TYPE = DHCPV6_STATELESS_PARAM_TYPE(2i32);
 impl ::std::convert::From<i32> for DHCPV6_STATELESS_PARAM_TYPE {
     fn from(value: i32) -> Self {
@@ -921,21 +810,12 @@ impl ::std::default::Default for DHCPV6_STATELESS_SCOPE_STATS {
 }
 impl ::std::fmt::Debug for DHCPV6_STATELESS_SCOPE_STATS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPV6_STATELESS_SCOPE_STATS")
-            .field("SubnetAddress", &self.SubnetAddress)
-            .field("NumStatelessClientsAdded", &self.NumStatelessClientsAdded)
-            .field(
-                "NumStatelessClientsRemoved",
-                &self.NumStatelessClientsRemoved,
-            )
-            .finish()
+        fmt.debug_struct("DHCPV6_STATELESS_SCOPE_STATS").field("SubnetAddress", &self.SubnetAddress).field("NumStatelessClientsAdded", &self.NumStatelessClientsAdded).field("NumStatelessClientsRemoved", &self.NumStatelessClientsRemoved).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCPV6_STATELESS_SCOPE_STATS {
     fn eq(&self, other: &Self) -> bool {
-        self.SubnetAddress == other.SubnetAddress
-            && self.NumStatelessClientsAdded == other.NumStatelessClientsAdded
-            && self.NumStatelessClientsRemoved == other.NumStatelessClientsRemoved
+        self.SubnetAddress == other.SubnetAddress && self.NumStatelessClientsAdded == other.NumStatelessClientsAdded && self.NumStatelessClientsRemoved == other.NumStatelessClientsRemoved
     }
 }
 impl ::std::cmp::Eq for DHCPV6_STATELESS_SCOPE_STATS {}
@@ -957,10 +837,7 @@ impl ::std::default::Default for DHCPV6_STATELESS_STATS {
 }
 impl ::std::fmt::Debug for DHCPV6_STATELESS_STATS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCPV6_STATELESS_STATS")
-            .field("NumScopes", &self.NumScopes)
-            .field("ScopeStats", &self.ScopeStats)
-            .finish()
+        fmt.debug_struct("DHCPV6_STATELESS_STATS").field("NumScopes", &self.NumScopes).field("ScopeStats", &self.ScopeStats).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCPV6_STATELESS_STATS {
@@ -994,23 +871,13 @@ impl ::std::default::Default for DHCP_ADDR_PATTERN {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_ADDR_PATTERN {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_ADDR_PATTERN")
-            .field("MatchHWType", &self.MatchHWType)
-            .field("HWType", &self.HWType)
-            .field("IsWildcard", &self.IsWildcard)
-            .field("Length", &self.Length)
-            .field("Pattern", &self.Pattern)
-            .finish()
+        fmt.debug_struct("DHCP_ADDR_PATTERN").field("MatchHWType", &self.MatchHWType).field("HWType", &self.HWType).field("IsWildcard", &self.IsWildcard).field("Length", &self.Length).field("Pattern", &self.Pattern).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_ADDR_PATTERN {
     fn eq(&self, other: &Self) -> bool {
-        self.MatchHWType == other.MatchHWType
-            && self.HWType == other.HWType
-            && self.IsWildcard == other.IsWildcard
-            && self.Length == other.Length
-            && self.Pattern == other.Pattern
+        self.MatchHWType == other.MatchHWType && self.HWType == other.HWType && self.IsWildcard == other.IsWildcard && self.Length == other.Length && self.Pattern == other.Pattern
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1040,21 +907,13 @@ impl ::std::default::Default for DHCP_ALL_OPTIONS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_ALL_OPTIONS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_ALL_OPTIONS")
-            .field("Flags", &self.Flags)
-            .field("NonVendorOptions", &self.NonVendorOptions)
-            .field("NumVendorOptions", &self.NumVendorOptions)
-            .field("VendorOptions", &self.VendorOptions)
-            .finish()
+        fmt.debug_struct("DHCP_ALL_OPTIONS").field("Flags", &self.Flags).field("NonVendorOptions", &self.NonVendorOptions).field("NumVendorOptions", &self.NumVendorOptions).field("VendorOptions", &self.VendorOptions).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_ALL_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.NonVendorOptions == other.NonVendorOptions
-            && self.NumVendorOptions == other.NumVendorOptions
-            && self.VendorOptions == other.VendorOptions
+        self.Flags == other.Flags && self.NonVendorOptions == other.NonVendorOptions && self.NumVendorOptions == other.NumVendorOptions && self.VendorOptions == other.VendorOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1083,19 +942,13 @@ impl ::std::default::Default for DHCP_ALL_OPTIONS_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_ALL_OPTIONS_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Option", &self.Option)
-            .field("VendorName", &self.VendorName)
-            .field("ClassName", &self.ClassName)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("Option", &self.Option).field("VendorName", &self.VendorName).field("ClassName", &self.ClassName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_ALL_OPTIONS_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.Option == other.Option
-            && self.VendorName == other.VendorName
-            && self.ClassName == other.ClassName
+        self.Option == other.Option && self.VendorName == other.VendorName && self.ClassName == other.ClassName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1124,19 +977,13 @@ impl ::std::default::Default for DHCP_ALL_OPTION_VALUES {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_ALL_OPTION_VALUES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_ALL_OPTION_VALUES")
-            .field("Flags", &self.Flags)
-            .field("NumElements", &self.NumElements)
-            .field("Options", &self.Options)
-            .finish()
+        fmt.debug_struct("DHCP_ALL_OPTION_VALUES").field("Flags", &self.Flags).field("NumElements", &self.NumElements).field("Options", &self.Options).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_ALL_OPTION_VALUES {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.NumElements == other.NumElements
-            && self.Options == other.Options
+        self.Flags == other.Flags && self.NumElements == other.NumElements && self.Options == other.Options
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1166,21 +1013,13 @@ impl ::std::default::Default for DHCP_ALL_OPTION_VALUES_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_ALL_OPTION_VALUES_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("ClassName", &self.ClassName)
-            .field("VendorName", &self.VendorName)
-            .field("IsVendor", &self.IsVendor)
-            .field("OptionsArray", &self.OptionsArray)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("ClassName", &self.ClassName).field("VendorName", &self.VendorName).field("IsVendor", &self.IsVendor).field("OptionsArray", &self.OptionsArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.ClassName == other.ClassName
-            && self.VendorName == other.VendorName
-            && self.IsVendor == other.IsVendor
-            && self.OptionsArray == other.OptionsArray
+        self.ClassName == other.ClassName && self.VendorName == other.VendorName && self.IsVendor == other.IsVendor && self.OptionsArray == other.OptionsArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1209,19 +1048,13 @@ impl ::std::default::Default for DHCP_ALL_OPTION_VALUES_PB {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_ALL_OPTION_VALUES_PB {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_ALL_OPTION_VALUES_PB")
-            .field("Flags", &self.Flags)
-            .field("NumElements", &self.NumElements)
-            .field("Options", &self.Options)
-            .finish()
+        fmt.debug_struct("DHCP_ALL_OPTION_VALUES_PB").field("Flags", &self.Flags).field("NumElements", &self.NumElements).field("Options", &self.Options).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_PB {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.NumElements == other.NumElements
-            && self.Options == other.Options
+        self.Flags == other.Flags && self.NumElements == other.NumElements && self.Options == other.Options
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1251,21 +1084,13 @@ impl ::std::default::Default for DHCP_ALL_OPTION_VALUES_PB_0 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_ALL_OPTION_VALUES_PB_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("PolicyName", &self.PolicyName)
-            .field("VendorName", &self.VendorName)
-            .field("IsVendor", &self.IsVendor)
-            .field("OptionsArray", &self.OptionsArray)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("PolicyName", &self.PolicyName).field("VendorName", &self.VendorName).field("IsVendor", &self.IsVendor).field("OptionsArray", &self.OptionsArray).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_ALL_OPTION_VALUES_PB_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.PolicyName == other.PolicyName
-            && self.VendorName == other.VendorName
-            && self.IsVendor == other.IsVendor
-            && self.OptionsArray == other.OptionsArray
+        self.PolicyName == other.PolicyName && self.VendorName == other.VendorName && self.IsVendor == other.IsVendor && self.OptionsArray == other.OptionsArray
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1350,10 +1175,7 @@ impl ::std::default::Default for DHCP_ATTRIB_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_ATTRIB_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_ATTRIB_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("DhcpAttribs", &self.DhcpAttribs)
-            .finish()
+        fmt.debug_struct("DHCP_ATTRIB_ARRAY").field("NumElements", &self.NumElements).field("DhcpAttribs", &self.DhcpAttribs).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1391,10 +1213,7 @@ impl ::std::default::Default for DHCP_BINARY_DATA {
 }
 impl ::std::fmt::Debug for DHCP_BINARY_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_BINARY_DATA")
-            .field("DataLength", &self.DataLength)
-            .field("Data", &self.Data)
-            .finish()
+        fmt.debug_struct("DHCP_BINARY_DATA").field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_BINARY_DATA {
@@ -1444,13 +1263,7 @@ impl ::std::fmt::Debug for DHCP_BIND_ELEMENT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_BIND_ELEMENT {
     fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.fBoundToDHCPServer == other.fBoundToDHCPServer
-            && self.AdapterPrimaryAddress == other.AdapterPrimaryAddress
-            && self.AdapterSubnetAddress == other.AdapterSubnetAddress
-            && self.IfDescription == other.IfDescription
-            && self.IfIdSize == other.IfIdSize
-            && self.IfId == other.IfId
+        self.Flags == other.Flags && self.fBoundToDHCPServer == other.fBoundToDHCPServer && self.AdapterPrimaryAddress == other.AdapterPrimaryAddress && self.AdapterSubnetAddress == other.AdapterSubnetAddress && self.IfDescription == other.IfDescription && self.IfIdSize == other.IfIdSize && self.IfId == other.IfId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1478,10 +1291,7 @@ impl ::std::default::Default for DHCP_BIND_ELEMENT_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_BIND_ELEMENT_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_BIND_ELEMENT_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_BIND_ELEMENT_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1513,20 +1323,12 @@ impl ::std::default::Default for DHCP_BOOTP_IP_RANGE {
 }
 impl ::std::fmt::Debug for DHCP_BOOTP_IP_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_BOOTP_IP_RANGE")
-            .field("StartAddress", &self.StartAddress)
-            .field("EndAddress", &self.EndAddress)
-            .field("BootpAllocated", &self.BootpAllocated)
-            .field("MaxBootpAllowed", &self.MaxBootpAllowed)
-            .finish()
+        fmt.debug_struct("DHCP_BOOTP_IP_RANGE").field("StartAddress", &self.StartAddress).field("EndAddress", &self.EndAddress).field("BootpAllocated", &self.BootpAllocated).field("MaxBootpAllowed", &self.MaxBootpAllowed).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_BOOTP_IP_RANGE {
     fn eq(&self, other: &Self) -> bool {
-        self.StartAddress == other.StartAddress
-            && self.EndAddress == other.EndAddress
-            && self.BootpAllocated == other.BootpAllocated
-            && self.MaxBootpAllowed == other.MaxBootpAllowed
+        self.StartAddress == other.StartAddress && self.EndAddress == other.EndAddress && self.BootpAllocated == other.BootpAllocated && self.MaxBootpAllowed == other.MaxBootpAllowed
     }
 }
 impl ::std::cmp::Eq for DHCP_BOOTP_IP_RANGE {}
@@ -1560,10 +1362,7 @@ impl ::std::default::Default for DHCP_CALLOUT_TABLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_CALLOUT_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_CALLOUT_TABLE")
-            .field("DhcpExtensionHook", &self.DhcpExtensionHook)
-            .field("DhcpReservedHook", &self.DhcpReservedHook)
-            .finish()
+        fmt.debug_struct("DHCP_CALLOUT_TABLE").field("DhcpExtensionHook", &self.DhcpExtensionHook).field("DhcpReservedHook", &self.DhcpReservedHook).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1573,14 +1372,10 @@ impl ::std::cmp::PartialEq for DHCP_CALLOUT_TABLE {
             && self.DhcpNewPktHook.map(|f| f as usize) == other.DhcpNewPktHook.map(|f| f as usize)
             && self.DhcpPktDropHook.map(|f| f as usize) == other.DhcpPktDropHook.map(|f| f as usize)
             && self.DhcpPktSendHook.map(|f| f as usize) == other.DhcpPktSendHook.map(|f| f as usize)
-            && self.DhcpAddressDelHook.map(|f| f as usize)
-                == other.DhcpAddressDelHook.map(|f| f as usize)
-            && self.DhcpAddressOfferHook.map(|f| f as usize)
-                == other.DhcpAddressOfferHook.map(|f| f as usize)
-            && self.DhcpHandleOptionsHook.map(|f| f as usize)
-                == other.DhcpHandleOptionsHook.map(|f| f as usize)
-            && self.DhcpDeleteClientHook.map(|f| f as usize)
-                == other.DhcpDeleteClientHook.map(|f| f as usize)
+            && self.DhcpAddressDelHook.map(|f| f as usize) == other.DhcpAddressDelHook.map(|f| f as usize)
+            && self.DhcpAddressOfferHook.map(|f| f as usize) == other.DhcpAddressOfferHook.map(|f| f as usize)
+            && self.DhcpHandleOptionsHook.map(|f| f as usize) == other.DhcpHandleOptionsHook.map(|f| f as usize)
+            && self.DhcpDeleteClientHook.map(|f| f as usize) == other.DhcpDeleteClientHook.map(|f| f as usize)
             && self.DhcpExtensionHook == other.DhcpExtensionHook
             && self.DhcpReservedHook == other.DhcpReservedHook
     }
@@ -1614,25 +1409,13 @@ impl ::std::default::Default for DHCP_CLASS_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_CLASS_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_CLASS_INFO")
-            .field("ClassName", &self.ClassName)
-            .field("ClassComment", &self.ClassComment)
-            .field("ClassDataLength", &self.ClassDataLength)
-            .field("IsVendor", &self.IsVendor)
-            .field("Flags", &self.Flags)
-            .field("ClassData", &self.ClassData)
-            .finish()
+        fmt.debug_struct("DHCP_CLASS_INFO").field("ClassName", &self.ClassName).field("ClassComment", &self.ClassComment).field("ClassDataLength", &self.ClassDataLength).field("IsVendor", &self.IsVendor).field("Flags", &self.Flags).field("ClassData", &self.ClassData).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_CLASS_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ClassName == other.ClassName
-            && self.ClassComment == other.ClassComment
-            && self.ClassDataLength == other.ClassDataLength
-            && self.IsVendor == other.IsVendor
-            && self.Flags == other.Flags
-            && self.ClassData == other.ClassData
+        self.ClassName == other.ClassName && self.ClassComment == other.ClassComment && self.ClassDataLength == other.ClassDataLength && self.IsVendor == other.IsVendor && self.Flags == other.Flags && self.ClassData == other.ClassData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1660,10 +1443,7 @@ impl ::std::default::Default for DHCP_CLASS_INFO_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_CLASS_INFO_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_CLASS_INFO_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Classes", &self.Classes)
-            .finish()
+        fmt.debug_struct("DHCP_CLASS_INFO_ARRAY").field("NumElements", &self.NumElements).field("Classes", &self.Classes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1697,10 +1477,7 @@ impl ::std::default::Default for DHCP_CLASS_INFO_ARRAY_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_CLASS_INFO_ARRAY_V6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_CLASS_INFO_ARRAY_V6")
-            .field("NumElements", &self.NumElements)
-            .field("Classes", &self.Classes)
-            .finish()
+        fmt.debug_struct("DHCP_CLASS_INFO_ARRAY_V6").field("NumElements", &self.NumElements).field("Classes", &self.Classes).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1753,13 +1530,7 @@ impl ::std::fmt::Debug for DHCP_CLASS_INFO_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_CLASS_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        self.ClassName == other.ClassName
-            && self.ClassComment == other.ClassComment
-            && self.ClassDataLength == other.ClassDataLength
-            && self.IsVendor == other.IsVendor
-            && self.EnterpriseNumber == other.EnterpriseNumber
-            && self.Flags == other.Flags
-            && self.ClassData == other.ClassData
+        self.ClassName == other.ClassName && self.ClassComment == other.ClassComment && self.ClassDataLength == other.ClassDataLength && self.IsVendor == other.IsVendor && self.EnterpriseNumber == other.EnterpriseNumber && self.Flags == other.Flags && self.ClassData == other.ClassData
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1860,10 +1631,7 @@ impl ::std::default::Default for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Clients", &self.Clients)
-            .finish()
+        fmt.debug_struct("DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1916,13 +1684,7 @@ impl ::std::fmt::Debug for DHCP_CLIENT_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_CLIENT_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress
-            && self.SubnetMask == other.SubnetMask
-            && self.ClientHardwareAddress == other.ClientHardwareAddress
-            && self.ClientName == other.ClientName
-            && self.ClientComment == other.ClientComment
-            && self.ClientLeaseExpires == other.ClientLeaseExpires
-            && self.OwnerHost == other.OwnerHost
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1950,10 +1712,7 @@ impl ::std::default::Default for DHCP_CLIENT_INFO_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_CLIENT_INFO_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Clients", &self.Clients)
-            .finish()
+        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1987,10 +1746,7 @@ impl ::std::default::Default for DHCP_CLIENT_INFO_ARRAY_V4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_V4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY_V4")
-            .field("NumElements", &self.NumElements)
-            .field("Clients", &self.Clients)
-            .finish()
+        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY_V4").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2024,10 +1780,7 @@ impl ::std::default::Default for DHCP_CLIENT_INFO_ARRAY_V5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_V5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY_V5")
-            .field("NumElements", &self.NumElements)
-            .field("Clients", &self.Clients)
-            .finish()
+        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY_V5").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2061,10 +1814,7 @@ impl ::std::default::Default for DHCP_CLIENT_INFO_ARRAY_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_V6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY_V6")
-            .field("NumElements", &self.NumElements)
-            .field("Clients", &self.Clients)
-            .finish()
+        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY_V6").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2098,10 +1848,7 @@ impl ::std::default::Default for DHCP_CLIENT_INFO_ARRAY_VQ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_CLIENT_INFO_ARRAY_VQ {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY_VQ")
-            .field("NumElements", &self.NumElements)
-            .field("Clients", &self.Clients)
-            .finish()
+        fmt.debug_struct("DHCP_CLIENT_INFO_ARRAY_VQ").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2212,10 +1959,7 @@ impl ::std::default::Default for DHCP_CLIENT_INFO_EX_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_CLIENT_INFO_EX_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_EX_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Clients", &self.Clients)
-            .finish()
+        fmt.debug_struct("DHCP_CLIENT_INFO_EX_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2323,10 +2067,7 @@ impl ::std::default::Default for DHCP_CLIENT_INFO_PB_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_CLIENT_INFO_PB_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_CLIENT_INFO_PB_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Clients", &self.Clients)
-            .finish()
+        fmt.debug_struct("DHCP_CLIENT_INFO_PB_ARRAY").field("NumElements", &self.NumElements).field("Clients", &self.Clients).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2381,14 +2122,7 @@ impl ::std::fmt::Debug for DHCP_CLIENT_INFO_V4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_CLIENT_INFO_V4 {
     fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress
-            && self.SubnetMask == other.SubnetMask
-            && self.ClientHardwareAddress == other.ClientHardwareAddress
-            && self.ClientName == other.ClientName
-            && self.ClientComment == other.ClientComment
-            && self.ClientLeaseExpires == other.ClientLeaseExpires
-            && self.OwnerHost == other.OwnerHost
-            && self.bClientType == other.bClientType
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2439,15 +2173,7 @@ impl ::std::fmt::Debug for DHCP_CLIENT_INFO_V5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_CLIENT_INFO_V5 {
     fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress
-            && self.SubnetMask == other.SubnetMask
-            && self.ClientHardwareAddress == other.ClientHardwareAddress
-            && self.ClientName == other.ClientName
-            && self.ClientComment == other.ClientComment
-            && self.ClientLeaseExpires == other.ClientLeaseExpires
-            && self.OwnerHost == other.OwnerHost
-            && self.bClientType == other.bClientType
-            && self.AddressState == other.AddressState
+        self.ClientIpAddress == other.ClientIpAddress && self.SubnetMask == other.SubnetMask && self.ClientHardwareAddress == other.ClientHardwareAddress && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientLeaseExpires == other.ClientLeaseExpires && self.OwnerHost == other.OwnerHost && self.bClientType == other.bClientType && self.AddressState == other.AddressState
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2498,15 +2224,7 @@ impl ::std::fmt::Debug for DHCP_CLIENT_INFO_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_CLIENT_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        self.ClientIpAddress == other.ClientIpAddress
-            && self.ClientDUID == other.ClientDUID
-            && self.AddressType == other.AddressType
-            && self.IAID == other.IAID
-            && self.ClientName == other.ClientName
-            && self.ClientComment == other.ClientComment
-            && self.ClientValidLeaseExpires == other.ClientValidLeaseExpires
-            && self.ClientPrefLeaseExpires == other.ClientPrefLeaseExpires
-            && self.OwnerHost == other.OwnerHost
+        self.ClientIpAddress == other.ClientIpAddress && self.ClientDUID == other.ClientDUID && self.AddressType == other.AddressType && self.IAID == other.IAID && self.ClientName == other.ClientName && self.ClientComment == other.ClientComment && self.ClientValidLeaseExpires == other.ClientValidLeaseExpires && self.ClientPrefLeaseExpires == other.ClientPrefLeaseExpires && self.OwnerHost == other.OwnerHost
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2585,14 +2303,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_CLIENT_INFO_VQ {
     type DefaultType = Self;
 }
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct DHCP_CLIENT_SEARCH_UNION(pub u8);
 pub const DHCP_CONTROL_CONTINUE: u32 = 4u32;
 pub const DHCP_CONTROL_PAUSE: u32 = 3u32;
@@ -2614,14 +2325,7 @@ pub const DHCP_ENDPOINT_FLAG_CANT_MODIFY: u32 = 1u32;
 pub const DHCP_FAILOVER_DELETE_SCOPES: u32 = 1u32;
 pub const DHCP_FAILOVER_MAX_NUM_ADD_SCOPES: u32 = 400u32;
 pub const DHCP_FAILOVER_MAX_NUM_REL: u32 = 31u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_FAILOVER_MODE(pub i32);
 pub const LoadBalance: DHCP_FAILOVER_MODE = DHCP_FAILOVER_MODE(0i32);
@@ -2727,10 +2431,7 @@ impl ::std::default::Default for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_FAILOVER_RELATIONSHIP_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("pRelationships", &self.pRelationships)
-            .finish()
+        fmt.debug_struct("DHCP_FAILOVER_RELATIONSHIP_ARRAY").field("NumElements", &self.NumElements).field("pRelationships", &self.pRelationships).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2746,14 +2447,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_FAILOVER_RELATIONSHIP_ARRAY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_FAILOVER_SERVER(pub i32);
 pub const PrimaryServer: DHCP_FAILOVER_SERVER = DHCP_FAILOVER_SERVER(0i32);
@@ -2799,13 +2493,7 @@ impl ::std::fmt::Debug for DHCP_FAILOVER_STATISTICS {
 }
 impl ::std::cmp::PartialEq for DHCP_FAILOVER_STATISTICS {
     fn eq(&self, other: &Self) -> bool {
-        self.NumAddr == other.NumAddr
-            && self.AddrFree == other.AddrFree
-            && self.AddrInUse == other.AddrInUse
-            && self.PartnerAddrFree == other.PartnerAddrFree
-            && self.ThisAddrFree == other.ThisAddrFree
-            && self.PartnerAddrInUse == other.PartnerAddrInUse
-            && self.ThisAddrInUse == other.ThisAddrInUse
+        self.NumAddr == other.NumAddr && self.AddrFree == other.AddrFree && self.AddrInUse == other.AddrInUse && self.PartnerAddrFree == other.PartnerAddrFree && self.ThisAddrFree == other.ThisAddrFree && self.PartnerAddrInUse == other.PartnerAddrInUse && self.ThisAddrInUse == other.ThisAddrInUse
     }
 }
 impl ::std::cmp::Eq for DHCP_FAILOVER_STATISTICS {}
@@ -2832,19 +2520,13 @@ impl ::std::default::Default for DHCP_FILTER_ADD_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_FILTER_ADD_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_FILTER_ADD_INFO")
-            .field("AddrPatt", &self.AddrPatt)
-            .field("Comment", &self.Comment)
-            .field("ListType", &self.ListType)
-            .finish()
+        fmt.debug_struct("DHCP_FILTER_ADD_INFO").field("AddrPatt", &self.AddrPatt).field("Comment", &self.Comment).field("ListType", &self.ListType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_FILTER_ADD_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.AddrPatt == other.AddrPatt
-            && self.Comment == other.Comment
-            && self.ListType == other.ListType
+        self.AddrPatt == other.AddrPatt && self.Comment == other.Comment && self.ListType == other.ListType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2872,10 +2554,7 @@ impl ::std::default::Default for DHCP_FILTER_ENUM_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_FILTER_ENUM_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_FILTER_ENUM_INFO")
-            .field("NumElements", &self.NumElements)
-            .field("pEnumRecords", &self.pEnumRecords)
-            .finish()
+        fmt.debug_struct("DHCP_FILTER_ENUM_INFO").field("NumElements", &self.NumElements).field("pEnumRecords", &self.pEnumRecords).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2909,17 +2588,13 @@ impl ::std::default::Default for DHCP_FILTER_GLOBAL_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_FILTER_GLOBAL_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_FILTER_GLOBAL_INFO")
-            .field("EnforceAllowList", &self.EnforceAllowList)
-            .field("EnforceDenyList", &self.EnforceDenyList)
-            .finish()
+        fmt.debug_struct("DHCP_FILTER_GLOBAL_INFO").field("EnforceAllowList", &self.EnforceAllowList).field("EnforceDenyList", &self.EnforceDenyList).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_FILTER_GLOBAL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.EnforceAllowList == other.EnforceAllowList
-            && self.EnforceDenyList == other.EnforceDenyList
+        self.EnforceAllowList == other.EnforceAllowList && self.EnforceDenyList == other.EnforceDenyList
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2929,14 +2604,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_FILTER_GLOBAL_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_FILTER_LIST_TYPE(pub i32);
 pub const Deny: DHCP_FILTER_LIST_TYPE = DHCP_FILTER_LIST_TYPE(0i32);
@@ -2968,10 +2636,7 @@ impl ::std::default::Default for DHCP_FILTER_RECORD {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_FILTER_RECORD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_FILTER_RECORD")
-            .field("AddrPatt", &self.AddrPatt)
-            .field("Comment", &self.Comment)
-            .finish()
+        fmt.debug_struct("DHCP_FILTER_RECORD").field("AddrPatt", &self.AddrPatt).field("Comment", &self.Comment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2990,14 +2655,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_FILTER_RECORD {
 pub const DHCP_FLAGS_DONT_ACCESS_DS: u32 = 1u32;
 pub const DHCP_FLAGS_DONT_DO_RPC: u32 = 2u32;
 pub const DHCP_FLAGS_OPTION_IS_VENDOR: u32 = 3u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_FORCE_FLAG(pub i32);
 pub const DhcpFullForce: DHCP_FORCE_FLAG = DHCP_FORCE_FLAG(0i32);
@@ -3033,19 +2691,13 @@ impl ::std::default::Default for DHCP_HOST_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_HOST_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_HOST_INFO")
-            .field("IpAddress", &self.IpAddress)
-            .field("NetBiosName", &self.NetBiosName)
-            .field("HostName", &self.HostName)
-            .finish()
+        fmt.debug_struct("DHCP_HOST_INFO").field("IpAddress", &self.IpAddress).field("NetBiosName", &self.NetBiosName).field("HostName", &self.HostName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_HOST_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.IpAddress == other.IpAddress
-            && self.NetBiosName == other.NetBiosName
-            && self.HostName == other.HostName
+        self.IpAddress == other.IpAddress && self.NetBiosName == other.NetBiosName && self.HostName == other.HostName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3074,19 +2726,13 @@ impl ::std::default::Default for DHCP_HOST_INFO_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_HOST_INFO_V6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_HOST_INFO_V6")
-            .field("IpAddress", &self.IpAddress)
-            .field("NetBiosName", &self.NetBiosName)
-            .field("HostName", &self.HostName)
-            .finish()
+        fmt.debug_struct("DHCP_HOST_INFO_V6").field("IpAddress", &self.IpAddress).field("NetBiosName", &self.NetBiosName).field("HostName", &self.HostName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_HOST_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        self.IpAddress == other.IpAddress
-            && self.NetBiosName == other.NetBiosName
-            && self.HostName == other.HostName
+        self.IpAddress == other.IpAddress && self.NetBiosName == other.NetBiosName && self.HostName == other.HostName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3110,10 +2756,7 @@ impl ::std::default::Default for DHCP_IPV6_ADDRESS {
 }
 impl ::std::fmt::Debug for DHCP_IPV6_ADDRESS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_IPV6_ADDRESS")
-            .field("HighOrderBits", &self.HighOrderBits)
-            .field("LowOrderBits", &self.LowOrderBits)
-            .finish()
+        fmt.debug_struct("DHCP_IPV6_ADDRESS").field("HighOrderBits", &self.HighOrderBits).field("LowOrderBits", &self.LowOrderBits).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_IPV6_ADDRESS {
@@ -3140,10 +2783,7 @@ impl ::std::default::Default for DHCP_IP_ARRAY {
 }
 impl ::std::fmt::Debug for DHCP_IP_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_IP_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_IP_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_IP_ARRAY {
@@ -3170,10 +2810,7 @@ impl ::std::default::Default for DHCP_IP_CLUSTER {
 }
 impl ::std::fmt::Debug for DHCP_IP_CLUSTER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_IP_CLUSTER")
-            .field("ClusterAddress", &self.ClusterAddress)
-            .field("ClusterMask", &self.ClusterMask)
-            .finish()
+        fmt.debug_struct("DHCP_IP_CLUSTER").field("ClusterAddress", &self.ClusterAddress).field("ClusterMask", &self.ClusterMask).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_IP_CLUSTER {
@@ -3200,10 +2837,7 @@ impl ::std::default::Default for DHCP_IP_RANGE {
 }
 impl ::std::fmt::Debug for DHCP_IP_RANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RANGE")
-            .field("StartAddress", &self.StartAddress)
-            .field("EndAddress", &self.EndAddress)
-            .finish()
+        fmt.debug_struct("DHCP_IP_RANGE").field("StartAddress", &self.StartAddress).field("EndAddress", &self.EndAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_IP_RANGE {
@@ -3230,10 +2864,7 @@ impl ::std::default::Default for DHCP_IP_RANGE_ARRAY {
 }
 impl ::std::fmt::Debug for DHCP_IP_RANGE_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RANGE_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_IP_RANGE_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_IP_RANGE_ARRAY {
@@ -3260,10 +2891,7 @@ impl ::std::default::Default for DHCP_IP_RANGE_V6 {
 }
 impl ::std::fmt::Debug for DHCP_IP_RANGE_V6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RANGE_V6")
-            .field("StartAddress", &self.StartAddress)
-            .field("EndAddress", &self.EndAddress)
-            .finish()
+        fmt.debug_struct("DHCP_IP_RANGE_V6").field("StartAddress", &self.StartAddress).field("EndAddress", &self.EndAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_IP_RANGE_V6 {
@@ -3290,16 +2918,12 @@ impl ::std::default::Default for DHCP_IP_RESERVATION {
 }
 impl ::std::fmt::Debug for DHCP_IP_RESERVATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RESERVATION")
-            .field("ReservedIpAddress", &self.ReservedIpAddress)
-            .field("ReservedForClient", &self.ReservedForClient)
-            .finish()
+        fmt.debug_struct("DHCP_IP_RESERVATION").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_IP_RESERVATION {
     fn eq(&self, other: &Self) -> bool {
-        self.ReservedIpAddress == other.ReservedIpAddress
-            && self.ReservedForClient == other.ReservedForClient
+        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedForClient == other.ReservedForClient
     }
 }
 impl ::std::cmp::Eq for DHCP_IP_RESERVATION {}
@@ -3342,12 +2966,7 @@ impl ::std::fmt::Debug for DHCP_IP_RESERVATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_IP_RESERVATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ReservedIpAddress == other.ReservedIpAddress
-            && self.ReservedForClient == other.ReservedForClient
-            && self.ReservedClientName == other.ReservedClientName
-            && self.ReservedClientDesc == other.ReservedClientDesc
-            && self.bAllowedClientTypes == other.bAllowedClientTypes
-            && self.fOptionsPresent == other.fOptionsPresent
+        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedForClient == other.ReservedForClient && self.ReservedClientName == other.ReservedClientName && self.ReservedClientDesc == other.ReservedClientDesc && self.bAllowedClientTypes == other.bAllowedClientTypes && self.fOptionsPresent == other.fOptionsPresent
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3372,18 +2991,12 @@ impl ::std::default::Default for DHCP_IP_RESERVATION_V4 {
 }
 impl ::std::fmt::Debug for DHCP_IP_RESERVATION_V4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RESERVATION_V4")
-            .field("ReservedIpAddress", &self.ReservedIpAddress)
-            .field("ReservedForClient", &self.ReservedForClient)
-            .field("bAllowedClientTypes", &self.bAllowedClientTypes)
-            .finish()
+        fmt.debug_struct("DHCP_IP_RESERVATION_V4").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).field("bAllowedClientTypes", &self.bAllowedClientTypes).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_IP_RESERVATION_V4 {
     fn eq(&self, other: &Self) -> bool {
-        self.ReservedIpAddress == other.ReservedIpAddress
-            && self.ReservedForClient == other.ReservedForClient
-            && self.bAllowedClientTypes == other.bAllowedClientTypes
+        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedForClient == other.ReservedForClient && self.bAllowedClientTypes == other.bAllowedClientTypes
     }
 }
 impl ::std::cmp::Eq for DHCP_IP_RESERVATION_V4 {}
@@ -3406,18 +3019,12 @@ impl ::std::default::Default for DHCP_IP_RESERVATION_V6 {
 }
 impl ::std::fmt::Debug for DHCP_IP_RESERVATION_V6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_IP_RESERVATION_V6")
-            .field("ReservedIpAddress", &self.ReservedIpAddress)
-            .field("ReservedForClient", &self.ReservedForClient)
-            .field("InterfaceId", &self.InterfaceId)
-            .finish()
+        fmt.debug_struct("DHCP_IP_RESERVATION_V6").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedForClient", &self.ReservedForClient).field("InterfaceId", &self.InterfaceId).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_IP_RESERVATION_V6 {
     fn eq(&self, other: &Self) -> bool {
-        self.ReservedIpAddress == other.ReservedIpAddress
-            && self.ReservedForClient == other.ReservedForClient
-            && self.InterfaceId == other.InterfaceId
+        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedForClient == other.ReservedForClient && self.InterfaceId == other.InterfaceId
     }
 }
 impl ::std::cmp::Eq for DHCP_IP_RESERVATION_V6 {}
@@ -3464,16 +3071,7 @@ impl ::std::fmt::Debug for DHCP_MIB_INFO {
 }
 impl ::std::cmp::PartialEq for DHCP_MIB_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Discovers == other.Discovers
-            && self.Offers == other.Offers
-            && self.Requests == other.Requests
-            && self.Acks == other.Acks
-            && self.Naks == other.Naks
-            && self.Declines == other.Declines
-            && self.Releases == other.Releases
-            && self.ServerStartTime == other.ServerStartTime
-            && self.Scopes == other.Scopes
-            && self.ScopeInfo == other.ScopeInfo
+        self.Discovers == other.Discovers && self.Offers == other.Offers && self.Requests == other.Requests && self.Acks == other.Acks && self.Naks == other.Naks && self.Declines == other.Declines && self.Releases == other.Releases && self.ServerStartTime == other.ServerStartTime && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo
     }
 }
 impl ::std::cmp::Eq for DHCP_MIB_INFO {}
@@ -3607,19 +3205,7 @@ impl ::std::fmt::Debug for DHCP_MIB_INFO_V6 {
 }
 impl ::std::cmp::PartialEq for DHCP_MIB_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        self.Solicits == other.Solicits
-            && self.Advertises == other.Advertises
-            && self.Requests == other.Requests
-            && self.Renews == other.Renews
-            && self.Rebinds == other.Rebinds
-            && self.Replies == other.Replies
-            && self.Confirms == other.Confirms
-            && self.Declines == other.Declines
-            && self.Releases == other.Releases
-            && self.Informs == other.Informs
-            && self.ServerStartTime == other.ServerStartTime
-            && self.Scopes == other.Scopes
-            && self.ScopeInfo == other.ScopeInfo
+        self.Solicits == other.Solicits && self.Advertises == other.Advertises && self.Requests == other.Requests && self.Renews == other.Renews && self.Rebinds == other.Rebinds && self.Replies == other.Replies && self.Confirms == other.Confirms && self.Declines == other.Declines && self.Releases == other.Releases && self.Informs == other.Informs && self.ServerStartTime == other.ServerStartTime && self.Scopes == other.Scopes && self.ScopeInfo == other.ScopeInfo
     }
 }
 impl ::std::cmp::Eq for DHCP_MIB_INFO_V6 {}
@@ -3725,23 +3311,13 @@ impl ::std::default::Default for DHCP_OPTION {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_OPTION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_OPTION")
-            .field("OptionID", &self.OptionID)
-            .field("OptionName", &self.OptionName)
-            .field("OptionComment", &self.OptionComment)
-            .field("DefaultValue", &self.DefaultValue)
-            .field("OptionType", &self.OptionType)
-            .finish()
+        fmt.debug_struct("DHCP_OPTION").field("OptionID", &self.OptionID).field("OptionName", &self.OptionName).field("OptionComment", &self.OptionComment).field("DefaultValue", &self.DefaultValue).field("OptionType", &self.OptionType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_OPTION {
     fn eq(&self, other: &Self) -> bool {
-        self.OptionID == other.OptionID
-            && self.OptionName == other.OptionName
-            && self.OptionComment == other.OptionComment
-            && self.DefaultValue == other.DefaultValue
-            && self.OptionType == other.OptionType
+        self.OptionID == other.OptionID && self.OptionName == other.OptionName && self.OptionComment == other.OptionComment && self.DefaultValue == other.DefaultValue && self.OptionType == other.OptionType
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3769,10 +3345,7 @@ impl ::std::default::Default for DHCP_OPTION_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_OPTION_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_OPTION_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Options", &self.Options)
-            .finish()
+        fmt.debug_struct("DHCP_OPTION_ARRAY").field("NumElements", &self.NumElements).field("Options", &self.Options).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3806,10 +3379,7 @@ impl ::std::default::Default for DHCP_OPTION_DATA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_OPTION_DATA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_OPTION_DATA")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_OPTION_DATA").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3888,14 +3458,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_OPTION_DATA_ELEMENT_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_OPTION_DATA_TYPE(pub i32);
 pub const DhcpByteOption: DHCP_OPTION_DATA_TYPE = DHCP_OPTION_DATA_TYPE(0i32);
@@ -3917,14 +3480,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_OPTION_DATA_TYPE {
     type DefaultType = Self;
 }
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct DHCP_OPTION_ELEMENT_UNION(pub u8);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -3944,10 +3500,7 @@ impl ::std::default::Default for DHCP_OPTION_LIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_OPTION_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_OPTION_LIST")
-            .field("NumOptions", &self.NumOptions)
-            .field("Options", &self.Options)
-            .finish()
+        fmt.debug_struct("DHCP_OPTION_LIST").field("NumOptions", &self.NumOptions).field("Options", &self.Options).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4067,14 +3620,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_OPTION_SCOPE_INFO6_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_OPTION_SCOPE_TYPE(pub i32);
 pub const DhcpDefaultOptions: DHCP_OPTION_SCOPE_TYPE = DHCP_OPTION_SCOPE_TYPE(0i32);
@@ -4091,14 +3637,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_OPTION_SCOPE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_OPTION_SCOPE_TYPE6(pub i32);
 pub const DhcpDefaultOptions6: DHCP_OPTION_SCOPE_TYPE6 = DHCP_OPTION_SCOPE_TYPE6(0i32);
@@ -4115,23 +3654,9 @@ unsafe impl ::windows::runtime::Abi for DHCP_OPTION_SCOPE_TYPE6 {
     type DefaultType = Self;
 }
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct DHCP_OPTION_SCOPE_UNION6(pub u8);
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_OPTION_TYPE(pub i32);
 pub const DhcpUnaryElementTypeOption: DHCP_OPTION_TYPE = DHCP_OPTION_TYPE(0i32);
@@ -4163,10 +3688,7 @@ impl ::std::default::Default for DHCP_OPTION_VALUE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_OPTION_VALUE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_OPTION_VALUE")
-            .field("OptionID", &self.OptionID)
-            .field("Value", &self.Value)
-            .finish()
+        fmt.debug_struct("DHCP_OPTION_VALUE").field("OptionID", &self.OptionID).field("Value", &self.Value).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4200,10 +3722,7 @@ impl ::std::default::Default for DHCP_OPTION_VALUE_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_OPTION_VALUE_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_OPTION_VALUE_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Values", &self.Values)
-            .finish()
+        fmt.debug_struct("DHCP_OPTION_VALUE_ARRAY").field("NumElements", &self.NumElements).field("Values", &self.Values).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4256,10 +3775,7 @@ impl ::std::fmt::Debug for DHCP_PERF_STATS {
             .field("dwNumPacketsReceived", &self.dwNumPacketsReceived)
             .field("dwNumPacketsDuplicate", &self.dwNumPacketsDuplicate)
             .field("dwNumPacketsExpired", &self.dwNumPacketsExpired)
-            .field(
-                "dwNumMilliSecondsProcessed",
-                &self.dwNumMilliSecondsProcessed,
-            )
+            .field("dwNumMilliSecondsProcessed", &self.dwNumMilliSecondsProcessed)
             .field("dwNumPacketsInActiveQueue", &self.dwNumPacketsInActiveQueue)
             .field("dwNumPacketsInPingQueue", &self.dwNumPacketsInPingQueue)
             .field("dwNumDiscoversReceived", &self.dwNumDiscoversReceived)
@@ -4272,18 +3788,9 @@ impl ::std::fmt::Debug for DHCP_PERF_STATS {
             .field("dwNumReleasesReceived", &self.dwNumReleasesReceived)
             .field("dwNumDelayedOfferInQueue", &self.dwNumDelayedOfferInQueue)
             .field("dwNumPacketsProcessed", &self.dwNumPacketsProcessed)
-            .field(
-                "dwNumPacketsInQuarWaitingQueue",
-                &self.dwNumPacketsInQuarWaitingQueue,
-            )
-            .field(
-                "dwNumPacketsInQuarReadyQueue",
-                &self.dwNumPacketsInQuarReadyQueue,
-            )
-            .field(
-                "dwNumPacketsInQuarDecisionQueue",
-                &self.dwNumPacketsInQuarDecisionQueue,
-            )
+            .field("dwNumPacketsInQuarWaitingQueue", &self.dwNumPacketsInQuarWaitingQueue)
+            .field("dwNumPacketsInQuarReadyQueue", &self.dwNumPacketsInQuarReadyQueue)
+            .field("dwNumPacketsInQuarDecisionQueue", &self.dwNumPacketsInQuarDecisionQueue)
             .finish()
     }
 }
@@ -4356,15 +3863,7 @@ impl ::std::fmt::Debug for DHCP_POLICY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        self.PolicyName == other.PolicyName
-            && self.IsGlobalPolicy == other.IsGlobalPolicy
-            && self.Subnet == other.Subnet
-            && self.ProcessingOrder == other.ProcessingOrder
-            && self.Conditions == other.Conditions
-            && self.Expressions == other.Expressions
-            && self.Ranges == other.Ranges
-            && self.Description == other.Description
-            && self.Enabled == other.Enabled
+        self.PolicyName == other.PolicyName && self.IsGlobalPolicy == other.IsGlobalPolicy && self.Subnet == other.Subnet && self.ProcessingOrder == other.ProcessingOrder && self.Conditions == other.Conditions && self.Expressions == other.Expressions && self.Ranges == other.Ranges && self.Description == other.Description && self.Enabled == other.Enabled
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4392,10 +3891,7 @@ impl ::std::default::Default for DHCP_POLICY_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_POLICY_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_POLICY_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_POLICY_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4454,16 +3950,7 @@ impl ::std::fmt::Debug for DHCP_POLICY_EX {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_POLICY_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.PolicyName == other.PolicyName
-            && self.IsGlobalPolicy == other.IsGlobalPolicy
-            && self.Subnet == other.Subnet
-            && self.ProcessingOrder == other.ProcessingOrder
-            && self.Conditions == other.Conditions
-            && self.Expressions == other.Expressions
-            && self.Ranges == other.Ranges
-            && self.Description == other.Description
-            && self.Enabled == other.Enabled
-            && self.Properties == other.Properties
+        self.PolicyName == other.PolicyName && self.IsGlobalPolicy == other.IsGlobalPolicy && self.Subnet == other.Subnet && self.ProcessingOrder == other.ProcessingOrder && self.Conditions == other.Conditions && self.Expressions == other.Expressions && self.Ranges == other.Ranges && self.Description == other.Description && self.Enabled == other.Enabled && self.Properties == other.Properties
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4491,10 +3978,7 @@ impl ::std::default::Default for DHCP_POLICY_EX_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_POLICY_EX_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_POLICY_EX_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_POLICY_EX_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4510,14 +3994,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_POLICY_EX_ARRAY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_POLICY_FIELDS_TO_UPDATE(pub i32);
 pub const DhcpUpdatePolicyName: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(1i32);
@@ -4525,10 +4002,8 @@ pub const DhcpUpdatePolicyOrder: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIEL
 pub const DhcpUpdatePolicyExpr: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(4i32);
 pub const DhcpUpdatePolicyRanges: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(8i32);
 pub const DhcpUpdatePolicyDescr: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(16i32);
-pub const DhcpUpdatePolicyStatus: DHCP_POLICY_FIELDS_TO_UPDATE =
-    DHCP_POLICY_FIELDS_TO_UPDATE(32i32);
-pub const DhcpUpdatePolicyDnsSuffix: DHCP_POLICY_FIELDS_TO_UPDATE =
-    DHCP_POLICY_FIELDS_TO_UPDATE(64i32);
+pub const DhcpUpdatePolicyStatus: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(32i32);
+pub const DhcpUpdatePolicyDnsSuffix: DHCP_POLICY_FIELDS_TO_UPDATE = DHCP_POLICY_FIELDS_TO_UPDATE(64i32);
 impl ::std::convert::From<i32> for DHCP_POLICY_FIELDS_TO_UPDATE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -4538,14 +4013,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_POLICY_FIELDS_TO_UPDATE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_POL_ATTR_TYPE(pub i32);
 pub const DhcpAttrHWAddr: DHCP_POL_ATTR_TYPE = DHCP_POL_ATTR_TYPE(0i32);
@@ -4562,14 +4030,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_POL_ATTR_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_POL_COMPARATOR(pub i32);
 pub const DhcpCompEqual: DHCP_POL_COMPARATOR = DHCP_POL_COMPARATOR(0i32);
@@ -4626,14 +4087,7 @@ impl ::std::fmt::Debug for DHCP_POL_COND {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_POL_COND {
     fn eq(&self, other: &Self) -> bool {
-        self.ParentExpr == other.ParentExpr
-            && self.Type == other.Type
-            && self.OptionID == other.OptionID
-            && self.SubOptionID == other.SubOptionID
-            && self.VendorName == other.VendorName
-            && self.Operator == other.Operator
-            && self.Value == other.Value
-            && self.ValueLength == other.ValueLength
+        self.ParentExpr == other.ParentExpr && self.Type == other.Type && self.OptionID == other.OptionID && self.SubOptionID == other.SubOptionID && self.VendorName == other.VendorName && self.Operator == other.Operator && self.Value == other.Value && self.ValueLength == other.ValueLength
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4661,10 +4115,7 @@ impl ::std::default::Default for DHCP_POL_COND_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_POL_COND_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_POL_COND_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_POL_COND_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4694,10 +4145,7 @@ impl ::std::default::Default for DHCP_POL_EXPR {
 }
 impl ::std::fmt::Debug for DHCP_POL_EXPR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_POL_EXPR")
-            .field("ParentExpr", &self.ParentExpr)
-            .field("Operator", &self.Operator)
-            .finish()
+        fmt.debug_struct("DHCP_POL_EXPR").field("ParentExpr", &self.ParentExpr).field("Operator", &self.Operator).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_POL_EXPR {
@@ -4724,10 +4172,7 @@ impl ::std::default::Default for DHCP_POL_EXPR_ARRAY {
 }
 impl ::std::fmt::Debug for DHCP_POL_EXPR_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_POL_EXPR_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_POL_EXPR_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_POL_EXPR_ARRAY {
@@ -4740,14 +4185,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_POL_EXPR_ARRAY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_POL_LOGIC_OPER(pub i32);
 pub const DhcpLogicalOr: DHCP_POL_LOGIC_OPER = DHCP_POL_LOGIC_OPER(0i32);
@@ -4843,10 +4281,7 @@ impl ::std::default::Default for DHCP_PROPERTY_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_PROPERTY_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_PROPERTY_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_PROPERTY_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4862,14 +4297,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_PROPERTY_ARRAY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_PROPERTY_ID(pub i32);
 pub const DhcpPropIdPolicyDnsSuffix: DHCP_PROPERTY_ID = DHCP_PROPERTY_ID(0i32);
@@ -4883,14 +4311,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_PROPERTY_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_PROPERTY_TYPE(pub i32);
 pub const DhcpPropTypeByte: DHCP_PROPERTY_TYPE = DHCP_PROPERTY_TYPE(0i32);
@@ -4925,10 +4346,7 @@ impl ::std::default::Default for DHCP_RESERVATION_INFO_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_RESERVATION_INFO_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_RESERVATION_INFO_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_RESERVATION_INFO_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -4958,16 +4376,12 @@ impl ::std::default::Default for DHCP_RESERVED_SCOPE {
 }
 impl ::std::fmt::Debug for DHCP_RESERVED_SCOPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_RESERVED_SCOPE")
-            .field("ReservedIpAddress", &self.ReservedIpAddress)
-            .field("ReservedIpSubnetAddress", &self.ReservedIpSubnetAddress)
-            .finish()
+        fmt.debug_struct("DHCP_RESERVED_SCOPE").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedIpSubnetAddress", &self.ReservedIpSubnetAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_RESERVED_SCOPE {
     fn eq(&self, other: &Self) -> bool {
-        self.ReservedIpAddress == other.ReservedIpAddress
-            && self.ReservedIpSubnetAddress == other.ReservedIpSubnetAddress
+        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedIpSubnetAddress == other.ReservedIpSubnetAddress
     }
 }
 impl ::std::cmp::Eq for DHCP_RESERVED_SCOPE {}
@@ -4989,16 +4403,12 @@ impl ::std::default::Default for DHCP_RESERVED_SCOPE6 {
 }
 impl ::std::fmt::Debug for DHCP_RESERVED_SCOPE6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_RESERVED_SCOPE6")
-            .field("ReservedIpAddress", &self.ReservedIpAddress)
-            .field("ReservedIpSubnetAddress", &self.ReservedIpSubnetAddress)
-            .finish()
+        fmt.debug_struct("DHCP_RESERVED_SCOPE6").field("ReservedIpAddress", &self.ReservedIpAddress).field("ReservedIpSubnetAddress", &self.ReservedIpSubnetAddress).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_RESERVED_SCOPE6 {
     fn eq(&self, other: &Self) -> bool {
-        self.ReservedIpAddress == other.ReservedIpAddress
-            && self.ReservedIpSubnetAddress == other.ReservedIpSubnetAddress
+        self.ReservedIpAddress == other.ReservedIpAddress && self.ReservedIpSubnetAddress == other.ReservedIpSubnetAddress
     }
 }
 impl ::std::cmp::Eq for DHCP_RESERVED_SCOPE6 {}
@@ -5006,14 +4416,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_RESERVED_SCOPE6 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_SCAN_FLAG(pub i32);
 pub const DhcpRegistryFix: DHCP_SCAN_FLAG = DHCP_SCAN_FLAG(0i32);
@@ -5041,10 +4444,7 @@ impl ::std::default::Default for DHCP_SCAN_ITEM {
 }
 impl ::std::fmt::Debug for DHCP_SCAN_ITEM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_SCAN_ITEM")
-            .field("IpAddress", &self.IpAddress)
-            .field("ScanFlag", &self.ScanFlag)
-            .finish()
+        fmt.debug_struct("DHCP_SCAN_ITEM").field("IpAddress", &self.IpAddress).field("ScanFlag", &self.ScanFlag).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_SCAN_ITEM {
@@ -5071,10 +4471,7 @@ impl ::std::default::Default for DHCP_SCAN_LIST {
 }
 impl ::std::fmt::Debug for DHCP_SCAN_LIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_SCAN_LIST")
-            .field("NumScanItems", &self.NumScanItems)
-            .field("ScanItems", &self.ScanItems)
-            .finish()
+        fmt.debug_struct("DHCP_SCAN_LIST").field("NumScanItems", &self.NumScanItems).field("ScanItems", &self.ScanItems).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_SCAN_LIST {
@@ -5144,14 +4541,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_SEARCH_INFO_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_SEARCH_INFO_TYPE(pub i32);
 pub const DhcpClientIpAddress: DHCP_SEARCH_INFO_TYPE = DHCP_SEARCH_INFO_TYPE(0i32);
@@ -5166,14 +4556,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_SEARCH_INFO_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_SEARCH_INFO_TYPE_V6(pub i32);
 pub const Dhcpv6ClientIpAddress: DHCP_SEARCH_INFO_TYPE_V6 = DHCP_SEARCH_INFO_TYPE_V6(0i32);
@@ -5287,15 +4670,7 @@ impl ::std::fmt::Debug for DHCP_SERVER_CONFIG_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.APIProtocolSupport == other.APIProtocolSupport
-            && self.DatabaseName == other.DatabaseName
-            && self.DatabasePath == other.DatabasePath
-            && self.BackupPath == other.BackupPath
-            && self.BackupInterval == other.BackupInterval
-            && self.DatabaseLoggingFlag == other.DatabaseLoggingFlag
-            && self.RestoreFlag == other.RestoreFlag
-            && self.DatabaseCleanupInterval == other.DatabaseCleanupInterval
-            && self.DebugFlag == other.DebugFlag
+        self.APIProtocolSupport == other.APIProtocolSupport && self.DatabaseName == other.DatabaseName && self.DatabasePath == other.DatabasePath && self.BackupPath == other.BackupPath && self.BackupInterval == other.BackupInterval && self.DatabaseLoggingFlag == other.DatabaseLoggingFlag && self.RestoreFlag == other.RestoreFlag && self.DatabaseCleanupInterval == other.DatabaseCleanupInterval && self.DebugFlag == other.DebugFlag
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5417,15 +4792,7 @@ impl ::std::fmt::Debug for DHCP_SERVER_CONFIG_INFO_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_SERVER_CONFIG_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        self.UnicastFlag == other.UnicastFlag
-            && self.RapidCommitFlag == other.RapidCommitFlag
-            && self.PreferredLifetime == other.PreferredLifetime
-            && self.ValidLifetime == other.ValidLifetime
-            && self.T1 == other.T1
-            && self.T2 == other.T2
-            && self.PreferredLifetimeIATA == other.PreferredLifetimeIATA
-            && self.ValidLifetimeIATA == other.ValidLifetimeIATA
-            && self.fAuditLog == other.fAuditLog
+        self.UnicastFlag == other.UnicastFlag && self.RapidCommitFlag == other.RapidCommitFlag && self.PreferredLifetime == other.PreferredLifetime && self.ValidLifetime == other.ValidLifetime && self.T1 == other.T1 && self.T2 == other.T2 && self.PreferredLifetimeIATA == other.PreferredLifetimeIATA && self.ValidLifetimeIATA == other.ValidLifetimeIATA && self.fAuditLog == other.fAuditLog
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5565,17 +4932,11 @@ impl ::std::fmt::Debug for DHCP_SERVER_OPTIONS {
             .field("RouterAddress", &self.RouterAddress)
             .field("Server", &self.Server)
             .field("ParameterRequestList", &self.ParameterRequestList)
-            .field(
-                "ParameterRequestListLength",
-                &self.ParameterRequestListLength,
-            )
+            .field("ParameterRequestListLength", &self.ParameterRequestListLength)
             .field("MachineName", &self.MachineName)
             .field("MachineNameLength", &self.MachineNameLength)
             .field("ClientHardwareAddressType", &self.ClientHardwareAddressType)
-            .field(
-                "ClientHardwareAddressLength",
-                &self.ClientHardwareAddressLength,
-            )
+            .field("ClientHardwareAddressLength", &self.ClientHardwareAddressLength)
             .field("ClientHardwareAddress", &self.ClientHardwareAddress)
             .field("ClassIdentifier", &self.ClassIdentifier)
             .field("ClassIdentifierLength", &self.ClassIdentifierLength)
@@ -5646,17 +5007,13 @@ impl ::std::default::Default for DHCP_SERVER_SPECIFIC_STRINGS {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_SERVER_SPECIFIC_STRINGS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_SERVER_SPECIFIC_STRINGS")
-            .field("DefaultVendorClassName", &self.DefaultVendorClassName)
-            .field("DefaultUserClassName", &self.DefaultUserClassName)
-            .finish()
+        fmt.debug_struct("DHCP_SERVER_SPECIFIC_STRINGS").field("DefaultVendorClassName", &self.DefaultVendorClassName).field("DefaultUserClassName", &self.DefaultUserClassName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_SERVER_SPECIFIC_STRINGS {
     fn eq(&self, other: &Self) -> bool {
-        self.DefaultVendorClassName == other.DefaultVendorClassName
-            && self.DefaultUserClassName == other.DefaultUserClassName
+        self.DefaultVendorClassName == other.DefaultVendorClassName && self.DefaultUserClassName == other.DefaultUserClassName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5906,10 +5263,7 @@ impl ::std::default::Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5943,10 +5297,7 @@ impl ::std::default::Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -5980,10 +5331,7 @@ impl ::std::default::Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6013,10 +5361,7 @@ impl ::std::default::Default for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
 }
 impl ::std::fmt::Debug for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6")
-            .field("NumElements", &self.NumElements)
-            .field("Elements", &self.Elements)
-            .finish()
+        fmt.debug_struct("DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6").field("NumElements", &self.NumElements).field("Elements", &self.Elements).finish()
     }
 }
 impl ::std::cmp::PartialEq for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
@@ -6029,14 +5374,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_SUBNET_ELEMENT_TYPE(pub i32);
 pub const DhcpIpRanges: DHCP_SUBNET_ELEMENT_TYPE = DHCP_SUBNET_ELEMENT_TYPE(0i32);
@@ -6056,14 +5394,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_SUBNET_ELEMENT_TYPE_V6(pub i32);
 pub const Dhcpv6IpRanges: DHCP_SUBNET_ELEMENT_TYPE_V6 = DHCP_SUBNET_ELEMENT_TYPE_V6(0i32);
@@ -6079,34 +5410,13 @@ unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_ELEMENT_TYPE_V6 {
     type DefaultType = Self;
 }
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct DHCP_SUBNET_ELEMENT_UNION(pub u8);
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct DHCP_SUBNET_ELEMENT_UNION_V4(pub u8);
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct DHCP_SUBNET_ELEMENT_UNION_V6(pub u8);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -6130,25 +5440,13 @@ impl ::std::default::Default for DHCP_SUBNET_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_SUBNET_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_SUBNET_INFO")
-            .field("SubnetAddress", &self.SubnetAddress)
-            .field("SubnetMask", &self.SubnetMask)
-            .field("SubnetName", &self.SubnetName)
-            .field("SubnetComment", &self.SubnetComment)
-            .field("PrimaryHost", &self.PrimaryHost)
-            .field("SubnetState", &self.SubnetState)
-            .finish()
+        fmt.debug_struct("DHCP_SUBNET_INFO").field("SubnetAddress", &self.SubnetAddress).field("SubnetMask", &self.SubnetMask).field("SubnetName", &self.SubnetName).field("SubnetComment", &self.SubnetComment).field("PrimaryHost", &self.PrimaryHost).field("SubnetState", &self.SubnetState).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_SUBNET_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.SubnetAddress == other.SubnetAddress
-            && self.SubnetMask == other.SubnetMask
-            && self.SubnetName == other.SubnetName
-            && self.SubnetComment == other.SubnetComment
-            && self.PrimaryHost == other.PrimaryHost
-            && self.SubnetState == other.SubnetState
+        self.SubnetAddress == other.SubnetAddress && self.SubnetMask == other.SubnetMask && self.SubnetName == other.SubnetName && self.SubnetComment == other.SubnetComment && self.PrimaryHost == other.PrimaryHost && self.SubnetState == other.SubnetState
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6195,13 +5493,7 @@ impl ::std::fmt::Debug for DHCP_SUBNET_INFO_V6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_SUBNET_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        self.SubnetAddress == other.SubnetAddress
-            && self.Prefix == other.Prefix
-            && self.Preference == other.Preference
-            && self.SubnetName == other.SubnetName
-            && self.SubnetComment == other.SubnetComment
-            && self.State == other.State
-            && self.ScopeId == other.ScopeId
+        self.SubnetAddress == other.SubnetAddress && self.Prefix == other.Prefix && self.Preference == other.Preference && self.SubnetName == other.SubnetName && self.SubnetComment == other.SubnetComment && self.State == other.State && self.ScopeId == other.ScopeId
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6256,17 +5548,7 @@ impl ::std::fmt::Debug for DHCP_SUBNET_INFO_VQ {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_SUBNET_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {
-        self.SubnetAddress == other.SubnetAddress
-            && self.SubnetMask == other.SubnetMask
-            && self.SubnetName == other.SubnetName
-            && self.SubnetComment == other.SubnetComment
-            && self.PrimaryHost == other.PrimaryHost
-            && self.SubnetState == other.SubnetState
-            && self.QuarantineOn == other.QuarantineOn
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
-            && self.Reserved3 == other.Reserved3
-            && self.Reserved4 == other.Reserved4
+        self.SubnetAddress == other.SubnetAddress && self.SubnetMask == other.SubnetMask && self.SubnetName == other.SubnetName && self.SubnetComment == other.SubnetComment && self.PrimaryHost == other.PrimaryHost && self.SubnetState == other.SubnetState && self.QuarantineOn == other.QuarantineOn && self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6277,14 +5559,7 @@ unsafe impl ::windows::runtime::Abi for DHCP_SUBNET_INFO_VQ {
     type DefaultType = Self;
 }
 pub const DHCP_SUBNET_INFO_VQ_FLAG_QUARANTINE: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DHCP_SUBNET_STATE(pub i32);
 pub const DhcpSubnetEnabled: DHCP_SUBNET_STATE = DHCP_SUBNET_STATE(0i32);
@@ -6319,10 +5594,7 @@ impl ::std::default::Default for DHCP_SUPER_SCOPE_TABLE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_SUPER_SCOPE_TABLE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_SUPER_SCOPE_TABLE")
-            .field("cEntries", &self.cEntries)
-            .field("pEntries", &self.pEntries)
-            .finish()
+        fmt.debug_struct("DHCP_SUPER_SCOPE_TABLE").field("cEntries", &self.cEntries).field("pEntries", &self.pEntries).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6358,21 +5630,13 @@ impl ::std::default::Default for DHCP_SUPER_SCOPE_TABLE_ENTRY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DHCP_SUPER_SCOPE_TABLE_ENTRY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DHCP_SUPER_SCOPE_TABLE_ENTRY")
-            .field("SubnetAddress", &self.SubnetAddress)
-            .field("SuperScopeNumber", &self.SuperScopeNumber)
-            .field("NextInSuperScope", &self.NextInSuperScope)
-            .field("SuperScopeName", &self.SuperScopeName)
-            .finish()
+        fmt.debug_struct("DHCP_SUPER_SCOPE_TABLE_ENTRY").field("SubnetAddress", &self.SubnetAddress).field("SuperScopeNumber", &self.SuperScopeNumber).field("NextInSuperScope", &self.NextInSuperScope).field("SuperScopeName", &self.SuperScopeName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DHCP_SUPER_SCOPE_TABLE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.SubnetAddress == other.SubnetAddress
-            && self.SuperScopeNumber == other.SuperScopeNumber
-            && self.NextInSuperScope == other.NextInSuperScope
-            && self.SuperScopeName == other.SuperScopeName
+        self.SubnetAddress == other.SubnetAddress && self.SuperScopeNumber == other.SuperScopeNumber && self.NextInSuperScope == other.NextInSuperScope && self.SuperScopeName == other.SuperScopeName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -6403,10 +5667,7 @@ impl ::std::default::Default for DWORD_DWORD {
 }
 impl ::std::fmt::Debug for DWORD_DWORD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DWORD_DWORD")
-            .field("DWord1", &self.DWord1)
-            .field("DWord2", &self.DWord2)
-            .finish()
+        fmt.debug_struct("DWORD_DWORD").field("DWord1", &self.DWord1).field("DWord2", &self.DWord2).finish()
     }
 }
 impl ::std::cmp::PartialEq for DWORD_DWORD {
@@ -6421,42 +5682,21 @@ unsafe impl ::windows::runtime::Abi for DWORD_DWORD {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpAddFilterV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    serveripaddress: Param0,
-    addfilterinfo: *const DHCP_FILTER_ADD_INFO,
-    forceflag: Param2,
-) -> u32 {
+pub unsafe fn DhcpAddFilterV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(serveripaddress: Param0, addfilterinfo: *const DHCP_FILTER_ADD_INFO, forceflag: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpAddFilterV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                addfilterinfo: *const DHCP_FILTER_ADD_INFO,
-                forceflag: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn DhcpAddFilterV4(serveripaddress: super::super::Foundation::PWSTR, addfilterinfo: *const DHCP_FILTER_ADD_INFO, forceflag: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(DhcpAddFilterV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(addfilterinfo),
-            forceflag.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpAddFilterV4(serveripaddress.into_param().abi(), ::std::mem::transmute(addfilterinfo), forceflag.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpAddSecurityGroup<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pserver: Param0,
-) -> u32 {
+pub unsafe fn DhcpAddSecurityGroup<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pserver: Param0) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
@@ -6470,226 +5710,98 @@ pub unsafe fn DhcpAddSecurityGroup<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpAddServer(
-    flags: u32,
-    idinfo: *mut ::std::ffi::c_void,
-    newserver: *mut DHCPDS_SERVER,
-    callbackfn: *mut ::std::ffi::c_void,
-    callbackdata: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn DhcpAddServer(flags: u32, idinfo: *mut ::std::ffi::c_void, newserver: *mut DHCPDS_SERVER, callbackfn: *mut ::std::ffi::c_void, callbackdata: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpAddServer(
-                flags: u32,
-                idinfo: *mut ::std::ffi::c_void,
-                newserver: *mut DHCPDS_SERVER,
-                callbackfn: *mut ::std::ffi::c_void,
-                callbackdata: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn DhcpAddServer(flags: u32, idinfo: *mut ::std::ffi::c_void, newserver: *mut DHCPDS_SERVER, callbackfn: *mut ::std::ffi::c_void, callbackdata: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(DhcpAddServer(
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(idinfo),
-            ::std::mem::transmute(newserver),
-            ::std::mem::transmute(callbackfn),
-            ::std::mem::transmute(callbackdata),
-        ))
+        ::std::mem::transmute(DhcpAddServer(::std::mem::transmute(flags), ::std::mem::transmute(idinfo), ::std::mem::transmute(newserver), ::std::mem::transmute(callbackfn), ::std::mem::transmute(callbackdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpAddSubnetElement<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA,
-) -> u32 {
+pub unsafe fn DhcpAddSubnetElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpAddSubnetElement(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA,
-            ) -> u32;
+            fn DhcpAddSubnetElement(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA) -> u32;
         }
-        ::std::mem::transmute(DhcpAddSubnetElement(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(addelementinfo),
-        ))
+        ::std::mem::transmute(DhcpAddSubnetElement(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(addelementinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpAddSubnetElementV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4,
-) -> u32 {
+pub unsafe fn DhcpAddSubnetElementV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpAddSubnetElementV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4,
-            ) -> u32;
+            fn DhcpAddSubnetElementV4(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4) -> u32;
         }
-        ::std::mem::transmute(DhcpAddSubnetElementV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(addelementinfo),
-        ))
+        ::std::mem::transmute(DhcpAddSubnetElementV4(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(addelementinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpAddSubnetElementV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5,
-) -> u32 {
+pub unsafe fn DhcpAddSubnetElementV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpAddSubnetElementV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5,
-            ) -> u32;
+            fn DhcpAddSubnetElementV5(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, addelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5) -> u32;
         }
-        ::std::mem::transmute(DhcpAddSubnetElementV5(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(addelementinfo),
-        ))
+        ::std::mem::transmute(DhcpAddSubnetElementV5(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(addelementinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpAddSubnetElementV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
->(
-    serveripaddress: Param0,
-    subnetaddress: Param1,
-    addelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6,
-) -> u32 {
+pub unsafe fn DhcpAddSubnetElementV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, addelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpAddSubnetElementV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: DHCP_IPV6_ADDRESS,
-                addelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6,
-            ) -> u32;
+            fn DhcpAddSubnetElementV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, addelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpAddSubnetElementV6(
-            serveripaddress.into_param().abi(),
-            subnetaddress.into_param().abi(),
-            ::std::mem::transmute(addelementinfo),
-        ))
+        ::std::mem::transmute(DhcpAddSubnetElementV6(serveripaddress.into_param().abi(), subnetaddress.into_param().abi(), ::std::mem::transmute(addelementinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpAuditLogGetParams<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    auditlogdir: *mut super::super::Foundation::PWSTR,
-    diskcheckinterval: *mut u32,
-    maxlogfilessize: *mut u32,
-    minspaceondisk: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpAuditLogGetParams<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, auditlogdir: *mut super::super::Foundation::PWSTR, diskcheckinterval: *mut u32, maxlogfilessize: *mut u32, minspaceondisk: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpAuditLogGetParams(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                auditlogdir: *mut super::super::Foundation::PWSTR,
-                diskcheckinterval: *mut u32,
-                maxlogfilessize: *mut u32,
-                minspaceondisk: *mut u32,
-            ) -> u32;
+            fn DhcpAuditLogGetParams(serveripaddress: super::super::Foundation::PWSTR, flags: u32, auditlogdir: *mut super::super::Foundation::PWSTR, diskcheckinterval: *mut u32, maxlogfilessize: *mut u32, minspaceondisk: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpAuditLogGetParams(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(auditlogdir),
-            ::std::mem::transmute(diskcheckinterval),
-            ::std::mem::transmute(maxlogfilessize),
-            ::std::mem::transmute(minspaceondisk),
-        ))
+        ::std::mem::transmute(DhcpAuditLogGetParams(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(auditlogdir), ::std::mem::transmute(diskcheckinterval), ::std::mem::transmute(maxlogfilessize), ::std::mem::transmute(minspaceondisk)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpAuditLogSetParams<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    auditlogdir: Param2,
-    diskcheckinterval: u32,
-    maxlogfilessize: u32,
-    minspaceondisk: u32,
-) -> u32 {
+pub unsafe fn DhcpAuditLogSetParams<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, auditlogdir: Param2, diskcheckinterval: u32, maxlogfilessize: u32, minspaceondisk: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpAuditLogSetParams(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                auditlogdir: super::super::Foundation::PWSTR,
-                diskcheckinterval: u32,
-                maxlogfilessize: u32,
-                minspaceondisk: u32,
-            ) -> u32;
+            fn DhcpAuditLogSetParams(serveripaddress: super::super::Foundation::PWSTR, flags: u32, auditlogdir: super::super::Foundation::PWSTR, diskcheckinterval: u32, maxlogfilessize: u32, minspaceondisk: u32) -> u32;
         }
-        ::std::mem::transmute(DhcpAuditLogSetParams(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            auditlogdir.into_param().abi(),
-            ::std::mem::transmute(diskcheckinterval),
-            ::std::mem::transmute(maxlogfilessize),
-            ::std::mem::transmute(minspaceondisk),
-        ))
+        ::std::mem::transmute(DhcpAuditLogSetParams(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), auditlogdir.into_param().abi(), ::std::mem::transmute(diskcheckinterval), ::std::mem::transmute(maxlogfilessize), ::std::mem::transmute(minspaceondisk)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6722,614 +5834,293 @@ pub unsafe fn DhcpCApiInitialize(version: *mut u32) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpCreateClass<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    reservedmustbezero: u32,
-    classinfo: *mut DHCP_CLASS_INFO,
-) -> u32 {
+pub unsafe fn DhcpCreateClass<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpCreateClass(
-                serveripaddress: super::super::Foundation::PWSTR,
-                reservedmustbezero: u32,
-                classinfo: *mut DHCP_CLASS_INFO,
-            ) -> u32;
+            fn DhcpCreateClass(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpCreateClass(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(reservedmustbezero),
-            ::std::mem::transmute(classinfo),
-        ))
+        ::std::mem::transmute(DhcpCreateClass(serveripaddress.into_param().abi(), ::std::mem::transmute(reservedmustbezero), ::std::mem::transmute(classinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpCreateClassV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    reservedmustbezero: u32,
-    classinfo: *mut DHCP_CLASS_INFO_V6,
-) -> u32 {
+pub unsafe fn DhcpCreateClassV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpCreateClassV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                reservedmustbezero: u32,
-                classinfo: *mut DHCP_CLASS_INFO_V6,
-            ) -> u32;
+            fn DhcpCreateClassV6(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpCreateClassV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(reservedmustbezero),
-            ::std::mem::transmute(classinfo),
-        ))
+        ::std::mem::transmute(DhcpCreateClassV6(serveripaddress.into_param().abi(), ::std::mem::transmute(reservedmustbezero), ::std::mem::transmute(classinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpCreateClientInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientinfo: *const DHCP_CLIENT_INFO,
-) -> u32 {
+pub unsafe fn DhcpCreateClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpCreateClientInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientinfo: *const DHCP_CLIENT_INFO,
-            ) -> u32;
+            fn DhcpCreateClientInfo(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpCreateClientInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpCreateClientInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpCreateClientInfoV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientinfo: *const DHCP_CLIENT_INFO_V4,
-) -> u32 {
+pub unsafe fn DhcpCreateClientInfoV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_V4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpCreateClientInfoV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientinfo: *const DHCP_CLIENT_INFO_V4,
-            ) -> u32;
+            fn DhcpCreateClientInfoV4(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_V4) -> u32;
         }
-        ::std::mem::transmute(DhcpCreateClientInfoV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpCreateClientInfoV4(serveripaddress.into_param().abi(), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpCreateClientInfoVQ<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientinfo: *const DHCP_CLIENT_INFO_VQ,
-) -> u32 {
+pub unsafe fn DhcpCreateClientInfoVQ<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpCreateClientInfoVQ(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientinfo: *const DHCP_CLIENT_INFO_VQ,
-            ) -> u32;
+            fn DhcpCreateClientInfoVQ(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_VQ) -> u32;
         }
-        ::std::mem::transmute(DhcpCreateClientInfoVQ(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpCreateClientInfoVQ(serveripaddress.into_param().abi(), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpCreateOption<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    optionid: u32,
-    optioninfo: *const DHCP_OPTION,
-) -> u32 {
+pub unsafe fn DhcpCreateOption<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32, optioninfo: *const DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpCreateOption(
-                serveripaddress: super::super::Foundation::PWSTR,
-                optionid: u32,
-                optioninfo: *const DHCP_OPTION,
-            ) -> u32;
+            fn DhcpCreateOption(serveripaddress: super::super::Foundation::PWSTR, optionid: u32, optioninfo: *const DHCP_OPTION) -> u32;
         }
-        ::std::mem::transmute(DhcpCreateOption(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(optionid),
-            ::std::mem::transmute(optioninfo),
-        ))
+        ::std::mem::transmute(DhcpCreateOption(serveripaddress.into_param().abi(), ::std::mem::transmute(optionid), ::std::mem::transmute(optioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpCreateOptionV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-    optioninfo: *mut DHCP_OPTION,
-) -> u32 {
+pub unsafe fn DhcpCreateOptionV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, optioninfo: *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpCreateOptionV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                optioninfo: *mut DHCP_OPTION,
-            ) -> u32;
+            fn DhcpCreateOptionV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, optioninfo: *mut DHCP_OPTION) -> u32;
         }
-        ::std::mem::transmute(DhcpCreateOptionV5(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(optioninfo),
-        ))
+        ::std::mem::transmute(DhcpCreateOptionV5(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(optioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpCreateOptionV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-    optioninfo: *mut DHCP_OPTION,
-) -> u32 {
+pub unsafe fn DhcpCreateOptionV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, optioninfo: *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpCreateOptionV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                optioninfo: *mut DHCP_OPTION,
-            ) -> u32;
+            fn DhcpCreateOptionV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, optioninfo: *mut DHCP_OPTION) -> u32;
         }
-        ::std::mem::transmute(DhcpCreateOptionV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(optioninfo),
-        ))
+        ::std::mem::transmute(DhcpCreateOptionV6(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(optioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpCreateSubnet<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    subnetinfo: *const DHCP_SUBNET_INFO,
-) -> u32 {
+pub unsafe fn DhcpCreateSubnet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpCreateSubnet(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                subnetinfo: *const DHCP_SUBNET_INFO,
-            ) -> u32;
+            fn DhcpCreateSubnet(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpCreateSubnet(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(subnetinfo),
-        ))
+        ::std::mem::transmute(DhcpCreateSubnet(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(subnetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpCreateSubnetV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
->(
-    serveripaddress: Param0,
-    subnetaddress: Param1,
-    subnetinfo: *mut DHCP_SUBNET_INFO_V6,
-) -> u32 {
+pub unsafe fn DhcpCreateSubnetV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, subnetinfo: *mut DHCP_SUBNET_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpCreateSubnetV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: DHCP_IPV6_ADDRESS,
-                subnetinfo: *mut DHCP_SUBNET_INFO_V6,
-            ) -> u32;
+            fn DhcpCreateSubnetV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: *mut DHCP_SUBNET_INFO_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpCreateSubnetV6(
-            serveripaddress.into_param().abi(),
-            subnetaddress.into_param().abi(),
-            ::std::mem::transmute(subnetinfo),
-        ))
+        ::std::mem::transmute(DhcpCreateSubnetV6(serveripaddress.into_param().abi(), subnetaddress.into_param().abi(), ::std::mem::transmute(subnetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpCreateSubnetVQ<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    subnetinfo: *const DHCP_SUBNET_INFO_VQ,
-) -> u32 {
+pub unsafe fn DhcpCreateSubnetVQ<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpCreateSubnetVQ(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                subnetinfo: *const DHCP_SUBNET_INFO_VQ,
-            ) -> u32;
+            fn DhcpCreateSubnetVQ(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32;
         }
-        ::std::mem::transmute(DhcpCreateSubnetVQ(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(subnetinfo),
-        ))
+        ::std::mem::transmute(DhcpCreateSubnetVQ(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(subnetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn DhcpDeRegisterParamChange(
-    flags: u32,
-    reserved: *mut ::std::ffi::c_void,
-    event: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn DhcpDeRegisterParamChange(flags: u32, reserved: *mut ::std::ffi::c_void, event: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpDeRegisterParamChange(
-                flags: u32,
-                reserved: *mut ::std::ffi::c_void,
-                event: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn DhcpDeRegisterParamChange(flags: u32, reserved: *mut ::std::ffi::c_void, event: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(DhcpDeRegisterParamChange(
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(reserved),
-            ::std::mem::transmute(event),
-        ))
+        ::std::mem::transmute(DhcpDeRegisterParamChange(::std::mem::transmute(flags), ::std::mem::transmute(reserved), ::std::mem::transmute(event)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpDeleteClass<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    reservedmustbezero: u32,
-    classname: Param2,
-) -> u32 {
+pub unsafe fn DhcpDeleteClass<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, classname: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpDeleteClass(
-                serveripaddress: super::super::Foundation::PWSTR,
-                reservedmustbezero: u32,
-                classname: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpDeleteClass(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpDeleteClass(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(reservedmustbezero),
-            classname.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpDeleteClass(serveripaddress.into_param().abi(), ::std::mem::transmute(reservedmustbezero), classname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpDeleteClassV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    reservedmustbezero: u32,
-    classname: Param2,
-) -> u32 {
+pub unsafe fn DhcpDeleteClassV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, classname: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpDeleteClassV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                reservedmustbezero: u32,
-                classname: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpDeleteClassV6(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpDeleteClassV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(reservedmustbezero),
-            classname.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpDeleteClassV6(serveripaddress.into_param().abi(), ::std::mem::transmute(reservedmustbezero), classname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpDeleteClientInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientinfo: *const DHCP_SEARCH_INFO,
-) -> u32 {
+pub unsafe fn DhcpDeleteClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_SEARCH_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpDeleteClientInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientinfo: *const DHCP_SEARCH_INFO,
-            ) -> u32;
+            fn DhcpDeleteClientInfo(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_SEARCH_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpDeleteClientInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpDeleteClientInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpDeleteClientInfoV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientinfo: *const DHCP_SEARCH_INFO_V6,
-) -> u32 {
+pub unsafe fn DhcpDeleteClientInfoV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_SEARCH_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpDeleteClientInfoV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientinfo: *const DHCP_SEARCH_INFO_V6,
-            ) -> u32;
+            fn DhcpDeleteClientInfoV6(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_SEARCH_INFO_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpDeleteClientInfoV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpDeleteClientInfoV6(serveripaddress.into_param().abi(), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpDeleteFilterV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    deletefilterinfo: *const DHCP_ADDR_PATTERN,
-) -> u32 {
+pub unsafe fn DhcpDeleteFilterV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, deletefilterinfo: *const DHCP_ADDR_PATTERN) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpDeleteFilterV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                deletefilterinfo: *const DHCP_ADDR_PATTERN,
-            ) -> u32;
+            fn DhcpDeleteFilterV4(serveripaddress: super::super::Foundation::PWSTR, deletefilterinfo: *const DHCP_ADDR_PATTERN) -> u32;
         }
-        ::std::mem::transmute(DhcpDeleteFilterV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(deletefilterinfo),
-        ))
+        ::std::mem::transmute(DhcpDeleteFilterV4(serveripaddress.into_param().abi(), ::std::mem::transmute(deletefilterinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpDeleteServer(
-    flags: u32,
-    idinfo: *mut ::std::ffi::c_void,
-    newserver: *mut DHCPDS_SERVER,
-    callbackfn: *mut ::std::ffi::c_void,
-    callbackdata: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn DhcpDeleteServer(flags: u32, idinfo: *mut ::std::ffi::c_void, newserver: *mut DHCPDS_SERVER, callbackfn: *mut ::std::ffi::c_void, callbackdata: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpDeleteServer(
-                flags: u32,
-                idinfo: *mut ::std::ffi::c_void,
-                newserver: *mut DHCPDS_SERVER,
-                callbackfn: *mut ::std::ffi::c_void,
-                callbackdata: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn DhcpDeleteServer(flags: u32, idinfo: *mut ::std::ffi::c_void, newserver: *mut DHCPDS_SERVER, callbackfn: *mut ::std::ffi::c_void, callbackdata: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(DhcpDeleteServer(
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(idinfo),
-            ::std::mem::transmute(newserver),
-            ::std::mem::transmute(callbackfn),
-            ::std::mem::transmute(callbackdata),
-        ))
+        ::std::mem::transmute(DhcpDeleteServer(::std::mem::transmute(flags), ::std::mem::transmute(idinfo), ::std::mem::transmute(newserver), ::std::mem::transmute(callbackfn), ::std::mem::transmute(callbackdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpDeleteSubnet<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    forceflag: DHCP_FORCE_FLAG,
-) -> u32 {
+pub unsafe fn DhcpDeleteSubnet<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, forceflag: DHCP_FORCE_FLAG) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpDeleteSubnet(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                forceflag: DHCP_FORCE_FLAG,
-            ) -> u32;
+            fn DhcpDeleteSubnet(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, forceflag: DHCP_FORCE_FLAG) -> u32;
         }
-        ::std::mem::transmute(DhcpDeleteSubnet(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(forceflag),
-        ))
+        ::std::mem::transmute(DhcpDeleteSubnet(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(forceflag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpDeleteSubnetV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
->(
-    serveripaddress: Param0,
-    subnetaddress: Param1,
-    forceflag: DHCP_FORCE_FLAG,
-) -> u32 {
+pub unsafe fn DhcpDeleteSubnetV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, forceflag: DHCP_FORCE_FLAG) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpDeleteSubnetV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: DHCP_IPV6_ADDRESS,
-                forceflag: DHCP_FORCE_FLAG,
-            ) -> u32;
+            fn DhcpDeleteSubnetV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, forceflag: DHCP_FORCE_FLAG) -> u32;
         }
-        ::std::mem::transmute(DhcpDeleteSubnetV6(
-            serveripaddress.into_param().abi(),
-            subnetaddress.into_param().abi(),
-            ::std::mem::transmute(forceflag),
-        ))
+        ::std::mem::transmute(DhcpDeleteSubnetV6(serveripaddress.into_param().abi(), subnetaddress.into_param().abi(), ::std::mem::transmute(forceflag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpDeleteSuperScopeV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    superscopename: Param1,
-) -> u32 {
+pub unsafe fn DhcpDeleteSuperScopeV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, superscopename: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpDeleteSuperScopeV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                superscopename: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpDeleteSuperScopeV4(serveripaddress: super::super::Foundation::PWSTR, superscopename: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpDeleteSuperScopeV4(
-            serveripaddress.into_param().abi(),
-            superscopename.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpDeleteSuperScopeV4(serveripaddress.into_param().abi(), superscopename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7362,176 +6153,63 @@ pub unsafe fn DhcpDsInit() -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumClasses<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    reservedmustbezero: u32,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY,
-    nread: *mut u32,
-    ntotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumClasses<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, resumehandle: *mut u32, preferredmaximum: u32, classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY, nread: *mut u32, ntotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumClasses(
-                serveripaddress: super::super::Foundation::PWSTR,
-                reservedmustbezero: u32,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY,
-                nread: *mut u32,
-                ntotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumClasses(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, resumehandle: *mut u32, preferredmaximum: u32, classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY, nread: *mut u32, ntotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumClasses(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(reservedmustbezero),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(classinfoarray),
-            ::std::mem::transmute(nread),
-            ::std::mem::transmute(ntotal),
-        ))
+        ::std::mem::transmute(DhcpEnumClasses(serveripaddress.into_param().abi(), ::std::mem::transmute(reservedmustbezero), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(classinfoarray), ::std::mem::transmute(nread), ::std::mem::transmute(ntotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumClassesV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    reservedmustbezero: u32,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY_V6,
-    nread: *mut u32,
-    ntotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumClassesV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, resumehandle: *mut u32, preferredmaximum: u32, classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY_V6, nread: *mut u32, ntotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumClassesV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                reservedmustbezero: u32,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY_V6,
-                nread: *mut u32,
-                ntotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumClassesV6(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, resumehandle: *mut u32, preferredmaximum: u32, classinfoarray: *mut *mut DHCP_CLASS_INFO_ARRAY_V6, nread: *mut u32, ntotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumClassesV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(reservedmustbezero),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(classinfoarray),
-            ::std::mem::transmute(nread),
-            ::std::mem::transmute(ntotal),
-        ))
+        ::std::mem::transmute(DhcpEnumClassesV6(serveripaddress.into_param().abi(), ::std::mem::transmute(reservedmustbezero), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(classinfoarray), ::std::mem::transmute(nread), ::std::mem::transmute(ntotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumFilterV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    resumehandle: *mut DHCP_ADDR_PATTERN,
-    preferredmaximum: u32,
-    listtype: DHCP_FILTER_LIST_TYPE,
-    enumfilterinfo: *mut *mut DHCP_FILTER_ENUM_INFO,
-    elementsread: *mut u32,
-    elementstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumFilterV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, resumehandle: *mut DHCP_ADDR_PATTERN, preferredmaximum: u32, listtype: DHCP_FILTER_LIST_TYPE, enumfilterinfo: *mut *mut DHCP_FILTER_ENUM_INFO, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumFilterV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                resumehandle: *mut DHCP_ADDR_PATTERN,
-                preferredmaximum: u32,
-                listtype: DHCP_FILTER_LIST_TYPE,
-                enumfilterinfo: *mut *mut DHCP_FILTER_ENUM_INFO,
-                elementsread: *mut u32,
-                elementstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumFilterV4(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut DHCP_ADDR_PATTERN, preferredmaximum: u32, listtype: DHCP_FILTER_LIST_TYPE, enumfilterinfo: *mut *mut DHCP_FILTER_ENUM_INFO, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumFilterV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(listtype),
-            ::std::mem::transmute(enumfilterinfo),
-            ::std::mem::transmute(elementsread),
-            ::std::mem::transmute(elementstotal),
-        ))
+        ::std::mem::transmute(DhcpEnumFilterV4(serveripaddress.into_param().abi(), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(listtype), ::std::mem::transmute(enumfilterinfo), ::std::mem::transmute(elementsread), ::std::mem::transmute(elementstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumOptionValues<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    scopeinfo: *const DHCP_OPTION_SCOPE_INFO,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY,
-    optionsread: *mut u32,
-    optionstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumOptionValues<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumOptionValues(
-                serveripaddress: super::super::Foundation::PWSTR,
-                scopeinfo: *const DHCP_OPTION_SCOPE_INFO,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY,
-                optionsread: *mut u32,
-                optionstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumOptionValues(serveripaddress: super::super::Foundation::PWSTR, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumOptionValues(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(optionvalues),
-            ::std::mem::transmute(optionsread),
-            ::std::mem::transmute(optionstotal),
-        ))
+        ::std::mem::transmute(DhcpEnumOptionValues(serveripaddress.into_param().abi(), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(optionvalues), ::std::mem::transmute(optionsread), ::std::mem::transmute(optionstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumOptionValuesV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn DhcpEnumOptionValuesV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     serveripaddress: Param0,
     flags: u32,
     classname: Param2,
@@ -7547,18 +6225,7 @@ pub unsafe fn DhcpEnumOptionValuesV5<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumOptionValuesV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY,
-                optionsread: *mut u32,
-                optionstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumOptionValuesV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
         ::std::mem::transmute(DhcpEnumOptionValuesV5(
             serveripaddress.into_param().abi(),
@@ -7578,12 +6245,7 @@ pub unsafe fn DhcpEnumOptionValuesV5<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumOptionValuesV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn DhcpEnumOptionValuesV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     serveripaddress: Param0,
     flags: u32,
     classname: Param2,
@@ -7599,18 +6261,7 @@ pub unsafe fn DhcpEnumOptionValuesV6<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumOptionValuesV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY,
-                optionsread: *mut u32,
-                optionstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumOptionValuesV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, resumehandle: *mut u32, preferredmaximum: u32, optionvalues: *mut *mut DHCP_OPTION_VALUE_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
         ::std::mem::transmute(DhcpEnumOptionValuesV6(
             serveripaddress.into_param().abi(),
@@ -7630,75 +6281,26 @@ pub unsafe fn DhcpEnumOptionValuesV6<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumOptions<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    options: *mut *mut DHCP_OPTION_ARRAY,
-    optionsread: *mut u32,
-    optionstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumOptions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumOptions(
-                serveripaddress: super::super::Foundation::PWSTR,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                options: *mut *mut DHCP_OPTION_ARRAY,
-                optionsread: *mut u32,
-                optionstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumOptions(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumOptions(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(options),
-            ::std::mem::transmute(optionsread),
-            ::std::mem::transmute(optionstotal),
-        ))
+        ::std::mem::transmute(DhcpEnumOptions(serveripaddress.into_param().abi(), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(options), ::std::mem::transmute(optionsread), ::std::mem::transmute(optionstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumOptionsV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    classname: Param2,
-    vendorname: Param3,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    options: *mut *mut DHCP_OPTION_ARRAY,
-    optionsread: *mut u32,
-    optionstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumOptionsV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, classname: Param2, vendorname: Param3, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumOptionsV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                options: *mut *mut DHCP_OPTION_ARRAY,
-                optionsread: *mut u32,
-                optionstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumOptionsV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
         ::std::mem::transmute(DhcpEnumOptionsV5(
             serveripaddress.into_param().abi(),
@@ -7717,37 +6319,12 @@ pub unsafe fn DhcpEnumOptionsV5<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumOptionsV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    classname: Param2,
-    vendorname: Param3,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    options: *mut *mut DHCP_OPTION_ARRAY,
-    optionsread: *mut u32,
-    optionstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumOptionsV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, classname: Param2, vendorname: Param3, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumOptionsV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                options: *mut *mut DHCP_OPTION_ARRAY,
-                optionsread: *mut u32,
-                optionstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumOptionsV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, options: *mut *mut DHCP_OPTION_ARRAY, optionsread: *mut u32, optionstotal: *mut u32) -> u32;
         }
         ::std::mem::transmute(DhcpEnumOptionsV6(
             serveripaddress.into_param().abi(),
@@ -7766,312 +6343,110 @@ pub unsafe fn DhcpEnumOptionsV6<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumServers(
-    flags: u32,
-    idinfo: *mut ::std::ffi::c_void,
-    servers: *mut *mut DHCPDS_SERVERS,
-    callbackfn: *mut ::std::ffi::c_void,
-    callbackdata: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn DhcpEnumServers(flags: u32, idinfo: *mut ::std::ffi::c_void, servers: *mut *mut DHCPDS_SERVERS, callbackfn: *mut ::std::ffi::c_void, callbackdata: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumServers(
-                flags: u32,
-                idinfo: *mut ::std::ffi::c_void,
-                servers: *mut *mut DHCPDS_SERVERS,
-                callbackfn: *mut ::std::ffi::c_void,
-                callbackdata: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn DhcpEnumServers(flags: u32, idinfo: *mut ::std::ffi::c_void, servers: *mut *mut DHCPDS_SERVERS, callbackfn: *mut ::std::ffi::c_void, callbackdata: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumServers(
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(idinfo),
-            ::std::mem::transmute(servers),
-            ::std::mem::transmute(callbackfn),
-            ::std::mem::transmute(callbackdata),
-        ))
+        ::std::mem::transmute(DhcpEnumServers(::std::mem::transmute(flags), ::std::mem::transmute(idinfo), ::std::mem::transmute(servers), ::std::mem::transmute(callbackfn), ::std::mem::transmute(callbackdata)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumSubnetClients<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY,
-    clientsread: *mut u32,
-    clientstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumSubnetClients<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumSubnetClients(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY,
-                clientsread: *mut u32,
-                clientstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumSubnetClients(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumSubnetClients(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(clientinfo),
-            ::std::mem::transmute(clientsread),
-            ::std::mem::transmute(clientstotal),
-        ))
+        ::std::mem::transmute(DhcpEnumSubnetClients(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(clientinfo), ::std::mem::transmute(clientsread), ::std::mem::transmute(clientstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumSubnetClientsFilterStatusInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    clientinfo: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY,
-    clientsread: *mut u32,
-    clientstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumSubnetClientsFilterStatusInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumSubnetClientsFilterStatusInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                clientinfo: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY,
-                clientsread: *mut u32,
-                clientstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumSubnetClientsFilterStatusInfo(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_FILTER_STATUS_INFO_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumSubnetClientsFilterStatusInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(clientinfo),
-            ::std::mem::transmute(clientsread),
-            ::std::mem::transmute(clientstotal),
-        ))
+        ::std::mem::transmute(DhcpEnumSubnetClientsFilterStatusInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(clientinfo), ::std::mem::transmute(clientsread), ::std::mem::transmute(clientstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumSubnetClientsV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V4,
-    clientsread: *mut u32,
-    clientstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumSubnetClientsV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V4, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumSubnetClientsV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V4,
-                clientsread: *mut u32,
-                clientstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumSubnetClientsV4(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V4, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumSubnetClientsV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(clientinfo),
-            ::std::mem::transmute(clientsread),
-            ::std::mem::transmute(clientstotal),
-        ))
+        ::std::mem::transmute(DhcpEnumSubnetClientsV4(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(clientinfo), ::std::mem::transmute(clientsread), ::std::mem::transmute(clientstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumSubnetClientsV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V5,
-    clientsread: *mut u32,
-    clientstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumSubnetClientsV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V5, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumSubnetClientsV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V5,
-                clientsread: *mut u32,
-                clientstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumSubnetClientsV5(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V5, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumSubnetClientsV5(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(clientinfo),
-            ::std::mem::transmute(clientsread),
-            ::std::mem::transmute(clientstotal),
-        ))
+        ::std::mem::transmute(DhcpEnumSubnetClientsV5(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(clientinfo), ::std::mem::transmute(clientsread), ::std::mem::transmute(clientstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumSubnetClientsV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
->(
-    serveripaddress: Param0,
-    subnetaddress: Param1,
-    resumehandle: *mut DHCP_IPV6_ADDRESS,
-    preferredmaximum: u32,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V6,
-    clientsread: *mut u32,
-    clientstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumSubnetClientsV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, resumehandle: *mut DHCP_IPV6_ADDRESS, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V6, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumSubnetClientsV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: DHCP_IPV6_ADDRESS,
-                resumehandle: *mut DHCP_IPV6_ADDRESS,
-                preferredmaximum: u32,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V6,
-                clientsread: *mut u32,
-                clientstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumSubnetClientsV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, resumehandle: *mut DHCP_IPV6_ADDRESS, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_V6, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumSubnetClientsV6(
-            serveripaddress.into_param().abi(),
-            subnetaddress.into_param().abi(),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(clientinfo),
-            ::std::mem::transmute(clientsread),
-            ::std::mem::transmute(clientstotal),
-        ))
+        ::std::mem::transmute(DhcpEnumSubnetClientsV6(serveripaddress.into_param().abi(), subnetaddress.into_param().abi(), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(clientinfo), ::std::mem::transmute(clientsread), ::std::mem::transmute(clientstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumSubnetClientsVQ<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_VQ,
-    clientsread: *mut u32,
-    clientstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumSubnetClientsVQ<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_VQ, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumSubnetClientsVQ(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_VQ,
-                clientsread: *mut u32,
-                clientstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumSubnetClientsVQ(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_ARRAY_VQ, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumSubnetClientsVQ(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(clientinfo),
-            ::std::mem::transmute(clientsread),
-            ::std::mem::transmute(clientstotal),
-        ))
+        ::std::mem::transmute(DhcpEnumSubnetClientsVQ(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(clientinfo), ::std::mem::transmute(clientsread), ::std::mem::transmute(clientstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumSubnetElements<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    enumelementtype: DHCP_SUBNET_ELEMENT_TYPE,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY,
-    elementsread: *mut u32,
-    elementstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumSubnetElements<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumSubnetElements(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                enumelementtype: DHCP_SUBNET_ELEMENT_TYPE,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY,
-                elementsread: *mut u32,
-                elementstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumSubnetElements(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
         ::std::mem::transmute(DhcpEnumSubnetElements(
             serveripaddress.into_param().abi(),
@@ -8089,33 +6464,12 @@ pub unsafe fn DhcpEnumSubnetElements<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumSubnetElementsV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    enumelementtype: DHCP_SUBNET_ELEMENT_TYPE,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4,
-    elementsread: *mut u32,
-    elementstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumSubnetElementsV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumSubnetElementsV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                enumelementtype: DHCP_SUBNET_ELEMENT_TYPE,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4,
-                elementsread: *mut u32,
-                elementstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumSubnetElementsV4(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V4, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
         ::std::mem::transmute(DhcpEnumSubnetElementsV4(
             serveripaddress.into_param().abi(),
@@ -8133,33 +6487,12 @@ pub unsafe fn DhcpEnumSubnetElementsV4<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumSubnetElementsV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    enumelementtype: DHCP_SUBNET_ELEMENT_TYPE,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5,
-    elementsread: *mut u32,
-    elementstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumSubnetElementsV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumSubnetElementsV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                enumelementtype: DHCP_SUBNET_ELEMENT_TYPE,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5,
-                elementsread: *mut u32,
-                elementstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumSubnetElementsV5(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V5, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
         ::std::mem::transmute(DhcpEnumSubnetElementsV5(
             serveripaddress.into_param().abi(),
@@ -8177,34 +6510,12 @@ pub unsafe fn DhcpEnumSubnetElementsV5<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumSubnetElementsV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
->(
-    serveripaddress: Param0,
-    subnetaddress: Param1,
-    enumelementtype: DHCP_SUBNET_ELEMENT_TYPE_V6,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6,
-    elementsread: *mut u32,
-    elementstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumSubnetElementsV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE_V6, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumSubnetElementsV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: DHCP_IPV6_ADDRESS,
-                enumelementtype: DHCP_SUBNET_ELEMENT_TYPE_V6,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6,
-                elementsread: *mut u32,
-                elementstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumSubnetElementsV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, enumelementtype: DHCP_SUBNET_ELEMENT_TYPE_V6, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_SUBNET_ELEMENT_INFO_ARRAY_V6, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
         ::std::mem::transmute(DhcpEnumSubnetElementsV6(
             serveripaddress.into_param().abi(),
@@ -8222,962 +6533,434 @@ pub unsafe fn DhcpEnumSubnetElementsV6<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumSubnets<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    enuminfo: *mut *mut DHCP_IP_ARRAY,
-    elementsread: *mut u32,
-    elementstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumSubnets<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, resumehandle: *mut u32, preferredmaximum: u32, enuminfo: *mut *mut DHCP_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumSubnets(
-                serveripaddress: super::super::Foundation::PWSTR,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                enuminfo: *mut *mut DHCP_IP_ARRAY,
-                elementsread: *mut u32,
-                elementstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumSubnets(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, enuminfo: *mut *mut DHCP_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumSubnets(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(enuminfo),
-            ::std::mem::transmute(elementsread),
-            ::std::mem::transmute(elementstotal),
-        ))
+        ::std::mem::transmute(DhcpEnumSubnets(serveripaddress.into_param().abi(), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(enuminfo), ::std::mem::transmute(elementsread), ::std::mem::transmute(elementstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpEnumSubnetsV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    enuminfo: *mut *mut DHCPV6_IP_ARRAY,
-    elementsread: *mut u32,
-    elementstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpEnumSubnetsV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, resumehandle: *mut u32, preferredmaximum: u32, enuminfo: *mut *mut DHCPV6_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpEnumSubnetsV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                enuminfo: *mut *mut DHCPV6_IP_ARRAY,
-                elementsread: *mut u32,
-                elementstotal: *mut u32,
-            ) -> u32;
+            fn DhcpEnumSubnetsV6(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, enuminfo: *mut *mut DHCPV6_IP_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpEnumSubnetsV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(enuminfo),
-            ::std::mem::transmute(elementsread),
-            ::std::mem::transmute(elementstotal),
-        ))
+        ::std::mem::transmute(DhcpEnumSubnetsV6(serveripaddress.into_param().abi(), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(enuminfo), ::std::mem::transmute(elementsread), ::std::mem::transmute(elementstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetAllOptionValues<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-    values: *mut *mut DHCP_ALL_OPTION_VALUES,
-) -> u32 {
+pub unsafe fn DhcpGetAllOptionValues<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetAllOptionValues(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-                values: *mut *mut DHCP_ALL_OPTION_VALUES,
-            ) -> u32;
+            fn DhcpGetAllOptionValues(serveripaddress: super::super::Foundation::PWSTR, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32;
         }
-        ::std::mem::transmute(DhcpGetAllOptionValues(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(values),
-        ))
+        ::std::mem::transmute(DhcpGetAllOptionValues(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(values)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetAllOptionValuesV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-    values: *mut *mut DHCP_ALL_OPTION_VALUES,
-) -> u32 {
+pub unsafe fn DhcpGetAllOptionValuesV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetAllOptionValuesV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-                values: *mut *mut DHCP_ALL_OPTION_VALUES,
-            ) -> u32;
+            fn DhcpGetAllOptionValuesV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, values: *mut *mut DHCP_ALL_OPTION_VALUES) -> u32;
         }
-        ::std::mem::transmute(DhcpGetAllOptionValuesV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(values),
-        ))
+        ::std::mem::transmute(DhcpGetAllOptionValuesV6(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(values)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetAllOptions<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionstruct: *mut *mut DHCP_ALL_OPTIONS,
-) -> u32 {
+pub unsafe fn DhcpGetAllOptions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionstruct: *mut *mut DHCP_ALL_OPTIONS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetAllOptions(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionstruct: *mut *mut DHCP_ALL_OPTIONS,
-            ) -> u32;
+            fn DhcpGetAllOptions(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionstruct: *mut *mut DHCP_ALL_OPTIONS) -> u32;
         }
-        ::std::mem::transmute(DhcpGetAllOptions(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionstruct),
-        ))
+        ::std::mem::transmute(DhcpGetAllOptions(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionstruct)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetAllOptionsV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionstruct: *mut *mut DHCP_ALL_OPTIONS,
-) -> u32 {
+pub unsafe fn DhcpGetAllOptionsV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionstruct: *mut *mut DHCP_ALL_OPTIONS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetAllOptionsV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionstruct: *mut *mut DHCP_ALL_OPTIONS,
-            ) -> u32;
+            fn DhcpGetAllOptionsV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionstruct: *mut *mut DHCP_ALL_OPTIONS) -> u32;
         }
-        ::std::mem::transmute(DhcpGetAllOptionsV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionstruct),
-        ))
+        ::std::mem::transmute(DhcpGetAllOptionsV6(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionstruct)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetClassInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    reservedmustbezero: u32,
-    partialclassinfo: *mut DHCP_CLASS_INFO,
-    filledclassinfo: *mut *mut DHCP_CLASS_INFO,
-) -> u32 {
+pub unsafe fn DhcpGetClassInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, partialclassinfo: *mut DHCP_CLASS_INFO, filledclassinfo: *mut *mut DHCP_CLASS_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetClassInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                reservedmustbezero: u32,
-                partialclassinfo: *mut DHCP_CLASS_INFO,
-                filledclassinfo: *mut *mut DHCP_CLASS_INFO,
-            ) -> u32;
+            fn DhcpGetClassInfo(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, partialclassinfo: *mut DHCP_CLASS_INFO, filledclassinfo: *mut *mut DHCP_CLASS_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpGetClassInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(reservedmustbezero),
-            ::std::mem::transmute(partialclassinfo),
-            ::std::mem::transmute(filledclassinfo),
-        ))
+        ::std::mem::transmute(DhcpGetClassInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(reservedmustbezero), ::std::mem::transmute(partialclassinfo), ::std::mem::transmute(filledclassinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetClientInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    searchinfo: *const DHCP_SEARCH_INFO,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO,
-) -> u32 {
+pub unsafe fn DhcpGetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetClientInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                searchinfo: *const DHCP_SEARCH_INFO,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO,
-            ) -> u32;
+            fn DhcpGetClientInfo(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpGetClientInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(searchinfo),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpGetClientInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(searchinfo), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetClientInfoV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    searchinfo: *const DHCP_SEARCH_INFO,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO_V4,
-) -> u32 {
+pub unsafe fn DhcpGetClientInfoV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_V4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetClientInfoV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                searchinfo: *const DHCP_SEARCH_INFO,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO_V4,
-            ) -> u32;
+            fn DhcpGetClientInfoV4(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_V4) -> u32;
         }
-        ::std::mem::transmute(DhcpGetClientInfoV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(searchinfo),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpGetClientInfoV4(serveripaddress.into_param().abi(), ::std::mem::transmute(searchinfo), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetClientInfoV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    searchinfo: *const DHCP_SEARCH_INFO_V6,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO_V6,
-) -> u32 {
+pub unsafe fn DhcpGetClientInfoV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO_V6, clientinfo: *mut *mut DHCP_CLIENT_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetClientInfoV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                searchinfo: *const DHCP_SEARCH_INFO_V6,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO_V6,
-            ) -> u32;
+            fn DhcpGetClientInfoV6(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO_V6, clientinfo: *mut *mut DHCP_CLIENT_INFO_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpGetClientInfoV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(searchinfo),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpGetClientInfoV6(serveripaddress.into_param().abi(), ::std::mem::transmute(searchinfo), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetClientInfoVQ<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    searchinfo: *const DHCP_SEARCH_INFO,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO_VQ,
-) -> u32 {
+pub unsafe fn DhcpGetClientInfoVQ<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetClientInfoVQ(
-                serveripaddress: super::super::Foundation::PWSTR,
-                searchinfo: *const DHCP_SEARCH_INFO,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO_VQ,
-            ) -> u32;
+            fn DhcpGetClientInfoVQ(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_VQ) -> u32;
         }
-        ::std::mem::transmute(DhcpGetClientInfoVQ(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(searchinfo),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpGetClientInfoVQ(serveripaddress.into_param().abi(), ::std::mem::transmute(searchinfo), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetClientOptions<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientipaddress: u32,
-    clientsubnetmask: u32,
-    clientoptions: *mut *mut DHCP_OPTION_LIST,
-) -> u32 {
+pub unsafe fn DhcpGetClientOptions<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientipaddress: u32, clientsubnetmask: u32, clientoptions: *mut *mut DHCP_OPTION_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetClientOptions(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientipaddress: u32,
-                clientsubnetmask: u32,
-                clientoptions: *mut *mut DHCP_OPTION_LIST,
-            ) -> u32;
+            fn DhcpGetClientOptions(serveripaddress: super::super::Foundation::PWSTR, clientipaddress: u32, clientsubnetmask: u32, clientoptions: *mut *mut DHCP_OPTION_LIST) -> u32;
         }
-        ::std::mem::transmute(DhcpGetClientOptions(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientipaddress),
-            ::std::mem::transmute(clientsubnetmask),
-            ::std::mem::transmute(clientoptions),
-        ))
+        ::std::mem::transmute(DhcpGetClientOptions(serveripaddress.into_param().abi(), ::std::mem::transmute(clientipaddress), ::std::mem::transmute(clientsubnetmask), ::std::mem::transmute(clientoptions)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetFilterV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    globalfilterinfo: *mut DHCP_FILTER_GLOBAL_INFO,
-) -> u32 {
+pub unsafe fn DhcpGetFilterV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, globalfilterinfo: *mut DHCP_FILTER_GLOBAL_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetFilterV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                globalfilterinfo: *mut DHCP_FILTER_GLOBAL_INFO,
-            ) -> u32;
+            fn DhcpGetFilterV4(serveripaddress: super::super::Foundation::PWSTR, globalfilterinfo: *mut DHCP_FILTER_GLOBAL_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpGetFilterV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(globalfilterinfo),
-        ))
+        ::std::mem::transmute(DhcpGetFilterV4(serveripaddress.into_param().abi(), ::std::mem::transmute(globalfilterinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetMibInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    mibinfo: *mut *mut DHCP_MIB_INFO,
-) -> u32 {
+pub unsafe fn DhcpGetMibInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, mibinfo: *mut *mut DHCP_MIB_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetMibInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                mibinfo: *mut *mut DHCP_MIB_INFO,
-            ) -> u32;
+            fn DhcpGetMibInfo(serveripaddress: super::super::Foundation::PWSTR, mibinfo: *mut *mut DHCP_MIB_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpGetMibInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(mibinfo),
-        ))
+        ::std::mem::transmute(DhcpGetMibInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(mibinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetMibInfoV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    mibinfo: *mut *mut DHCP_MIB_INFO_V5,
-) -> u32 {
+pub unsafe fn DhcpGetMibInfoV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, mibinfo: *mut *mut DHCP_MIB_INFO_V5) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetMibInfoV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                mibinfo: *mut *mut DHCP_MIB_INFO_V5,
-            ) -> u32;
+            fn DhcpGetMibInfoV5(serveripaddress: super::super::Foundation::PWSTR, mibinfo: *mut *mut DHCP_MIB_INFO_V5) -> u32;
         }
-        ::std::mem::transmute(DhcpGetMibInfoV5(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(mibinfo),
-        ))
+        ::std::mem::transmute(DhcpGetMibInfoV5(serveripaddress.into_param().abi(), ::std::mem::transmute(mibinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetMibInfoV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    mibinfo: *mut *mut DHCP_MIB_INFO_V6,
-) -> u32 {
+pub unsafe fn DhcpGetMibInfoV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, mibinfo: *mut *mut DHCP_MIB_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetMibInfoV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                mibinfo: *mut *mut DHCP_MIB_INFO_V6,
-            ) -> u32;
+            fn DhcpGetMibInfoV6(serveripaddress: super::super::Foundation::PWSTR, mibinfo: *mut *mut DHCP_MIB_INFO_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpGetMibInfoV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(mibinfo),
-        ))
+        ::std::mem::transmute(DhcpGetMibInfoV6(serveripaddress.into_param().abi(), ::std::mem::transmute(mibinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetOptionInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    optionid: u32,
-    optioninfo: *mut *mut DHCP_OPTION,
-) -> u32 {
+pub unsafe fn DhcpGetOptionInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32, optioninfo: *mut *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetOptionInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                optionid: u32,
-                optioninfo: *mut *mut DHCP_OPTION,
-            ) -> u32;
+            fn DhcpGetOptionInfo(serveripaddress: super::super::Foundation::PWSTR, optionid: u32, optioninfo: *mut *mut DHCP_OPTION) -> u32;
         }
-        ::std::mem::transmute(DhcpGetOptionInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(optionid),
-            ::std::mem::transmute(optioninfo),
-        ))
+        ::std::mem::transmute(DhcpGetOptionInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(optionid), ::std::mem::transmute(optioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetOptionInfoV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-    optioninfo: *mut *mut DHCP_OPTION,
-) -> u32 {
+pub unsafe fn DhcpGetOptionInfoV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, optioninfo: *mut *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetOptionInfoV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                optioninfo: *mut *mut DHCP_OPTION,
-            ) -> u32;
+            fn DhcpGetOptionInfoV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, optioninfo: *mut *mut DHCP_OPTION) -> u32;
         }
-        ::std::mem::transmute(DhcpGetOptionInfoV5(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(optioninfo),
-        ))
+        ::std::mem::transmute(DhcpGetOptionInfoV5(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(optioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetOptionInfoV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-    optioninfo: *mut *mut DHCP_OPTION,
-) -> u32 {
+pub unsafe fn DhcpGetOptionInfoV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, optioninfo: *mut *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetOptionInfoV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                optioninfo: *mut *mut DHCP_OPTION,
-            ) -> u32;
+            fn DhcpGetOptionInfoV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, optioninfo: *mut *mut DHCP_OPTION) -> u32;
         }
-        ::std::mem::transmute(DhcpGetOptionInfoV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(optioninfo),
-        ))
+        ::std::mem::transmute(DhcpGetOptionInfoV6(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(optioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetOptionValue<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    optionid: u32,
-    scopeinfo: *const DHCP_OPTION_SCOPE_INFO,
-    optionvalue: *mut *mut DHCP_OPTION_VALUE,
-) -> u32 {
+pub unsafe fn DhcpGetOptionValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetOptionValue(
-                serveripaddress: super::super::Foundation::PWSTR,
-                optionid: u32,
-                scopeinfo: *const DHCP_OPTION_SCOPE_INFO,
-                optionvalue: *mut *mut DHCP_OPTION_VALUE,
-            ) -> u32;
+            fn DhcpGetOptionValue(serveripaddress: super::super::Foundation::PWSTR, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
         }
-        ::std::mem::transmute(DhcpGetOptionValue(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(optionid),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(optionvalue),
-        ))
+        ::std::mem::transmute(DhcpGetOptionValue(serveripaddress.into_param().abi(), ::std::mem::transmute(optionid), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(optionvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetOptionValueV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-    optionvalue: *mut *mut DHCP_OPTION_VALUE,
-) -> u32 {
+pub unsafe fn DhcpGetOptionValueV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetOptionValueV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-                optionvalue: *mut *mut DHCP_OPTION_VALUE,
-            ) -> u32;
+            fn DhcpGetOptionValueV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
         }
-        ::std::mem::transmute(DhcpGetOptionValueV5(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(optionvalue),
-        ))
+        ::std::mem::transmute(DhcpGetOptionValueV5(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(optionvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetOptionValueV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-    optionvalue: *mut *mut DHCP_OPTION_VALUE,
-) -> u32 {
+pub unsafe fn DhcpGetOptionValueV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetOptionValueV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-                optionvalue: *mut *mut DHCP_OPTION_VALUE,
-            ) -> u32;
+            fn DhcpGetOptionValueV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
         }
-        ::std::mem::transmute(DhcpGetOptionValueV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(optionvalue),
-        ))
+        ::std::mem::transmute(DhcpGetOptionValueV6(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(optionvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetOriginalSubnetMask<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    sadaptername: Param0,
-    dwsubnetmask: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpGetOriginalSubnetMask<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(sadaptername: Param0, dwsubnetmask: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetOriginalSubnetMask(
-                sadaptername: super::super::Foundation::PWSTR,
-                dwsubnetmask: *mut u32,
-            ) -> u32;
+            fn DhcpGetOriginalSubnetMask(sadaptername: super::super::Foundation::PWSTR, dwsubnetmask: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpGetOriginalSubnetMask(
-            sadaptername.into_param().abi(),
-            ::std::mem::transmute(dwsubnetmask),
-        ))
+        ::std::mem::transmute(DhcpGetOriginalSubnetMask(sadaptername.into_param().abi(), ::std::mem::transmute(dwsubnetmask)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetServerBindingInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    bindelementsinfo: *mut *mut DHCP_BIND_ELEMENT_ARRAY,
-) -> u32 {
+pub unsafe fn DhcpGetServerBindingInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, bindelementsinfo: *mut *mut DHCP_BIND_ELEMENT_ARRAY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetServerBindingInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                bindelementsinfo: *mut *mut DHCP_BIND_ELEMENT_ARRAY,
-            ) -> u32;
+            fn DhcpGetServerBindingInfo(serveripaddress: super::super::Foundation::PWSTR, flags: u32, bindelementsinfo: *mut *mut DHCP_BIND_ELEMENT_ARRAY) -> u32;
         }
-        ::std::mem::transmute(DhcpGetServerBindingInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(bindelementsinfo),
-        ))
+        ::std::mem::transmute(DhcpGetServerBindingInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(bindelementsinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetServerBindingInfoV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    bindelementsinfo: *mut *mut DHCPV6_BIND_ELEMENT_ARRAY,
-) -> u32 {
+pub unsafe fn DhcpGetServerBindingInfoV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, bindelementsinfo: *mut *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetServerBindingInfoV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                bindelementsinfo: *mut *mut DHCPV6_BIND_ELEMENT_ARRAY,
-            ) -> u32;
+            fn DhcpGetServerBindingInfoV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, bindelementsinfo: *mut *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32;
         }
-        ::std::mem::transmute(DhcpGetServerBindingInfoV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(bindelementsinfo),
-        ))
+        ::std::mem::transmute(DhcpGetServerBindingInfoV6(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(bindelementsinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetServerSpecificStrings<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    serverspecificstrings: *mut *mut DHCP_SERVER_SPECIFIC_STRINGS,
-) -> u32 {
+pub unsafe fn DhcpGetServerSpecificStrings<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, serverspecificstrings: *mut *mut DHCP_SERVER_SPECIFIC_STRINGS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetServerSpecificStrings(
-                serveripaddress: super::super::Foundation::PWSTR,
-                serverspecificstrings: *mut *mut DHCP_SERVER_SPECIFIC_STRINGS,
-            ) -> u32;
+            fn DhcpGetServerSpecificStrings(serveripaddress: super::super::Foundation::PWSTR, serverspecificstrings: *mut *mut DHCP_SERVER_SPECIFIC_STRINGS) -> u32;
         }
-        ::std::mem::transmute(DhcpGetServerSpecificStrings(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(serverspecificstrings),
-        ))
+        ::std::mem::transmute(DhcpGetServerSpecificStrings(serveripaddress.into_param().abi(), ::std::mem::transmute(serverspecificstrings)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetSubnetDelayOffer<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    timedelayinmilliseconds: *mut u16,
-) -> u32 {
+pub unsafe fn DhcpGetSubnetDelayOffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, timedelayinmilliseconds: *mut u16) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetSubnetDelayOffer(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                timedelayinmilliseconds: *mut u16,
-            ) -> u32;
+            fn DhcpGetSubnetDelayOffer(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, timedelayinmilliseconds: *mut u16) -> u32;
         }
-        ::std::mem::transmute(DhcpGetSubnetDelayOffer(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(timedelayinmilliseconds),
-        ))
+        ::std::mem::transmute(DhcpGetSubnetDelayOffer(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(timedelayinmilliseconds)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetSubnetInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    subnetinfo: *mut *mut DHCP_SUBNET_INFO,
-) -> u32 {
+pub unsafe fn DhcpGetSubnetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, subnetinfo: *mut *mut DHCP_SUBNET_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetSubnetInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                subnetinfo: *mut *mut DHCP_SUBNET_INFO,
-            ) -> u32;
+            fn DhcpGetSubnetInfo(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *mut *mut DHCP_SUBNET_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpGetSubnetInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(subnetinfo),
-        ))
+        ::std::mem::transmute(DhcpGetSubnetInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(subnetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetSubnetInfoV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
->(
-    serveripaddress: Param0,
-    subnetaddress: Param1,
-    subnetinfo: *mut *mut DHCP_SUBNET_INFO_V6,
-) -> u32 {
+pub unsafe fn DhcpGetSubnetInfoV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, subnetinfo: *mut *mut DHCP_SUBNET_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetSubnetInfoV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: DHCP_IPV6_ADDRESS,
-                subnetinfo: *mut *mut DHCP_SUBNET_INFO_V6,
-            ) -> u32;
+            fn DhcpGetSubnetInfoV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: *mut *mut DHCP_SUBNET_INFO_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpGetSubnetInfoV6(
-            serveripaddress.into_param().abi(),
-            subnetaddress.into_param().abi(),
-            ::std::mem::transmute(subnetinfo),
-        ))
+        ::std::mem::transmute(DhcpGetSubnetInfoV6(serveripaddress.into_param().abi(), subnetaddress.into_param().abi(), ::std::mem::transmute(subnetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetSubnetInfoVQ<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    subnetinfo: *mut *mut DHCP_SUBNET_INFO_VQ,
-) -> u32 {
+pub unsafe fn DhcpGetSubnetInfoVQ<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, subnetinfo: *mut *mut DHCP_SUBNET_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetSubnetInfoVQ(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                subnetinfo: *mut *mut DHCP_SUBNET_INFO_VQ,
-            ) -> u32;
+            fn DhcpGetSubnetInfoVQ(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *mut *mut DHCP_SUBNET_INFO_VQ) -> u32;
         }
-        ::std::mem::transmute(DhcpGetSubnetInfoVQ(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(subnetinfo),
-        ))
+        ::std::mem::transmute(DhcpGetSubnetInfoVQ(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(subnetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetSuperScopeInfoV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    superscopetable: *mut *mut DHCP_SUPER_SCOPE_TABLE,
-) -> u32 {
+pub unsafe fn DhcpGetSuperScopeInfoV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, superscopetable: *mut *mut DHCP_SUPER_SCOPE_TABLE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetSuperScopeInfoV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                superscopetable: *mut *mut DHCP_SUPER_SCOPE_TABLE,
-            ) -> u32;
+            fn DhcpGetSuperScopeInfoV4(serveripaddress: super::super::Foundation::PWSTR, superscopetable: *mut *mut DHCP_SUPER_SCOPE_TABLE) -> u32;
         }
-        ::std::mem::transmute(DhcpGetSuperScopeInfoV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(superscopetable),
-        ))
+        ::std::mem::transmute(DhcpGetSuperScopeInfoV4(serveripaddress.into_param().abi(), ::std::mem::transmute(superscopetable)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9190,76 +6973,33 @@ pub unsafe fn DhcpGetThreadOptions(pflags: *mut u32, reserved: *mut ::std::ffi::
         extern "system" {
             fn DhcpGetThreadOptions(pflags: *mut u32, reserved: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(DhcpGetThreadOptions(
-            ::std::mem::transmute(pflags),
-            ::std::mem::transmute(reserved),
-        ))
+        ::std::mem::transmute(DhcpGetThreadOptions(::std::mem::transmute(pflags), ::std::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpGetVersion<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    majorversion: *mut u32,
-    minorversion: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpGetVersion<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, majorversion: *mut u32, minorversion: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpGetVersion(
-                serveripaddress: super::super::Foundation::PWSTR,
-                majorversion: *mut u32,
-                minorversion: *mut u32,
-            ) -> u32;
+            fn DhcpGetVersion(serveripaddress: super::super::Foundation::PWSTR, majorversion: *mut u32, minorversion: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpGetVersion(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(majorversion),
-            ::std::mem::transmute(minorversion),
-        ))
+        ::std::mem::transmute(DhcpGetVersion(serveripaddress.into_param().abi(), ::std::mem::transmute(majorversion), ::std::mem::transmute(minorversion)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpHlprAddV4PolicyCondition<
-    'a,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    policy: *mut DHCP_POLICY,
-    parentexpr: u32,
-    r#type: DHCP_POL_ATTR_TYPE,
-    optionid: u32,
-    suboptionid: u32,
-    vendorname: Param5,
-    operator: DHCP_POL_COMPARATOR,
-    value: *const u8,
-    valuelength: u32,
-    conditionindex: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpHlprAddV4PolicyCondition<'a, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(policy: *mut DHCP_POLICY, parentexpr: u32, r#type: DHCP_POL_ATTR_TYPE, optionid: u32, suboptionid: u32, vendorname: Param5, operator: DHCP_POL_COMPARATOR, value: *const u8, valuelength: u32, conditionindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpHlprAddV4PolicyCondition(
-                policy: *mut DHCP_POLICY,
-                parentexpr: u32,
-                r#type: DHCP_POL_ATTR_TYPE,
-                optionid: u32,
-                suboptionid: u32,
-                vendorname: super::super::Foundation::PWSTR,
-                operator: DHCP_POL_COMPARATOR,
-                value: *const u8,
-                valuelength: u32,
-                conditionindex: *mut u32,
-            ) -> u32;
+            fn DhcpHlprAddV4PolicyCondition(policy: *mut DHCP_POLICY, parentexpr: u32, r#type: DHCP_POL_ATTR_TYPE, optionid: u32, suboptionid: u32, vendorname: super::super::Foundation::PWSTR, operator: DHCP_POL_COMPARATOR, value: *const u8, valuelength: u32, conditionindex: *mut u32) -> u32;
         }
         ::std::mem::transmute(DhcpHlprAddV4PolicyCondition(
             ::std::mem::transmute(policy),
@@ -9279,65 +7019,35 @@ pub unsafe fn DhcpHlprAddV4PolicyCondition<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpHlprAddV4PolicyExpr(
-    policy: *mut DHCP_POLICY,
-    parentexpr: u32,
-    operator: DHCP_POL_LOGIC_OPER,
-    exprindex: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpHlprAddV4PolicyExpr(policy: *mut DHCP_POLICY, parentexpr: u32, operator: DHCP_POL_LOGIC_OPER, exprindex: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpHlprAddV4PolicyExpr(
-                policy: *mut DHCP_POLICY,
-                parentexpr: u32,
-                operator: DHCP_POL_LOGIC_OPER,
-                exprindex: *mut u32,
-            ) -> u32;
+            fn DhcpHlprAddV4PolicyExpr(policy: *mut DHCP_POLICY, parentexpr: u32, operator: DHCP_POL_LOGIC_OPER, exprindex: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpHlprAddV4PolicyExpr(
-            ::std::mem::transmute(policy),
-            ::std::mem::transmute(parentexpr),
-            ::std::mem::transmute(operator),
-            ::std::mem::transmute(exprindex),
-        ))
+        ::std::mem::transmute(DhcpHlprAddV4PolicyExpr(::std::mem::transmute(policy), ::std::mem::transmute(parentexpr), ::std::mem::transmute(operator), ::std::mem::transmute(exprindex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpHlprAddV4PolicyRange(
-    policy: *mut DHCP_POLICY,
-    range: *const DHCP_IP_RANGE,
-) -> u32 {
+pub unsafe fn DhcpHlprAddV4PolicyRange(policy: *mut DHCP_POLICY, range: *const DHCP_IP_RANGE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpHlprAddV4PolicyRange(
-                policy: *mut DHCP_POLICY,
-                range: *const DHCP_IP_RANGE,
-            ) -> u32;
+            fn DhcpHlprAddV4PolicyRange(policy: *mut DHCP_POLICY, range: *const DHCP_IP_RANGE) -> u32;
         }
-        ::std::mem::transmute(DhcpHlprAddV4PolicyRange(
-            ::std::mem::transmute(policy),
-            ::std::mem::transmute(range),
-        ))
+        ::std::mem::transmute(DhcpHlprAddV4PolicyRange(::std::mem::transmute(policy), ::std::mem::transmute(range)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpHlprCreateV4Policy<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
+pub unsafe fn DhcpHlprCreateV4Policy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     policyname: Param0,
     fglobalpolicy: Param1,
     subnet: u32,
@@ -9351,40 +7061,16 @@ pub unsafe fn DhcpHlprCreateV4Policy<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpHlprCreateV4Policy(
-                policyname: super::super::Foundation::PWSTR,
-                fglobalpolicy: super::super::Foundation::BOOL,
-                subnet: u32,
-                processingorder: u32,
-                rootoperator: DHCP_POL_LOGIC_OPER,
-                description: super::super::Foundation::PWSTR,
-                enabled: super::super::Foundation::BOOL,
-                policy: *mut *mut DHCP_POLICY,
-            ) -> u32;
+            fn DhcpHlprCreateV4Policy(policyname: super::super::Foundation::PWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: super::super::Foundation::PWSTR, enabled: super::super::Foundation::BOOL, policy: *mut *mut DHCP_POLICY) -> u32;
         }
-        ::std::mem::transmute(DhcpHlprCreateV4Policy(
-            policyname.into_param().abi(),
-            fglobalpolicy.into_param().abi(),
-            ::std::mem::transmute(subnet),
-            ::std::mem::transmute(processingorder),
-            ::std::mem::transmute(rootoperator),
-            description.into_param().abi(),
-            enabled.into_param().abi(),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(DhcpHlprCreateV4Policy(policyname.into_param().abi(), fglobalpolicy.into_param().abi(), ::std::mem::transmute(subnet), ::std::mem::transmute(processingorder), ::std::mem::transmute(rootoperator), description.into_param().abi(), enabled.into_param().abi(), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpHlprCreateV4PolicyEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
+pub unsafe fn DhcpHlprCreateV4PolicyEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(
     policyname: Param0,
     fglobalpolicy: Param1,
     subnet: u32,
@@ -9398,53 +7084,23 @@ pub unsafe fn DhcpHlprCreateV4PolicyEx<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpHlprCreateV4PolicyEx(
-                policyname: super::super::Foundation::PWSTR,
-                fglobalpolicy: super::super::Foundation::BOOL,
-                subnet: u32,
-                processingorder: u32,
-                rootoperator: DHCP_POL_LOGIC_OPER,
-                description: super::super::Foundation::PWSTR,
-                enabled: super::super::Foundation::BOOL,
-                policy: *mut *mut DHCP_POLICY_EX,
-            ) -> u32;
+            fn DhcpHlprCreateV4PolicyEx(policyname: super::super::Foundation::PWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnet: u32, processingorder: u32, rootoperator: DHCP_POL_LOGIC_OPER, description: super::super::Foundation::PWSTR, enabled: super::super::Foundation::BOOL, policy: *mut *mut DHCP_POLICY_EX) -> u32;
         }
-        ::std::mem::transmute(DhcpHlprCreateV4PolicyEx(
-            policyname.into_param().abi(),
-            fglobalpolicy.into_param().abi(),
-            ::std::mem::transmute(subnet),
-            ::std::mem::transmute(processingorder),
-            ::std::mem::transmute(rootoperator),
-            description.into_param().abi(),
-            enabled.into_param().abi(),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(DhcpHlprCreateV4PolicyEx(policyname.into_param().abi(), fglobalpolicy.into_param().abi(), ::std::mem::transmute(subnet), ::std::mem::transmute(processingorder), ::std::mem::transmute(rootoperator), description.into_param().abi(), enabled.into_param().abi(), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpHlprFindV4DhcpProperty(
-    propertyarray: *const DHCP_PROPERTY_ARRAY,
-    id: DHCP_PROPERTY_ID,
-    r#type: DHCP_PROPERTY_TYPE,
-) -> *mut DHCP_PROPERTY {
+pub unsafe fn DhcpHlprFindV4DhcpProperty(propertyarray: *const DHCP_PROPERTY_ARRAY, id: DHCP_PROPERTY_ID, r#type: DHCP_PROPERTY_TYPE) -> *mut DHCP_PROPERTY {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpHlprFindV4DhcpProperty(
-                propertyarray: *const DHCP_PROPERTY_ARRAY,
-                id: DHCP_PROPERTY_ID,
-                r#type: DHCP_PROPERTY_TYPE,
-            ) -> *mut DHCP_PROPERTY;
+            fn DhcpHlprFindV4DhcpProperty(propertyarray: *const DHCP_PROPERTY_ARRAY, id: DHCP_PROPERTY_ID, r#type: DHCP_PROPERTY_TYPE) -> *mut DHCP_PROPERTY;
         }
-        ::std::mem::transmute(DhcpHlprFindV4DhcpProperty(
-            ::std::mem::transmute(propertyarray),
-            ::std::mem::transmute(id),
-            ::std::mem::transmute(r#type),
-        ))
+        ::std::mem::transmute(DhcpHlprFindV4DhcpProperty(::std::mem::transmute(propertyarray), ::std::mem::transmute(id), ::std::mem::transmute(r#type)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9472,9 +7128,7 @@ pub unsafe fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_
         extern "system" {
             fn DhcpHlprFreeV4DhcpPropertyArray(propertyarray: *mut DHCP_PROPERTY_ARRAY);
         }
-        ::std::mem::transmute(DhcpHlprFreeV4DhcpPropertyArray(::std::mem::transmute(
-            propertyarray,
-        )))
+        ::std::mem::transmute(DhcpHlprFreeV4DhcpPropertyArray(::std::mem::transmute(propertyarray)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9502,9 +7156,7 @@ pub unsafe fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY) {
         extern "system" {
             fn DhcpHlprFreeV4PolicyArray(policyarray: *mut DHCP_POLICY_ARRAY);
         }
-        ::std::mem::transmute(DhcpHlprFreeV4PolicyArray(::std::mem::transmute(
-            policyarray,
-        )))
+        ::std::mem::transmute(DhcpHlprFreeV4PolicyArray(::std::mem::transmute(policyarray)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9532,25 +7184,19 @@ pub unsafe fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARR
         extern "system" {
             fn DhcpHlprFreeV4PolicyExArray(policyexarray: *mut DHCP_POLICY_EX_ARRAY);
         }
-        ::std::mem::transmute(DhcpHlprFreeV4PolicyExArray(::std::mem::transmute(
-            policyexarray,
-        )))
+        ::std::mem::transmute(DhcpHlprFreeV4PolicyExArray(::std::mem::transmute(policyexarray)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpHlprIsV4PolicySingleUC(
-    policy: *const DHCP_POLICY,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DhcpHlprIsV4PolicySingleUC(policy: *const DHCP_POLICY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpHlprIsV4PolicySingleUC(
-                policy: *const DHCP_POLICY,
-            ) -> super::super::Foundation::BOOL;
+            fn DhcpHlprIsV4PolicySingleUC(policy: *const DHCP_POLICY) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(DhcpHlprIsV4PolicySingleUC(::std::mem::transmute(policy)))
     }
@@ -9573,16 +7219,12 @@ pub unsafe fn DhcpHlprIsV4PolicyValid(ppolicy: *const DHCP_POLICY) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpHlprIsV4PolicyWellFormed(
-    ppolicy: *const DHCP_POLICY,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn DhcpHlprIsV4PolicyWellFormed(ppolicy: *const DHCP_POLICY) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpHlprIsV4PolicyWellFormed(
-                ppolicy: *const DHCP_POLICY,
-            ) -> super::super::Foundation::BOOL;
+            fn DhcpHlprIsV4PolicyWellFormed(ppolicy: *const DHCP_POLICY) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(DhcpHlprIsV4PolicyWellFormed(::std::mem::transmute(ppolicy)))
     }
@@ -9591,23 +7233,14 @@ pub unsafe fn DhcpHlprIsV4PolicyWellFormed(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpHlprModifyV4PolicyExpr(
-    policy: *mut DHCP_POLICY,
-    operator: DHCP_POL_LOGIC_OPER,
-) -> u32 {
+pub unsafe fn DhcpHlprModifyV4PolicyExpr(policy: *mut DHCP_POLICY, operator: DHCP_POL_LOGIC_OPER) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpHlprModifyV4PolicyExpr(
-                policy: *mut DHCP_POLICY,
-                operator: DHCP_POL_LOGIC_OPER,
-            ) -> u32;
+            fn DhcpHlprModifyV4PolicyExpr(policy: *mut DHCP_POLICY, operator: DHCP_POL_LOGIC_OPER) -> u32;
         }
-        ::std::mem::transmute(DhcpHlprModifyV4PolicyExpr(
-            ::std::mem::transmute(policy),
-            ::std::mem::transmute(operator),
-        ))
+        ::std::mem::transmute(DhcpHlprModifyV4PolicyExpr(::std::mem::transmute(policy), ::std::mem::transmute(operator)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9628,97 +7261,42 @@ pub unsafe fn DhcpHlprResetV4PolicyExpr(policy: *mut DHCP_POLICY) -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpModifyClass<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    reservedmustbezero: u32,
-    classinfo: *mut DHCP_CLASS_INFO,
-) -> u32 {
+pub unsafe fn DhcpModifyClass<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpModifyClass(
-                serveripaddress: super::super::Foundation::PWSTR,
-                reservedmustbezero: u32,
-                classinfo: *mut DHCP_CLASS_INFO,
-            ) -> u32;
+            fn DhcpModifyClass(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpModifyClass(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(reservedmustbezero),
-            ::std::mem::transmute(classinfo),
-        ))
+        ::std::mem::transmute(DhcpModifyClass(serveripaddress.into_param().abi(), ::std::mem::transmute(reservedmustbezero), ::std::mem::transmute(classinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpModifyClassV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    reservedmustbezero: u32,
-    classinfo: *mut DHCP_CLASS_INFO_V6,
-) -> u32 {
+pub unsafe fn DhcpModifyClassV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpModifyClassV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                reservedmustbezero: u32,
-                classinfo: *mut DHCP_CLASS_INFO_V6,
-            ) -> u32;
+            fn DhcpModifyClassV6(serveripaddress: super::super::Foundation::PWSTR, reservedmustbezero: u32, classinfo: *mut DHCP_CLASS_INFO_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpModifyClassV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(reservedmustbezero),
-            ::std::mem::transmute(classinfo),
-        ))
+        ::std::mem::transmute(DhcpModifyClassV6(serveripaddress.into_param().abi(), ::std::mem::transmute(reservedmustbezero), ::std::mem::transmute(classinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRegisterParamChange<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>,
->(
-    flags: u32,
-    reserved: *mut ::std::ffi::c_void,
-    adaptername: Param2,
-    classid: *mut DHCPCAPI_CLASSID,
-    params: Param4,
-    handle: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn DhcpRegisterParamChange<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>>(flags: u32, reserved: *mut ::std::ffi::c_void, adaptername: Param2, classid: *mut DHCPCAPI_CLASSID, params: Param4, handle: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpRegisterParamChange(
-                flags: u32,
-                reserved: *mut ::std::ffi::c_void,
-                adaptername: super::super::Foundation::PWSTR,
-                classid: *mut DHCPCAPI_CLASSID,
-                params: DHCPCAPI_PARAMS_ARRAY,
-                handle: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn DhcpRegisterParamChange(flags: u32, reserved: *mut ::std::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPCAPI_CLASSID, params: DHCPCAPI_PARAMS_ARRAY, handle: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(DhcpRegisterParamChange(
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(reserved),
-            adaptername.into_param().abi(),
-            ::std::mem::transmute(classid),
-            params.into_param().abi(),
-            ::std::mem::transmute(handle),
-        ))
+        ::std::mem::transmute(DhcpRegisterParamChange(::std::mem::transmute(flags), ::std::mem::transmute(reserved), adaptername.into_param().abi(), ::std::mem::transmute(classid), params.into_param().abi(), ::std::mem::transmute(handle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -9738,351 +7316,147 @@ pub unsafe fn DhcpRemoveDNSRegistrations() -> u32 {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRemoveOption<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    optionid: u32,
-) -> u32 {
+pub unsafe fn DhcpRemoveOption<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpRemoveOption(
-                serveripaddress: super::super::Foundation::PWSTR,
-                optionid: u32,
-            ) -> u32;
+            fn DhcpRemoveOption(serveripaddress: super::super::Foundation::PWSTR, optionid: u32) -> u32;
         }
-        ::std::mem::transmute(DhcpRemoveOption(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(optionid),
-        ))
+        ::std::mem::transmute(DhcpRemoveOption(serveripaddress.into_param().abi(), ::std::mem::transmute(optionid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRemoveOptionV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-) -> u32 {
+pub unsafe fn DhcpRemoveOptionV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpRemoveOptionV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpRemoveOptionV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpRemoveOptionV5(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpRemoveOptionV5(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRemoveOptionV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-) -> u32 {
+pub unsafe fn DhcpRemoveOptionV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpRemoveOptionV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpRemoveOptionV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpRemoveOptionV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpRemoveOptionV6(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRemoveOptionValue<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    optionid: u32,
-    scopeinfo: *const DHCP_OPTION_SCOPE_INFO,
-) -> u32 {
+pub unsafe fn DhcpRemoveOptionValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpRemoveOptionValue(
-                serveripaddress: super::super::Foundation::PWSTR,
-                optionid: u32,
-                scopeinfo: *const DHCP_OPTION_SCOPE_INFO,
-            ) -> u32;
+            fn DhcpRemoveOptionValue(serveripaddress: super::super::Foundation::PWSTR, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpRemoveOptionValue(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(optionid),
-            ::std::mem::transmute(scopeinfo),
-        ))
+        ::std::mem::transmute(DhcpRemoveOptionValue(serveripaddress.into_param().abi(), ::std::mem::transmute(optionid), ::std::mem::transmute(scopeinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRemoveOptionValueV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-) -> u32 {
+pub unsafe fn DhcpRemoveOptionValueV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpRemoveOptionValueV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-            ) -> u32;
+            fn DhcpRemoveOptionValueV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpRemoveOptionValueV5(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-        ))
+        ::std::mem::transmute(DhcpRemoveOptionValueV5(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(scopeinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRemoveOptionValueV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-) -> u32 {
+pub unsafe fn DhcpRemoveOptionValueV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpRemoveOptionValueV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-            ) -> u32;
+            fn DhcpRemoveOptionValueV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6) -> u32;
         }
-        ::std::mem::transmute(DhcpRemoveOptionValueV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-        ))
+        ::std::mem::transmute(DhcpRemoveOptionValueV6(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(scopeinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRemoveSubnetElement<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA,
-    forceflag: DHCP_FORCE_FLAG,
-) -> u32 {
+pub unsafe fn DhcpRemoveSubnetElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA, forceflag: DHCP_FORCE_FLAG) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpRemoveSubnetElement(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA,
-                forceflag: DHCP_FORCE_FLAG,
-            ) -> u32;
+            fn DhcpRemoveSubnetElement(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA, forceflag: DHCP_FORCE_FLAG) -> u32;
         }
-        ::std::mem::transmute(DhcpRemoveSubnetElement(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(removeelementinfo),
-            ::std::mem::transmute(forceflag),
-        ))
+        ::std::mem::transmute(DhcpRemoveSubnetElement(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(removeelementinfo), ::std::mem::transmute(forceflag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRemoveSubnetElementV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4,
-    forceflag: DHCP_FORCE_FLAG,
-) -> u32 {
+pub unsafe fn DhcpRemoveSubnetElementV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4, forceflag: DHCP_FORCE_FLAG) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpRemoveSubnetElementV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4,
-                forceflag: DHCP_FORCE_FLAG,
-            ) -> u32;
+            fn DhcpRemoveSubnetElementV4(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V4, forceflag: DHCP_FORCE_FLAG) -> u32;
         }
-        ::std::mem::transmute(DhcpRemoveSubnetElementV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(removeelementinfo),
-            ::std::mem::transmute(forceflag),
-        ))
+        ::std::mem::transmute(DhcpRemoveSubnetElementV4(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(removeelementinfo), ::std::mem::transmute(forceflag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRemoveSubnetElementV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5,
-    forceflag: DHCP_FORCE_FLAG,
-) -> u32 {
+pub unsafe fn DhcpRemoveSubnetElementV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5, forceflag: DHCP_FORCE_FLAG) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpRemoveSubnetElementV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5,
-                forceflag: DHCP_FORCE_FLAG,
-            ) -> u32;
+            fn DhcpRemoveSubnetElementV5(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, removeelementinfo: *const DHCP_SUBNET_ELEMENT_DATA_V5, forceflag: DHCP_FORCE_FLAG) -> u32;
         }
-        ::std::mem::transmute(DhcpRemoveSubnetElementV5(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(removeelementinfo),
-            ::std::mem::transmute(forceflag),
-        ))
+        ::std::mem::transmute(DhcpRemoveSubnetElementV5(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(removeelementinfo), ::std::mem::transmute(forceflag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRemoveSubnetElementV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
->(
-    serveripaddress: Param0,
-    subnetaddress: Param1,
-    removeelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6,
-    forceflag: DHCP_FORCE_FLAG,
-) -> u32 {
+pub unsafe fn DhcpRemoveSubnetElementV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, removeelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6, forceflag: DHCP_FORCE_FLAG) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpRemoveSubnetElementV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: DHCP_IPV6_ADDRESS,
-                removeelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6,
-                forceflag: DHCP_FORCE_FLAG,
-            ) -> u32;
+            fn DhcpRemoveSubnetElementV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, removeelementinfo: *mut DHCP_SUBNET_ELEMENT_DATA_V6, forceflag: DHCP_FORCE_FLAG) -> u32;
         }
-        ::std::mem::transmute(DhcpRemoveSubnetElementV6(
-            serveripaddress.into_param().abi(),
-            subnetaddress.into_param().abi(),
-            ::std::mem::transmute(removeelementinfo),
-            ::std::mem::transmute(forceflag),
-        ))
+        ::std::mem::transmute(DhcpRemoveSubnetElementV6(serveripaddress.into_param().abi(), subnetaddress.into_param().abi(), ::std::mem::transmute(removeelementinfo), ::std::mem::transmute(forceflag)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpRequestParams<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>,
-    Param5: ::windows::runtime::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>,
-    Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
+pub unsafe fn DhcpRequestParams<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>, Param5: ::windows::runtime::IntoParam<'a, DHCPCAPI_PARAMS_ARRAY>, Param8: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(
     flags: u32,
     reserved: *mut ::std::ffi::c_void,
     adaptername: Param2,
@@ -10097,29 +7471,9 @@ pub unsafe fn DhcpRequestParams<
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpRequestParams(
-                flags: u32,
-                reserved: *mut ::std::ffi::c_void,
-                adaptername: super::super::Foundation::PWSTR,
-                classid: *mut DHCPCAPI_CLASSID,
-                sendparams: DHCPCAPI_PARAMS_ARRAY,
-                recdparams: DHCPCAPI_PARAMS_ARRAY,
-                buffer: *mut u8,
-                psize: *mut u32,
-                requestidstr: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpRequestParams(flags: u32, reserved: *mut ::std::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPCAPI_CLASSID, sendparams: DHCPCAPI_PARAMS_ARRAY, recdparams: DHCPCAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32, requestidstr: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpRequestParams(
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(reserved),
-            adaptername.into_param().abi(),
-            ::std::mem::transmute(classid),
-            sendparams.into_param().abi(),
-            recdparams.into_param().abi(),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(psize),
-            requestidstr.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpRequestParams(::std::mem::transmute(flags), ::std::mem::transmute(reserved), adaptername.into_param().abi(), ::std::mem::transmute(classid), sendparams.into_param().abi(), recdparams.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(psize), requestidstr.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10139,32 +7493,14 @@ pub unsafe fn DhcpRpcFreeMemory(bufferpointer: *mut ::std::ffi::c_void) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpScanDatabase<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    fixflag: u32,
-    scanlist: *mut *mut DHCP_SCAN_LIST,
-) -> u32 {
+pub unsafe fn DhcpScanDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, fixflag: u32, scanlist: *mut *mut DHCP_SCAN_LIST) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpScanDatabase(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                fixflag: u32,
-                scanlist: *mut *mut DHCP_SCAN_LIST,
-            ) -> u32;
+            fn DhcpScanDatabase(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, fixflag: u32, scanlist: *mut *mut DHCP_SCAN_LIST) -> u32;
         }
-        ::std::mem::transmute(DhcpScanDatabase(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(fixflag),
-            ::std::mem::transmute(scanlist),
-        ))
+        ::std::mem::transmute(DhcpScanDatabase(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(fixflag), ::std::mem::transmute(scanlist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10178,1122 +7514,511 @@ pub unsafe fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_I
         extern "system" {
             fn DhcpServerAuditlogParamsFree(configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ);
         }
-        ::std::mem::transmute(DhcpServerAuditlogParamsFree(::std::mem::transmute(
-            configinfo,
-        )))
+        ::std::mem::transmute(DhcpServerAuditlogParamsFree(::std::mem::transmute(configinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerBackupDatabase<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    path: Param1,
-) -> u32 {
+pub unsafe fn DhcpServerBackupDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, path: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerBackupDatabase(
-                serveripaddress: super::super::Foundation::PWSTR,
-                path: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpServerBackupDatabase(serveripaddress: super::super::Foundation::PWSTR, path: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpServerBackupDatabase(
-            serveripaddress.into_param().abi(),
-            path.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpServerBackupDatabase(serveripaddress.into_param().abi(), path.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerGetConfig<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO,
-) -> u32 {
+pub unsafe fn DhcpServerGetConfig<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerGetConfig(
-                serveripaddress: super::super::Foundation::PWSTR,
-                configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO,
-            ) -> u32;
+            fn DhcpServerGetConfig(serveripaddress: super::super::Foundation::PWSTR, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpServerGetConfig(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(configinfo),
-        ))
+        ::std::mem::transmute(DhcpServerGetConfig(serveripaddress.into_param().abi(), ::std::mem::transmute(configinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerGetConfigV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V4,
-) -> u32 {
+pub unsafe fn DhcpServerGetConfigV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerGetConfigV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V4,
-            ) -> u32;
+            fn DhcpServerGetConfigV4(serveripaddress: super::super::Foundation::PWSTR, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32;
         }
-        ::std::mem::transmute(DhcpServerGetConfigV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(configinfo),
-        ))
+        ::std::mem::transmute(DhcpServerGetConfigV4(serveripaddress.into_param().abi(), ::std::mem::transmute(configinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerGetConfigV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-    configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V6,
-) -> u32 {
+pub unsafe fn DhcpServerGetConfigV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerGetConfigV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-                configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V6,
-            ) -> u32;
+            fn DhcpServerGetConfigV6(serveripaddress: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpServerGetConfigV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(configinfo),
-        ))
+        ::std::mem::transmute(DhcpServerGetConfigV6(serveripaddress.into_param().abi(), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(configinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerGetConfigVQ<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_VQ,
-) -> u32 {
+pub unsafe fn DhcpServerGetConfigVQ<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerGetConfigVQ(
-                serveripaddress: super::super::Foundation::PWSTR,
-                configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_VQ,
-            ) -> u32;
+            fn DhcpServerGetConfigVQ(serveripaddress: super::super::Foundation::PWSTR, configinfo: *mut *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32;
         }
-        ::std::mem::transmute(DhcpServerGetConfigVQ(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(configinfo),
-        ))
+        ::std::mem::transmute(DhcpServerGetConfigVQ(serveripaddress.into_param().abi(), ::std::mem::transmute(configinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerQueryAttribute<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddr: Param0,
-    dwreserved: u32,
-    dhcpattribid: u32,
-    pdhcpattrib: *mut *mut DHCP_ATTRIB,
-) -> u32 {
+pub unsafe fn DhcpServerQueryAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddr: Param0, dwreserved: u32, dhcpattribid: u32, pdhcpattrib: *mut *mut DHCP_ATTRIB) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerQueryAttribute(
-                serveripaddr: super::super::Foundation::PWSTR,
-                dwreserved: u32,
-                dhcpattribid: u32,
-                pdhcpattrib: *mut *mut DHCP_ATTRIB,
-            ) -> u32;
+            fn DhcpServerQueryAttribute(serveripaddr: super::super::Foundation::PWSTR, dwreserved: u32, dhcpattribid: u32, pdhcpattrib: *mut *mut DHCP_ATTRIB) -> u32;
         }
-        ::std::mem::transmute(DhcpServerQueryAttribute(
-            serveripaddr.into_param().abi(),
-            ::std::mem::transmute(dwreserved),
-            ::std::mem::transmute(dhcpattribid),
-            ::std::mem::transmute(pdhcpattrib),
-        ))
+        ::std::mem::transmute(DhcpServerQueryAttribute(serveripaddr.into_param().abi(), ::std::mem::transmute(dwreserved), ::std::mem::transmute(dhcpattribid), ::std::mem::transmute(pdhcpattrib)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerQueryAttributes<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddr: Param0,
-    dwreserved: u32,
-    dwattribcount: u32,
-    pdhcpattribs: *mut u32,
-    pdhcpattribarr: *mut *mut DHCP_ATTRIB_ARRAY,
-) -> u32 {
+pub unsafe fn DhcpServerQueryAttributes<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddr: Param0, dwreserved: u32, dwattribcount: u32, pdhcpattribs: *mut u32, pdhcpattribarr: *mut *mut DHCP_ATTRIB_ARRAY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerQueryAttributes(
-                serveripaddr: super::super::Foundation::PWSTR,
-                dwreserved: u32,
-                dwattribcount: u32,
-                pdhcpattribs: *mut u32,
-                pdhcpattribarr: *mut *mut DHCP_ATTRIB_ARRAY,
-            ) -> u32;
+            fn DhcpServerQueryAttributes(serveripaddr: super::super::Foundation::PWSTR, dwreserved: u32, dwattribcount: u32, pdhcpattribs: *mut u32, pdhcpattribarr: *mut *mut DHCP_ATTRIB_ARRAY) -> u32;
         }
-        ::std::mem::transmute(DhcpServerQueryAttributes(
-            serveripaddr.into_param().abi(),
-            ::std::mem::transmute(dwreserved),
-            ::std::mem::transmute(dwattribcount),
-            ::std::mem::transmute(pdhcpattribs),
-            ::std::mem::transmute(pdhcpattribarr),
-        ))
+        ::std::mem::transmute(DhcpServerQueryAttributes(serveripaddr.into_param().abi(), ::std::mem::transmute(dwreserved), ::std::mem::transmute(dwattribcount), ::std::mem::transmute(pdhcpattribs), ::std::mem::transmute(pdhcpattribarr)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerQueryDnsRegCredentials<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    unamesize: u32,
-    uname: super::super::Foundation::PWSTR,
-    domainsize: u32,
-    domain: super::super::Foundation::PWSTR,
-) -> u32 {
+pub unsafe fn DhcpServerQueryDnsRegCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, unamesize: u32, uname: super::super::Foundation::PWSTR, domainsize: u32, domain: super::super::Foundation::PWSTR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerQueryDnsRegCredentials(
-                serveripaddress: super::super::Foundation::PWSTR,
-                unamesize: u32,
-                uname: super::super::Foundation::PWSTR,
-                domainsize: u32,
-                domain: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpServerQueryDnsRegCredentials(serveripaddress: super::super::Foundation::PWSTR, unamesize: u32, uname: super::super::Foundation::PWSTR, domainsize: u32, domain: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpServerQueryDnsRegCredentials(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(unamesize),
-            ::std::mem::transmute(uname),
-            ::std::mem::transmute(domainsize),
-            ::std::mem::transmute(domain),
-        ))
+        ::std::mem::transmute(DhcpServerQueryDnsRegCredentials(serveripaddress.into_param().abi(), ::std::mem::transmute(unamesize), ::std::mem::transmute(uname), ::std::mem::transmute(domainsize), ::std::mem::transmute(domain)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerRedoAuthorization<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddr: Param0,
-    dwreserved: u32,
-) -> u32 {
+pub unsafe fn DhcpServerRedoAuthorization<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddr: Param0, dwreserved: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerRedoAuthorization(
-                serveripaddr: super::super::Foundation::PWSTR,
-                dwreserved: u32,
-            ) -> u32;
+            fn DhcpServerRedoAuthorization(serveripaddr: super::super::Foundation::PWSTR, dwreserved: u32) -> u32;
         }
-        ::std::mem::transmute(DhcpServerRedoAuthorization(
-            serveripaddr.into_param().abi(),
-            ::std::mem::transmute(dwreserved),
-        ))
+        ::std::mem::transmute(DhcpServerRedoAuthorization(serveripaddr.into_param().abi(), ::std::mem::transmute(dwreserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerRestoreDatabase<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    path: Param1,
-) -> u32 {
+pub unsafe fn DhcpServerRestoreDatabase<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, path: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerRestoreDatabase(
-                serveripaddress: super::super::Foundation::PWSTR,
-                path: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpServerRestoreDatabase(serveripaddress: super::super::Foundation::PWSTR, path: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpServerRestoreDatabase(
-            serveripaddress.into_param().abi(),
-            path.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpServerRestoreDatabase(serveripaddress.into_param().abi(), path.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerSetConfig<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    fieldstoset: u32,
-    configinfo: *mut DHCP_SERVER_CONFIG_INFO,
-) -> u32 {
+pub unsafe fn DhcpServerSetConfig<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerSetConfig(
-                serveripaddress: super::super::Foundation::PWSTR,
-                fieldstoset: u32,
-                configinfo: *mut DHCP_SERVER_CONFIG_INFO,
-            ) -> u32;
+            fn DhcpServerSetConfig(serveripaddress: super::super::Foundation::PWSTR, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpServerSetConfig(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(fieldstoset),
-            ::std::mem::transmute(configinfo),
-        ))
+        ::std::mem::transmute(DhcpServerSetConfig(serveripaddress.into_param().abi(), ::std::mem::transmute(fieldstoset), ::std::mem::transmute(configinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerSetConfigV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    fieldstoset: u32,
-    configinfo: *mut DHCP_SERVER_CONFIG_INFO_V4,
-) -> u32 {
+pub unsafe fn DhcpServerSetConfigV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerSetConfigV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                fieldstoset: u32,
-                configinfo: *mut DHCP_SERVER_CONFIG_INFO_V4,
-            ) -> u32;
+            fn DhcpServerSetConfigV4(serveripaddress: super::super::Foundation::PWSTR, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_V4) -> u32;
         }
-        ::std::mem::transmute(DhcpServerSetConfigV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(fieldstoset),
-            ::std::mem::transmute(configinfo),
-        ))
+        ::std::mem::transmute(DhcpServerSetConfigV4(serveripaddress.into_param().abi(), ::std::mem::transmute(fieldstoset), ::std::mem::transmute(configinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerSetConfigV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-    fieldstoset: u32,
-    configinfo: *mut DHCP_SERVER_CONFIG_INFO_V6,
-) -> u32 {
+pub unsafe fn DhcpServerSetConfigV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerSetConfigV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-                fieldstoset: u32,
-                configinfo: *mut DHCP_SERVER_CONFIG_INFO_V6,
-            ) -> u32;
+            fn DhcpServerSetConfigV6(serveripaddress: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpServerSetConfigV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(fieldstoset),
-            ::std::mem::transmute(configinfo),
-        ))
+        ::std::mem::transmute(DhcpServerSetConfigV6(serveripaddress.into_param().abi(), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(fieldstoset), ::std::mem::transmute(configinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerSetConfigVQ<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    fieldstoset: u32,
-    configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ,
-) -> u32 {
+pub unsafe fn DhcpServerSetConfigVQ<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerSetConfigVQ(
-                serveripaddress: super::super::Foundation::PWSTR,
-                fieldstoset: u32,
-                configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ,
-            ) -> u32;
+            fn DhcpServerSetConfigVQ(serveripaddress: super::super::Foundation::PWSTR, fieldstoset: u32, configinfo: *mut DHCP_SERVER_CONFIG_INFO_VQ) -> u32;
         }
-        ::std::mem::transmute(DhcpServerSetConfigVQ(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(fieldstoset),
-            ::std::mem::transmute(configinfo),
-        ))
+        ::std::mem::transmute(DhcpServerSetConfigVQ(serveripaddress.into_param().abi(), ::std::mem::transmute(fieldstoset), ::std::mem::transmute(configinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerSetDnsRegCredentials<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    uname: Param1,
-    domain: Param2,
-    passwd: Param3,
-) -> u32 {
+pub unsafe fn DhcpServerSetDnsRegCredentials<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, uname: Param1, domain: Param2, passwd: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerSetDnsRegCredentials(
-                serveripaddress: super::super::Foundation::PWSTR,
-                uname: super::super::Foundation::PWSTR,
-                domain: super::super::Foundation::PWSTR,
-                passwd: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpServerSetDnsRegCredentials(serveripaddress: super::super::Foundation::PWSTR, uname: super::super::Foundation::PWSTR, domain: super::super::Foundation::PWSTR, passwd: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpServerSetDnsRegCredentials(
-            serveripaddress.into_param().abi(),
-            uname.into_param().abi(),
-            domain.into_param().abi(),
-            passwd.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpServerSetDnsRegCredentials(serveripaddress.into_param().abi(), uname.into_param().abi(), domain.into_param().abi(), passwd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpServerSetDnsRegCredentialsV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    uname: Param1,
-    domain: Param2,
-    passwd: Param3,
-) -> u32 {
+pub unsafe fn DhcpServerSetDnsRegCredentialsV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, uname: Param1, domain: Param2, passwd: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpServerSetDnsRegCredentialsV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                uname: super::super::Foundation::PWSTR,
-                domain: super::super::Foundation::PWSTR,
-                passwd: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpServerSetDnsRegCredentialsV5(serveripaddress: super::super::Foundation::PWSTR, uname: super::super::Foundation::PWSTR, domain: super::super::Foundation::PWSTR, passwd: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpServerSetDnsRegCredentialsV5(
-            serveripaddress.into_param().abi(),
-            uname.into_param().abi(),
-            domain.into_param().abi(),
-            passwd.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpServerSetDnsRegCredentialsV5(serveripaddress.into_param().abi(), uname.into_param().abi(), domain.into_param().abi(), passwd.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetClientInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientinfo: *const DHCP_CLIENT_INFO,
-) -> u32 {
+pub unsafe fn DhcpSetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetClientInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientinfo: *const DHCP_CLIENT_INFO,
-            ) -> u32;
+            fn DhcpSetClientInfo(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpSetClientInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpSetClientInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetClientInfoV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientinfo: *const DHCP_CLIENT_INFO_V4,
-) -> u32 {
+pub unsafe fn DhcpSetClientInfoV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_V4) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetClientInfoV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientinfo: *const DHCP_CLIENT_INFO_V4,
-            ) -> u32;
+            fn DhcpSetClientInfoV4(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_V4) -> u32;
         }
-        ::std::mem::transmute(DhcpSetClientInfoV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpSetClientInfoV4(serveripaddress.into_param().abi(), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetClientInfoV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientinfo: *const DHCP_CLIENT_INFO_V6,
-) -> u32 {
+pub unsafe fn DhcpSetClientInfoV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetClientInfoV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientinfo: *const DHCP_CLIENT_INFO_V6,
-            ) -> u32;
+            fn DhcpSetClientInfoV6(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpSetClientInfoV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpSetClientInfoV6(serveripaddress.into_param().abi(), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetClientInfoVQ<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientinfo: *const DHCP_CLIENT_INFO_VQ,
-) -> u32 {
+pub unsafe fn DhcpSetClientInfoVQ<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetClientInfoVQ(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientinfo: *const DHCP_CLIENT_INFO_VQ,
-            ) -> u32;
+            fn DhcpSetClientInfoVQ(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_VQ) -> u32;
         }
-        ::std::mem::transmute(DhcpSetClientInfoVQ(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpSetClientInfoVQ(serveripaddress.into_param().abi(), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetFilterV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    globalfilterinfo: *const DHCP_FILTER_GLOBAL_INFO,
-) -> u32 {
+pub unsafe fn DhcpSetFilterV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, globalfilterinfo: *const DHCP_FILTER_GLOBAL_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetFilterV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                globalfilterinfo: *const DHCP_FILTER_GLOBAL_INFO,
-            ) -> u32;
+            fn DhcpSetFilterV4(serveripaddress: super::super::Foundation::PWSTR, globalfilterinfo: *const DHCP_FILTER_GLOBAL_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpSetFilterV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(globalfilterinfo),
-        ))
+        ::std::mem::transmute(DhcpSetFilterV4(serveripaddress.into_param().abi(), ::std::mem::transmute(globalfilterinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetOptionInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    optionid: u32,
-    optioninfo: *const DHCP_OPTION,
-) -> u32 {
+pub unsafe fn DhcpSetOptionInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32, optioninfo: *const DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetOptionInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                optionid: u32,
-                optioninfo: *const DHCP_OPTION,
-            ) -> u32;
+            fn DhcpSetOptionInfo(serveripaddress: super::super::Foundation::PWSTR, optionid: u32, optioninfo: *const DHCP_OPTION) -> u32;
         }
-        ::std::mem::transmute(DhcpSetOptionInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(optionid),
-            ::std::mem::transmute(optioninfo),
-        ))
+        ::std::mem::transmute(DhcpSetOptionInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(optionid), ::std::mem::transmute(optioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetOptionInfoV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-    optioninfo: *mut DHCP_OPTION,
-) -> u32 {
+pub unsafe fn DhcpSetOptionInfoV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, optioninfo: *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetOptionInfoV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                optioninfo: *mut DHCP_OPTION,
-            ) -> u32;
+            fn DhcpSetOptionInfoV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, optioninfo: *mut DHCP_OPTION) -> u32;
         }
-        ::std::mem::transmute(DhcpSetOptionInfoV5(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(optioninfo),
-        ))
+        ::std::mem::transmute(DhcpSetOptionInfoV5(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(optioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetOptionInfoV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-    optioninfo: *mut DHCP_OPTION,
-) -> u32 {
+pub unsafe fn DhcpSetOptionInfoV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, optioninfo: *mut DHCP_OPTION) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetOptionInfoV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                optioninfo: *mut DHCP_OPTION,
-            ) -> u32;
+            fn DhcpSetOptionInfoV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, optioninfo: *mut DHCP_OPTION) -> u32;
         }
-        ::std::mem::transmute(DhcpSetOptionInfoV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(optioninfo),
-        ))
+        ::std::mem::transmute(DhcpSetOptionInfoV6(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(optioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetOptionValue<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    optionid: u32,
-    scopeinfo: *const DHCP_OPTION_SCOPE_INFO,
-    optionvalue: *const DHCP_OPTION_DATA,
-) -> u32 {
+pub unsafe fn DhcpSetOptionValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalue: *const DHCP_OPTION_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetOptionValue(
-                serveripaddress: super::super::Foundation::PWSTR,
-                optionid: u32,
-                scopeinfo: *const DHCP_OPTION_SCOPE_INFO,
-                optionvalue: *const DHCP_OPTION_DATA,
-            ) -> u32;
+            fn DhcpSetOptionValue(serveripaddress: super::super::Foundation::PWSTR, optionid: u32, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalue: *const DHCP_OPTION_DATA) -> u32;
         }
-        ::std::mem::transmute(DhcpSetOptionValue(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(optionid),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(optionvalue),
-        ))
+        ::std::mem::transmute(DhcpSetOptionValue(serveripaddress.into_param().abi(), ::std::mem::transmute(optionid), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(optionvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetOptionValueV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-    optionvalue: *mut DHCP_OPTION_DATA,
-) -> u32 {
+pub unsafe fn DhcpSetOptionValueV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut DHCP_OPTION_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetOptionValueV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-                optionvalue: *mut DHCP_OPTION_DATA,
-            ) -> u32;
+            fn DhcpSetOptionValueV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut DHCP_OPTION_DATA) -> u32;
         }
-        ::std::mem::transmute(DhcpSetOptionValueV5(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(optionvalue),
-        ))
+        ::std::mem::transmute(DhcpSetOptionValueV5(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(optionvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetOptionValueV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    classname: Param3,
-    vendorname: Param4,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-    optionvalue: *mut DHCP_OPTION_DATA,
-) -> u32 {
+pub unsafe fn DhcpSetOptionValueV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, classname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut DHCP_OPTION_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetOptionValueV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6,
-                optionvalue: *mut DHCP_OPTION_DATA,
-            ) -> u32;
+            fn DhcpSetOptionValueV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO6, optionvalue: *mut DHCP_OPTION_DATA) -> u32;
         }
-        ::std::mem::transmute(DhcpSetOptionValueV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(optionvalue),
-        ))
+        ::std::mem::transmute(DhcpSetOptionValueV6(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(optionvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetOptionValues<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    scopeinfo: *const DHCP_OPTION_SCOPE_INFO,
-    optionvalues: *const DHCP_OPTION_VALUE_ARRAY,
-) -> u32 {
+pub unsafe fn DhcpSetOptionValues<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalues: *const DHCP_OPTION_VALUE_ARRAY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetOptionValues(
-                serveripaddress: super::super::Foundation::PWSTR,
-                scopeinfo: *const DHCP_OPTION_SCOPE_INFO,
-                optionvalues: *const DHCP_OPTION_VALUE_ARRAY,
-            ) -> u32;
+            fn DhcpSetOptionValues(serveripaddress: super::super::Foundation::PWSTR, scopeinfo: *const DHCP_OPTION_SCOPE_INFO, optionvalues: *const DHCP_OPTION_VALUE_ARRAY) -> u32;
         }
-        ::std::mem::transmute(DhcpSetOptionValues(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(optionvalues),
-        ))
+        ::std::mem::transmute(DhcpSetOptionValues(serveripaddress.into_param().abi(), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(optionvalues)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetOptionValuesV5<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    classname: Param2,
-    vendorname: Param3,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-    optionvalues: *mut DHCP_OPTION_VALUE_ARRAY,
-) -> u32 {
+pub unsafe fn DhcpSetOptionValuesV5<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, classname: Param2, vendorname: Param3, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetOptionValuesV5(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                classname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-                optionvalues: *mut DHCP_OPTION_VALUE_ARRAY,
-            ) -> u32;
+            fn DhcpSetOptionValuesV5(serveripaddress: super::super::Foundation::PWSTR, flags: u32, classname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32;
         }
-        ::std::mem::transmute(DhcpSetOptionValuesV5(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            classname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(optionvalues),
-        ))
+        ::std::mem::transmute(DhcpSetOptionValuesV5(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), classname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(optionvalues)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetServerBindingInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    bindelementinfo: *mut DHCP_BIND_ELEMENT_ARRAY,
-) -> u32 {
+pub unsafe fn DhcpSetServerBindingInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, bindelementinfo: *mut DHCP_BIND_ELEMENT_ARRAY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetServerBindingInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                bindelementinfo: *mut DHCP_BIND_ELEMENT_ARRAY,
-            ) -> u32;
+            fn DhcpSetServerBindingInfo(serveripaddress: super::super::Foundation::PWSTR, flags: u32, bindelementinfo: *mut DHCP_BIND_ELEMENT_ARRAY) -> u32;
         }
-        ::std::mem::transmute(DhcpSetServerBindingInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(bindelementinfo),
-        ))
+        ::std::mem::transmute(DhcpSetServerBindingInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(bindelementinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetServerBindingInfoV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    bindelementinfo: *mut DHCPV6_BIND_ELEMENT_ARRAY,
-) -> u32 {
+pub unsafe fn DhcpSetServerBindingInfoV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, bindelementinfo: *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetServerBindingInfoV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                bindelementinfo: *mut DHCPV6_BIND_ELEMENT_ARRAY,
-            ) -> u32;
+            fn DhcpSetServerBindingInfoV6(serveripaddress: super::super::Foundation::PWSTR, flags: u32, bindelementinfo: *mut DHCPV6_BIND_ELEMENT_ARRAY) -> u32;
         }
-        ::std::mem::transmute(DhcpSetServerBindingInfoV6(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(bindelementinfo),
-        ))
+        ::std::mem::transmute(DhcpSetServerBindingInfoV6(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(bindelementinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetSubnetDelayOffer<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    timedelayinmilliseconds: u16,
-) -> u32 {
+pub unsafe fn DhcpSetSubnetDelayOffer<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, timedelayinmilliseconds: u16) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetSubnetDelayOffer(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                timedelayinmilliseconds: u16,
-            ) -> u32;
+            fn DhcpSetSubnetDelayOffer(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, timedelayinmilliseconds: u16) -> u32;
         }
-        ::std::mem::transmute(DhcpSetSubnetDelayOffer(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(timedelayinmilliseconds),
-        ))
+        ::std::mem::transmute(DhcpSetSubnetDelayOffer(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(timedelayinmilliseconds)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetSubnetInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    subnetinfo: *const DHCP_SUBNET_INFO,
-) -> u32 {
+pub unsafe fn DhcpSetSubnetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetSubnetInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                subnetinfo: *const DHCP_SUBNET_INFO,
-            ) -> u32;
+            fn DhcpSetSubnetInfo(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpSetSubnetInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(subnetinfo),
-        ))
+        ::std::mem::transmute(DhcpSetSubnetInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(subnetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetSubnetInfoV6<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
->(
-    serveripaddress: Param0,
-    subnetaddress: Param1,
-    subnetinfo: *mut DHCP_SUBNET_INFO_V6,
-) -> u32 {
+pub unsafe fn DhcpSetSubnetInfoV6<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, subnetaddress: Param1, subnetinfo: *mut DHCP_SUBNET_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetSubnetInfoV6(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: DHCP_IPV6_ADDRESS,
-                subnetinfo: *mut DHCP_SUBNET_INFO_V6,
-            ) -> u32;
+            fn DhcpSetSubnetInfoV6(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: DHCP_IPV6_ADDRESS, subnetinfo: *mut DHCP_SUBNET_INFO_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpSetSubnetInfoV6(
-            serveripaddress.into_param().abi(),
-            subnetaddress.into_param().abi(),
-            ::std::mem::transmute(subnetinfo),
-        ))
+        ::std::mem::transmute(DhcpSetSubnetInfoV6(serveripaddress.into_param().abi(), subnetaddress.into_param().abi(), ::std::mem::transmute(subnetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetSubnetInfoVQ<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    subnetinfo: *const DHCP_SUBNET_INFO_VQ,
-) -> u32 {
+pub unsafe fn DhcpSetSubnetInfoVQ<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetSubnetInfoVQ(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                subnetinfo: *const DHCP_SUBNET_INFO_VQ,
-            ) -> u32;
+            fn DhcpSetSubnetInfoVQ(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, subnetinfo: *const DHCP_SUBNET_INFO_VQ) -> u32;
         }
-        ::std::mem::transmute(DhcpSetSubnetInfoVQ(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(subnetinfo),
-        ))
+        ::std::mem::transmute(DhcpSetSubnetInfoVQ(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(subnetinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpSetSuperScopeV4<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    superscopename: Param2,
-    changeexisting: Param3,
-) -> u32 {
+pub unsafe fn DhcpSetSuperScopeV4<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(serveripaddress: Param0, subnetaddress: u32, superscopename: Param2, changeexisting: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpSetSuperScopeV4(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                superscopename: super::super::Foundation::PWSTR,
-                changeexisting: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn DhcpSetSuperScopeV4(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, superscopename: super::super::Foundation::PWSTR, changeexisting: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(DhcpSetSuperScopeV4(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            superscopename.into_param().abi(),
-            changeexisting.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpSetSuperScopeV4(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), superscopename.into_param().abi(), changeexisting.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11306,248 +8031,117 @@ pub unsafe fn DhcpSetThreadOptions(flags: u32, reserved: *mut ::std::ffi::c_void
         extern "system" {
             fn DhcpSetThreadOptions(flags: u32, reserved: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(DhcpSetThreadOptions(
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(reserved),
-        ))
+        ::std::mem::transmute(DhcpSetThreadOptions(::std::mem::transmute(flags), ::std::mem::transmute(reserved)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpUndoRequestParams<
-    'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    flags: u32,
-    reserved: *mut ::std::ffi::c_void,
-    adaptername: Param2,
-    requestidstr: Param3,
-) -> u32 {
+pub unsafe fn DhcpUndoRequestParams<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(flags: u32, reserved: *mut ::std::ffi::c_void, adaptername: Param2, requestidstr: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpUndoRequestParams(
-                flags: u32,
-                reserved: *mut ::std::ffi::c_void,
-                adaptername: super::super::Foundation::PWSTR,
-                requestidstr: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpUndoRequestParams(flags: u32, reserved: *mut ::std::ffi::c_void, adaptername: super::super::Foundation::PWSTR, requestidstr: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpUndoRequestParams(
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(reserved),
-            adaptername.into_param().abi(),
-            requestidstr.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpUndoRequestParams(::std::mem::transmute(flags), ::std::mem::transmute(reserved), adaptername.into_param().abi(), requestidstr.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4AddPolicyRange<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    policyname: Param2,
-    range: *const DHCP_IP_RANGE,
-) -> u32 {
+pub unsafe fn DhcpV4AddPolicyRange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, policyname: Param2, range: *const DHCP_IP_RANGE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4AddPolicyRange(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                policyname: super::super::Foundation::PWSTR,
-                range: *const DHCP_IP_RANGE,
-            ) -> u32;
+            fn DhcpV4AddPolicyRange(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, range: *const DHCP_IP_RANGE) -> u32;
         }
-        ::std::mem::transmute(DhcpV4AddPolicyRange(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            policyname.into_param().abi(),
-            ::std::mem::transmute(range),
-        ))
+        ::std::mem::transmute(DhcpV4AddPolicyRange(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), policyname.into_param().abi(), ::std::mem::transmute(range)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4CreateClientInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientinfo: *const DHCP_CLIENT_INFO_PB,
-) -> u32 {
+pub unsafe fn DhcpV4CreateClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_PB) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4CreateClientInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientinfo: *const DHCP_CLIENT_INFO_PB,
-            ) -> u32;
+            fn DhcpV4CreateClientInfo(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_PB) -> u32;
         }
-        ::std::mem::transmute(DhcpV4CreateClientInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpV4CreateClientInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4CreateClientInfoEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientinfo: *const DHCP_CLIENT_INFO_EX,
-) -> u32 {
+pub unsafe fn DhcpV4CreateClientInfoEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_EX) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4CreateClientInfoEx(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientinfo: *const DHCP_CLIENT_INFO_EX,
-            ) -> u32;
+            fn DhcpV4CreateClientInfoEx(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_EX) -> u32;
         }
-        ::std::mem::transmute(DhcpV4CreateClientInfoEx(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpV4CreateClientInfoEx(serveripaddress.into_param().abi(), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4CreatePolicy<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    ppolicy: *const DHCP_POLICY,
-) -> u32 {
+pub unsafe fn DhcpV4CreatePolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, ppolicy: *const DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4CreatePolicy(
-                serveripaddress: super::super::Foundation::PWSTR,
-                ppolicy: *const DHCP_POLICY,
-            ) -> u32;
+            fn DhcpV4CreatePolicy(serveripaddress: super::super::Foundation::PWSTR, ppolicy: *const DHCP_POLICY) -> u32;
         }
-        ::std::mem::transmute(DhcpV4CreatePolicy(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(ppolicy),
-        ))
+        ::std::mem::transmute(DhcpV4CreatePolicy(serveripaddress.into_param().abi(), ::std::mem::transmute(ppolicy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4CreatePolicyEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    policyex: *const DHCP_POLICY_EX,
-) -> u32 {
+pub unsafe fn DhcpV4CreatePolicyEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, policyex: *const DHCP_POLICY_EX) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4CreatePolicyEx(
-                serveripaddress: super::super::Foundation::PWSTR,
-                policyex: *const DHCP_POLICY_EX,
-            ) -> u32;
+            fn DhcpV4CreatePolicyEx(serveripaddress: super::super::Foundation::PWSTR, policyex: *const DHCP_POLICY_EX) -> u32;
         }
-        ::std::mem::transmute(DhcpV4CreatePolicyEx(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(policyex),
-        ))
+        ::std::mem::transmute(DhcpV4CreatePolicyEx(serveripaddress.into_param().abi(), ::std::mem::transmute(policyex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4DeletePolicy<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    fglobalpolicy: Param1,
-    subnetaddress: u32,
-    policyname: Param3,
-) -> u32 {
+pub unsafe fn DhcpV4DeletePolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fglobalpolicy: Param1, subnetaddress: u32, policyname: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4DeletePolicy(
-                serveripaddress: super::super::Foundation::PWSTR,
-                fglobalpolicy: super::super::Foundation::BOOL,
-                subnetaddress: u32,
-                policyname: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpV4DeletePolicy(serveripaddress: super::super::Foundation::PWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpV4DeletePolicy(
-            serveripaddress.into_param().abi(),
-            fglobalpolicy.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            policyname.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpV4DeletePolicy(serveripaddress.into_param().abi(), fglobalpolicy.into_param().abi(), ::std::mem::transmute(subnetaddress), policyname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4EnumPolicies<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    serveripaddress: Param0,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    fglobalpolicy: Param3,
-    subnetaddress: u32,
-    enuminfo: *mut *mut DHCP_POLICY_ARRAY,
-    elementsread: *mut u32,
-    elementstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpV4EnumPolicies<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(serveripaddress: Param0, resumehandle: *mut u32, preferredmaximum: u32, fglobalpolicy: Param3, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4EnumPolicies(
-                serveripaddress: super::super::Foundation::PWSTR,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                fglobalpolicy: super::super::Foundation::BOOL,
-                subnetaddress: u32,
-                enuminfo: *mut *mut DHCP_POLICY_ARRAY,
-                elementsread: *mut u32,
-                elementstotal: *mut u32,
-            ) -> u32;
+            fn DhcpV4EnumPolicies(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
         ::std::mem::transmute(DhcpV4EnumPolicies(
             serveripaddress.into_param().abi(),
@@ -11565,34 +8159,12 @@ pub unsafe fn DhcpV4EnumPolicies<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4EnumPoliciesEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    serveripaddress: Param0,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    globalpolicy: Param3,
-    subnetaddress: u32,
-    enuminfo: *mut *mut DHCP_POLICY_EX_ARRAY,
-    elementsread: *mut u32,
-    elementstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpV4EnumPoliciesEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(serveripaddress: Param0, resumehandle: *mut u32, preferredmaximum: u32, globalpolicy: Param3, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_EX_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4EnumPoliciesEx(
-                serveripaddress: super::super::Foundation::PWSTR,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                globalpolicy: super::super::Foundation::BOOL,
-                subnetaddress: u32,
-                enuminfo: *mut *mut DHCP_POLICY_EX_ARRAY,
-                elementsread: *mut u32,
-                elementstotal: *mut u32,
-            ) -> u32;
+            fn DhcpV4EnumPoliciesEx(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, globalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enuminfo: *mut *mut DHCP_POLICY_EX_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
         ::std::mem::transmute(DhcpV4EnumPoliciesEx(
             serveripaddress.into_param().abi(),
@@ -11610,1209 +8182,504 @@ pub unsafe fn DhcpV4EnumPoliciesEx<
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4EnumSubnetClients<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO_PB_ARRAY,
-    clientsread: *mut u32,
-    clientstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpV4EnumSubnetClients<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4EnumSubnetClients(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO_PB_ARRAY,
-                clientsread: *mut u32,
-                clientstotal: *mut u32,
-            ) -> u32;
+            fn DhcpV4EnumSubnetClients(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpV4EnumSubnetClients(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(clientinfo),
-            ::std::mem::transmute(clientsread),
-            ::std::mem::transmute(clientstotal),
-        ))
+        ::std::mem::transmute(DhcpV4EnumSubnetClients(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(clientinfo), ::std::mem::transmute(clientsread), ::std::mem::transmute(clientstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4EnumSubnetClientsEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO_EX_ARRAY,
-    clientsread: *mut u32,
-    clientstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpV4EnumSubnetClientsEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_EX_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4EnumSubnetClientsEx(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO_EX_ARRAY,
-                clientsread: *mut u32,
-                clientstotal: *mut u32,
-            ) -> u32;
+            fn DhcpV4EnumSubnetClientsEx(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, clientinfo: *mut *mut DHCP_CLIENT_INFO_EX_ARRAY, clientsread: *mut u32, clientstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpV4EnumSubnetClientsEx(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(clientinfo),
-            ::std::mem::transmute(clientsread),
-            ::std::mem::transmute(clientstotal),
-        ))
+        ::std::mem::transmute(DhcpV4EnumSubnetClientsEx(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(clientinfo), ::std::mem::transmute(clientsread), ::std::mem::transmute(clientstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4EnumSubnetReservations<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    enumelementinfo: *mut *mut DHCP_RESERVATION_INFO_ARRAY,
-    elementsread: *mut u32,
-    elementstotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpV4EnumSubnetReservations<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_RESERVATION_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4EnumSubnetReservations(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                enumelementinfo: *mut *mut DHCP_RESERVATION_INFO_ARRAY,
-                elementsread: *mut u32,
-                elementstotal: *mut u32,
-            ) -> u32;
+            fn DhcpV4EnumSubnetReservations(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, resumehandle: *mut u32, preferredmaximum: u32, enumelementinfo: *mut *mut DHCP_RESERVATION_INFO_ARRAY, elementsread: *mut u32, elementstotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpV4EnumSubnetReservations(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(enumelementinfo),
-            ::std::mem::transmute(elementsread),
-            ::std::mem::transmute(elementstotal),
-        ))
+        ::std::mem::transmute(DhcpV4EnumSubnetReservations(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(enumelementinfo), ::std::mem::transmute(elementsread), ::std::mem::transmute(elementstotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverAddScopeToRelationship<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    prelationship: *const DHCP_FAILOVER_RELATIONSHIP,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverAddScopeToRelationship<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverAddScopeToRelationship(
-                serveripaddress: super::super::Foundation::PWSTR,
-                prelationship: *const DHCP_FAILOVER_RELATIONSHIP,
-            ) -> u32;
+            fn DhcpV4FailoverAddScopeToRelationship(serveripaddress: super::super::Foundation::PWSTR, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverAddScopeToRelationship(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(prelationship),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverAddScopeToRelationship(serveripaddress.into_param().abi(), ::std::mem::transmute(prelationship)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverCreateRelationship<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    prelationship: *const DHCP_FAILOVER_RELATIONSHIP,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverCreateRelationship<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverCreateRelationship(
-                serveripaddress: super::super::Foundation::PWSTR,
-                prelationship: *const DHCP_FAILOVER_RELATIONSHIP,
-            ) -> u32;
+            fn DhcpV4FailoverCreateRelationship(serveripaddress: super::super::Foundation::PWSTR, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverCreateRelationship(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(prelationship),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverCreateRelationship(serveripaddress.into_param().abi(), ::std::mem::transmute(prelationship)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverDeleteRelationship<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    prelationshipname: Param1,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverDeleteRelationship<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, prelationshipname: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverDeleteRelationship(
-                serveripaddress: super::super::Foundation::PWSTR,
-                prelationshipname: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpV4FailoverDeleteRelationship(serveripaddress: super::super::Foundation::PWSTR, prelationshipname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverDeleteRelationship(
-            serveripaddress.into_param().abi(),
-            prelationshipname.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverDeleteRelationship(serveripaddress.into_param().abi(), prelationshipname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverDeleteScopeFromRelationship<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    prelationship: *const DHCP_FAILOVER_RELATIONSHIP,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverDeleteScopeFromRelationship<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverDeleteScopeFromRelationship(
-                serveripaddress: super::super::Foundation::PWSTR,
-                prelationship: *const DHCP_FAILOVER_RELATIONSHIP,
-            ) -> u32;
+            fn DhcpV4FailoverDeleteScopeFromRelationship(serveripaddress: super::super::Foundation::PWSTR, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverDeleteScopeFromRelationship(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(prelationship),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverDeleteScopeFromRelationship(serveripaddress.into_param().abi(), ::std::mem::transmute(prelationship)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverEnumRelationship<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    resumehandle: *mut u32,
-    preferredmaximum: u32,
-    prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY,
-    relationshipread: *mut u32,
-    relationshiptotal: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverEnumRelationship<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, resumehandle: *mut u32, preferredmaximum: u32, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY, relationshipread: *mut u32, relationshiptotal: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverEnumRelationship(
-                serveripaddress: super::super::Foundation::PWSTR,
-                resumehandle: *mut u32,
-                preferredmaximum: u32,
-                prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY,
-                relationshipread: *mut u32,
-                relationshiptotal: *mut u32,
-            ) -> u32;
+            fn DhcpV4FailoverEnumRelationship(serveripaddress: super::super::Foundation::PWSTR, resumehandle: *mut u32, preferredmaximum: u32, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP_ARRAY, relationshipread: *mut u32, relationshiptotal: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverEnumRelationship(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(resumehandle),
-            ::std::mem::transmute(preferredmaximum),
-            ::std::mem::transmute(prelationship),
-            ::std::mem::transmute(relationshipread),
-            ::std::mem::transmute(relationshiptotal),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverEnumRelationship(serveripaddress.into_param().abi(), ::std::mem::transmute(resumehandle), ::std::mem::transmute(preferredmaximum), ::std::mem::transmute(prelationship), ::std::mem::transmute(relationshipread), ::std::mem::transmute(relationshiptotal)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverGetAddressStatus<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    pstatus: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverGetAddressStatus<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, pstatus: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverGetAddressStatus(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                pstatus: *mut u32,
-            ) -> u32;
+            fn DhcpV4FailoverGetAddressStatus(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, pstatus: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverGetAddressStatus(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(pstatus),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverGetAddressStatus(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(pstatus)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverGetClientInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    searchinfo: *const DHCP_SEARCH_INFO,
-    clientinfo: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverGetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverGetClientInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                searchinfo: *const DHCP_SEARCH_INFO,
-                clientinfo: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO,
-            ) -> u32;
+            fn DhcpV4FailoverGetClientInfo(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCPV4_FAILOVER_CLIENT_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverGetClientInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(searchinfo),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverGetClientInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(searchinfo), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverGetRelationship<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    prelationshipname: Param1,
-    prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverGetRelationship<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, prelationshipname: Param1, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverGetRelationship(
-                serveripaddress: super::super::Foundation::PWSTR,
-                prelationshipname: super::super::Foundation::PWSTR,
-                prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP,
-            ) -> u32;
+            fn DhcpV4FailoverGetRelationship(serveripaddress: super::super::Foundation::PWSTR, prelationshipname: super::super::Foundation::PWSTR, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverGetRelationship(
-            serveripaddress.into_param().abi(),
-            prelationshipname.into_param().abi(),
-            ::std::mem::transmute(prelationship),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverGetRelationship(serveripaddress.into_param().abi(), prelationshipname.into_param().abi(), ::std::mem::transmute(prelationship)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverGetScopeRelationship<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    scopeid: u32,
-    prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverGetScopeRelationship<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeid: u32, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverGetScopeRelationship(
-                serveripaddress: super::super::Foundation::PWSTR,
-                scopeid: u32,
-                prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP,
-            ) -> u32;
+            fn DhcpV4FailoverGetScopeRelationship(serveripaddress: super::super::Foundation::PWSTR, scopeid: u32, prelationship: *mut *mut DHCP_FAILOVER_RELATIONSHIP) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverGetScopeRelationship(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(scopeid),
-            ::std::mem::transmute(prelationship),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverGetScopeRelationship(serveripaddress.into_param().abi(), ::std::mem::transmute(scopeid), ::std::mem::transmute(prelationship)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverGetScopeStatistics<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    scopeid: u32,
-    pstats: *mut *mut DHCP_FAILOVER_STATISTICS,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverGetScopeStatistics<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeid: u32, pstats: *mut *mut DHCP_FAILOVER_STATISTICS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverGetScopeStatistics(
-                serveripaddress: super::super::Foundation::PWSTR,
-                scopeid: u32,
-                pstats: *mut *mut DHCP_FAILOVER_STATISTICS,
-            ) -> u32;
+            fn DhcpV4FailoverGetScopeStatistics(serveripaddress: super::super::Foundation::PWSTR, scopeid: u32, pstats: *mut *mut DHCP_FAILOVER_STATISTICS) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverGetScopeStatistics(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(scopeid),
-            ::std::mem::transmute(pstats),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverGetScopeStatistics(serveripaddress.into_param().abi(), ::std::mem::transmute(scopeid), ::std::mem::transmute(pstats)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverGetSystemTime<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    ptime: *mut u32,
-    pmaxalloweddeltatime: *mut u32,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverGetSystemTime<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, ptime: *mut u32, pmaxalloweddeltatime: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverGetSystemTime(
-                serveripaddress: super::super::Foundation::PWSTR,
-                ptime: *mut u32,
-                pmaxalloweddeltatime: *mut u32,
-            ) -> u32;
+            fn DhcpV4FailoverGetSystemTime(serveripaddress: super::super::Foundation::PWSTR, ptime: *mut u32, pmaxalloweddeltatime: *mut u32) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverGetSystemTime(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(ptime),
-            ::std::mem::transmute(pmaxalloweddeltatime),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverGetSystemTime(serveripaddress.into_param().abi(), ::std::mem::transmute(ptime), ::std::mem::transmute(pmaxalloweddeltatime)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverSetRelationship<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    prelationship: *const DHCP_FAILOVER_RELATIONSHIP,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverSetRelationship<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverSetRelationship(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                prelationship: *const DHCP_FAILOVER_RELATIONSHIP,
-            ) -> u32;
+            fn DhcpV4FailoverSetRelationship(serveripaddress: super::super::Foundation::PWSTR, flags: u32, prelationship: *const DHCP_FAILOVER_RELATIONSHIP) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverSetRelationship(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(prelationship),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverSetRelationship(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(prelationship)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4FailoverTriggerAddrAllocation<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    pfailrelname: Param1,
-) -> u32 {
+pub unsafe fn DhcpV4FailoverTriggerAddrAllocation<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, pfailrelname: Param1) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4FailoverTriggerAddrAllocation(
-                serveripaddress: super::super::Foundation::PWSTR,
-                pfailrelname: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn DhcpV4FailoverTriggerAddrAllocation(serveripaddress: super::super::Foundation::PWSTR, pfailrelname: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(DhcpV4FailoverTriggerAddrAllocation(
-            serveripaddress.into_param().abi(),
-            pfailrelname.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpV4FailoverTriggerAddrAllocation(serveripaddress.into_param().abi(), pfailrelname.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4GetAllOptionValues<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-    values: *mut *mut DHCP_ALL_OPTION_VALUES_PB,
-) -> u32 {
+pub unsafe fn DhcpV4GetAllOptionValues<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, values: *mut *mut DHCP_ALL_OPTION_VALUES_PB) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4GetAllOptionValues(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-                values: *mut *mut DHCP_ALL_OPTION_VALUES_PB,
-            ) -> u32;
+            fn DhcpV4GetAllOptionValues(serveripaddress: super::super::Foundation::PWSTR, flags: u32, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, values: *mut *mut DHCP_ALL_OPTION_VALUES_PB) -> u32;
         }
-        ::std::mem::transmute(DhcpV4GetAllOptionValues(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(values),
-        ))
+        ::std::mem::transmute(DhcpV4GetAllOptionValues(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(values)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4GetClientInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    searchinfo: *const DHCP_SEARCH_INFO,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO_PB,
-) -> u32 {
+pub unsafe fn DhcpV4GetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4GetClientInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                searchinfo: *const DHCP_SEARCH_INFO,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO_PB,
-            ) -> u32;
+            fn DhcpV4GetClientInfo(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_PB) -> u32;
         }
-        ::std::mem::transmute(DhcpV4GetClientInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(searchinfo),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpV4GetClientInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(searchinfo), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4GetClientInfoEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    searchinfo: *const DHCP_SEARCH_INFO,
-    clientinfo: *mut *mut DHCP_CLIENT_INFO_EX,
-) -> u32 {
+pub unsafe fn DhcpV4GetClientInfoEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_EX) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4GetClientInfoEx(
-                serveripaddress: super::super::Foundation::PWSTR,
-                searchinfo: *const DHCP_SEARCH_INFO,
-                clientinfo: *mut *mut DHCP_CLIENT_INFO_EX,
-            ) -> u32;
+            fn DhcpV4GetClientInfoEx(serveripaddress: super::super::Foundation::PWSTR, searchinfo: *const DHCP_SEARCH_INFO, clientinfo: *mut *mut DHCP_CLIENT_INFO_EX) -> u32;
         }
-        ::std::mem::transmute(DhcpV4GetClientInfoEx(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(searchinfo),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpV4GetClientInfoEx(serveripaddress.into_param().abi(), ::std::mem::transmute(searchinfo), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4GetFreeIPAddress<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    scopeid: u32,
-    startip: u32,
-    endip: u32,
-    numfreeaddrreq: u32,
-    ipaddrlist: *mut *mut DHCP_IP_ARRAY,
-) -> u32 {
+pub unsafe fn DhcpV4GetFreeIPAddress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, scopeid: u32, startip: u32, endip: u32, numfreeaddrreq: u32, ipaddrlist: *mut *mut DHCP_IP_ARRAY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4GetFreeIPAddress(
-                serveripaddress: super::super::Foundation::PWSTR,
-                scopeid: u32,
-                startip: u32,
-                endip: u32,
-                numfreeaddrreq: u32,
-                ipaddrlist: *mut *mut DHCP_IP_ARRAY,
-            ) -> u32;
+            fn DhcpV4GetFreeIPAddress(serveripaddress: super::super::Foundation::PWSTR, scopeid: u32, startip: u32, endip: u32, numfreeaddrreq: u32, ipaddrlist: *mut *mut DHCP_IP_ARRAY) -> u32;
         }
-        ::std::mem::transmute(DhcpV4GetFreeIPAddress(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(scopeid),
-            ::std::mem::transmute(startip),
-            ::std::mem::transmute(endip),
-            ::std::mem::transmute(numfreeaddrreq),
-            ::std::mem::transmute(ipaddrlist),
-        ))
+        ::std::mem::transmute(DhcpV4GetFreeIPAddress(serveripaddress.into_param().abi(), ::std::mem::transmute(scopeid), ::std::mem::transmute(startip), ::std::mem::transmute(endip), ::std::mem::transmute(numfreeaddrreq), ::std::mem::transmute(ipaddrlist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4GetOptionValue<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    policyname: Param3,
-    vendorname: Param4,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-    optionvalue: *mut *mut DHCP_OPTION_VALUE,
-) -> u32 {
+pub unsafe fn DhcpV4GetOptionValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, policyname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4GetOptionValue(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                policyname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-                optionvalue: *mut *mut DHCP_OPTION_VALUE,
-            ) -> u32;
+            fn DhcpV4GetOptionValue(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, policyname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut *mut DHCP_OPTION_VALUE) -> u32;
         }
-        ::std::mem::transmute(DhcpV4GetOptionValue(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            policyname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(optionvalue),
-        ))
+        ::std::mem::transmute(DhcpV4GetOptionValue(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), policyname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(optionvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4GetPolicy<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    fglobalpolicy: Param1,
-    subnetaddress: u32,
-    policyname: Param3,
-    policy: *mut *mut DHCP_POLICY,
-) -> u32 {
+pub unsafe fn DhcpV4GetPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fglobalpolicy: Param1, subnetaddress: u32, policyname: Param3, policy: *mut *mut DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4GetPolicy(
-                serveripaddress: super::super::Foundation::PWSTR,
-                fglobalpolicy: super::super::Foundation::BOOL,
-                subnetaddress: u32,
-                policyname: super::super::Foundation::PWSTR,
-                policy: *mut *mut DHCP_POLICY,
-            ) -> u32;
+            fn DhcpV4GetPolicy(serveripaddress: super::super::Foundation::PWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, policy: *mut *mut DHCP_POLICY) -> u32;
         }
-        ::std::mem::transmute(DhcpV4GetPolicy(
-            serveripaddress.into_param().abi(),
-            fglobalpolicy.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            policyname.into_param().abi(),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(DhcpV4GetPolicy(serveripaddress.into_param().abi(), fglobalpolicy.into_param().abi(), ::std::mem::transmute(subnetaddress), policyname.into_param().abi(), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4GetPolicyEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    globalpolicy: Param1,
-    subnetaddress: u32,
-    policyname: Param3,
-    policy: *mut *mut DHCP_POLICY_EX,
-) -> u32 {
+pub unsafe fn DhcpV4GetPolicyEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, globalpolicy: Param1, subnetaddress: u32, policyname: Param3, policy: *mut *mut DHCP_POLICY_EX) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4GetPolicyEx(
-                serveripaddress: super::super::Foundation::PWSTR,
-                globalpolicy: super::super::Foundation::BOOL,
-                subnetaddress: u32,
-                policyname: super::super::Foundation::PWSTR,
-                policy: *mut *mut DHCP_POLICY_EX,
-            ) -> u32;
+            fn DhcpV4GetPolicyEx(serveripaddress: super::super::Foundation::PWSTR, globalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, policy: *mut *mut DHCP_POLICY_EX) -> u32;
         }
-        ::std::mem::transmute(DhcpV4GetPolicyEx(
-            serveripaddress.into_param().abi(),
-            globalpolicy.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            policyname.into_param().abi(),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(DhcpV4GetPolicyEx(serveripaddress.into_param().abi(), globalpolicy.into_param().abi(), ::std::mem::transmute(subnetaddress), policyname.into_param().abi(), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4QueryPolicyEnforcement<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    serveripaddress: Param0,
-    fglobalpolicy: Param1,
-    subnetaddress: u32,
-    enabled: *mut super::super::Foundation::BOOL,
-) -> u32 {
+pub unsafe fn DhcpV4QueryPolicyEnforcement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(serveripaddress: Param0, fglobalpolicy: Param1, subnetaddress: u32, enabled: *mut super::super::Foundation::BOOL) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4QueryPolicyEnforcement(
-                serveripaddress: super::super::Foundation::PWSTR,
-                fglobalpolicy: super::super::Foundation::BOOL,
-                subnetaddress: u32,
-                enabled: *mut super::super::Foundation::BOOL,
-            ) -> u32;
+            fn DhcpV4QueryPolicyEnforcement(serveripaddress: super::super::Foundation::PWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enabled: *mut super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(DhcpV4QueryPolicyEnforcement(
-            serveripaddress.into_param().abi(),
-            fglobalpolicy.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            ::std::mem::transmute(enabled),
-        ))
+        ::std::mem::transmute(DhcpV4QueryPolicyEnforcement(serveripaddress.into_param().abi(), fglobalpolicy.into_param().abi(), ::std::mem::transmute(subnetaddress), ::std::mem::transmute(enabled)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4RemoveOptionValue<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    policyname: Param3,
-    vendorname: Param4,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-) -> u32 {
+pub unsafe fn DhcpV4RemoveOptionValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, policyname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4RemoveOptionValue(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                policyname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-            ) -> u32;
+            fn DhcpV4RemoveOptionValue(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, policyname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO) -> u32;
         }
-        ::std::mem::transmute(DhcpV4RemoveOptionValue(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            policyname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-        ))
+        ::std::mem::transmute(DhcpV4RemoveOptionValue(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), policyname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(scopeinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4RemovePolicyRange<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    subnetaddress: u32,
-    policyname: Param2,
-    range: *const DHCP_IP_RANGE,
-) -> u32 {
+pub unsafe fn DhcpV4RemovePolicyRange<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, subnetaddress: u32, policyname: Param2, range: *const DHCP_IP_RANGE) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4RemovePolicyRange(
-                serveripaddress: super::super::Foundation::PWSTR,
-                subnetaddress: u32,
-                policyname: super::super::Foundation::PWSTR,
-                range: *const DHCP_IP_RANGE,
-            ) -> u32;
+            fn DhcpV4RemovePolicyRange(serveripaddress: super::super::Foundation::PWSTR, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, range: *const DHCP_IP_RANGE) -> u32;
         }
-        ::std::mem::transmute(DhcpV4RemovePolicyRange(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            policyname.into_param().abi(),
-            ::std::mem::transmute(range),
-        ))
+        ::std::mem::transmute(DhcpV4RemovePolicyRange(serveripaddress.into_param().abi(), ::std::mem::transmute(subnetaddress), policyname.into_param().abi(), ::std::mem::transmute(range)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4SetOptionValue<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    optionid: u32,
-    policyname: Param3,
-    vendorname: Param4,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-    optionvalue: *mut DHCP_OPTION_DATA,
-) -> u32 {
+pub unsafe fn DhcpV4SetOptionValue<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, optionid: u32, policyname: Param3, vendorname: Param4, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut DHCP_OPTION_DATA) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4SetOptionValue(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                optionid: u32,
-                policyname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-                optionvalue: *mut DHCP_OPTION_DATA,
-            ) -> u32;
+            fn DhcpV4SetOptionValue(serveripaddress: super::super::Foundation::PWSTR, flags: u32, optionid: u32, policyname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalue: *mut DHCP_OPTION_DATA) -> u32;
         }
-        ::std::mem::transmute(DhcpV4SetOptionValue(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(optionid),
-            policyname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(optionvalue),
-        ))
+        ::std::mem::transmute(DhcpV4SetOptionValue(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(optionid), policyname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(optionvalue)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4SetOptionValues<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    flags: u32,
-    policyname: Param2,
-    vendorname: Param3,
-    scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-    optionvalues: *mut DHCP_OPTION_VALUE_ARRAY,
-) -> u32 {
+pub unsafe fn DhcpV4SetOptionValues<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, flags: u32, policyname: Param2, vendorname: Param3, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4SetOptionValues(
-                serveripaddress: super::super::Foundation::PWSTR,
-                flags: u32,
-                policyname: super::super::Foundation::PWSTR,
-                vendorname: super::super::Foundation::PWSTR,
-                scopeinfo: *mut DHCP_OPTION_SCOPE_INFO,
-                optionvalues: *mut DHCP_OPTION_VALUE_ARRAY,
-            ) -> u32;
+            fn DhcpV4SetOptionValues(serveripaddress: super::super::Foundation::PWSTR, flags: u32, policyname: super::super::Foundation::PWSTR, vendorname: super::super::Foundation::PWSTR, scopeinfo: *mut DHCP_OPTION_SCOPE_INFO, optionvalues: *mut DHCP_OPTION_VALUE_ARRAY) -> u32;
         }
-        ::std::mem::transmute(DhcpV4SetOptionValues(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(flags),
-            policyname.into_param().abi(),
-            vendorname.into_param().abi(),
-            ::std::mem::transmute(scopeinfo),
-            ::std::mem::transmute(optionvalues),
-        ))
+        ::std::mem::transmute(DhcpV4SetOptionValues(serveripaddress.into_param().abi(), ::std::mem::transmute(flags), policyname.into_param().abi(), vendorname.into_param().abi(), ::std::mem::transmute(scopeinfo), ::std::mem::transmute(optionvalues)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4SetPolicy<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    fieldsmodified: u32,
-    fglobalpolicy: Param2,
-    subnetaddress: u32,
-    policyname: Param4,
-    policy: *const DHCP_POLICY,
-) -> u32 {
+pub unsafe fn DhcpV4SetPolicy<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fieldsmodified: u32, fglobalpolicy: Param2, subnetaddress: u32, policyname: Param4, policy: *const DHCP_POLICY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4SetPolicy(
-                serveripaddress: super::super::Foundation::PWSTR,
-                fieldsmodified: u32,
-                fglobalpolicy: super::super::Foundation::BOOL,
-                subnetaddress: u32,
-                policyname: super::super::Foundation::PWSTR,
-                policy: *const DHCP_POLICY,
-            ) -> u32;
+            fn DhcpV4SetPolicy(serveripaddress: super::super::Foundation::PWSTR, fieldsmodified: u32, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, policy: *const DHCP_POLICY) -> u32;
         }
-        ::std::mem::transmute(DhcpV4SetPolicy(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(fieldsmodified),
-            fglobalpolicy.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            policyname.into_param().abi(),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(DhcpV4SetPolicy(serveripaddress.into_param().abi(), ::std::mem::transmute(fieldsmodified), fglobalpolicy.into_param().abi(), ::std::mem::transmute(subnetaddress), policyname.into_param().abi(), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4SetPolicyEnforcement<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    serveripaddress: Param0,
-    fglobalpolicy: Param1,
-    subnetaddress: u32,
-    enable: Param3,
-) -> u32 {
+pub unsafe fn DhcpV4SetPolicyEnforcement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(serveripaddress: Param0, fglobalpolicy: Param1, subnetaddress: u32, enable: Param3) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4SetPolicyEnforcement(
-                serveripaddress: super::super::Foundation::PWSTR,
-                fglobalpolicy: super::super::Foundation::BOOL,
-                subnetaddress: u32,
-                enable: super::super::Foundation::BOOL,
-            ) -> u32;
+            fn DhcpV4SetPolicyEnforcement(serveripaddress: super::super::Foundation::PWSTR, fglobalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, enable: super::super::Foundation::BOOL) -> u32;
         }
-        ::std::mem::transmute(DhcpV4SetPolicyEnforcement(
-            serveripaddress.into_param().abi(),
-            fglobalpolicy.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            enable.into_param().abi(),
-        ))
+        ::std::mem::transmute(DhcpV4SetPolicyEnforcement(serveripaddress.into_param().abi(), fglobalpolicy.into_param().abi(), ::std::mem::transmute(subnetaddress), enable.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV4SetPolicyEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    fieldsmodified: u32,
-    globalpolicy: Param2,
-    subnetaddress: u32,
-    policyname: Param4,
-    policy: *const DHCP_POLICY_EX,
-) -> u32 {
+pub unsafe fn DhcpV4SetPolicyEx<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, fieldsmodified: u32, globalpolicy: Param2, subnetaddress: u32, policyname: Param4, policy: *const DHCP_POLICY_EX) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV4SetPolicyEx(
-                serveripaddress: super::super::Foundation::PWSTR,
-                fieldsmodified: u32,
-                globalpolicy: super::super::Foundation::BOOL,
-                subnetaddress: u32,
-                policyname: super::super::Foundation::PWSTR,
-                policy: *const DHCP_POLICY_EX,
-            ) -> u32;
+            fn DhcpV4SetPolicyEx(serveripaddress: super::super::Foundation::PWSTR, fieldsmodified: u32, globalpolicy: super::super::Foundation::BOOL, subnetaddress: u32, policyname: super::super::Foundation::PWSTR, policy: *const DHCP_POLICY_EX) -> u32;
         }
-        ::std::mem::transmute(DhcpV4SetPolicyEx(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(fieldsmodified),
-            globalpolicy.into_param().abi(),
-            ::std::mem::transmute(subnetaddress),
-            policyname.into_param().abi(),
-            ::std::mem::transmute(policy),
-        ))
+        ::std::mem::transmute(DhcpV4SetPolicyEx(serveripaddress.into_param().abi(), ::std::mem::transmute(fieldsmodified), globalpolicy.into_param().abi(), ::std::mem::transmute(subnetaddress), policyname.into_param().abi(), ::std::mem::transmute(policy)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV6CreateClientInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    clientinfo: *const DHCP_CLIENT_INFO_V6,
-) -> u32 {
+pub unsafe fn DhcpV6CreateClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV6CreateClientInfo(
-                serveripaddress: super::super::Foundation::PWSTR,
-                clientinfo: *const DHCP_CLIENT_INFO_V6,
-            ) -> u32;
+            fn DhcpV6CreateClientInfo(serveripaddress: super::super::Foundation::PWSTR, clientinfo: *const DHCP_CLIENT_INFO_V6) -> u32;
         }
-        ::std::mem::transmute(DhcpV6CreateClientInfo(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(clientinfo),
-        ))
+        ::std::mem::transmute(DhcpV6CreateClientInfo(serveripaddress.into_param().abi(), ::std::mem::transmute(clientinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV6GetFreeIPAddress<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
-    Param2: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
-    Param3: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
->(
-    serveripaddress: Param0,
-    scopeid: Param1,
-    startip: Param2,
-    endip: Param3,
-    numfreeaddrreq: u32,
-    ipaddrlist: *mut *mut DHCPV6_IP_ARRAY,
-) -> u32 {
+pub unsafe fn DhcpV6GetFreeIPAddress<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>, Param2: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>, Param3: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, scopeid: Param1, startip: Param2, endip: Param3, numfreeaddrreq: u32, ipaddrlist: *mut *mut DHCPV6_IP_ARRAY) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV6GetFreeIPAddress(
-                serveripaddress: super::super::Foundation::PWSTR,
-                scopeid: DHCP_IPV6_ADDRESS,
-                startip: DHCP_IPV6_ADDRESS,
-                endip: DHCP_IPV6_ADDRESS,
-                numfreeaddrreq: u32,
-                ipaddrlist: *mut *mut DHCPV6_IP_ARRAY,
-            ) -> u32;
+            fn DhcpV6GetFreeIPAddress(serveripaddress: super::super::Foundation::PWSTR, scopeid: DHCP_IPV6_ADDRESS, startip: DHCP_IPV6_ADDRESS, endip: DHCP_IPV6_ADDRESS, numfreeaddrreq: u32, ipaddrlist: *mut *mut DHCPV6_IP_ARRAY) -> u32;
         }
-        ::std::mem::transmute(DhcpV6GetFreeIPAddress(
-            serveripaddress.into_param().abi(),
-            scopeid.into_param().abi(),
-            startip.into_param().abi(),
-            endip.into_param().abi(),
-            ::std::mem::transmute(numfreeaddrreq),
-            ::std::mem::transmute(ipaddrlist),
-        ))
+        ::std::mem::transmute(DhcpV6GetFreeIPAddress(serveripaddress.into_param().abi(), scopeid.into_param().abi(), startip.into_param().abi(), endip.into_param().abi(), ::std::mem::transmute(numfreeaddrreq), ::std::mem::transmute(ipaddrlist)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV6GetStatelessStatistics<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    serveripaddress: Param0,
-    statelessstats: *mut *mut DHCPV6_STATELESS_STATS,
-) -> u32 {
+pub unsafe fn DhcpV6GetStatelessStatistics<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(serveripaddress: Param0, statelessstats: *mut *mut DHCPV6_STATELESS_STATS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV6GetStatelessStatistics(
-                serveripaddress: super::super::Foundation::PWSTR,
-                statelessstats: *mut *mut DHCPV6_STATELESS_STATS,
-            ) -> u32;
+            fn DhcpV6GetStatelessStatistics(serveripaddress: super::super::Foundation::PWSTR, statelessstats: *mut *mut DHCPV6_STATELESS_STATS) -> u32;
         }
-        ::std::mem::transmute(DhcpV6GetStatelessStatistics(
-            serveripaddress.into_param().abi(),
-            ::std::mem::transmute(statelessstats),
-        ))
+        ::std::mem::transmute(DhcpV6GetStatelessStatistics(serveripaddress.into_param().abi(), ::std::mem::transmute(statelessstats)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV6GetStatelessStoreParams<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param2: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
->(
-    serveripaddress: Param0,
-    fserverlevel: Param1,
-    subnetaddress: Param2,
-    params: *mut *mut DHCPV6_STATELESS_PARAMS,
-) -> u32 {
+pub unsafe fn DhcpV6GetStatelessStoreParams<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, fserverlevel: Param1, subnetaddress: Param2, params: *mut *mut DHCPV6_STATELESS_PARAMS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV6GetStatelessStoreParams(
-                serveripaddress: super::super::Foundation::PWSTR,
-                fserverlevel: super::super::Foundation::BOOL,
-                subnetaddress: DHCP_IPV6_ADDRESS,
-                params: *mut *mut DHCPV6_STATELESS_PARAMS,
-            ) -> u32;
+            fn DhcpV6GetStatelessStoreParams(serveripaddress: super::super::Foundation::PWSTR, fserverlevel: super::super::Foundation::BOOL, subnetaddress: DHCP_IPV6_ADDRESS, params: *mut *mut DHCPV6_STATELESS_PARAMS) -> u32;
         }
-        ::std::mem::transmute(DhcpV6GetStatelessStoreParams(
-            serveripaddress.into_param().abi(),
-            fserverlevel.into_param().abi(),
-            subnetaddress.into_param().abi(),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(DhcpV6GetStatelessStoreParams(serveripaddress.into_param().abi(), fserverlevel.into_param().abi(), subnetaddress.into_param().abi(), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DhcpV6SetStatelessStoreParams<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param2: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>,
->(
-    serveripaddress: Param0,
-    fserverlevel: Param1,
-    subnetaddress: Param2,
-    fieldmodified: u32,
-    params: *const DHCPV6_STATELESS_PARAMS,
-) -> u32 {
+pub unsafe fn DhcpV6SetStatelessStoreParams<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, DHCP_IPV6_ADDRESS>>(serveripaddress: Param0, fserverlevel: Param1, subnetaddress: Param2, fieldmodified: u32, params: *const DHCPV6_STATELESS_PARAMS) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DhcpV6SetStatelessStoreParams(
-                serveripaddress: super::super::Foundation::PWSTR,
-                fserverlevel: super::super::Foundation::BOOL,
-                subnetaddress: DHCP_IPV6_ADDRESS,
-                fieldmodified: u32,
-                params: *const DHCPV6_STATELESS_PARAMS,
-            ) -> u32;
+            fn DhcpV6SetStatelessStoreParams(serveripaddress: super::super::Foundation::PWSTR, fserverlevel: super::super::Foundation::BOOL, subnetaddress: DHCP_IPV6_ADDRESS, fieldmodified: u32, params: *const DHCPV6_STATELESS_PARAMS) -> u32;
         }
-        ::std::mem::transmute(DhcpV6SetStatelessStoreParams(
-            serveripaddress.into_param().abi(),
-            fserverlevel.into_param().abi(),
-            subnetaddress.into_param().abi(),
-            ::std::mem::transmute(fieldmodified),
-            ::std::mem::transmute(params),
-        ))
+        ::std::mem::transmute(DhcpV6SetStatelessStoreParams(serveripaddress.into_param().abi(), fserverlevel.into_param().abi(), subnetaddress.into_param().abi(), ::std::mem::transmute(fieldmodified), ::std::mem::transmute(params)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -12845,139 +8712,56 @@ pub unsafe fn Dhcpv6CApiInitialize(version: *mut u32) {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Dhcpv6ReleasePrefix<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    adaptername: Param0,
-    classid: *mut DHCPV6CAPI_CLASSID,
-    leaseinfo: *mut DHCPV6PrefixLeaseInformation,
-) -> u32 {
+pub unsafe fn Dhcpv6ReleasePrefix<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(adaptername: Param0, classid: *mut DHCPV6CAPI_CLASSID, leaseinfo: *mut DHCPV6PrefixLeaseInformation) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Dhcpv6ReleasePrefix(
-                adaptername: super::super::Foundation::PWSTR,
-                classid: *mut DHCPV6CAPI_CLASSID,
-                leaseinfo: *mut DHCPV6PrefixLeaseInformation,
-            ) -> u32;
+            fn Dhcpv6ReleasePrefix(adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPV6CAPI_CLASSID, leaseinfo: *mut DHCPV6PrefixLeaseInformation) -> u32;
         }
-        ::std::mem::transmute(Dhcpv6ReleasePrefix(
-            adaptername.into_param().abi(),
-            ::std::mem::transmute(classid),
-            ::std::mem::transmute(leaseinfo),
-        ))
+        ::std::mem::transmute(Dhcpv6ReleasePrefix(adaptername.into_param().abi(), ::std::mem::transmute(classid), ::std::mem::transmute(leaseinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Dhcpv6RenewPrefix<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    adaptername: Param0,
-    pclassid: *mut DHCPV6CAPI_CLASSID,
-    prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation,
-    pdwtimetowait: *mut u32,
-    bvalidateprefix: u32,
-) -> u32 {
+pub unsafe fn Dhcpv6RenewPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(adaptername: Param0, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32, bvalidateprefix: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Dhcpv6RenewPrefix(
-                adaptername: super::super::Foundation::PWSTR,
-                pclassid: *mut DHCPV6CAPI_CLASSID,
-                prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation,
-                pdwtimetowait: *mut u32,
-                bvalidateprefix: u32,
-            ) -> u32;
+            fn Dhcpv6RenewPrefix(adaptername: super::super::Foundation::PWSTR, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32, bvalidateprefix: u32) -> u32;
         }
-        ::std::mem::transmute(Dhcpv6RenewPrefix(
-            adaptername.into_param().abi(),
-            ::std::mem::transmute(pclassid),
-            ::std::mem::transmute(prefixleaseinfo),
-            ::std::mem::transmute(pdwtimetowait),
-            ::std::mem::transmute(bvalidateprefix),
-        ))
+        ::std::mem::transmute(Dhcpv6RenewPrefix(adaptername.into_param().abi(), ::std::mem::transmute(pclassid), ::std::mem::transmute(prefixleaseinfo), ::std::mem::transmute(pdwtimetowait), ::std::mem::transmute(bvalidateprefix)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Dhcpv6RequestParams<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, DHCPV6CAPI_PARAMS_ARRAY>,
->(
-    forcenewinform: Param0,
-    reserved: *mut ::std::ffi::c_void,
-    adaptername: Param2,
-    classid: *mut DHCPV6CAPI_CLASSID,
-    recdparams: Param4,
-    buffer: *mut u8,
-    psize: *mut u32,
-) -> u32 {
+pub unsafe fn Dhcpv6RequestParams<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::runtime::IntoParam<'a, DHCPV6CAPI_PARAMS_ARRAY>>(forcenewinform: Param0, reserved: *mut ::std::ffi::c_void, adaptername: Param2, classid: *mut DHCPV6CAPI_CLASSID, recdparams: Param4, buffer: *mut u8, psize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Dhcpv6RequestParams(
-                forcenewinform: super::super::Foundation::BOOL,
-                reserved: *mut ::std::ffi::c_void,
-                adaptername: super::super::Foundation::PWSTR,
-                classid: *mut DHCPV6CAPI_CLASSID,
-                recdparams: DHCPV6CAPI_PARAMS_ARRAY,
-                buffer: *mut u8,
-                psize: *mut u32,
-            ) -> u32;
+            fn Dhcpv6RequestParams(forcenewinform: super::super::Foundation::BOOL, reserved: *mut ::std::ffi::c_void, adaptername: super::super::Foundation::PWSTR, classid: *mut DHCPV6CAPI_CLASSID, recdparams: DHCPV6CAPI_PARAMS_ARRAY, buffer: *mut u8, psize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(Dhcpv6RequestParams(
-            forcenewinform.into_param().abi(),
-            ::std::mem::transmute(reserved),
-            adaptername.into_param().abi(),
-            ::std::mem::transmute(classid),
-            recdparams.into_param().abi(),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(psize),
-        ))
+        ::std::mem::transmute(Dhcpv6RequestParams(forcenewinform.into_param().abi(), ::std::mem::transmute(reserved), adaptername.into_param().abi(), ::std::mem::transmute(classid), recdparams.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(psize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn Dhcpv6RequestPrefix<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    adaptername: Param0,
-    pclassid: *mut DHCPV6CAPI_CLASSID,
-    prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation,
-    pdwtimetowait: *mut u32,
-) -> u32 {
+pub unsafe fn Dhcpv6RequestPrefix<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(adaptername: Param0, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn Dhcpv6RequestPrefix(
-                adaptername: super::super::Foundation::PWSTR,
-                pclassid: *mut DHCPV6CAPI_CLASSID,
-                prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation,
-                pdwtimetowait: *mut u32,
-            ) -> u32;
+            fn Dhcpv6RequestPrefix(adaptername: super::super::Foundation::PWSTR, pclassid: *mut DHCPV6CAPI_CLASSID, prefixleaseinfo: *mut DHCPV6PrefixLeaseInformation, pdwtimetowait: *mut u32) -> u32;
         }
-        ::std::mem::transmute(Dhcpv6RequestPrefix(
-            adaptername.into_param().abi(),
-            ::std::mem::transmute(pclassid),
-            ::std::mem::transmute(prefixleaseinfo),
-            ::std::mem::transmute(pdwtimetowait),
-        ))
+        ::std::mem::transmute(Dhcpv6RequestPrefix(adaptername.into_param().abi(), ::std::mem::transmute(pclassid), ::std::mem::transmute(prefixleaseinfo), ::std::mem::transmute(pdwtimetowait)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13105,14 +8889,7 @@ pub const FILTER_STATUS_FULL_MATCH_IN_DENY_LIST: u32 = 4u32;
 pub const FILTER_STATUS_NONE: u32 = 1u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_ALLOW_LIST: u32 = 8u32;
 pub const FILTER_STATUS_WILDCARD_MATCH_IN_DENY_LIST: u32 = 16u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FSM_STATE(pub i32);
 pub const NO_STATE: FSM_STATE = FSM_STATE(0i32);
@@ -13139,65 +8916,16 @@ unsafe impl ::windows::runtime::Abi for FSM_STATE {
     type DefaultType = Self;
 }
 pub const HWTYPE_ETHERNET_10MB: u32 = 1u32;
-pub type LPDHCP_CONTROL =
-    unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut ::std::ffi::c_void) -> u32;
-pub type LPDHCP_DELETE_CLIENT = unsafe extern "system" fn(
-    ipaddress: u32,
-    hwaddress: *mut u8,
-    hwaddresslength: u32,
-    reserved: u32,
-    clienttype: u32,
-) -> u32;
-pub type LPDHCP_DROP_SEND = unsafe extern "system" fn(
-    packet: *mut *mut u8,
-    packetsize: *mut u32,
-    controlcode: u32,
-    ipaddress: u32,
-    reserved: *mut ::std::ffi::c_void,
-    pktcontext: *mut ::std::ffi::c_void,
-) -> u32;
+pub type LPDHCP_CONTROL = unsafe extern "system" fn(dwcontrolcode: u32, lpreserved: *mut ::std::ffi::c_void) -> u32;
+pub type LPDHCP_DELETE_CLIENT = unsafe extern "system" fn(ipaddress: u32, hwaddress: *mut u8, hwaddresslength: u32, reserved: u32, clienttype: u32) -> u32;
+pub type LPDHCP_DROP_SEND = unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, controlcode: u32, ipaddress: u32, reserved: *mut ::std::ffi::c_void, pktcontext: *mut ::std::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDHCP_ENTRY_POINT_FUNC = unsafe extern "system" fn(
-    chaindlls: super::super::Foundation::PWSTR,
-    calloutversion: u32,
-    callouttbl: *mut ::std::mem::ManuallyDrop<DHCP_CALLOUT_TABLE>,
-) -> u32;
-pub type LPDHCP_GIVE_ADDRESS = unsafe extern "system" fn(
-    packet: *mut u8,
-    packetsize: u32,
-    controlcode: u32,
-    ipaddress: u32,
-    altaddress: u32,
-    addrtype: u32,
-    leasetime: u32,
-    reserved: *mut ::std::ffi::c_void,
-    pktcontext: *mut ::std::ffi::c_void,
-) -> u32;
+pub type LPDHCP_ENTRY_POINT_FUNC = unsafe extern "system" fn(chaindlls: super::super::Foundation::PWSTR, calloutversion: u32, callouttbl: *mut ::std::mem::ManuallyDrop<DHCP_CALLOUT_TABLE>) -> u32;
+pub type LPDHCP_GIVE_ADDRESS = unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, addrtype: u32, leasetime: u32, reserved: *mut ::std::ffi::c_void, pktcontext: *mut ::std::ffi::c_void) -> u32;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPDHCP_HANDLE_OPTIONS = unsafe extern "system" fn(
-    packet: *mut u8,
-    packetsize: u32,
-    reserved: *mut ::std::ffi::c_void,
-    pktcontext: *mut ::std::ffi::c_void,
-    serveroptions: *mut DHCP_SERVER_OPTIONS,
-) -> u32;
-pub type LPDHCP_NEWPKT = unsafe extern "system" fn(
-    packet: *mut *mut u8,
-    packetsize: *mut u32,
-    ipaddress: u32,
-    reserved: *mut ::std::ffi::c_void,
-    pktcontext: *mut *mut ::std::ffi::c_void,
-    processit: *mut i32,
-) -> u32;
-pub type LPDHCP_PROB = unsafe extern "system" fn(
-    packet: *mut u8,
-    packetsize: u32,
-    controlcode: u32,
-    ipaddress: u32,
-    altaddress: u32,
-    reserved: *mut ::std::ffi::c_void,
-    pktcontext: *mut ::std::ffi::c_void,
-) -> u32;
+pub type LPDHCP_HANDLE_OPTIONS = unsafe extern "system" fn(packet: *mut u8, packetsize: u32, reserved: *mut ::std::ffi::c_void, pktcontext: *mut ::std::ffi::c_void, serveroptions: *mut DHCP_SERVER_OPTIONS) -> u32;
+pub type LPDHCP_NEWPKT = unsafe extern "system" fn(packet: *mut *mut u8, packetsize: *mut u32, ipaddress: u32, reserved: *mut ::std::ffi::c_void, pktcontext: *mut *mut ::std::ffi::c_void, processit: *mut i32) -> u32;
+pub type LPDHCP_PROB = unsafe extern "system" fn(packet: *mut u8, packetsize: u32, controlcode: u32, ipaddress: u32, altaddress: u32, reserved: *mut ::std::ffi::c_void, pktcontext: *mut ::std::ffi::c_void) -> u32;
 pub const MAC_ADDRESS_LENGTH: u32 = 6u32;
 pub const MAX_PATTERN_LENGTH: u32 = 255u32;
 pub const MCLT: u32 = 1u32;
@@ -13273,14 +9001,7 @@ pub const PREVSTATE: u32 = 32u32;
 pub const QUARANTINE_CONFIG_OPTION: u32 = 43222u32;
 pub const QUARANTINE_SCOPE_QUARPROFILE_OPTION: u32 = 43221u32;
 pub const QUARANTIN_OPTION_BASE: u32 = 43220u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct QuarantineStatus(pub i32);
 pub const NOQUARANTINE: QuarantineStatus = QuarantineStatus(0i32);
@@ -13316,20 +9037,12 @@ impl ::std::default::Default for SCOPE_MIB_INFO {
 }
 impl ::std::fmt::Debug for SCOPE_MIB_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCOPE_MIB_INFO")
-            .field("Subnet", &self.Subnet)
-            .field("NumAddressesInuse", &self.NumAddressesInuse)
-            .field("NumAddressesFree", &self.NumAddressesFree)
-            .field("NumPendingOffers", &self.NumPendingOffers)
-            .finish()
+        fmt.debug_struct("SCOPE_MIB_INFO").field("Subnet", &self.Subnet).field("NumAddressesInuse", &self.NumAddressesInuse).field("NumAddressesFree", &self.NumAddressesFree).field("NumPendingOffers", &self.NumPendingOffers).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCOPE_MIB_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.Subnet == other.Subnet
-            && self.NumAddressesInuse == other.NumAddressesInuse
-            && self.NumAddressesFree == other.NumAddressesFree
-            && self.NumPendingOffers == other.NumPendingOffers
+        self.Subnet == other.Subnet && self.NumAddressesInuse == other.NumAddressesInuse && self.NumAddressesFree == other.NumAddressesFree && self.NumPendingOffers == other.NumPendingOffers
     }
 }
 impl ::std::cmp::Eq for SCOPE_MIB_INFO {}
@@ -13353,20 +9066,12 @@ impl ::std::default::Default for SCOPE_MIB_INFO_V5 {
 }
 impl ::std::fmt::Debug for SCOPE_MIB_INFO_V5 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCOPE_MIB_INFO_V5")
-            .field("Subnet", &self.Subnet)
-            .field("NumAddressesInuse", &self.NumAddressesInuse)
-            .field("NumAddressesFree", &self.NumAddressesFree)
-            .field("NumPendingOffers", &self.NumPendingOffers)
-            .finish()
+        fmt.debug_struct("SCOPE_MIB_INFO_V5").field("Subnet", &self.Subnet).field("NumAddressesInuse", &self.NumAddressesInuse).field("NumAddressesFree", &self.NumAddressesFree).field("NumPendingOffers", &self.NumPendingOffers).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCOPE_MIB_INFO_V5 {
     fn eq(&self, other: &Self) -> bool {
-        self.Subnet == other.Subnet
-            && self.NumAddressesInuse == other.NumAddressesInuse
-            && self.NumAddressesFree == other.NumAddressesFree
-            && self.NumPendingOffers == other.NumPendingOffers
+        self.Subnet == other.Subnet && self.NumAddressesInuse == other.NumAddressesInuse && self.NumAddressesFree == other.NumAddressesFree && self.NumPendingOffers == other.NumPendingOffers
     }
 }
 impl ::std::cmp::Eq for SCOPE_MIB_INFO_V5 {}
@@ -13390,20 +9095,12 @@ impl ::std::default::Default for SCOPE_MIB_INFO_V6 {
 }
 impl ::std::fmt::Debug for SCOPE_MIB_INFO_V6 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SCOPE_MIB_INFO_V6")
-            .field("Subnet", &self.Subnet)
-            .field("NumAddressesInuse", &self.NumAddressesInuse)
-            .field("NumAddressesFree", &self.NumAddressesFree)
-            .field("NumPendingAdvertises", &self.NumPendingAdvertises)
-            .finish()
+        fmt.debug_struct("SCOPE_MIB_INFO_V6").field("Subnet", &self.Subnet).field("NumAddressesInuse", &self.NumAddressesInuse).field("NumAddressesFree", &self.NumAddressesFree).field("NumPendingAdvertises", &self.NumPendingAdvertises).finish()
     }
 }
 impl ::std::cmp::PartialEq for SCOPE_MIB_INFO_V6 {
     fn eq(&self, other: &Self) -> bool {
-        self.Subnet == other.Subnet
-            && self.NumAddressesInuse == other.NumAddressesInuse
-            && self.NumAddressesFree == other.NumAddressesFree
-            && self.NumPendingAdvertises == other.NumPendingAdvertises
+        self.Subnet == other.Subnet && self.NumAddressesInuse == other.NumAddressesInuse && self.NumAddressesFree == other.NumAddressesFree && self.NumPendingAdvertises == other.NumPendingAdvertises
     }
 }
 impl ::std::cmp::Eq for SCOPE_MIB_INFO_V6 {}
@@ -13449,16 +9146,7 @@ impl ::std::fmt::Debug for SCOPE_MIB_INFO_VQ {
 }
 impl ::std::cmp::PartialEq for SCOPE_MIB_INFO_VQ {
     fn eq(&self, other: &Self) -> bool {
-        self.Subnet == other.Subnet
-            && self.NumAddressesInuse == other.NumAddressesInuse
-            && self.NumAddressesFree == other.NumAddressesFree
-            && self.NumPendingOffers == other.NumPendingOffers
-            && self.QtnNumLeases == other.QtnNumLeases
-            && self.QtnPctQtnLeases == other.QtnPctQtnLeases
-            && self.QtnProbationLeases == other.QtnProbationLeases
-            && self.QtnNonQtnLeases == other.QtnNonQtnLeases
-            && self.QtnExemptLeases == other.QtnExemptLeases
-            && self.QtnCapableClients == other.QtnCapableClients
+        self.Subnet == other.Subnet && self.NumAddressesInuse == other.NumAddressesInuse && self.NumAddressesFree == other.NumAddressesFree && self.NumPendingOffers == other.NumPendingOffers && self.QtnNumLeases == other.QtnNumLeases && self.QtnPctQtnLeases == other.QtnPctQtnLeases && self.QtnProbationLeases == other.QtnProbationLeases && self.QtnNonQtnLeases == other.QtnNonQtnLeases && self.QtnExemptLeases == other.QtnExemptLeases && self.QtnCapableClients == other.QtnCapableClients
     }
 }
 impl ::std::cmp::Eq for SCOPE_MIB_INFO_VQ {}
@@ -13489,14 +9177,7 @@ pub const Set_T2: u32 = 32u32;
 pub const Set_UnicastFlag: u32 = 1u32;
 pub const Set_ValidLifetime: u32 = 8u32;
 pub const Set_ValidLifetimeIATA: u32 = 128u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct StatusCode(pub i32);
 pub const STATUS_NO_ERROR: StatusCode = StatusCode(0i32);

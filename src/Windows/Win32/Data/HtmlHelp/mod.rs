@@ -1,97 +1,18 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-pub const CLSID_IITCmdInt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1180883618,
-    54163,
-    4560,
-    [154, 86, 0, 192, 79, 182, 139, 247],
-);
-pub const CLSID_IITDatabase: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1718039634,
-    35875,
-    4560,
-    [168, 78, 0, 170, 0, 108, 125, 1],
-);
-pub const CLSID_IITDatabaseLocal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1180883625,
-    54163,
-    4560,
-    [154, 86, 0, 192, 79, 182, 139, 247],
-);
-pub const CLSID_IITGroupUpdate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1180883620,
-    54163,
-    4560,
-    [154, 86, 0, 192, 79, 182, 139, 247],
-);
-pub const CLSID_IITIndexBuild: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2409682346,
-    57055,
-    4560,
-    [154, 97, 0, 192, 79, 182, 139, 247],
-);
-pub const CLSID_IITPropList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1180883630,
-    54163,
-    4560,
-    [154, 86, 0, 192, 79, 182, 139, 247],
-);
-pub const CLSID_IITResultSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1180883623,
-    54163,
-    4560,
-    [154, 86, 0, 192, 79, 182, 139, 247],
-);
-pub const CLSID_IITSvMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1180883619,
-    54163,
-    4560,
-    [154, 86, 0, 192, 79, 182, 139, 247],
-);
-pub const CLSID_IITWWFilterBuild: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2409682347,
-    57055,
-    4560,
-    [154, 97, 0, 192, 79, 182, 139, 247],
-);
-pub const CLSID_IITWordWheel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3610715586,
-    35858,
-    4560,
-    [168, 78, 0, 170, 0, 108, 125, 1],
-);
-pub const CLSID_IITWordWheelLocal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1180883624,
-    54163,
-    4560,
-    [154, 86, 0, 192, 79, 182, 139, 247],
-);
-pub const CLSID_IITWordWheelUpdate: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1180883621,
-        54163,
-        4560,
-        [154, 86, 0, 192, 79, 182, 139, 247],
-    );
-pub const CLSID_ITEngStemmer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2409682344,
-    57055,
-    4560,
-    [154, 97, 0, 192, 79, 182, 139, 247],
-);
-pub const CLSID_ITStdBreaker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1180883631,
-    54163,
-    4560,
-    [154, 86, 0, 192, 79, 182, 139, 247],
-);
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+pub const CLSID_IITCmdInt: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883618, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
+pub const CLSID_IITDatabase: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1718039634, 35875, 4560, [168, 78, 0, 170, 0, 108, 125, 1]);
+pub const CLSID_IITDatabaseLocal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883625, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
+pub const CLSID_IITGroupUpdate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883620, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
+pub const CLSID_IITIndexBuild: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682346, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
+pub const CLSID_IITPropList: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883630, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
+pub const CLSID_IITResultSet: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883623, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
+pub const CLSID_IITSvMgr: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883619, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
+pub const CLSID_IITWWFilterBuild: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682347, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
+pub const CLSID_IITWordWheel: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3610715586, 35858, 4560, [168, 78, 0, 170, 0, 108, 125, 1]);
+pub const CLSID_IITWordWheelLocal: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883624, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
+pub const CLSID_IITWordWheelUpdate: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883621, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
+pub const CLSID_ITEngStemmer: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682344, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
+pub const CLSID_ITStdBreaker: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1180883631, 54163, 4560, [154, 86, 0, 192, 79, 182, 139, 247]);
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct COLUMNSTATUS {
@@ -106,10 +27,7 @@ impl ::std::default::Default for COLUMNSTATUS {
 }
 impl ::std::fmt::Debug for COLUMNSTATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("COLUMNSTATUS")
-            .field("cPropCount", &self.cPropCount)
-            .field("cPropsLoaded", &self.cPropsLoaded)
-            .finish()
+        fmt.debug_struct("COLUMNSTATUS").field("cPropCount", &self.cPropCount).field("cPropsLoaded", &self.cPropsLoaded).finish()
     }
 }
 impl ::std::cmp::PartialEq for COLUMNSTATUS {
@@ -182,125 +100,68 @@ unsafe impl ::windows::runtime::Abi for CProperty_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub const E_ALL_WILD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479467i32 as _);
-pub const E_ALREADYINIT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479421i32 as _);
-pub const E_ALREADYOPEN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479533i32 as _);
+pub const E_ALL_WILD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479467i32 as _);
+pub const E_ALREADYINIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479421i32 as _);
+pub const E_ALREADYOPEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479533i32 as _);
 pub const E_ASSERT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479546i32 as _);
-pub const E_BADBREAKER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479469i32 as _);
+pub const E_BADBREAKER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479469i32 as _);
 pub const E_BADFILE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479549i32 as _);
-pub const E_BADFILTERSIZE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479528i32 as _);
-pub const E_BADFORMAT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479548i32 as _);
-pub const E_BADINDEXFLAGS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479456i32 as _);
-pub const E_BADPARAM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479535i32 as _);
-pub const E_BADRANGEOP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479459i32 as _);
-pub const E_BADVALUE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479468i32 as _);
-pub const E_BADVERSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479550i32 as _);
-pub const E_CANTFINDDLL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479538i32 as _);
-pub const E_DISKFULL: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479496i32 as _);
-pub const E_DUPLICATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479551i32 as _);
-pub const E_EXPECTEDTERM: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479465i32 as _);
-pub const E_FILECLOSE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479503i32 as _);
-pub const E_FILECREATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479504i32 as _);
-pub const E_FILEDELETE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479499i32 as _);
-pub const E_FILEINVALID: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479498i32 as _);
-pub const E_FILENOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479497i32 as _);
-pub const E_FILEREAD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479502i32 as _);
-pub const E_FILESEEK: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479501i32 as _);
-pub const E_FILEWRITE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479500i32 as _);
-pub const E_GETLASTERROR: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479536i32 as _);
-pub const E_GROUPIDTOOBIG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479542i32 as _);
-pub const E_INTERRUPT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479545i32 as _);
-pub const E_INVALIDSTATE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479534i32 as _);
-pub const E_MISSINGPROP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479424i32 as _);
-pub const E_MISSLPAREN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479464i32 as _);
-pub const E_MISSQUOTE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479462i32 as _);
-pub const E_MISSRPAREN: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479463i32 as _);
-pub const E_NAMETOOLONG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479520i32 as _);
-pub const E_NOHANDLE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479537i32 as _);
-pub const E_NOKEYPROP: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479417i32 as _);
-pub const E_NOMERGEDDATA: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479540i32 as _);
-pub const E_NOPERMISSION: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479547i32 as _);
-pub const E_NOSTEMMER: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479454i32 as _);
-pub const E_NOTEXIST: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479552i32 as _);
-pub const E_NOTFOUND: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479539i32 as _);
+pub const E_BADFILTERSIZE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479528i32 as _);
+pub const E_BADFORMAT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479548i32 as _);
+pub const E_BADINDEXFLAGS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479456i32 as _);
+pub const E_BADPARAM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479535i32 as _);
+pub const E_BADRANGEOP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479459i32 as _);
+pub const E_BADVALUE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479468i32 as _);
+pub const E_BADVERSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479550i32 as _);
+pub const E_CANTFINDDLL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479538i32 as _);
+pub const E_DISKFULL: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479496i32 as _);
+pub const E_DUPLICATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479551i32 as _);
+pub const E_EXPECTEDTERM: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479465i32 as _);
+pub const E_FILECLOSE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479503i32 as _);
+pub const E_FILECREATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479504i32 as _);
+pub const E_FILEDELETE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479499i32 as _);
+pub const E_FILEINVALID: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479498i32 as _);
+pub const E_FILENOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479497i32 as _);
+pub const E_FILEREAD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479502i32 as _);
+pub const E_FILESEEK: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479501i32 as _);
+pub const E_FILEWRITE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479500i32 as _);
+pub const E_GETLASTERROR: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479536i32 as _);
+pub const E_GROUPIDTOOBIG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479542i32 as _);
+pub const E_INTERRUPT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479545i32 as _);
+pub const E_INVALIDSTATE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479534i32 as _);
+pub const E_MISSINGPROP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479424i32 as _);
+pub const E_MISSLPAREN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479464i32 as _);
+pub const E_MISSQUOTE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479462i32 as _);
+pub const E_MISSRPAREN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479463i32 as _);
+pub const E_NAMETOOLONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479520i32 as _);
+pub const E_NOHANDLE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479537i32 as _);
+pub const E_NOKEYPROP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479417i32 as _);
+pub const E_NOMERGEDDATA: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479540i32 as _);
+pub const E_NOPERMISSION: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479547i32 as _);
+pub const E_NOSTEMMER: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479454i32 as _);
+pub const E_NOTEXIST: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479552i32 as _);
+pub const E_NOTFOUND: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479539i32 as _);
 pub const E_NOTINIT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479420i32 as _);
 pub const E_NOTOPEN: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479533i32 as _);
-pub const E_NOTSUPPORTED: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479544i32 as _);
-pub const E_NULLQUERY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479461i32 as _);
-pub const E_OUTOFRANGE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479543i32 as _);
-pub const E_PROPLISTEMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479422i32 as _);
-pub const E_PROPLISTNOTEMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479423i32 as _);
-pub const E_RESULTSETEMPTY: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479419i32 as _);
-pub const E_STOPWORD: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479460i32 as _);
+pub const E_NOTSUPPORTED: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479544i32 as _);
+pub const E_NULLQUERY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479461i32 as _);
+pub const E_OUTOFRANGE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479543i32 as _);
+pub const E_PROPLISTEMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479422i32 as _);
+pub const E_PROPLISTNOTEMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479423i32 as _);
+pub const E_RESULTSETEMPTY: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479419i32 as _);
+pub const E_STOPWORD: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479460i32 as _);
 pub const E_TOODEEP: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479466i32 as _);
-pub const E_TOOMANYCOLUMNS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479418i32 as _);
-pub const E_TOOMANYDUPS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479471i32 as _);
-pub const E_TOOMANYOBJECTS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479527i32 as _);
-pub const E_TOOMANYTITLES: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479541i32 as _);
-pub const E_TOOMANYTOPICS: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479472i32 as _);
-pub const E_TREETOOBIG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479470i32 as _);
-pub const E_UNKNOWN_TRANSPORT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479530i32 as _);
-pub const E_UNMATCHEDTYPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479458i32 as _);
-pub const E_UNSUPPORTED_TRANSPORT: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479529i32 as _);
-pub const E_WILD_IN_DTYPE: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479455i32 as _);
-pub const E_WORDTOOLONG: ::windows::runtime::HRESULT =
-    ::windows::runtime::HRESULT(-2147479457i32 as _);
+pub const E_TOOMANYCOLUMNS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479418i32 as _);
+pub const E_TOOMANYDUPS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479471i32 as _);
+pub const E_TOOMANYOBJECTS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479527i32 as _);
+pub const E_TOOMANYTITLES: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479541i32 as _);
+pub const E_TOOMANYTOPICS: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479472i32 as _);
+pub const E_TREETOOBIG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479470i32 as _);
+pub const E_UNKNOWN_TRANSPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479530i32 as _);
+pub const E_UNMATCHEDTYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479458i32 as _);
+pub const E_UNSUPPORTED_TRANSPORT: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479529i32 as _);
+pub const E_WILD_IN_DTYPE: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479455i32 as _);
+pub const E_WORDTOOLONG: ::windows::runtime::HRESULT = ::windows::runtime::HRESULT(-2147479457i32 as _);
 pub const HHACT_BACK: i32 = 7i32;
 pub const HHACT_CONTRACT: i32 = 6i32;
 pub const HHACT_CUSTOMIZE: i32 = 16i32;
@@ -345,21 +206,13 @@ impl ::std::default::Default for HHNTRACK {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::std::fmt::Debug for HHNTRACK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HHNTRACK")
-            .field("hdr", &self.hdr)
-            .field("pszCurUrl", &self.pszCurUrl)
-            .field("idAction", &self.idAction)
-            .field("phhWinType", &self.phhWinType)
-            .finish()
+        fmt.debug_struct("HHNTRACK").field("hdr", &self.hdr).field("pszCurUrl", &self.pszCurUrl).field("idAction", &self.idAction).field("phhWinType", &self.phhWinType).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::std::cmp::PartialEq for HHNTRACK {
     fn eq(&self, other: &Self) -> bool {
-        self.hdr == other.hdr
-            && self.pszCurUrl == other.pszCurUrl
-            && self.idAction == other.idAction
-            && self.phhWinType == other.phhWinType
+        self.hdr == other.hdr && self.pszCurUrl == other.pszCurUrl && self.idAction == other.idAction && self.phhWinType == other.phhWinType
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -387,10 +240,7 @@ impl ::std::default::Default for HHN_NOTIFY {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::std::fmt::Debug for HHN_NOTIFY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HHN_NOTIFY")
-            .field("hdr", &self.hdr)
-            .field("pszUrl", &self.pszUrl)
-            .finish()
+        fmt.debug_struct("HHN_NOTIFY").field("hdr", &self.hdr).field("pszUrl", &self.pszUrl).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -519,14 +369,7 @@ impl ::std::fmt::Debug for HH_AKLINK {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HH_AKLINK {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.fReserved == other.fReserved
-            && self.pszKeywords == other.pszKeywords
-            && self.pszUrl == other.pszUrl
-            && self.pszMsgText == other.pszMsgText
-            && self.pszMsgTitle == other.pszMsgTitle
-            && self.pszWindow == other.pszWindow
-            && self.fIndexOnFail == other.fIndexOnFail
+        self.cbStruct == other.cbStruct && self.fReserved == other.fReserved && self.pszKeywords == other.pszKeywords && self.pszUrl == other.pszUrl && self.pszMsgText == other.pszMsgText && self.pszMsgTitle == other.pszMsgTitle && self.pszWindow == other.pszWindow && self.fIndexOnFail == other.fIndexOnFail
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -562,19 +405,13 @@ impl ::std::default::Default for HH_ENUM_CAT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HH_ENUM_CAT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HH_ENUM_CAT")
-            .field("cbStruct", &self.cbStruct)
-            .field("pszCatName", &self.pszCatName)
-            .field("pszCatDescription", &self.pszCatDescription)
-            .finish()
+        fmt.debug_struct("HH_ENUM_CAT").field("cbStruct", &self.cbStruct).field("pszCatName", &self.pszCatName).field("pszCatDescription", &self.pszCatDescription).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HH_ENUM_CAT {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.pszCatName == other.pszCatName
-            && self.pszCatDescription == other.pszCatDescription
+        self.cbStruct == other.cbStruct && self.pszCatName == other.pszCatName && self.pszCatDescription == other.pszCatDescription
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -608,23 +445,13 @@ impl ::std::default::Default for HH_ENUM_IT {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HH_ENUM_IT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HH_ENUM_IT")
-            .field("cbStruct", &self.cbStruct)
-            .field("iType", &self.iType)
-            .field("pszCatName", &self.pszCatName)
-            .field("pszITName", &self.pszITName)
-            .field("pszITDescription", &self.pszITDescription)
-            .finish()
+        fmt.debug_struct("HH_ENUM_IT").field("cbStruct", &self.cbStruct).field("iType", &self.iType).field("pszCatName", &self.pszCatName).field("pszITName", &self.pszITName).field("pszITDescription", &self.pszITDescription).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HH_ENUM_IT {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.iType == other.iType
-            && self.pszCatName == other.pszCatName
-            && self.pszITName == other.pszITName
-            && self.pszITDescription == other.pszITDescription
+        self.cbStruct == other.cbStruct && self.iType == other.iType && self.pszCatName == other.pszCatName && self.pszITName == other.pszITName && self.pszITDescription == other.pszITDescription
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -674,14 +501,7 @@ impl ::std::fmt::Debug for HH_FTS_QUERY {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HH_FTS_QUERY {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.fUniCodeStrings == other.fUniCodeStrings
-            && self.pszSearchQuery == other.pszSearchQuery
-            && self.iProximity == other.iProximity
-            && self.fStemmedSearch == other.fStemmedSearch
-            && self.fTitleOnly == other.fTitleOnly
-            && self.fExecute == other.fExecute
-            && self.pszWindow == other.pszWindow
+        self.cbStruct == other.cbStruct && self.fUniCodeStrings == other.fUniCodeStrings && self.pszSearchQuery == other.pszSearchQuery && self.iProximity == other.iProximity && self.fStemmedSearch == other.fStemmedSearch && self.fTitleOnly == other.fTitleOnly && self.fExecute == other.fExecute && self.pszWindow == other.pszWindow
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -694,75 +514,40 @@ unsafe impl ::windows::runtime::Abi for HH_FTS_QUERY {
 pub const HH_GET_LAST_ERROR: u32 = 20u32;
 pub const HH_GET_WIN_HANDLE: u32 = 6u32;
 pub const HH_GET_WIN_TYPE: u32 = 5u32;
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::clone::Clone for HH_GLOBAL_PROPERTY {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 pub struct HH_GLOBAL_PROPERTY {
     pub id: HH_GPROPID,
     pub var: super::super::System::Com::VARIANT,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl HH_GLOBAL_PROPERTY {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for HH_GLOBAL_PROPERTY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for HH_GLOBAL_PROPERTY {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for HH_GLOBAL_PROPERTY {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_System_Com",
-    feature = "Win32_System_Ole_Automation"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for HH_GLOBAL_PROPERTY {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct HH_GPROPID(pub i32);
 pub const HH_GPROPID_SINGLETHREAD: HH_GPROPID = HH_GPROPID(1i32);
@@ -825,15 +610,7 @@ impl ::std::fmt::Debug for HH_POPUP {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HH_POPUP {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.hinst == other.hinst
-            && self.idString == other.idString
-            && self.pszText == other.pszText
-            && self.pt == other.pt
-            && self.clrForeground == other.clrForeground
-            && self.clrBackground == other.clrBackground
-            && self.rcMargins == other.rcMargins
-            && self.pszFont == other.pszFont
+        self.cbStruct == other.cbStruct && self.hinst == other.hinst && self.idString == other.idString && self.pszText == other.pszText && self.pt == other.pt && self.clrForeground == other.clrForeground && self.clrBackground == other.clrBackground && self.rcMargins == other.rcMargins && self.pszFont == other.pszFont
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -871,19 +648,13 @@ impl ::std::default::Default for HH_SET_INFOTYPE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for HH_SET_INFOTYPE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("HH_SET_INFOTYPE")
-            .field("cbStruct", &self.cbStruct)
-            .field("pszCatName", &self.pszCatName)
-            .field("pszInfoTypeName", &self.pszInfoTypeName)
-            .finish()
+        fmt.debug_struct("HH_SET_INFOTYPE").field("cbStruct", &self.cbStruct).field("pszCatName", &self.pszCatName).field("pszInfoTypeName", &self.pszInfoTypeName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for HH_SET_INFOTYPE {
     fn eq(&self, other: &Self) -> bool {
-        self.cbStruct == other.cbStruct
-            && self.pszCatName == other.pszCatName
-            && self.pszInfoTypeName == other.pszInfoTypeName
+        self.cbStruct == other.cbStruct && self.pszCatName == other.pszCatName && self.pszInfoTypeName == other.pszInfoTypeName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1073,92 +844,30 @@ pub const IDTB_TOC_NEXT: u32 = 223u32;
 pub const IDTB_TOC_PREV: u32 = 224u32;
 pub const IDTB_ZOOM: u32 = 222u32;
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IITDatabase(::windows::runtime::IUnknown);
 impl IITDatabase {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Open<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        lpszhost: Param0,
-        lpszmoniker: Param1,
-        dwflags: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            lpszhost.into_param().abi(),
-            lpszmoniker.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, lpszhost: Param0, lpszmoniker: Param1, dwflags: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), lpszhost.into_param().abi(), lpszmoniker.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn CreateObject(
-        &self,
-        rclsid: *const ::windows::runtime::GUID,
-        pdwobjinstance: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rclsid),
-            ::std::mem::transmute(pdwobjinstance),
-        )
-        .ok()
+    pub unsafe fn CreateObject(&self, rclsid: *const ::windows::runtime::GUID, pdwobjinstance: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), ::std::mem::transmute(pdwobjinstance)).ok()
     }
-    pub unsafe fn GetObject(
-        &self,
-        dwobjinstance: u32,
-        riid: *const ::windows::runtime::GUID,
-        ppvobj: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwobjinstance),
-            ::std::mem::transmute(riid),
-            ::std::mem::transmute(ppvobj),
-        )
-        .ok()
+    pub unsafe fn GetObject(&self, dwobjinstance: u32, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwobjinstance), ::std::mem::transmute(riid), ::std::mem::transmute(ppvobj)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetObjectPersistence<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    >(
-        &self,
-        lpwszobject: Param0,
-        dwobjinstance: u32,
-        ppvpersistence: *mut *mut ::std::ffi::c_void,
-        fstream: Param3,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            lpwszobject.into_param().abi(),
-            ::std::mem::transmute(dwobjinstance),
-            ::std::mem::transmute(ppvpersistence),
-            fstream.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetObjectPersistence<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, lpwszobject: Param0, dwobjinstance: u32, ppvpersistence: *mut *mut ::std::ffi::c_void, fstream: Param3) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), lpwszobject.into_param().abi(), ::std::mem::transmute(dwobjinstance), ::std::mem::transmute(ppvpersistence), fstream.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IITDatabase {
     type Vtable = IITDatabase_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2409682338,
-        57055,
-        4560,
-        [154, 97, 0, 192, 79, 182, 139, 247],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682338, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
 }
 impl ::std::convert::From<IITDatabase> for ::windows::runtime::IUnknown {
     fn from(value: IITDatabase) -> Self {
@@ -1172,358 +881,123 @@ impl ::std::convert::From<&IITDatabase> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IITDatabase {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IITDatabase {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IITDatabase_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpszhost: super::super::Foundation::PWSTR,
-        lpszmoniker: super::super::Foundation::PWSTR,
-        dwflags: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpszhost: super::super::Foundation::PWSTR, lpszmoniker: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rclsid: *const ::windows::runtime::GUID,
-        pdwobjinstance: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwobjinstance: u32,
-        riid: *const ::windows::runtime::GUID,
-        ppvobj: *mut *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpwszobject: super::super::Foundation::PWSTR,
-        dwobjinstance: u32,
-        ppvpersistence: *mut *mut ::std::ffi::c_void,
-        fstream: super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, pdwobjinstance: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwobjinstance: u32, riid: *const ::windows::runtime::GUID, ppvobj: *mut *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpwszobject: super::super::Foundation::PWSTR, dwobjinstance: u32, ppvpersistence: *mut *mut ::std::ffi::c_void, fstream: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct IITGroup(pub u8);
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IITPropList(::windows::runtime::IUnknown);
 impl IITPropList {
     pub unsafe fn GetClassID(&self) -> ::windows::runtime::Result<::windows::runtime::GUID> {
-        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::GUID>(result__)
+        let mut result__: <::windows::runtime::GUID as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<::windows::runtime::GUID>(result__)
     }
     pub unsafe fn IsDirty(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Load<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
-    >(
-        &self,
-        pstm: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            pstm.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstm: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pstm.into_param().abi()).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Save<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    >(
-        &self,
-        pstm: Param0,
-        fcleardirty: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            pstm.into_param().abi(),
-            fcleardirty.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Save<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pstm: Param0, fcleardirty: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), pstm.into_param().abi(), fcleardirty.into_param().abi()).ok()
     }
     pub unsafe fn GetSizeMax(&self) -> ::windows::runtime::Result<u64> {
         let mut result__: <u64 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<u64>(result__)
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), &mut result__).from_abi::<u64>(result__)
     }
     pub unsafe fn InitNew(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Set<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        propid: u32,
-        lpszwstring: Param1,
-        dwoperation: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(propid),
-            lpszwstring.into_param().abi(),
-            ::std::mem::transmute(dwoperation),
-        )
-        .ok()
+    pub unsafe fn Set<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, propid: u32, lpszwstring: Param1, dwoperation: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), lpszwstring.into_param().abi(), ::std::mem::transmute(dwoperation)).ok()
     }
-    pub unsafe fn Set2(
-        &self,
-        propid: u32,
-        lpvdata: *mut ::std::ffi::c_void,
-        cbdata: u32,
-        dwoperation: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(propid),
-            ::std::mem::transmute(lpvdata),
-            ::std::mem::transmute(cbdata),
-            ::std::mem::transmute(dwoperation),
-        )
-        .ok()
+    pub unsafe fn Set2(&self, propid: u32, lpvdata: *mut ::std::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), ::std::mem::transmute(lpvdata), ::std::mem::transmute(cbdata), ::std::mem::transmute(dwoperation)).ok()
     }
-    pub unsafe fn Set3(
-        &self,
-        propid: u32,
-        dwdata: u32,
-        dwoperation: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(propid),
-            ::std::mem::transmute(dwdata),
-            ::std::mem::transmute(dwoperation),
-        )
-        .ok()
+    pub unsafe fn Set3(&self, propid: u32, dwdata: u32, dwoperation: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), ::std::mem::transmute(dwdata), ::std::mem::transmute(dwoperation)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Add(&self, prop: *mut CProperty) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(prop),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(prop)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Get(
-        &self,
-        propid: u32,
-        property: *mut CProperty,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(propid),
-            ::std::mem::transmute(property),
-        )
-        .ok()
+    pub unsafe fn Get(&self, propid: u32, property: *mut CProperty) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), ::std::mem::transmute(property)).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPersist<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    >(
-        &self,
-        fpersist: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            fpersist.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPersist<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fpersist: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), fpersist.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn SetPersist2<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    >(
-        &self,
-        propid: u32,
-        fpersist: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(propid),
-            fpersist.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetPersist2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, propid: u32, fpersist: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), fpersist.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFirst(&self, property: *mut CProperty) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(property),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(property)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetNext(&self, property: *mut CProperty) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(property),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(property)).ok()
     }
     pub unsafe fn GetPropCount(&self, cprop: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(cprop),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(cprop)).ok()
     }
-    pub unsafe fn SaveHeader(
-        &self,
-        lpvdata: *mut ::std::ffi::c_void,
-        dwhdrsize: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpvdata),
-            ::std::mem::transmute(dwhdrsize),
-        )
-        .ok()
+    pub unsafe fn SaveHeader(&self, lpvdata: *mut ::std::ffi::c_void, dwhdrsize: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvdata), ::std::mem::transmute(dwhdrsize)).ok()
     }
-    pub unsafe fn SaveData(
-        &self,
-        lpvheader: *mut ::std::ffi::c_void,
-        dwhdrsize: u32,
-        lpvdata: *mut ::std::ffi::c_void,
-        dwbufsize: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpvheader),
-            ::std::mem::transmute(dwhdrsize),
-            ::std::mem::transmute(lpvdata),
-            ::std::mem::transmute(dwbufsize),
-        )
-        .ok()
+    pub unsafe fn SaveData(&self, lpvheader: *mut ::std::ffi::c_void, dwhdrsize: u32, lpvdata: *mut ::std::ffi::c_void, dwbufsize: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvheader), ::std::mem::transmute(dwhdrsize), ::std::mem::transmute(lpvdata), ::std::mem::transmute(dwbufsize)).ok()
     }
     pub unsafe fn GetHeaderSize(&self, dwhdrsize: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwhdrsize),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwhdrsize)).ok()
     }
-    pub unsafe fn GetDataSize(
-        &self,
-        lpvheader: *mut ::std::ffi::c_void,
-        dwhdrsize: u32,
-        dwdatasize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpvheader),
-            ::std::mem::transmute(dwhdrsize),
-            ::std::mem::transmute(dwdatasize),
-        )
-        .ok()
+    pub unsafe fn GetDataSize(&self, lpvheader: *mut ::std::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvheader), ::std::mem::transmute(dwhdrsize), ::std::mem::transmute(dwdatasize)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SaveDataToStream<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
-    >(
-        &self,
-        lpvheader: *mut ::std::ffi::c_void,
-        dwhdrsize: u32,
-        pstream: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpvheader),
-            ::std::mem::transmute(dwhdrsize),
-            pstream.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SaveDataToStream<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, lpvheader: *mut ::std::ffi::c_void, dwhdrsize: u32, pstream: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvheader), ::std::mem::transmute(dwhdrsize), pstream.into_param().abi()).ok()
     }
-    pub unsafe fn LoadFromMem(
-        &self,
-        lpvdata: *mut ::std::ffi::c_void,
-        dwbufsize: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).25)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpvdata),
-            ::std::mem::transmute(dwbufsize),
-        )
-        .ok()
+    pub unsafe fn LoadFromMem(&self, lpvdata: *mut ::std::ffi::c_void, dwbufsize: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvdata), ::std::mem::transmute(dwbufsize)).ok()
     }
-    pub unsafe fn SaveToMem(
-        &self,
-        lpvdata: *mut ::std::ffi::c_void,
-        dwbufsize: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).26)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpvdata),
-            ::std::mem::transmute(dwbufsize),
-        )
-        .ok()
+    pub unsafe fn SaveToMem(&self, lpvdata: *mut ::std::ffi::c_void, dwbufsize: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).26)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvdata), ::std::mem::transmute(dwbufsize)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IITPropList {
     type Vtable = IITPropList_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        524303281,
-        39319,
-        4560,
-        [168, 80, 0, 170, 0, 108, 125, 1],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(524303281, 39319, 4560, [168, 80, 0, 170, 0, 108, 125, 1]);
 }
 impl ::std::convert::From<IITPropList> for ::windows::runtime::IUnknown {
     fn from(value: IITPropList) -> Self {
@@ -1537,18 +1011,12 @@ impl ::std::convert::From<&IITPropList> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IITPropList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IITPropList {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
@@ -1564,27 +1032,15 @@ impl ::std::convert::From<&IITPropList> for super::super::System::Ole::IPersistS
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::IPersistStreamInit>
-    for IITPropList
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::IPersistStreamInit> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::IPersistStreamInit,
-        >::into(self))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::IPersistStreamInit> for IITPropList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::IPersistStreamInit> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::IPersistStreamInit>::into(self))
     }
 }
 #[cfg(feature = "Win32_System_Ole")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::IPersistStreamInit>
-    for &IITPropList
-{
-    fn into_param(
-        self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::IPersistStreamInit> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::Ole::IPersistStreamInit,
-        >::into(::std::clone::Clone::clone(self)))
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::IPersistStreamInit> for &IITPropList {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Ole::IPersistStreamInit> {
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Ole::IPersistStreamInit>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1602,460 +1058,131 @@ impl ::std::convert::From<&IITPropList> for super::super::System::Com::IPersist 
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for IITPropList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::super::System::Com::IPersist>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(self))
     }
 }
 #[cfg(feature = "Win32_System_Com")]
 impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Com::IPersist> for &IITPropList {
     fn into_param(self) -> ::windows::runtime::Param<'a, super::super::System::Com::IPersist> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::super::System::Com::IPersist>::into(
-                ::std::clone::Clone::clone(self),
-            ),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<super::super::System::Com::IPersist>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IITPropList_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pclassid: *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pclassid: *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pstm: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstm: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pstm: ::windows::runtime::RawPtr,
-        fcleardirty: super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstm: ::windows::runtime::RawPtr, fcleardirty: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcbsize: *mut u64,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcbsize: *mut u64) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        propid: u32,
-        lpszwstring: super::super::Foundation::PWSTR,
-        dwoperation: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propid: u32, lpszwstring: super::super::Foundation::PWSTR, dwoperation: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        propid: u32,
-        lpvdata: *mut ::std::ffi::c_void,
-        cbdata: u32,
-        dwoperation: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        propid: u32,
-        dwdata: u32,
-        dwoperation: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        prop: *mut CProperty,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propid: u32, lpvdata: *mut ::std::ffi::c_void, cbdata: u32, dwoperation: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propid: u32, dwdata: u32, dwoperation: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prop: *mut CProperty) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        propid: u32,
-        property: *mut CProperty,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propid: u32, property: *mut CProperty) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fpersist: super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fpersist: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        propid: u32,
-        fpersist: super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propid: u32, fpersist: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        property: *mut CProperty,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, property: *mut CProperty) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        property: *mut CProperty,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, property: *mut CProperty) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        cprop: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpvdata: *mut ::std::ffi::c_void,
-        dwhdrsize: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpvheader: *mut ::std::ffi::c_void,
-        dwhdrsize: u32,
-        lpvdata: *mut ::std::ffi::c_void,
-        dwbufsize: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwhdrsize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpvheader: *mut ::std::ffi::c_void,
-        dwhdrsize: u32,
-        dwdatasize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpvheader: *mut ::std::ffi::c_void,
-        dwhdrsize: u32,
-        pstream: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, cprop: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpvdata: *mut ::std::ffi::c_void, dwhdrsize: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpvheader: *mut ::std::ffi::c_void, dwhdrsize: u32, lpvdata: *mut ::std::ffi::c_void, dwbufsize: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwhdrsize: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpvheader: *mut ::std::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpvheader: *mut ::std::ffi::c_void, dwhdrsize: u32, pstream: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpvdata: *mut ::std::ffi::c_void,
-        dwbufsize: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpvdata: *mut ::std::ffi::c_void,
-        dwbufsize: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpvdata: *mut ::std::ffi::c_void, dwbufsize: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpvdata: *mut ::std::ffi::c_void, dwbufsize: u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct IITQuery(pub u8);
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IITResultSet(::windows::runtime::IUnknown);
 impl IITResultSet {
-    pub unsafe fn SetColumnPriority(
-        &self,
-        lcolumnindex: i32,
-        columnpriority: PRIORITY,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lcolumnindex),
-            ::std::mem::transmute(columnpriority),
-        )
-        .ok()
+    pub unsafe fn SetColumnPriority(&self, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(columnpriority)).ok()
     }
-    pub unsafe fn SetColumnHeap(
-        &self,
-        lcolumnindex: i32,
-        lpvheap: *mut ::std::ffi::c_void,
-        pfncolheapfree: ::std::option::Option<PFNCOLHEAPFREE>,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lcolumnindex),
-            ::std::mem::transmute(lpvheap),
-            ::std::mem::transmute(pfncolheapfree),
-        )
-        .ok()
+    pub unsafe fn SetColumnHeap(&self, lcolumnindex: i32, lpvheap: *mut ::std::ffi::c_void, pfncolheapfree: ::std::option::Option<PFNCOLHEAPFREE>) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(lpvheap), ::std::mem::transmute(pfncolheapfree)).ok()
     }
     pub unsafe fn SetKeyProp(&self, propid: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(propid),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid)).ok()
     }
-    pub unsafe fn Add(
-        &self,
-        propid: u32,
-        dwdefaultdata: u32,
-        priority: PRIORITY,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(propid),
-            ::std::mem::transmute(dwdefaultdata),
-            ::std::mem::transmute(priority),
-        )
-        .ok()
+    pub unsafe fn Add(&self, propid: u32, dwdefaultdata: u32, priority: PRIORITY) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), ::std::mem::transmute(dwdefaultdata), ::std::mem::transmute(priority)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Add2<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        propid: u32,
-        lpszwdefault: Param1,
-        priority: PRIORITY,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(propid),
-            lpszwdefault.into_param().abi(),
-            ::std::mem::transmute(priority),
-        )
-        .ok()
+    pub unsafe fn Add2<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, propid: u32, lpszwdefault: Param1, priority: PRIORITY) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), lpszwdefault.into_param().abi(), ::std::mem::transmute(priority)).ok()
     }
-    pub unsafe fn Add3(
-        &self,
-        propid: u32,
-        lpvdefaultdata: *mut ::std::ffi::c_void,
-        cbdata: u32,
-        priority: PRIORITY,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(propid),
-            ::std::mem::transmute(lpvdefaultdata),
-            ::std::mem::transmute(cbdata),
-            ::std::mem::transmute(priority),
-        )
-        .ok()
+    pub unsafe fn Add3(&self, propid: u32, lpvdefaultdata: *mut ::std::ffi::c_void, cbdata: u32, priority: PRIORITY) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), ::std::mem::transmute(lpvdefaultdata), ::std::mem::transmute(cbdata), ::std::mem::transmute(priority)).ok()
     }
     pub unsafe fn Add4(&self, lpvhdr: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpvhdr),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvhdr)).ok()
     }
-    pub unsafe fn Append(
-        &self,
-        lpvhdr: *mut ::std::ffi::c_void,
-        lpvdata: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpvhdr),
-            ::std::mem::transmute(lpvdata),
-        )
-        .ok()
+    pub unsafe fn Append(&self, lpvhdr: *mut ::std::ffi::c_void, lpvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpvhdr), ::std::mem::transmute(lpvdata)).ok()
     }
-    pub unsafe fn Set(
-        &self,
-        lrowindex: i32,
-        lcolumnindex: i32,
-        lpvdata: *mut ::std::ffi::c_void,
-        cbdata: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lrowindex),
-            ::std::mem::transmute(lcolumnindex),
-            ::std::mem::transmute(lpvdata),
-            ::std::mem::transmute(cbdata),
-        )
-        .ok()
+    pub unsafe fn Set(&self, lrowindex: i32, lcolumnindex: i32, lpvdata: *mut ::std::ffi::c_void, cbdata: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrowindex), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(lpvdata), ::std::mem::transmute(cbdata)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Set2<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        lrowindex: i32,
-        lcolumnindex: i32,
-        lpwstr: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lrowindex),
-            ::std::mem::transmute(lcolumnindex),
-            lpwstr.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Set2<'a, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrowindex), ::std::mem::transmute(lcolumnindex), lpwstr.into_param().abi()).ok()
     }
-    pub unsafe fn Set3(
-        &self,
-        lrowindex: i32,
-        lcolumnindex: i32,
-        dwdata: usize,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lrowindex),
-            ::std::mem::transmute(lcolumnindex),
-            ::std::mem::transmute(dwdata),
-        )
-        .ok()
+    pub unsafe fn Set3(&self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrowindex), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(dwdata)).ok()
     }
-    pub unsafe fn Set4(
-        &self,
-        lrowindex: i32,
-        lpvhdr: *mut ::std::ffi::c_void,
-        lpvdata: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lrowindex),
-            ::std::mem::transmute(lpvhdr),
-            ::std::mem::transmute(lpvdata),
-        )
-        .ok()
+    pub unsafe fn Set4(&self, lrowindex: i32, lpvhdr: *mut ::std::ffi::c_void, lpvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrowindex), ::std::mem::transmute(lpvhdr), ::std::mem::transmute(lpvdata)).ok()
     }
-    pub unsafe fn Copy<'a, Param0: ::windows::runtime::IntoParam<'a, IITResultSet>>(
-        &self,
-        prscopy: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            prscopy.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Copy<'a, Param0: ::windows::runtime::IntoParam<'a, IITResultSet>>(&self, prscopy: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), prscopy.into_param().abi()).ok()
     }
-    pub unsafe fn AppendRows<'a, Param0: ::windows::runtime::IntoParam<'a, IITResultSet>>(
-        &self,
-        pressrc: Param0,
-        lrowsrcfirst: i32,
-        csrcrows: i32,
-        lrowfirstdest: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).16)(
-            ::std::mem::transmute_copy(self),
-            pressrc.into_param().abi(),
-            ::std::mem::transmute(lrowsrcfirst),
-            ::std::mem::transmute(csrcrows),
-            ::std::mem::transmute(lrowfirstdest),
-        )
-        .ok()
+    pub unsafe fn AppendRows<'a, Param0: ::windows::runtime::IntoParam<'a, IITResultSet>>(&self, pressrc: Param0, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).16)(::std::mem::transmute_copy(self), pressrc.into_param().abi(), ::std::mem::transmute(lrowsrcfirst), ::std::mem::transmute(csrcrows), ::std::mem::transmute(lrowfirstdest)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Get(
-        &self,
-        lrowindex: i32,
-        lcolumnindex: i32,
-        prop: *mut CProperty,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).17)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lrowindex),
-            ::std::mem::transmute(lcolumnindex),
-            ::std::mem::transmute(prop),
-        )
-        .ok()
+    pub unsafe fn Get(&self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).17)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrowindex), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(prop)).ok()
     }
     pub unsafe fn GetKeyProp(&self, keypropid: *mut u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).18)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(keypropid),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).18)(::std::mem::transmute_copy(self), ::std::mem::transmute(keypropid)).ok()
     }
-    pub unsafe fn GetColumnPriority(
-        &self,
-        lcolumnindex: i32,
-        columnpriority: *mut PRIORITY,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).19)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lcolumnindex),
-            ::std::mem::transmute(columnpriority),
-        )
-        .ok()
+    pub unsafe fn GetColumnPriority(&self, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).19)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(columnpriority)).ok()
     }
     pub unsafe fn GetRowCount(&self, lnumberofrows: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).20)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lnumberofrows),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).20)(::std::mem::transmute_copy(self), ::std::mem::transmute(lnumberofrows)).ok()
     }
-    pub unsafe fn GetColumnCount(
-        &self,
-        lnumberofcolumns: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).21)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lnumberofcolumns),
-        )
-        .ok()
+    pub unsafe fn GetColumnCount(&self, lnumberofcolumns: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).21)(::std::mem::transmute_copy(self), ::std::mem::transmute(lnumberofcolumns)).ok()
     }
-    pub unsafe fn GetColumn(
-        &self,
-        lcolumnindex: i32,
-        propid: *mut u32,
-        dwtype: *mut u32,
-        lpvdefaultvalue: *mut *mut ::std::ffi::c_void,
-        cbsize: *mut u32,
-        columnpriority: *mut PRIORITY,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).22)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lcolumnindex),
-            ::std::mem::transmute(propid),
-            ::std::mem::transmute(dwtype),
-            ::std::mem::transmute(lpvdefaultvalue),
-            ::std::mem::transmute(cbsize),
-            ::std::mem::transmute(columnpriority),
-        )
-        .ok()
+    pub unsafe fn GetColumn(&self, lcolumnindex: i32, propid: *mut u32, dwtype: *mut u32, lpvdefaultvalue: *mut *mut ::std::ffi::c_void, cbsize: *mut u32, columnpriority: *mut PRIORITY) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).22)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(propid), ::std::mem::transmute(dwtype), ::std::mem::transmute(lpvdefaultvalue), ::std::mem::transmute(cbsize), ::std::mem::transmute(columnpriority)).ok()
     }
-    pub unsafe fn GetColumn2(
-        &self,
-        lcolumnindex: i32,
-        propid: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).23)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lcolumnindex),
-            ::std::mem::transmute(propid),
-        )
-        .ok()
+    pub unsafe fn GetColumn2(&self, lcolumnindex: i32, propid: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).23)(::std::mem::transmute_copy(self), ::std::mem::transmute(lcolumnindex), ::std::mem::transmute(propid)).ok()
     }
-    pub unsafe fn GetColumnFromPropID(
-        &self,
-        propid: u32,
-        lcolumnindex: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).24)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(propid),
-            ::std::mem::transmute(lcolumnindex),
-        )
-        .ok()
+    pub unsafe fn GetColumnFromPropID(&self, propid: u32, lcolumnindex: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).24)(::std::mem::transmute_copy(self), ::std::mem::transmute(propid), ::std::mem::transmute(lcolumnindex)).ok()
     }
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).25)(::std::mem::transmute_copy(self)).ok()
@@ -2073,52 +1200,19 @@ impl IITResultSet {
         (::windows::runtime::Interface::vtable(self).29)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Pause<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    >(
-        &self,
-        fpause: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).30)(
-            ::std::mem::transmute_copy(self),
-            fpause.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Pause<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, fpause: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).30)(::std::mem::transmute_copy(self), fpause.into_param().abi()).ok()
     }
-    pub unsafe fn GetRowStatus(
-        &self,
-        lrowfirst: i32,
-        crows: i32,
-        lprowstatus: *mut ROWSTATUS,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).31)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lrowfirst),
-            ::std::mem::transmute(crows),
-            ::std::mem::transmute(lprowstatus),
-        )
-        .ok()
+    pub unsafe fn GetRowStatus(&self, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).31)(::std::mem::transmute_copy(self), ::std::mem::transmute(lrowfirst), ::std::mem::transmute(crows), ::std::mem::transmute(lprowstatus)).ok()
     }
-    pub unsafe fn GetColumnStatus(
-        &self,
-        lpcolstatus: *mut COLUMNSTATUS,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).32)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpcolstatus),
-        )
-        .ok()
+    pub unsafe fn GetColumnStatus(&self, lpcolstatus: *mut COLUMNSTATUS) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).32)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpcolstatus)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IITResultSet {
     type Vtable = IITResultSet_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1001987393,
-        39307,
-        4560,
-        [168, 80, 0, 170, 0, 108, 125, 1],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1001987393, 39307, 4560, [168, 80, 0, 170, 0, 108, 125, 1]);
 }
 impl ::std::convert::From<IITResultSet> for ::windows::runtime::IUnknown {
     fn from(value: IITResultSet) -> Self {
@@ -2132,357 +1226,109 @@ impl ::std::convert::From<&IITResultSet> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IITResultSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IITResultSet {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IITResultSet_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lcolumnindex: i32,
-        columnpriority: PRIORITY,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lcolumnindex: i32,
-        lpvheap: *mut ::std::ffi::c_void,
-        pfncolheapfree: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        propid: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        propid: u32,
-        dwdefaultdata: u32,
-        priority: PRIORITY,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        propid: u32,
-        lpszwdefault: super::super::Foundation::PWSTR,
-        priority: PRIORITY,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lcolumnindex: i32, columnpriority: PRIORITY) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lcolumnindex: i32, lpvheap: *mut ::std::ffi::c_void, pfncolheapfree: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propid: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propid: u32, dwdefaultdata: u32, priority: PRIORITY) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propid: u32, lpszwdefault: super::super::Foundation::PWSTR, priority: PRIORITY) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        propid: u32,
-        lpvdefaultdata: *mut ::std::ffi::c_void,
-        cbdata: u32,
-        priority: PRIORITY,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpvhdr: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpvhdr: *mut ::std::ffi::c_void,
-        lpvdata: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lrowindex: i32,
-        lcolumnindex: i32,
-        lpvdata: *mut ::std::ffi::c_void,
-        cbdata: u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lrowindex: i32,
-        lcolumnindex: i32,
-        lpwstr: super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propid: u32, lpvdefaultdata: *mut ::std::ffi::c_void, cbdata: u32, priority: PRIORITY) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpvhdr: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpvhdr: *mut ::std::ffi::c_void, lpvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lrowindex: i32, lcolumnindex: i32, lpvdata: *mut ::std::ffi::c_void, cbdata: u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lrowindex: i32, lcolumnindex: i32, lpwstr: super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lrowindex: i32,
-        lcolumnindex: i32,
-        dwdata: usize,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lrowindex: i32,
-        lpvhdr: *mut ::std::ffi::c_void,
-        lpvdata: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        prscopy: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pressrc: ::windows::runtime::RawPtr,
-        lrowsrcfirst: i32,
-        csrcrows: i32,
-        lrowfirstdest: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lrowindex: i32,
-        lcolumnindex: i32,
-        prop: *mut CProperty,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lrowindex: i32, lpvhdr: *mut ::std::ffi::c_void, lpvdata: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prscopy: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pressrc: ::windows::runtime::RawPtr, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        keypropid: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lcolumnindex: i32,
-        columnpriority: *mut PRIORITY,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lnumberofrows: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lnumberofcolumns: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lcolumnindex: i32,
-        propid: *mut u32,
-        dwtype: *mut u32,
-        lpvdefaultvalue: *mut *mut ::std::ffi::c_void,
-        cbsize: *mut u32,
-        columnpriority: *mut PRIORITY,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lcolumnindex: i32,
-        propid: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        propid: u32,
-        lcolumnindex: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, keypropid: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lnumberofrows: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lnumberofcolumns: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lcolumnindex: i32, propid: *mut u32, dwtype: *mut u32, lpvdefaultvalue: *mut *mut ::std::ffi::c_void, cbsize: *mut u32, columnpriority: *mut PRIORITY) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lcolumnindex: i32, propid: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, propid: u32, lcolumnindex: *mut i32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        fpause: super::super::Foundation::BOOL,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, fpause: super::super::Foundation::BOOL) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lrowfirst: i32,
-        crows: i32,
-        lprowstatus: *mut ROWSTATUS,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpcolstatus: *mut COLUMNSTATUS,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lrowfirst: i32, crows: i32, lprowstatus: *mut ROWSTATUS) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpcolstatus: *mut COLUMNSTATUS) -> ::windows::runtime::HRESULT,
 );
 #[repr(C)]
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy)]
 pub struct IITStopWordList(pub u8);
 pub const IITWBC_BREAK_ACCEPT_WILDCARDS: u32 = 1u32;
 pub const IITWBC_BREAK_AND_STEM: u32 = 2u32;
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IITWordWheel(::windows::runtime::IUnknown);
 impl IITWordWheel {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Open<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IITDatabase>,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        lpitdb: Param0,
-        lpszmoniker: Param1,
-        dwflags: WORD_WHEEL_OPEN_FLAGS,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            lpitdb.into_param().abi(),
-            lpszmoniker.into_param().abi(),
-            ::std::mem::transmute(dwflags),
-        )
-        .ok()
+    pub unsafe fn Open<'a, Param0: ::windows::runtime::IntoParam<'a, IITDatabase>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, lpitdb: Param0, lpszmoniker: Param1, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), lpitdb.into_param().abi(), lpszmoniker.into_param().abi(), ::std::mem::transmute(dwflags)).ok()
     }
     pub unsafe fn Close(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
-    pub unsafe fn GetLocaleInfo(
-        &self,
-        pdwcodepageid: *mut u32,
-        plcid: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwcodepageid),
-            ::std::mem::transmute(plcid),
-        )
-        .ok()
+    pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcodepageid), ::std::mem::transmute(plcid)).ok()
     }
-    pub unsafe fn GetSorterInstance(
-        &self,
-        pdwobjinstance: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwobjinstance),
-        )
-        .ok()
+    pub unsafe fn GetSorterInstance(&self, pdwobjinstance: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwobjinstance)).ok()
     }
     pub unsafe fn Count(&self, pcentries: *mut i32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pcentries),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(pcentries)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Lookup<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
-    >(
-        &self,
-        lpcvprefix: *const ::std::ffi::c_void,
-        fexactmatch: Param1,
-        plentry: *mut i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lpcvprefix),
-            fexactmatch.into_param().abi(),
-            ::std::mem::transmute(plentry),
-        )
-        .ok()
+    pub unsafe fn Lookup<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(&self, lpcvprefix: *const ::std::ffi::c_void, fexactmatch: Param1, plentry: *mut i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(lpcvprefix), fexactmatch.into_param().abi(), ::std::mem::transmute(plentry)).ok()
     }
-    pub unsafe fn Lookup2<'a, Param1: ::windows::runtime::IntoParam<'a, IITResultSet>>(
-        &self,
-        lentry: i32,
-        lpitresult: Param1,
-        centries: i32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lentry),
-            lpitresult.into_param().abi(),
-            ::std::mem::transmute(centries),
-        )
-        .ok()
+    pub unsafe fn Lookup2<'a, Param1: ::windows::runtime::IntoParam<'a, IITResultSet>>(&self, lentry: i32, lpitresult: Param1, centries: i32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(lentry), lpitresult.into_param().abi(), ::std::mem::transmute(centries)).ok()
     }
-    pub unsafe fn Lookup3(
-        &self,
-        lentry: i32,
-        lpvkeybuf: *mut ::std::ffi::c_void,
-        cbkeybuf: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lentry),
-            ::std::mem::transmute(lpvkeybuf),
-            ::std::mem::transmute(cbkeybuf),
-        )
-        .ok()
+    pub unsafe fn Lookup3(&self, lentry: i32, lpvkeybuf: *mut ::std::ffi::c_void, cbkeybuf: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(lentry), ::std::mem::transmute(lpvkeybuf), ::std::mem::transmute(cbkeybuf)).ok()
     }
     pub unsafe fn SetGroup(&self, piitgroup: *mut IITGroup) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(piitgroup),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(piitgroup)).ok()
     }
-    pub unsafe fn GetGroup(
-        &self,
-        ppiitgroup: *mut *mut IITGroup,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(ppiitgroup),
-        )
-        .ok()
+    pub unsafe fn GetGroup(&self, ppiitgroup: *mut *mut IITGroup) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(ppiitgroup)).ok()
     }
-    pub unsafe fn GetDataCount(
-        &self,
-        lentry: i32,
-        pdwcount: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lentry),
-            ::std::mem::transmute(pdwcount),
-        )
-        .ok()
+    pub unsafe fn GetDataCount(&self, lentry: i32, pdwcount: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(lentry), ::std::mem::transmute(pdwcount)).ok()
     }
-    pub unsafe fn GetData<'a, Param1: ::windows::runtime::IntoParam<'a, IITResultSet>>(
-        &self,
-        lentry: i32,
-        lpitresult: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(lentry),
-            lpitresult.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetData<'a, Param1: ::windows::runtime::IntoParam<'a, IITResultSet>>(&self, lentry: i32, lpitresult: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(lentry), lpitresult.into_param().abi()).ok()
     }
-    pub unsafe fn GetDataColumns<'a, Param0: ::windows::runtime::IntoParam<'a, IITResultSet>>(
-        &self,
-        prs: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            prs.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn GetDataColumns<'a, Param0: ::windows::runtime::IntoParam<'a, IITResultSet>>(&self, prs: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), prs.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IITWordWheel {
     type Vtable = IITWordWheel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2409682340,
-        57055,
-        4560,
-        [154, 97, 0, 192, 79, 182, 139, 247],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682340, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
 }
 impl ::std::convert::From<IITWordWheel> for ::windows::runtime::IUnknown {
     fn from(value: IITWordWheel) -> Self {
@@ -2496,145 +1342,52 @@ impl ::std::convert::From<&IITWordWheel> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IITWordWheel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IITWordWheel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IITWordWheel_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpitdb: ::windows::runtime::RawPtr,
-        lpszmoniker: super::super::Foundation::PWSTR,
-        dwflags: WORD_WHEEL_OPEN_FLAGS,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpitdb: ::windows::runtime::RawPtr, lpszmoniker: super::super::Foundation::PWSTR, dwflags: WORD_WHEEL_OPEN_FLAGS) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcodepageid: *mut u32,
-        plcid: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwobjinstance: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcentries: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lpcvprefix: *const ::std::ffi::c_void,
-        fexactmatch: super::super::Foundation::BOOL,
-        plentry: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwobjinstance: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcentries: *mut i32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lpcvprefix: *const ::std::ffi::c_void, fexactmatch: super::super::Foundation::BOOL, plentry: *mut i32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lentry: i32,
-        lpitresult: ::windows::runtime::RawPtr,
-        centries: i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lentry: i32,
-        lpvkeybuf: *mut ::std::ffi::c_void,
-        cbkeybuf: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        piitgroup: *mut IITGroup,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppiitgroup: *mut *mut IITGroup,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lentry: i32,
-        pdwcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        lentry: i32,
-        lpitresult: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        prs: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lentry: i32, lpitresult: ::windows::runtime::RawPtr, centries: i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lentry: i32, lpvkeybuf: *mut ::std::ffi::c_void, cbkeybuf: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, piitgroup: *mut IITGroup) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppiitgroup: *mut *mut IITGroup) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lentry: i32, pdwcount: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, lentry: i32, lpitresult: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, prs: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IStemSink(::windows::runtime::IUnknown);
 impl IStemSink {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PutAltWord<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwcinbuf: Param0,
-        cwc: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            pwcinbuf.into_param().abi(),
-            ::std::mem::transmute(cwc),
-        )
-        .ok()
+    pub unsafe fn PutAltWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwcinbuf: Param0, cwc: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), pwcinbuf.into_param().abi(), ::std::mem::transmute(cwc)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn PutWord<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        pwcinbuf: Param0,
-        cwc: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            pwcinbuf.into_param().abi(),
-            ::std::mem::transmute(cwc),
-        )
-        .ok()
+    pub unsafe fn PutWord<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pwcinbuf: Param0, cwc: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), pwcinbuf.into_param().abi(), ::std::mem::transmute(cwc)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IStemSink {
     type Vtable = IStemSink_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        4269261616,
-        32578,
-        4558,
-        [190, 87, 0, 170, 0, 81, 254, 32],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4269261616, 32578, 4558, [190, 87, 0, 170, 0, 81, 254, 32]);
 }
 impl ::std::convert::From<IStemSink> for ::windows::runtime::IUnknown {
     fn from(value: IStemSink) -> Self {
@@ -2648,127 +1401,49 @@ impl ::std::convert::From<&IStemSink> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStemSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStemSink {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStemSink_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwcinbuf: super::super::Foundation::PWSTR,
-        cwc: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pwcinbuf: super::super::Foundation::PWSTR,
-        cwc: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pwcinbuf: super::super::Foundation::PWSTR, cwc: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IStemmerConfig(::windows::runtime::IUnknown);
 impl IStemmerConfig {
-    pub unsafe fn SetLocaleInfo(
-        &self,
-        dwcodepageid: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwcodepageid),
-            ::std::mem::transmute(lcid),
-        )
-        .ok()
+    pub unsafe fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcodepageid), ::std::mem::transmute(lcid)).ok()
     }
-    pub unsafe fn GetLocaleInfo(
-        &self,
-        pdwcodepageid: *mut u32,
-        plcid: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwcodepageid),
-            ::std::mem::transmute(plcid),
-        )
-        .ok()
+    pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcodepageid), ::std::mem::transmute(plcid)).ok()
     }
-    pub unsafe fn SetControlInfo(
-        &self,
-        grfstemflags: u32,
-        dwreserved: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(grfstemflags),
-            ::std::mem::transmute(dwreserved),
-        )
-        .ok()
+    pub unsafe fn SetControlInfo(&self, grfstemflags: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfstemflags), ::std::mem::transmute(dwreserved)).ok()
     }
-    pub unsafe fn GetControlInfo(
-        &self,
-        pgrfstemflags: *mut u32,
-        pdwreserved: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pgrfstemflags),
-            ::std::mem::transmute(pdwreserved),
-        )
-        .ok()
+    pub unsafe fn GetControlInfo(&self, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pgrfstemflags), ::std::mem::transmute(pdwreserved)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadExternalStemmerData<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
-    >(
-        &self,
-        pstream: Param0,
-        dwextdatatype: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            pstream.into_param().abi(),
-            ::std::mem::transmute(dwextdatatype),
-        )
-        .ok()
+    pub unsafe fn LoadExternalStemmerData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0, dwextdatatype: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), pstream.into_param().abi(), ::std::mem::transmute(dwextdatatype)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IStemmerConfig {
     type Vtable = IStemmerConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2409682343,
-        57055,
-        4560,
-        [154, 97, 0, 192, 79, 182, 139, 247],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682343, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
 }
 impl ::std::convert::From<IStemmerConfig> for ::windows::runtime::IUnknown {
     fn from(value: IStemmerConfig) -> Self {
@@ -2782,56 +1457,25 @@ impl ::std::convert::From<&IStemmerConfig> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IStemmerConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IStemmerConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IStemmerConfig_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwcodepageid: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcodepageid: *mut u32,
-        plcid: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        grfstemflags: u32,
-        dwreserved: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pgrfstemflags: *mut u32,
-        pdwreserved: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pstream: ::windows::runtime::RawPtr,
-        dwextdatatype: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcodepageid: u32, lcid: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, grfstemflags: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstream: ::windows::runtime::RawPtr, dwextdatatype: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 pub const ITWW_CBKEY_MAX: u32 = 1024u32;
@@ -2840,132 +1484,44 @@ pub const IT_EXCLUSIVE: i32 = 1i32;
 pub const IT_HIDDEN: i32 = 2i32;
 pub const IT_INCLUSIVE: i32 = 0i32;
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWordBreakerConfig(::windows::runtime::IUnknown);
 impl IWordBreakerConfig {
-    pub unsafe fn SetLocaleInfo(
-        &self,
-        dwcodepageid: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwcodepageid),
-            ::std::mem::transmute(lcid),
-        )
-        .ok()
+    pub unsafe fn SetLocaleInfo(&self, dwcodepageid: u32, lcid: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwcodepageid), ::std::mem::transmute(lcid)).ok()
     }
-    pub unsafe fn GetLocaleInfo(
-        &self,
-        pdwcodepageid: *mut u32,
-        plcid: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwcodepageid),
-            ::std::mem::transmute(plcid),
-        )
-        .ok()
+    pub unsafe fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwcodepageid), ::std::mem::transmute(plcid)).ok()
     }
     pub unsafe fn SetBreakWordType(&self, dwbreakwordtype: u32) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dwbreakwordtype),
-        )
-        .ok()
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(dwbreakwordtype)).ok()
     }
-    pub unsafe fn GetBreakWordType(
-        &self,
-        pdwbreakwordtype: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdwbreakwordtype),
-        )
-        .ok()
+    pub unsafe fn GetBreakWordType(&self, pdwbreakwordtype: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdwbreakwordtype)).ok()
     }
-    pub unsafe fn SetControlInfo(
-        &self,
-        grfbreakflags: u32,
-        dwreserved: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(grfbreakflags),
-            ::std::mem::transmute(dwreserved),
-        )
-        .ok()
+    pub unsafe fn SetControlInfo(&self, grfbreakflags: u32, dwreserved: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(grfbreakflags), ::std::mem::transmute(dwreserved)).ok()
     }
-    pub unsafe fn GetControlInfo(
-        &self,
-        pgrfbreakflags: *mut u32,
-        pdwreserved: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pgrfbreakflags),
-            ::std::mem::transmute(pdwreserved),
-        )
-        .ok()
+    pub unsafe fn GetControlInfo(&self, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self), ::std::mem::transmute(pgrfbreakflags), ::std::mem::transmute(pdwreserved)).ok()
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadExternalBreakerData<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
-    >(
-        &self,
-        pstream: Param0,
-        dwextdatatype: u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            pstream.into_param().abi(),
-            ::std::mem::transmute(dwextdatatype),
-        )
-        .ok()
+    pub unsafe fn LoadExternalBreakerData<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>>(&self, pstream: Param0, dwextdatatype: u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), pstream.into_param().abi(), ::std::mem::transmute(dwextdatatype)).ok()
     }
     #[cfg(feature = "Win32_System_Search")]
-    pub unsafe fn SetWordStemmer<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Search::IStemmer>,
-    >(
-        &self,
-        rclsid: *const ::windows::runtime::GUID,
-        pstemmer: Param1,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(rclsid),
-            pstemmer.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn SetWordStemmer<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::System::Search::IStemmer>>(&self, rclsid: *const ::windows::runtime::GUID, pstemmer: Param1) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(rclsid), pstemmer.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_System_Search")]
-    pub unsafe fn GetWordStemmer(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::System::Search::IStemmer> {
-        let mut result__: <super::super::System::Search::IStemmer as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<super::super::System::Search::IStemmer>(result__)
+    pub unsafe fn GetWordStemmer(&self) -> ::windows::runtime::Result<super::super::System::Search::IStemmer> {
+        let mut result__: <super::super::System::Search::IStemmer as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), &mut result__).from_abi::<super::super::System::Search::IStemmer>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWordBreakerConfig {
     type Vtable = IWordBreakerConfig_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2409682342,
-        57055,
-        4560,
-        [154, 97, 0, 192, 79, 182, 139, 247],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2409682342, 57055, 4560, [154, 97, 0, 192, 79, 182, 139, 247]);
 }
 impl ::std::convert::From<IWordBreakerConfig> for ::windows::runtime::IUnknown {
     fn from(value: IWordBreakerConfig) -> Self {
@@ -2979,89 +1535,36 @@ impl ::std::convert::From<&IWordBreakerConfig> for ::windows::runtime::IUnknown 
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWordBreakerConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWordBreakerConfig {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWordBreakerConfig_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwcodepageid: u32,
-        lcid: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwcodepageid: *mut u32,
-        plcid: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dwbreakwordtype: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdwbreakwordtype: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        grfbreakflags: u32,
-        dwreserved: u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pgrfbreakflags: *mut u32,
-        pdwreserved: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_Com")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pstream: ::windows::runtime::RawPtr,
-        dwextdatatype: u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwcodepageid: u32, lcid: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwcodepageid: *mut u32, plcid: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dwbreakwordtype: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdwbreakwordtype: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, grfbreakflags: u32, dwreserved: u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pstream: ::windows::runtime::RawPtr, dwextdatatype: u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
-    #[cfg(feature = "Win32_System_Search")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        rclsid: *const ::windows::runtime::GUID,
-        pstemmer: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Search")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, rclsid: *const ::windows::runtime::GUID, pstemmer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Search"))] usize,
-    #[cfg(feature = "Win32_System_Search")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppstemmer: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_System_Search")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppstemmer: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_System_Search"))] usize,
 );
 pub const MAX_COLUMNS: u32 = 256u32;
 pub type PFNCOLHEAPFREE = unsafe extern "system" fn(param0: *mut ::std::ffi::c_void) -> i32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRIORITY(pub i32);
 pub const PRIORITY_LOW: PRIORITY = PRIORITY(0i32);
@@ -3095,20 +1598,12 @@ impl ::std::default::Default for ROWSTATUS {
 }
 impl ::std::fmt::Debug for ROWSTATUS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ROWSTATUS")
-            .field("lRowFirst", &self.lRowFirst)
-            .field("cRows", &self.cRows)
-            .field("cProperties", &self.cProperties)
-            .field("cRowsTotal", &self.cRowsTotal)
-            .finish()
+        fmt.debug_struct("ROWSTATUS").field("lRowFirst", &self.lRowFirst).field("cRows", &self.cRows).field("cProperties", &self.cProperties).field("cRowsTotal", &self.cRowsTotal).finish()
     }
 }
 impl ::std::cmp::PartialEq for ROWSTATUS {
     fn eq(&self, other: &Self) -> bool {
-        self.lRowFirst == other.lRowFirst
-            && self.cRows == other.cRows
-            && self.cProperties == other.cProperties
-            && self.cRowsTotal == other.cRowsTotal
+        self.lRowFirst == other.lRowFirst && self.cRows == other.cRows && self.cProperties == other.cProperties && self.cRowsTotal == other.cRowsTotal
     }
 }
 impl ::std::cmp::Eq for ROWSTATUS {}
@@ -3135,14 +1630,7 @@ pub const STDPROP_USERPROP_MAX: u32 = 2147483647u32;
 pub const TYPE_POINTER: u32 = 1u32;
 pub const TYPE_STRING: u32 = 2u32;
 pub const TYPE_VALUE: u32 = 0u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WORD_WHEEL_OPEN_FLAGS(pub u32);
 pub const ITWW_OPEN_CONNECT: WORD_WHEEL_OPEN_FLAGS = WORD_WHEEL_OPEN_FLAGS(0u32);

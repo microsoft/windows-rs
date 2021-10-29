@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const DFS_ADD_VOLUME: u32 = 1u32;
 pub const DFS_FORCE_REMOVE: u32 = 2147483648u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -26,22 +18,12 @@ impl ::std::default::Default for DFS_GET_PKT_ENTRY_STATE_ARG {
 }
 impl ::std::fmt::Debug for DFS_GET_PKT_ENTRY_STATE_ARG {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_GET_PKT_ENTRY_STATE_ARG")
-            .field("DfsEntryPathLen", &self.DfsEntryPathLen)
-            .field("ServerNameLen", &self.ServerNameLen)
-            .field("ShareNameLen", &self.ShareNameLen)
-            .field("Level", &self.Level)
-            .field("Buffer", &self.Buffer)
-            .finish()
+        fmt.debug_struct("DFS_GET_PKT_ENTRY_STATE_ARG").field("DfsEntryPathLen", &self.DfsEntryPathLen).field("ServerNameLen", &self.ServerNameLen).field("ShareNameLen", &self.ShareNameLen).field("Level", &self.Level).field("Buffer", &self.Buffer).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_GET_PKT_ENTRY_STATE_ARG {
     fn eq(&self, other: &Self) -> bool {
-        self.DfsEntryPathLen == other.DfsEntryPathLen
-            && self.ServerNameLen == other.ServerNameLen
-            && self.ShareNameLen == other.ShareNameLen
-            && self.Level == other.Level
-            && self.Buffer == other.Buffer
+        self.DfsEntryPathLen == other.DfsEntryPathLen && self.ServerNameLen == other.ServerNameLen && self.ShareNameLen == other.ShareNameLen && self.Level == other.Level && self.Buffer == other.Buffer
     }
 }
 impl ::std::cmp::Eq for DFS_GET_PKT_ENTRY_STATE_ARG {}
@@ -66,9 +48,7 @@ impl ::std::default::Default for DFS_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DFS_INFO_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_1")
-            .field("EntryPath", &self.EntryPath)
-            .finish()
+        fmt.debug_struct("DFS_INFO_1").field("EntryPath", &self.EntryPath).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -101,9 +81,7 @@ impl ::std::default::Default for DFS_INFO_100 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DFS_INFO_100 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_100")
-            .field("Comment", &self.Comment)
-            .finish()
+        fmt.debug_struct("DFS_INFO_100").field("Comment", &self.Comment).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -132,9 +110,7 @@ impl ::std::default::Default for DFS_INFO_101 {
 }
 impl ::std::fmt::Debug for DFS_INFO_101 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_101")
-            .field("State", &self.State)
-            .finish()
+        fmt.debug_struct("DFS_INFO_101").field("State", &self.State).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_INFO_101 {
@@ -160,9 +136,7 @@ impl ::std::default::Default for DFS_INFO_102 {
 }
 impl ::std::fmt::Debug for DFS_INFO_102 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_102")
-            .field("Timeout", &self.Timeout)
-            .finish()
+        fmt.debug_struct("DFS_INFO_102").field("Timeout", &self.Timeout).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_INFO_102 {
@@ -189,10 +163,7 @@ impl ::std::default::Default for DFS_INFO_103 {
 }
 impl ::std::fmt::Debug for DFS_INFO_103 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_103")
-            .field("PropertyFlagMask", &self.PropertyFlagMask)
-            .field("PropertyFlags", &self.PropertyFlags)
-            .finish()
+        fmt.debug_struct("DFS_INFO_103").field("PropertyFlagMask", &self.PropertyFlagMask).field("PropertyFlags", &self.PropertyFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_INFO_103 {
@@ -218,9 +189,7 @@ impl ::std::default::Default for DFS_INFO_104 {
 }
 impl ::std::fmt::Debug for DFS_INFO_104 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_104")
-            .field("TargetPriority", &self.TargetPriority)
-            .finish()
+        fmt.debug_struct("DFS_INFO_104").field("TargetPriority", &self.TargetPriority).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_INFO_104 {
@@ -254,23 +223,13 @@ impl ::std::default::Default for DFS_INFO_105 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DFS_INFO_105 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_105")
-            .field("Comment", &self.Comment)
-            .field("State", &self.State)
-            .field("Timeout", &self.Timeout)
-            .field("PropertyFlagMask", &self.PropertyFlagMask)
-            .field("PropertyFlags", &self.PropertyFlags)
-            .finish()
+        fmt.debug_struct("DFS_INFO_105").field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("PropertyFlagMask", &self.PropertyFlagMask).field("PropertyFlags", &self.PropertyFlags).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DFS_INFO_105 {
     fn eq(&self, other: &Self) -> bool {
-        self.Comment == other.Comment
-            && self.State == other.State
-            && self.Timeout == other.Timeout
-            && self.PropertyFlagMask == other.PropertyFlagMask
-            && self.PropertyFlags == other.PropertyFlags
+        self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.PropertyFlagMask == other.PropertyFlagMask && self.PropertyFlags == other.PropertyFlags
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -294,10 +253,7 @@ impl ::std::default::Default for DFS_INFO_106 {
 }
 impl ::std::fmt::Debug for DFS_INFO_106 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_106")
-            .field("State", &self.State)
-            .field("TargetPriority", &self.TargetPriority)
-            .finish()
+        fmt.debug_struct("DFS_INFO_106").field("State", &self.State).field("TargetPriority", &self.TargetPriority).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_INFO_106 {
@@ -347,13 +303,7 @@ impl ::std::fmt::Debug for DFS_INFO_107 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for DFS_INFO_107 {
     fn eq(&self, other: &Self) -> bool {
-        self.Comment == other.Comment
-            && self.State == other.State
-            && self.Timeout == other.Timeout
-            && self.PropertyFlagMask == other.PropertyFlagMask
-            && self.PropertyFlags == other.PropertyFlags
-            && self.SdLengthReserved == other.SdLengthReserved
-            && self.pSecurityDescriptor == other.pSecurityDescriptor
+        self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.PropertyFlagMask == other.PropertyFlagMask && self.PropertyFlags == other.PropertyFlags && self.SdLengthReserved == other.SdLengthReserved && self.pSecurityDescriptor == other.pSecurityDescriptor
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -381,17 +331,13 @@ impl ::std::default::Default for DFS_INFO_150 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::fmt::Debug for DFS_INFO_150 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_150")
-            .field("SdLengthReserved", &self.SdLengthReserved)
-            .field("pSecurityDescriptor", &self.pSecurityDescriptor)
-            .finish()
+        fmt.debug_struct("DFS_INFO_150").field("SdLengthReserved", &self.SdLengthReserved).field("pSecurityDescriptor", &self.pSecurityDescriptor).finish()
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for DFS_INFO_150 {
     fn eq(&self, other: &Self) -> bool {
-        self.SdLengthReserved == other.SdLengthReserved
-            && self.pSecurityDescriptor == other.pSecurityDescriptor
+        self.SdLengthReserved == other.SdLengthReserved && self.pSecurityDescriptor == other.pSecurityDescriptor
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -414,9 +360,7 @@ impl ::std::default::Default for DFS_INFO_1_32 {
 }
 impl ::std::fmt::Debug for DFS_INFO_1_32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_1_32")
-            .field("EntryPath", &self.EntryPath)
-            .finish()
+        fmt.debug_struct("DFS_INFO_1_32").field("EntryPath", &self.EntryPath).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_INFO_1_32 {
@@ -449,21 +393,13 @@ impl ::std::default::Default for DFS_INFO_2 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DFS_INFO_2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_2")
-            .field("EntryPath", &self.EntryPath)
-            .field("Comment", &self.Comment)
-            .field("State", &self.State)
-            .field("NumberOfStorages", &self.NumberOfStorages)
-            .finish()
+        fmt.debug_struct("DFS_INFO_2").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DFS_INFO_2 {
     fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath
-            && self.Comment == other.Comment
-            && self.State == other.State
-            && self.NumberOfStorages == other.NumberOfStorages
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -490,9 +426,7 @@ impl ::std::default::Default for DFS_INFO_200 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DFS_INFO_200 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_200")
-            .field("FtDfsName", &self.FtDfsName)
-            .finish()
+        fmt.debug_struct("DFS_INFO_200").field("FtDfsName", &self.FtDfsName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -524,20 +458,12 @@ impl ::std::default::Default for DFS_INFO_2_32 {
 }
 impl ::std::fmt::Debug for DFS_INFO_2_32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_2_32")
-            .field("EntryPath", &self.EntryPath)
-            .field("Comment", &self.Comment)
-            .field("State", &self.State)
-            .field("NumberOfStorages", &self.NumberOfStorages)
-            .finish()
+        fmt.debug_struct("DFS_INFO_2_32").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_INFO_2_32 {
     fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath
-            && self.Comment == other.Comment
-            && self.State == other.State
-            && self.NumberOfStorages == other.NumberOfStorages
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages
     }
 }
 impl ::std::cmp::Eq for DFS_INFO_2_32 {}
@@ -566,23 +492,13 @@ impl ::std::default::Default for DFS_INFO_3 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DFS_INFO_3 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_3")
-            .field("EntryPath", &self.EntryPath)
-            .field("Comment", &self.Comment)
-            .field("State", &self.State)
-            .field("NumberOfStorages", &self.NumberOfStorages)
-            .field("Storage", &self.Storage)
-            .finish()
+        fmt.debug_struct("DFS_INFO_3").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DFS_INFO_3 {
     fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath
-            && self.Comment == other.Comment
-            && self.State == other.State
-            && self.NumberOfStorages == other.NumberOfStorages
-            && self.Storage == other.Storage
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -610,10 +526,7 @@ impl ::std::default::Default for DFS_INFO_300 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DFS_INFO_300 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_300")
-            .field("Flags", &self.Flags)
-            .field("DfsName", &self.DfsName)
-            .finish()
+        fmt.debug_struct("DFS_INFO_300").field("Flags", &self.Flags).field("DfsName", &self.DfsName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -646,22 +559,12 @@ impl ::std::default::Default for DFS_INFO_3_32 {
 }
 impl ::std::fmt::Debug for DFS_INFO_3_32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_3_32")
-            .field("EntryPath", &self.EntryPath)
-            .field("Comment", &self.Comment)
-            .field("State", &self.State)
-            .field("NumberOfStorages", &self.NumberOfStorages)
-            .field("Storage", &self.Storage)
-            .finish()
+        fmt.debug_struct("DFS_INFO_3_32").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_INFO_3_32 {
     fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath
-            && self.Comment == other.Comment
-            && self.State == other.State
-            && self.NumberOfStorages == other.NumberOfStorages
-            && self.Storage == other.Storage
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
 impl ::std::cmp::Eq for DFS_INFO_3_32 {}
@@ -692,27 +595,13 @@ impl ::std::default::Default for DFS_INFO_4 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DFS_INFO_4 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_4")
-            .field("EntryPath", &self.EntryPath)
-            .field("Comment", &self.Comment)
-            .field("State", &self.State)
-            .field("Timeout", &self.Timeout)
-            .field("Guid", &self.Guid)
-            .field("NumberOfStorages", &self.NumberOfStorages)
-            .field("Storage", &self.Storage)
-            .finish()
+        fmt.debug_struct("DFS_INFO_4").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DFS_INFO_4 {
     fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath
-            && self.Comment == other.Comment
-            && self.State == other.State
-            && self.Timeout == other.Timeout
-            && self.Guid == other.Guid
-            && self.NumberOfStorages == other.NumberOfStorages
-            && self.Storage == other.Storage
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -741,26 +630,12 @@ impl ::std::default::Default for DFS_INFO_4_32 {
 }
 impl ::std::fmt::Debug for DFS_INFO_4_32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_4_32")
-            .field("EntryPath", &self.EntryPath)
-            .field("Comment", &self.Comment)
-            .field("State", &self.State)
-            .field("Timeout", &self.Timeout)
-            .field("Guid", &self.Guid)
-            .field("NumberOfStorages", &self.NumberOfStorages)
-            .field("Storage", &self.Storage)
-            .finish()
+        fmt.debug_struct("DFS_INFO_4_32").field("EntryPath", &self.EntryPath).field("Comment", &self.Comment).field("State", &self.State).field("Timeout", &self.Timeout).field("Guid", &self.Guid).field("NumberOfStorages", &self.NumberOfStorages).field("Storage", &self.Storage).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_INFO_4_32 {
     fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath
-            && self.Comment == other.Comment
-            && self.State == other.State
-            && self.Timeout == other.Timeout
-            && self.Guid == other.Guid
-            && self.NumberOfStorages == other.NumberOfStorages
-            && self.Storage == other.Storage
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
 impl ::std::cmp::Eq for DFS_INFO_4_32 {}
@@ -807,14 +682,7 @@ impl ::std::fmt::Debug for DFS_INFO_5 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DFS_INFO_5 {
     fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath
-            && self.Comment == other.Comment
-            && self.State == other.State
-            && self.Timeout == other.Timeout
-            && self.Guid == other.Guid
-            && self.PropertyFlags == other.PropertyFlags
-            && self.MetadataSize == other.MetadataSize
-            && self.NumberOfStorages == other.NumberOfStorages
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.PropertyFlags == other.PropertyFlags && self.MetadataSize == other.MetadataSize && self.NumberOfStorages == other.NumberOfStorages
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -839,18 +707,12 @@ impl ::std::default::Default for DFS_INFO_50 {
 }
 impl ::std::fmt::Debug for DFS_INFO_50 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_50")
-            .field("NamespaceMajorVersion", &self.NamespaceMajorVersion)
-            .field("NamespaceMinorVersion", &self.NamespaceMinorVersion)
-            .field("NamespaceCapabilities", &self.NamespaceCapabilities)
-            .finish()
+        fmt.debug_struct("DFS_INFO_50").field("NamespaceMajorVersion", &self.NamespaceMajorVersion).field("NamespaceMinorVersion", &self.NamespaceMinorVersion).field("NamespaceCapabilities", &self.NamespaceCapabilities).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_INFO_50 {
     fn eq(&self, other: &Self) -> bool {
-        self.NamespaceMajorVersion == other.NamespaceMajorVersion
-            && self.NamespaceMinorVersion == other.NamespaceMinorVersion
-            && self.NamespaceCapabilities == other.NamespaceCapabilities
+        self.NamespaceMajorVersion == other.NamespaceMajorVersion && self.NamespaceMinorVersion == other.NamespaceMinorVersion && self.NamespaceCapabilities == other.NamespaceCapabilities
     }
 }
 impl ::std::cmp::Eq for DFS_INFO_50 {}
@@ -899,15 +761,7 @@ impl ::std::fmt::Debug for DFS_INFO_6 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DFS_INFO_6 {
     fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath
-            && self.Comment == other.Comment
-            && self.State == other.State
-            && self.Timeout == other.Timeout
-            && self.Guid == other.Guid
-            && self.PropertyFlags == other.PropertyFlags
-            && self.MetadataSize == other.MetadataSize
-            && self.NumberOfStorages == other.NumberOfStorages
-            && self.Storage == other.Storage
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.PropertyFlags == other.PropertyFlags && self.MetadataSize == other.MetadataSize && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -930,9 +784,7 @@ impl ::std::default::Default for DFS_INFO_7 {
 }
 impl ::std::fmt::Debug for DFS_INFO_7 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_INFO_7")
-            .field("GenerationGuid", &self.GenerationGuid)
-            .finish()
+        fmt.debug_struct("DFS_INFO_7").field("GenerationGuid", &self.GenerationGuid).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_INFO_7 {
@@ -988,16 +840,7 @@ impl ::std::fmt::Debug for DFS_INFO_8 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for DFS_INFO_8 {
     fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath
-            && self.Comment == other.Comment
-            && self.State == other.State
-            && self.Timeout == other.Timeout
-            && self.Guid == other.Guid
-            && self.PropertyFlags == other.PropertyFlags
-            && self.MetadataSize == other.MetadataSize
-            && self.SdLengthReserved == other.SdLengthReserved
-            && self.pSecurityDescriptor == other.pSecurityDescriptor
-            && self.NumberOfStorages == other.NumberOfStorages
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.PropertyFlags == other.PropertyFlags && self.MetadataSize == other.MetadataSize && self.SdLengthReserved == other.SdLengthReserved && self.pSecurityDescriptor == other.pSecurityDescriptor && self.NumberOfStorages == other.NumberOfStorages
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1052,17 +895,7 @@ impl ::std::fmt::Debug for DFS_INFO_9 {
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::std::cmp::PartialEq for DFS_INFO_9 {
     fn eq(&self, other: &Self) -> bool {
-        self.EntryPath == other.EntryPath
-            && self.Comment == other.Comment
-            && self.State == other.State
-            && self.Timeout == other.Timeout
-            && self.Guid == other.Guid
-            && self.PropertyFlags == other.PropertyFlags
-            && self.MetadataSize == other.MetadataSize
-            && self.SdLengthReserved == other.SdLengthReserved
-            && self.pSecurityDescriptor == other.pSecurityDescriptor
-            && self.NumberOfStorages == other.NumberOfStorages
-            && self.Storage == other.Storage
+        self.EntryPath == other.EntryPath && self.Comment == other.Comment && self.State == other.State && self.Timeout == other.Timeout && self.Guid == other.Guid && self.PropertyFlags == other.PropertyFlags && self.MetadataSize == other.MetadataSize && self.SdLengthReserved == other.SdLengthReserved && self.pSecurityDescriptor == other.pSecurityDescriptor && self.NumberOfStorages == other.NumberOfStorages && self.Storage == other.Storage
     }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -1073,22 +906,12 @@ unsafe impl ::windows::runtime::Abi for DFS_INFO_9 {
     type DefaultType = Self;
 }
 pub const DFS_MOVE_FLAG_REPLACE_IF_EXISTS: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DFS_NAMESPACE_VERSION_ORIGIN(pub i32);
-pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN =
-    DFS_NAMESPACE_VERSION_ORIGIN(0i32);
-pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN =
-    DFS_NAMESPACE_VERSION_ORIGIN(1i32);
-pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN =
-    DFS_NAMESPACE_VERSION_ORIGIN(2i32);
+pub const DFS_NAMESPACE_VERSION_ORIGIN_COMBINED: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(0i32);
+pub const DFS_NAMESPACE_VERSION_ORIGIN_SERVER: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(1i32);
+pub const DFS_NAMESPACE_VERSION_ORIGIN_DOMAIN: DFS_NAMESPACE_VERSION_ORIGIN = DFS_NAMESPACE_VERSION_ORIGIN(2i32);
 impl ::std::convert::From<i32> for DFS_NAMESPACE_VERSION_ORIGIN {
     fn from(value: i32) -> Self {
         Self(value)
@@ -1123,10 +946,7 @@ impl ::std::default::Default for DFS_SITELIST_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DFS_SITELIST_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_SITELIST_INFO")
-            .field("cSites", &self.cSites)
-            .field("Site", &self.Site)
-            .finish()
+        fmt.debug_struct("DFS_SITELIST_INFO").field("cSites", &self.cSites).field("Site", &self.Site).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1160,10 +980,7 @@ impl ::std::default::Default for DFS_SITENAME_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DFS_SITENAME_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_SITENAME_INFO")
-            .field("SiteFlags", &self.SiteFlags)
-            .field("SiteName", &self.SiteName)
-            .finish()
+        fmt.debug_struct("DFS_SITENAME_INFO").field("SiteFlags", &self.SiteFlags).field("SiteName", &self.SiteName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1200,19 +1017,13 @@ impl ::std::default::Default for DFS_STORAGE_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DFS_STORAGE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_STORAGE_INFO")
-            .field("State", &self.State)
-            .field("ServerName", &self.ServerName)
-            .field("ShareName", &self.ShareName)
-            .finish()
+        fmt.debug_struct("DFS_STORAGE_INFO").field("State", &self.State).field("ServerName", &self.ServerName).field("ShareName", &self.ShareName).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DFS_STORAGE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.State == other.State
-            && self.ServerName == other.ServerName
-            && self.ShareName == other.ShareName
+        self.State == other.State && self.ServerName == other.ServerName && self.ShareName == other.ShareName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1237,18 +1048,12 @@ impl ::std::default::Default for DFS_STORAGE_INFO_0_32 {
 }
 impl ::std::fmt::Debug for DFS_STORAGE_INFO_0_32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_STORAGE_INFO_0_32")
-            .field("State", &self.State)
-            .field("ServerName", &self.ServerName)
-            .field("ShareName", &self.ShareName)
-            .finish()
+        fmt.debug_struct("DFS_STORAGE_INFO_0_32").field("State", &self.State).field("ServerName", &self.ServerName).field("ShareName", &self.ShareName).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_STORAGE_INFO_0_32 {
     fn eq(&self, other: &Self) -> bool {
-        self.State == other.State
-            && self.ServerName == other.ServerName
-            && self.ShareName == other.ShareName
+        self.State == other.State && self.ServerName == other.ServerName && self.ShareName == other.ShareName
     }
 }
 impl ::std::cmp::Eq for DFS_STORAGE_INFO_0_32 {}
@@ -1276,21 +1081,13 @@ impl ::std::default::Default for DFS_STORAGE_INFO_1 {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DFS_STORAGE_INFO_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_STORAGE_INFO_1")
-            .field("State", &self.State)
-            .field("ServerName", &self.ServerName)
-            .field("ShareName", &self.ShareName)
-            .field("TargetPriority", &self.TargetPriority)
-            .finish()
+        fmt.debug_struct("DFS_STORAGE_INFO_1").field("State", &self.State).field("ServerName", &self.ServerName).field("ShareName", &self.ShareName).field("TargetPriority", &self.TargetPriority).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DFS_STORAGE_INFO_1 {
     fn eq(&self, other: &Self) -> bool {
-        self.State == other.State
-            && self.ServerName == other.ServerName
-            && self.ShareName == other.ShareName
-            && self.TargetPriority == other.TargetPriority
+        self.State == other.State && self.ServerName == other.ServerName && self.ShareName == other.ShareName && self.TargetPriority == other.TargetPriority
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1334,12 +1131,7 @@ impl ::std::fmt::Debug for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
 }
 impl ::std::cmp::PartialEq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.DomainDfsMajorVersion == other.DomainDfsMajorVersion
-            && self.DomainDfsMinorVersion == other.DomainDfsMinorVersion
-            && self.DomainDfsCapabilities == other.DomainDfsCapabilities
-            && self.StandaloneDfsMajorVersion == other.StandaloneDfsMajorVersion
-            && self.StandaloneDfsMinorVersion == other.StandaloneDfsMinorVersion
-            && self.StandaloneDfsCapabilities == other.StandaloneDfsCapabilities
+        self.DomainDfsMajorVersion == other.DomainDfsMajorVersion && self.DomainDfsMinorVersion == other.DomainDfsMinorVersion && self.DomainDfsCapabilities == other.DomainDfsCapabilities && self.StandaloneDfsMajorVersion == other.StandaloneDfsMajorVersion && self.StandaloneDfsMinorVersion == other.StandaloneDfsMinorVersion && self.StandaloneDfsCapabilities == other.StandaloneDfsCapabilities
     }
 }
 impl ::std::cmp::Eq for DFS_SUPPORTED_NAMESPACE_VERSION_INFO {}
@@ -1362,18 +1154,12 @@ impl ::std::default::Default for DFS_TARGET_PRIORITY {
 }
 impl ::std::fmt::Debug for DFS_TARGET_PRIORITY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DFS_TARGET_PRIORITY")
-            .field("TargetPriorityClass", &self.TargetPriorityClass)
-            .field("TargetPriorityRank", &self.TargetPriorityRank)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("DFS_TARGET_PRIORITY").field("TargetPriorityClass", &self.TargetPriorityClass).field("TargetPriorityRank", &self.TargetPriorityRank).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for DFS_TARGET_PRIORITY {
     fn eq(&self, other: &Self) -> bool {
-        self.TargetPriorityClass == other.TargetPriorityClass
-            && self.TargetPriorityRank == other.TargetPriorityRank
-            && self.Reserved == other.Reserved
+        self.TargetPriorityClass == other.TargetPriorityClass && self.TargetPriorityRank == other.TargetPriorityRank && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for DFS_TARGET_PRIORITY {}
@@ -1381,19 +1167,11 @@ unsafe impl ::windows::runtime::Abi for DFS_TARGET_PRIORITY {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DFS_TARGET_PRIORITY_CLASS(pub i32);
 pub const DfsInvalidPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(-1i32);
-pub const DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS =
-    DFS_TARGET_PRIORITY_CLASS(0i32);
+pub const DfsSiteCostNormalPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(0i32);
 pub const DfsGlobalHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(1i32);
 pub const DfsSiteCostHighPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(2i32);
 pub const DfsSiteCostLowPriorityClass: DFS_TARGET_PRIORITY_CLASS = DFS_TARGET_PRIORITY_CLASS(3i32);
@@ -1426,738 +1204,308 @@ pub const NET_DFS_SETDC_INITPKT: u32 = 2u32;
 pub const NET_DFS_SETDC_TIMEOUT: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsAdd<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    dfsentrypath: Param0,
-    servername: Param1,
-    sharename: Param2,
-    comment: Param3,
-    flags: u32,
-) -> u32 {
+pub unsafe fn NetDfsAdd<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, comment: Param3, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsAdd(
-                dfsentrypath: super::super::Foundation::PWSTR,
-                servername: super::super::Foundation::PWSTR,
-                sharename: super::super::Foundation::PWSTR,
-                comment: super::super::Foundation::PWSTR,
-                flags: u32,
-            ) -> u32;
+            fn NetDfsAdd(dfsentrypath: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, sharename: super::super::Foundation::PWSTR, comment: super::super::Foundation::PWSTR, flags: u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsAdd(
-            dfsentrypath.into_param().abi(),
-            servername.into_param().abi(),
-            sharename.into_param().abi(),
-            comment.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(NetDfsAdd(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), comment.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsAddFtRoot<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    servername: Param0,
-    rootshare: Param1,
-    ftdfsname: Param2,
-    comment: Param3,
-    flags: u32,
-) -> u32 {
+pub unsafe fn NetDfsAddFtRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, ftdfsname: Param2, comment: Param3, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsAddFtRoot(
-                servername: super::super::Foundation::PWSTR,
-                rootshare: super::super::Foundation::PWSTR,
-                ftdfsname: super::super::Foundation::PWSTR,
-                comment: super::super::Foundation::PWSTR,
-                flags: u32,
-            ) -> u32;
+            fn NetDfsAddFtRoot(servername: super::super::Foundation::PWSTR, rootshare: super::super::Foundation::PWSTR, ftdfsname: super::super::Foundation::PWSTR, comment: super::super::Foundation::PWSTR, flags: u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsAddFtRoot(
-            servername.into_param().abi(),
-            rootshare.into_param().abi(),
-            ftdfsname.into_param().abi(),
-            comment.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(NetDfsAddFtRoot(servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), comment.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsAddRootTarget<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pdfspath: Param0,
-    ptargetpath: Param1,
-    majorversion: u32,
-    pcomment: Param3,
-    flags: u32,
-) -> u32 {
+pub unsafe fn NetDfsAddRootTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pdfspath: Param0, ptargetpath: Param1, majorversion: u32, pcomment: Param3, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsAddRootTarget(
-                pdfspath: super::super::Foundation::PWSTR,
-                ptargetpath: super::super::Foundation::PWSTR,
-                majorversion: u32,
-                pcomment: super::super::Foundation::PWSTR,
-                flags: u32,
-            ) -> u32;
+            fn NetDfsAddRootTarget(pdfspath: super::super::Foundation::PWSTR, ptargetpath: super::super::Foundation::PWSTR, majorversion: u32, pcomment: super::super::Foundation::PWSTR, flags: u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsAddRootTarget(
-            pdfspath.into_param().abi(),
-            ptargetpath.into_param().abi(),
-            ::std::mem::transmute(majorversion),
-            pcomment.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(NetDfsAddRootTarget(pdfspath.into_param().abi(), ptargetpath.into_param().abi(), ::std::mem::transmute(majorversion), pcomment.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsAddStdRoot<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    servername: Param0,
-    rootshare: Param1,
-    comment: Param2,
-    flags: u32,
-) -> u32 {
+pub unsafe fn NetDfsAddStdRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, comment: Param2, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsAddStdRoot(
-                servername: super::super::Foundation::PWSTR,
-                rootshare: super::super::Foundation::PWSTR,
-                comment: super::super::Foundation::PWSTR,
-                flags: u32,
-            ) -> u32;
+            fn NetDfsAddStdRoot(servername: super::super::Foundation::PWSTR, rootshare: super::super::Foundation::PWSTR, comment: super::super::Foundation::PWSTR, flags: u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsAddStdRoot(
-            servername.into_param().abi(),
-            rootshare.into_param().abi(),
-            comment.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(NetDfsAddStdRoot(servername.into_param().abi(), rootshare.into_param().abi(), comment.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsEnum<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    dfsname: Param0,
-    level: u32,
-    prefmaxlen: u32,
-    buffer: *mut *mut u8,
-    entriesread: *mut u32,
-    resumehandle: *mut u32,
-) -> u32 {
+pub unsafe fn NetDfsEnum<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsname: Param0, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsEnum(
-                dfsname: super::super::Foundation::PWSTR,
-                level: u32,
-                prefmaxlen: u32,
-                buffer: *mut *mut u8,
-                entriesread: *mut u32,
-                resumehandle: *mut u32,
-            ) -> u32;
+            fn NetDfsEnum(dfsname: super::super::Foundation::PWSTR, level: u32, prefmaxlen: u32, buffer: *mut *mut u8, entriesread: *mut u32, resumehandle: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsEnum(
-            dfsname.into_param().abi(),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(prefmaxlen),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(entriesread),
-            ::std::mem::transmute(resumehandle),
-        ))
+        ::std::mem::transmute(NetDfsEnum(dfsname.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(prefmaxlen), ::std::mem::transmute(buffer), ::std::mem::transmute(entriesread), ::std::mem::transmute(resumehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsGetClientInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    dfsentrypath: Param0,
-    servername: Param1,
-    sharename: Param2,
-    level: u32,
-    buffer: *mut *mut u8,
-) -> u32 {
+pub unsafe fn NetDfsGetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsGetClientInfo(
-                dfsentrypath: super::super::Foundation::PWSTR,
-                servername: super::super::Foundation::PWSTR,
-                sharename: super::super::Foundation::PWSTR,
-                level: u32,
-                buffer: *mut *mut u8,
-            ) -> u32;
+            fn NetDfsGetClientInfo(dfsentrypath: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, sharename: super::super::Foundation::PWSTR, level: u32, buffer: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetDfsGetClientInfo(
-            dfsentrypath.into_param().abi(),
-            servername.into_param().abi(),
-            sharename.into_param().abi(),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(NetDfsGetClientInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NetDfsGetFtContainerSecurity<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    domainname: Param0,
-    securityinformation: u32,
-    ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
-    lpcbsecuritydescriptor: *mut u32,
-) -> u32 {
+pub unsafe fn NetDfsGetFtContainerSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsGetFtContainerSecurity(
-                domainname: super::super::Foundation::PWSTR,
-                securityinformation: u32,
-                ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
-                lpcbsecuritydescriptor: *mut u32,
-            ) -> u32;
+            fn NetDfsGetFtContainerSecurity(domainname: super::super::Foundation::PWSTR, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsGetFtContainerSecurity(
-            domainname.into_param().abi(),
-            ::std::mem::transmute(securityinformation),
-            ::std::mem::transmute(ppsecuritydescriptor),
-            ::std::mem::transmute(lpcbsecuritydescriptor),
-        ))
+        ::std::mem::transmute(NetDfsGetFtContainerSecurity(domainname.into_param().abi(), ::std::mem::transmute(securityinformation), ::std::mem::transmute(ppsecuritydescriptor), ::std::mem::transmute(lpcbsecuritydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsGetInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    dfsentrypath: Param0,
-    servername: Param1,
-    sharename: Param2,
-    level: u32,
-    buffer: *mut *mut u8,
-) -> u32 {
+pub unsafe fn NetDfsGetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsGetInfo(
-                dfsentrypath: super::super::Foundation::PWSTR,
-                servername: super::super::Foundation::PWSTR,
-                sharename: super::super::Foundation::PWSTR,
-                level: u32,
-                buffer: *mut *mut u8,
-            ) -> u32;
+            fn NetDfsGetInfo(dfsentrypath: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, sharename: super::super::Foundation::PWSTR, level: u32, buffer: *mut *mut u8) -> u32;
         }
-        ::std::mem::transmute(NetDfsGetInfo(
-            dfsentrypath.into_param().abi(),
-            servername.into_param().abi(),
-            sharename.into_param().abi(),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(NetDfsGetInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NetDfsGetSecurity<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    dfsentrypath: Param0,
-    securityinformation: u32,
-    ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
-    lpcbsecuritydescriptor: *mut u32,
-) -> u32 {
+pub unsafe fn NetDfsGetSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsGetSecurity(
-                dfsentrypath: super::super::Foundation::PWSTR,
-                securityinformation: u32,
-                ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
-                lpcbsecuritydescriptor: *mut u32,
-            ) -> u32;
+            fn NetDfsGetSecurity(dfsentrypath: super::super::Foundation::PWSTR, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsGetSecurity(
-            dfsentrypath.into_param().abi(),
-            ::std::mem::transmute(securityinformation),
-            ::std::mem::transmute(ppsecuritydescriptor),
-            ::std::mem::transmute(lpcbsecuritydescriptor),
-        ))
+        ::std::mem::transmute(NetDfsGetSecurity(dfsentrypath.into_param().abi(), ::std::mem::transmute(securityinformation), ::std::mem::transmute(ppsecuritydescriptor), ::std::mem::transmute(lpcbsecuritydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NetDfsGetStdContainerSecurity<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    machinename: Param0,
-    securityinformation: u32,
-    ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
-    lpcbsecuritydescriptor: *mut u32,
-) -> u32 {
+pub unsafe fn NetDfsGetStdContainerSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(machinename: Param0, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsGetStdContainerSecurity(
-                machinename: super::super::Foundation::PWSTR,
-                securityinformation: u32,
-                ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR,
-                lpcbsecuritydescriptor: *mut u32,
-            ) -> u32;
+            fn NetDfsGetStdContainerSecurity(machinename: super::super::Foundation::PWSTR, securityinformation: u32, ppsecuritydescriptor: *mut *mut super::super::Security::SECURITY_DESCRIPTOR, lpcbsecuritydescriptor: *mut u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsGetStdContainerSecurity(
-            machinename.into_param().abi(),
-            ::std::mem::transmute(securityinformation),
-            ::std::mem::transmute(ppsecuritydescriptor),
-            ::std::mem::transmute(lpcbsecuritydescriptor),
-        ))
+        ::std::mem::transmute(NetDfsGetStdContainerSecurity(machinename.into_param().abi(), ::std::mem::transmute(securityinformation), ::std::mem::transmute(ppsecuritydescriptor), ::std::mem::transmute(lpcbsecuritydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsGetSupportedNamespaceVersion<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    origin: DFS_NAMESPACE_VERSION_ORIGIN,
-    pname: Param1,
-    ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO,
-) -> u32 {
+pub unsafe fn NetDfsGetSupportedNamespaceVersion<'a, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: Param1, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsGetSupportedNamespaceVersion(
-                origin: DFS_NAMESPACE_VERSION_ORIGIN,
-                pname: super::super::Foundation::PWSTR,
-                ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO,
-            ) -> u32;
+            fn NetDfsGetSupportedNamespaceVersion(origin: DFS_NAMESPACE_VERSION_ORIGIN, pname: super::super::Foundation::PWSTR, ppversioninfo: *mut *mut DFS_SUPPORTED_NAMESPACE_VERSION_INFO) -> u32;
         }
-        ::std::mem::transmute(NetDfsGetSupportedNamespaceVersion(
-            ::std::mem::transmute(origin),
-            pname.into_param().abi(),
-            ::std::mem::transmute(ppversioninfo),
-        ))
+        ::std::mem::transmute(NetDfsGetSupportedNamespaceVersion(::std::mem::transmute(origin), pname.into_param().abi(), ::std::mem::transmute(ppversioninfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsMove<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    olddfsentrypath: Param0,
-    newdfsentrypath: Param1,
-    flags: u32,
-) -> u32 {
+pub unsafe fn NetDfsMove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(olddfsentrypath: Param0, newdfsentrypath: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsMove(
-                olddfsentrypath: super::super::Foundation::PWSTR,
-                newdfsentrypath: super::super::Foundation::PWSTR,
-                flags: u32,
-            ) -> u32;
+            fn NetDfsMove(olddfsentrypath: super::super::Foundation::PWSTR, newdfsentrypath: super::super::Foundation::PWSTR, flags: u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsMove(
-            olddfsentrypath.into_param().abi(),
-            newdfsentrypath.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(NetDfsMove(olddfsentrypath.into_param().abi(), newdfsentrypath.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsRemove<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    dfsentrypath: Param0,
-    servername: Param1,
-    sharename: Param2,
-) -> u32 {
+pub unsafe fn NetDfsRemove<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsRemove(
-                dfsentrypath: super::super::Foundation::PWSTR,
-                servername: super::super::Foundation::PWSTR,
-                sharename: super::super::Foundation::PWSTR,
-            ) -> u32;
+            fn NetDfsRemove(dfsentrypath: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, sharename: super::super::Foundation::PWSTR) -> u32;
         }
-        ::std::mem::transmute(NetDfsRemove(
-            dfsentrypath.into_param().abi(),
-            servername.into_param().abi(),
-            sharename.into_param().abi(),
-        ))
+        ::std::mem::transmute(NetDfsRemove(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsRemoveFtRoot<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    servername: Param0,
-    rootshare: Param1,
-    ftdfsname: Param2,
-    flags: u32,
-) -> u32 {
+pub unsafe fn NetDfsRemoveFtRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, ftdfsname: Param2, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsRemoveFtRoot(
-                servername: super::super::Foundation::PWSTR,
-                rootshare: super::super::Foundation::PWSTR,
-                ftdfsname: super::super::Foundation::PWSTR,
-                flags: u32,
-            ) -> u32;
+            fn NetDfsRemoveFtRoot(servername: super::super::Foundation::PWSTR, rootshare: super::super::Foundation::PWSTR, ftdfsname: super::super::Foundation::PWSTR, flags: u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsRemoveFtRoot(
-            servername.into_param().abi(),
-            rootshare.into_param().abi(),
-            ftdfsname.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(NetDfsRemoveFtRoot(servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsRemoveFtRootForced<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    domainname: Param0,
-    servername: Param1,
-    rootshare: Param2,
-    ftdfsname: Param3,
-    flags: u32,
-) -> u32 {
+pub unsafe fn NetDfsRemoveFtRootForced<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, servername: Param1, rootshare: Param2, ftdfsname: Param3, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsRemoveFtRootForced(
-                domainname: super::super::Foundation::PWSTR,
-                servername: super::super::Foundation::PWSTR,
-                rootshare: super::super::Foundation::PWSTR,
-                ftdfsname: super::super::Foundation::PWSTR,
-                flags: u32,
-            ) -> u32;
+            fn NetDfsRemoveFtRootForced(domainname: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, rootshare: super::super::Foundation::PWSTR, ftdfsname: super::super::Foundation::PWSTR, flags: u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsRemoveFtRootForced(
-            domainname.into_param().abi(),
-            servername.into_param().abi(),
-            rootshare.into_param().abi(),
-            ftdfsname.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(NetDfsRemoveFtRootForced(domainname.into_param().abi(), servername.into_param().abi(), rootshare.into_param().abi(), ftdfsname.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsRemoveRootTarget<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    pdfspath: Param0,
-    ptargetpath: Param1,
-    flags: u32,
-) -> u32 {
+pub unsafe fn NetDfsRemoveRootTarget<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(pdfspath: Param0, ptargetpath: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsRemoveRootTarget(
-                pdfspath: super::super::Foundation::PWSTR,
-                ptargetpath: super::super::Foundation::PWSTR,
-                flags: u32,
-            ) -> u32;
+            fn NetDfsRemoveRootTarget(pdfspath: super::super::Foundation::PWSTR, ptargetpath: super::super::Foundation::PWSTR, flags: u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsRemoveRootTarget(
-            pdfspath.into_param().abi(),
-            ptargetpath.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(NetDfsRemoveRootTarget(pdfspath.into_param().abi(), ptargetpath.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsRemoveStdRoot<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    servername: Param0,
-    rootshare: Param1,
-    flags: u32,
-) -> u32 {
+pub unsafe fn NetDfsRemoveStdRoot<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, rootshare: Param1, flags: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsRemoveStdRoot(
-                servername: super::super::Foundation::PWSTR,
-                rootshare: super::super::Foundation::PWSTR,
-                flags: u32,
-            ) -> u32;
+            fn NetDfsRemoveStdRoot(servername: super::super::Foundation::PWSTR, rootshare: super::super::Foundation::PWSTR, flags: u32) -> u32;
         }
-        ::std::mem::transmute(NetDfsRemoveStdRoot(
-            servername.into_param().abi(),
-            rootshare.into_param().abi(),
-            ::std::mem::transmute(flags),
-        ))
+        ::std::mem::transmute(NetDfsRemoveStdRoot(servername.into_param().abi(), rootshare.into_param().abi(), ::std::mem::transmute(flags)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsSetClientInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    dfsentrypath: Param0,
-    servername: Param1,
-    sharename: Param2,
-    level: u32,
-    buffer: *const u8,
-) -> u32 {
+pub unsafe fn NetDfsSetClientInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsSetClientInfo(
-                dfsentrypath: super::super::Foundation::PWSTR,
-                servername: super::super::Foundation::PWSTR,
-                sharename: super::super::Foundation::PWSTR,
-                level: u32,
-                buffer: *const u8,
-            ) -> u32;
+            fn NetDfsSetClientInfo(dfsentrypath: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, sharename: super::super::Foundation::PWSTR, level: u32, buffer: *const u8) -> u32;
         }
-        ::std::mem::transmute(NetDfsSetClientInfo(
-            dfsentrypath.into_param().abi(),
-            servername.into_param().abi(),
-            sharename.into_param().abi(),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(NetDfsSetClientInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NetDfsSetFtContainerSecurity<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    domainname: Param0,
-    securityinformation: u32,
-    psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
-) -> u32 {
+pub unsafe fn NetDfsSetFtContainerSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(domainname: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsSetFtContainerSecurity(
-                domainname: super::super::Foundation::PWSTR,
-                securityinformation: u32,
-                psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
-            ) -> u32;
+            fn NetDfsSetFtContainerSecurity(domainname: super::super::Foundation::PWSTR, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(NetDfsSetFtContainerSecurity(
-            domainname.into_param().abi(),
-            ::std::mem::transmute(securityinformation),
-            ::std::mem::transmute(psecuritydescriptor),
-        ))
+        ::std::mem::transmute(NetDfsSetFtContainerSecurity(domainname.into_param().abi(), ::std::mem::transmute(securityinformation), ::std::mem::transmute(psecuritydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn NetDfsSetInfo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    dfsentrypath: Param0,
-    servername: Param1,
-    sharename: Param2,
-    level: u32,
-    buffer: *const u8,
-) -> u32 {
+pub unsafe fn NetDfsSetInfo<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, servername: Param1, sharename: Param2, level: u32, buffer: *const u8) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsSetInfo(
-                dfsentrypath: super::super::Foundation::PWSTR,
-                servername: super::super::Foundation::PWSTR,
-                sharename: super::super::Foundation::PWSTR,
-                level: u32,
-                buffer: *const u8,
-            ) -> u32;
+            fn NetDfsSetInfo(dfsentrypath: super::super::Foundation::PWSTR, servername: super::super::Foundation::PWSTR, sharename: super::super::Foundation::PWSTR, level: u32, buffer: *const u8) -> u32;
         }
-        ::std::mem::transmute(NetDfsSetInfo(
-            dfsentrypath.into_param().abi(),
-            servername.into_param().abi(),
-            sharename.into_param().abi(),
-            ::std::mem::transmute(level),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(NetDfsSetInfo(dfsentrypath.into_param().abi(), servername.into_param().abi(), sharename.into_param().abi(), ::std::mem::transmute(level), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NetDfsSetSecurity<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    dfsentrypath: Param0,
-    securityinformation: u32,
-    psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
-) -> u32 {
+pub unsafe fn NetDfsSetSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(dfsentrypath: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsSetSecurity(
-                dfsentrypath: super::super::Foundation::PWSTR,
-                securityinformation: u32,
-                psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
-            ) -> u32;
+            fn NetDfsSetSecurity(dfsentrypath: super::super::Foundation::PWSTR, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(NetDfsSetSecurity(
-            dfsentrypath.into_param().abi(),
-            ::std::mem::transmute(securityinformation),
-            ::std::mem::transmute(psecuritydescriptor),
-        ))
+        ::std::mem::transmute(NetDfsSetSecurity(dfsentrypath.into_param().abi(), ::std::mem::transmute(securityinformation), ::std::mem::transmute(psecuritydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NetDfsSetStdContainerSecurity<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
->(
-    machinename: Param0,
-    securityinformation: u32,
-    psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
-) -> u32 {
+pub unsafe fn NetDfsSetStdContainerSecurity<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>>(machinename: Param0, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn NetDfsSetStdContainerSecurity(
-                machinename: super::super::Foundation::PWSTR,
-                securityinformation: u32,
-                psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR,
-            ) -> u32;
+            fn NetDfsSetStdContainerSecurity(machinename: super::super::Foundation::PWSTR, securityinformation: u32, psecuritydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR) -> u32;
         }
-        ::std::mem::transmute(NetDfsSetStdContainerSecurity(
-            machinename.into_param().abi(),
-            ::std::mem::transmute(securityinformation),
-            ::std::mem::transmute(psecuritydescriptor),
-        ))
+        ::std::mem::transmute(NetDfsSetStdContainerSecurity(machinename.into_param().abi(), ::std::mem::transmute(securityinformation), ::std::mem::transmute(psecuritydescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

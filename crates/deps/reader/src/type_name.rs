@@ -44,11 +44,9 @@ impl TypeName {
     pub const TimeSpan: Self = Self::from_const("Windows.Foundation", "TimeSpan");
     pub const HResult: Self = Self::from_const("Windows.Foundation", "HResult");
     pub const IAsyncAction: Self = Self::from_const("Windows.Foundation", "IAsyncAction");
-    pub const IAsyncActionWithProgress: Self =
-        Self::from_const("Windows.Foundation", "IAsyncActionWithProgress");
+    pub const IAsyncActionWithProgress: Self = Self::from_const("Windows.Foundation", "IAsyncActionWithProgress");
     pub const IAsyncOperation: Self = Self::from_const("Windows.Foundation", "IAsyncOperation");
-    pub const IAsyncOperationWithProgress: Self =
-        Self::from_const("Windows.Foundation", "IAsyncOperationWithProgress");
+    pub const IAsyncOperationWithProgress: Self = Self::from_const("Windows.Foundation", "IAsyncOperationWithProgress");
 
     pub const Vector2: Self = Self::from_const("Windows.Foundation.Numerics", "Vector2");
     pub const Vector3: Self = Self::from_const("Windows.Foundation.Numerics", "Vector3");
@@ -70,34 +68,27 @@ impl TypeName {
     pub const HANDLE: Self = Self::from_const("Windows.Win32.Foundation", "HANDLE");
     pub const HRESULT: Self = Self::from_const("Windows.Win32.Foundation", "HRESULT");
     pub const SysStringLen: Self = Self::from_const("Windows.Win32.Foundation", "SysStringLen");
-    pub const SysAllocStringLen: Self =
-        Self::from_const("Windows.Win32.Foundation", "SysAllocStringLen");
+    pub const SysAllocStringLen: Self = Self::from_const("Windows.Win32.Foundation", "SysAllocStringLen");
     pub const SysFreeString: Self = Self::from_const("Windows.Win32.Foundation", "SysFreeString");
-    pub const D2D_MATRIX_3X2_F: Self =
-        Self::from_const("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F");
+    pub const D2D_MATRIX_3X2_F: Self = Self::from_const("Windows.Win32.Graphics.Direct2D", "D2D_MATRIX_3X2_F");
     pub const IUnknown: Self = Self::from_const("Windows.Win32.System.Com", "IUnknown");
     pub const HSTRING: Self = Self::from_const("Windows.Win32.System.WinRT", "HSTRING");
     pub const IInspectable: Self = Self::from_const("Windows.Win32.System.WinRT", "IInspectable");
     pub const LARGE_INTEGER: Self = Self::from_const("Windows.Win32.Foundation", "LARGE_INTEGER");
     pub const ULARGE_INTEGER: Self = Self::from_const("Windows.Win32.Foundation", "ULARGE_INTEGER");
-    pub const IRestrictedErrorInfo: Self =
-        Self::from_const("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
+    pub const IRestrictedErrorInfo: Self = Self::from_const("Windows.Win32.System.WinRT", "IRestrictedErrorInfo");
+    pub const IDispatch: Self = Self::from_const("Windows.Win32.System.Ole.Automation", "IDispatch");
 
     const fn from_const(namespace: &'static str, name: &'static str) -> Self {
         Self { namespace, name }
     }
 
     pub fn new(namespace: &'static str, name: &'static str) -> Self {
-        Self {
-            namespace,
-            name: trim_tick(name),
-        }
+        Self { namespace, name: trim_tick(name) }
     }
 
     pub fn parse(full_name: &'static str) -> Self {
-        let index = full_name
-            .rfind('.')
-            .expect("Expected full name separated with `.`");
+        let index = full_name.rfind('.').expect("Expected full name separated with `.`");
         Self::new(&full_name[0..index], &full_name[index + 1..])
     }
 }

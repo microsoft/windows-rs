@@ -5,10 +5,7 @@ use test_winrt::Windows;
 fn implement() -> ::windows::runtime::Result<()> {
     let (sender, receiver) = std::sync::mpsc::channel();
     {
-        let t = Thing {
-            value: "hello".to_string(),
-            sender,
-        };
+        let t = Thing { value: "hello".to_string(), sender };
 
         let s: Windows::Foundation::IStringable = t.into();
         assert!(s.ToString()? == "hello");
@@ -21,10 +18,7 @@ fn implement() -> ::windows::runtime::Result<()> {
 
     let (sender, receiver) = std::sync::mpsc::channel();
     {
-        let t = Thing {
-            value: "world".to_string(),
-            sender,
-        };
+        let t = Thing { value: "world".to_string(), sender };
 
         let c: Windows::Foundation::IClosable = t.into();
         c.Close()?;
@@ -37,10 +31,7 @@ fn implement() -> ::windows::runtime::Result<()> {
 
     let (sender, receiver) = std::sync::mpsc::channel();
     {
-        let t = Thing {
-            value: "object".to_string(),
-            sender,
-        };
+        let t = Thing { value: "object".to_string(), sender };
 
         let s: Windows::Foundation::IStringable = t.into();
         assert!(s.ToString()? == "object");

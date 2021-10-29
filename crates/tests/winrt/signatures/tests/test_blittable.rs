@@ -10,22 +10,12 @@ use Component::Structs::*;
 struct RustTest();
 
 impl RustTest {
-    fn SignatureBlittable(
-        &self,
-        a: &Blittable,
-        b: &Blittable,
-        c: &mut Blittable,
-    ) -> Result<Blittable> {
+    fn SignatureBlittable(&self, a: &Blittable, b: &Blittable, c: &mut Blittable) -> Result<Blittable> {
         assert!(a == b);
         *c = a.clone();
         Ok(a.clone())
     }
-    fn ArraySignatureBlittable(
-        &self,
-        a: &[Blittable],
-        b: &mut [Blittable],
-        c: &mut Array<Blittable>,
-    ) -> Result<Array<Blittable>> {
+    fn ArraySignatureBlittable(&self, a: &[Blittable], b: &mut [Blittable], c: &mut Array<Blittable>) -> Result<Array<Blittable>> {
         assert!(a.len() == b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
@@ -102,11 +92,7 @@ impl RustTest {
             },
         ];
 
-        let mut b = [
-            Blittable::default(),
-            Blittable::default(),
-            Blittable::default(),
-        ];
+        let mut b = [Blittable::default(), Blittable::default(), Blittable::default()];
 
         let mut c = Array::new();
         let d = handler.as_ref().unwrap().Invoke(&a, &mut b, &mut c)?;
@@ -194,11 +180,7 @@ fn test_interface(test: &ITestBlittable) -> Result<()> {
         },
     ];
 
-    let mut b = [
-        Blittable::default(),
-        Blittable::default(),
-        Blittable::default(),
-    ];
+    let mut b = [Blittable::default(), Blittable::default(), Blittable::default()];
 
     let mut c = Array::new();
     let d = test.ArraySignatureBlittable(&a, &mut b, &mut c)?;

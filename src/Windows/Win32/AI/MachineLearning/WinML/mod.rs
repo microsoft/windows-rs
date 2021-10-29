@@ -1,108 +1,30 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorAttributes(::windows::runtime::IUnknown);
 impl IMLOperatorAttributes {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributeElementCount<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        r#type: MLOperatorAttributeType,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn GetAttributeElementCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttribute<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        r#type: MLOperatorAttributeType,
-        elementcount: u32,
-        elementbytesize: usize,
-        value: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(elementcount),
-            ::std::mem::transmute(elementbytesize),
-            ::std::mem::transmute(value),
-        )
-        .ok()
+    pub unsafe fn GetAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(elementcount), ::std::mem::transmute(elementbytesize), ::std::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStringAttributeElementLength<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        elementindex: u32,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn GetStringAttributeElementLength<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(elementindex),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStringAttributeElement<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        elementindex: u32,
-        attributeelementbytesize: u32,
-        attributeelement: super::super::super::Foundation::PSTR,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(elementindex),
-            ::std::mem::transmute(attributeelementbytesize),
-            ::std::mem::transmute(attributeelement),
-        )
-        .ok()
+    pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), ::std::mem::transmute(attributeelementbytesize), ::std::mem::transmute(attributeelement)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorAttributes {
     type Vtable = IMLOperatorAttributes_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1260066649,
-        60480,
-        18028,
-        [170, 180, 190, 181, 52, 127, 210, 76],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1260066649, 60480, 18028, [170, 180, 190, 181, 52, 127, 210, 76]);
 }
 impl ::std::convert::From<IMLOperatorAttributes> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorAttributes) -> Self {
@@ -116,99 +38,40 @@ impl ::std::convert::From<&IMLOperatorAttributes> for ::windows::runtime::IUnkno
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorAttributes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IMLOperatorAttributes
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorAttributes {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorAttributes_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        r#type: MLOperatorAttributeType,
-        elementcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        r#type: MLOperatorAttributeType,
-        elementcount: u32,
-        elementbytesize: usize,
-        value: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        elementindex: u32,
-        attributeelementbytesize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        elementindex: u32,
-        attributeelementbytesize: u32,
-        attributeelement: super::super::super::Foundation::PSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorKernel(::windows::runtime::IUnknown);
 impl IMLOperatorKernel {
-    pub unsafe fn Compute<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IMLOperatorKernelContext>,
-    >(
-        &self,
-        context: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            context.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn Compute<'a, Param0: ::windows::runtime::IntoParam<'a, IMLOperatorKernelContext>>(&self, context: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), context.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorKernel {
     type Vtable = IMLOperatorKernel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        298103968,
-        46183,
-        20138,
-        [161, 166, 185, 97, 216, 208, 237, 121],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(298103968, 46183, 20138, [161, 166, 185, 97, 216, 208, 237, 121]);
 }
 impl ::std::convert::From<IMLOperatorKernel> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorKernel) -> Self {
@@ -222,118 +85,49 @@ impl ::std::convert::From<&IMLOperatorKernel> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorKernel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorKernel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorKernel_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        context: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorKernelContext(::windows::runtime::IUnknown);
 impl IMLOperatorKernelContext {
-    pub unsafe fn GetInputTensor(
-        &self,
-        inputindex: u32,
-    ) -> ::windows::runtime::Result<IMLOperatorTensor> {
-        let mut result__: <IMLOperatorTensor as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(inputindex),
-            &mut result__,
-        )
-        .from_abi::<IMLOperatorTensor>(result__)
+    pub unsafe fn GetInputTensor(&self, inputindex: u32) -> ::windows::runtime::Result<IMLOperatorTensor> {
+        let mut result__: <IMLOperatorTensor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), &mut result__).from_abi::<IMLOperatorTensor>(result__)
     }
-    pub unsafe fn GetOutputTensor(
-        &self,
-        outputindex: u32,
-        dimensioncount: u32,
-        dimensionsizes: *const u32,
-    ) -> ::windows::runtime::Result<IMLOperatorTensor> {
-        let mut result__: <IMLOperatorTensor as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(outputindex),
-            ::std::mem::transmute(dimensioncount),
-            ::std::mem::transmute(dimensionsizes),
-            &mut result__,
-        )
-        .from_abi::<IMLOperatorTensor>(result__)
+    pub unsafe fn GetOutputTensor(&self, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32) -> ::windows::runtime::Result<IMLOperatorTensor> {
+        let mut result__: <IMLOperatorTensor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), ::std::mem::transmute(dimensioncount), ::std::mem::transmute(dimensionsizes), &mut result__).from_abi::<IMLOperatorTensor>(result__)
     }
-    pub unsafe fn GetOutputTensor2(
-        &self,
-        outputindex: u32,
-    ) -> ::windows::runtime::Result<IMLOperatorTensor> {
-        let mut result__: <IMLOperatorTensor as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(outputindex),
-            &mut result__,
-        )
-        .from_abi::<IMLOperatorTensor>(result__)
+    pub unsafe fn GetOutputTensor2(&self, outputindex: u32) -> ::windows::runtime::Result<IMLOperatorTensor> {
+        let mut result__: <IMLOperatorTensor as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), &mut result__).from_abi::<IMLOperatorTensor>(result__)
     }
-    pub unsafe fn AllocateTemporaryData(
-        &self,
-        size: usize,
-    ) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
-        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(size),
-            &mut result__,
-        )
-        .from_abi::<::windows::runtime::IUnknown>(result__)
+    pub unsafe fn AllocateTemporaryData(&self, size: usize) -> ::windows::runtime::Result<::windows::runtime::IUnknown> {
+        let mut result__: <::windows::runtime::IUnknown as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(size), &mut result__).from_abi::<::windows::runtime::IUnknown>(result__)
     }
-    pub unsafe fn GetExecutionInterface(
-        &self,
-        executionobject: *mut ::std::option::Option<::windows::runtime::IUnknown>,
-    ) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(executionobject),
-        ))
+    pub unsafe fn GetExecutionInterface(&self, executionobject: *mut ::std::option::Option<::windows::runtime::IUnknown>) {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(executionobject)))
     }
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorKernelContext {
     type Vtable = IMLOperatorKernelContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2186504744,
-        61474,
-        18281,
-        [157, 63, 139, 39, 143, 132, 192, 195],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2186504744, 61474, 18281, [157, 63, 139, 39, 143, 132, 192, 195]);
 }
 impl ::std::convert::From<IMLOperatorKernelContext> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorKernelContext) -> Self {
@@ -345,232 +139,84 @@ impl ::std::convert::From<&IMLOperatorKernelContext> for ::windows::runtime::IUn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IMLOperatorKernelContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorKernelContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IMLOperatorKernelContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorKernelContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorKernelContext_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        inputindex: u32,
-        tensor: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        outputindex: u32,
-        dimensioncount: u32,
-        dimensionsizes: *const u32,
-        tensor: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        outputindex: u32,
-        tensor: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        size: usize,
-        data: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        executionobject: *mut ::windows::runtime::RawPtr,
-    ),
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32, tensor: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32, tensor: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32, tensor: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, size: usize, data: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, executionobject: *mut ::windows::runtime::RawPtr),
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorKernelCreationContext(::windows::runtime::IUnknown);
 impl IMLOperatorKernelCreationContext {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributeElementCount<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        r#type: MLOperatorAttributeType,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn GetAttributeElementCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttribute<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        r#type: MLOperatorAttributeType,
-        elementcount: u32,
-        elementbytesize: usize,
-        value: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(elementcount),
-            ::std::mem::transmute(elementbytesize),
-            ::std::mem::transmute(value),
-        )
-        .ok()
+    pub unsafe fn GetAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(elementcount), ::std::mem::transmute(elementbytesize), ::std::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStringAttributeElementLength<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        elementindex: u32,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn GetStringAttributeElementLength<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(elementindex),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStringAttributeElement<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        elementindex: u32,
-        attributeelementbytesize: u32,
-        attributeelement: super::super::super::Foundation::PSTR,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(elementindex),
-            ::std::mem::transmute(attributeelementbytesize),
-            ::std::mem::transmute(attributeelement),
-        )
-        .ok()
+    pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), ::std::mem::transmute(attributeelementbytesize), ::std::mem::transmute(attributeelement)).ok()
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
     pub unsafe fn GetOutputCount(&self) -> u32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
     pub unsafe fn IsInputValid(&self, inputindex: u32) -> bool {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(inputindex),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex)))
     }
     pub unsafe fn IsOutputValid(&self, outputindex: u32) -> bool {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(outputindex),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex)))
     }
-    pub unsafe fn GetInputEdgeDescription(
-        &self,
-        inputindex: u32,
-    ) -> ::windows::runtime::Result<MLOperatorEdgeDescription> {
-        let mut result__: <MLOperatorEdgeDescription as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(inputindex),
-            &mut result__,
-        )
-        .from_abi::<MLOperatorEdgeDescription>(result__)
+    pub unsafe fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::runtime::Result<MLOperatorEdgeDescription> {
+        let mut result__: <MLOperatorEdgeDescription as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), &mut result__).from_abi::<MLOperatorEdgeDescription>(result__)
     }
-    pub unsafe fn GetOutputEdgeDescription(
-        &self,
-        outputindex: u32,
-    ) -> ::windows::runtime::Result<MLOperatorEdgeDescription> {
-        let mut result__: <MLOperatorEdgeDescription as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(outputindex),
-            &mut result__,
-        )
-        .from_abi::<MLOperatorEdgeDescription>(result__)
+    pub unsafe fn GetOutputEdgeDescription(&self, outputindex: u32) -> ::windows::runtime::Result<MLOperatorEdgeDescription> {
+        let mut result__: <MLOperatorEdgeDescription as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), &mut result__).from_abi::<MLOperatorEdgeDescription>(result__)
     }
     pub unsafe fn HasTensorShapeDescription(&self) -> bool {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self)))
     }
-    pub unsafe fn GetTensorShapeDescription(
-        &self,
-    ) -> ::windows::runtime::Result<IMLOperatorTensorShapeDescription> {
-        let mut result__: <IMLOperatorTensorShapeDescription as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<IMLOperatorTensorShapeDescription>(result__)
+    pub unsafe fn GetTensorShapeDescription(&self) -> ::windows::runtime::Result<IMLOperatorTensorShapeDescription> {
+        let mut result__: <IMLOperatorTensorShapeDescription as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), &mut result__).from_abi::<IMLOperatorTensorShapeDescription>(result__)
     }
-    pub unsafe fn GetExecutionInterface(
-        &self,
-        executionobject: *mut ::std::option::Option<::windows::runtime::IUnknown>,
-    ) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(executionobject),
-        ))
+    pub unsafe fn GetExecutionInterface(&self, executionobject: *mut ::std::option::Option<::windows::runtime::IUnknown>) {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).15)(::std::mem::transmute_copy(self), ::std::mem::transmute(executionobject)))
     }
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorKernelCreationContext {
     type Vtable = IMLOperatorKernelCreationContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1415165245,
-        41212,
-        18021,
-        [173, 221, 112, 23, 30, 247, 230, 49],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1415165245, 41212, 18021, [173, 221, 112, 23, 30, 247, 230, 49]);
 }
 impl ::std::convert::From<IMLOperatorKernelCreationContext> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorKernelCreationContext) -> Self {
@@ -582,24 +228,14 @@ impl ::std::convert::From<&IMLOperatorKernelCreationContext> for ::windows::runt
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IMLOperatorKernelCreationContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorKernelCreationContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IMLOperatorKernelCreationContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorKernelCreationContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMLOperatorKernelCreationContext> for IMLOperatorAttributes {
@@ -612,125 +248,52 @@ impl ::std::convert::From<&IMLOperatorKernelCreationContext> for IMLOperatorAttr
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes>
-    for IMLOperatorKernelCreationContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes> for IMLOperatorKernelCreationContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLOperatorAttributes> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes>
-    for &IMLOperatorKernelCreationContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes> for &IMLOperatorKernelCreationContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLOperatorAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorKernelCreationContext_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        r#type: MLOperatorAttributeType,
-        elementcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        r#type: MLOperatorAttributeType,
-        elementcount: u32,
-        elementbytesize: usize,
-        value: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        elementindex: u32,
-        attributeelementbytesize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        elementindex: u32,
-        attributeelementbytesize: u32,
-        attributeelement: super::super::super::Foundation::PSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32) -> bool,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32) -> bool,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        inputindex: u32,
-        edgedescription: *mut MLOperatorEdgeDescription,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        outputindex: u32,
-        edgedescription: *mut MLOperatorEdgeDescription,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> bool,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        shapedescription: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        executionobject: *mut ::windows::runtime::RawPtr,
-    ),
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, shapedescription: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, executionobject: *mut ::windows::runtime::RawPtr),
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorKernelFactory(::windows::runtime::IUnknown);
 impl IMLOperatorKernelFactory {
-    pub unsafe fn CreateKernel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IMLOperatorKernelCreationContext>,
-    >(
-        &self,
-        context: Param0,
-    ) -> ::windows::runtime::Result<IMLOperatorKernel> {
-        let mut result__: <IMLOperatorKernel as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            context.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IMLOperatorKernel>(result__)
+    pub unsafe fn CreateKernel<'a, Param0: ::windows::runtime::IntoParam<'a, IMLOperatorKernelCreationContext>>(&self, context: Param0) -> ::windows::runtime::Result<IMLOperatorKernel> {
+        let mut result__: <IMLOperatorKernel as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), context.into_param().abi(), &mut result__).from_abi::<IMLOperatorKernel>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorKernelFactory {
     type Vtable = IMLOperatorKernelFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        4011175279,
-        3529,
-        18696,
-        [171, 53, 165, 117, 163, 13, 251, 248],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4011175279, 3529, 18696, [171, 53, 165, 117, 163, 13, 251, 248]);
 }
 impl ::std::convert::From<IMLOperatorKernelFactory> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorKernelFactory) -> Self {
@@ -742,104 +305,40 @@ impl ::std::convert::From<&IMLOperatorKernelFactory> for ::windows::runtime::IUn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IMLOperatorKernelFactory
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorKernelFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IMLOperatorKernelFactory
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorKernelFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorKernelFactory_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        context: ::windows::runtime::RawPtr,
-        kernel: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: ::windows::runtime::RawPtr, kernel: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorRegistry(::windows::runtime::IUnknown);
 impl IMLOperatorRegistry {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOperatorSetSchema<
-        'a,
-        Param4: ::windows::runtime::IntoParam<'a, IMLOperatorTypeInferrer>,
-        Param5: ::windows::runtime::IntoParam<'a, IMLOperatorShapeInferrer>,
-    >(
-        &self,
-        operatorsetid: *const MLOperatorSetId,
-        baselineversion: i32,
-        schema: *const *const MLOperatorSchemaDescription,
-        schemacount: u32,
-        typeinferrer: Param4,
-        shapeinferrer: Param5,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(operatorsetid),
-            ::std::mem::transmute(baselineversion),
-            ::std::mem::transmute(schema),
-            ::std::mem::transmute(schemacount),
-            typeinferrer.into_param().abi(),
-            shapeinferrer.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn RegisterOperatorSetSchema<'a, Param4: ::windows::runtime::IntoParam<'a, IMLOperatorTypeInferrer>, Param5: ::windows::runtime::IntoParam<'a, IMLOperatorShapeInferrer>>(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: Param4, shapeinferrer: Param5) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorsetid), ::std::mem::transmute(baselineversion), ::std::mem::transmute(schema), ::std::mem::transmute(schemacount), typeinferrer.into_param().abi(), shapeinferrer.into_param().abi()).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn RegisterOperatorKernel<
-        'a,
-        Param1: ::windows::runtime::IntoParam<'a, IMLOperatorKernelFactory>,
-        Param2: ::windows::runtime::IntoParam<'a, IMLOperatorShapeInferrer>,
-    >(
-        &self,
-        operatorkernel: *const MLOperatorKernelDescription,
-        operatorkernelfactory: Param1,
-        shapeinferrer: Param2,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(operatorkernel),
-            operatorkernelfactory.into_param().abi(),
-            shapeinferrer.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn RegisterOperatorKernel<'a, Param1: ::windows::runtime::IntoParam<'a, IMLOperatorKernelFactory>, Param2: ::windows::runtime::IntoParam<'a, IMLOperatorShapeInferrer>>(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: Param1, shapeinferrer: Param2) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(operatorkernel), operatorkernelfactory.into_param().abi(), shapeinferrer.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorRegistry {
     type Vtable = IMLOperatorRegistry_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        721018157,
-        46358,
-        18034,
-        [154, 181, 83, 12, 32, 132, 147, 173],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(721018157, 46358, 18034, [154, 181, 83, 12, 32, 132, 147, 173]);
 }
 impl ::std::convert::From<IMLOperatorRegistry> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorRegistry) -> Self {
@@ -853,221 +352,77 @@ impl ::std::convert::From<&IMLOperatorRegistry> for ::windows::runtime::IUnknown
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorRegistry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorRegistry {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorRegistry_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        operatorsetid: *const MLOperatorSetId,
-        baselineversion: i32,
-        schema: *const *const MLOperatorSchemaDescription,
-        schemacount: u32,
-        typeinferrer: ::windows::runtime::RawPtr,
-        shapeinferrer: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: ::windows::runtime::RawPtr, shapeinferrer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        operatorkernel: *const MLOperatorKernelDescription,
-        operatorkernelfactory: ::windows::runtime::RawPtr,
-        shapeinferrer: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: ::windows::runtime::RawPtr, shapeinferrer: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorShapeInferenceContext(::windows::runtime::IUnknown);
 impl IMLOperatorShapeInferenceContext {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributeElementCount<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        r#type: MLOperatorAttributeType,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn GetAttributeElementCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttribute<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        r#type: MLOperatorAttributeType,
-        elementcount: u32,
-        elementbytesize: usize,
-        value: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(elementcount),
-            ::std::mem::transmute(elementbytesize),
-            ::std::mem::transmute(value),
-        )
-        .ok()
+    pub unsafe fn GetAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(elementcount), ::std::mem::transmute(elementbytesize), ::std::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStringAttributeElementLength<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        elementindex: u32,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn GetStringAttributeElementLength<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(elementindex),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStringAttributeElement<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        elementindex: u32,
-        attributeelementbytesize: u32,
-        attributeelement: super::super::super::Foundation::PSTR,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(elementindex),
-            ::std::mem::transmute(attributeelementbytesize),
-            ::std::mem::transmute(attributeelement),
-        )
-        .ok()
+    pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), ::std::mem::transmute(attributeelementbytesize), ::std::mem::transmute(attributeelement)).ok()
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
     pub unsafe fn GetOutputCount(&self) -> u32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
     pub unsafe fn IsInputValid(&self, inputindex: u32) -> bool {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(inputindex),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex)))
     }
     pub unsafe fn IsOutputValid(&self, outputindex: u32) -> bool {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(outputindex),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex)))
     }
-    pub unsafe fn GetInputEdgeDescription(
-        &self,
-        inputindex: u32,
-    ) -> ::windows::runtime::Result<MLOperatorEdgeDescription> {
-        let mut result__: <MLOperatorEdgeDescription as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(inputindex),
-            &mut result__,
-        )
-        .from_abi::<MLOperatorEdgeDescription>(result__)
+    pub unsafe fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::runtime::Result<MLOperatorEdgeDescription> {
+        let mut result__: <MLOperatorEdgeDescription as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), &mut result__).from_abi::<MLOperatorEdgeDescription>(result__)
     }
-    pub unsafe fn GetInputTensorDimensionCount(
-        &self,
-        inputindex: u32,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn GetInputTensorDimensionCount(&self, inputindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(inputindex),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetInputTensorShape(
-        &self,
-        inputindex: u32,
-        dimensioncount: u32,
-        dimensions: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).13)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(inputindex),
-            ::std::mem::transmute(dimensioncount),
-            ::std::mem::transmute(dimensions),
-        )
-        .ok()
+    pub unsafe fn GetInputTensorShape(&self, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).13)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), ::std::mem::transmute(dimensioncount), ::std::mem::transmute(dimensions)).ok()
     }
-    pub unsafe fn SetOutputTensorShape(
-        &self,
-        outputindex: u32,
-        dimensioncount: u32,
-        dimensions: *const u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).14)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(outputindex),
-            ::std::mem::transmute(dimensioncount),
-            ::std::mem::transmute(dimensions),
-        )
-        .ok()
+    pub unsafe fn SetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).14)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), ::std::mem::transmute(dimensioncount), ::std::mem::transmute(dimensions)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorShapeInferenceContext {
     type Vtable = IMLOperatorShapeInferenceContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        274426665,
-        21512,
-        19048,
-        [153, 89, 9, 181, 149, 90, 52, 146],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(274426665, 21512, 19048, [153, 89, 9, 181, 149, 90, 52, 146]);
 }
 impl ::std::convert::From<IMLOperatorShapeInferenceContext> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorShapeInferenceContext) -> Self {
@@ -1079,24 +434,14 @@ impl ::std::convert::From<&IMLOperatorShapeInferenceContext> for ::windows::runt
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IMLOperatorShapeInferenceContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorShapeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IMLOperatorShapeInferenceContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorShapeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMLOperatorShapeInferenceContext> for IMLOperatorAttributes {
@@ -1109,125 +454,50 @@ impl ::std::convert::From<&IMLOperatorShapeInferenceContext> for IMLOperatorAttr
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes>
-    for IMLOperatorShapeInferenceContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes> for IMLOperatorShapeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLOperatorAttributes> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes>
-    for &IMLOperatorShapeInferenceContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes> for &IMLOperatorShapeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLOperatorAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorShapeInferenceContext_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        r#type: MLOperatorAttributeType,
-        elementcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        r#type: MLOperatorAttributeType,
-        elementcount: u32,
-        elementbytesize: usize,
-        value: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        elementindex: u32,
-        attributeelementbytesize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        elementindex: u32,
-        attributeelementbytesize: u32,
-        attributeelement: super::super::super::Foundation::PSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32) -> bool,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32) -> bool,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        inputindex: u32,
-        edgedescription: *mut MLOperatorEdgeDescription,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        inputindex: u32,
-        dimensioncount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        inputindex: u32,
-        dimensioncount: u32,
-        dimensions: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        outputindex: u32,
-        dimensioncount: u32,
-        dimensions: *const u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32, dimensioncount: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32, dimensioncount: u32, dimensions: *const u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorShapeInferrer(::windows::runtime::IUnknown);
 impl IMLOperatorShapeInferrer {
-    pub unsafe fn InferOutputShapes<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IMLOperatorShapeInferenceContext>,
-    >(
-        &self,
-        context: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            context.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn InferOutputShapes<'a, Param0: ::windows::runtime::IntoParam<'a, IMLOperatorShapeInferenceContext>>(&self, context: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), context.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorShapeInferrer {
     type Vtable = IMLOperatorShapeInferrer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1410065854,
-        42697,
-        16622,
-        [131, 246, 210, 184, 180, 10, 119, 152],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1410065854, 42697, 16622, [131, 246, 210, 184, 180, 10, 119, 152]);
 }
 impl ::std::convert::From<IMLOperatorShapeInferrer> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorShapeInferrer) -> Self {
@@ -1239,105 +509,53 @@ impl ::std::convert::From<&IMLOperatorShapeInferrer> for ::windows::runtime::IUn
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IMLOperatorShapeInferrer
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorShapeInferrer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IMLOperatorShapeInferrer
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorShapeInferrer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorShapeInferrer_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        context: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorTensor(::windows::runtime::IUnknown);
 impl IMLOperatorTensor {
     pub unsafe fn GetDimensionCount(&self) -> u32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self)))
     }
-    pub unsafe fn GetShape(
-        &self,
-        dimensioncount: u32,
-        dimensions: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(dimensioncount),
-            ::std::mem::transmute(dimensions),
-        )
-        .ok()
+    pub unsafe fn GetShape(&self, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(dimensioncount), ::std::mem::transmute(dimensions)).ok()
     }
     pub unsafe fn GetTensorDataType(&self) -> MLOperatorTensorDataType {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)))
     }
     pub unsafe fn IsCpuData(&self) -> bool {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self)))
     }
     pub unsafe fn IsDataInterface(&self) -> bool {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
     pub unsafe fn GetData(&self) -> *mut ::std::ffi::c_void {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
-    pub unsafe fn GetDataInterface(
-        &self,
-        datainterface: *mut ::std::option::Option<::windows::runtime::IUnknown>,
-    ) {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(datainterface),
-        ))
+    pub unsafe fn GetDataInterface(&self, datainterface: *mut ::std::option::Option<::windows::runtime::IUnknown>) {
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(datainterface)))
     }
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorTensor {
     type Vtable = IMLOperatorTensor_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2145656641,
-        62512,
-        17422,
-        [174, 206, 84, 65, 109, 200, 185, 219],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2145656641, 62512, 17422, [174, 206, 84, 65, 109, 200, 185, 219]);
 }
 impl ::std::convert::From<IMLOperatorTensor> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorTensor) -> Self {
@@ -1351,120 +569,53 @@ impl ::std::convert::From<&IMLOperatorTensor> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorTensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorTensor {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorTensor_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        dimensioncount: u32,
-        dimensions: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> MLOperatorTensorDataType,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> bool,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> bool,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> *mut ::std::ffi::c_void,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        datainterface: *mut ::windows::runtime::RawPtr,
-    ),
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, datainterface: *mut ::windows::runtime::RawPtr),
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorTensorShapeDescription(::windows::runtime::IUnknown);
 impl IMLOperatorTensorShapeDescription {
-    pub unsafe fn GetInputTensorDimensionCount(
-        &self,
-        inputindex: u32,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn GetInputTensorDimensionCount(&self, inputindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(inputindex),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetInputTensorShape(
-        &self,
-        inputindex: u32,
-        dimensioncount: u32,
-        dimensions: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(inputindex),
-            ::std::mem::transmute(dimensioncount),
-            ::std::mem::transmute(dimensions),
-        )
-        .ok()
+    pub unsafe fn GetInputTensorShape(&self, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), ::std::mem::transmute(dimensioncount), ::std::mem::transmute(dimensions)).ok()
     }
     pub unsafe fn HasOutputShapeDescription(&self) -> bool {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)))
     }
-    pub unsafe fn GetOutputTensorDimensionCount(
-        &self,
-        outputindex: u32,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn GetOutputTensorDimensionCount(&self, outputindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(outputindex),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), &mut result__).from_abi::<u32>(result__)
     }
-    pub unsafe fn GetOutputTensorShape(
-        &self,
-        outputindex: u32,
-        dimensioncount: u32,
-        dimensions: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(outputindex),
-            ::std::mem::transmute(dimensioncount),
-            ::std::mem::transmute(dimensions),
-        )
-        .ok()
+    pub unsafe fn GetOutputTensorShape(&self, outputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), ::std::mem::transmute(dimensioncount), ::std::mem::transmute(dimensions)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorTensorShapeDescription {
     type Vtable = IMLOperatorTensorShapeDescription_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        4061039806,
-        15144,
-        16968,
-        [190, 149, 249, 111, 188, 110, 70, 67],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4061039806, 15144, 16968, [190, 149, 249, 111, 188, 110, 70, 67]);
 }
 impl ::std::convert::From<IMLOperatorTensorShapeDescription> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorTensorShapeDescription) -> Self {
@@ -1476,203 +627,73 @@ impl ::std::convert::From<&IMLOperatorTensorShapeDescription> for ::windows::run
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IMLOperatorTensorShapeDescription
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorTensorShapeDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IMLOperatorTensorShapeDescription
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorTensorShapeDescription {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorTensorShapeDescription_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        inputindex: u32,
-        dimensioncount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        inputindex: u32,
-        dimensioncount: u32,
-        dimensions: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32, dimensioncount: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> bool,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        outputindex: u32,
-        dimensioncount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        outputindex: u32,
-        dimensioncount: u32,
-        dimensions: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32, dimensioncount: *mut u32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32, dimensioncount: u32, dimensions: *mut u32) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorTypeInferenceContext(::windows::runtime::IUnknown);
 impl IMLOperatorTypeInferenceContext {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttributeElementCount<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        r#type: MLOperatorAttributeType,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn GetAttributeElementCount<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetAttribute<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        r#type: MLOperatorAttributeType,
-        elementcount: u32,
-        elementbytesize: usize,
-        value: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(r#type),
-            ::std::mem::transmute(elementcount),
-            ::std::mem::transmute(elementbytesize),
-            ::std::mem::transmute(value),
-        )
-        .ok()
+    pub unsafe fn GetAttribute<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::std::ffi::c_void) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(r#type), ::std::mem::transmute(elementcount), ::std::mem::transmute(elementbytesize), ::std::mem::transmute(value)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStringAttributeElementLength<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        elementindex: u32,
-    ) -> ::windows::runtime::Result<u32> {
+    pub unsafe fn GetStringAttributeElementLength<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(elementindex),
-            &mut result__,
-        )
-        .from_abi::<u32>(result__)
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), &mut result__).from_abi::<u32>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetStringAttributeElement<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
-    >(
-        &self,
-        name: Param0,
-        elementindex: u32,
-        attributeelementbytesize: u32,
-        attributeelement: super::super::super::Foundation::PSTR,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            ::std::mem::transmute(elementindex),
-            ::std::mem::transmute(attributeelementbytesize),
-            ::std::mem::transmute(attributeelement),
-        )
-        .ok()
+    pub unsafe fn GetStringAttributeElement<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(&self, name: Param0, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), name.into_param().abi(), ::std::mem::transmute(elementindex), ::std::mem::transmute(attributeelementbytesize), ::std::mem::transmute(attributeelement)).ok()
     }
     pub unsafe fn GetInputCount(&self) -> u32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).7)(::std::mem::transmute_copy(self)))
     }
     pub unsafe fn GetOutputCount(&self) -> u32 {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(
-            ::std::mem::transmute_copy(self),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).8)(::std::mem::transmute_copy(self)))
     }
     pub unsafe fn IsInputValid(&self, inputindex: u32) -> bool {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(inputindex),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).9)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex)))
     }
     pub unsafe fn IsOutputValid(&self, outputindex: u32) -> bool {
-        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(outputindex),
-        ))
+        ::std::mem::transmute((::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex)))
     }
-    pub unsafe fn GetInputEdgeDescription(
-        &self,
-        inputindex: u32,
-    ) -> ::windows::runtime::Result<MLOperatorEdgeDescription> {
-        let mut result__: <MLOperatorEdgeDescription as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).11)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(inputindex),
-            &mut result__,
-        )
-        .from_abi::<MLOperatorEdgeDescription>(result__)
+    pub unsafe fn GetInputEdgeDescription(&self, inputindex: u32) -> ::windows::runtime::Result<MLOperatorEdgeDescription> {
+        let mut result__: <MLOperatorEdgeDescription as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).11)(::std::mem::transmute_copy(self), ::std::mem::transmute(inputindex), &mut result__).from_abi::<MLOperatorEdgeDescription>(result__)
     }
-    pub unsafe fn SetOutputEdgeDescription(
-        &self,
-        outputindex: u32,
-        edgedescription: *const MLOperatorEdgeDescription,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).12)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(outputindex),
-            ::std::mem::transmute(edgedescription),
-        )
-        .ok()
+    pub unsafe fn SetOutputEdgeDescription(&self, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).12)(::std::mem::transmute_copy(self), ::std::mem::transmute(outputindex), ::std::mem::transmute(edgedescription)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorTypeInferenceContext {
     type Vtable = IMLOperatorTypeInferenceContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3968416689,
-        63800,
-        17019,
-        [132, 136, 200, 220, 247, 117, 241, 56],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3968416689, 63800, 17019, [132, 136, 200, 220, 247, 117, 241, 56]);
 }
 impl ::std::convert::From<IMLOperatorTypeInferenceContext> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorTypeInferenceContext) -> Self {
@@ -1684,24 +705,14 @@ impl ::std::convert::From<&IMLOperatorTypeInferenceContext> for ::windows::runti
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IMLOperatorTypeInferenceContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorTypeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IMLOperatorTypeInferenceContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorTypeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 impl ::std::convert::From<IMLOperatorTypeInferenceContext> for IMLOperatorAttributes {
@@ -1714,113 +725,48 @@ impl ::std::convert::From<&IMLOperatorTypeInferenceContext> for IMLOperatorAttri
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes>
-    for IMLOperatorTypeInferenceContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes> for IMLOperatorTypeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLOperatorAttributes> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes>
-    for &IMLOperatorTypeInferenceContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, IMLOperatorAttributes> for &IMLOperatorTypeInferenceContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, IMLOperatorAttributes> {
-        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(
-            ::std::clone::Clone::clone(self),
-        ))
+        ::windows::runtime::Param::Owned(::std::convert::Into::<IMLOperatorAttributes>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorTypeInferenceContext_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        r#type: MLOperatorAttributeType,
-        elementcount: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        r#type: MLOperatorAttributeType,
-        elementcount: u32,
-        elementbytesize: usize,
-        value: *mut ::std::ffi::c_void,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, r#type: MLOperatorAttributeType, elementcount: u32, elementbytesize: usize, value: *mut ::std::ffi::c_void) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        elementindex: u32,
-        attributeelementbytesize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PSTR,
-        elementindex: u32,
-        attributeelementbytesize: u32,
-        attributeelement: super::super::super::Foundation::PSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PSTR, elementindex: u32, attributeelementbytesize: u32, attributeelement: super::super::super::Foundation::PSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32) -> bool,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32) -> bool,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        inputindex: u32,
-        edgedescription: *mut MLOperatorEdgeDescription,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        outputindex: u32,
-        edgedescription: *const MLOperatorEdgeDescription,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, inputindex: u32, edgedescription: *mut MLOperatorEdgeDescription) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, outputindex: u32, edgedescription: *const MLOperatorEdgeDescription) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IMLOperatorTypeInferrer(::windows::runtime::IUnknown);
 impl IMLOperatorTypeInferrer {
-    pub unsafe fn InferOutputTypes<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IMLOperatorTypeInferenceContext>,
-    >(
-        &self,
-        context: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            context.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn InferOutputTypes<'a, Param0: ::windows::runtime::IntoParam<'a, IMLOperatorTypeInferenceContext>>(&self, context: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), context.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IMLOperatorTypeInferrer {
     type Vtable = IMLOperatorTypeInferrer_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2015030088,
-        39883,
-        18327,
-        [191, 119, 139, 244, 85, 33, 123, 235],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2015030088, 39883, 18327, [191, 119, 139, 244, 85, 33, 123, 235]);
 }
 impl ::std::convert::From<IMLOperatorTypeInferrer> for ::windows::runtime::IUnknown {
     fn from(value: IMLOperatorTypeInferrer) -> Self {
@@ -1832,77 +778,36 @@ impl ::std::convert::From<&IMLOperatorTypeInferrer> for ::windows::runtime::IUnk
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IMLOperatorTypeInferrer
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IMLOperatorTypeInferrer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IMLOperatorTypeInferrer
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IMLOperatorTypeInferrer {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMLOperatorTypeInferrer_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        context: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, context: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWinMLEvaluationContext(::windows::runtime::IUnknown);
 impl IWinMLEvaluationContext {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-    pub unsafe fn BindValue(
-        &self,
-        pdescriptor: *const WINML_BINDING_DESC,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdescriptor),
-        )
-        .ok()
+    pub unsafe fn BindValue(&self, pdescriptor: *const WINML_BINDING_DESC) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdescriptor)).ok()
     }
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-    pub unsafe fn GetValueByName<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        name: Param0,
-    ) -> ::windows::runtime::Result<*mut WINML_BINDING_DESC> {
-        let mut result__: <*mut WINML_BINDING_DESC as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            name.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<*mut WINML_BINDING_DESC>(result__)
+    pub unsafe fn GetValueByName<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, name: Param0) -> ::windows::runtime::Result<*mut WINML_BINDING_DESC> {
+        let mut result__: <*mut WINML_BINDING_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), name.into_param().abi(), &mut result__).from_abi::<*mut WINML_BINDING_DESC>(result__)
     }
     pub unsafe fn Clear(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self)).ok()
@@ -1910,12 +815,7 @@ impl IWinMLEvaluationContext {
 }
 unsafe impl ::windows::runtime::Interface for IWinMLEvaluationContext {
     type Vtable = IWinMLEvaluationContext_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2508492702,
-        22589,
-        16468,
-        [175, 18, 145, 99, 135, 205, 132, 38],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2508492702, 22589, 16468, [175, 18, 145, 99, 135, 205, 132, 38]);
 }
 impl ::std::convert::From<IWinMLEvaluationContext> for ::windows::runtime::IUnknown {
     fn from(value: IWinMLEvaluationContext) -> Self {
@@ -1927,122 +827,55 @@ impl ::std::convert::From<&IWinMLEvaluationContext> for ::windows::runtime::IUnk
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for IWinMLEvaluationContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinMLEvaluationContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
-impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
-    for &IWinMLEvaluationContext
-{
+impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWinMLEvaluationContext {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinMLEvaluationContext_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdescriptor: *const ::std::mem::ManuallyDrop<WINML_BINDING_DESC>,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdescriptor: *const ::std::mem::ManuallyDrop<WINML_BINDING_DESC>) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        name: super::super::super::Foundation::PWSTR,
-        pdescriptor: *mut *mut WINML_BINDING_DESC,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, name: super::super::super::Foundation::PWSTR, pdescriptor: *mut *mut WINML_BINDING_DESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWinMLModel(::windows::runtime::IUnknown);
 impl IWinMLModel {
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::runtime::Result<*mut WINML_MODEL_DESC> {
-        let mut result__: <*mut WINML_MODEL_DESC as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            &mut result__,
-        )
-        .from_abi::<*mut WINML_MODEL_DESC>(result__)
+        let mut result__: <*mut WINML_MODEL_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), &mut result__).from_abi::<*mut WINML_MODEL_DESC>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumerateMetadata(
-        &self,
-        index: u32,
-        pkey: *mut super::super::super::Foundation::PWSTR,
-        pvalue: *mut super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(index),
-            ::std::mem::transmute(pkey),
-            ::std::mem::transmute(pvalue),
-        )
-        .ok()
+    pub unsafe fn EnumerateMetadata(&self, index: u32, pkey: *mut super::super::super::Foundation::PWSTR, pvalue: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), ::std::mem::transmute(pkey), ::std::mem::transmute(pvalue)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumerateModelInputs(
-        &self,
-        index: u32,
-    ) -> ::windows::runtime::Result<*mut WINML_VARIABLE_DESC> {
-        let mut result__: <*mut WINML_VARIABLE_DESC as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(index),
-            &mut result__,
-        )
-        .from_abi::<*mut WINML_VARIABLE_DESC>(result__)
+    pub unsafe fn EnumerateModelInputs(&self, index: u32) -> ::windows::runtime::Result<*mut WINML_VARIABLE_DESC> {
+        let mut result__: <*mut WINML_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<*mut WINML_VARIABLE_DESC>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn EnumerateModelOutputs(
-        &self,
-        index: u32,
-    ) -> ::windows::runtime::Result<*mut WINML_VARIABLE_DESC> {
-        let mut result__: <*mut WINML_VARIABLE_DESC as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).6)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(index),
-            &mut result__,
-        )
-        .from_abi::<*mut WINML_VARIABLE_DESC>(result__)
+    pub unsafe fn EnumerateModelOutputs(&self, index: u32) -> ::windows::runtime::Result<*mut WINML_VARIABLE_DESC> {
+        let mut result__: <*mut WINML_VARIABLE_DESC as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).6)(::std::mem::transmute_copy(self), ::std::mem::transmute(index), &mut result__).from_abi::<*mut WINML_VARIABLE_DESC>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWinMLModel {
     type Vtable = IWinMLModel_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        3807295145,
-        62239,
-        16469,
-        [165, 33, 227, 11, 91, 51, 102, 74],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3807295145, 62239, 16469, [165, 33, 227, 11, 91, 51, 102, 74]);
 }
 impl ::std::convert::From<IWinMLModel> for ::windows::runtime::IUnknown {
     fn from(value: IWinMLModel) -> Self {
@@ -2056,123 +889,50 @@ impl ::std::convert::From<&IWinMLModel> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinMLModel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWinMLModel {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinMLModel_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        ppdescription: *mut *mut WINML_MODEL_DESC,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, ppdescription: *mut *mut WINML_MODEL_DESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        index: u32,
-        pkey: *mut super::super::super::Foundation::PWSTR,
-        pvalue: *mut super::super::super::Foundation::PWSTR,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, pkey: *mut super::super::super::Foundation::PWSTR, pvalue: *mut super::super::super::Foundation::PWSTR) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        index: u32,
-        ppinputdescriptor: *mut *mut WINML_VARIABLE_DESC,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, ppinputdescriptor: *mut *mut WINML_VARIABLE_DESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        index: u32,
-        ppoutputdescriptor: *mut *mut WINML_VARIABLE_DESC,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, index: u32, ppoutputdescriptor: *mut *mut WINML_VARIABLE_DESC) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWinMLRuntime(::windows::runtime::IUnknown);
 impl IWinMLRuntime {
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn LoadModel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-    >(
-        &self,
-        path: Param0,
-    ) -> ::windows::runtime::Result<IWinMLModel> {
+    pub unsafe fn LoadModel<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, path: Param0) -> ::windows::runtime::Result<IWinMLModel> {
         let mut result__: <IWinMLModel as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            path.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWinMLModel>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), path.into_param().abi(), &mut result__).from_abi::<IWinMLModel>(result__)
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateEvaluationContext<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>,
-    >(
-        &self,
-        device: Param0,
-    ) -> ::windows::runtime::Result<IWinMLEvaluationContext> {
-        let mut result__: <IWinMLEvaluationContext as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            device.into_param().abi(),
-            &mut result__,
-        )
-        .from_abi::<IWinMLEvaluationContext>(result__)
+    pub unsafe fn CreateEvaluationContext<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Graphics::Direct3D12::ID3D12Device>>(&self, device: Param0) -> ::windows::runtime::Result<IWinMLEvaluationContext> {
+        let mut result__: <IWinMLEvaluationContext as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), device.into_param().abi(), &mut result__).from_abi::<IWinMLEvaluationContext>(result__)
     }
-    pub unsafe fn EvaluateModel<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, IWinMLEvaluationContext>,
-    >(
-        &self,
-        pcontext: Param0,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            pcontext.into_param().abi(),
-        )
-        .ok()
+    pub unsafe fn EvaluateModel<'a, Param0: ::windows::runtime::IntoParam<'a, IWinMLEvaluationContext>>(&self, pcontext: Param0) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), pcontext.into_param().abi()).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IWinMLRuntime {
     type Vtable = IWinMLRuntime_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2688701225,
-        16558,
-        18649,
-        [188, 227, 130, 158, 247, 184, 164, 26],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2688701225, 16558, 18649, [188, 227, 130, 158, 247, 184, 164, 26]);
 }
 impl ::std::convert::From<IWinMLRuntime> for ::windows::runtime::IUnknown {
     fn from(value: IWinMLRuntime) -> Self {
@@ -2186,79 +946,38 @@ impl ::std::convert::From<&IWinMLRuntime> for ::windows::runtime::IUnknown {
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinMLRuntime {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWinMLRuntime {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinMLRuntime_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        path: super::super::super::Foundation::PWSTR,
-        ppmodel: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, path: super::super::super::Foundation::PWSTR, ppmodel: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        device: ::windows::runtime::RawPtr,
-        ppcontext: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, device: ::windows::runtime::RawPtr, ppcontext: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pcontext: ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pcontext: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IWinMLRuntimeFactory(::windows::runtime::IUnknown);
 impl IWinMLRuntimeFactory {
-    pub unsafe fn CreateRuntime(
-        &self,
-        runtimetype: WINML_RUNTIME_TYPE,
-    ) -> ::windows::runtime::Result<IWinMLRuntime> {
+    pub unsafe fn CreateRuntime(&self, runtimetype: WINML_RUNTIME_TYPE) -> ::windows::runtime::Result<IWinMLRuntime> {
         let mut result__: <IWinMLRuntime as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(runtimetype),
-            &mut result__,
-        )
-        .from_abi::<IWinMLRuntime>(result__)
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(runtimetype), &mut result__).from_abi::<IWinMLRuntime>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWinMLRuntimeFactory {
     type Vtable = IWinMLRuntimeFactory_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2819078221,
-        19173,
-        19392,
-        [167, 106, 148, 26, 162, 70, 189, 65],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2819078221, 19173, 19392, [167, 106, 148, 26, 162, 70, 189, 65]);
 }
 impl ::std::convert::From<IWinMLRuntimeFactory> for ::windows::runtime::IUnknown {
     fn from(value: IWinMLRuntimeFactory) -> Self {
@@ -2272,35 +991,21 @@ impl ::std::convert::From<&IWinMLRuntimeFactory> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IWinMLRuntimeFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IWinMLRuntimeFactory {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IWinMLRuntimeFactory_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        runtimetype: WINML_RUNTIME_TYPE,
-        ppruntime: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, runtimetype: WINML_RUNTIME_TYPE, ppruntime: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
 );
 #[inline]
 pub unsafe fn MLCreateOperatorRegistry() -> ::windows::runtime::Result<IMLOperatorRegistry> {
@@ -2308,12 +1013,9 @@ pub unsafe fn MLCreateOperatorRegistry() -> ::windows::runtime::Result<IMLOperat
     {
         #[link(name = "windows")]
         extern "system" {
-            fn MLCreateOperatorRegistry(
-                registry: *mut ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn MLCreateOperatorRegistry(registry: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
-        let mut result__: <IMLOperatorRegistry as ::windows::runtime::Abi>::Abi =
-            ::std::mem::zeroed();
+        let mut result__: <IMLOperatorRegistry as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         MLCreateOperatorRegistry(&mut result__).from_abi::<IMLOperatorRegistry>(result__)
     }
     #[cfg(not(windows))]
@@ -2338,11 +1040,7 @@ impl ::std::default::Default for MLOperatorAttribute {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MLOperatorAttribute {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MLOperatorAttribute")
-            .field("name", &self.name)
-            .field("r#type", &self.r#type)
-            .field("required", &self.required)
-            .finish()
+        fmt.debug_struct("MLOperatorAttribute").field("name", &self.name).field("r#type", &self.r#type).field("required", &self.required).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2412,14 +1110,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorAttributeNameValue_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorAttributeType(pub u32);
 impl MLOperatorAttributeType {
@@ -2512,14 +1203,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorEdgeDescription_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorEdgeType(pub u32);
 impl MLOperatorEdgeType {
@@ -2582,19 +1266,13 @@ impl ::std::default::Default for MLOperatorEdgeTypeConstraint {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MLOperatorEdgeTypeConstraint {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MLOperatorEdgeTypeConstraint")
-            .field("typeLabel", &self.typeLabel)
-            .field("allowedTypes", &self.allowedTypes)
-            .field("allowedTypeCount", &self.allowedTypeCount)
-            .finish()
+        fmt.debug_struct("MLOperatorEdgeTypeConstraint").field("typeLabel", &self.typeLabel).field("allowedTypes", &self.allowedTypes).field("allowedTypeCount", &self.allowedTypeCount).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MLOperatorEdgeTypeConstraint {
     fn eq(&self, other: &Self) -> bool {
-        self.typeLabel == other.typeLabel
-            && self.allowedTypes == other.allowedTypes
-            && self.allowedTypeCount == other.allowedTypeCount
+        self.typeLabel == other.typeLabel && self.allowedTypes == other.allowedTypes && self.allowedTypeCount == other.allowedTypeCount
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2604,14 +1282,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorEdgeTypeConstraint {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorExecutionType(pub u32);
 impl MLOperatorExecutionType {
@@ -2699,16 +1370,7 @@ impl ::std::fmt::Debug for MLOperatorKernelDescription {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MLOperatorKernelDescription {
     fn eq(&self, other: &Self) -> bool {
-        self.domain == other.domain
-            && self.name == other.name
-            && self.minimumOperatorSetVersion == other.minimumOperatorSetVersion
-            && self.executionType == other.executionType
-            && self.typeConstraints == other.typeConstraints
-            && self.typeConstraintCount == other.typeConstraintCount
-            && self.defaultAttributes == other.defaultAttributes
-            && self.defaultAttributeCount == other.defaultAttributeCount
-            && self.options == other.options
-            && self.executionOptions == other.executionOptions
+        self.domain == other.domain && self.name == other.name && self.minimumOperatorSetVersion == other.minimumOperatorSetVersion && self.executionType == other.executionType && self.typeConstraints == other.typeConstraints && self.typeConstraintCount == other.typeConstraintCount && self.defaultAttributes == other.defaultAttributes && self.defaultAttributeCount == other.defaultAttributeCount && self.options == other.options && self.executionOptions == other.executionOptions
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -2718,14 +1380,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorKernelDescription {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorKernelOptions(pub u32);
 impl MLOperatorKernelOptions {
@@ -2769,14 +1424,7 @@ impl ::std::ops::Not for MLOperatorKernelOptions {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorParameterOptions(pub u32);
 impl MLOperatorParameterOptions {
@@ -2851,10 +1499,7 @@ impl ::std::fmt::Debug for MLOperatorSchemaDescription {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MLOperatorSchemaDescription")
             .field("name", &self.name)
-            .field(
-                "operatorSetVersionAtLastChange",
-                &self.operatorSetVersionAtLastChange,
-            )
+            .field("operatorSetVersionAtLastChange", &self.operatorSetVersionAtLastChange)
             .field("inputs", &self.inputs)
             .field("inputCount", &self.inputCount)
             .field("outputs", &self.outputs)
@@ -2950,19 +1595,11 @@ unsafe impl ::windows::runtime::Abi for MLOperatorSchemaEdgeDescription_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
 impl MLOperatorSchemaEdgeTypeFormat {
-    pub const EdgeDescription: MLOperatorSchemaEdgeTypeFormat =
-        MLOperatorSchemaEdgeTypeFormat(0i32);
+    pub const EdgeDescription: MLOperatorSchemaEdgeTypeFormat = MLOperatorSchemaEdgeTypeFormat(0i32);
     pub const Label: MLOperatorSchemaEdgeTypeFormat = MLOperatorSchemaEdgeTypeFormat(1i32);
 }
 impl ::std::convert::From<i32> for MLOperatorSchemaEdgeTypeFormat {
@@ -2992,10 +1629,7 @@ impl ::std::default::Default for MLOperatorSetId {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MLOperatorSetId {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MLOperatorSetId")
-            .field("domain", &self.domain)
-            .field("version", &self.version)
-            .finish()
+        fmt.debug_struct("MLOperatorSetId").field("domain", &self.domain).field("version", &self.version).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3011,14 +1645,7 @@ unsafe impl ::windows::runtime::Abi for MLOperatorSetId {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MLOperatorTensorDataType(pub u32);
 impl MLOperatorTensorDataType {
@@ -3146,14 +1773,7 @@ unsafe impl ::windows::runtime::Abi for WINML_BINDING_DESC_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINML_BINDING_TYPE(pub i32);
 pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = WINML_BINDING_TYPE(0i32);
@@ -3171,14 +1791,7 @@ unsafe impl ::windows::runtime::Abi for WINML_BINDING_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINML_FEATURE_TYPE(pub i32);
 pub const WINML_FEATURE_UNDEFINED: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(0i32);
@@ -3212,22 +1825,12 @@ impl ::std::default::Default for WINML_IMAGE_BINDING_DESC {
 }
 impl ::std::fmt::Debug for WINML_IMAGE_BINDING_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINML_IMAGE_BINDING_DESC")
-            .field("ElementType", &self.ElementType)
-            .field("NumDimensions", &self.NumDimensions)
-            .field("pShape", &self.pShape)
-            .field("DataSize", &self.DataSize)
-            .field("pData", &self.pData)
-            .finish()
+        fmt.debug_struct("WINML_IMAGE_BINDING_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
     }
 }
 impl ::std::cmp::PartialEq for WINML_IMAGE_BINDING_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ElementType == other.ElementType
-            && self.NumDimensions == other.NumDimensions
-            && self.pShape == other.pShape
-            && self.DataSize == other.DataSize
-            && self.pData == other.pData
+        self.ElementType == other.ElementType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape && self.DataSize == other.DataSize && self.pData == other.pData
     }
 }
 impl ::std::cmp::Eq for WINML_IMAGE_BINDING_DESC {}
@@ -3250,18 +1853,12 @@ impl ::std::default::Default for WINML_IMAGE_VARIABLE_DESC {
 }
 impl ::std::fmt::Debug for WINML_IMAGE_VARIABLE_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINML_IMAGE_VARIABLE_DESC")
-            .field("ElementType", &self.ElementType)
-            .field("NumDimensions", &self.NumDimensions)
-            .field("pShape", &self.pShape)
-            .finish()
+        fmt.debug_struct("WINML_IMAGE_VARIABLE_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).finish()
     }
 }
 impl ::std::cmp::PartialEq for WINML_IMAGE_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ElementType == other.ElementType
-            && self.NumDimensions == other.NumDimensions
-            && self.pShape == other.pShape
+        self.ElementType == other.ElementType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape
     }
 }
 impl ::std::cmp::Eq for WINML_IMAGE_VARIABLE_DESC {}
@@ -3372,10 +1969,7 @@ impl ::std::default::Default for WINML_MAP_VARIABLE_DESC {
 }
 impl ::std::fmt::Debug for WINML_MAP_VARIABLE_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINML_MAP_VARIABLE_DESC")
-            .field("KeyType", &self.KeyType)
-            .field("Fields", &self.Fields)
-            .finish()
+        fmt.debug_struct("WINML_MAP_VARIABLE_DESC").field("KeyType", &self.KeyType).field("Fields", &self.Fields).finish()
     }
 }
 impl ::std::cmp::PartialEq for WINML_MAP_VARIABLE_DESC {
@@ -3409,23 +2003,13 @@ impl ::std::default::Default for WINML_MODEL_DESC {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WINML_MODEL_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINML_MODEL_DESC")
-            .field("Author", &self.Author)
-            .field("Name", &self.Name)
-            .field("Domain", &self.Domain)
-            .field("Description", &self.Description)
-            .field("Version", &self.Version)
-            .finish()
+        fmt.debug_struct("WINML_MODEL_DESC").field("Author", &self.Author).field("Name", &self.Name).field("Domain", &self.Domain).field("Description", &self.Description).field("Version", &self.Version).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WINML_MODEL_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.Author == other.Author
-            && self.Name == other.Name
-            && self.Domain == other.Domain
-            && self.Description == other.Description
-            && self.Version == other.Version
+        self.Author == other.Author && self.Name == other.Name && self.Domain == other.Domain && self.Description == other.Description && self.Version == other.Version
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -3455,21 +2039,13 @@ impl ::std::default::Default for WINML_RESOURCE_BINDING_DESC {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::std::fmt::Debug for WINML_RESOURCE_BINDING_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINML_RESOURCE_BINDING_DESC")
-            .field("ElementType", &self.ElementType)
-            .field("NumDimensions", &self.NumDimensions)
-            .field("pShape", &self.pShape)
-            .field("pResource", &self.pResource)
-            .finish()
+        fmt.debug_struct("WINML_RESOURCE_BINDING_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("pResource", &self.pResource).finish()
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ::std::cmp::PartialEq for WINML_RESOURCE_BINDING_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ElementType == other.ElementType
-            && self.NumDimensions == other.NumDimensions
-            && self.pShape == other.pShape
-            && self.pResource == other.pResource
+        self.ElementType == other.ElementType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape && self.pResource == other.pResource
     }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
@@ -3479,14 +2055,7 @@ unsafe impl ::windows::runtime::Abi for WINML_RESOURCE_BINDING_DESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINML_RUNTIME_TYPE(pub i32);
 pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = WINML_RUNTIME_TYPE(0i32);
@@ -3571,9 +2140,7 @@ impl ::std::default::Default for WINML_SEQUENCE_VARIABLE_DESC {
 }
 impl ::std::fmt::Debug for WINML_SEQUENCE_VARIABLE_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINML_SEQUENCE_VARIABLE_DESC")
-            .field("ElementType", &self.ElementType)
-            .finish()
+        fmt.debug_struct("WINML_SEQUENCE_VARIABLE_DESC").field("ElementType", &self.ElementType).finish()
     }
 }
 impl ::std::cmp::PartialEq for WINML_SEQUENCE_VARIABLE_DESC {
@@ -3603,22 +2170,12 @@ impl ::std::default::Default for WINML_TENSOR_BINDING_DESC {
 }
 impl ::std::fmt::Debug for WINML_TENSOR_BINDING_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINML_TENSOR_BINDING_DESC")
-            .field("DataType", &self.DataType)
-            .field("NumDimensions", &self.NumDimensions)
-            .field("pShape", &self.pShape)
-            .field("DataSize", &self.DataSize)
-            .field("pData", &self.pData)
-            .finish()
+        fmt.debug_struct("WINML_TENSOR_BINDING_DESC").field("DataType", &self.DataType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).field("DataSize", &self.DataSize).field("pData", &self.pData).finish()
     }
 }
 impl ::std::cmp::PartialEq for WINML_TENSOR_BINDING_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.DataType == other.DataType
-            && self.NumDimensions == other.NumDimensions
-            && self.pShape == other.pShape
-            && self.DataSize == other.DataSize
-            && self.pData == other.pData
+        self.DataType == other.DataType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape && self.DataSize == other.DataSize && self.pData == other.pData
     }
 }
 impl ::std::cmp::Eq for WINML_TENSOR_BINDING_DESC {}
@@ -3626,14 +2183,7 @@ unsafe impl ::windows::runtime::Abi for WINML_TENSOR_BINDING_DESC {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WINML_TENSOR_DATA_TYPE(pub i32);
 pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(0i32);
@@ -3677,18 +2227,12 @@ impl ::std::default::Default for WINML_TENSOR_VARIABLE_DESC {
 }
 impl ::std::fmt::Debug for WINML_TENSOR_VARIABLE_DESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINML_TENSOR_VARIABLE_DESC")
-            .field("ElementType", &self.ElementType)
-            .field("NumDimensions", &self.NumDimensions)
-            .field("pShape", &self.pShape)
-            .finish()
+        fmt.debug_struct("WINML_TENSOR_VARIABLE_DESC").field("ElementType", &self.ElementType).field("NumDimensions", &self.NumDimensions).field("pShape", &self.pShape).finish()
     }
 }
 impl ::std::cmp::PartialEq for WINML_TENSOR_VARIABLE_DESC {
     fn eq(&self, other: &Self) -> bool {
-        self.ElementType == other.ElementType
-            && self.NumDimensions == other.NumDimensions
-            && self.pShape == other.pShape
+        self.ElementType == other.ElementType && self.NumDimensions == other.NumDimensions && self.pShape == other.pShape
     }
 }
 impl ::std::cmp::Eq for WINML_TENSOR_VARIABLE_DESC {}
@@ -3757,9 +2301,7 @@ pub unsafe fn WinMLCreateRuntime() -> ::windows::runtime::Result<IWinMLRuntime> 
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinMLCreateRuntime(
-                runtime: *mut ::windows::runtime::RawPtr,
-            ) -> ::windows::runtime::HRESULT;
+            fn WinMLCreateRuntime(runtime: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT;
         }
         let mut result__: <IWinMLRuntime as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         WinMLCreateRuntime(&mut result__).from_abi::<IWinMLRuntime>(result__)

@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const ALLOW_PARTIAL_READS: u32 = 5u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -22,16 +14,12 @@ impl ::std::default::Default for ALTERNATE_INTERFACE {
 }
 impl ::std::fmt::Debug for ALTERNATE_INTERFACE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("ALTERNATE_INTERFACE")
-            .field("InterfaceNumber", &self.InterfaceNumber)
-            .field("AlternateInterfaceNumber", &self.AlternateInterfaceNumber)
-            .finish()
+        fmt.debug_struct("ALTERNATE_INTERFACE").field("InterfaceNumber", &self.InterfaceNumber).field("AlternateInterfaceNumber", &self.AlternateInterfaceNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for ALTERNATE_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
-        self.InterfaceNumber == other.InterfaceNumber
-            && self.AlternateInterfaceNumber == other.AlternateInterfaceNumber
+        self.InterfaceNumber == other.InterfaceNumber && self.AlternateInterfaceNumber == other.AlternateInterfaceNumber
     }
 }
 impl ::std::cmp::Eq for ALTERNATE_INTERFACE {}
@@ -86,9 +74,7 @@ impl ::std::default::Default for BM_REQUEST_TYPE_0 {
 }
 impl ::std::fmt::Debug for BM_REQUEST_TYPE_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_BM")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_BM").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for BM_REQUEST_TYPE_0 {
@@ -117,18 +103,12 @@ impl ::std::default::Default for CHANNEL_INFO {
 }
 impl ::std::fmt::Debug for CHANNEL_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CHANNEL_INFO")
-            .field("EventChannelSize", &self.EventChannelSize)
-            .field("uReadDataAlignment", &self.uReadDataAlignment)
-            .field("uWriteDataAlignment", &self.uWriteDataAlignment)
-            .finish()
+        fmt.debug_struct("CHANNEL_INFO").field("EventChannelSize", &self.EventChannelSize).field("uReadDataAlignment", &self.uReadDataAlignment).field("uWriteDataAlignment", &self.uWriteDataAlignment).finish()
     }
 }
 impl ::std::cmp::PartialEq for CHANNEL_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.EventChannelSize == other.EventChannelSize
-            && self.uReadDataAlignment == other.uReadDataAlignment
-            && self.uWriteDataAlignment == other.uWriteDataAlignment
+        self.EventChannelSize == other.EventChannelSize && self.uReadDataAlignment == other.uReadDataAlignment && self.uWriteDataAlignment == other.uWriteDataAlignment
     }
 }
 impl ::std::cmp::Eq for CHANNEL_INFO {}
@@ -152,20 +132,12 @@ impl ::std::default::Default for DEVICE_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for DEVICE_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_DESCRIPTOR")
-            .field("usVendorId", &self.usVendorId)
-            .field("usProductId", &self.usProductId)
-            .field("usBcdDevice", &self.usBcdDevice)
-            .field("usLanguageId", &self.usLanguageId)
-            .finish()
+        fmt.debug_struct("DEVICE_DESCRIPTOR").field("usVendorId", &self.usVendorId).field("usProductId", &self.usProductId).field("usBcdDevice", &self.usBcdDevice).field("usLanguageId", &self.usLanguageId).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVICE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.usVendorId == other.usVendorId
-            && self.usProductId == other.usProductId
-            && self.usBcdDevice == other.usBcdDevice
-            && self.usLanguageId == other.usLanguageId
+        self.usVendorId == other.usVendorId && self.usProductId == other.usProductId && self.usBcdDevice == other.usBcdDevice && self.usLanguageId == other.usLanguageId
     }
 }
 impl ::std::cmp::Eq for DEVICE_DESCRIPTOR {}
@@ -189,11 +161,7 @@ impl ::std::default::Default for DRV_VERSION {
 }
 impl ::std::fmt::Debug for DRV_VERSION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRV_VERSION")
-            .field("major", &self.major)
-            .field("minor", &self.minor)
-            .field("internal", &self.internal)
-            .finish()
+        fmt.debug_struct("DRV_VERSION").field("major", &self.major).field("minor", &self.minor).field("internal", &self.internal).finish()
     }
 }
 impl ::std::cmp::PartialEq for DRV_VERSION {
@@ -209,94 +177,19 @@ unsafe impl ::windows::runtime::Abi for DRV_VERSION {
 pub const FILE_DEVICE_USB: u32 = 34u32;
 pub const FILE_DEVICE_USB_SCAN: u32 = 32768u32;
 pub const FullSpeed: u32 = 2u32;
-pub const GUID_DEVINTERFACE_USB_BILLBOARD: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1587206895,
-        63609,
-        18239,
-        [184, 7, 78, 94, 167, 125, 27, 28],
-    );
-pub const GUID_DEVINTERFACE_USB_DEVICE: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2782707472,
-        25904,
-        4562,
-        [144, 31, 0, 192, 79, 185, 81, 237],
-    );
-pub const GUID_DEVINTERFACE_USB_HOST_CONTROLLER: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        985624365,
-        29124,
-        17962,
-        [138, 146, 30, 104, 97, 230, 175, 39],
-    );
-pub const GUID_DEVINTERFACE_USB_HUB: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        4052356744,
-        49932,
-        4560,
-        [136, 21, 0, 160, 201, 6, 190, 216],
-    );
-pub const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3638386911,
-        17801,
-        19655,
-        [156, 210, 101, 157, 158, 100, 138, 159],
-    );
-pub const GUID_USB_PERFORMANCE_TRACING: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        3588126630,
-        27369,
-        16988,
-        [177, 226, 245, 97, 95, 211, 72, 169],
-    );
-pub const GUID_USB_TRANSFER_TRACING: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1746843818,
-        16445,
-        17708,
-        [159, 138, 240, 97, 111, 172, 149, 64],
-    );
-pub const GUID_USB_WMI_DEVICE_PERF_INFO: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1723968060,
-        18847,
-        18848,
-        [169, 165, 97, 226, 53, 159, 100, 7],
-    );
-pub const GUID_USB_WMI_NODE_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    2618790743,
-    56442,
-    20289,
-    [182, 107, 50, 59, 157, 220, 181, 177],
-);
-pub const GUID_USB_WMI_STD_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    1315060512,
-    51988,
-    4561,
-    [179, 49, 0, 160, 201, 89, 187, 210],
-);
-pub const GUID_USB_WMI_STD_NOTIFICATION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        1315060512,
-        51988,
-        4561,
-        [179, 49, 0, 160, 201, 89, 187, 210],
-    );
-pub const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: ::windows::runtime::GUID =
-    ::windows::runtime::GUID::from_values(
-        2612787249,
-        41714,
-        17332,
-        [150, 209, 134, 148, 75, 89, 20, 179],
-    );
-pub const GUID_USB_WMI_TRACING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    979470363,
-    46310,
-    19449,
-    [174, 15, 60, 216, 243, 148, 229, 47],
-);
+pub const GUID_DEVINTERFACE_USB_BILLBOARD: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1587206895, 63609, 18239, [184, 7, 78, 94, 167, 125, 27, 28]);
+pub const GUID_DEVINTERFACE_USB_DEVICE: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2782707472, 25904, 4562, [144, 31, 0, 192, 79, 185, 81, 237]);
+pub const GUID_DEVINTERFACE_USB_HOST_CONTROLLER: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(985624365, 29124, 17962, [138, 146, 30, 104, 97, 230, 175, 39]);
+pub const GUID_DEVINTERFACE_USB_HUB: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(4052356744, 49932, 4560, [136, 21, 0, 160, 201, 6, 190, 216]);
+pub const GUID_USB_MSOS20_PLATFORM_CAPABILITY_ID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3638386911, 17801, 19655, [156, 210, 101, 157, 158, 100, 138, 159]);
+pub const GUID_USB_PERFORMANCE_TRACING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3588126630, 27369, 16988, [177, 226, 245, 97, 95, 211, 72, 169]);
+pub const GUID_USB_TRANSFER_TRACING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1746843818, 16445, 17708, [159, 138, 240, 97, 111, 172, 149, 64]);
+pub const GUID_USB_WMI_DEVICE_PERF_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1723968060, 18847, 18848, [169, 165, 97, 226, 53, 159, 100, 7]);
+pub const GUID_USB_WMI_NODE_INFO: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2618790743, 56442, 20289, [182, 107, 50, 59, 157, 220, 181, 177]);
+pub const GUID_USB_WMI_STD_DATA: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1315060512, 51988, 4561, [179, 49, 0, 160, 201, 89, 187, 210]);
+pub const GUID_USB_WMI_STD_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1315060512, 51988, 4561, [179, 49, 0, 160, 201, 89, 187, 210]);
+pub const GUID_USB_WMI_SURPRISE_REMOVAL_NOTIFICATION: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2612787249, 41714, 17332, [150, 209, 134, 148, 75, 89, 20, 179]);
+pub const GUID_USB_WMI_TRACING: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(979470363, 46310, 19449, [174, 15, 60, 216, 243, 148, 229, 47]);
 pub const HCD_DIAGNOSTIC_MODE_OFF: u32 = 257u32;
 pub const HCD_DIAGNOSTIC_MODE_ON: u32 = 256u32;
 pub const HCD_DISABLE_PORT: u32 = 268u32;
@@ -411,20 +304,12 @@ impl ::std::default::Default for IO_BLOCK {
 }
 impl ::std::fmt::Debug for IO_BLOCK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("IO_BLOCK")
-            .field("uOffset", &self.uOffset)
-            .field("uLength", &self.uLength)
-            .field("pbyData", &self.pbyData)
-            .field("uIndex", &self.uIndex)
-            .finish()
+        fmt.debug_struct("IO_BLOCK").field("uOffset", &self.uOffset).field("uLength", &self.uLength).field("pbyData", &self.pbyData).field("uIndex", &self.uIndex).finish()
     }
 }
 impl ::std::cmp::PartialEq for IO_BLOCK {
     fn eq(&self, other: &Self) -> bool {
-        self.uOffset == other.uOffset
-            && self.uLength == other.uLength
-            && self.pbyData == other.pbyData
-            && self.uIndex == other.uIndex
+        self.uOffset == other.uOffset && self.uLength == other.uLength && self.pbyData == other.pbyData && self.uIndex == other.uIndex
     }
 }
 impl ::std::cmp::Eq for IO_BLOCK {}
@@ -464,13 +349,7 @@ impl ::std::fmt::Debug for IO_BLOCK_EX {
 }
 impl ::std::cmp::PartialEq for IO_BLOCK_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.uOffset == other.uOffset
-            && self.uLength == other.uLength
-            && self.pbyData == other.pbyData
-            && self.uIndex == other.uIndex
-            && self.bRequest == other.bRequest
-            && self.bmRequestType == other.bmRequestType
-            && self.fTransferDirectionIn == other.fTransferDirectionIn
+        self.uOffset == other.uOffset && self.uLength == other.uLength && self.pbyData == other.pbyData && self.uIndex == other.uIndex && self.bRequest == other.bRequest && self.bmRequestType == other.bmRequestType && self.fTransferDirectionIn == other.fTransferDirectionIn
     }
 }
 impl ::std::cmp::Eq for IO_BLOCK_EX {}
@@ -573,14 +452,7 @@ unsafe impl ::windows::runtime::Abi for PACKET_PARAMETERS {
     type DefaultType = Self;
 }
 pub const PIPE_TRANSFER_TIMEOUT: u32 = 3u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PIPE_TYPE(pub i32);
 pub const EVENT_PIPE: PIPE_TYPE = PIPE_TYPE(0i32);
@@ -610,14 +482,7 @@ pub const PORT_LINK_STATE_U1: u32 = 1u32;
 pub const PORT_LINK_STATE_U2: u32 = 2u32;
 pub const PORT_LINK_STATE_U3: u32 = 3u32;
 pub const RAW_IO: u32 = 7u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RAW_PIPE_TYPE(pub i32);
 pub const USBSCAN_PIPE_CONTROL: RAW_PIPE_TYPE = RAW_PIPE_TYPE(0i32);
@@ -886,22 +751,12 @@ unsafe impl ::windows::runtime::Abi for USBD_ENDPOINT_OFFLOAD_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USBD_ENDPOINT_OFFLOAD_MODE(pub i32);
-pub const UsbdEndpointOffloadModeNotSupported: USBD_ENDPOINT_OFFLOAD_MODE =
-    USBD_ENDPOINT_OFFLOAD_MODE(0i32);
-pub const UsbdEndpointOffloadSoftwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE =
-    USBD_ENDPOINT_OFFLOAD_MODE(1i32);
-pub const UsbdEndpointOffloadHardwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE =
-    USBD_ENDPOINT_OFFLOAD_MODE(2i32);
+pub const UsbdEndpointOffloadModeNotSupported: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(0i32);
+pub const UsbdEndpointOffloadSoftwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(1i32);
+pub const UsbdEndpointOffloadHardwareAssisted: USBD_ENDPOINT_OFFLOAD_MODE = USBD_ENDPOINT_OFFLOAD_MODE(2i32);
 impl ::std::convert::From<i32> for USBD_ENDPOINT_OFFLOAD_MODE {
     fn from(value: i32) -> Self {
         Self(value)
@@ -949,16 +804,7 @@ impl ::std::fmt::Debug for USBD_INTERFACE_INFORMATION {
 }
 impl ::std::cmp::PartialEq for USBD_INTERFACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.InterfaceNumber == other.InterfaceNumber
-            && self.AlternateSetting == other.AlternateSetting
-            && self.Class == other.Class
-            && self.SubClass == other.SubClass
-            && self.Protocol == other.Protocol
-            && self.Reserved == other.Reserved
-            && self.InterfaceHandle == other.InterfaceHandle
-            && self.NumberOfPipes == other.NumberOfPipes
-            && self.Pipes == other.Pipes
+        self.Length == other.Length && self.InterfaceNumber == other.InterfaceNumber && self.AlternateSetting == other.AlternateSetting && self.Class == other.Class && self.SubClass == other.SubClass && self.Protocol == other.Protocol && self.Reserved == other.Reserved && self.InterfaceHandle == other.InterfaceHandle && self.NumberOfPipes == other.NumberOfPipes && self.Pipes == other.Pipes
     }
 }
 impl ::std::cmp::Eq for USBD_INTERFACE_INFORMATION {}
@@ -981,11 +827,7 @@ impl ::std::default::Default for USBD_ISO_PACKET_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for USBD_ISO_PACKET_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USBD_ISO_PACKET_DESCRIPTOR")
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .field("Status", &self.Status)
-            .finish()
+        fmt.debug_struct("USBD_ISO_PACKET_DESCRIPTOR").field("Offset", &self.Offset).field("Length", &self.Length).field("Status", &self.Status).finish()
     }
 }
 impl ::std::cmp::PartialEq for USBD_ISO_PACKET_DESCRIPTOR {
@@ -1041,13 +883,7 @@ impl ::std::fmt::Debug for USBD_PIPE_INFORMATION {
 }
 impl ::std::cmp::PartialEq for USBD_PIPE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.MaximumPacketSize == other.MaximumPacketSize
-            && self.EndpointAddress == other.EndpointAddress
-            && self.Interval == other.Interval
-            && self.PipeType == other.PipeType
-            && self.PipeHandle == other.PipeHandle
-            && self.MaximumTransferSize == other.MaximumTransferSize
-            && self.PipeFlags == other.PipeFlags
+        self.MaximumPacketSize == other.MaximumPacketSize && self.EndpointAddress == other.EndpointAddress && self.Interval == other.Interval && self.PipeType == other.PipeType && self.PipeHandle == other.PipeHandle && self.MaximumTransferSize == other.MaximumTransferSize && self.PipeFlags == other.PipeFlags
     }
 }
 impl ::std::cmp::Eq for USBD_PIPE_INFORMATION {}
@@ -1055,14 +891,7 @@ unsafe impl ::windows::runtime::Abi for USBD_PIPE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USBD_PIPE_TYPE(pub i32);
 pub const UsbdPipeTypeControl: USBD_PIPE_TYPE = USBD_PIPE_TYPE(0i32);
@@ -1098,20 +927,12 @@ impl ::std::default::Default for USBD_STREAM_INFORMATION {
 }
 impl ::std::fmt::Debug for USBD_STREAM_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USBD_STREAM_INFORMATION")
-            .field("PipeHandle", &self.PipeHandle)
-            .field("StreamID", &self.StreamID)
-            .field("MaximumTransferSize", &self.MaximumTransferSize)
-            .field("PipeFlags", &self.PipeFlags)
-            .finish()
+        fmt.debug_struct("USBD_STREAM_INFORMATION").field("PipeHandle", &self.PipeHandle).field("StreamID", &self.StreamID).field("MaximumTransferSize", &self.MaximumTransferSize).field("PipeFlags", &self.PipeFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for USBD_STREAM_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.PipeHandle == other.PipeHandle
-            && self.StreamID == other.StreamID
-            && self.MaximumTransferSize == other.MaximumTransferSize
-            && self.PipeFlags == other.PipeFlags
+        self.PipeHandle == other.PipeHandle && self.StreamID == other.StreamID && self.MaximumTransferSize == other.MaximumTransferSize && self.PipeFlags == other.PipeFlags
     }
 }
 impl ::std::cmp::Eq for USBD_STREAM_INFORMATION {}
@@ -1136,16 +957,12 @@ impl ::std::default::Default for USBD_VERSION_INFORMATION {
 }
 impl ::std::fmt::Debug for USBD_VERSION_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USBD_VERSION_INFORMATION")
-            .field("USBDI_Version", &self.USBDI_Version)
-            .field("Supported_USB_Version", &self.Supported_USB_Version)
-            .finish()
+        fmt.debug_struct("USBD_VERSION_INFORMATION").field("USBDI_Version", &self.USBDI_Version).field("Supported_USB_Version", &self.Supported_USB_Version).finish()
     }
 }
 impl ::std::cmp::PartialEq for USBD_VERSION_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.USBDI_Version == other.USBDI_Version
-            && self.Supported_USB_Version == other.Supported_USB_Version
+        self.USBDI_Version == other.USBDI_Version && self.Supported_USB_Version == other.Supported_USB_Version
     }
 }
 impl ::std::cmp::Eq for USBD_VERSION_INFORMATION {}
@@ -1172,19 +989,13 @@ impl ::std::default::Default for USBFN_BUS_CONFIGURATION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for USBFN_BUS_CONFIGURATION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USBFN_BUS_CONFIGURATION_INFO")
-            .field("ConfigurationName", &self.ConfigurationName)
-            .field("IsCurrent", &self.IsCurrent)
-            .field("IsActive", &self.IsActive)
-            .finish()
+        fmt.debug_struct("USBFN_BUS_CONFIGURATION_INFO").field("ConfigurationName", &self.ConfigurationName).field("IsCurrent", &self.IsCurrent).field("IsActive", &self.IsActive).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for USBFN_BUS_CONFIGURATION_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ConfigurationName == other.ConfigurationName
-            && self.IsCurrent == other.IsCurrent
-            && self.IsActive == other.IsActive
+        self.ConfigurationName == other.ConfigurationName && self.IsCurrent == other.IsCurrent && self.IsActive == other.IsActive
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1194,14 +1005,7 @@ unsafe impl ::windows::runtime::Abi for USBFN_BUS_CONFIGURATION_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USBFN_BUS_SPEED(pub i32);
 pub const UsbfnBusSpeedLow: USBFN_BUS_SPEED = USBFN_BUS_SPEED(0i32);
@@ -1329,14 +1133,7 @@ unsafe impl ::windows::runtime::Abi for USBFN_CLASS_INTERFACE_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USBFN_DEVICE_STATE(pub i32);
 pub const UsbfnDeviceStateMinimum: USBFN_DEVICE_STATE = USBFN_DEVICE_STATE(0i32);
@@ -1356,14 +1153,7 @@ unsafe impl ::windows::runtime::Abi for USBFN_DEVICE_STATE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USBFN_DIRECTION(pub i32);
 pub const UsbfnDirectionMinimum: USBFN_DIRECTION = USBFN_DIRECTION(0i32);
@@ -1381,14 +1171,7 @@ unsafe impl ::windows::runtime::Abi for USBFN_DIRECTION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USBFN_EVENT(pub i32);
 pub const UsbfnEventMinimum: USBFN_EVENT = USBFN_EVENT(0i32);
@@ -1429,20 +1212,12 @@ impl ::std::default::Default for USBFN_INTERFACE_INFO {
 }
 impl ::std::fmt::Debug for USBFN_INTERFACE_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USBFN_INTERFACE_INFO")
-            .field("InterfaceNumber", &self.InterfaceNumber)
-            .field("Speed", &self.Speed)
-            .field("Size", &self.Size)
-            .field("InterfaceDescriptorSet", &self.InterfaceDescriptorSet)
-            .finish()
+        fmt.debug_struct("USBFN_INTERFACE_INFO").field("InterfaceNumber", &self.InterfaceNumber).field("Speed", &self.Speed).field("Size", &self.Size).field("InterfaceDescriptorSet", &self.InterfaceDescriptorSet).finish()
     }
 }
 impl ::std::cmp::PartialEq for USBFN_INTERFACE_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.InterfaceNumber == other.InterfaceNumber
-            && self.Speed == other.Speed
-            && self.Size == other.Size
-            && self.InterfaceDescriptorSet == other.InterfaceDescriptorSet
+        self.InterfaceNumber == other.InterfaceNumber && self.Speed == other.Speed && self.Size == other.Size && self.InterfaceDescriptorSet == other.InterfaceDescriptorSet
     }
 }
 impl ::std::cmp::Eq for USBFN_INTERFACE_INFO {}
@@ -1520,14 +1295,7 @@ unsafe impl ::windows::runtime::Abi for USBFN_PIPE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USBFN_PORT_TYPE(pub i32);
 pub const UsbfnUnknownPort: USBFN_PORT_TYPE = USBFN_PORT_TYPE(0i32);
@@ -1560,10 +1328,7 @@ impl ::std::default::Default for USBFN_USB_STRING {
 }
 impl ::std::fmt::Debug for USBFN_USB_STRING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USBFN_USB_STRING")
-            .field("StringIndex", &self.StringIndex)
-            .field("UsbString", &self.UsbString)
-            .finish()
+        fmt.debug_struct("USBFN_USB_STRING").field("StringIndex", &self.StringIndex).field("UsbString", &self.UsbString).finish()
     }
 }
 impl ::std::cmp::PartialEq for USBFN_USB_STRING {
@@ -1591,18 +1356,12 @@ impl ::std::default::Default for USBSCAN_GET_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for USBSCAN_GET_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USBSCAN_GET_DESCRIPTOR")
-            .field("DescriptorType", &self.DescriptorType)
-            .field("Index", &self.Index)
-            .field("LanguageId", &self.LanguageId)
-            .finish()
+        fmt.debug_struct("USBSCAN_GET_DESCRIPTOR").field("DescriptorType", &self.DescriptorType).field("Index", &self.Index).field("LanguageId", &self.LanguageId).finish()
     }
 }
 impl ::std::cmp::PartialEq for USBSCAN_GET_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.DescriptorType == other.DescriptorType
-            && self.Index == other.Index
-            && self.LanguageId == other.LanguageId
+        self.DescriptorType == other.DescriptorType && self.Index == other.Index && self.LanguageId == other.LanguageId
     }
 }
 impl ::std::cmp::Eq for USBSCAN_GET_DESCRIPTOR {}
@@ -1624,10 +1383,7 @@ impl ::std::default::Default for USBSCAN_PIPE_CONFIGURATION {
 }
 impl ::std::fmt::Debug for USBSCAN_PIPE_CONFIGURATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USBSCAN_PIPE_CONFIGURATION")
-            .field("NumberOfPipes", &self.NumberOfPipes)
-            .field("PipeInfo", &self.PipeInfo)
-            .finish()
+        fmt.debug_struct("USBSCAN_PIPE_CONFIGURATION").field("NumberOfPipes", &self.NumberOfPipes).field("PipeInfo", &self.PipeInfo).finish()
     }
 }
 impl ::std::cmp::PartialEq for USBSCAN_PIPE_CONFIGURATION {
@@ -1656,20 +1412,12 @@ impl ::std::default::Default for USBSCAN_PIPE_INFORMATION {
 }
 impl ::std::fmt::Debug for USBSCAN_PIPE_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USBSCAN_PIPE_INFORMATION")
-            .field("MaximumPacketSize", &self.MaximumPacketSize)
-            .field("EndpointAddress", &self.EndpointAddress)
-            .field("Interval", &self.Interval)
-            .field("PipeType", &self.PipeType)
-            .finish()
+        fmt.debug_struct("USBSCAN_PIPE_INFORMATION").field("MaximumPacketSize", &self.MaximumPacketSize).field("EndpointAddress", &self.EndpointAddress).field("Interval", &self.Interval).field("PipeType", &self.PipeType).finish()
     }
 }
 impl ::std::cmp::PartialEq for USBSCAN_PIPE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.MaximumPacketSize == other.MaximumPacketSize
-            && self.EndpointAddress == other.EndpointAddress
-            && self.Interval == other.Interval
-            && self.PipeType == other.PipeType
+        self.MaximumPacketSize == other.MaximumPacketSize && self.EndpointAddress == other.EndpointAddress && self.Interval == other.Interval && self.PipeType == other.PipeType
     }
 }
 impl ::std::cmp::Eq for USBSCAN_PIPE_INFORMATION {}
@@ -1692,18 +1440,12 @@ impl ::std::default::Default for USBSCAN_TIMEOUT {
 }
 impl ::std::fmt::Debug for USBSCAN_TIMEOUT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USBSCAN_TIMEOUT")
-            .field("TimeoutRead", &self.TimeoutRead)
-            .field("TimeoutWrite", &self.TimeoutWrite)
-            .field("TimeoutEvent", &self.TimeoutEvent)
-            .finish()
+        fmt.debug_struct("USBSCAN_TIMEOUT").field("TimeoutRead", &self.TimeoutRead).field("TimeoutWrite", &self.TimeoutWrite).field("TimeoutEvent", &self.TimeoutEvent).finish()
     }
 }
 impl ::std::cmp::PartialEq for USBSCAN_TIMEOUT {
     fn eq(&self, other: &Self) -> bool {
-        self.TimeoutRead == other.TimeoutRead
-            && self.TimeoutWrite == other.TimeoutWrite
-            && self.TimeoutEvent == other.TimeoutEvent
+        self.TimeoutRead == other.TimeoutRead && self.TimeoutWrite == other.TimeoutWrite && self.TimeoutEvent == other.TimeoutEvent
     }
 }
 impl ::std::cmp::Eq for USBSCAN_TIMEOUT {}
@@ -2475,10 +2217,7 @@ impl ::std::default::Default for USB_COMMON_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for USB_COMMON_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USB_COMMON_DESCRIPTOR")
-            .field("bLength", &self.bLength)
-            .field("bDescriptorType", &self.bDescriptorType)
-            .finish()
+        fmt.debug_struct("USB_COMMON_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).finish()
     }
 }
 impl ::std::cmp::PartialEq for USB_COMMON_DESCRIPTOR {
@@ -2559,14 +2298,7 @@ pub const USB_CONFIG_POWER_DESCRIPTOR_TYPE: u32 = 7u32;
 pub const USB_CONFIG_REMOTE_WAKEUP: u32 = 32u32;
 pub const USB_CONFIG_RESERVED: u32 = 31u32;
 pub const USB_CONFIG_SELF_POWERED: u32 = 64u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USB_CONTROLLER_FLAVOR(pub i32);
 pub const USB_HcGeneric: USB_CONTROLLER_FLAVOR = USB_CONTROLLER_FLAVOR(0i32);
@@ -2697,10 +2429,7 @@ impl ::std::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
 }
 impl ::std::fmt::Debug for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("LowByte", &self.LowByte)
-            .field("HiByte", &self.HiByte)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("LowByte", &self.LowByte).field("HiByte", &self.HiByte).finish()
     }
 }
 impl ::std::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET_0_0 {
@@ -2749,10 +2478,7 @@ impl ::std::default::Default for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
 }
 impl ::std::fmt::Debug for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("LowByte", &self.LowByte)
-            .field("HiByte", &self.HiByte)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("LowByte", &self.LowByte).field("HiByte", &self.HiByte).finish()
     }
 }
 impl ::std::cmp::PartialEq for USB_DEFAULT_PIPE_SETUP_PACKET_1_0 {
@@ -2881,22 +2607,12 @@ impl ::std::default::Default for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR")
-            .field("bLength", &self.bLength)
-            .field("bDescriptorType", &self.bDescriptorType)
-            .field("bDevCapabilityType", &self.bDevCapabilityType)
-            .field("bReserved", &self.bReserved)
-            .field("ContainerID", &self.ContainerID)
-            .finish()
+        fmt.debug_struct("USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bDevCapabilityType", &self.bDevCapabilityType).field("bReserved", &self.bReserved).field("ContainerID", &self.ContainerID).finish()
     }
 }
 impl ::std::cmp::PartialEq for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.bLength == other.bLength
-            && self.bDescriptorType == other.bDescriptorType
-            && self.bDevCapabilityType == other.bDevCapabilityType
-            && self.bReserved == other.bReserved
-            && self.ContainerID == other.ContainerID
+        self.bLength == other.bLength && self.bDescriptorType == other.bDescriptorType && self.bDevCapabilityType == other.bDevCapabilityType && self.bReserved == other.bReserved && self.ContainerID == other.ContainerID
     }
 }
 impl ::std::cmp::Eq for USB_DEVICE_CAPABILITY_CONTAINER_ID_DESCRIPTOR {}
@@ -2919,18 +2635,12 @@ impl ::std::default::Default for USB_DEVICE_CAPABILITY_DESCRIPTOR {
 }
 impl ::std::fmt::Debug for USB_DEVICE_CAPABILITY_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USB_DEVICE_CAPABILITY_DESCRIPTOR")
-            .field("bLength", &self.bLength)
-            .field("bDescriptorType", &self.bDescriptorType)
-            .field("bDevCapabilityType", &self.bDevCapabilityType)
-            .finish()
+        fmt.debug_struct("USB_DEVICE_CAPABILITY_DESCRIPTOR").field("bLength", &self.bLength).field("bDescriptorType", &self.bDescriptorType).field("bDevCapabilityType", &self.bDevCapabilityType).finish()
     }
 }
 impl ::std::cmp::PartialEq for USB_DEVICE_CAPABILITY_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.bLength == other.bLength
-            && self.bDescriptorType == other.bDescriptorType
-            && self.bDevCapabilityType == other.bDevCapabilityType
+        self.bLength == other.bLength && self.bDescriptorType == other.bDescriptorType && self.bDevCapabilityType == other.bDevCapabilityType
     }
 }
 impl ::std::cmp::Eq for USB_DEVICE_CAPABILITY_DESCRIPTOR {}
@@ -3555,14 +3265,7 @@ unsafe impl ::windows::runtime::Abi for USB_DEVICE_QUALIFIER_DESCRIPTOR {
     type DefaultType = Self;
 }
 pub const USB_DEVICE_QUALIFIER_DESCRIPTOR_TYPE: u32 = 6u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USB_DEVICE_SPEED(pub i32);
 pub const UsbLowSpeed: USB_DEVICE_SPEED = USB_DEVICE_SPEED(0i32);
@@ -3621,14 +3324,7 @@ unsafe impl ::windows::runtime::Abi for USB_DEVICE_STATUS_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USB_DEVICE_TYPE(pub i32);
 pub const Usb11Device: USB_DEVICE_TYPE = USB_DEVICE_TYPE(0i32);
@@ -3861,9 +3557,7 @@ impl ::std::default::Default for USB_FUNCTION_SUSPEND_OPTIONS_0 {
 }
 impl ::std::fmt::Debug for USB_FUNCTION_SUSPEND_OPTIONS_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for USB_FUNCTION_SUSPEND_OPTIONS_0 {
@@ -3992,9 +3686,7 @@ impl ::std::default::Default for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
 }
 impl ::std::fmt::Debug for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for USB_HUB_30_PORT_REMOTE_WAKE_MASK_0 {
@@ -4180,15 +3872,12 @@ impl ::std::default::Default for USB_IDLE_CALLBACK_INFO {
 }
 impl ::std::fmt::Debug for USB_IDLE_CALLBACK_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USB_IDLE_CALLBACK_INFO")
-            .field("IdleContext", &self.IdleContext)
-            .finish()
+        fmt.debug_struct("USB_IDLE_CALLBACK_INFO").field("IdleContext", &self.IdleContext).finish()
     }
 }
 impl ::std::cmp::PartialEq for USB_IDLE_CALLBACK_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.IdleCallback.map(|f| f as usize) == other.IdleCallback.map(|f| f as usize)
-            && self.IdleContext == other.IdleContext
+        self.IdleCallback.map(|f| f as usize) == other.IdleCallback.map(|f| f as usize) && self.IdleContext == other.IdleContext
     }
 }
 impl ::std::cmp::Eq for USB_IDLE_CALLBACK_INFO {}
@@ -4232,14 +3921,7 @@ impl ::std::fmt::Debug for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
 }
 impl ::std::cmp::PartialEq for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.bLength == other.bLength
-            && self.bDescriptorType == other.bDescriptorType
-            && self.bFirstInterface == other.bFirstInterface
-            && self.bInterfaceCount == other.bInterfaceCount
-            && self.bFunctionClass == other.bFunctionClass
-            && self.bFunctionSubClass == other.bFunctionSubClass
-            && self.bFunctionProtocol == other.bFunctionProtocol
-            && self.iFunction == other.iFunction
+        self.bLength == other.bLength && self.bDescriptorType == other.bDescriptorType && self.bFirstInterface == other.bFirstInterface && self.bInterfaceCount == other.bInterfaceCount && self.bFunctionClass == other.bFunctionClass && self.bFunctionSubClass == other.bFunctionSubClass && self.bFunctionProtocol == other.bFunctionProtocol && self.iFunction == other.iFunction
     }
 }
 impl ::std::cmp::Eq for USB_INTERFACE_ASSOCIATION_DESCRIPTOR {}
@@ -4284,15 +3966,7 @@ impl ::std::fmt::Debug for USB_INTERFACE_DESCRIPTOR {
 }
 impl ::std::cmp::PartialEq for USB_INTERFACE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.bLength == other.bLength
-            && self.bDescriptorType == other.bDescriptorType
-            && self.bInterfaceNumber == other.bInterfaceNumber
-            && self.bAlternateSetting == other.bAlternateSetting
-            && self.bNumEndpoints == other.bNumEndpoints
-            && self.bInterfaceClass == other.bInterfaceClass
-            && self.bInterfaceSubClass == other.bInterfaceSubClass
-            && self.bInterfaceProtocol == other.bInterfaceProtocol
-            && self.iInterface == other.iInterface
+        self.bLength == other.bLength && self.bDescriptorType == other.bDescriptorType && self.bInterfaceNumber == other.bInterfaceNumber && self.bAlternateSetting == other.bAlternateSetting && self.bNumEndpoints == other.bNumEndpoints && self.bInterfaceClass == other.bInterfaceClass && self.bInterfaceSubClass == other.bInterfaceSubClass && self.bInterfaceProtocol == other.bInterfaceProtocol && self.iInterface == other.iInterface
     }
 }
 impl ::std::cmp::Eq for USB_INTERFACE_DESCRIPTOR {}
@@ -4899,9 +4573,7 @@ impl ::std::default::Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_
 }
 impl ::std::fmt::Debug for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Bulk_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Bulk_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_0 {
@@ -4927,9 +4599,7 @@ impl ::std::default::Default for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_
 }
 impl ::std::fmt::Debug for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Isochronous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
+        fmt.debug_struct("_Isochronous_e__Struct").field("_bitfield", &self._bitfield).finish()
     }
 }
 impl ::std::cmp::PartialEq for USB_SUPERSPEED_ENDPOINT_COMPANION_DESCRIPTOR_0_1 {
@@ -4995,9 +4665,7 @@ impl ::std::default::Default for USB_USB2HW_VERSION_PARAMETERS {
 }
 impl ::std::fmt::Debug for USB_USB2HW_VERSION_PARAMETERS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USB_USB2HW_VERSION_PARAMETERS")
-            .field("Usb2HwRevision", &self.Usb2HwRevision)
-            .finish()
+        fmt.debug_struct("USB_USB2HW_VERSION_PARAMETERS").field("Usb2HwRevision", &self.Usb2HwRevision).finish()
     }
 }
 impl ::std::cmp::PartialEq for USB_USB2HW_VERSION_PARAMETERS {
@@ -5010,14 +4678,7 @@ unsafe impl ::windows::runtime::Abi for USB_USB2HW_VERSION_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct USB_USER_ERROR_CODE(pub i32);
 pub const UsbUserSuccess: USB_USER_ERROR_CODE = USB_USER_ERROR_CODE(0i32);
@@ -5040,14 +4701,7 @@ unsafe impl ::windows::runtime::Abi for USB_USER_ERROR_CODE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct WDMUSB_POWER_STATE(pub i32);
 pub const WdmUsbPowerNotMapped: WDMUSB_POWER_STATE = WDMUSB_POWER_STATE(0i32);
@@ -5088,20 +4742,12 @@ impl ::std::default::Default for WINUSB_PIPE_INFORMATION {
 }
 impl ::std::fmt::Debug for WINUSB_PIPE_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINUSB_PIPE_INFORMATION")
-            .field("PipeType", &self.PipeType)
-            .field("PipeId", &self.PipeId)
-            .field("MaximumPacketSize", &self.MaximumPacketSize)
-            .field("Interval", &self.Interval)
-            .finish()
+        fmt.debug_struct("WINUSB_PIPE_INFORMATION").field("PipeType", &self.PipeType).field("PipeId", &self.PipeId).field("MaximumPacketSize", &self.MaximumPacketSize).field("Interval", &self.Interval).finish()
     }
 }
 impl ::std::cmp::PartialEq for WINUSB_PIPE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.PipeType == other.PipeType
-            && self.PipeId == other.PipeId
-            && self.MaximumPacketSize == other.MaximumPacketSize
-            && self.Interval == other.Interval
+        self.PipeType == other.PipeType && self.PipeId == other.PipeId && self.MaximumPacketSize == other.MaximumPacketSize && self.Interval == other.Interval
     }
 }
 impl ::std::cmp::Eq for WINUSB_PIPE_INFORMATION {}
@@ -5126,22 +4772,12 @@ impl ::std::default::Default for WINUSB_PIPE_INFORMATION_EX {
 }
 impl ::std::fmt::Debug for WINUSB_PIPE_INFORMATION_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("WINUSB_PIPE_INFORMATION_EX")
-            .field("PipeType", &self.PipeType)
-            .field("PipeId", &self.PipeId)
-            .field("MaximumPacketSize", &self.MaximumPacketSize)
-            .field("Interval", &self.Interval)
-            .field("MaximumBytesPerInterval", &self.MaximumBytesPerInterval)
-            .finish()
+        fmt.debug_struct("WINUSB_PIPE_INFORMATION_EX").field("PipeType", &self.PipeType).field("PipeId", &self.PipeId).field("MaximumPacketSize", &self.MaximumPacketSize).field("Interval", &self.Interval).field("MaximumBytesPerInterval", &self.MaximumBytesPerInterval).finish()
     }
 }
 impl ::std::cmp::PartialEq for WINUSB_PIPE_INFORMATION_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.PipeType == other.PipeType
-            && self.PipeId == other.PipeId
-            && self.MaximumPacketSize == other.MaximumPacketSize
-            && self.Interval == other.Interval
-            && self.MaximumBytesPerInterval == other.MaximumBytesPerInterval
+        self.PipeType == other.PipeType && self.PipeId == other.PipeId && self.MaximumPacketSize == other.MaximumPacketSize && self.Interval == other.Interval && self.MaximumBytesPerInterval == other.MaximumBytesPerInterval
     }
 }
 impl ::std::cmp::Eq for WINUSB_PIPE_INFORMATION_EX {}
@@ -5180,108 +4816,57 @@ pub const WMI_USB_DRIVER_NOTIFICATION: u32 = 1u32;
 pub const WMI_USB_HUB_NODE_INFORMATION: u32 = 4u32;
 pub const WMI_USB_PERFORMANCE_INFORMATION: u32 = 1u32;
 pub const WMI_USB_POWER_DEVICE_ENABLE: u32 = 2u32;
-pub const WinUSB_TestGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-    3665898495,
-    4803,
-    18082,
-    [142, 43, 219, 211, 183, 131, 76, 67],
-);
+pub const WinUSB_TestGuid: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(3665898495, 4803, 18082, [142, 43, 219, 211, 183, 131, 76, 67]);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_AbortPipe(
-    interfacehandle: *const ::std::ffi::c_void,
-    pipeid: u8,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_AbortPipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_AbortPipe(
-                interfacehandle: *const ::std::ffi::c_void,
-                pipeid: u8,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_AbortPipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_AbortPipe(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(pipeid),
-        ))
+        ::std::mem::transmute(WinUsb_AbortPipe(::std::mem::transmute(interfacehandle), ::std::mem::transmute(pipeid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_ControlTransfer<
-    'a,
-    Param1: ::windows::runtime::IntoParam<'a, WINUSB_SETUP_PACKET>,
->(
-    interfacehandle: *const ::std::ffi::c_void,
-    setuppacket: Param1,
-    buffer: *mut u8,
-    bufferlength: u32,
-    lengthtransferred: *mut u32,
-    overlapped: *const super::super::System::IO::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_ControlTransfer<'a, Param1: ::windows::runtime::IntoParam<'a, WINUSB_SETUP_PACKET>>(interfacehandle: *const ::std::ffi::c_void, setuppacket: Param1, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_ControlTransfer(
-                interfacehandle: *const ::std::ffi::c_void,
-                setuppacket: WINUSB_SETUP_PACKET,
-                buffer: *mut u8,
-                bufferlength: u32,
-                lengthtransferred: *mut u32,
-                overlapped: *const super::super::System::IO::OVERLAPPED,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_ControlTransfer(interfacehandle: *const ::std::ffi::c_void, setuppacket: WINUSB_SETUP_PACKET, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_ControlTransfer(
-            ::std::mem::transmute(interfacehandle),
-            setuppacket.into_param().abi(),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-            ::std::mem::transmute(lengthtransferred),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(WinUsb_ControlTransfer(::std::mem::transmute(interfacehandle), setuppacket.into_param().abi(), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength), ::std::mem::transmute(lengthtransferred), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_FlushPipe(
-    interfacehandle: *const ::std::ffi::c_void,
-    pipeid: u8,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_FlushPipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_FlushPipe(
-                interfacehandle: *const ::std::ffi::c_void,
-                pipeid: u8,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_FlushPipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_FlushPipe(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(pipeid),
-        ))
+        ::std::mem::transmute(WinUsb_FlushPipe(::std::mem::transmute(interfacehandle), ::std::mem::transmute(pipeid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_Free(
-    interfacehandle: *const ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_Free(interfacehandle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_Free(
-                interfacehandle: *const ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_Free(interfacehandle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WinUsb_Free(::std::mem::transmute(interfacehandle)))
     }
@@ -5290,305 +4875,151 @@ pub unsafe fn WinUsb_Free(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_GetAdjustedFrameNumber(
-    currentframenumber: *mut u32,
-    timestamp: i64,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_GetAdjustedFrameNumber(currentframenumber: *mut u32, timestamp: i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_GetAdjustedFrameNumber(
-                currentframenumber: *mut u32,
-                timestamp: i64,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_GetAdjustedFrameNumber(currentframenumber: *mut u32, timestamp: i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_GetAdjustedFrameNumber(
-            ::std::mem::transmute(currentframenumber),
-            ::std::mem::transmute(timestamp),
-        ))
+        ::std::mem::transmute(WinUsb_GetAdjustedFrameNumber(::std::mem::transmute(currentframenumber), ::std::mem::transmute(timestamp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_GetAssociatedInterface(
-    interfacehandle: *const ::std::ffi::c_void,
-    associatedinterfaceindex: u8,
-    associatedinterfacehandle: *mut *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_GetAssociatedInterface(interfacehandle: *const ::std::ffi::c_void, associatedinterfaceindex: u8, associatedinterfacehandle: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_GetAssociatedInterface(
-                interfacehandle: *const ::std::ffi::c_void,
-                associatedinterfaceindex: u8,
-                associatedinterfacehandle: *mut *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_GetAssociatedInterface(interfacehandle: *const ::std::ffi::c_void, associatedinterfaceindex: u8, associatedinterfacehandle: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_GetAssociatedInterface(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(associatedinterfaceindex),
-            ::std::mem::transmute(associatedinterfacehandle),
-        ))
+        ::std::mem::transmute(WinUsb_GetAssociatedInterface(::std::mem::transmute(interfacehandle), ::std::mem::transmute(associatedinterfaceindex), ::std::mem::transmute(associatedinterfacehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_GetCurrentAlternateSetting(
-    interfacehandle: *const ::std::ffi::c_void,
-    settingnumber: *mut u8,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_GetCurrentAlternateSetting(interfacehandle: *const ::std::ffi::c_void, settingnumber: *mut u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_GetCurrentAlternateSetting(
-                interfacehandle: *const ::std::ffi::c_void,
-                settingnumber: *mut u8,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_GetCurrentAlternateSetting(interfacehandle: *const ::std::ffi::c_void, settingnumber: *mut u8) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_GetCurrentAlternateSetting(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(settingnumber),
-        ))
+        ::std::mem::transmute(WinUsb_GetCurrentAlternateSetting(::std::mem::transmute(interfacehandle), ::std::mem::transmute(settingnumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_GetCurrentFrameNumber(
-    interfacehandle: *const ::std::ffi::c_void,
-    currentframenumber: *mut u32,
-    timestamp: *mut i64,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_GetCurrentFrameNumber(interfacehandle: *const ::std::ffi::c_void, currentframenumber: *mut u32, timestamp: *mut i64) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_GetCurrentFrameNumber(
-                interfacehandle: *const ::std::ffi::c_void,
-                currentframenumber: *mut u32,
-                timestamp: *mut i64,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_GetCurrentFrameNumber(interfacehandle: *const ::std::ffi::c_void, currentframenumber: *mut u32, timestamp: *mut i64) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_GetCurrentFrameNumber(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(currentframenumber),
-            ::std::mem::transmute(timestamp),
-        ))
+        ::std::mem::transmute(WinUsb_GetCurrentFrameNumber(::std::mem::transmute(interfacehandle), ::std::mem::transmute(currentframenumber), ::std::mem::transmute(timestamp)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_GetCurrentFrameNumberAndQpc(
-    interfacehandle: *const ::std::ffi::c_void,
-    frameqpcinfo: *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle: *const ::std::ffi::c_void, frameqpcinfo: *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_GetCurrentFrameNumberAndQpc(
-                interfacehandle: *const ::std::ffi::c_void,
-                frameqpcinfo: *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_GetCurrentFrameNumberAndQpc(interfacehandle: *const ::std::ffi::c_void, frameqpcinfo: *const USB_FRAME_NUMBER_AND_QPC_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_GetCurrentFrameNumberAndQpc(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(frameqpcinfo),
-        ))
+        ::std::mem::transmute(WinUsb_GetCurrentFrameNumberAndQpc(::std::mem::transmute(interfacehandle), ::std::mem::transmute(frameqpcinfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_GetDescriptor(
-    interfacehandle: *const ::std::ffi::c_void,
-    descriptortype: u8,
-    index: u8,
-    languageid: u16,
-    buffer: *mut u8,
-    bufferlength: u32,
-    lengthtransferred: *mut u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_GetDescriptor(interfacehandle: *const ::std::ffi::c_void, descriptortype: u8, index: u8, languageid: u16, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_GetDescriptor(
-                interfacehandle: *const ::std::ffi::c_void,
-                descriptortype: u8,
-                index: u8,
-                languageid: u16,
-                buffer: *mut u8,
-                bufferlength: u32,
-                lengthtransferred: *mut u32,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_GetDescriptor(interfacehandle: *const ::std::ffi::c_void, descriptortype: u8, index: u8, languageid: u16, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_GetDescriptor(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(descriptortype),
-            ::std::mem::transmute(index),
-            ::std::mem::transmute(languageid),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-            ::std::mem::transmute(lengthtransferred),
-        ))
+        ::std::mem::transmute(WinUsb_GetDescriptor(::std::mem::transmute(interfacehandle), ::std::mem::transmute(descriptortype), ::std::mem::transmute(index), ::std::mem::transmute(languageid), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength), ::std::mem::transmute(lengthtransferred)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_GetOverlappedResult<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    interfacehandle: *const ::std::ffi::c_void,
-    lpoverlapped: *const super::super::System::IO::OVERLAPPED,
-    lpnumberofbytestransferred: *mut u32,
-    bwait: Param3,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_GetOverlappedResult<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(interfacehandle: *const ::std::ffi::c_void, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: Param3) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_GetOverlappedResult(
-                interfacehandle: *const ::std::ffi::c_void,
-                lpoverlapped: *const super::super::System::IO::OVERLAPPED,
-                lpnumberofbytestransferred: *mut u32,
-                bwait: super::super::Foundation::BOOL,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_GetOverlappedResult(interfacehandle: *const ::std::ffi::c_void, lpoverlapped: *const super::super::System::IO::OVERLAPPED, lpnumberofbytestransferred: *mut u32, bwait: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_GetOverlappedResult(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(lpoverlapped),
-            ::std::mem::transmute(lpnumberofbytestransferred),
-            bwait.into_param().abi(),
-        ))
+        ::std::mem::transmute(WinUsb_GetOverlappedResult(::std::mem::transmute(interfacehandle), ::std::mem::transmute(lpoverlapped), ::std::mem::transmute(lpnumberofbytestransferred), bwait.into_param().abi()))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_GetPipePolicy(
-    interfacehandle: *const ::std::ffi::c_void,
-    pipeid: u8,
-    policytype: u32,
-    valuelength: *mut u32,
-    value: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_GetPipePolicy(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, policytype: u32, valuelength: *mut u32, value: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_GetPipePolicy(
-                interfacehandle: *const ::std::ffi::c_void,
-                pipeid: u8,
-                policytype: u32,
-                valuelength: *mut u32,
-                value: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_GetPipePolicy(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, policytype: u32, valuelength: *mut u32, value: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_GetPipePolicy(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(pipeid),
-            ::std::mem::transmute(policytype),
-            ::std::mem::transmute(valuelength),
-            ::std::mem::transmute(value),
-        ))
+        ::std::mem::transmute(WinUsb_GetPipePolicy(::std::mem::transmute(interfacehandle), ::std::mem::transmute(pipeid), ::std::mem::transmute(policytype), ::std::mem::transmute(valuelength), ::std::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_GetPowerPolicy(
-    interfacehandle: *const ::std::ffi::c_void,
-    policytype: u32,
-    valuelength: *mut u32,
-    value: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_GetPowerPolicy(interfacehandle: *const ::std::ffi::c_void, policytype: u32, valuelength: *mut u32, value: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_GetPowerPolicy(
-                interfacehandle: *const ::std::ffi::c_void,
-                policytype: u32,
-                valuelength: *mut u32,
-                value: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_GetPowerPolicy(interfacehandle: *const ::std::ffi::c_void, policytype: u32, valuelength: *mut u32, value: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_GetPowerPolicy(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(policytype),
-            ::std::mem::transmute(valuelength),
-            ::std::mem::transmute(value),
-        ))
+        ::std::mem::transmute(WinUsb_GetPowerPolicy(::std::mem::transmute(interfacehandle), ::std::mem::transmute(policytype), ::std::mem::transmute(valuelength), ::std::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_Initialize<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    devicehandle: Param0,
-    interfacehandle: *mut *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_Initialize<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(devicehandle: Param0, interfacehandle: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_Initialize(
-                devicehandle: super::super::Foundation::HANDLE,
-                interfacehandle: *mut *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_Initialize(devicehandle: super::super::Foundation::HANDLE, interfacehandle: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_Initialize(
-            devicehandle.into_param().abi(),
-            ::std::mem::transmute(interfacehandle),
-        ))
+        ::std::mem::transmute(WinUsb_Initialize(devicehandle.into_param().abi(), ::std::mem::transmute(interfacehandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WinUsb_ParseConfigurationDescriptor(
-    configurationdescriptor: *const USB_CONFIGURATION_DESCRIPTOR,
-    startposition: *const ::std::ffi::c_void,
-    interfacenumber: i32,
-    alternatesetting: i32,
-    interfaceclass: i32,
-    interfacesubclass: i32,
-    interfaceprotocol: i32,
-) -> *mut USB_INTERFACE_DESCRIPTOR {
+pub unsafe fn WinUsb_ParseConfigurationDescriptor(configurationdescriptor: *const USB_CONFIGURATION_DESCRIPTOR, startposition: *const ::std::ffi::c_void, interfacenumber: i32, alternatesetting: i32, interfaceclass: i32, interfacesubclass: i32, interfaceprotocol: i32) -> *mut USB_INTERFACE_DESCRIPTOR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_ParseConfigurationDescriptor(
-                configurationdescriptor: *const USB_CONFIGURATION_DESCRIPTOR,
-                startposition: *const ::std::ffi::c_void,
-                interfacenumber: i32,
-                alternatesetting: i32,
-                interfaceclass: i32,
-                interfacesubclass: i32,
-                interfaceprotocol: i32,
-            ) -> *mut USB_INTERFACE_DESCRIPTOR;
+            fn WinUsb_ParseConfigurationDescriptor(configurationdescriptor: *const USB_CONFIGURATION_DESCRIPTOR, startposition: *const ::std::ffi::c_void, interfacenumber: i32, alternatesetting: i32, interfaceclass: i32, interfacesubclass: i32, interfaceprotocol: i32) -> *mut USB_INTERFACE_DESCRIPTOR;
         }
         ::std::mem::transmute(WinUsb_ParseConfigurationDescriptor(
             ::std::mem::transmute(configurationdescriptor),
@@ -5604,563 +5035,266 @@ pub unsafe fn WinUsb_ParseConfigurationDescriptor(
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn WinUsb_ParseDescriptors(
-    descriptorbuffer: *const ::std::ffi::c_void,
-    totallength: u32,
-    startposition: *const ::std::ffi::c_void,
-    descriptortype: i32,
-) -> *mut USB_COMMON_DESCRIPTOR {
+pub unsafe fn WinUsb_ParseDescriptors(descriptorbuffer: *const ::std::ffi::c_void, totallength: u32, startposition: *const ::std::ffi::c_void, descriptortype: i32) -> *mut USB_COMMON_DESCRIPTOR {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_ParseDescriptors(
-                descriptorbuffer: *const ::std::ffi::c_void,
-                totallength: u32,
-                startposition: *const ::std::ffi::c_void,
-                descriptortype: i32,
-            ) -> *mut USB_COMMON_DESCRIPTOR;
+            fn WinUsb_ParseDescriptors(descriptorbuffer: *const ::std::ffi::c_void, totallength: u32, startposition: *const ::std::ffi::c_void, descriptortype: i32) -> *mut USB_COMMON_DESCRIPTOR;
         }
-        ::std::mem::transmute(WinUsb_ParseDescriptors(
-            ::std::mem::transmute(descriptorbuffer),
-            ::std::mem::transmute(totallength),
-            ::std::mem::transmute(startposition),
-            ::std::mem::transmute(descriptortype),
-        ))
+        ::std::mem::transmute(WinUsb_ParseDescriptors(::std::mem::transmute(descriptorbuffer), ::std::mem::transmute(totallength), ::std::mem::transmute(startposition), ::std::mem::transmute(descriptortype)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_QueryDeviceInformation(
-    interfacehandle: *const ::std::ffi::c_void,
-    informationtype: u32,
-    bufferlength: *mut u32,
-    buffer: *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_QueryDeviceInformation(interfacehandle: *const ::std::ffi::c_void, informationtype: u32, bufferlength: *mut u32, buffer: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_QueryDeviceInformation(
-                interfacehandle: *const ::std::ffi::c_void,
-                informationtype: u32,
-                bufferlength: *mut u32,
-                buffer: *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_QueryDeviceInformation(interfacehandle: *const ::std::ffi::c_void, informationtype: u32, bufferlength: *mut u32, buffer: *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_QueryDeviceInformation(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(informationtype),
-            ::std::mem::transmute(bufferlength),
-            ::std::mem::transmute(buffer),
-        ))
+        ::std::mem::transmute(WinUsb_QueryDeviceInformation(::std::mem::transmute(interfacehandle), ::std::mem::transmute(informationtype), ::std::mem::transmute(bufferlength), ::std::mem::transmute(buffer)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_QueryInterfaceSettings(
-    interfacehandle: *const ::std::ffi::c_void,
-    alternateinterfacenumber: u8,
-    usbaltinterfacedescriptor: *mut USB_INTERFACE_DESCRIPTOR,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_QueryInterfaceSettings(interfacehandle: *const ::std::ffi::c_void, alternateinterfacenumber: u8, usbaltinterfacedescriptor: *mut USB_INTERFACE_DESCRIPTOR) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_QueryInterfaceSettings(
-                interfacehandle: *const ::std::ffi::c_void,
-                alternateinterfacenumber: u8,
-                usbaltinterfacedescriptor: *mut USB_INTERFACE_DESCRIPTOR,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_QueryInterfaceSettings(interfacehandle: *const ::std::ffi::c_void, alternateinterfacenumber: u8, usbaltinterfacedescriptor: *mut USB_INTERFACE_DESCRIPTOR) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_QueryInterfaceSettings(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(alternateinterfacenumber),
-            ::std::mem::transmute(usbaltinterfacedescriptor),
-        ))
+        ::std::mem::transmute(WinUsb_QueryInterfaceSettings(::std::mem::transmute(interfacehandle), ::std::mem::transmute(alternateinterfacenumber), ::std::mem::transmute(usbaltinterfacedescriptor)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_QueryPipe(
-    interfacehandle: *const ::std::ffi::c_void,
-    alternateinterfacenumber: u8,
-    pipeindex: u8,
-    pipeinformation: *mut WINUSB_PIPE_INFORMATION,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_QueryPipe(interfacehandle: *const ::std::ffi::c_void, alternateinterfacenumber: u8, pipeindex: u8, pipeinformation: *mut WINUSB_PIPE_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_QueryPipe(
-                interfacehandle: *const ::std::ffi::c_void,
-                alternateinterfacenumber: u8,
-                pipeindex: u8,
-                pipeinformation: *mut WINUSB_PIPE_INFORMATION,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_QueryPipe(interfacehandle: *const ::std::ffi::c_void, alternateinterfacenumber: u8, pipeindex: u8, pipeinformation: *mut WINUSB_PIPE_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_QueryPipe(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(alternateinterfacenumber),
-            ::std::mem::transmute(pipeindex),
-            ::std::mem::transmute(pipeinformation),
-        ))
+        ::std::mem::transmute(WinUsb_QueryPipe(::std::mem::transmute(interfacehandle), ::std::mem::transmute(alternateinterfacenumber), ::std::mem::transmute(pipeindex), ::std::mem::transmute(pipeinformation)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_QueryPipeEx(
-    interfacehandle: *const ::std::ffi::c_void,
-    alternatesettingnumber: u8,
-    pipeindex: u8,
-    pipeinformationex: *mut WINUSB_PIPE_INFORMATION_EX,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_QueryPipeEx(interfacehandle: *const ::std::ffi::c_void, alternatesettingnumber: u8, pipeindex: u8, pipeinformationex: *mut WINUSB_PIPE_INFORMATION_EX) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_QueryPipeEx(
-                interfacehandle: *const ::std::ffi::c_void,
-                alternatesettingnumber: u8,
-                pipeindex: u8,
-                pipeinformationex: *mut WINUSB_PIPE_INFORMATION_EX,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_QueryPipeEx(interfacehandle: *const ::std::ffi::c_void, alternatesettingnumber: u8, pipeindex: u8, pipeinformationex: *mut WINUSB_PIPE_INFORMATION_EX) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_QueryPipeEx(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(alternatesettingnumber),
-            ::std::mem::transmute(pipeindex),
-            ::std::mem::transmute(pipeinformationex),
-        ))
+        ::std::mem::transmute(WinUsb_QueryPipeEx(::std::mem::transmute(interfacehandle), ::std::mem::transmute(alternatesettingnumber), ::std::mem::transmute(pipeindex), ::std::mem::transmute(pipeinformationex)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_ReadIsochPipe(
-    bufferhandle: *const ::std::ffi::c_void,
-    offset: u32,
-    length: u32,
-    framenumber: *mut u32,
-    numberofpackets: u32,
-    isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR,
-    overlapped: *const super::super::System::IO::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_ReadIsochPipe(bufferhandle: *const ::std::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, numberofpackets: u32, isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_ReadIsochPipe(
-                bufferhandle: *const ::std::ffi::c_void,
-                offset: u32,
-                length: u32,
-                framenumber: *mut u32,
-                numberofpackets: u32,
-                isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR,
-                overlapped: *const super::super::System::IO::OVERLAPPED,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_ReadIsochPipe(bufferhandle: *const ::std::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, numberofpackets: u32, isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_ReadIsochPipe(
-            ::std::mem::transmute(bufferhandle),
-            ::std::mem::transmute(offset),
-            ::std::mem::transmute(length),
-            ::std::mem::transmute(framenumber),
-            ::std::mem::transmute(numberofpackets),
-            ::std::mem::transmute(isopacketdescriptors),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(WinUsb_ReadIsochPipe(::std::mem::transmute(bufferhandle), ::std::mem::transmute(offset), ::std::mem::transmute(length), ::std::mem::transmute(framenumber), ::std::mem::transmute(numberofpackets), ::std::mem::transmute(isopacketdescriptors), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_ReadIsochPipeAsap<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    bufferhandle: *const ::std::ffi::c_void,
-    offset: u32,
-    length: u32,
-    continuestream: Param3,
-    numberofpackets: u32,
-    isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR,
-    overlapped: *const super::super::System::IO::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_ReadIsochPipeAsap<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bufferhandle: *const ::std::ffi::c_void, offset: u32, length: u32, continuestream: Param3, numberofpackets: u32, isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_ReadIsochPipeAsap(
-                bufferhandle: *const ::std::ffi::c_void,
-                offset: u32,
-                length: u32,
-                continuestream: super::super::Foundation::BOOL,
-                numberofpackets: u32,
-                isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR,
-                overlapped: *const super::super::System::IO::OVERLAPPED,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_ReadIsochPipeAsap(bufferhandle: *const ::std::ffi::c_void, offset: u32, length: u32, continuestream: super::super::Foundation::BOOL, numberofpackets: u32, isopacketdescriptors: *mut USBD_ISO_PACKET_DESCRIPTOR, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_ReadIsochPipeAsap(
-            ::std::mem::transmute(bufferhandle),
-            ::std::mem::transmute(offset),
-            ::std::mem::transmute(length),
-            continuestream.into_param().abi(),
-            ::std::mem::transmute(numberofpackets),
-            ::std::mem::transmute(isopacketdescriptors),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(WinUsb_ReadIsochPipeAsap(::std::mem::transmute(bufferhandle), ::std::mem::transmute(offset), ::std::mem::transmute(length), continuestream.into_param().abi(), ::std::mem::transmute(numberofpackets), ::std::mem::transmute(isopacketdescriptors), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_ReadPipe(
-    interfacehandle: *const ::std::ffi::c_void,
-    pipeid: u8,
-    buffer: *mut u8,
-    bufferlength: u32,
-    lengthtransferred: *mut u32,
-    overlapped: *const super::super::System::IO::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_ReadPipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_ReadPipe(
-                interfacehandle: *const ::std::ffi::c_void,
-                pipeid: u8,
-                buffer: *mut u8,
-                bufferlength: u32,
-                lengthtransferred: *mut u32,
-                overlapped: *const super::super::System::IO::OVERLAPPED,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_ReadPipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, buffer: *mut u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_ReadPipe(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(pipeid),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-            ::std::mem::transmute(lengthtransferred),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(WinUsb_ReadPipe(::std::mem::transmute(interfacehandle), ::std::mem::transmute(pipeid), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength), ::std::mem::transmute(lengthtransferred), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_RegisterIsochBuffer(
-    interfacehandle: *const ::std::ffi::c_void,
-    pipeid: u8,
-    buffer: *mut u8,
-    bufferlength: u32,
-    isochbufferhandle: *mut *mut ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_RegisterIsochBuffer(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, buffer: *mut u8, bufferlength: u32, isochbufferhandle: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_RegisterIsochBuffer(
-                interfacehandle: *const ::std::ffi::c_void,
-                pipeid: u8,
-                buffer: *mut u8,
-                bufferlength: u32,
-                isochbufferhandle: *mut *mut ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_RegisterIsochBuffer(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, buffer: *mut u8, bufferlength: u32, isochbufferhandle: *mut *mut ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_RegisterIsochBuffer(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(pipeid),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-            ::std::mem::transmute(isochbufferhandle),
-        ))
+        ::std::mem::transmute(WinUsb_RegisterIsochBuffer(::std::mem::transmute(interfacehandle), ::std::mem::transmute(pipeid), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength), ::std::mem::transmute(isochbufferhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_ResetPipe(
-    interfacehandle: *const ::std::ffi::c_void,
-    pipeid: u8,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_ResetPipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_ResetPipe(
-                interfacehandle: *const ::std::ffi::c_void,
-                pipeid: u8,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_ResetPipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_ResetPipe(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(pipeid),
-        ))
+        ::std::mem::transmute(WinUsb_ResetPipe(::std::mem::transmute(interfacehandle), ::std::mem::transmute(pipeid)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_SetCurrentAlternateSetting(
-    interfacehandle: *const ::std::ffi::c_void,
-    settingnumber: u8,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_SetCurrentAlternateSetting(interfacehandle: *const ::std::ffi::c_void, settingnumber: u8) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_SetCurrentAlternateSetting(
-                interfacehandle: *const ::std::ffi::c_void,
-                settingnumber: u8,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_SetCurrentAlternateSetting(interfacehandle: *const ::std::ffi::c_void, settingnumber: u8) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_SetCurrentAlternateSetting(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(settingnumber),
-        ))
+        ::std::mem::transmute(WinUsb_SetCurrentAlternateSetting(::std::mem::transmute(interfacehandle), ::std::mem::transmute(settingnumber)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_SetPipePolicy(
-    interfacehandle: *const ::std::ffi::c_void,
-    pipeid: u8,
-    policytype: u32,
-    valuelength: u32,
-    value: *const ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_SetPipePolicy(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, policytype: u32, valuelength: u32, value: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_SetPipePolicy(
-                interfacehandle: *const ::std::ffi::c_void,
-                pipeid: u8,
-                policytype: u32,
-                valuelength: u32,
-                value: *const ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_SetPipePolicy(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, policytype: u32, valuelength: u32, value: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_SetPipePolicy(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(pipeid),
-            ::std::mem::transmute(policytype),
-            ::std::mem::transmute(valuelength),
-            ::std::mem::transmute(value),
-        ))
+        ::std::mem::transmute(WinUsb_SetPipePolicy(::std::mem::transmute(interfacehandle), ::std::mem::transmute(pipeid), ::std::mem::transmute(policytype), ::std::mem::transmute(valuelength), ::std::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_SetPowerPolicy(
-    interfacehandle: *const ::std::ffi::c_void,
-    policytype: u32,
-    valuelength: u32,
-    value: *const ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_SetPowerPolicy(interfacehandle: *const ::std::ffi::c_void, policytype: u32, valuelength: u32, value: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_SetPowerPolicy(
-                interfacehandle: *const ::std::ffi::c_void,
-                policytype: u32,
-                valuelength: u32,
-                value: *const ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_SetPowerPolicy(interfacehandle: *const ::std::ffi::c_void, policytype: u32, valuelength: u32, value: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_SetPowerPolicy(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(policytype),
-            ::std::mem::transmute(valuelength),
-            ::std::mem::transmute(value),
-        ))
+        ::std::mem::transmute(WinUsb_SetPowerPolicy(::std::mem::transmute(interfacehandle), ::std::mem::transmute(policytype), ::std::mem::transmute(valuelength), ::std::mem::transmute(value)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_StartTrackingForTimeSync(
-    interfacehandle: *const ::std::ffi::c_void,
-    starttrackinginfo: *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_StartTrackingForTimeSync(interfacehandle: *const ::std::ffi::c_void, starttrackinginfo: *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_StartTrackingForTimeSync(
-                interfacehandle: *const ::std::ffi::c_void,
-                starttrackinginfo: *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_StartTrackingForTimeSync(interfacehandle: *const ::std::ffi::c_void, starttrackinginfo: *const USB_START_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_StartTrackingForTimeSync(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(starttrackinginfo),
-        ))
+        ::std::mem::transmute(WinUsb_StartTrackingForTimeSync(::std::mem::transmute(interfacehandle), ::std::mem::transmute(starttrackinginfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_StopTrackingForTimeSync(
-    interfacehandle: *const ::std::ffi::c_void,
-    stoptrackinginfo: *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_StopTrackingForTimeSync(interfacehandle: *const ::std::ffi::c_void, stoptrackinginfo: *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_StopTrackingForTimeSync(
-                interfacehandle: *const ::std::ffi::c_void,
-                stoptrackinginfo: *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_StopTrackingForTimeSync(interfacehandle: *const ::std::ffi::c_void, stoptrackinginfo: *const USB_STOP_TRACKING_FOR_TIME_SYNC_INFORMATION) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_StopTrackingForTimeSync(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(stoptrackinginfo),
-        ))
+        ::std::mem::transmute(WinUsb_StopTrackingForTimeSync(::std::mem::transmute(interfacehandle), ::std::mem::transmute(stoptrackinginfo)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn WinUsb_UnregisterIsochBuffer(
-    isochbufferhandle: *const ::std::ffi::c_void,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_UnregisterIsochBuffer(isochbufferhandle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_UnregisterIsochBuffer(
-                isochbufferhandle: *const ::std::ffi::c_void,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_UnregisterIsochBuffer(isochbufferhandle: *const ::std::ffi::c_void) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_UnregisterIsochBuffer(::std::mem::transmute(
-            isochbufferhandle,
-        )))
+        ::std::mem::transmute(WinUsb_UnregisterIsochBuffer(::std::mem::transmute(isochbufferhandle)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_WriteIsochPipe(
-    bufferhandle: *const ::std::ffi::c_void,
-    offset: u32,
-    length: u32,
-    framenumber: *mut u32,
-    overlapped: *const super::super::System::IO::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_WriteIsochPipe(bufferhandle: *const ::std::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_WriteIsochPipe(
-                bufferhandle: *const ::std::ffi::c_void,
-                offset: u32,
-                length: u32,
-                framenumber: *mut u32,
-                overlapped: *const super::super::System::IO::OVERLAPPED,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_WriteIsochPipe(bufferhandle: *const ::std::ffi::c_void, offset: u32, length: u32, framenumber: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_WriteIsochPipe(
-            ::std::mem::transmute(bufferhandle),
-            ::std::mem::transmute(offset),
-            ::std::mem::transmute(length),
-            ::std::mem::transmute(framenumber),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(WinUsb_WriteIsochPipe(::std::mem::transmute(bufferhandle), ::std::mem::transmute(offset), ::std::mem::transmute(length), ::std::mem::transmute(framenumber), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_WriteIsochPipeAsap<
-    'a,
-    Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    bufferhandle: *const ::std::ffi::c_void,
-    offset: u32,
-    length: u32,
-    continuestream: Param3,
-    overlapped: *const super::super::System::IO::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_WriteIsochPipeAsap<'a, Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>>(bufferhandle: *const ::std::ffi::c_void, offset: u32, length: u32, continuestream: Param3, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_WriteIsochPipeAsap(
-                bufferhandle: *const ::std::ffi::c_void,
-                offset: u32,
-                length: u32,
-                continuestream: super::super::Foundation::BOOL,
-                overlapped: *const super::super::System::IO::OVERLAPPED,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_WriteIsochPipeAsap(bufferhandle: *const ::std::ffi::c_void, offset: u32, length: u32, continuestream: super::super::Foundation::BOOL, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_WriteIsochPipeAsap(
-            ::std::mem::transmute(bufferhandle),
-            ::std::mem::transmute(offset),
-            ::std::mem::transmute(length),
-            continuestream.into_param().abi(),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(WinUsb_WriteIsochPipeAsap(::std::mem::transmute(bufferhandle), ::std::mem::transmute(offset), ::std::mem::transmute(length), continuestream.into_param().abi(), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
-pub unsafe fn WinUsb_WritePipe(
-    interfacehandle: *const ::std::ffi::c_void,
-    pipeid: u8,
-    buffer: *const u8,
-    bufferlength: u32,
-    lengthtransferred: *mut u32,
-    overlapped: *const super::super::System::IO::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn WinUsb_WritePipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, buffer: *const u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn WinUsb_WritePipe(
-                interfacehandle: *const ::std::ffi::c_void,
-                pipeid: u8,
-                buffer: *const u8,
-                bufferlength: u32,
-                lengthtransferred: *mut u32,
-                overlapped: *const super::super::System::IO::OVERLAPPED,
-            ) -> super::super::Foundation::BOOL;
+            fn WinUsb_WritePipe(interfacehandle: *const ::std::ffi::c_void, pipeid: u8, buffer: *const u8, bufferlength: u32, lengthtransferred: *mut u32, overlapped: *const super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(WinUsb_WritePipe(
-            ::std::mem::transmute(interfacehandle),
-            ::std::mem::transmute(pipeid),
-            ::std::mem::transmute(buffer),
-            ::std::mem::transmute(bufferlength),
-            ::std::mem::transmute(lengthtransferred),
-            ::std::mem::transmute(overlapped),
-        ))
+        ::std::mem::transmute(WinUsb_WritePipe(::std::mem::transmute(interfacehandle), ::std::mem::transmute(pipeid), ::std::mem::transmute(buffer), ::std::mem::transmute(bufferlength), ::std::mem::transmute(lengthtransferred), ::std::mem::transmute(overlapped)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6199,14 +5333,7 @@ impl ::std::fmt::Debug for _URB_BULK_OR_INTERRUPT_TRANSFER {
 }
 impl ::std::cmp::PartialEq for _URB_BULK_OR_INTERRUPT_TRANSFER {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.PipeHandle == other.PipeHandle
-            && self.TransferFlags == other.TransferFlags
-            && self.TransferBufferLength == other.TransferBufferLength
-            && self.TransferBuffer == other.TransferBuffer
-            && self.TransferBufferMDL == other.TransferBufferMDL
-            && self.UrbLink == other.UrbLink
-            && self.hca == other.hca
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.TransferFlags == other.TransferFlags && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca
     }
 }
 impl ::std::cmp::Eq for _URB_BULK_OR_INTERRUPT_TRANSFER {}
@@ -6320,18 +5447,7 @@ impl ::std::fmt::Debug for _URB_CONTROL_FEATURE_REQUEST {
 }
 impl ::std::cmp::PartialEq for _URB_CONTROL_FEATURE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.Reserved == other.Reserved
-            && self.Reserved2 == other.Reserved2
-            && self.Reserved3 == other.Reserved3
-            && self.Reserved4 == other.Reserved4
-            && self.Reserved5 == other.Reserved5
-            && self.UrbLink == other.UrbLink
-            && self.hca == other.hca
-            && self.Reserved0 == other.Reserved0
-            && self.FeatureSelector == other.FeatureSelector
-            && self.Index == other.Index
-            && self.Reserved1 == other.Reserved1
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4 && self.Reserved5 == other.Reserved5 && self.UrbLink == other.UrbLink && self.hca == other.hca && self.Reserved0 == other.Reserved0 && self.FeatureSelector == other.FeatureSelector && self.Index == other.Index && self.Reserved1 == other.Reserved1
     }
 }
 impl ::std::cmp::Eq for _URB_CONTROL_FEATURE_REQUEST {}
@@ -6375,15 +5491,7 @@ impl ::std::fmt::Debug for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
 }
 impl ::std::cmp::PartialEq for _URB_CONTROL_GET_CONFIGURATION_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.Reserved == other.Reserved
-            && self.Reserved0 == other.Reserved0
-            && self.TransferBufferLength == other.TransferBufferLength
-            && self.TransferBuffer == other.TransferBuffer
-            && self.TransferBufferMDL == other.TransferBufferMDL
-            && self.UrbLink == other.UrbLink
-            && self.hca == other.hca
-            && self.Reserved1 == other.Reserved1
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.Reserved0 == other.Reserved0 && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.Reserved1 == other.Reserved1
     }
 }
 impl ::std::cmp::Eq for _URB_CONTROL_GET_CONFIGURATION_REQUEST {}
@@ -6431,17 +5539,7 @@ impl ::std::fmt::Debug for _URB_CONTROL_GET_INTERFACE_REQUEST {
 }
 impl ::std::cmp::PartialEq for _URB_CONTROL_GET_INTERFACE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.Reserved == other.Reserved
-            && self.Reserved0 == other.Reserved0
-            && self.TransferBufferLength == other.TransferBufferLength
-            && self.TransferBuffer == other.TransferBuffer
-            && self.TransferBufferMDL == other.TransferBufferMDL
-            && self.UrbLink == other.UrbLink
-            && self.hca == other.hca
-            && self.Reserved1 == other.Reserved1
-            && self.Interface == other.Interface
-            && self.Reserved2 == other.Reserved2
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.Reserved0 == other.Reserved0 && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.Reserved1 == other.Reserved1 && self.Interface == other.Interface && self.Reserved2 == other.Reserved2
     }
 }
 impl ::std::cmp::Eq for _URB_CONTROL_GET_INTERFACE_REQUEST {}
@@ -6489,17 +5587,7 @@ impl ::std::fmt::Debug for _URB_CONTROL_GET_STATUS_REQUEST {
 }
 impl ::std::cmp::PartialEq for _URB_CONTROL_GET_STATUS_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.Reserved == other.Reserved
-            && self.Reserved0 == other.Reserved0
-            && self.TransferBufferLength == other.TransferBufferLength
-            && self.TransferBuffer == other.TransferBuffer
-            && self.TransferBufferMDL == other.TransferBufferMDL
-            && self.UrbLink == other.UrbLink
-            && self.hca == other.hca
-            && self.Reserved1 == other.Reserved1
-            && self.Index == other.Index
-            && self.Reserved2 == other.Reserved2
+        self.Hdr == other.Hdr && self.Reserved == other.Reserved && self.Reserved0 == other.Reserved0 && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.Reserved1 == other.Reserved1 && self.Index == other.Index && self.Reserved2 == other.Reserved2
     }
 }
 impl ::std::cmp::Eq for _URB_CONTROL_GET_STATUS_REQUEST {}
@@ -6543,15 +5631,7 @@ impl ::std::fmt::Debug for _URB_CONTROL_TRANSFER {
 }
 impl ::std::cmp::PartialEq for _URB_CONTROL_TRANSFER {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.PipeHandle == other.PipeHandle
-            && self.TransferFlags == other.TransferFlags
-            && self.TransferBufferLength == other.TransferBufferLength
-            && self.TransferBuffer == other.TransferBuffer
-            && self.TransferBufferMDL == other.TransferBufferMDL
-            && self.UrbLink == other.UrbLink
-            && self.hca == other.hca
-            && self.SetupPacket == other.SetupPacket
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.TransferFlags == other.TransferFlags && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.SetupPacket == other.SetupPacket
     }
 }
 impl ::std::cmp::Eq for _URB_CONTROL_TRANSFER {}
@@ -6595,15 +5675,7 @@ impl ::std::fmt::Debug for _URB_CONTROL_TRANSFER_EX {
 }
 impl ::std::cmp::PartialEq for _URB_CONTROL_TRANSFER_EX {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.PipeHandle == other.PipeHandle
-            && self.TransferFlags == other.TransferFlags
-            && self.TransferBufferLength == other.TransferBufferLength
-            && self.TransferBuffer == other.TransferBuffer
-            && self.TransferBufferMDL == other.TransferBufferMDL
-            && self.Timeout == other.Timeout
-            && self.hca == other.hca
-            && self.SetupPacket == other.SetupPacket
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.TransferFlags == other.TransferFlags && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.Timeout == other.Timeout && self.hca == other.hca && self.SetupPacket == other.SetupPacket
     }
 }
 impl ::std::cmp::Eq for _URB_CONTROL_TRANSFER_EX {}
@@ -6688,9 +5760,7 @@ impl ::std::default::Default for _URB_FRAME_LENGTH_CONTROL {
 }
 impl ::std::fmt::Debug for _URB_FRAME_LENGTH_CONTROL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_URB_FRAME_LENGTH_CONTROL")
-            .field("Hdr", &self.Hdr)
-            .finish()
+        fmt.debug_struct("_URB_FRAME_LENGTH_CONTROL").field("Hdr", &self.Hdr).finish()
     }
 }
 impl ::std::cmp::PartialEq for _URB_FRAME_LENGTH_CONTROL {
@@ -6717,10 +5787,7 @@ impl ::std::default::Default for _URB_GET_CURRENT_FRAME_NUMBER {
 }
 impl ::std::fmt::Debug for _URB_GET_CURRENT_FRAME_NUMBER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_URB_GET_CURRENT_FRAME_NUMBER")
-            .field("Hdr", &self.Hdr)
-            .field("FrameNumber", &self.FrameNumber)
-            .finish()
+        fmt.debug_struct("_URB_GET_CURRENT_FRAME_NUMBER").field("Hdr", &self.Hdr).field("FrameNumber", &self.FrameNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for _URB_GET_CURRENT_FRAME_NUMBER {
@@ -6748,18 +5815,12 @@ impl ::std::default::Default for _URB_GET_FRAME_LENGTH {
 }
 impl ::std::fmt::Debug for _URB_GET_FRAME_LENGTH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_URB_GET_FRAME_LENGTH")
-            .field("Hdr", &self.Hdr)
-            .field("FrameLength", &self.FrameLength)
-            .field("FrameNumber", &self.FrameNumber)
-            .finish()
+        fmt.debug_struct("_URB_GET_FRAME_LENGTH").field("Hdr", &self.Hdr).field("FrameLength", &self.FrameLength).field("FrameNumber", &self.FrameNumber).finish()
     }
 }
 impl ::std::cmp::PartialEq for _URB_GET_FRAME_LENGTH {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.FrameLength == other.FrameLength
-            && self.FrameNumber == other.FrameNumber
+        self.Hdr == other.Hdr && self.FrameLength == other.FrameLength && self.FrameNumber == other.FrameNumber
     }
 }
 impl ::std::cmp::Eq for _URB_GET_FRAME_LENGTH {}
@@ -6786,24 +5847,14 @@ impl ::std::fmt::Debug for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
         fmt.debug_struct("_URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS")
             .field("Hdr", &self.Hdr)
             .field("PipeHandle", &self.PipeHandle)
-            .field(
-                "MaximumSendPathDelayInMilliSeconds",
-                &self.MaximumSendPathDelayInMilliSeconds,
-            )
-            .field(
-                "MaximumCompletionPathDelayInMilliSeconds",
-                &self.MaximumCompletionPathDelayInMilliSeconds,
-            )
+            .field("MaximumSendPathDelayInMilliSeconds", &self.MaximumSendPathDelayInMilliSeconds)
+            .field("MaximumCompletionPathDelayInMilliSeconds", &self.MaximumCompletionPathDelayInMilliSeconds)
             .finish()
     }
 }
 impl ::std::cmp::PartialEq for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.PipeHandle == other.PipeHandle
-            && self.MaximumSendPathDelayInMilliSeconds == other.MaximumSendPathDelayInMilliSeconds
-            && self.MaximumCompletionPathDelayInMilliSeconds
-                == other.MaximumCompletionPathDelayInMilliSeconds
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.MaximumSendPathDelayInMilliSeconds == other.MaximumSendPathDelayInMilliSeconds && self.MaximumCompletionPathDelayInMilliSeconds == other.MaximumCompletionPathDelayInMilliSeconds
     }
 }
 impl ::std::cmp::Eq for _URB_GET_ISOCH_PIPE_TRANSFER_PATH_DELAYS {}
@@ -6824,9 +5875,7 @@ impl ::std::default::Default for _URB_HCD_AREA {
 }
 impl ::std::fmt::Debug for _URB_HCD_AREA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_URB_HCD_AREA")
-            .field("Reserved8", &self.Reserved8)
-            .finish()
+        fmt.debug_struct("_URB_HCD_AREA").field("Reserved8", &self.Reserved8).finish()
     }
 }
 impl ::std::cmp::PartialEq for _URB_HCD_AREA {
@@ -6856,22 +5905,12 @@ impl ::std::default::Default for _URB_HEADER {
 }
 impl ::std::fmt::Debug for _URB_HEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_URB_HEADER")
-            .field("Length", &self.Length)
-            .field("Function", &self.Function)
-            .field("Status", &self.Status)
-            .field("UsbdDeviceHandle", &self.UsbdDeviceHandle)
-            .field("UsbdFlags", &self.UsbdFlags)
-            .finish()
+        fmt.debug_struct("_URB_HEADER").field("Length", &self.Length).field("Function", &self.Function).field("Status", &self.Status).field("UsbdDeviceHandle", &self.UsbdDeviceHandle).field("UsbdFlags", &self.UsbdFlags).finish()
     }
 }
 impl ::std::cmp::PartialEq for _URB_HEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-            && self.Function == other.Function
-            && self.Status == other.Status
-            && self.UsbdDeviceHandle == other.UsbdDeviceHandle
-            && self.UsbdFlags == other.UsbdFlags
+        self.Length == other.Length && self.Function == other.Function && self.Status == other.Status && self.UsbdDeviceHandle == other.UsbdDeviceHandle && self.UsbdFlags == other.UsbdFlags
     }
 }
 impl ::std::cmp::Eq for _URB_HEADER {}
@@ -6921,18 +5960,7 @@ impl ::std::fmt::Debug for _URB_ISOCH_TRANSFER {
 }
 impl ::std::cmp::PartialEq for _URB_ISOCH_TRANSFER {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.PipeHandle == other.PipeHandle
-            && self.TransferFlags == other.TransferFlags
-            && self.TransferBufferLength == other.TransferBufferLength
-            && self.TransferBuffer == other.TransferBuffer
-            && self.TransferBufferMDL == other.TransferBufferMDL
-            && self.UrbLink == other.UrbLink
-            && self.hca == other.hca
-            && self.StartFrame == other.StartFrame
-            && self.NumberOfPackets == other.NumberOfPackets
-            && self.ErrorCount == other.ErrorCount
-            && self.IsoPacket == other.IsoPacket
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.TransferFlags == other.TransferFlags && self.TransferBufferLength == other.TransferBufferLength && self.TransferBuffer == other.TransferBuffer && self.TransferBufferMDL == other.TransferBufferMDL && self.UrbLink == other.UrbLink && self.hca == other.hca && self.StartFrame == other.StartFrame && self.NumberOfPackets == other.NumberOfPackets && self.ErrorCount == other.ErrorCount && self.IsoPacket == other.IsoPacket
     }
 }
 impl ::std::cmp::Eq for _URB_ISOCH_TRANSFER {}
@@ -6958,24 +5986,12 @@ impl ::std::default::Default for _URB_OPEN_STATIC_STREAMS {
 }
 impl ::std::fmt::Debug for _URB_OPEN_STATIC_STREAMS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_URB_OPEN_STATIC_STREAMS")
-            .field("Hdr", &self.Hdr)
-            .field("PipeHandle", &self.PipeHandle)
-            .field("NumberOfStreams", &self.NumberOfStreams)
-            .field("StreamInfoVersion", &self.StreamInfoVersion)
-            .field("StreamInfoSize", &self.StreamInfoSize)
-            .field("Streams", &self.Streams)
-            .finish()
+        fmt.debug_struct("_URB_OPEN_STATIC_STREAMS").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("NumberOfStreams", &self.NumberOfStreams).field("StreamInfoVersion", &self.StreamInfoVersion).field("StreamInfoSize", &self.StreamInfoSize).field("Streams", &self.Streams).finish()
     }
 }
 impl ::std::cmp::PartialEq for _URB_OPEN_STATIC_STREAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.PipeHandle == other.PipeHandle
-            && self.NumberOfStreams == other.NumberOfStreams
-            && self.StreamInfoVersion == other.StreamInfoVersion
-            && self.StreamInfoSize == other.StreamInfoSize
-            && self.Streams == other.Streams
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.NumberOfStreams == other.NumberOfStreams && self.StreamInfoVersion == other.StreamInfoVersion && self.StreamInfoSize == other.StreamInfoSize && self.Streams == other.Streams
     }
 }
 impl ::std::cmp::Eq for _URB_OPEN_STATIC_STREAMS {}
@@ -7065,18 +6081,12 @@ impl ::std::default::Default for _URB_PIPE_REQUEST {
 }
 impl ::std::fmt::Debug for _URB_PIPE_REQUEST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_URB_PIPE_REQUEST")
-            .field("Hdr", &self.Hdr)
-            .field("PipeHandle", &self.PipeHandle)
-            .field("Reserved", &self.Reserved)
-            .finish()
+        fmt.debug_struct("_URB_PIPE_REQUEST").field("Hdr", &self.Hdr).field("PipeHandle", &self.PipeHandle).field("Reserved", &self.Reserved).finish()
     }
 }
 impl ::std::cmp::PartialEq for _URB_PIPE_REQUEST {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.PipeHandle == other.PipeHandle
-            && self.Reserved == other.Reserved
+        self.Hdr == other.Hdr && self.PipeHandle == other.PipeHandle && self.Reserved == other.Reserved
     }
 }
 impl ::std::cmp::Eq for _URB_PIPE_REQUEST {}
@@ -7100,20 +6110,12 @@ impl ::std::default::Default for _URB_SELECT_CONFIGURATION {
 }
 impl ::std::fmt::Debug for _URB_SELECT_CONFIGURATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_URB_SELECT_CONFIGURATION")
-            .field("Hdr", &self.Hdr)
-            .field("ConfigurationDescriptor", &self.ConfigurationDescriptor)
-            .field("ConfigurationHandle", &self.ConfigurationHandle)
-            .field("Interface", &self.Interface)
-            .finish()
+        fmt.debug_struct("_URB_SELECT_CONFIGURATION").field("Hdr", &self.Hdr).field("ConfigurationDescriptor", &self.ConfigurationDescriptor).field("ConfigurationHandle", &self.ConfigurationHandle).field("Interface", &self.Interface).finish()
     }
 }
 impl ::std::cmp::PartialEq for _URB_SELECT_CONFIGURATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.ConfigurationDescriptor == other.ConfigurationDescriptor
-            && self.ConfigurationHandle == other.ConfigurationHandle
-            && self.Interface == other.Interface
+        self.Hdr == other.Hdr && self.ConfigurationDescriptor == other.ConfigurationDescriptor && self.ConfigurationHandle == other.ConfigurationHandle && self.Interface == other.Interface
     }
 }
 impl ::std::cmp::Eq for _URB_SELECT_CONFIGURATION {}
@@ -7136,18 +6138,12 @@ impl ::std::default::Default for _URB_SELECT_INTERFACE {
 }
 impl ::std::fmt::Debug for _URB_SELECT_INTERFACE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_URB_SELECT_INTERFACE")
-            .field("Hdr", &self.Hdr)
-            .field("ConfigurationHandle", &self.ConfigurationHandle)
-            .field("Interface", &self.Interface)
-            .finish()
+        fmt.debug_struct("_URB_SELECT_INTERFACE").field("Hdr", &self.Hdr).field("ConfigurationHandle", &self.ConfigurationHandle).field("Interface", &self.Interface).finish()
     }
 }
 impl ::std::cmp::PartialEq for _URB_SELECT_INTERFACE {
     fn eq(&self, other: &Self) -> bool {
-        self.Hdr == other.Hdr
-            && self.ConfigurationHandle == other.ConfigurationHandle
-            && self.Interface == other.Interface
+        self.Hdr == other.Hdr && self.ConfigurationHandle == other.ConfigurationHandle && self.Interface == other.Interface
     }
 }
 impl ::std::cmp::Eq for _URB_SELECT_INTERFACE {}
@@ -7169,10 +6165,7 @@ impl ::std::default::Default for _URB_SET_FRAME_LENGTH {
 }
 impl ::std::fmt::Debug for _URB_SET_FRAME_LENGTH {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_URB_SET_FRAME_LENGTH")
-            .field("Hdr", &self.Hdr)
-            .field("FrameLengthDelta", &self.FrameLengthDelta)
-            .finish()
+        fmt.debug_struct("_URB_SET_FRAME_LENGTH").field("Hdr", &self.Hdr).field("FrameLengthDelta", &self.FrameLengthDelta).finish()
     }
 }
 impl ::std::cmp::PartialEq for _URB_SET_FRAME_LENGTH {

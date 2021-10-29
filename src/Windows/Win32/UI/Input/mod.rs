@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[cfg(feature = "Win32_UI_Input_Ime")]
 pub mod Ime;
 #[cfg(feature = "Win32_UI_Input_Ink")]
@@ -23,42 +15,26 @@ pub mod Touch;
 pub mod XboxController;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn DefRawInputProc(
-    parawinput: *const *const RAWINPUT,
-    ninput: i32,
-    cbsizeheader: u32,
-) -> super::super::Foundation::LRESULT {
+pub unsafe fn DefRawInputProc(parawinput: *const *const RAWINPUT, ninput: i32, cbsizeheader: u32) -> super::super::Foundation::LRESULT {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn DefRawInputProc(
-                parawinput: *const *const RAWINPUT,
-                ninput: i32,
-                cbsizeheader: u32,
-            ) -> super::super::Foundation::LRESULT;
+            fn DefRawInputProc(parawinput: *const *const RAWINPUT, ninput: i32, cbsizeheader: u32) -> super::super::Foundation::LRESULT;
         }
-        ::std::mem::transmute(DefRawInputProc(
-            ::std::mem::transmute(parawinput),
-            ::std::mem::transmute(ninput),
-            ::std::mem::transmute(cbsizeheader),
-        ))
+        ::std::mem::transmute(DefRawInputProc(::std::mem::transmute(parawinput), ::std::mem::transmute(ninput), ::std::mem::transmute(cbsizeheader)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCIMSSM(
-    inputmessagesource: *mut INPUT_MESSAGE_SOURCE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCIMSSM(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetCIMSSM(
-                inputmessagesource: *mut INPUT_MESSAGE_SOURCE,
-            ) -> super::super::Foundation::BOOL;
+            fn GetCIMSSM(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetCIMSSM(::std::mem::transmute(inputmessagesource)))
     }
@@ -67,20 +43,14 @@ pub unsafe fn GetCIMSSM(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetCurrentInputMessageSource(
-    inputmessagesource: *mut INPUT_MESSAGE_SOURCE,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn GetCurrentInputMessageSource(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetCurrentInputMessageSource(
-                inputmessagesource: *mut INPUT_MESSAGE_SOURCE,
-            ) -> super::super::Foundation::BOOL;
+            fn GetCurrentInputMessageSource(inputmessagesource: *mut INPUT_MESSAGE_SOURCE) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(GetCurrentInputMessageSource(::std::mem::transmute(
-            inputmessagesource,
-        )))
+        ::std::mem::transmute(GetCurrentInputMessageSource(::std::mem::transmute(inputmessagesource)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -92,172 +62,83 @@ pub unsafe fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeh
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeheader: u32)
-                -> u32;
+            fn GetRawInputBuffer(pdata: *mut RAWINPUT, pcbsize: *mut u32, cbsizeheader: u32) -> u32;
         }
-        ::std::mem::transmute(GetRawInputBuffer(
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pcbsize),
-            ::std::mem::transmute(cbsizeheader),
-        ))
+        ::std::mem::transmute(GetRawInputBuffer(::std::mem::transmute(pdata), ::std::mem::transmute(pcbsize), ::std::mem::transmute(cbsizeheader)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[inline]
-pub unsafe fn GetRawInputData<'a, Param0: ::windows::runtime::IntoParam<'a, HRAWINPUT>>(
-    hrawinput: Param0,
-    uicommand: RAW_INPUT_DATA_COMMAND_FLAGS,
-    pdata: *mut ::std::ffi::c_void,
-    pcbsize: *mut u32,
-    cbsizeheader: u32,
-) -> u32 {
+pub unsafe fn GetRawInputData<'a, Param0: ::windows::runtime::IntoParam<'a, HRAWINPUT>>(hrawinput: Param0, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: *mut ::std::ffi::c_void, pcbsize: *mut u32, cbsizeheader: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetRawInputData(
-                hrawinput: HRAWINPUT,
-                uicommand: RAW_INPUT_DATA_COMMAND_FLAGS,
-                pdata: *mut ::std::ffi::c_void,
-                pcbsize: *mut u32,
-                cbsizeheader: u32,
-            ) -> u32;
+            fn GetRawInputData(hrawinput: HRAWINPUT, uicommand: RAW_INPUT_DATA_COMMAND_FLAGS, pdata: *mut ::std::ffi::c_void, pcbsize: *mut u32, cbsizeheader: u32) -> u32;
         }
-        ::std::mem::transmute(GetRawInputData(
-            hrawinput.into_param().abi(),
-            ::std::mem::transmute(uicommand),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pcbsize),
-            ::std::mem::transmute(cbsizeheader),
-        ))
+        ::std::mem::transmute(GetRawInputData(hrawinput.into_param().abi(), ::std::mem::transmute(uicommand), ::std::mem::transmute(pdata), ::std::mem::transmute(pcbsize), ::std::mem::transmute(cbsizeheader)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRawInputDeviceInfoA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hdevice: Param0,
-    uicommand: RAW_INPUT_DEVICE_INFO_COMMAND,
-    pdata: *mut ::std::ffi::c_void,
-    pcbsize: *mut u32,
-) -> u32 {
+pub unsafe fn GetRawInputDeviceInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::std::ffi::c_void, pcbsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetRawInputDeviceInfoA(
-                hdevice: super::super::Foundation::HANDLE,
-                uicommand: RAW_INPUT_DEVICE_INFO_COMMAND,
-                pdata: *mut ::std::ffi::c_void,
-                pcbsize: *mut u32,
-            ) -> u32;
+            fn GetRawInputDeviceInfoA(hdevice: super::super::Foundation::HANDLE, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::std::ffi::c_void, pcbsize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetRawInputDeviceInfoA(
-            hdevice.into_param().abi(),
-            ::std::mem::transmute(uicommand),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pcbsize),
-        ))
+        ::std::mem::transmute(GetRawInputDeviceInfoA(hdevice.into_param().abi(), ::std::mem::transmute(uicommand), ::std::mem::transmute(pdata), ::std::mem::transmute(pcbsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRawInputDeviceInfoW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hdevice: Param0,
-    uicommand: RAW_INPUT_DEVICE_INFO_COMMAND,
-    pdata: *mut ::std::ffi::c_void,
-    pcbsize: *mut u32,
-) -> u32 {
+pub unsafe fn GetRawInputDeviceInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::std::ffi::c_void, pcbsize: *mut u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetRawInputDeviceInfoW(
-                hdevice: super::super::Foundation::HANDLE,
-                uicommand: RAW_INPUT_DEVICE_INFO_COMMAND,
-                pdata: *mut ::std::ffi::c_void,
-                pcbsize: *mut u32,
-            ) -> u32;
+            fn GetRawInputDeviceInfoW(hdevice: super::super::Foundation::HANDLE, uicommand: RAW_INPUT_DEVICE_INFO_COMMAND, pdata: *mut ::std::ffi::c_void, pcbsize: *mut u32) -> u32;
         }
-        ::std::mem::transmute(GetRawInputDeviceInfoW(
-            hdevice.into_param().abi(),
-            ::std::mem::transmute(uicommand),
-            ::std::mem::transmute(pdata),
-            ::std::mem::transmute(pcbsize),
-        ))
+        ::std::mem::transmute(GetRawInputDeviceInfoW(hdevice.into_param().abi(), ::std::mem::transmute(uicommand), ::std::mem::transmute(pdata), ::std::mem::transmute(pcbsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRawInputDeviceList(
-    prawinputdevicelist: *mut RAWINPUTDEVICELIST,
-    puinumdevices: *mut u32,
-    cbsize: u32,
-) -> u32 {
+pub unsafe fn GetRawInputDeviceList(prawinputdevicelist: *mut RAWINPUTDEVICELIST, puinumdevices: *mut u32, cbsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetRawInputDeviceList(
-                prawinputdevicelist: *mut RAWINPUTDEVICELIST,
-                puinumdevices: *mut u32,
-                cbsize: u32,
-            ) -> u32;
+            fn GetRawInputDeviceList(prawinputdevicelist: *mut RAWINPUTDEVICELIST, puinumdevices: *mut u32, cbsize: u32) -> u32;
         }
-        ::std::mem::transmute(GetRawInputDeviceList(
-            ::std::mem::transmute(prawinputdevicelist),
-            ::std::mem::transmute(puinumdevices),
-            ::std::mem::transmute(cbsize),
-        ))
+        ::std::mem::transmute(GetRawInputDeviceList(::std::mem::transmute(prawinputdevicelist), ::std::mem::transmute(puinumdevices), ::std::mem::transmute(cbsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetRegisteredRawInputDevices(
-    prawinputdevices: *mut RAWINPUTDEVICE,
-    puinumdevices: *mut u32,
-    cbsize: u32,
-) -> u32 {
+pub unsafe fn GetRegisteredRawInputDevices(prawinputdevices: *mut RAWINPUTDEVICE, puinumdevices: *mut u32, cbsize: u32) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetRegisteredRawInputDevices(
-                prawinputdevices: *mut RAWINPUTDEVICE,
-                puinumdevices: *mut u32,
-                cbsize: u32,
-            ) -> u32;
+            fn GetRegisteredRawInputDevices(prawinputdevices: *mut RAWINPUTDEVICE, puinumdevices: *mut u32, cbsize: u32) -> u32;
         }
-        ::std::mem::transmute(GetRegisteredRawInputDevices(
-            ::std::mem::transmute(prawinputdevices),
-            ::std::mem::transmute(puinumdevices),
-            ::std::mem::transmute(cbsize),
-        ))
+        ::std::mem::transmute(GetRegisteredRawInputDevices(::std::mem::transmute(prawinputdevices), ::std::mem::transmute(puinumdevices), ::std::mem::transmute(cbsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: clone :: Clone,
-    :: std :: marker :: Copy,
-    :: std :: fmt :: Debug,
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-)]
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy, :: std :: fmt :: Debug, :: std :: cmp :: PartialEq, :: std :: cmp :: Eq)]
 #[repr(transparent)]
 pub struct HRAWINPUT(pub isize);
 impl ::std::default::Default for HRAWINPUT {
@@ -270,14 +151,7 @@ unsafe impl ::windows::runtime::Abi for HRAWINPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INPUT_MESSAGE_DEVICE_TYPE(pub i32);
 pub const IMDT_UNAVAILABLE: INPUT_MESSAGE_DEVICE_TYPE = INPUT_MESSAGE_DEVICE_TYPE(0i32);
@@ -295,14 +169,7 @@ unsafe impl ::windows::runtime::Abi for INPUT_MESSAGE_DEVICE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct INPUT_MESSAGE_ORIGIN_ID(pub i32);
 pub const IMO_UNAVAILABLE: INPUT_MESSAGE_ORIGIN_ID = INPUT_MESSAGE_ORIGIN_ID(0i32);
@@ -332,10 +199,7 @@ impl ::std::default::Default for INPUT_MESSAGE_SOURCE {
 }
 impl ::std::fmt::Debug for INPUT_MESSAGE_SOURCE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("INPUT_MESSAGE_SOURCE")
-            .field("deviceType", &self.deviceType)
-            .field("originId", &self.originId)
-            .finish()
+        fmt.debug_struct("INPUT_MESSAGE_SOURCE").field("deviceType", &self.deviceType).field("originId", &self.originId).finish()
     }
 }
 impl ::std::cmp::PartialEq for INPUT_MESSAGE_SOURCE {
@@ -363,18 +227,12 @@ impl ::std::default::Default for RAWHID {
 }
 impl ::std::fmt::Debug for RAWHID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RAWHID")
-            .field("dwSizeHid", &self.dwSizeHid)
-            .field("dwCount", &self.dwCount)
-            .field("bRawData", &self.bRawData)
-            .finish()
+        fmt.debug_struct("RAWHID").field("dwSizeHid", &self.dwSizeHid).field("dwCount", &self.dwCount).field("bRawData", &self.bRawData).finish()
     }
 }
 impl ::std::cmp::PartialEq for RAWHID {
     fn eq(&self, other: &Self) -> bool {
-        self.dwSizeHid == other.dwSizeHid
-            && self.dwCount == other.dwCount
-            && self.bRawData == other.bRawData
+        self.dwSizeHid == other.dwSizeHid && self.dwCount == other.dwCount && self.bRawData == other.bRawData
     }
 }
 impl ::std::cmp::Eq for RAWHID {}
@@ -453,21 +311,13 @@ impl ::std::default::Default for RAWINPUTDEVICE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RAWINPUTDEVICE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RAWINPUTDEVICE")
-            .field("usUsagePage", &self.usUsagePage)
-            .field("usUsage", &self.usUsage)
-            .field("dwFlags", &self.dwFlags)
-            .field("hwndTarget", &self.hwndTarget)
-            .finish()
+        fmt.debug_struct("RAWINPUTDEVICE").field("usUsagePage", &self.usUsagePage).field("usUsage", &self.usUsage).field("dwFlags", &self.dwFlags).field("hwndTarget", &self.hwndTarget).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RAWINPUTDEVICE {
     fn eq(&self, other: &Self) -> bool {
-        self.usUsagePage == other.usUsagePage
-            && self.usUsage == other.usUsage
-            && self.dwFlags == other.dwFlags
-            && self.hwndTarget == other.hwndTarget
+        self.usUsagePage == other.usUsagePage && self.usUsage == other.usUsage && self.dwFlags == other.dwFlags && self.hwndTarget == other.hwndTarget
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -495,10 +345,7 @@ impl ::std::default::Default for RAWINPUTDEVICELIST {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RAWINPUTDEVICELIST {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RAWINPUTDEVICELIST")
-            .field("hDevice", &self.hDevice)
-            .field("dwType", &self.dwType)
-            .finish()
+        fmt.debug_struct("RAWINPUTDEVICELIST").field("hDevice", &self.hDevice).field("dwType", &self.dwType).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -514,14 +361,7 @@ unsafe impl ::windows::runtime::Abi for RAWINPUTDEVICELIST {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RAWINPUTDEVICE_FLAGS(pub u32);
 pub const RIDEV_REMOVE: RAWINPUTDEVICE_FLAGS = RAWINPUTDEVICE_FLAGS(1u32);
@@ -591,21 +431,13 @@ impl ::std::default::Default for RAWINPUTHEADER {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RAWINPUTHEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RAWINPUTHEADER")
-            .field("dwType", &self.dwType)
-            .field("dwSize", &self.dwSize)
-            .field("hDevice", &self.hDevice)
-            .field("wParam", &self.wParam)
-            .finish()
+        fmt.debug_struct("RAWINPUTHEADER").field("dwType", &self.dwType).field("dwSize", &self.dwSize).field("hDevice", &self.hDevice).field("wParam", &self.wParam).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RAWINPUTHEADER {
     fn eq(&self, other: &Self) -> bool {
-        self.dwType == other.dwType
-            && self.dwSize == other.dwSize
-            && self.hDevice == other.hDevice
-            && self.wParam == other.wParam
+        self.dwType == other.dwType && self.dwSize == other.dwSize && self.hDevice == other.hDevice && self.wParam == other.wParam
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -633,24 +465,12 @@ impl ::std::default::Default for RAWKEYBOARD {
 }
 impl ::std::fmt::Debug for RAWKEYBOARD {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RAWKEYBOARD")
-            .field("MakeCode", &self.MakeCode)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("VKey", &self.VKey)
-            .field("Message", &self.Message)
-            .field("ExtraInformation", &self.ExtraInformation)
-            .finish()
+        fmt.debug_struct("RAWKEYBOARD").field("MakeCode", &self.MakeCode).field("Flags", &self.Flags).field("Reserved", &self.Reserved).field("VKey", &self.VKey).field("Message", &self.Message).field("ExtraInformation", &self.ExtraInformation).finish()
     }
 }
 impl ::std::cmp::PartialEq for RAWKEYBOARD {
     fn eq(&self, other: &Self) -> bool {
-        self.MakeCode == other.MakeCode
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.VKey == other.VKey
-            && self.Message == other.Message
-            && self.ExtraInformation == other.ExtraInformation
+        self.MakeCode == other.MakeCode && self.Flags == other.Flags && self.Reserved == other.Reserved && self.VKey == other.VKey && self.Message == other.Message && self.ExtraInformation == other.ExtraInformation
     }
 }
 impl ::std::cmp::Eq for RAWKEYBOARD {}
@@ -720,10 +540,7 @@ impl ::std::default::Default for RAWMOUSE_0_0 {
 }
 impl ::std::fmt::Debug for RAWMOUSE_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("usButtonFlags", &self.usButtonFlags)
-            .field("usButtonData", &self.usButtonData)
-            .finish()
+        fmt.debug_struct("_Anonymous_e__Struct").field("usButtonFlags", &self.usButtonFlags).field("usButtonData", &self.usButtonData).finish()
     }
 }
 impl ::std::cmp::PartialEq for RAWMOUSE_0_0 {
@@ -736,14 +553,7 @@ unsafe impl ::windows::runtime::Abi for RAWMOUSE_0_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RAW_INPUT_DATA_COMMAND_FLAGS(pub u32);
 pub const RID_HEADER: RAW_INPUT_DATA_COMMAND_FLAGS = RAW_INPUT_DATA_COMMAND_FLAGS(268435461u32);
@@ -785,22 +595,12 @@ impl ::std::ops::Not for RAW_INPUT_DATA_COMMAND_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RAW_INPUT_DEVICE_INFO_COMMAND(pub u32);
-pub const RIDI_PREPARSEDDATA: RAW_INPUT_DEVICE_INFO_COMMAND =
-    RAW_INPUT_DEVICE_INFO_COMMAND(536870917u32);
-pub const RIDI_DEVICENAME: RAW_INPUT_DEVICE_INFO_COMMAND =
-    RAW_INPUT_DEVICE_INFO_COMMAND(536870919u32);
-pub const RIDI_DEVICEINFO: RAW_INPUT_DEVICE_INFO_COMMAND =
-    RAW_INPUT_DEVICE_INFO_COMMAND(536870923u32);
+pub const RIDI_PREPARSEDDATA: RAW_INPUT_DEVICE_INFO_COMMAND = RAW_INPUT_DEVICE_INFO_COMMAND(536870917u32);
+pub const RIDI_DEVICENAME: RAW_INPUT_DEVICE_INFO_COMMAND = RAW_INPUT_DEVICE_INFO_COMMAND(536870919u32);
+pub const RIDI_DEVICEINFO: RAW_INPUT_DEVICE_INFO_COMMAND = RAW_INPUT_DEVICE_INFO_COMMAND(536870923u32);
 impl ::std::convert::From<u32> for RAW_INPUT_DEVICE_INFO_COMMAND {
     fn from(value: u32) -> Self {
         Self(value)
@@ -913,22 +713,12 @@ impl ::std::default::Default for RID_DEVICE_INFO_HID {
 }
 impl ::std::fmt::Debug for RID_DEVICE_INFO_HID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RID_DEVICE_INFO_HID")
-            .field("dwVendorId", &self.dwVendorId)
-            .field("dwProductId", &self.dwProductId)
-            .field("dwVersionNumber", &self.dwVersionNumber)
-            .field("usUsagePage", &self.usUsagePage)
-            .field("usUsage", &self.usUsage)
-            .finish()
+        fmt.debug_struct("RID_DEVICE_INFO_HID").field("dwVendorId", &self.dwVendorId).field("dwProductId", &self.dwProductId).field("dwVersionNumber", &self.dwVersionNumber).field("usUsagePage", &self.usUsagePage).field("usUsage", &self.usUsage).finish()
     }
 }
 impl ::std::cmp::PartialEq for RID_DEVICE_INFO_HID {
     fn eq(&self, other: &Self) -> bool {
-        self.dwVendorId == other.dwVendorId
-            && self.dwProductId == other.dwProductId
-            && self.dwVersionNumber == other.dwVersionNumber
-            && self.usUsagePage == other.usUsagePage
-            && self.usUsage == other.usUsage
+        self.dwVendorId == other.dwVendorId && self.dwProductId == other.dwProductId && self.dwVersionNumber == other.dwVersionNumber && self.usUsagePage == other.usUsagePage && self.usUsage == other.usUsage
     }
 }
 impl ::std::cmp::Eq for RID_DEVICE_INFO_HID {}
@@ -966,12 +756,7 @@ impl ::std::fmt::Debug for RID_DEVICE_INFO_KEYBOARD {
 }
 impl ::std::cmp::PartialEq for RID_DEVICE_INFO_KEYBOARD {
     fn eq(&self, other: &Self) -> bool {
-        self.dwType == other.dwType
-            && self.dwSubType == other.dwSubType
-            && self.dwKeyboardMode == other.dwKeyboardMode
-            && self.dwNumberOfFunctionKeys == other.dwNumberOfFunctionKeys
-            && self.dwNumberOfIndicators == other.dwNumberOfIndicators
-            && self.dwNumberOfKeysTotal == other.dwNumberOfKeysTotal
+        self.dwType == other.dwType && self.dwSubType == other.dwSubType && self.dwKeyboardMode == other.dwKeyboardMode && self.dwNumberOfFunctionKeys == other.dwNumberOfFunctionKeys && self.dwNumberOfIndicators == other.dwNumberOfIndicators && self.dwNumberOfKeysTotal == other.dwNumberOfKeysTotal
     }
 }
 impl ::std::cmp::Eq for RID_DEVICE_INFO_KEYBOARD {}
@@ -999,21 +784,13 @@ impl ::std::default::Default for RID_DEVICE_INFO_MOUSE {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for RID_DEVICE_INFO_MOUSE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RID_DEVICE_INFO_MOUSE")
-            .field("dwId", &self.dwId)
-            .field("dwNumberOfButtons", &self.dwNumberOfButtons)
-            .field("dwSampleRate", &self.dwSampleRate)
-            .field("fHasHorizontalWheel", &self.fHasHorizontalWheel)
-            .finish()
+        fmt.debug_struct("RID_DEVICE_INFO_MOUSE").field("dwId", &self.dwId).field("dwNumberOfButtons", &self.dwNumberOfButtons).field("dwSampleRate", &self.dwSampleRate).field("fHasHorizontalWheel", &self.fHasHorizontalWheel).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for RID_DEVICE_INFO_MOUSE {
     fn eq(&self, other: &Self) -> bool {
-        self.dwId == other.dwId
-            && self.dwNumberOfButtons == other.dwNumberOfButtons
-            && self.dwSampleRate == other.dwSampleRate
-            && self.fHasHorizontalWheel == other.fHasHorizontalWheel
+        self.dwId == other.dwId && self.dwNumberOfButtons == other.dwNumberOfButtons && self.dwSampleRate == other.dwSampleRate && self.fHasHorizontalWheel == other.fHasHorizontalWheel
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1023,14 +800,7 @@ unsafe impl ::windows::runtime::Abi for RID_DEVICE_INFO_MOUSE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct RID_DEVICE_INFO_TYPE(pub u32);
 pub const RIM_TYPEMOUSE: RID_DEVICE_INFO_TYPE = RID_DEVICE_INFO_TYPE(0u32);
@@ -1075,26 +845,14 @@ impl ::std::ops::Not for RID_DEVICE_INFO_TYPE {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn RegisterRawInputDevices(
-    prawinputdevices: *const RAWINPUTDEVICE,
-    uinumdevices: u32,
-    cbsize: u32,
-) -> super::super::Foundation::BOOL {
+pub unsafe fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn RegisterRawInputDevices(
-                prawinputdevices: *const RAWINPUTDEVICE,
-                uinumdevices: u32,
-                cbsize: u32,
-            ) -> super::super::Foundation::BOOL;
+            fn RegisterRawInputDevices(prawinputdevices: *const RAWINPUTDEVICE, uinumdevices: u32, cbsize: u32) -> super::super::Foundation::BOOL;
         }
-        ::std::mem::transmute(RegisterRawInputDevices(
-            ::std::mem::transmute(prawinputdevices),
-            ::std::mem::transmute(uinumdevices),
-            ::std::mem::transmute(cbsize),
-        ))
+        ::std::mem::transmute(RegisterRawInputDevices(::std::mem::transmute(prawinputdevices), ::std::mem::transmute(uinumdevices), ::std::mem::transmute(cbsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

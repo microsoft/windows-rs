@@ -36,17 +36,11 @@ impl AppWithOverrides {
         Ok(())
     }
 
-    fn OnLaunched(
-        &self,
-        _: &Option<Windows::ApplicationModel::Activation::LaunchActivatedEventArgs>,
-    ) -> Result<()> {
+    fn OnLaunched(&self, _: &Option<Windows::ApplicationModel::Activation::LaunchActivatedEventArgs>) -> Result<()> {
         Ok(())
     }
 
-    fn OnBackgroundActivated(
-        &self,
-        _: &Option<Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs>,
-    ) -> Result<()> {
+    fn OnBackgroundActivated(&self, _: &Option<Windows::ApplicationModel::Activation::BackgroundActivatedEventArgs>) -> Result<()> {
         Ok(())
     }
 }
@@ -99,10 +93,7 @@ impl Button {
     }
 
     // TODO: need option to omit Option and/or reference.
-    fn OnPointerEntered(
-        &self,
-        _: &Option<Windows::UI::Xaml::Input::PointerRoutedEventArgs>,
-    ) -> Result<()> {
+    fn OnPointerEntered(&self, _: &Option<Windows::UI::Xaml::Input::PointerRoutedEventArgs>) -> Result<()> {
         Ok(())
     }
 

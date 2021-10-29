@@ -15,9 +15,7 @@ fn main() {
 
     let mut trees = Vec::new();
     collect_trees(&output, root.namespace, root, &mut trees);
-    trees
-        .par_iter()
-        .for_each(|tree| gen_tree(&output, root.namespace, tree));
+    trees.par_iter().for_each(|tree| gen_tree(&output, root.namespace, tree));
 
     output.pop();
     output.push("Cargo.toml");
@@ -101,35 +99,24 @@ fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::Ty
     if let Some(pos) = feature.rfind('_') {
         let dependency = &feature[..pos];
 
-        file.write_all(format!("{} = [\"{}\"]\n", feature, dependency).as_bytes())
-            .unwrap();
+        file.write_all(format!("{} = [\"{}\"]\n", feature, dependency).as_bytes()).unwrap();
     } else {
-        file.write_all(format!("{} = []\n", feature).as_bytes())
-            .unwrap();
+        file.write_all(format!("{} = []\n", feature).as_bytes()).unwrap();
     }
 }
 
 fn include_all(tree: &mut reader::TypeTree) {
     tree.include = true;
 
-    tree.types
-        .values_mut()
-        .for_each(|entry| entry.include = reader::TypeInclude::Full);
+    tree.types.values_mut().for_each(|entry| entry.include = reader::TypeInclude::Full);
 
     tree.namespaces.values_mut().for_each(include_all);
 }
 
-fn collect_trees<'a>(
-    output: &std::path::Path,
-    root: &'static str,
-    tree: &'a reader::TypeTree,
-    trees: &mut Vec<&'a reader::TypeTree>,
-) {
+fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a reader::TypeTree, trees: &mut Vec<&'a reader::TypeTree>) {
     trees.push(tree);
 
-    tree.namespaces
-        .values()
-        .for_each(|tree| collect_trees(output, root, tree, trees));
+    tree.namespaces.values().for_each(|tree| collect_trees(output, root, tree, trees));
 
     let mut path = std::path::PathBuf::from(output);
     path.push(tree.namespace.replace('.', "/"));
@@ -145,20 +132,12 @@ fn gen_tree(output: &std::path::Path, root: &'static str, tree: &reader::TypeTre
 
     let tokens = gen::gen_source_file(root, tree);
 
-    let mut child = std::process::Command::new("rustfmt")
-        .stdin(std::process::Stdio::piped())
-        .stdout(std::process::Stdio::piped())
-        .spawn()
-        .expect("Failed to spawn `rustfmt`");
+    let mut child = std::process::Command::new("rustfmt").stdin(std::process::Stdio::piped()).stdout(std::process::Stdio::piped()).spawn().expect("Failed to spawn `rustfmt`");
     let mut stdin = child.stdin.take().expect("Failed to open stdin");
     stdin.write_all(tokens.into_string().as_bytes()).unwrap();
     drop(stdin);
 
     let output = child.wait_with_output().unwrap();
     assert!(output.status.success());
-    std::fs::write(
-        &path,
-        String::from_utf8(output.stdout).expect("Failed to parse UTF-8"),
-    )
-    .unwrap();
+    std::fs::write(&path, String::from_utf8(output.stdout).expect("Failed to parse UTF-8")).unwrap();
 }

@@ -1,227 +1,75 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub struct ApiInformation {}
 impl ApiInformation {
-    pub fn IsTypePresent<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        typename: Param0,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn IsTypePresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).6)(
-                ::std::mem::transmute_copy(this),
-                typename.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).6)(::std::mem::transmute_copy(this), typename.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    pub fn IsMethodPresent<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        typename: Param0,
-        methodname: Param1,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn IsMethodPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, methodname: Param1) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).7)(
-                ::std::mem::transmute_copy(this),
-                typename.into_param().abi(),
-                methodname.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).7)(::std::mem::transmute_copy(this), typename.into_param().abi(), methodname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    pub fn IsMethodPresentWithArity<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        typename: Param0,
-        methodname: Param1,
-        inputparametercount: u32,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn IsMethodPresentWithArity<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, methodname: Param1, inputparametercount: u32) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).8)(
-                ::std::mem::transmute_copy(this),
-                typename.into_param().abi(),
-                methodname.into_param().abi(),
-                inputparametercount,
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).8)(::std::mem::transmute_copy(this), typename.into_param().abi(), methodname.into_param().abi(), inputparametercount, &mut result__).from_abi::<bool>(result__)
         })
     }
-    pub fn IsEventPresent<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        typename: Param0,
-        eventname: Param1,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn IsEventPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, eventname: Param1) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).9)(
-                ::std::mem::transmute_copy(this),
-                typename.into_param().abi(),
-                eventname.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).9)(::std::mem::transmute_copy(this), typename.into_param().abi(), eventname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    pub fn IsPropertyPresent<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        typename: Param0,
-        propertyname: Param1,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn IsPropertyPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).10)(
-                ::std::mem::transmute_copy(this),
-                typename.into_param().abi(),
-                propertyname.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).10)(::std::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    pub fn IsReadOnlyPropertyPresent<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        typename: Param0,
-        propertyname: Param1,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn IsReadOnlyPropertyPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).11)(
-                ::std::mem::transmute_copy(this),
-                typename.into_param().abi(),
-                propertyname.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).11)(::std::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    pub fn IsWriteablePropertyPresent<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        typename: Param0,
-        propertyname: Param1,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn IsWriteablePropertyPresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(typename: Param0, propertyname: Param1) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).12)(
-                ::std::mem::transmute_copy(this),
-                typename.into_param().abi(),
-                propertyname.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).12)(::std::mem::transmute_copy(this), typename.into_param().abi(), propertyname.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    pub fn IsEnumNamedValuePresent<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-        Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        enumtypename: Param0,
-        valuename: Param1,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn IsEnumNamedValuePresent<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>, Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(enumtypename: Param0, valuename: Param1) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).13)(
-                ::std::mem::transmute_copy(this),
-                enumtypename.into_param().abi(),
-                valuename.into_param().abi(),
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).13)(::std::mem::transmute_copy(this), enumtypename.into_param().abi(), valuename.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
-    pub fn IsApiContractPresentByMajor<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        contractname: Param0,
-        majorversion: u16,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn IsApiContractPresentByMajor<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(contractname: Param0, majorversion: u16) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).14)(
-                ::std::mem::transmute_copy(this),
-                contractname.into_param().abi(),
-                majorversion,
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).14)(::std::mem::transmute_copy(this), contractname.into_param().abi(), majorversion, &mut result__).from_abi::<bool>(result__)
         })
     }
-    pub fn IsApiContractPresentByMajorAndMinor<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
-    >(
-        contractname: Param0,
-        majorversion: u16,
-        minorversion: u16,
-    ) -> ::windows::runtime::Result<bool> {
+    pub fn IsApiContractPresentByMajorAndMinor<'a, Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>>(contractname: Param0, majorversion: u16, minorversion: u16) -> ::windows::runtime::Result<bool> {
         Self::IApiInformationStatics(|this| unsafe {
             let mut result__: bool = ::std::mem::zeroed();
-            (::windows::runtime::Interface::vtable(this).15)(
-                ::std::mem::transmute_copy(this),
-                contractname.into_param().abi(),
-                majorversion,
-                minorversion,
-                &mut result__,
-            )
-            .from_abi::<bool>(result__)
+            (::windows::runtime::Interface::vtable(this).15)(::std::mem::transmute_copy(this), contractname.into_param().abi(), majorversion, minorversion, &mut result__).from_abi::<bool>(result__)
         })
     }
-    pub fn IApiInformationStatics<
-        R,
-        F: FnOnce(&IApiInformationStatics) -> ::windows::runtime::Result<R>,
-    >(
-        callback: F,
-    ) -> ::windows::runtime::Result<R> {
-        static mut SHARED: ::windows::runtime::FactoryCache<
-            ApiInformation,
-            IApiInformationStatics,
-        > = ::windows::runtime::FactoryCache::new();
+    pub fn IApiInformationStatics<R, F: FnOnce(&IApiInformationStatics) -> ::windows::runtime::Result<R>>(callback: F) -> ::windows::runtime::Result<R> {
+        static mut SHARED: ::windows::runtime::FactoryCache<ApiInformation, IApiInformationStatics> = ::windows::runtime::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
 impl ::windows::runtime::RuntimeName for ApiInformation {
     const NAME: &'static str = "Windows.Foundation.Metadata.ApiInformation";
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct AttributeTargets(pub u32);
 impl AttributeTargets {
@@ -249,9 +97,7 @@ unsafe impl ::windows::runtime::Abi for AttributeTargets {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for AttributeTargets {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.AttributeTargets;u4)");
 }
 impl ::std::ops::BitOr for AttributeTargets {
     type Output = Self;
@@ -281,14 +127,7 @@ impl ::std::ops::Not for AttributeTargets {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CompositionType(pub i32);
 impl CompositionType {
@@ -305,18 +144,9 @@ unsafe impl ::windows::runtime::Abi for CompositionType {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for CompositionType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.Foundation.Metadata.CompositionType;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.CompositionType;i4)");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct DeprecationType(pub i32);
 impl DeprecationType {
@@ -333,18 +163,9 @@ unsafe impl ::windows::runtime::Abi for DeprecationType {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for DeprecationType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.Foundation.Metadata.DeprecationType;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.DeprecationType;i4)");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FeatureStage(pub i32);
 impl FeatureStage {
@@ -363,18 +184,9 @@ unsafe impl ::windows::runtime::Abi for FeatureStage {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for FeatureStage {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.Foundation.Metadata.FeatureStage;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.FeatureStage;i4)");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct GCPressureAmount(pub i32);
 impl GCPressureAmount {
@@ -392,121 +204,37 @@ unsafe impl ::windows::runtime::Abi for GCPressureAmount {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for GCPressureAmount {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.GCPressureAmount;i4)");
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 #[doc(hidden)]
 pub struct IApiInformationStatics(::windows::runtime::IInspectable);
 unsafe impl ::windows::runtime::Interface for IApiInformationStatics {
     type Vtable = IApiInformationStatics_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        2574531070,
-        63105,
-        18961,
-        [180, 22, 193, 58, 71, 232, 186, 54],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(2574531070, 63105, 18961, [180, 22, 193, 58, 71, 232, 186, 54]);
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IApiInformationStatics_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        count: *mut u32,
-        values: *mut *mut ::windows::runtime::GUID,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        value: *mut i32,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        methodname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        methodname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        inputparametercount: u32,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        eventname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        propertyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        propertyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        propertyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        enumtypename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        valuename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        contractname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        majorversion: u16,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        contractname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>,
-        majorversion: u16,
-        minorversion: u16,
-        result__: *mut bool,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, count: *mut u32, values: *mut *mut ::windows::runtime::GUID) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, value: *mut i32) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, methodname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, methodname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, inputparametercount: u32, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, eventname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, typename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, propertyname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, enumtypename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, valuename: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contractname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, majorversion: u16, result__: *mut bool) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, contractname: ::std::mem::ManuallyDrop<::windows::runtime::HSTRING>, majorversion: u16, minorversion: u16, result__: *mut bool) -> ::windows::runtime::HRESULT,
 );
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct MarshalingType(pub i32);
 impl MarshalingType {
@@ -525,18 +253,9 @@ unsafe impl ::windows::runtime::Abi for MarshalingType {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for MarshalingType {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.Foundation.Metadata.MarshalingType;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.MarshalingType;i4)");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct Platform(pub i32);
 impl Platform {
@@ -553,18 +272,9 @@ unsafe impl ::windows::runtime::Abi for Platform {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for Platform {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.Foundation.Metadata.Platform;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.Platform;i4)");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct ThreadingModel(pub i32);
 impl ThreadingModel {
@@ -583,7 +293,5 @@ unsafe impl ::windows::runtime::Abi for ThreadingModel {
     type DefaultType = Self;
 }
 unsafe impl ::windows::runtime::RuntimeType for ThreadingModel {
-    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(
-        b"enum(Windows.Foundation.Metadata.ThreadingModel;i4)",
-    );
+    const SIGNATURE: ::windows::runtime::ConstBuffer = ::windows::runtime::ConstBuffer::from_slice(b"enum(Windows.Foundation.Metadata.ThreadingModel;i4)");
 }

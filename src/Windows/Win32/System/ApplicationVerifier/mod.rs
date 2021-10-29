@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct AVRF_BACKTRACE_INFORMATION {
@@ -22,18 +14,12 @@ impl ::std::default::Default for AVRF_BACKTRACE_INFORMATION {
 }
 impl ::std::fmt::Debug for AVRF_BACKTRACE_INFORMATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("AVRF_BACKTRACE_INFORMATION")
-            .field("Depth", &self.Depth)
-            .field("Index", &self.Index)
-            .field("ReturnAddresses", &self.ReturnAddresses)
-            .finish()
+        fmt.debug_struct("AVRF_BACKTRACE_INFORMATION").field("Depth", &self.Depth).field("Index", &self.Index).field("ReturnAddresses", &self.ReturnAddresses).finish()
     }
 }
 impl ::std::cmp::PartialEq for AVRF_BACKTRACE_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Depth == other.Depth
-            && self.Index == other.Index
-            && self.ReturnAddresses == other.ReturnAddresses
+        self.Depth == other.Depth && self.Index == other.Index && self.ReturnAddresses == other.ReturnAddresses
     }
 }
 impl ::std::cmp::Eq for AVRF_BACKTRACE_INFORMATION {}
@@ -41,11 +27,7 @@ unsafe impl ::windows::runtime::Abi for AVRF_BACKTRACE_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK = unsafe extern "system" fn(
-    handleoperation: *mut AVRF_HANDLE_OPERATION,
-    enumerationcontext: *mut ::std::ffi::c_void,
-    enumerationlevel: *mut u32,
-) -> u32;
+pub type AVRF_HANDLEOPERATION_ENUMERATE_CALLBACK = unsafe extern "system" fn(handleoperation: *mut AVRF_HANDLE_OPERATION, enumerationcontext: *mut ::std::ffi::c_void, enumerationlevel: *mut u32) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct AVRF_HANDLE_OPERATION {
@@ -64,24 +46,12 @@ impl ::std::default::Default for AVRF_HANDLE_OPERATION {
 }
 impl ::std::fmt::Debug for AVRF_HANDLE_OPERATION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("AVRF_HANDLE_OPERATION")
-            .field("Handle", &self.Handle)
-            .field("ProcessId", &self.ProcessId)
-            .field("ThreadId", &self.ThreadId)
-            .field("OperationType", &self.OperationType)
-            .field("Spare0", &self.Spare0)
-            .field("BackTraceInformation", &self.BackTraceInformation)
-            .finish()
+        fmt.debug_struct("AVRF_HANDLE_OPERATION").field("Handle", &self.Handle).field("ProcessId", &self.ProcessId).field("ThreadId", &self.ThreadId).field("OperationType", &self.OperationType).field("Spare0", &self.Spare0).field("BackTraceInformation", &self.BackTraceInformation).finish()
     }
 }
 impl ::std::cmp::PartialEq for AVRF_HANDLE_OPERATION {
     fn eq(&self, other: &Self) -> bool {
-        self.Handle == other.Handle
-            && self.ProcessId == other.ProcessId
-            && self.ThreadId == other.ThreadId
-            && self.OperationType == other.OperationType
-            && self.Spare0 == other.Spare0
-            && self.BackTraceInformation == other.BackTraceInformation
+        self.Handle == other.Handle && self.ProcessId == other.ProcessId && self.ThreadId == other.ThreadId && self.OperationType == other.OperationType && self.Spare0 == other.Spare0 && self.BackTraceInformation == other.BackTraceInformation
     }
 }
 impl ::std::cmp::Eq for AVRF_HANDLE_OPERATION {}
@@ -89,11 +59,7 @@ unsafe impl ::windows::runtime::Abi for AVRF_HANDLE_OPERATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-pub type AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK = unsafe extern "system" fn(
-    heapallocation: *mut AVRF_HEAP_ALLOCATION,
-    enumerationcontext: *mut ::std::ffi::c_void,
-    enumerationlevel: *mut u32,
-) -> u32;
+pub type AVRF_HEAPALLOCATION_ENUMERATE_CALLBACK = unsafe extern "system" fn(heapallocation: *mut AVRF_HEAP_ALLOCATION, enumerationcontext: *mut ::std::ffi::c_void, enumerationlevel: *mut u32) -> u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct AVRF_HEAP_ALLOCATION {
@@ -130,15 +96,7 @@ impl ::std::fmt::Debug for AVRF_HEAP_ALLOCATION {
 }
 impl ::std::cmp::PartialEq for AVRF_HEAP_ALLOCATION {
     fn eq(&self, other: &Self) -> bool {
-        self.HeapHandle == other.HeapHandle
-            && self.UserAllocation == other.UserAllocation
-            && self.UserAllocationSize == other.UserAllocationSize
-            && self.Allocation == other.Allocation
-            && self.AllocationSize == other.AllocationSize
-            && self.UserAllocationState == other.UserAllocationState
-            && self.HeapState == other.HeapState
-            && self.HeapContext == other.HeapContext
-            && self.BackTraceInformation == other.BackTraceInformation
+        self.HeapHandle == other.HeapHandle && self.UserAllocation == other.UserAllocation && self.UserAllocationSize == other.UserAllocationSize && self.Allocation == other.Allocation && self.AllocationSize == other.AllocationSize && self.UserAllocationState == other.UserAllocationState && self.HeapState == other.HeapState && self.HeapContext == other.HeapContext && self.BackTraceInformation == other.BackTraceInformation
     }
 }
 impl ::std::cmp::Eq for AVRF_HEAP_ALLOCATION {}
@@ -147,25 +105,12 @@ unsafe impl ::windows::runtime::Abi for AVRF_HEAP_ALLOCATION {
     type DefaultType = Self;
 }
 pub const AVRF_MAX_TRACES: u32 = 32u32;
-pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = unsafe extern "system" fn(
-    resourcedescription: *mut ::std::ffi::c_void,
-    enumerationcontext: *mut ::std::ffi::c_void,
-    enumerationlevel: *mut u32,
-) -> u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = unsafe extern "system" fn(resourcedescription: *mut ::std::ffi::c_void, enumerationcontext: *mut ::std::ffi::c_void, enumerationlevel: *mut u32) -> u32;
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct VERIFIER_ENUM_RESOURCE_FLAGS(pub u32);
-pub const AVRF_ENUM_RESOURCES_FLAGS_DONT_RESOLVE_TRACES: VERIFIER_ENUM_RESOURCE_FLAGS =
-    VERIFIER_ENUM_RESOURCE_FLAGS(2u32);
-pub const AVRF_ENUM_RESOURCES_FLAGS_SUSPEND: VERIFIER_ENUM_RESOURCE_FLAGS =
-    VERIFIER_ENUM_RESOURCE_FLAGS(1u32);
+pub const AVRF_ENUM_RESOURCES_FLAGS_DONT_RESOLVE_TRACES: VERIFIER_ENUM_RESOURCE_FLAGS = VERIFIER_ENUM_RESOURCE_FLAGS(2u32);
+pub const AVRF_ENUM_RESOURCES_FLAGS_SUSPEND: VERIFIER_ENUM_RESOURCE_FLAGS = VERIFIER_ENUM_RESOURCE_FLAGS(1u32);
 impl ::std::convert::From<u32> for VERIFIER_ENUM_RESOURCE_FLAGS {
     fn from(value: u32) -> Self {
         Self(value)
@@ -205,47 +150,19 @@ impl ::std::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn VerifierEnumerateResource<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    process: Param0,
-    flags: VERIFIER_ENUM_RESOURCE_FLAGS,
-    resourcetype: eAvrfResourceTypes,
-    resourcecallback: ::std::option::Option<AVRF_RESOURCE_ENUMERATE_CALLBACK>,
-    enumerationcontext: *mut ::std::ffi::c_void,
-) -> u32 {
+pub unsafe fn VerifierEnumerateResource<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>>(process: Param0, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: ::std::option::Option<AVRF_RESOURCE_ENUMERATE_CALLBACK>, enumerationcontext: *mut ::std::ffi::c_void) -> u32 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn VerifierEnumerateResource(
-                process: super::super::Foundation::HANDLE,
-                flags: VERIFIER_ENUM_RESOURCE_FLAGS,
-                resourcetype: eAvrfResourceTypes,
-                resourcecallback: ::windows::runtime::RawPtr,
-                enumerationcontext: *mut ::std::ffi::c_void,
-            ) -> u32;
+            fn VerifierEnumerateResource(process: super::super::Foundation::HANDLE, flags: VERIFIER_ENUM_RESOURCE_FLAGS, resourcetype: eAvrfResourceTypes, resourcecallback: ::windows::runtime::RawPtr, enumerationcontext: *mut ::std::ffi::c_void) -> u32;
         }
-        ::std::mem::transmute(VerifierEnumerateResource(
-            process.into_param().abi(),
-            ::std::mem::transmute(flags),
-            ::std::mem::transmute(resourcetype),
-            ::std::mem::transmute(resourcecallback),
-            ::std::mem::transmute(enumerationcontext),
-        ))
+        ::std::mem::transmute(VerifierEnumerateResource(process.into_param().abi(), ::std::mem::transmute(flags), ::std::mem::transmute(resourcetype), ::std::mem::transmute(resourcecallback), ::std::mem::transmute(enumerationcontext)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct eAvrfResourceTypes(pub i32);
 pub const AvrfResourceHeapAllocation: eAvrfResourceTypes = eAvrfResourceTypes(0i32);
@@ -260,14 +177,7 @@ unsafe impl ::windows::runtime::Abi for eAvrfResourceTypes {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct eHANDLE_TRACE_OPERATIONS(pub i32);
 pub const OperationDbUnused: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(0i32);
@@ -283,14 +193,7 @@ unsafe impl ::windows::runtime::Abi for eHANDLE_TRACE_OPERATIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct eHeapAllocationState(pub i32);
 pub const HeapFullPageHeap: eHeapAllocationState = eHeapAllocationState(1073741824i32);
@@ -305,14 +208,7 @@ unsafe impl ::windows::runtime::Abi for eHeapAllocationState {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct eHeapEnumerationLevel(pub i32);
 pub const HeapEnumerationEverything: eHeapEnumerationLevel = eHeapEnumerationLevel(0i32);
@@ -326,14 +222,7 @@ unsafe impl ::windows::runtime::Abi for eHeapEnumerationLevel {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct eUserAllocationState(pub i32);
 pub const AllocationStateUnknown: eUserAllocationState = eUserAllocationState(0i32);

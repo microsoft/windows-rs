@@ -1,12 +1,4 @@
-#![allow(
-    unused_variables,
-    non_upper_case_globals,
-    non_snake_case,
-    unused_unsafe,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
+#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
 pub const CDM_FIRST: u32 = 1124u32;
 pub const CDM_GETFILEPATH: u32 = 1125u32;
 pub const CDM_GETFOLDERIDLIST: u32 = 1127u32;
@@ -60,15 +52,7 @@ impl ::std::fmt::Debug for CHOOSECOLORA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CHOOSECOLORA {
     fn eq(&self, other: &Self) -> bool {
-        self.lStructSize == other.lStructSize
-            && self.hwndOwner == other.hwndOwner
-            && self.hInstance == other.hInstance
-            && self.rgbResult == other.rgbResult
-            && self.lpCustColors == other.lpCustColors
-            && self.Flags == other.Flags
-            && self.lCustData == other.lCustData
-            && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize)
-            && self.lpTemplateName == other.lpTemplateName
+        self.lStructSize == other.lStructSize && self.hwndOwner == other.hwndOwner && self.hInstance == other.hInstance && self.rgbResult == other.rgbResult && self.lpCustColors == other.lpCustColors && self.Flags == other.Flags && self.lCustData == other.lCustData && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lpTemplateName == other.lpTemplateName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -118,15 +102,7 @@ impl ::std::fmt::Debug for CHOOSECOLORW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for CHOOSECOLORW {
     fn eq(&self, other: &Self) -> bool {
-        self.lStructSize == other.lStructSize
-            && self.hwndOwner == other.hwndOwner
-            && self.hInstance == other.hInstance
-            && self.rgbResult == other.rgbResult
-            && self.lpCustColors == other.lpCustColors
-            && self.Flags == other.Flags
-            && self.lCustData == other.lCustData
-            && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize)
-            && self.lpTemplateName == other.lpTemplateName
+        self.lStructSize == other.lStructSize && self.hwndOwner == other.hwndOwner && self.hInstance == other.hInstance && self.rgbResult == other.rgbResult && self.lpCustColors == other.lpCustColors && self.Flags == other.Flags && self.lCustData == other.lCustData && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lpTemplateName == other.lpTemplateName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -294,14 +270,7 @@ unsafe impl ::windows::runtime::Abi for CHOOSEFONTW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHOOSEFONT_FLAGS(pub u32);
 pub const CF_APPLY: CHOOSEFONT_FLAGS = CHOOSEFONT_FLAGS(512u32);
@@ -370,14 +339,7 @@ impl ::std::ops::Not for CHOOSEFONT_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct CHOOSEFONT_FONT_TYPE(pub u16);
 pub const BOLD_FONTTYPE: CHOOSEFONT_FONT_TYPE = CHOOSEFONT_FONT_TYPE(256u16);
@@ -453,14 +415,7 @@ pub const COLOR_SOLID: u32 = 713u32;
 pub const COLOR_SOLID_LEFT: u32 = 730u32;
 pub const COLOR_SOLID_RIGHT: u32 = 731u32;
 pub const COLOR_TUNE: u32 = 714u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct COMMON_DLG_ERRORS(pub u32);
 pub const CDERR_DIALOGFAILURE: COMMON_DLG_ERRORS = COMMON_DLG_ERRORS(65535u32);
@@ -544,9 +499,7 @@ pub unsafe fn ChooseColorA(param0: *mut CHOOSECOLORA) -> super::super::super::Fo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ChooseColorA(
-                param0: *mut ::std::mem::ManuallyDrop<CHOOSECOLORA>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn ChooseColorA(param0: *mut ::std::mem::ManuallyDrop<CHOOSECOLORA>) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ChooseColorA(::std::mem::transmute(param0)))
     }
@@ -560,9 +513,7 @@ pub unsafe fn ChooseColorW(param0: *mut CHOOSECOLORW) -> super::super::super::Fo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ChooseColorW(
-                param0: *mut ::std::mem::ManuallyDrop<CHOOSECOLORW>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn ChooseColorW(param0: *mut ::std::mem::ManuallyDrop<CHOOSECOLORW>) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ChooseColorW(::std::mem::transmute(param0)))
     }
@@ -576,9 +527,7 @@ pub unsafe fn ChooseFontA(param0: *mut CHOOSEFONTA) -> super::super::super::Foun
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ChooseFontA(
-                param0: *mut ::std::mem::ManuallyDrop<CHOOSEFONTA>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn ChooseFontA(param0: *mut ::std::mem::ManuallyDrop<CHOOSEFONTA>) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ChooseFontA(::std::mem::transmute(param0)))
     }
@@ -592,9 +541,7 @@ pub unsafe fn ChooseFontW(param0: *mut CHOOSEFONTW) -> super::super::super::Foun
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ChooseFontW(
-                param0: *mut ::std::mem::ManuallyDrop<CHOOSEFONTW>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn ChooseFontW(param0: *mut ::std::mem::ManuallyDrop<CHOOSEFONTW>) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ChooseFontW(::std::mem::transmute(param0)))
     }
@@ -630,20 +577,12 @@ impl ::std::default::Default for DEVNAMES {
 }
 impl ::std::fmt::Debug for DEVNAMES {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVNAMES")
-            .field("wDriverOffset", &self.wDriverOffset)
-            .field("wDeviceOffset", &self.wDeviceOffset)
-            .field("wOutputOffset", &self.wOutputOffset)
-            .field("wDefault", &self.wDefault)
-            .finish()
+        fmt.debug_struct("DEVNAMES").field("wDriverOffset", &self.wDriverOffset).field("wDeviceOffset", &self.wDeviceOffset).field("wOutputOffset", &self.wOutputOffset).field("wDefault", &self.wDefault).finish()
     }
 }
 impl ::std::cmp::PartialEq for DEVNAMES {
     fn eq(&self, other: &Self) -> bool {
-        self.wDriverOffset == other.wDriverOffset
-            && self.wDeviceOffset == other.wDeviceOffset
-            && self.wOutputOffset == other.wOutputOffset
-            && self.wDefault == other.wDefault
+        self.wDriverOffset == other.wDriverOffset && self.wDeviceOffset == other.wDeviceOffset && self.wOutputOffset == other.wOutputOffset && self.wDefault == other.wDefault
     }
 }
 impl ::std::cmp::Eq for DEVNAMES {}
@@ -697,17 +636,7 @@ impl ::std::fmt::Debug for FINDREPLACEA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FINDREPLACEA {
     fn eq(&self, other: &Self) -> bool {
-        self.lStructSize == other.lStructSize
-            && self.hwndOwner == other.hwndOwner
-            && self.hInstance == other.hInstance
-            && self.Flags == other.Flags
-            && self.lpstrFindWhat == other.lpstrFindWhat
-            && self.lpstrReplaceWith == other.lpstrReplaceWith
-            && self.wFindWhatLen == other.wFindWhatLen
-            && self.wReplaceWithLen == other.wReplaceWithLen
-            && self.lCustData == other.lCustData
-            && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize)
-            && self.lpTemplateName == other.lpTemplateName
+        self.lStructSize == other.lStructSize && self.hwndOwner == other.hwndOwner && self.hInstance == other.hInstance && self.Flags == other.Flags && self.lpstrFindWhat == other.lpstrFindWhat && self.lpstrReplaceWith == other.lpstrReplaceWith && self.wFindWhatLen == other.wFindWhatLen && self.wReplaceWithLen == other.wReplaceWithLen && self.lCustData == other.lCustData && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lpTemplateName == other.lpTemplateName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -761,17 +690,7 @@ impl ::std::fmt::Debug for FINDREPLACEW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for FINDREPLACEW {
     fn eq(&self, other: &Self) -> bool {
-        self.lStructSize == other.lStructSize
-            && self.hwndOwner == other.hwndOwner
-            && self.hInstance == other.hInstance
-            && self.Flags == other.Flags
-            && self.lpstrFindWhat == other.lpstrFindWhat
-            && self.lpstrReplaceWith == other.lpstrReplaceWith
-            && self.wFindWhatLen == other.wFindWhatLen
-            && self.wReplaceWithLen == other.wReplaceWithLen
-            && self.lCustData == other.lCustData
-            && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize)
-            && self.lpTemplateName == other.lpTemplateName
+        self.lStructSize == other.lStructSize && self.hwndOwner == other.hwndOwner && self.hInstance == other.hInstance && self.Flags == other.Flags && self.lpstrFindWhat == other.lpstrFindWhat && self.lpstrReplaceWith == other.lpstrReplaceWith && self.wFindWhatLen == other.wFindWhatLen && self.wReplaceWithLen == other.wReplaceWithLen && self.lCustData == other.lCustData && self.lpfnHook.map(|f| f as usize) == other.lpfnHook.map(|f| f as usize) && self.lpTemplateName == other.lpTemplateName
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -781,14 +700,7 @@ unsafe impl ::windows::runtime::Abi for FINDREPLACEW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct FINDREPLACE_FLAGS(pub u32);
 pub const FR_DIALOGTERM: FINDREPLACE_FLAGS = FINDREPLACE_FLAGS(64u32);
@@ -860,9 +772,7 @@ pub unsafe fn FindTextA(param0: *mut FINDREPLACEA) -> super::super::super::Found
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindTextA(
-                param0: *mut ::std::mem::ManuallyDrop<FINDREPLACEA>,
-            ) -> super::super::super::Foundation::HWND;
+            fn FindTextA(param0: *mut ::std::mem::ManuallyDrop<FINDREPLACEA>) -> super::super::super::Foundation::HWND;
         }
         ::std::mem::transmute(FindTextA(::std::mem::transmute(param0)))
     }
@@ -876,9 +786,7 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
     {
         #[link(name = "windows")]
         extern "system" {
-            fn FindTextW(
-                param0: *mut ::std::mem::ManuallyDrop<FINDREPLACEW>,
-            ) -> super::super::super::Foundation::HWND;
+            fn FindTextW(param0: *mut ::std::mem::ManuallyDrop<FINDREPLACEW>) -> super::super::super::Foundation::HWND;
         }
         ::std::mem::transmute(FindTextW(::std::mem::transmute(param0)))
     }
@@ -887,74 +795,40 @@ pub unsafe fn FindTextW(param0: *mut FINDREPLACEW) -> super::super::super::Found
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileTitleA<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>,
->(
-    param0: Param0,
-    buf: super::super::super::Foundation::PSTR,
-    cchsize: u16,
-) -> i16 {
+pub unsafe fn GetFileTitleA<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PSTR>>(param0: Param0, buf: super::super::super::Foundation::PSTR, cchsize: u16) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileTitleA(
-                param0: super::super::super::Foundation::PSTR,
-                buf: super::super::super::Foundation::PSTR,
-                cchsize: u16,
-            ) -> i16;
+            fn GetFileTitleA(param0: super::super::super::Foundation::PSTR, buf: super::super::super::Foundation::PSTR, cchsize: u16) -> i16;
         }
-        ::std::mem::transmute(GetFileTitleA(
-            param0.into_param().abi(),
-            ::std::mem::transmute(buf),
-            ::std::mem::transmute(cchsize),
-        ))
+        ::std::mem::transmute(GetFileTitleA(param0.into_param().abi(), ::std::mem::transmute(buf), ::std::mem::transmute(cchsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetFileTitleW<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
->(
-    param0: Param0,
-    buf: super::super::super::Foundation::PWSTR,
-    cchsize: u16,
-) -> i16 {
+pub unsafe fn GetFileTitleW<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>>(param0: Param0, buf: super::super::super::Foundation::PWSTR, cchsize: u16) -> i16 {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetFileTitleW(
-                param0: super::super::super::Foundation::PWSTR,
-                buf: super::super::super::Foundation::PWSTR,
-                cchsize: u16,
-            ) -> i16;
+            fn GetFileTitleW(param0: super::super::super::Foundation::PWSTR, buf: super::super::super::Foundation::PWSTR, cchsize: u16) -> i16;
         }
-        ::std::mem::transmute(GetFileTitleW(
-            param0.into_param().abi(),
-            ::std::mem::transmute(buf),
-            ::std::mem::transmute(cchsize),
-        ))
+        ::std::mem::transmute(GetFileTitleW(param0.into_param().abi(), ::std::mem::transmute(buf), ::std::mem::transmute(cchsize)))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetOpenFileNameA(
-    param0: *mut OPENFILENAMEA,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetOpenFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenFileNameA(
-                param0: *mut ::std::mem::ManuallyDrop<OPENFILENAMEA>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn GetOpenFileNameA(param0: *mut ::std::mem::ManuallyDrop<OPENFILENAMEA>) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetOpenFileNameA(::std::mem::transmute(param0)))
     }
@@ -963,16 +837,12 @@ pub unsafe fn GetOpenFileNameA(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetOpenFileNameW(
-    param0: *mut OPENFILENAMEW,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetOpenFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetOpenFileNameW(
-                param0: *mut ::std::mem::ManuallyDrop<OPENFILENAMEW>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn GetOpenFileNameW(param0: *mut ::std::mem::ManuallyDrop<OPENFILENAMEW>) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetOpenFileNameW(::std::mem::transmute(param0)))
     }
@@ -981,16 +851,12 @@ pub unsafe fn GetOpenFileNameW(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSaveFileNameA(
-    param0: *mut OPENFILENAMEA,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetSaveFileNameA(param0: *mut OPENFILENAMEA) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSaveFileNameA(
-                param0: *mut ::std::mem::ManuallyDrop<OPENFILENAMEA>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn GetSaveFileNameA(param0: *mut ::std::mem::ManuallyDrop<OPENFILENAMEA>) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetSaveFileNameA(::std::mem::transmute(param0)))
     }
@@ -999,16 +865,12 @@ pub unsafe fn GetSaveFileNameA(
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn GetSaveFileNameW(
-    param0: *mut OPENFILENAMEW,
-) -> super::super::super::Foundation::BOOL {
+pub unsafe fn GetSaveFileNameW(param0: *mut OPENFILENAMEW) -> super::super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn GetSaveFileNameW(
-                param0: *mut ::std::mem::ManuallyDrop<OPENFILENAMEW>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn GetSaveFileNameW(param0: *mut ::std::mem::ManuallyDrop<OPENFILENAMEW>) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetSaveFileNameW(::std::mem::transmute(param0)))
     }
@@ -1016,12 +878,7 @@ pub unsafe fn GetSaveFileNameW(
     unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintDialogCallback(::windows::runtime::IUnknown);
 impl IPrintDialogCallback {
     pub unsafe fn InitDone(&self) -> ::windows::runtime::Result<()> {
@@ -1031,38 +888,13 @@ impl IPrintDialogCallback {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn HandleMessage<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::WPARAM>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::LPARAM>,
-    >(
-        &self,
-        hdlg: Param0,
-        umsg: u32,
-        wparam: Param2,
-        lparam: Param3,
-        presult: *mut super::super::super::Foundation::LRESULT,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            hdlg.into_param().abi(),
-            ::std::mem::transmute(umsg),
-            wparam.into_param().abi(),
-            lparam.into_param().abi(),
-            ::std::mem::transmute(presult),
-        )
-        .ok()
+    pub unsafe fn HandleMessage<'a, Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::HWND>, Param2: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::WPARAM>, Param3: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::LPARAM>>(&self, hdlg: Param0, umsg: u32, wparam: Param2, lparam: Param3, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), hdlg.into_param().abi(), ::std::mem::transmute(umsg), wparam.into_param().abi(), lparam.into_param().abi(), ::std::mem::transmute(presult)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IPrintDialogCallback {
     type Vtable = IPrintDialogCallback_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1481810627,
-        25904,
-        4561,
-        [182, 163, 0, 0, 248, 117, 123, 249],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1481810627, 25904, 4561, [182, 163, 0, 0, 248, 117, 123, 249]);
 }
 impl ::std::convert::From<IPrintDialogCallback> for ::windows::runtime::IUnknown {
     fn from(value: IPrintDialogCallback) -> Self {
@@ -1076,100 +908,45 @@ impl ::std::convert::From<&IPrintDialogCallback> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintDialogCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintDialogCallback {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDialogCallback_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        hdlg: super::super::super::Foundation::HWND,
-        umsg: u32,
-        wparam: super::super::super::Foundation::WPARAM,
-        lparam: super::super::super::Foundation::LPARAM,
-        presult: *mut super::super::super::Foundation::LRESULT,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(transparent)]
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: clone :: Clone,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: clone :: Clone, :: std :: fmt :: Debug)]
 pub struct IPrintDialogServices(::windows::runtime::IUnknown);
 impl IPrintDialogServices {
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub unsafe fn GetCurrentDevMode(
-        &self,
-        pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA,
-        pcbsize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).3)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pdevmode),
-            ::std::mem::transmute(pcbsize),
-        )
-        .ok()
+    pub unsafe fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).3)(::std::mem::transmute_copy(self), ::std::mem::transmute(pdevmode), ::std::mem::transmute(pcbsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCurrentPrinterName(
-        &self,
-        pprintername: super::super::super::Foundation::PWSTR,
-        pcchsize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).4)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pprintername),
-            ::std::mem::transmute(pcchsize),
-        )
-        .ok()
+    pub unsafe fn GetCurrentPrinterName(&self, pprintername: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self), ::std::mem::transmute(pprintername), ::std::mem::transmute(pcchsize)).ok()
     }
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetCurrentPortName(
-        &self,
-        pportname: super::super::super::Foundation::PWSTR,
-        pcchsize: *mut u32,
-    ) -> ::windows::runtime::Result<()> {
-        (::windows::runtime::Interface::vtable(self).5)(
-            ::std::mem::transmute_copy(self),
-            ::std::mem::transmute(pportname),
-            ::std::mem::transmute(pcchsize),
-        )
-        .ok()
+    pub unsafe fn GetCurrentPortName(&self, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::runtime::Result<()> {
+        (::windows::runtime::Interface::vtable(self).5)(::std::mem::transmute_copy(self), ::std::mem::transmute(pportname), ::std::mem::transmute(pcchsize)).ok()
     }
 }
 unsafe impl ::windows::runtime::Interface for IPrintDialogServices {
     type Vtable = IPrintDialogServices_abi;
-    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
-        1352314586,
-        22073,
-        4561,
-        [182, 161, 0, 0, 248, 117, 123, 249],
-    );
+    const IID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(1352314586, 22073, 4561, [182, 161, 0, 0, 248, 117, 123, 249]);
 }
 impl ::std::convert::From<IPrintDialogServices> for ::windows::runtime::IUnknown {
     fn from(value: IPrintDialogServices) -> Self {
@@ -1183,108 +960,43 @@ impl ::std::convert::From<&IPrintDialogServices> for ::windows::runtime::IUnknow
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for IPrintDialogServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(self),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(self))
     }
 }
 impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IPrintDialogServices {
     fn into_param(self) -> ::windows::runtime::Param<'a, ::windows::runtime::IUnknown> {
-        ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(
-                self,
-            )),
-        )
+        ::windows::runtime::Param::Owned(::std::convert::Into::<::windows::runtime::IUnknown>::into(::std::clone::Clone::clone(self)))
     }
 }
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPrintDialogServices_abi(
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        iid: &::windows::runtime::GUID,
-        interface: *mut ::windows::runtime::RawPtr,
-    ) -> ::windows::runtime::HRESULT,
+    pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, iid: &::windows::runtime::GUID, interface: *mut ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA,
-        pcbsize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pprintername: super::super::super::Foundation::PWSTR,
-        pcchsize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pprintername: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")]
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        pportname: super::super::super::Foundation::PWSTR,
-        pcchsize: *mut u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[cfg(feature = "Win32_Foundation")]
-pub type LPCCHOOKPROC = unsafe extern "system" fn(
-    param0: super::super::super::Foundation::HWND,
-    param1: u32,
-    param2: super::super::super::Foundation::WPARAM,
-    param3: super::super::super::Foundation::LPARAM,
-) -> usize;
+pub type LPCCHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPCFHOOKPROC = unsafe extern "system" fn(
-    param0: super::super::super::Foundation::HWND,
-    param1: u32,
-    param2: super::super::super::Foundation::WPARAM,
-    param3: super::super::super::Foundation::LPARAM,
-) -> usize;
+pub type LPCFHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPFRHOOKPROC = unsafe extern "system" fn(
-    param0: super::super::super::Foundation::HWND,
-    param1: u32,
-    param2: super::super::super::Foundation::WPARAM,
-    param3: super::super::super::Foundation::LPARAM,
-) -> usize;
+pub type LPFRHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPOFNHOOKPROC = unsafe extern "system" fn(
-    param0: super::super::super::Foundation::HWND,
-    param1: u32,
-    param2: super::super::super::Foundation::WPARAM,
-    param3: super::super::super::Foundation::LPARAM,
-) -> usize;
+pub type LPOFNHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPPAGEPAINTHOOK = unsafe extern "system" fn(
-    param0: super::super::super::Foundation::HWND,
-    param1: u32,
-    param2: super::super::super::Foundation::WPARAM,
-    param3: super::super::super::Foundation::LPARAM,
-) -> usize;
+pub type LPPAGEPAINTHOOK = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPPAGESETUPHOOK = unsafe extern "system" fn(
-    param0: super::super::super::Foundation::HWND,
-    param1: u32,
-    param2: super::super::super::Foundation::WPARAM,
-    param3: super::super::super::Foundation::LPARAM,
-) -> usize;
+pub type LPPAGESETUPHOOK = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPPRINTHOOKPROC = unsafe extern "system" fn(
-    param0: super::super::super::Foundation::HWND,
-    param1: u32,
-    param2: super::super::super::Foundation::WPARAM,
-    param3: super::super::super::Foundation::LPARAM,
-) -> usize;
+pub type LPPRINTHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
 #[cfg(feature = "Win32_Foundation")]
-pub type LPSETUPHOOKPROC = unsafe extern "system" fn(
-    param0: super::super::super::Foundation::HWND,
-    param1: u32,
-    param2: super::super::super::Foundation::WPARAM,
-    param3: super::super::super::Foundation::LPARAM,
-) -> usize;
+pub type LPSETUPHOOKPROC = unsafe extern "system" fn(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> usize;
 pub const NUM_BASIC_COLORS: u32 = 48u32;
 pub const NUM_CUSTOM_COLORS: u32 = 16u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -1306,11 +1018,7 @@ impl ::std::default::Default for OFNOTIFYA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OFNOTIFYA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OFNOTIFYA")
-            .field("hdr", &self.hdr)
-            .field("lpOFN", &self.lpOFN)
-            .field("pszFile", &self.pszFile)
-            .finish()
+        fmt.debug_struct("OFNOTIFYA").field("hdr", &self.hdr).field("lpOFN", &self.lpOFN).field("pszFile", &self.pszFile).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1346,21 +1054,13 @@ impl ::std::default::Default for OFNOTIFYEXA {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OFNOTIFYEXA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OFNOTIFYEXA")
-            .field("hdr", &self.hdr)
-            .field("lpOFN", &self.lpOFN)
-            .field("psf", &self.psf)
-            .field("pidl", &self.pidl)
-            .finish()
+        fmt.debug_struct("OFNOTIFYEXA").field("hdr", &self.hdr).field("lpOFN", &self.lpOFN).field("psf", &self.psf).field("pidl", &self.pidl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OFNOTIFYEXA {
     fn eq(&self, other: &Self) -> bool {
-        self.hdr == other.hdr
-            && self.lpOFN == other.lpOFN
-            && self.psf == other.psf
-            && self.pidl == other.pidl
+        self.hdr == other.hdr && self.lpOFN == other.lpOFN && self.psf == other.psf && self.pidl == other.pidl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1390,21 +1090,13 @@ impl ::std::default::Default for OFNOTIFYEXW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OFNOTIFYEXW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OFNOTIFYEXW")
-            .field("hdr", &self.hdr)
-            .field("lpOFN", &self.lpOFN)
-            .field("psf", &self.psf)
-            .field("pidl", &self.pidl)
-            .finish()
+        fmt.debug_struct("OFNOTIFYEXW").field("hdr", &self.hdr).field("lpOFN", &self.lpOFN).field("psf", &self.psf).field("pidl", &self.pidl).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OFNOTIFYEXW {
     fn eq(&self, other: &Self) -> bool {
-        self.hdr == other.hdr
-            && self.lpOFN == other.lpOFN
-            && self.psf == other.psf
-            && self.pidl == other.pidl
+        self.hdr == other.hdr && self.lpOFN == other.lpOFN && self.psf == other.psf && self.pidl == other.pidl
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1433,11 +1125,7 @@ impl ::std::default::Default for OFNOTIFYW {
 #[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OFNOTIFYW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OFNOTIFYW")
-            .field("hdr", &self.hdr)
-            .field("lpOFN", &self.lpOFN)
-            .field("pszFile", &self.pszFile)
-            .finish()
+        fmt.debug_struct("OFNOTIFYW").field("hdr", &self.hdr).field("lpOFN", &self.lpOFN).field("pszFile", &self.pszFile).finish()
     }
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -1838,14 +1526,7 @@ unsafe impl ::windows::runtime::Abi for OPENFILENAME_NT4W {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OPEN_FILENAME_FLAGS(pub u32);
 pub const OFN_READONLY: OPEN_FILENAME_FLAGS = OPEN_FILENAME_FLAGS(1u32);
@@ -1911,14 +1592,7 @@ impl ::std::ops::Not for OPEN_FILENAME_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct OPEN_FILENAME_FLAGS_EX(pub u32);
 pub const OFN_EX_NONE: OPEN_FILENAME_FLAGS_EX = OPEN_FILENAME_FLAGS_EX(0u32);
@@ -2019,10 +1693,8 @@ impl ::std::cmp::PartialEq for PAGESETUPDLGA {
             && self.rtMargin == other.rtMargin
             && self.hInstance == other.hInstance
             && self.lCustData == other.lCustData
-            && self.lpfnPageSetupHook.map(|f| f as usize)
-                == other.lpfnPageSetupHook.map(|f| f as usize)
-            && self.lpfnPagePaintHook.map(|f| f as usize)
-                == other.lpfnPagePaintHook.map(|f| f as usize)
+            && self.lpfnPageSetupHook.map(|f| f as usize) == other.lpfnPageSetupHook.map(|f| f as usize)
+            && self.lpfnPagePaintHook.map(|f| f as usize) == other.lpfnPagePaintHook.map(|f| f as usize)
             && self.lpPageSetupTemplateName == other.lpPageSetupTemplateName
             && self.hPageSetupTemplate == other.hPageSetupTemplate
     }
@@ -2093,10 +1765,8 @@ impl ::std::cmp::PartialEq for PAGESETUPDLGW {
             && self.rtMargin == other.rtMargin
             && self.hInstance == other.hInstance
             && self.lCustData == other.lCustData
-            && self.lpfnPageSetupHook.map(|f| f as usize)
-                == other.lpfnPageSetupHook.map(|f| f as usize)
-            && self.lpfnPagePaintHook.map(|f| f as usize)
-                == other.lpfnPagePaintHook.map(|f| f as usize)
+            && self.lpfnPageSetupHook.map(|f| f as usize) == other.lpfnPageSetupHook.map(|f| f as usize)
+            && self.lpfnPagePaintHook.map(|f| f as usize) == other.lpfnPagePaintHook.map(|f| f as usize)
             && self.lpPageSetupTemplateName == other.lpPageSetupTemplateName
             && self.hPageSetupTemplate == other.hPageSetupTemplate
     }
@@ -2108,14 +1778,7 @@ unsafe impl ::windows::runtime::Abi for PAGESETUPDLGW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PAGESETUPDLG_FLAGS(pub u32);
 pub const PSD_DEFAULTMINMARGINS: PAGESETUPDLG_FLAGS = PAGESETUPDLG_FLAGS(0u32);
@@ -2454,14 +2117,7 @@ unsafe impl ::windows::runtime::Abi for PRINTDLGEXW {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
+#[derive(:: std :: cmp :: PartialEq, :: std :: cmp :: Eq, :: std :: marker :: Copy, :: std :: clone :: Clone, :: std :: default :: Default, :: std :: fmt :: Debug)]
 #[repr(transparent)]
 pub struct PRINTDLGEX_FLAGS(pub u32);
 pub const PD_ALLPAGES: PRINTDLGEX_FLAGS = PRINTDLGEX_FLAGS(0u32);
@@ -2630,10 +2286,7 @@ impl ::std::default::Default for PRINTPAGERANGE {
 }
 impl ::std::fmt::Debug for PRINTPAGERANGE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PRINTPAGERANGE")
-            .field("nFromPage", &self.nFromPage)
-            .field("nToPage", &self.nToPage)
-            .finish()
+        fmt.debug_struct("PRINTPAGERANGE").field("nFromPage", &self.nFromPage).field("nToPage", &self.nToPage).finish()
     }
 }
 impl ::std::cmp::PartialEq for PRINTPAGERANGE {
@@ -2654,9 +2307,7 @@ pub unsafe fn PageSetupDlgA(param0: *mut PAGESETUPDLGA) -> super::super::super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PageSetupDlgA(
-                param0: *mut ::std::mem::ManuallyDrop<PAGESETUPDLGA>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn PageSetupDlgA(param0: *mut ::std::mem::ManuallyDrop<PAGESETUPDLGA>) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(PageSetupDlgA(::std::mem::transmute(param0)))
     }
@@ -2670,9 +2321,7 @@ pub unsafe fn PageSetupDlgW(param0: *mut PAGESETUPDLGW) -> super::super::super::
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PageSetupDlgW(
-                param0: *mut ::std::mem::ManuallyDrop<PAGESETUPDLGW>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn PageSetupDlgW(param0: *mut ::std::mem::ManuallyDrop<PAGESETUPDLGW>) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(PageSetupDlgW(::std::mem::transmute(param0)))
     }
@@ -2686,9 +2335,7 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> super::super::super::Foundation:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrintDlgA(
-                ppd: *mut ::std::mem::ManuallyDrop<PRINTDLGA>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn PrintDlgA(ppd: *mut ::std::mem::ManuallyDrop<PRINTDLGA>) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(PrintDlgA(::std::mem::transmute(ppd)))
     }
@@ -2702,9 +2349,7 @@ pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> ::windows::runtime::Result<(
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrintDlgExA(
-                ppd: *mut ::std::mem::ManuallyDrop<PRINTDLGEXA>,
-            ) -> ::windows::runtime::HRESULT;
+            fn PrintDlgExA(ppd: *mut ::std::mem::ManuallyDrop<PRINTDLGEXA>) -> ::windows::runtime::HRESULT;
         }
         PrintDlgExA(::std::mem::transmute(ppd)).ok()
     }
@@ -2718,9 +2363,7 @@ pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> ::windows::runtime::Result<(
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrintDlgExW(
-                ppd: *mut ::std::mem::ManuallyDrop<PRINTDLGEXW>,
-            ) -> ::windows::runtime::HRESULT;
+            fn PrintDlgExW(ppd: *mut ::std::mem::ManuallyDrop<PRINTDLGEXW>) -> ::windows::runtime::HRESULT;
         }
         PrintDlgExW(::std::mem::transmute(ppd)).ok()
     }
@@ -2734,9 +2377,7 @@ pub unsafe fn PrintDlgW(ppd: *mut PRINTDLGW) -> super::super::super::Foundation:
     {
         #[link(name = "windows")]
         extern "system" {
-            fn PrintDlgW(
-                ppd: *mut ::std::mem::ManuallyDrop<PRINTDLGW>,
-            ) -> super::super::super::Foundation::BOOL;
+            fn PrintDlgW(ppd: *mut ::std::mem::ManuallyDrop<PRINTDLGW>) -> super::super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(PrintDlgW(::std::mem::transmute(ppd)))
     }
@@ -2750,9 +2391,7 @@ pub unsafe fn ReplaceTextA(param0: *mut FINDREPLACEA) -> super::super::super::Fo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReplaceTextA(
-                param0: *mut ::std::mem::ManuallyDrop<FINDREPLACEA>,
-            ) -> super::super::super::Foundation::HWND;
+            fn ReplaceTextA(param0: *mut ::std::mem::ManuallyDrop<FINDREPLACEA>) -> super::super::super::Foundation::HWND;
         }
         ::std::mem::transmute(ReplaceTextA(::std::mem::transmute(param0)))
     }
@@ -2766,9 +2405,7 @@ pub unsafe fn ReplaceTextW(param0: *mut FINDREPLACEW) -> super::super::super::Fo
     {
         #[link(name = "windows")]
         extern "system" {
-            fn ReplaceTextW(
-                param0: *mut ::std::mem::ManuallyDrop<FINDREPLACEW>,
-            ) -> super::super::super::Foundation::HWND;
+            fn ReplaceTextW(param0: *mut ::std::mem::ManuallyDrop<FINDREPLACEW>) -> super::super::super::Foundation::HWND;
         }
         ::std::mem::transmute(ReplaceTextW(::std::mem::transmute(param0)))
     }

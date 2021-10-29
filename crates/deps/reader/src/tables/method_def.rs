@@ -54,9 +54,7 @@ impl MethodDef {
     }
 
     fn attributes(&self) -> impl Iterator<Item = Attribute> {
-        self.0
-            .file
-            .attributes(HasAttribute::MethodDef(self.clone()))
+        self.0.file.attributes(HasAttribute::MethodDef(self.clone()))
     }
 
     fn has_attribute(&self, name: &str) -> bool {
@@ -100,15 +98,7 @@ impl MethodDef {
     }
 
     pub fn impl_map(&self) -> Option<ImplMap> {
-        self.0
-            .file
-            .equal_range(
-                TableIndex::ImplMap,
-                1,
-                MemberForwarded::MethodDef(self.clone()).encode(),
-            )
-            .map(ImplMap)
-            .next()
+        self.0.file.equal_range(TableIndex::ImplMap, 1, MemberForwarded::MethodDef(self.clone()).encode()).map(ImplMap).next()
     }
 
     pub fn signature(&self, generics: &[ElementType]) -> MethodSignature {
@@ -130,23 +120,16 @@ impl MethodDef {
                 } else {
                     Some(MethodParam {
                         param,
-                        signature: reader
-                            .signature_from_blob(&mut blob, None, generics)
-                            .expect("MethodDef"),
+                        signature: reader.signature_from_blob(&mut blob, None, generics).expect("MethodDef"),
                     })
                 }
             })
             .collect();
 
-        MethodSignature {
-            params,
-            return_sig,
-            return_param,
-        }
+        MethodSignature { params, return_sig, return_param }
     }
 
     pub fn include_dependencies(&self) {
-        self.signature(&[])
-            .include_dependencies(TypeInclude::Minimal)
+        self.signature(&[]).include_dependencies(TypeInclude::Minimal)
     }
 }
