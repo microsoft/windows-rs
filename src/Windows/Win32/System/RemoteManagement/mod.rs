@@ -536,13 +536,13 @@ impl IWSMan {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -550,7 +550,7 @@ impl IWSMan {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -573,8 +573,8 @@ impl IWSMan {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -582,9 +582,9 @@ impl IWSMan {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -600,18 +600,18 @@ impl IWSMan {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub unsafe fn CreateSession<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>,
+        Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
     >(
         &self,
         connection: Param0,
         flags: i32,
         connectionoptions: Param2,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -620,19 +620,19 @@ impl IWSMan {
             connectionoptions.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn CreateConnectionOptions(
         &self,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CommandLine(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -690,31 +690,31 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IW
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IWSMan> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IWSMan> for super::Ole::Automation::IDispatch {
     fn from(value: IWSMan) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IWSMan> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IWSMan> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSMan) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for IWSMan {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSMan {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for &IWSMan {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSMan {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -734,14 +734,14 @@ pub struct IWSMan_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -754,8 +754,8 @@ pub struct IWSMan_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -763,18 +763,18 @@ pub struct IWSMan_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         connection: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
@@ -782,13 +782,13 @@ pub struct IWSMan_abi(
         connectionoptions: ::windows::runtime::RawPtr,
         session: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         connectionoptions: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -819,13 +819,13 @@ impl IWSManConnectionOptions {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -833,7 +833,7 @@ impl IWSManConnectionOptions {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -856,8 +856,8 @@ impl IWSManConnectionOptions {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -865,9 +865,9 @@ impl IWSManConnectionOptions {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -961,35 +961,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IWSManConnectionOptions> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IWSManConnectionOptions> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManConnectionOptions) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IWSManConnectionOptions> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IWSManConnectionOptions> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManConnectionOptions) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>
     for IWSManConnectionOptions
 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>
     for &IWSManConnectionOptions
 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -1009,14 +1009,14 @@ pub struct IWSManConnectionOptions_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1029,8 +1029,8 @@ pub struct IWSManConnectionOptions_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1038,15 +1038,15 @@ pub struct IWSManConnectionOptions_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -1085,13 +1085,13 @@ impl IWSManConnectionOptionsEx {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -1099,7 +1099,7 @@ impl IWSManConnectionOptionsEx {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -1122,8 +1122,8 @@ impl IWSManConnectionOptionsEx {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -1131,9 +1131,9 @@ impl IWSManConnectionOptionsEx {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -1277,35 +1277,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptions> for &IWSManC
         ))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IWSManConnectionOptionsEx> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IWSManConnectionOptionsEx> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManConnectionOptionsEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IWSManConnectionOptionsEx> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IWSManConnectionOptionsEx> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManConnectionOptionsEx) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>
     for IWSManConnectionOptionsEx
 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>
     for &IWSManConnectionOptionsEx
 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -1325,14 +1325,14 @@ pub struct IWSManConnectionOptionsEx_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1345,8 +1345,8 @@ pub struct IWSManConnectionOptionsEx_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1354,15 +1354,15 @@ pub struct IWSManConnectionOptionsEx_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -1413,13 +1413,13 @@ impl IWSManConnectionOptionsEx2 {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -1427,7 +1427,7 @@ impl IWSManConnectionOptionsEx2 {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -1450,8 +1450,8 @@ impl IWSManConnectionOptionsEx2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -1459,9 +1459,9 @@ impl IWSManConnectionOptionsEx2 {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -1712,35 +1712,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWSManConnectionOptions>
         ))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IWSManConnectionOptionsEx2> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IWSManConnectionOptionsEx2> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManConnectionOptionsEx2) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IWSManConnectionOptionsEx2> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IWSManConnectionOptionsEx2> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManConnectionOptionsEx2) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>
     for IWSManConnectionOptionsEx2
 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>
     for &IWSManConnectionOptionsEx2
 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -1760,14 +1760,14 @@ pub struct IWSManConnectionOptionsEx2_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1780,8 +1780,8 @@ pub struct IWSManConnectionOptionsEx2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1789,15 +1789,15 @@ pub struct IWSManConnectionOptionsEx2_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -1885,13 +1885,13 @@ impl IWSManEnumerator {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -1899,7 +1899,7 @@ impl IWSManEnumerator {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -1922,8 +1922,8 @@ impl IWSManEnumerator {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -1931,9 +1931,9 @@ impl IWSManEnumerator {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -2013,31 +2013,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IW
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IWSManEnumerator> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IWSManEnumerator> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManEnumerator) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IWSManEnumerator> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IWSManEnumerator> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManEnumerator) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for IWSManEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManEnumerator {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for &IWSManEnumerator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>
+    for &IWSManEnumerator
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -2057,14 +2059,14 @@ pub struct IWSManEnumerator_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -2077,8 +2079,8 @@ pub struct IWSManEnumerator_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -2086,15 +2088,15 @@ pub struct IWSManEnumerator_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -2131,13 +2133,13 @@ impl IWSManEx {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -2145,7 +2147,7 @@ impl IWSManEx {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -2168,8 +2170,8 @@ impl IWSManEx {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -2177,9 +2179,9 @@ impl IWSManEx {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -2195,18 +2197,18 @@ impl IWSManEx {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub unsafe fn CreateSession<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>,
+        Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
     >(
         &self,
         connection: Param0,
         flags: i32,
         connectionoptions: Param2,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -2215,19 +2217,19 @@ impl IWSManEx {
             connectionoptions.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn CreateConnectionOptions(
         &self,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CommandLine(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -2249,22 +2251,22 @@ impl IWSManEx {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub unsafe fn CreateResourceLocator<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
     >(
         &self,
         strresourcelocator: Param0,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             strresourcelocator.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     pub unsafe fn SessionFlagUTF8(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -2484,31 +2486,31 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for &IWSManEx {
         ))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IWSManEx> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IWSManEx> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManEx) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IWSManEx> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IWSManEx> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManEx) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for IWSManEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for &IWSManEx {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManEx {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -2528,14 +2530,14 @@ pub struct IWSManEx_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -2548,8 +2550,8 @@ pub struct IWSManEx_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -2557,18 +2559,18 @@ pub struct IWSManEx_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         connection: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
@@ -2576,13 +2578,13 @@ pub struct IWSManEx_abi(
         connectionoptions: ::windows::runtime::RawPtr,
         session: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         connectionoptions: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -2595,13 +2597,13 @@ pub struct IWSManEx_abi(
         value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         strresourcelocator: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
         newresourcelocator: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         flags: *mut i32,
@@ -2699,13 +2701,13 @@ impl IWSManEx2 {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -2713,7 +2715,7 @@ impl IWSManEx2 {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -2736,8 +2738,8 @@ impl IWSManEx2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -2745,9 +2747,9 @@ impl IWSManEx2 {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -2763,18 +2765,18 @@ impl IWSManEx2 {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub unsafe fn CreateSession<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>,
+        Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
     >(
         &self,
         connection: Param0,
         flags: i32,
         connectionoptions: Param2,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -2783,19 +2785,19 @@ impl IWSManEx2 {
             connectionoptions.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn CreateConnectionOptions(
         &self,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CommandLine(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -2817,22 +2819,22 @@ impl IWSManEx2 {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub unsafe fn CreateResourceLocator<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
     >(
         &self,
         strresourcelocator: Param0,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             strresourcelocator.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     pub unsafe fn SessionFlagUTF8(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -3082,31 +3084,31 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for &IWSManEx2 {
         ))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IWSManEx2> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IWSManEx2> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManEx2) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IWSManEx2> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IWSManEx2> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManEx2) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for IWSManEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManEx2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for &IWSManEx2 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManEx2 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -3126,14 +3128,14 @@ pub struct IWSManEx2_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -3146,8 +3148,8 @@ pub struct IWSManEx2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -3155,18 +3157,18 @@ pub struct IWSManEx2_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         connection: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
@@ -3174,13 +3176,13 @@ pub struct IWSManEx2_abi(
         connectionoptions: ::windows::runtime::RawPtr,
         session: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         connectionoptions: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -3193,13 +3195,13 @@ pub struct IWSManEx2_abi(
         value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         strresourcelocator: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
         newresourcelocator: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         flags: *mut i32,
@@ -3301,13 +3303,13 @@ impl IWSManEx3 {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -3315,7 +3317,7 @@ impl IWSManEx3 {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -3338,8 +3340,8 @@ impl IWSManEx3 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -3347,9 +3349,9 @@ impl IWSManEx3 {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -3365,18 +3367,18 @@ impl IWSManEx3 {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub unsafe fn CreateSession<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>,
+        Param2: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
     >(
         &self,
         connection: Param0,
         flags: i32,
         connectionoptions: Param2,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -3385,19 +3387,19 @@ impl IWSManEx3 {
             connectionoptions.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn CreateConnectionOptions(
         &self,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CommandLine(&self) -> ::windows::runtime::Result<super::super::Foundation::BSTR> {
@@ -3419,22 +3421,22 @@ impl IWSManEx3 {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub unsafe fn CreateResourceLocator<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
     >(
         &self,
         strresourcelocator: Param0,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             strresourcelocator.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     pub unsafe fn SessionFlagUTF8(&self) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -3764,31 +3766,31 @@ impl<'a> ::windows::runtime::IntoParam<'a, IWSMan> for &IWSManEx3 {
         ))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IWSManEx3> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IWSManEx3> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManEx3) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IWSManEx3> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IWSManEx3> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManEx3) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for IWSManEx3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManEx3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for &IWSManEx3 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManEx3 {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -3808,14 +3810,14 @@ pub struct IWSManEx3_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -3828,8 +3830,8 @@ pub struct IWSManEx3_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -3837,18 +3839,18 @@ pub struct IWSManEx3_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         connection: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
@@ -3856,13 +3858,13 @@ pub struct IWSManEx3_abi(
         connectionoptions: ::windows::runtime::RawPtr,
         session: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         connectionoptions: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -3875,13 +3877,13 @@ pub struct IWSManEx3_abi(
         value: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         strresourcelocator: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
         newresourcelocator: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         flags: *mut i32,
@@ -4011,13 +4013,13 @@ impl IWSManInternal {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -4025,7 +4027,7 @@ impl IWSManInternal {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -4048,8 +4050,8 @@ impl IWSManInternal {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -4057,9 +4059,9 @@ impl IWSManInternal {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -4077,13 +4079,13 @@ impl IWSManInternal {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn ConfigSDDL<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>,
-        Param1: ::windows::runtime::IntoParam<'a, super::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>,
+        Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>,
     >(
         &self,
         session: Param0,
@@ -4137,31 +4139,31 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IW
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IWSManInternal> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IWSManInternal> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManInternal) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IWSManInternal> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IWSManInternal> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManInternal) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for IWSManInternal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManInternal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for &IWSManInternal {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManInternal {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -4181,14 +4183,14 @@ pub struct IWSManInternal_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -4201,8 +4203,8 @@ pub struct IWSManInternal_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -4210,33 +4212,33 @@ pub struct IWSManInternal_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         session: ::windows::runtime::RawPtr,
-        resourceuri: ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>,
         flags: i32,
         resource: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -4257,13 +4259,13 @@ impl IWSManResourceLocator {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -4271,7 +4273,7 @@ impl IWSManResourceLocator {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -4294,8 +4296,8 @@ impl IWSManResourceLocator {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -4303,9 +4305,9 @@ impl IWSManResourceLocator {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -4347,13 +4349,13 @@ impl IWSManResourceLocator {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddSelector<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>,
     >(
         &self,
         resourceselname: Param0,
@@ -4423,13 +4425,13 @@ impl IWSManResourceLocator {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddOption<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -4522,35 +4524,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IWSManResourceLocator> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IWSManResourceLocator> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManResourceLocator) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IWSManResourceLocator> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IWSManResourceLocator> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManResourceLocator) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>
     for IWSManResourceLocator
 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>
     for &IWSManResourceLocator
 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -4570,14 +4572,14 @@ pub struct IWSManResourceLocator_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -4590,8 +4592,8 @@ pub struct IWSManResourceLocator_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -4599,15 +4601,15 @@ pub struct IWSManResourceLocator_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -4624,18 +4626,18 @@ pub struct IWSManResourceLocator_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         resourceselname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        selvalue: ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        selvalue: ::std::mem::ManuallyDrop<super::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -4665,19 +4667,19 @@ pub struct IWSManResourceLocator_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         optionname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        optionvalue: ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        optionvalue: ::std::mem::ManuallyDrop<super::Com::VARIANT>,
         mustcomply: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -4776,13 +4778,13 @@ impl IWSManSession {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -4790,7 +4792,7 @@ impl IWSManSession {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -4813,8 +4815,8 @@ impl IWSManSession {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -4822,9 +4824,9 @@ impl IWSManSession {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -4842,13 +4844,10 @@ impl IWSManSession {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
-    pub unsafe fn Get<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::VARIANT>,
-    >(
+    pub unsafe fn Get<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(
         &self,
         resourceuri: Param0,
         flags: i32,
@@ -4865,12 +4864,12 @@ impl IWSManSession {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Put<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
     >(
         &self,
@@ -4891,12 +4890,12 @@ impl IWSManSession {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Create<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
     >(
         &self,
@@ -4917,13 +4916,10 @@ impl IWSManSession {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
-    pub unsafe fn Delete<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::VARIANT>,
-    >(
+    pub unsafe fn Delete<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(
         &self,
         resourceuri: Param0,
         flags: i32,
@@ -4937,13 +4933,13 @@ impl IWSManSession {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke2<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
-        Param1: ::windows::runtime::IntoParam<'a, super::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
     >(
         &self,
@@ -4966,12 +4962,12 @@ impl IWSManSession {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Enumerate<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::OleAutomation::VARIANT>,
+        Param0: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
     >(
@@ -4980,8 +4976,8 @@ impl IWSManSession {
         filter: Param1,
         dialect: Param2,
         flags: i32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
@@ -4991,7 +4987,7 @@ impl IWSManSession {
             ::std::mem::transmute(flags),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Identify(
@@ -5083,31 +5079,31 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IW
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IWSManSession> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IWSManSession> for super::Ole::Automation::IDispatch {
     fn from(value: IWSManSession) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IWSManSession> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IWSManSession> for super::Ole::Automation::IDispatch {
     fn from(value: &IWSManSession) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for IWSManSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for IWSManSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for &IWSManSession {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for &IWSManSession {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -5127,14 +5123,14 @@ pub struct IWSManSession_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -5147,8 +5143,8 @@ pub struct IWSManSession_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -5156,113 +5152,113 @@ pub struct IWSManSession_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        resourceuri: ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>,
         flags: i32,
         resource: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        resourceuri: ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>,
         resource: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
         flags: i32,
         resultresource: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        resourceuri: ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>,
         resource: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
         flags: i32,
         newuri: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        resourceuri: ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>,
         flags: i32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         actionuri: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
-        resourceuri: ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>,
         parameters: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
         flags: i32,
         result: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        resourceuri: ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        resourceuri: ::std::mem::ManuallyDrop<super::Com::VARIANT>,
         filter: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
         dialect: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
         flags: i32,
@@ -5270,8 +5266,8 @@ pub struct IWSManSession_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]

@@ -197,10 +197,9 @@ unsafe impl ::windows::runtime::Abi for CASE_REQUIREMENT {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct CATEGORIZATION {
     pub ulCatType: u32,
@@ -210,19 +209,17 @@ pub struct CATEGORIZATION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl CATEGORIZATION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for CATEGORIZATION {
     fn default() -> Self {
@@ -232,10 +229,9 @@ impl ::std::default::Default for CATEGORIZATION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for CATEGORIZATION {
     fn eq(&self, _other: &Self) -> bool {
@@ -245,19 +241,17 @@ impl ::std::cmp::PartialEq for CATEGORIZATION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for CATEGORIZATION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for CATEGORIZATION {
     type Abi = Self;
@@ -267,10 +261,9 @@ unsafe impl ::windows::runtime::Abi for CATEGORIZATION {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub union CATEGORIZATION_0 {
     pub cClusters: u32,
@@ -279,18 +272,16 @@ pub union CATEGORIZATION_0 {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl CATEGORIZATION_0 {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for CATEGORIZATION_0 {
     fn default() -> Self {
@@ -299,10 +290,9 @@ impl ::std::default::Default for CATEGORIZATION_0 {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for CATEGORIZATION_0 {
     fn eq(&self, _other: &Self) -> bool {
@@ -311,18 +301,16 @@ impl ::std::cmp::PartialEq for CATEGORIZATION_0 {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for CATEGORIZATION_0 {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for CATEGORIZATION_0 {
     type Abi = Self;
@@ -333,10 +321,9 @@ unsafe impl ::windows::runtime::Abi for CATEGORIZATION_0 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct CATEGORIZATIONSET {
     pub cCat: u32,
@@ -345,19 +332,17 @@ pub struct CATEGORIZATIONSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl CATEGORIZATIONSET {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for CATEGORIZATIONSET {
     fn default() -> Self {
@@ -367,10 +352,9 @@ impl ::std::default::Default for CATEGORIZATIONSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for CATEGORIZATIONSET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -383,10 +367,9 @@ impl ::std::fmt::Debug for CATEGORIZATIONSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for CATEGORIZATIONSET {
     fn eq(&self, other: &Self) -> bool {
@@ -396,19 +379,17 @@ impl ::std::cmp::PartialEq for CATEGORIZATIONSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for CATEGORIZATIONSET {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for CATEGORIZATIONSET {
     type Abi = Self;
@@ -578,7 +559,7 @@ pub const COLL_E_TOOMANYMERGECOLUMNS: i32 = -2147220215i32;
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 pub struct COLUMNSET {
     pub cCol: u32,
@@ -587,13 +568,13 @@ pub struct COLUMNSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl COLUMNSET {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::default::Default for COLUMNSET {
     fn default() -> Self {
@@ -603,7 +584,7 @@ impl ::std::default::Default for COLUMNSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::fmt::Debug for COLUMNSET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -616,7 +597,7 @@ impl ::std::fmt::Debug for COLUMNSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::PartialEq for COLUMNSET {
     fn eq(&self, other: &Self) -> bool {
@@ -626,13 +607,13 @@ impl ::std::cmp::PartialEq for COLUMNSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::Eq for COLUMNSET {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 unsafe impl ::windows::runtime::Abi for COLUMNSET {
     type Abi = Self;
@@ -759,7 +740,7 @@ unsafe impl ::windows::runtime::Abi for CONDITION_TYPE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 pub struct CONTENTRESTRICTION {
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
@@ -770,13 +751,13 @@ pub struct CONTENTRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl CONTENTRESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::default::Default for CONTENTRESTRICTION {
     fn default() -> Self {
@@ -786,7 +767,7 @@ impl ::std::default::Default for CONTENTRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::PartialEq for CONTENTRESTRICTION {
     fn eq(&self, _other: &Self) -> bool {
@@ -796,13 +777,13 @@ impl ::std::cmp::PartialEq for CONTENTRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::Eq for CONTENTRESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 unsafe impl ::windows::runtime::Abi for CONTENTRESTRICTION {
     type Abi = Self;
@@ -1137,13 +1118,13 @@ unsafe impl ::windows::runtime::Abi for DBBINDFLAGENUM {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 pub struct DBBINDING {
     pub iOrdinal: usize,
     pub obValue: usize,
     pub obLength: usize,
     pub obStatus: usize,
-    pub pTypeInfo: ::std::option::Option<super::OleAutomation::ITypeInfo>,
+    pub pTypeInfo: ::std::option::Option<super::Ole::Automation::ITypeInfo>,
     pub pObject: *mut DBOBJECT,
     pub pBindExt: *mut DBBINDEXT,
     pub dwPart: u32,
@@ -1155,15 +1136,15 @@ pub struct DBBINDING {
     pub bPrecision: u8,
     pub bScale: u8,
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl DBBINDING {}
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::default::Default for DBBINDING {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::fmt::Debug for DBBINDING {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBBINDING")
@@ -1185,7 +1166,7 @@ impl ::std::fmt::Debug for DBBINDING {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::PartialEq for DBBINDING {
     fn eq(&self, other: &Self) -> bool {
         self.iOrdinal == other.iOrdinal
@@ -1205,9 +1186,9 @@ impl ::std::cmp::PartialEq for DBBINDING {
             && self.bScale == other.bScale
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::cmp::Eq for DBBINDING {}
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 unsafe impl ::windows::runtime::Abi for DBBINDING {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -1357,8 +1338,8 @@ unsafe impl ::windows::runtime::Abi for DBCOLUMNACCESS {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for DBCOLUMNDESC {
     fn clone(&self) -> Self {
@@ -1369,12 +1350,12 @@ impl ::std::clone::Clone for DBCOLUMNDESC {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct DBCOLUMNDESC {
     pub pwszTypeName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::std::option::Option<super::OleAutomation::ITypeInfo>,
+    pub pTypeInfo: ::std::option::Option<super::Ole::Automation::ITypeInfo>,
     pub rgPropertySets: *mut DBPROPSET,
     pub pclsid: *mut ::windows::runtime::GUID,
     pub cPropertySets: u32,
@@ -1387,15 +1368,15 @@ pub struct DBCOLUMNDESC {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl DBCOLUMNDESC {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for DBCOLUMNDESC {
     fn default() -> Self {
@@ -1405,8 +1386,8 @@ impl ::std::default::Default for DBCOLUMNDESC {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for DBCOLUMNDESC {
     fn eq(&self, _other: &Self) -> bool {
@@ -1416,15 +1397,15 @@ impl ::std::cmp::PartialEq for DBCOLUMNDESC {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for DBCOLUMNDESC {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for DBCOLUMNDESC {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -1577,7 +1558,7 @@ unsafe impl ::windows::runtime::Abi for DBCOLUMNFLAGSENUM26 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation"
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for DBCOLUMNINFO {
     fn clone(&self) -> Self {
@@ -1588,11 +1569,11 @@ impl ::std::clone::Clone for DBCOLUMNINFO {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation"
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct DBCOLUMNINFO {
     pub pwszName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::std::option::Option<super::OleAutomation::ITypeInfo>,
+    pub pTypeInfo: ::std::option::Option<super::Ole::Automation::ITypeInfo>,
     pub iOrdinal: usize,
     pub dwFlags: u32,
     pub ulColumnSize: usize,
@@ -1604,13 +1585,13 @@ pub struct DBCOLUMNINFO {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation"
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl DBCOLUMNINFO {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation"
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for DBCOLUMNINFO {
     fn default() -> Self {
@@ -1620,7 +1601,7 @@ impl ::std::default::Default for DBCOLUMNINFO {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation"
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for DBCOLUMNINFO {
     fn eq(&self, _other: &Self) -> bool {
@@ -1630,13 +1611,13 @@ impl ::std::cmp::PartialEq for DBCOLUMNINFO {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation"
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for DBCOLUMNINFO {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation"
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for DBCOLUMNINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -1770,8 +1751,8 @@ pub const DBCOMPUTEMODE_NOTCOMPUTED: u32 = 3u32;
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct DBCONSTRAINTDESC {
     pub pConstraintID: *mut super::super::Storage::IndexServer::DBID,
@@ -1792,15 +1773,15 @@ pub struct DBCONSTRAINTDESC {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl DBCONSTRAINTDESC {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for DBCONSTRAINTDESC {
     fn default() -> Self {
@@ -1810,8 +1791,8 @@ impl ::std::default::Default for DBCONSTRAINTDESC {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for DBCONSTRAINTDESC {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -1836,8 +1817,8 @@ impl ::std::fmt::Debug for DBCONSTRAINTDESC {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for DBCONSTRAINTDESC {
     fn eq(&self, other: &Self) -> bool {
@@ -1860,15 +1841,15 @@ impl ::std::cmp::PartialEq for DBCONSTRAINTDESC {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for DBCONSTRAINTDESC {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for DBCONSTRAINTDESC {
     type Abi = Self;
@@ -2645,26 +2626,26 @@ unsafe impl ::windows::runtime::Abi for DBPARAMFLAGSENUM20 {
 }
 #[derive(:: std :: clone :: Clone)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 pub struct DBPARAMINFO {
     pub dwFlags: u32,
     pub iOrdinal: usize,
     pub pwszName: super::super::Foundation::PWSTR,
-    pub pTypeInfo: ::std::option::Option<super::OleAutomation::ITypeInfo>,
+    pub pTypeInfo: ::std::option::Option<super::Ole::Automation::ITypeInfo>,
     pub ulParamSize: usize,
     pub wType: u16,
     pub bPrecision: u8,
     pub bScale: u8,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl DBPARAMINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::default::Default for DBPARAMINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::fmt::Debug for DBPARAMINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DBPARAMINFO")
@@ -2679,7 +2660,7 @@ impl ::std::fmt::Debug for DBPARAMINFO {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::PartialEq for DBPARAMINFO {
     fn eq(&self, other: &Self) -> bool {
         self.dwFlags == other.dwFlags
@@ -2692,9 +2673,9 @@ impl ::std::cmp::PartialEq for DBPARAMINFO {
             && self.bScale == other.bScale
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 impl ::std::cmp::Eq for DBPARAMINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
 unsafe impl ::windows::runtime::Abi for DBPARAMINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -2862,8 +2843,8 @@ pub const DBPROMPT_PROMPT: u32 = 1u32;
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for DBPROP {
     fn clone(&self) -> Self {
@@ -2874,28 +2855,28 @@ impl ::std::clone::Clone for DBPROP {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct DBPROP {
     pub dwPropertyID: u32,
     pub dwOptions: u32,
     pub dwStatus: u32,
     pub colid: super::super::Storage::IndexServer::DBID,
-    pub vValue: super::OleAutomation::VARIANT,
+    pub vValue: super::Com::VARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl DBPROP {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for DBPROP {
     fn default() -> Self {
@@ -2905,8 +2886,8 @@ impl ::std::default::Default for DBPROP {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for DBPROP {
     fn eq(&self, _other: &Self) -> bool {
@@ -2916,15 +2897,15 @@ impl ::std::cmp::PartialEq for DBPROP {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for DBPROP {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for DBPROP {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -3459,8 +3440,8 @@ unsafe impl ::windows::runtime::Abi for DBPROPIDSET {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for DBPROPINFO {
     fn clone(&self) -> Self {
@@ -3470,26 +3451,26 @@ impl ::std::clone::Clone for DBPROPINFO {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct DBPROPINFO {
     pub pwszDescription: super::super::Foundation::PWSTR,
     pub dwPropertyID: u32,
     pub dwFlags: u32,
     pub vtType: u16,
-    pub vValues: super::OleAutomation::VARIANT,
+    pub vValues: super::Com::VARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl DBPROPINFO {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for DBPROPINFO {
     fn default() -> Self {
@@ -3498,8 +3479,8 @@ impl ::std::default::Default for DBPROPINFO {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for DBPROPINFO {
     fn eq(&self, _other: &Self) -> bool {
@@ -3508,14 +3489,14 @@ impl ::std::cmp::PartialEq for DBPROPINFO {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for DBPROPINFO {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for DBPROPINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -3525,8 +3506,8 @@ unsafe impl ::windows::runtime::Abi for DBPROPINFO {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct DBPROPINFOSET {
     pub rgPropertyInfos: *mut DBPROPINFO,
@@ -3535,14 +3516,14 @@ pub struct DBPROPINFOSET {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl DBPROPINFOSET {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for DBPROPINFOSET {
     fn default() -> Self {
@@ -3551,8 +3532,8 @@ impl ::std::default::Default for DBPROPINFOSET {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for DBPROPINFOSET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -3565,8 +3546,8 @@ impl ::std::fmt::Debug for DBPROPINFOSET {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for DBPROPINFOSET {
     fn eq(&self, other: &Self) -> bool {
@@ -3577,14 +3558,14 @@ impl ::std::cmp::PartialEq for DBPROPINFOSET {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for DBPROPINFOSET {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for DBPROPINFOSET {
     type Abi = Self;
@@ -3617,8 +3598,8 @@ unsafe impl ::windows::runtime::Abi for DBPROPOPTIONSENUM {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct DBPROPSET {
     pub rgProperties: *mut DBPROP,
@@ -3628,15 +3609,15 @@ pub struct DBPROPSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl DBPROPSET {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for DBPROPSET {
     fn default() -> Self {
@@ -3646,8 +3627,8 @@ impl ::std::default::Default for DBPROPSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for DBPROPSET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -3661,8 +3642,8 @@ impl ::std::fmt::Debug for DBPROPSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for DBPROPSET {
     fn eq(&self, other: &Self) -> bool {
@@ -3674,15 +3655,15 @@ impl ::std::cmp::PartialEq for DBPROPSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for DBPROPSET {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for DBPROPSET {
     type Abi = Self;
@@ -5282,8 +5263,8 @@ unsafe impl ::windows::runtime::Abi for DB_VARNUMERIC {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for DCINFO {
     fn clone(&self) -> Self {
@@ -5293,23 +5274,23 @@ impl ::std::clone::Clone for DCINFO {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct DCINFO {
     pub eInfoType: u32,
-    pub vData: super::OleAutomation::VARIANT,
+    pub vData: super::Com::VARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl DCINFO {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for DCINFO {
     fn default() -> Self {
@@ -5318,8 +5299,8 @@ impl ::std::default::Default for DCINFO {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for DCINFO {
     fn eq(&self, _other: &Self) -> bool {
@@ -5328,14 +5309,14 @@ impl ::std::cmp::PartialEq for DCINFO {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for DCINFO {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for DCINFO {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -5684,13 +5665,13 @@ impl DataSourceObject {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -5698,7 +5679,7 @@ impl DataSourceObject {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -5721,8 +5702,8 @@ impl DataSourceObject {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -5730,9 +5711,9 @@ impl DataSourceObject {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -5784,31 +5765,33 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &Da
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<DataSourceObject> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<DataSourceObject> for super::Ole::Automation::IDispatch {
     fn from(value: DataSourceObject) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&DataSourceObject> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&DataSourceObject> for super::Ole::Automation::IDispatch {
     fn from(value: &DataSourceObject) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for DataSourceObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch> for DataSourceObject {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for &DataSourceObject {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>
+    for &DataSourceObject
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -5828,14 +5811,14 @@ pub struct DataSourceObject_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -5848,8 +5831,8 @@ pub struct DataSourceObject_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -5857,15 +5840,15 @@ pub struct DataSourceObject_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -6512,7 +6495,7 @@ impl IAccessor {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn CreateAccessor(
         &self,
         dwaccessorflags: u32,
@@ -6533,7 +6516,7 @@ impl IAccessor {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetBindings(
         &self,
         haccessor: usize,
@@ -6610,7 +6593,7 @@ pub struct IAccessor_abi(
         haccessor: usize,
         pcrefcount: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         dwaccessorflags: u32,
@@ -6620,8 +6603,8 @@ pub struct IAccessor_abi(
         phaccessor: *mut usize,
         rgstatus: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         haccessor: usize,
@@ -6629,7 +6612,7 @@ pub struct IAccessor_abi(
         pcbindings: *mut usize,
         prgbindings: *mut *mut DBBINDING,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         haccessor: usize,
@@ -6648,8 +6631,8 @@ impl IAlterIndex {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AlterIndex(
         &self,
@@ -6718,8 +6701,8 @@ pub struct IAlterIndex_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -6732,8 +6715,8 @@ pub struct IAlterIndex_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -6749,8 +6732,8 @@ impl IAlterTable {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AlterColumn(
         &self,
@@ -6771,8 +6754,8 @@ impl IAlterTable {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AlterTable(
         &self,
@@ -6839,8 +6822,8 @@ pub struct IAlterTable_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -6852,15 +6835,15 @@ pub struct IAlterTable_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -6872,8 +6855,8 @@ pub struct IAlterTable_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -6886,12 +6869,12 @@ pub struct IAlterTable_abi(
 )]
 pub struct IBindResource(::windows::runtime::IUnknown);
 impl IBindResource {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     pub unsafe fn Bind<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param5: ::windows::runtime::IntoParam<'a, super::Com::IAuthenticate>,
+        Param5: ::windows::runtime::IntoParam<'a, super::Com::Urlmon::IAuthenticate>,
     >(
         &self,
         punkouter: Param0,
@@ -6964,7 +6947,7 @@ pub struct IBindResource_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         punkouter: ::windows::runtime::RawPtr,
@@ -6977,7 +6960,7 @@ pub struct IBindResource_abi(
         pdwbindstatus: *mut u32,
         ppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -7302,7 +7285,7 @@ impl IColumnsInfo {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation"
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetColumnInfo(
         &self,
@@ -7382,7 +7365,7 @@ pub struct IColumnsInfo_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation"
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -7393,7 +7376,7 @@ pub struct IColumnsInfo_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation"
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -7417,7 +7400,7 @@ impl IColumnsInfo2 {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation"
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetColumnInfo(
         &self,
@@ -7451,7 +7434,7 @@ impl IColumnsInfo2 {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation"
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetRestrictedColumnInfo(
         &self,
@@ -7546,7 +7529,7 @@ pub struct IColumnsInfo2_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation"
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -7557,7 +7540,7 @@ pub struct IColumnsInfo2_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation"
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -7571,7 +7554,7 @@ pub struct IColumnsInfo2_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation"
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -7586,7 +7569,7 @@ pub struct IColumnsInfo2_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation"
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -7615,8 +7598,8 @@ impl IColumnsRowset {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetColumnsRowset<
         'a,
@@ -7699,8 +7682,8 @@ pub struct IColumnsRowset_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -7715,8 +7698,8 @@ pub struct IColumnsRowset_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -8255,8 +8238,8 @@ impl ICommandProperties {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetProperties(
         &self,
@@ -8277,8 +8260,8 @@ impl ICommandProperties {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetProperties(
         &self,
@@ -8341,8 +8324,8 @@ pub struct ICommandProperties_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -8354,15 +8337,15 @@ pub struct ICommandProperties_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -8372,8 +8355,8 @@ pub struct ICommandProperties_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -8721,7 +8704,7 @@ pub struct ICommandValidate_abi(
 )]
 pub struct ICommandWithParameters(::windows::runtime::IUnknown);
 impl ICommandWithParameters {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub unsafe fn GetParameterInfo(
         &self,
         pcparams: *mut usize,
@@ -8816,14 +8799,14 @@ pub struct ICommandWithParameters_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcparams: *mut usize,
         prgparaminfo: *mut *mut DBPARAMINFO,
         ppnamesbuffer: *mut *mut u16,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -8862,11 +8845,8 @@ impl ICondition {
     pub unsafe fn IsDirty(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub unsafe fn Load<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
-    >(
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(
         &self,
         pstm: Param0,
     ) -> ::windows::runtime::Result<()> {
@@ -8876,13 +8856,10 @@ impl ICondition {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Save<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -8925,16 +8902,15 @@ impl ICondition {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetComparisonInfo(
         &self,
         ppszpropertyname: *mut super::super::Foundation::PWSTR,
         pcop: *mut CONDITION_OPERATION,
-        ppropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
@@ -9095,26 +9071,19 @@ pub struct ICondition_abi(
         pclassid: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pstm: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pstm: ::windows::runtime::RawPtr,
         fcleardirty: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcbsize: *mut u64,
@@ -9130,25 +9099,21 @@ pub struct ICondition_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppszpropertyname: *mut super::super::Foundation::PWSTR,
         pcop: *mut CONDITION_OPERATION,
-        ppropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -9195,11 +9160,8 @@ impl ICondition2 {
     pub unsafe fn IsDirty(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub unsafe fn Load<
-        'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
-    >(
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn Load<'a, Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>>(
         &self,
         pstm: Param0,
     ) -> ::windows::runtime::Result<()> {
@@ -9209,13 +9171,10 @@ impl ICondition2 {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Save<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -9258,16 +9217,15 @@ impl ICondition2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetComparisonInfo(
         &self,
         ppszpropertyname: *mut super::super::Foundation::PWSTR,
         pcop: *mut CONDITION_OPERATION,
-        ppropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
@@ -9335,17 +9293,16 @@ impl ICondition2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub unsafe fn GetLeafConditionInfo(
         &self,
         ppropkey: *mut super::PropertiesSystem::PROPERTYKEY,
         pcop: *mut CONDITION_OPERATION,
-        ppropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).16)(
             ::std::mem::transmute_copy(self),
@@ -9482,26 +9439,19 @@ pub struct ICondition2_abi(
         pclassid: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pstm: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pstm: ::windows::runtime::RawPtr,
         fcleardirty: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcbsize: *mut u64,
@@ -9517,25 +9467,21 @@ pub struct ICondition2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppszpropertyname: *mut super::super::Foundation::PWSTR,
         pcop: *mut CONDITION_OPERATION,
-        ppropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -9568,27 +9514,23 @@ pub struct ICondition2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppropkey: *mut super::PropertiesSystem::PROPERTYKEY,
         pcop: *mut CONDITION_OPERATION,
-        ppropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     )))]
     usize,
 );
@@ -9643,10 +9585,9 @@ impl IConditionFactory {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn MakeLeaf<
         'a,
@@ -9661,7 +9602,7 @@ impl IConditionFactory {
         pszpropertyname: Param0,
         cop: CONDITION_OPERATION,
         pszvaluetype: Param2,
-        ppropvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *const super::Com::StructuredStorage::PROPVARIANT,
         ppropertynameterm: Param4,
         poperationterm: Param5,
         pvalueterm: Param6,
@@ -9764,19 +9705,16 @@ pub struct IConditionFactory_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszpropertyname: super::super::Foundation::PWSTR,
         cop: CONDITION_OPERATION,
         pszvaluetype: super::super::Foundation::PWSTR,
-        ppropvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         ppropertynameterm: ::windows::runtime::RawPtr,
         poperationterm: ::windows::runtime::RawPtr,
         pvalueterm: ::windows::runtime::RawPtr,
@@ -9785,10 +9723,9 @@ pub struct IConditionFactory_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -9852,10 +9789,9 @@ impl IConditionFactory2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn MakeLeaf<
         'a,
@@ -9870,7 +9806,7 @@ impl IConditionFactory2 {
         pszpropertyname: Param0,
         cop: CONDITION_OPERATION,
         pszvaluetype: Param2,
-        ppropvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *const super::Com::StructuredStorage::PROPVARIANT,
         ppropertynameterm: Param4,
         poperationterm: Param5,
         pvalueterm: Param6,
@@ -10067,11 +10003,10 @@ impl IConditionFactory2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub unsafe fn CreateLeaf<
         'a,
@@ -10085,7 +10020,7 @@ impl IConditionFactory2 {
         &self,
         propkey: *const super::PropertiesSystem::PROPERTYKEY,
         cop: CONDITION_OPERATION,
-        propvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        propvar: *const super::Com::StructuredStorage::PROPVARIANT,
         pszsemantictype: Param3,
         pszlocalename: Param4,
         ppropertynameterm: Param5,
@@ -10219,19 +10154,16 @@ pub struct IConditionFactory2_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszpropertyname: super::super::Foundation::PWSTR,
         cop: CONDITION_OPERATION,
         pszvaluetype: super::super::Foundation::PWSTR,
-        ppropvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         ppropertynameterm: ::windows::runtime::RawPtr,
         poperationterm: ::windows::runtime::RawPtr,
         pvalueterm: ::windows::runtime::RawPtr,
@@ -10240,10 +10172,9 @@ pub struct IConditionFactory2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -10340,19 +10271,16 @@ pub struct IConditionFactory2_abi(
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         propkey: *const super::PropertiesSystem::PROPERTYKEY,
         cop: CONDITION_OPERATION,
-        propvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        propvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         pszsemantictype: super::super::Foundation::PWSTR,
         pszlocalename: super::super::Foundation::PWSTR,
         ppropertynameterm: ::windows::runtime::RawPtr,
@@ -10364,11 +10292,10 @@ pub struct IConditionFactory2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -10469,10 +10396,9 @@ impl IConditionGenerator {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn DefaultPhrase<
         'a,
@@ -10481,7 +10407,7 @@ impl IConditionGenerator {
     >(
         &self,
         pszvaluetype: Param0,
-        ppropvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *const super::Com::StructuredStorage::PROPVARIANT,
         fuseenglish: Param2,
     ) -> ::windows::runtime::Result<super::super::Foundation::PWSTR> {
         let mut result__: <super::super::Foundation::PWSTR as ::windows::runtime::Abi>::Abi =
@@ -10573,26 +10499,22 @@ pub struct IConditionGenerator_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszvaluetype: super::super::Foundation::PWSTR,
-        ppropvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         fuseenglish: super::super::Foundation::BOOL,
         ppszphrase: *mut super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -10681,12 +10603,12 @@ pub struct IConvertType_abi(
 )]
 pub struct ICreateRow(::windows::runtime::IUnknown);
 impl ICreateRow {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     pub unsafe fn CreateRow<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param5: ::windows::runtime::IntoParam<'a, super::Com::IAuthenticate>,
+        Param5: ::windows::runtime::IntoParam<'a, super::Com::Urlmon::IAuthenticate>,
     >(
         &self,
         punkouter: Param0,
@@ -10761,7 +10683,7 @@ pub struct ICreateRow_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         punkouter: ::windows::runtime::RawPtr,
@@ -10775,7 +10697,7 @@ pub struct ICreateRow_abi(
         ppwsznewurl: *mut super::super::Foundation::PWSTR,
         ppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -11021,8 +10943,8 @@ impl IDBBinderProperties {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetProperties(
         &self,
@@ -11042,8 +10964,8 @@ impl IDBBinderProperties {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetPropertyInfo(
         &self,
@@ -11066,8 +10988,8 @@ impl IDBBinderProperties {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetProperties(
         &self,
@@ -11155,8 +11077,8 @@ pub struct IDBBinderProperties_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -11168,14 +11090,14 @@ pub struct IDBBinderProperties_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -11187,15 +11109,15 @@ pub struct IDBBinderProperties_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -11205,8 +11127,8 @@ pub struct IDBBinderProperties_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
@@ -11383,8 +11305,8 @@ impl IDBDataSourceAdmin {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreateDataSource<
         'a,
@@ -11412,8 +11334,8 @@ impl IDBDataSourceAdmin {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetCreationProperties(
         &self,
@@ -11436,8 +11358,8 @@ impl IDBDataSourceAdmin {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn ModifyDataSource(
         &self,
@@ -11500,8 +11422,8 @@ pub struct IDBDataSourceAdmin_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -11514,15 +11436,15 @@ pub struct IDBDataSourceAdmin_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -11534,15 +11456,15 @@ pub struct IDBDataSourceAdmin_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -11552,8 +11474,8 @@ pub struct IDBDataSourceAdmin_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -11870,8 +11792,8 @@ impl IDBProperties {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetProperties(
         &self,
@@ -11891,8 +11813,8 @@ impl IDBProperties {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetPropertyInfo(
         &self,
@@ -11915,8 +11837,8 @@ impl IDBProperties {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetProperties(
         &self,
@@ -11979,8 +11901,8 @@ pub struct IDBProperties_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -11992,14 +11914,14 @@ pub struct IDBProperties_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -12011,15 +11933,15 @@ pub struct IDBProperties_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -12029,8 +11951,8 @@ pub struct IDBProperties_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -12142,8 +12064,8 @@ impl IDBSchemaRowset {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetRowset<
         'a,
@@ -12153,7 +12075,7 @@ impl IDBSchemaRowset {
         punkouter: Param0,
         rguidschema: *const ::windows::runtime::GUID,
         crestrictions: u32,
-        rgrestrictions: *const super::OleAutomation::VARIANT,
+        rgrestrictions: *const super::Com::VARIANT,
         riid: *const ::windows::runtime::GUID,
         cpropertysets: u32,
         rgpropertysets: *mut DBPROPSET,
@@ -12235,15 +12157,15 @@ pub struct IDBSchemaRowset_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         punkouter: ::windows::runtime::RawPtr,
         rguidschema: *const ::windows::runtime::GUID,
         crestrictions: u32,
-        rgrestrictions: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        rgrestrictions: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
         riid: *const ::windows::runtime::GUID,
         cpropertysets: u32,
         rgpropertysets: *mut DBPROPSET,
@@ -12252,8 +12174,8 @@ pub struct IDBSchemaRowset_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -12274,8 +12196,8 @@ pub struct IDCInfo(::windows::runtime::IUnknown);
 impl IDCInfo {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetInfo(
         &self,
@@ -12293,8 +12215,8 @@ impl IDCInfo {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetInfo(
         &self,
@@ -12356,8 +12278,8 @@ pub struct IDCInfo_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -12367,14 +12289,14 @@ pub struct IDCInfo_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -12383,8 +12305,8 @@ pub struct IDCInfo_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -12877,13 +12799,13 @@ impl IDataSourceLocator {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::ITypeInfo> {
-        let mut result__: <super::OleAutomation::ITypeInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::ITypeInfo> {
+        let mut result__: <super::Ole::Automation::ITypeInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -12891,7 +12813,7 @@ impl IDataSourceLocator {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -12914,8 +12836,8 @@ impl IDataSourceLocator {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -12923,9 +12845,9 @@ impl IDataSourceLocator {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::Com::VARIANT,
+        pexcepinfo: *mut super::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -12956,20 +12878,22 @@ impl IDataSourceLocator {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
-    pub unsafe fn PromptNew(&self) -> ::windows::runtime::Result<super::OleAutomation::IDispatch> {
-        let mut result__: <super::OleAutomation::IDispatch as ::windows::runtime::Abi>::Abi =
+    #[cfg(feature = "Win32_System_Ole_Automation")]
+    pub unsafe fn PromptNew(
+        &self,
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IDispatch> {
+        let mut result__: <super::Ole::Automation::IDispatch as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IDispatch>(result__)
+        .from_abi::<super::Ole::Automation::IDispatch>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn PromptEdit(
         &self,
-        ppadoconnection: *mut ::std::option::Option<super::OleAutomation::IDispatch>,
+        ppadoconnection: *mut ::std::option::Option<super::Ole::Automation::IDispatch>,
         pbsuccess: *mut i16,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(
@@ -13015,33 +12939,35 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IDataSourceLocator> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IDataSourceLocator> for super::Ole::Automation::IDispatch {
     fn from(value: IDataSourceLocator) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IDataSourceLocator> for super::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IDataSourceLocator> for super::Ole::Automation::IDispatch {
     fn from(value: &IDataSourceLocator) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch> for IDataSourceLocator {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>
+    for IDataSourceLocator
+{
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(self),
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(self),
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::Ole::Automation::IDispatch>
     for &IDataSourceLocator
 {
-    fn into_param(self) -> ::windows::runtime::Param<'a, super::OleAutomation::IDispatch> {
+    fn into_param(self) -> ::windows::runtime::Param<'a, super::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(
-            ::std::convert::Into::<super::OleAutomation::IDispatch>::into(
+            ::std::convert::Into::<super::Ole::Automation::IDispatch>::into(
                 ::std::clone::Clone::clone(self),
             ),
         )
@@ -13061,14 +12987,14 @@ pub struct IDataSourceLocator_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -13081,8 +13007,8 @@ pub struct IDataSourceLocator_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -13090,15 +13016,15 @@ pub struct IDataSourceLocator_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -13109,19 +13035,19 @@ pub struct IDataSourceLocator_abi(
         this: ::windows::runtime::RawPtr,
         hwndparent: i64,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppadoconnection: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppadoconnection: *mut ::windows::runtime::RawPtr,
         pbsuccess: *mut i16,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -13330,8 +13256,8 @@ pub struct IEnumItemProperties(::windows::runtime::IUnknown);
 impl IEnumItemProperties {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Next(
         &self,
@@ -13422,8 +13348,8 @@ pub struct IEnumItemProperties_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -13433,8 +13359,8 @@ pub struct IEnumItemProperties_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -13787,14 +13713,14 @@ pub struct IErrorLookup(::windows::runtime::IUnknown);
 impl IErrorLookup {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetErrorDescription(
         &self,
         hrerror: ::windows::runtime::HRESULT,
         dwlookupid: u32,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
         lcid: u32,
         pbstrsource: *mut super::super::Foundation::BSTR,
         pbstrdescription: *mut super::super::Foundation::BSTR,
@@ -13884,22 +13810,22 @@ pub struct IErrorLookup_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         hrerror: ::windows::runtime::HRESULT,
         dwlookupid: u32,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
         lcid: u32,
         pbstrsource: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
         pbstrdescription: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -13928,8 +13854,8 @@ pub struct IErrorRecords(::windows::runtime::IUnknown);
 impl IErrorRecords {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddErrorRecord<
         'a,
@@ -13938,7 +13864,7 @@ impl IErrorRecords {
         &self,
         perrorinfo: *const ERRORINFO,
         dwlookupid: u32,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
         punkcustomerror: Param3,
         dwdynamicerrorid: u32,
     ) -> ::windows::runtime::Result<()> {
@@ -13979,13 +13905,13 @@ impl IErrorRecords {
         )
         .from_abi::<::windows::runtime::IUnknown>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetErrorInfo(
         &self,
         ulrecordnum: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::IErrorInfo> {
-        let mut result__: <super::OleAutomation::IErrorInfo as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::IErrorInfo> {
+        let mut result__: <super::Ole::Automation::IErrorInfo as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -13993,25 +13919,25 @@ impl IErrorRecords {
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::IErrorInfo>(result__)
+        .from_abi::<super::Ole::Automation::IErrorInfo>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetErrorParameters(
         &self,
         ulrecordnum: u32,
-    ) -> ::windows::runtime::Result<super::OleAutomation::DISPPARAMS> {
-        let mut result__: <super::OleAutomation::DISPPARAMS as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Ole::Automation::DISPPARAMS> {
+        let mut result__: <super::Ole::Automation::DISPPARAMS as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(ulrecordnum),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::DISPPARAMS>(result__)
+        .from_abi::<super::Ole::Automation::DISPPARAMS>(result__)
     }
     pub unsafe fn GetRecordCount(&self) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -14069,21 +13995,21 @@ pub struct IErrorRecords_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         perrorinfo: *const ERRORINFO,
         dwlookupid: u32,
-        pdispparams: *const super::OleAutomation::DISPPARAMS,
+        pdispparams: *const super::Ole::Automation::DISPPARAMS,
         punkcustomerror: ::windows::runtime::RawPtr,
         dwdynamicerrorid: u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -14097,28 +14023,28 @@ pub struct IErrorRecords_abi(
         riid: *const ::windows::runtime::GUID,
         ppobject: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulrecordnum: u32,
         lcid: u32,
         pperrorinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ulrecordnum: u32,
-        pdispparams: *mut super::OleAutomation::DISPPARAMS,
+        pdispparams: *mut super::Ole::Automation::DISPPARAMS,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -14464,8 +14390,8 @@ impl IIndexDefinition {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreateIndex(
         &self,
@@ -14551,8 +14477,8 @@ pub struct IIndexDefinition_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -14567,8 +14493,8 @@ pub struct IIndexDefinition_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -14590,17 +14516,16 @@ pub struct IInterval(::windows::runtime::IUnknown);
 impl IInterval {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetLimits(
         &self,
         pilklower: *mut INTERVAL_LIMIT_KIND,
-        ppropvarlower: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvarlower: *mut super::Com::StructuredStorage::PROPVARIANT,
         pilkupper: *mut INTERVAL_LIMIT_KIND,
-        ppropvarupper: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvarupper: *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -14659,28 +14584,22 @@ pub struct IInterval_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pilklower: *mut INTERVAL_LIMIT_KIND,
-        ppropvarlower: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvarlower: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         pilkupper: *mut INTERVAL_LIMIT_KIND,
-        ppropvarupper: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvarupper: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -14726,11 +14645,11 @@ impl ILoadFilter {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub unsafe fn LoadIFilterFromStorage<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStorage>,
+        Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>,
         Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
         Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -14761,11 +14680,11 @@ impl ILoadFilter {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub unsafe fn LoadIFilterFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
         Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
@@ -14854,7 +14773,7 @@ pub struct ILoadFilter_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -14870,13 +14789,13 @@ pub struct ILoadFilter_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -14892,7 +14811,7 @@ pub struct ILoadFilter_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     )))]
     usize,
 );
@@ -14938,11 +14857,11 @@ impl ILoadFilterWithPrivateComActivation {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub unsafe fn LoadIFilterFromStorage<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStorage>,
+        Param0: ::windows::runtime::IntoParam<'a, super::Com::StructuredStorage::IStorage>,
         Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
         Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -14973,11 +14892,11 @@ impl ILoadFilterWithPrivateComActivation {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub unsafe fn LoadIFilterFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
         Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
@@ -15114,7 +15033,7 @@ pub struct ILoadFilterWithPrivateComActivation_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -15130,13 +15049,13 @@ pub struct ILoadFilterWithPrivateComActivation_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -15152,7 +15071,7 @@ pub struct ILoadFilterWithPrivateComActivation_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -15204,8 +15123,8 @@ impl IMDDataset {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetAxisRowset<
         'a,
@@ -15322,8 +15241,8 @@ pub struct IMDDataset_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -15337,8 +15256,8 @@ pub struct IMDDataset_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -15477,8 +15396,8 @@ impl IMDRangeRowset {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetRangeRowset<
         'a,
@@ -15554,8 +15473,8 @@ pub struct IMDRangeRowset_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -15570,8 +15489,8 @@ pub struct IMDRangeRowset_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -16364,8 +16283,8 @@ impl IOpenRowset {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn OpenRowset<
         'a,
@@ -16441,8 +16360,8 @@ pub struct IOpenRowset_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -16457,8 +16376,8 @@ pub struct IOpenRowset_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -16733,15 +16652,14 @@ impl IQueryParser {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetOption(
         &self,
         option: STRUCTURED_QUERY_SINGLE_OPTION,
-        poptionvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -16752,29 +16670,27 @@ impl IQueryParser {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetOption(
         &self,
         option: STRUCTURED_QUERY_SINGLE_OPTION,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::PROPVARIANT> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(option),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetMultiOption<
         'a,
@@ -16783,7 +16699,7 @@ impl IQueryParser {
         &self,
         option: STRUCTURED_QUERY_MULTIOPTION,
         pszoptionkey: Param1,
-        poptionvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -16917,69 +16833,57 @@ pub struct IQueryParser_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         option: STRUCTURED_QUERY_SINGLE_OPTION,
-        poptionvalue: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        poptionvalue: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         option: STRUCTURED_QUERY_SINGLE_OPTION,
-        poptionvalue: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        poptionvalue: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         option: STRUCTURED_QUERY_MULTIOPTION,
         pszoptionkey: super::super::Foundation::PWSTR,
-        poptionvalue: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        poptionvalue: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -17063,15 +16967,14 @@ impl IQueryParserManager {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetOption(
         &self,
         option: QUERY_PARSER_MANAGER_OPTION,
-        poptionvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        poptionvalue: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -17145,24 +17048,20 @@ pub struct IQueryParserManager_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         option: QUERY_PARSER_MANAGER_OPTION,
-        poptionvalue: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        poptionvalue: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -17217,10 +17116,9 @@ impl IQuerySolution {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn MakeLeaf<
         'a,
@@ -17235,7 +17133,7 @@ impl IQuerySolution {
         pszpropertyname: Param0,
         cop: CONDITION_OPERATION,
         pszvaluetype: Param2,
-        ppropvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppropvar: *const super::Com::StructuredStorage::PROPVARIANT,
         ppropertynameterm: Param4,
         poperationterm: Param5,
         pvalueterm: Param6,
@@ -17400,19 +17298,16 @@ pub struct IQuerySolution_abi(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszpropertyname: super::super::Foundation::PWSTR,
         cop: CONDITION_OPERATION,
         pszvaluetype: super::super::Foundation::PWSTR,
-        ppropvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        ppropvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         ppropertynameterm: ::windows::runtime::RawPtr,
         poperationterm: ::windows::runtime::RawPtr,
         pvalueterm: ::windows::runtime::RawPtr,
@@ -17421,10 +17316,9 @@ pub struct IQuerySolution_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -17844,17 +17738,16 @@ pub struct IRichChunk(::windows::runtime::IUnknown);
 impl IRichChunk {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetData(
         &self,
         pfirstpos: *mut u32,
         plength: *mut u32,
         ppsz: *mut super::super::Foundation::PWSTR,
-        pvalue: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvalue: *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -17913,24 +17806,22 @@ pub struct IRichChunk_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pfirstpos: *mut u32,
         plength: *mut u32,
         ppsz: *mut super::super::Foundation::PWSTR,
-        pvalue: *mut ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pvalue: *mut ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -18399,7 +18290,7 @@ impl IRowSchemaChange {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation"
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddColumns(
         &self,
@@ -18501,7 +18392,7 @@ pub struct IRowSchemaChange_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation"
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -18512,7 +18403,7 @@ pub struct IRowSchemaChange_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation"
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -19294,8 +19185,8 @@ impl IRowsetCurrentIndex {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetIndexInfo(
         &self,
@@ -19442,8 +19333,8 @@ pub struct IRowsetCurrentIndex_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -19455,8 +19346,8 @@ pub struct IRowsetCurrentIndex_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -19499,14 +19390,13 @@ pub struct IRowsetEvents(::windows::runtime::IUnknown);
 impl IRowsetEvents {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn OnNewItem(
         &self,
-        itemid: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        itemid: *const super::Com::StructuredStorage::PROPVARIANT,
         newitemstate: ROWSETEVENT_ITEMSTATE,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
@@ -19518,14 +19408,13 @@ impl IRowsetEvents {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn OnChangedItem(
         &self,
-        itemid: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        itemid: *const super::Com::StructuredStorage::PROPVARIANT,
         rowsetitemstate: ROWSETEVENT_ITEMSTATE,
         changeditemstate: ROWSETEVENT_ITEMSTATE,
     ) -> ::windows::runtime::Result<()> {
@@ -19539,14 +19428,13 @@ impl IRowsetEvents {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn OnDeletedItem(
         &self,
-        itemid: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        itemid: *const super::Com::StructuredStorage::PROPVARIANT,
         deleteditemstate: ROWSETEVENT_ITEMSTATE,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
@@ -19558,15 +19446,14 @@ impl IRowsetEvents {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn OnRowsetEvent(
         &self,
         eventtype: ROWSETEVENT_TYPE,
-        eventdata: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        eventdata: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -19623,91 +19510,75 @@ pub struct IRowsetEvents_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        itemid: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        itemid: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         newitemstate: ROWSETEVENT_ITEMSTATE,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        itemid: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        itemid: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         rowsetitemstate: ROWSETEVENT_ITEMSTATE,
         changeditemstate: ROWSETEVENT_ITEMSTATE,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        itemid: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        itemid: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
         deleteditemstate: ROWSETEVENT_ITEMSTATE,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         eventtype: ROWSETEVENT_TYPE,
-        eventdata: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        eventdata: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -19996,8 +19867,8 @@ impl IRowsetIndex {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetIndexInfo(
         &self,
@@ -20100,8 +19971,8 @@ pub struct IRowsetIndex_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -20113,8 +19984,8 @@ pub struct IRowsetIndex_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -20146,8 +20017,8 @@ impl IRowsetInfo {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetProperties(
         &self,
@@ -20242,8 +20113,8 @@ pub struct IRowsetInfo_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -20255,8 +20126,8 @@ pub struct IRowsetInfo_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -22526,7 +22397,7 @@ pub struct IRowsetWatchRegion_abi(
 )]
 pub struct IRowsetWithParameters(::windows::runtime::IUnknown);
 impl IRowsetWithParameters {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub unsafe fn GetParameterInfo(
         &self,
         pcparams: *mut usize,
@@ -22603,14 +22474,14 @@ pub struct IRowsetWithParameters_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcparams: *mut usize,
         prgparaminfo: *mut *mut DBPARAMINFO,
         ppnamesbuffer: *mut *mut u16,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole_Automation")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pparams: *mut DBPARAMS,
@@ -22705,8 +22576,8 @@ pub struct ISQLGetDiagField(::windows::runtime::IUnknown);
 impl ISQLGetDiagField {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetDiagField(
         &self,
@@ -22766,8 +22637,8 @@ pub struct ISQLGetDiagField_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -22775,8 +22646,8 @@ pub struct ISQLGetDiagField_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -23326,12 +23197,12 @@ pub struct ISchemaProvider_abi(
 )]
 pub struct IScopedOperations(::windows::runtime::IUnknown);
 impl IScopedOperations {
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     pub unsafe fn Bind<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-        Param5: ::windows::runtime::IntoParam<'a, super::Com::IAuthenticate>,
+        Param5: ::windows::runtime::IntoParam<'a, super::Com::Urlmon::IAuthenticate>,
     >(
         &self,
         punkouter: Param0,
@@ -23358,8 +23229,11 @@ impl IScopedOperations {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Copy<'a, Param4: ::windows::runtime::IntoParam<'a, super::Com::IAuthenticate>>(
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
+    pub unsafe fn Copy<
+        'a,
+        Param4: ::windows::runtime::IntoParam<'a, super::Com::Urlmon::IAuthenticate>,
+    >(
         &self,
         crows: usize,
         rgpwszsourceurls: *const super::super::Foundation::PWSTR,
@@ -23383,8 +23257,11 @@ impl IScopedOperations {
         )
         .ok()
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
-    pub unsafe fn Move<'a, Param4: ::windows::runtime::IntoParam<'a, super::Com::IAuthenticate>>(
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
+    pub unsafe fn Move<
+        'a,
+        Param4: ::windows::runtime::IntoParam<'a, super::Com::Urlmon::IAuthenticate>,
+    >(
         &self,
         crows: usize,
         rgpwszsourceurls: *const super::super::Foundation::PWSTR,
@@ -23428,8 +23305,8 @@ impl IScopedOperations {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn OpenRowset<
         'a,
@@ -23524,7 +23401,7 @@ pub struct IScopedOperations_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         punkouter: ::windows::runtime::RawPtr,
@@ -23537,8 +23414,8 @@ pub struct IScopedOperations_abi(
         pdwbindstatus: *mut u32,
         ppunk: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         crows: usize,
@@ -23550,8 +23427,8 @@ pub struct IScopedOperations_abi(
         rgpwsznewurls: *mut super::super::Foundation::PWSTR,
         ppstringsbuffer: *mut *mut u16,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         crows: usize,
@@ -23563,7 +23440,7 @@ pub struct IScopedOperations_abi(
         rgpwsznewurls: *mut super::super::Foundation::PWSTR,
         ppstringsbuffer: *mut *mut u16,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com_Urlmon")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -23576,8 +23453,8 @@ pub struct IScopedOperations_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -23592,8 +23469,8 @@ pub struct IScopedOperations_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -23618,10 +23495,9 @@ impl ISearchCatalogManager {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetParameter<
         'a,
@@ -23629,22 +23505,20 @@ impl ISearchCatalogManager {
     >(
         &self,
         pszname: Param0,
-    ) -> ::windows::runtime::Result<*mut super::super::Storage::StructuredStorage::PROPVARIANT>
-    {
-        let mut result__ : < * mut super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < * mut super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             pszname.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<*mut super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<*mut super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetParameter<
         'a,
@@ -23652,7 +23526,7 @@ impl ISearchCatalogManager {
     >(
         &self,
         pszname: Param0,
-        pvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvalue: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -23984,44 +23858,38 @@ pub struct ISearchCatalogManager_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszname: super::super::Foundation::PWSTR,
-        ppvalue: *mut *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszname: super::super::Foundation::PWSTR,
-        pvalue: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        pvalue: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -24162,10 +24030,9 @@ impl ISearchCatalogManager2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetParameter<
         'a,
@@ -24173,22 +24040,20 @@ impl ISearchCatalogManager2 {
     >(
         &self,
         pszname: Param0,
-    ) -> ::windows::runtime::Result<*mut super::super::Storage::StructuredStorage::PROPVARIANT>
-    {
-        let mut result__ : < * mut super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < * mut super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             pszname.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<*mut super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<*mut super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetParameter<
         'a,
@@ -24196,7 +24061,7 @@ impl ISearchCatalogManager2 {
     >(
         &self,
         pszname: Param0,
-        pvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvalue: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -24568,44 +24433,38 @@ pub struct ISearchCatalogManager2_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszname: super::super::Foundation::PWSTR,
-        ppvalue: *mut *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszname: super::super::Foundation::PWSTR,
-        pvalue: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        pvalue: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -25872,10 +25731,9 @@ impl ISearchManager {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetParameter<
         'a,
@@ -25883,22 +25741,20 @@ impl ISearchManager {
     >(
         &self,
         pszname: Param0,
-    ) -> ::windows::runtime::Result<*mut super::super::Storage::StructuredStorage::PROPVARIANT>
-    {
-        let mut result__ : < * mut super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < * mut super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             pszname.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<*mut super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<*mut super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetParameter<
         'a,
@@ -25906,7 +25762,7 @@ impl ISearchManager {
     >(
         &self,
         pszname: Param0,
-        pvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvalue: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -26085,44 +25941,38 @@ pub struct ISearchManager_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszname: super::super::Foundation::PWSTR,
-        ppvalue: *mut *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszname: super::super::Foundation::PWSTR,
-        pvalue: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        pvalue: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -26216,10 +26066,9 @@ impl ISearchManager2 {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetParameter<
         'a,
@@ -26227,22 +26076,20 @@ impl ISearchManager2 {
     >(
         &self,
         pszname: Param0,
-    ) -> ::windows::runtime::Result<*mut super::super::Storage::StructuredStorage::PROPVARIANT>
-    {
-        let mut result__ : < * mut super::super::Storage::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::Com::StructuredStorage::PROPVARIANT> {
+        let mut result__ : < * mut super::Com::StructuredStorage:: PROPVARIANT as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             pszname.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<*mut super::super::Storage::StructuredStorage::PROPVARIANT>(result__)
+        .from_abi::<*mut super::Com::StructuredStorage::PROPVARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetParameter<
         'a,
@@ -26250,7 +26097,7 @@ impl ISearchManager2 {
     >(
         &self,
         pszname: Param0,
-        pvalue: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pvalue: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -26482,44 +26329,38 @@ pub struct ISearchManager2_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszname: super::super::Foundation::PWSTR,
-        ppvalue: *mut *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        ppvalue: *mut *mut super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pszname: super::super::Foundation::PWSTR,
-        pvalue: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
-        >,
+        pvalue: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -27423,11 +27264,10 @@ impl ISearchQueryHelper {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub unsafe fn WriteProperties(
         &self,
@@ -27603,11 +27443,10 @@ pub struct ISearchQueryHelper_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -27619,11 +27458,10 @@ pub struct ISearchQueryHelper_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_PropertiesSystem",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation",
+        feature = "Win32_System_PropertiesSystem"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -28571,8 +28409,8 @@ impl ISessionProperties {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetProperties(
         &self,
@@ -28593,8 +28431,8 @@ impl ISessionProperties {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetProperties(
         &self,
@@ -28657,8 +28495,8 @@ pub struct ISessionProperties_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -28670,15 +28508,15 @@ pub struct ISessionProperties_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -28688,8 +28526,8 @@ pub struct ISessionProperties_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -28833,8 +28671,8 @@ impl ISourcesRowset {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetSourcesRowset<
         'a,
@@ -28906,8 +28744,8 @@ pub struct ISourcesRowset_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -28920,8 +28758,8 @@ pub struct ISourcesRowset_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -29083,14 +28921,14 @@ impl ISubscriptionItem {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn ReadProperties(
         &self,
         ncount: u32,
         rgwszname: *const super::super::Foundation::PWSTR,
-        rgvalue: *mut super::OleAutomation::VARIANT,
+        rgvalue: *mut super::Com::VARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -29102,14 +28940,14 @@ impl ISubscriptionItem {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn WriteProperties(
         &self,
         ncount: u32,
         rgwszname: *const super::super::Foundation::PWSTR,
-        rgvalue: *const super::OleAutomation::VARIANT,
+        rgvalue: *const super::Com::VARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -29191,36 +29029,36 @@ pub struct ISubscriptionItem_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ncount: u32,
         rgwszname: *const super::super::Foundation::PWSTR,
-        rgvalue: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        rgvalue: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ncount: u32,
         rgwszname: *const super::super::Foundation::PWSTR,
-        rgvalue: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        rgvalue: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -29838,8 +29676,8 @@ pub struct ISubscriptionMgr2_abi(
 );
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for ITEMPROP {
     fn clone(&self) -> Self {
@@ -29849,23 +29687,23 @@ impl ::std::clone::Clone for ITEMPROP {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct ITEMPROP {
-    pub variantValue: super::OleAutomation::VARIANT,
+    pub variantValue: super::Com::VARIANT,
     pub pwszName: super::super::Foundation::PWSTR,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ITEMPROP {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for ITEMPROP {
     fn default() -> Self {
@@ -29874,8 +29712,8 @@ impl ::std::default::Default for ITEMPROP {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for ITEMPROP {
     fn eq(&self, _other: &Self) -> bool {
@@ -29884,14 +29722,14 @@ impl ::std::cmp::PartialEq for ITEMPROP {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for ITEMPROP {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for ITEMPROP {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -29956,8 +29794,8 @@ impl ITableCreation {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreateTable<
         'a,
@@ -30002,8 +29840,8 @@ impl ITableCreation {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddColumn(
         &self,
@@ -30035,8 +29873,8 @@ impl ITableCreation {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetTableDefinition(
         &self,
@@ -30133,8 +29971,8 @@ pub struct ITableCreation_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -30151,8 +29989,8 @@ pub struct ITableCreation_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -30164,8 +30002,8 @@ pub struct ITableCreation_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -30176,8 +30014,8 @@ pub struct ITableCreation_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -30190,8 +30028,8 @@ pub struct ITableCreation_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -30207,8 +30045,8 @@ pub struct ITableCreation_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -30224,8 +30062,8 @@ impl ITableDefinition {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreateTable<
         'a,
@@ -30270,8 +30108,8 @@ impl ITableDefinition {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddColumn(
         &self,
@@ -30349,8 +30187,8 @@ pub struct ITableDefinition_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -30367,8 +30205,8 @@ pub struct ITableDefinition_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -30380,8 +30218,8 @@ pub struct ITableDefinition_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -30392,8 +30230,8 @@ pub struct ITableDefinition_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -30416,8 +30254,8 @@ impl ITableDefinitionWithConstraints {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreateTable<
         'a,
@@ -30462,8 +30300,8 @@ impl ITableDefinitionWithConstraints {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddColumn(
         &self,
@@ -30495,8 +30333,8 @@ impl ITableDefinitionWithConstraints {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetTableDefinition(
         &self,
@@ -30525,8 +30363,8 @@ impl ITableDefinitionWithConstraints {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddConstraint(
         &self,
@@ -30543,8 +30381,8 @@ impl ITableDefinitionWithConstraints {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreateTableWithConstraints<
         'a,
@@ -30689,8 +30527,8 @@ pub struct ITableDefinitionWithConstraints_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -30707,8 +30545,8 @@ pub struct ITableDefinitionWithConstraints_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -30720,8 +30558,8 @@ pub struct ITableDefinitionWithConstraints_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -30732,8 +30570,8 @@ pub struct ITableDefinitionWithConstraints_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -30746,8 +30584,8 @@ pub struct ITableDefinitionWithConstraints_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -30763,15 +30601,15 @@ pub struct ITableDefinitionWithConstraints_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -30781,15 +30619,15 @@ pub struct ITableDefinitionWithConstraints_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -30808,8 +30646,8 @@ pub struct ITableDefinitionWithConstraints_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer"))]
@@ -31453,8 +31291,8 @@ impl ITrusteeAdmin {
         feature = "Win32_Foundation",
         feature = "Win32_Security_Authorization",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn CreateTrustee(
         &self,
@@ -31485,8 +31323,8 @@ impl ITrusteeAdmin {
         feature = "Win32_Foundation",
         feature = "Win32_Security_Authorization",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetTrusteeProperties(
         &self,
@@ -31506,8 +31344,8 @@ impl ITrusteeAdmin {
         feature = "Win32_Foundation",
         feature = "Win32_Security_Authorization",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetTrusteeProperties(
         &self,
@@ -31584,8 +31422,8 @@ pub struct ITrusteeAdmin_abi(
         feature = "Win32_Foundation",
         feature = "Win32_Security_Authorization",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -31597,8 +31435,8 @@ pub struct ITrusteeAdmin_abi(
         feature = "Win32_Foundation",
         feature = "Win32_Security_Authorization",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Authorization"))]
@@ -31611,8 +31449,8 @@ pub struct ITrusteeAdmin_abi(
         feature = "Win32_Foundation",
         feature = "Win32_Security_Authorization",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -31624,16 +31462,16 @@ pub struct ITrusteeAdmin_abi(
         feature = "Win32_Foundation",
         feature = "Win32_Security_Authorization",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Security_Authorization",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -31647,8 +31485,8 @@ pub struct ITrusteeAdmin_abi(
         feature = "Win32_Foundation",
         feature = "Win32_Security_Authorization",
         feature = "Win32_Storage_IndexServer",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -31986,15 +31824,14 @@ pub struct IUrlAccessor(::windows::runtime::IUnknown);
 impl IUrlAccessor {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddRequestParameter(
         &self,
-        pspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-        pvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pspec: *const super::Com::StructuredStorage::PROPSPEC,
+        pvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -32120,16 +31957,15 @@ impl IUrlAccessor {
         )
         .from_abi::<::windows::runtime::GUID>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub unsafe fn BindToStream(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BindToStream(&self) -> ::windows::runtime::Result<super::Com::IStream> {
+        let mut result__: <super::Com::IStream as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IStream>(result__)
+        .from_abi::<super::Com::IStream>(result__)
     }
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn BindToFilter(
@@ -32190,22 +32026,20 @@ pub struct IUrlAccessor_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-        pvar: *const ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pspec: *const super::Com::StructuredStorage::PROPSPEC,
+        pvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -32265,12 +32099,12 @@ pub struct IUrlAccessor_abi(
         this: ::windows::runtime::RawPtr,
         pspclsid: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppstream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -32289,15 +32123,14 @@ pub struct IUrlAccessor2(::windows::runtime::IUnknown);
 impl IUrlAccessor2 {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddRequestParameter(
         &self,
-        pspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-        pvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pspec: *const super::Com::StructuredStorage::PROPSPEC,
+        pvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -32423,16 +32256,15 @@ impl IUrlAccessor2 {
         )
         .from_abi::<::windows::runtime::GUID>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub unsafe fn BindToStream(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BindToStream(&self) -> ::windows::runtime::Result<super::Com::IStream> {
+        let mut result__: <super::Com::IStream as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IStream>(result__)
+        .from_abi::<super::Com::IStream>(result__)
     }
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn BindToFilter(
@@ -32548,22 +32380,20 @@ pub struct IUrlAccessor2_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-        pvar: *const ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pspec: *const super::Com::StructuredStorage::PROPSPEC,
+        pvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -32623,12 +32453,12 @@ pub struct IUrlAccessor2_abi(
         this: ::windows::runtime::RawPtr,
         pspclsid: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppstream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -32664,15 +32494,14 @@ pub struct IUrlAccessor3(::windows::runtime::IUnknown);
 impl IUrlAccessor3 {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddRequestParameter(
         &self,
-        pspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-        pvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pspec: *const super::Com::StructuredStorage::PROPSPEC,
+        pvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -32798,16 +32627,15 @@ impl IUrlAccessor3 {
         )
         .from_abi::<::windows::runtime::GUID>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub unsafe fn BindToStream(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BindToStream(&self) -> ::windows::runtime::Result<super::Com::IStream> {
+        let mut result__: <super::Com::IStream as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IStream>(result__)
+        .from_abi::<super::Com::IStream>(result__)
     }
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn BindToFilter(
@@ -32963,22 +32791,20 @@ pub struct IUrlAccessor3_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-        pvar: *const ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pspec: *const super::Com::StructuredStorage::PROPSPEC,
+        pvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -33038,12 +32864,12 @@ pub struct IUrlAccessor3_abi(
         this: ::windows::runtime::RawPtr,
         pspclsid: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppstream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -33087,15 +32913,14 @@ pub struct IUrlAccessor4(::windows::runtime::IUnknown);
 impl IUrlAccessor4 {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn AddRequestParameter(
         &self,
-        pspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-        pvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        pspec: *const super::Com::StructuredStorage::PROPSPEC,
+        pvar: *const super::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -33221,16 +33046,15 @@ impl IUrlAccessor4 {
         )
         .from_abi::<::windows::runtime::GUID>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
-    pub unsafe fn BindToStream(
-        &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    #[cfg(feature = "Win32_System_Com")]
+    pub unsafe fn BindToStream(&self) -> ::windows::runtime::Result<super::Com::IStream> {
+        let mut result__: <super::Com::IStream as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).14)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IStream>(result__)
+        .from_abi::<super::Com::IStream>(result__)
     }
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub unsafe fn BindToFilter(
@@ -33437,22 +33261,20 @@ pub struct IUrlAccessor4_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-        pvar: *const ::std::mem::ManuallyDrop<super::super::Storage::StructuredStorage::PROPVARIANT>,
+        pspec: *const super::Com::StructuredStorage::PROPSPEC,
+        pvar: *const ::std::mem::ManuallyDrop<super::Com::StructuredStorage::PROPVARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -33512,12 +33334,12 @@ pub struct IUrlAccessor4_abi(
         this: ::windows::runtime::RawPtr,
         pspclsid: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppstream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Storage_IndexServer")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -33683,7 +33505,7 @@ impl IViewFilter {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetFilterBindings(
         &self,
         pcbindings: *mut usize,
@@ -33765,13 +33587,13 @@ pub struct IViewFilter_abi(
         pcompareops: *mut *mut u32,
         pcriteriadata: *mut ::std::ffi::c_void,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcbindings: *mut usize,
         prgbindings: *mut *mut DBBINDING,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         haccessor: usize,
@@ -34402,8 +34224,8 @@ pub const JPS_E_SHARING_VIOLATION: i32 = -2147217014i32;
 pub const JPS_S_DUPLICATE_DOC_DETECTED: i32 = 266624i32;
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for KAGGETDIAG {
     fn clone(&self) -> Self {
@@ -34413,24 +34235,24 @@ impl ::std::clone::Clone for KAGGETDIAG {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct KAGGETDIAG {
     pub ulSize: u32,
-    pub vDiagInfo: super::OleAutomation::VARIANT,
+    pub vDiagInfo: super::Com::VARIANT,
     pub sDiagField: i16,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl KAGGETDIAG {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for KAGGETDIAG {
     fn default() -> Self {
@@ -34439,8 +34261,8 @@ impl ::std::default::Default for KAGGETDIAG {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for KAGGETDIAG {
     fn eq(&self, _other: &Self) -> bool {
@@ -34449,14 +34271,14 @@ impl ::std::cmp::PartialEq for KAGGETDIAG {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for KAGGETDIAG {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for KAGGETDIAG {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -34928,7 +34750,7 @@ unsafe impl ::windows::runtime::Abi for NAMED_ENTITY_CERTAINTY {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 pub struct NATLANGUAGERESTRICTION {
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
@@ -34938,13 +34760,13 @@ pub struct NATLANGUAGERESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl NATLANGUAGERESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::default::Default for NATLANGUAGERESTRICTION {
     fn default() -> Self {
@@ -34954,7 +34776,7 @@ impl ::std::default::Default for NATLANGUAGERESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::PartialEq for NATLANGUAGERESTRICTION {
     fn eq(&self, _other: &Self) -> bool {
@@ -34964,13 +34786,13 @@ impl ::std::cmp::PartialEq for NATLANGUAGERESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::Eq for NATLANGUAGERESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 unsafe impl ::windows::runtime::Abi for NATLANGUAGERESTRICTION {
     type Abi = Self;
@@ -34989,10 +34811,9 @@ pub const NLADMIN_S_NOT_ALL_BUILD_CATALOGS_INITIALIZED: i32 = 268546i32;
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct NODERESTRICTION {
     pub cRes: u32,
@@ -35002,19 +34823,17 @@ pub struct NODERESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl NODERESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for NODERESTRICTION {
     fn default() -> Self {
@@ -35024,10 +34843,9 @@ impl ::std::default::Default for NODERESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for NODERESTRICTION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -35041,10 +34859,9 @@ impl ::std::fmt::Debug for NODERESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for NODERESTRICTION {
     fn eq(&self, other: &Self) -> bool {
@@ -35054,19 +34871,17 @@ impl ::std::cmp::PartialEq for NODERESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for NODERESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for NODERESTRICTION {
     type Abi = Self;
@@ -35088,10 +34903,9 @@ pub const NOTESPH_S_LISTKNOWNFIELDS: i32 = 271888i32;
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct NOTRESTRICTION {
     pub pRes: *mut RESTRICTION,
@@ -35099,19 +34913,17 @@ pub struct NOTRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl NOTRESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for NOTRESTRICTION {
     fn default() -> Self {
@@ -35121,10 +34933,9 @@ impl ::std::default::Default for NOTRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for NOTRESTRICTION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -35136,10 +34947,9 @@ impl ::std::fmt::Debug for NOTRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for NOTRESTRICTION {
     fn eq(&self, other: &Self) -> bool {
@@ -35149,19 +34959,17 @@ impl ::std::cmp::PartialEq for NOTRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for NOTRESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for NOTRESTRICTION {
     type Abi = Self;
@@ -35376,16 +35184,16 @@ impl OLEDBSimpleProvider {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn getVariant(
         &self,
         irow: isize,
         icolumn: isize,
         format: OSPFORMAT,
-    ) -> ::windows::runtime::Result<super::OleAutomation::VARIANT> {
-        let mut result__: <super::OleAutomation::VARIANT as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::Com::VARIANT> {
+        let mut result__: <super::Com::VARIANT as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
@@ -35394,17 +35202,14 @@ impl OLEDBSimpleProvider {
             ::std::mem::transmute(format),
             &mut result__,
         )
-        .from_abi::<super::OleAutomation::VARIANT>(result__)
+        .from_abi::<super::Com::VARIANT>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
-    pub unsafe fn setVariant<
-        'a,
-        Param3: ::windows::runtime::IntoParam<'a, super::OleAutomation::VARIANT>,
-    >(
+    pub unsafe fn setVariant<'a, Param3: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(
         &self,
         irow: isize,
         icolumn: isize,
@@ -35460,13 +35265,10 @@ impl OLEDBSimpleProvider {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
-    pub unsafe fn find<
-        'a,
-        Param2: ::windows::runtime::IntoParam<'a, super::OleAutomation::VARIANT>,
-    >(
+    pub unsafe fn find<'a, Param2: ::windows::runtime::IntoParam<'a, super::Com::VARIANT>>(
         &self,
         irowstart: isize,
         icolumn: isize,
@@ -35595,38 +35397,38 @@ pub struct OLEDBSimpleProvider_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         irow: isize,
         icolumn: isize,
         format: OSPFORMAT,
-        pvar: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        pvar: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         irow: isize,
         icolumn: isize,
         format: OSPFORMAT,
-        var: ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        var: ::std::mem::ManuallyDrop<super::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -35649,22 +35451,22 @@ pub struct OLEDBSimpleProvider_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         irowstart: isize,
         icolumn: isize,
-        val: ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+        val: ::std::mem::ManuallyDrop<super::Com::VARIANT>,
         findflags: OSPFIND,
         comptype: OSPCOMP,
         pirowfound: *mut isize,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -36069,10 +35871,9 @@ pub const PROGID_MSPersist_W: &'static str = "MSPersist";
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for PROPERTYRESTRICTION {
     fn clone(&self) -> Self {
@@ -36083,32 +35884,29 @@ impl ::std::clone::Clone for PROPERTYRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct PROPERTYRESTRICTION {
     pub rel: u32,
     pub prop: super::super::Storage::IndexServer::FULLPROPSPEC,
-    pub prval: super::super::Storage::StructuredStorage::PROPVARIANT,
+    pub prval: super::Com::StructuredStorage::PROPVARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl PROPERTYRESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for PROPERTYRESTRICTION {
     fn default() -> Self {
@@ -36118,10 +35916,9 @@ impl ::std::default::Default for PROPERTYRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for PROPERTYRESTRICTION {
     fn eq(&self, _other: &Self) -> bool {
@@ -36131,19 +35928,17 @@ impl ::std::cmp::PartialEq for PROPERTYRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for PROPERTYRESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for PROPERTYRESTRICTION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -36359,29 +36154,26 @@ pub const QueryParserManager: ::windows::runtime::GUID = ::windows::runtime::GUI
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct RANGECATEGORIZE {
     pub cRange: u32,
-    pub aRangeBegin: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+    pub aRangeBegin: *mut super::Com::StructuredStorage::PROPVARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl RANGECATEGORIZE {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for RANGECATEGORIZE {
     fn default() -> Self {
@@ -36390,10 +36182,9 @@ impl ::std::default::Default for RANGECATEGORIZE {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for RANGECATEGORIZE {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -36405,10 +36196,9 @@ impl ::std::fmt::Debug for RANGECATEGORIZE {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for RANGECATEGORIZE {
     fn eq(&self, other: &Self) -> bool {
@@ -36417,18 +36207,16 @@ impl ::std::cmp::PartialEq for RANGECATEGORIZE {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for RANGECATEGORIZE {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for RANGECATEGORIZE {
     type Abi = Self;
@@ -36437,10 +36225,9 @@ unsafe impl ::windows::runtime::Abi for RANGECATEGORIZE {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for RESTRICTION {
     fn clone(&self) -> Self {
@@ -36451,10 +36238,9 @@ impl ::std::clone::Clone for RESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct RESTRICTION {
     pub rt: u32,
@@ -36464,19 +36250,17 @@ pub struct RESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl RESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for RESTRICTION {
     fn default() -> Self {
@@ -36486,10 +36270,9 @@ impl ::std::default::Default for RESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for RESTRICTION {
     fn eq(&self, _other: &Self) -> bool {
@@ -36499,19 +36282,17 @@ impl ::std::cmp::PartialEq for RESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for RESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for RESTRICTION {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -36520,10 +36301,9 @@ unsafe impl ::windows::runtime::Abi for RESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for RESTRICTION_0 {
     fn clone(&self) -> Self {
@@ -36534,10 +36314,9 @@ impl ::std::clone::Clone for RESTRICTION_0 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub union RESTRICTION_0 {
     pub ar: NODERESTRICTION,
@@ -36552,19 +36331,17 @@ pub union RESTRICTION_0 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl RESTRICTION_0 {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for RESTRICTION_0 {
     fn default() -> Self {
@@ -36574,10 +36351,9 @@ impl ::std::default::Default for RESTRICTION_0 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for RESTRICTION_0 {
     fn eq(&self, _other: &Self) -> bool {
@@ -36587,19 +36363,17 @@ impl ::std::cmp::PartialEq for RESTRICTION_0 {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for RESTRICTION_0 {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for RESTRICTION_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -36619,42 +36393,38 @@ pub const REXSPH_S_REDIRECTED: i32 = 275713i32;
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct RMTPACK {
-    pub pISeqStream:
-        ::std::option::Option<super::super::Storage::StructuredStorage::ISequentialStream>,
+    pub pISeqStream: ::std::option::Option<super::Com::ISequentialStream>,
     pub cbData: u32,
     pub cBSTR: u32,
     pub rgBSTR: *mut super::super::Foundation::BSTR,
     pub cVARIANT: u32,
-    pub rgVARIANT: *mut super::OleAutomation::VARIANT,
+    pub rgVARIANT: *mut super::Com::VARIANT,
     pub cIDISPATCH: u32,
-    pub rgIDISPATCH: *mut ::std::option::Option<super::OleAutomation::IDispatch>,
+    pub rgIDISPATCH: *mut ::std::option::Option<super::Ole::Automation::IDispatch>,
     pub cIUNKNOWN: u32,
     pub rgIUNKNOWN: *mut ::std::option::Option<::windows::runtime::IUnknown>,
     pub cPROPVARIANT: u32,
-    pub rgPROPVARIANT: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+    pub rgPROPVARIANT: *mut super::Com::StructuredStorage::PROPVARIANT,
     pub cArray: u32,
-    pub rgArray: *mut super::OleAutomation::VARIANT,
+    pub rgArray: *mut super::Com::VARIANT,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl RMTPACK {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for RMTPACK {
     fn default() -> Self {
@@ -36663,10 +36433,9 @@ impl ::std::default::Default for RMTPACK {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for RMTPACK {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -36690,10 +36459,9 @@ impl ::std::fmt::Debug for RMTPACK {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for RMTPACK {
     fn eq(&self, other: &Self) -> bool {
@@ -36715,18 +36483,16 @@ impl ::std::cmp::PartialEq for RMTPACK {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for RMTPACK {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for RMTPACK {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -36824,10 +36590,9 @@ pub const SCRIPTPI_E_PID_NOT_NAME: i32 = -2147213311i32;
 pub const SCRIPTPI_E_PID_NOT_NUMERIC: i32 = -2147213310i32;
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::clone::Clone for SEARCH_COLUMN_PROPERTIES {
     fn clone(&self) -> Self {
@@ -36837,29 +36602,26 @@ impl ::std::clone::Clone for SEARCH_COLUMN_PROPERTIES {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct SEARCH_COLUMN_PROPERTIES {
-    pub Value: super::super::Storage::StructuredStorage::PROPVARIANT,
+    pub Value: super::Com::StructuredStorage::PROPVARIANT,
     pub lcid: u32,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl SEARCH_COLUMN_PROPERTIES {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for SEARCH_COLUMN_PROPERTIES {
     fn default() -> Self {
@@ -36868,10 +36630,9 @@ impl ::std::default::Default for SEARCH_COLUMN_PROPERTIES {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for SEARCH_COLUMN_PROPERTIES {
     fn eq(&self, _other: &Self) -> bool {
@@ -36880,18 +36641,16 @@ impl ::std::cmp::PartialEq for SEARCH_COLUMN_PROPERTIES {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for SEARCH_COLUMN_PROPERTIES {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for SEARCH_COLUMN_PROPERTIES {
     type Abi = ::std::mem::ManuallyDrop<Self>;
@@ -37225,7 +36984,7 @@ pub const SI_TEMPORARY: u32 = 2147483648u32;
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 pub struct SORTKEY {
     pub propColumn: super::super::Storage::IndexServer::FULLPROPSPEC,
@@ -37235,13 +36994,13 @@ pub struct SORTKEY {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl SORTKEY {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::default::Default for SORTKEY {
     fn default() -> Self {
@@ -37251,7 +37010,7 @@ impl ::std::default::Default for SORTKEY {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::PartialEq for SORTKEY {
     fn eq(&self, _other: &Self) -> bool {
@@ -37261,13 +37020,13 @@ impl ::std::cmp::PartialEq for SORTKEY {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::Eq for SORTKEY {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 unsafe impl ::windows::runtime::Abi for SORTKEY {
     type Abi = Self;
@@ -37278,7 +37037,7 @@ unsafe impl ::windows::runtime::Abi for SORTKEY {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 pub struct SORTSET {
     pub cCol: u32,
@@ -37287,13 +37046,13 @@ pub struct SORTSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl SORTSET {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::default::Default for SORTSET {
     fn default() -> Self {
@@ -37303,7 +37062,7 @@ impl ::std::default::Default for SORTSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::fmt::Debug for SORTSET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -37316,7 +37075,7 @@ impl ::std::fmt::Debug for SORTSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::PartialEq for SORTSET {
     fn eq(&self, other: &Self) -> bool {
@@ -37326,13 +37085,13 @@ impl ::std::cmp::PartialEq for SORTSET {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 impl ::std::cmp::Eq for SORTSET {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage"
+    feature = "Win32_System_Com_StructuredStorage"
 ))]
 unsafe impl ::windows::runtime::Abi for SORTSET {
     type Abi = Self;
@@ -44223,49 +43982,49 @@ pub const SSPROP_STREAM_XMLROOT: u32 = 19u32;
 pub const SSPROP_STREAM_XSL: u32 = 16u32;
 pub const SSPROP_UNICODECOMPARISONSTYLE: u32 = 3u32;
 pub const SSPROP_UNICODELCID: u32 = 2u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::clone::Clone for SSVARIANT {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub struct SSVARIANT {
     pub vt: u16,
     pub dwReserved1: u32,
     pub dwReserved2: u32,
     pub Anonymous: SSVARIANT_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SSVARIANT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SSVARIANT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SSVARIANT {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SSVARIANT {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SSVARIANT {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::clone::Clone for SSVARIANT_0 {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 pub union SSVARIANT_0 {
     pub bTinyIntVal: u8,
     pub sShortIntVal: i16,
@@ -44273,7 +44032,7 @@ pub union SSVARIANT_0 {
     pub llBigIntVal: i64,
     pub fltRealVal: f32,
     pub dblFloatVal: f64,
-    pub cyMoneyVal: super::SystemServices::CY,
+    pub cyMoneyVal: super::Com::CY,
     pub NCharVal: SSVARIANT_0_3,
     pub CharVal: SSVARIANT_0_2,
     pub fBitVal: i16,
@@ -44284,23 +44043,23 @@ pub union SSVARIANT_0 {
     pub UnknownType: SSVARIANT_0_4,
     pub BLOBType: ::std::mem::ManuallyDrop<SSVARIANT_0_0>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl SSVARIANT_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::default::Default for SSVARIANT_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::PartialEq for SSVARIANT_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::std::cmp::Eq for SSVARIANT_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 unsafe impl ::windows::runtime::Abi for SSVARIANT_0 {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -45087,10 +44846,9 @@ pub const TRACE_VS_EVENT_ON: i32 = 2i32;
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 pub struct VECTORRESTRICTION {
     pub Node: NODERESTRICTION,
@@ -45099,19 +44857,17 @@ pub struct VECTORRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl VECTORRESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::default::Default for VECTORRESTRICTION {
     fn default() -> Self {
@@ -45121,10 +44877,9 @@ impl ::std::default::Default for VECTORRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::fmt::Debug for VECTORRESTRICTION {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -45137,10 +44892,9 @@ impl ::std::fmt::Debug for VECTORRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::PartialEq for VECTORRESTRICTION {
     fn eq(&self, other: &Self) -> bool {
@@ -45150,19 +44904,17 @@ impl ::std::cmp::PartialEq for VECTORRESTRICTION {
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 impl ::std::cmp::Eq for VECTORRESTRICTION {}
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Storage_IndexServer",
-    feature = "Win32_Storage_StructuredStorage",
     feature = "Win32_System_Com",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com_StructuredStorage",
+    feature = "Win32_System_Ole_Automation"
 ))]
 unsafe impl ::windows::runtime::Abi for VECTORRESTRICTION {
     type Abi = Self;

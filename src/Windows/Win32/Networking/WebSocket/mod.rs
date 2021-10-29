@@ -364,6 +364,7 @@ pub unsafe fn WebSocketAbortHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WebSocketBeginClientHandshake<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WEB_SOCKET_HANDLE>,
@@ -411,6 +412,7 @@ pub unsafe fn WebSocketBeginClientHandshake<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WebSocketBeginServerHandshake<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WEB_SOCKET_HANDLE>,
@@ -483,6 +485,7 @@ pub unsafe fn WebSocketCompleteAction<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebSocketCreateClientHandle(
     pproperties: *const WEB_SOCKET_PROPERTY,
     ulpropertycount: u32,
@@ -509,6 +512,7 @@ pub unsafe fn WebSocketCreateClientHandle(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebSocketCreateServerHandle(
     pproperties: *const WEB_SOCKET_PROPERTY,
     ulpropertycount: u32,
@@ -554,6 +558,7 @@ pub unsafe fn WebSocketDeleteHandle<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WebSocketEndClientHandshake<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WEB_SOCKET_HANDLE>,
@@ -591,6 +596,7 @@ pub unsafe fn WebSocketEndClientHandshake<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebSocketEndServerHandshake<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WEB_SOCKET_HANDLE>,
@@ -610,6 +616,7 @@ pub unsafe fn WebSocketEndServerHandshake<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebSocketGetAction<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WEB_SOCKET_HANDLE>,
@@ -653,6 +660,7 @@ pub unsafe fn WebSocketGetAction<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebSocketGetGlobalProperty(
     etype: WEB_SOCKET_PROPERTY_TYPE,
     pvvalue: *mut ::std::ffi::c_void,
@@ -678,6 +686,7 @@ pub unsafe fn WebSocketGetGlobalProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebSocketReceive<'a, Param0: ::windows::runtime::IntoParam<'a, WEB_SOCKET_HANDLE>>(
     hwebsocket: Param0,
     pbuffer: *const WEB_SOCKET_BUFFER,
@@ -703,6 +712,7 @@ pub unsafe fn WebSocketReceive<'a, Param0: ::windows::runtime::IntoParam<'a, WEB
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WebSocketSend<'a, Param0: ::windows::runtime::IntoParam<'a, WEB_SOCKET_HANDLE>>(
     hwebsocket: Param0,
     buffertype: WEB_SOCKET_BUFFER_TYPE,

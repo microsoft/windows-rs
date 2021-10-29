@@ -2629,6 +2629,7 @@ pub unsafe fn CredWriteW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+pub const FILE_DEVICE_SMARTCARD: u32 = 49u32;
 pub const GUID_DEVINTERFACE_SMARTCARD_READER: ::windows::runtime::GUID =
     ::windows::runtime::GUID::from_values(
         1356681776,
@@ -2683,6 +2684,7 @@ pub unsafe fn KeyCredentialManagerFreeInformation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn KeyCredentialManagerGetInformation(
 ) -> ::windows::runtime::Result<*mut KeyCredentialManagerInfo> {
     #[cfg(windows)]
@@ -2702,6 +2704,7 @@ pub unsafe fn KeyCredentialManagerGetInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn KeyCredentialManagerGetOperationErrorStates(
     keycredentialmanageroperationtype: KeyCredentialManagerOperationType,
     isready: *mut super::super::Foundation::BOOL,
@@ -2844,6 +2847,7 @@ unsafe impl ::windows::runtime::Abi for KeyCredentialManagerOperationType {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn KeyCredentialManagerShowUIOperation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HWND>,

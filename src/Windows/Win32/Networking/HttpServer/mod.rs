@@ -2573,11 +2573,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_TOKEN_BINDING_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_REQUEST_V1 {
     pub Flags: u32,
     pub ConnectionId: u64,
@@ -2598,27 +2594,15 @@ pub struct HTTP_REQUEST_V1 {
     pub RawConnectionId: u64,
     pub pSslInfo: *mut HTTP_SSL_INFO,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_REQUEST_V1 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_REQUEST_V1 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_REQUEST_V1 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_REQUEST_V1")
@@ -2643,11 +2627,7 @@ impl ::std::fmt::Debug for HTTP_REQUEST_V1 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_REQUEST_V1 {
     fn eq(&self, other: &Self) -> bool {
         self.Flags == other.Flags
@@ -2670,54 +2650,30 @@ impl ::std::cmp::PartialEq for HTTP_REQUEST_V1 {
             && self.pSslInfo == other.pSslInfo
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_REQUEST_V1 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_V1 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_REQUEST_V2 {
     pub __AnonymousBase_http_L1861_C35: HTTP_REQUEST_V1,
     pub RequestInfoCount: u16,
     pub pRequestInfo: *mut HTTP_REQUEST_INFO,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_REQUEST_V2 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_REQUEST_V2 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_REQUEST_V2 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_REQUEST_V2")
@@ -2730,11 +2686,7 @@ impl ::std::fmt::Debug for HTTP_REQUEST_V2 {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_REQUEST_V2 {
     fn eq(&self, other: &Self) -> bool {
         self.__AnonymousBase_http_L1861_C35 == other.__AnonymousBase_http_L1861_C35
@@ -2742,17 +2694,9 @@ impl ::std::cmp::PartialEq for HTTP_REQUEST_V2 {
             && self.pRequestInfo == other.pRequestInfo
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_REQUEST_V2 {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_REQUEST_V2 {
     type Abi = Self;
     type DefaultType = Self;
@@ -3386,32 +3330,20 @@ unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_ID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     pub AddrLength: u16,
     pub pAddress: *mut super::WinSock::SOCKADDR,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM")
@@ -3420,56 +3352,35 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     fn eq(&self, other: &Self) -> bool {
         self.AddrLength == other.AddrLength && self.pAddress == other.pAddress
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_PARAM {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     pub AddrCount: u32,
     pub AddrList: [super::WinSock::SOCKADDR_STORAGE; 1],
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY")
@@ -3478,24 +3389,15 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     fn eq(&self, other: &Self) -> bool {
         self.AddrCount == other.AddrCount && self.AddrList == other.AddrList
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_IP_LISTEN_QUERY {
     type Abi = Self;
     type DefaultType = Self;
@@ -3578,31 +3480,19 @@ unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SETTING_SET {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_CCS_KEY {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_KEY")
@@ -3610,57 +3500,36 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     fn eq(&self, other: &Self) -> bool {
         self.LocalAddress == other.LocalAddress
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_KEY {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub dwToken: u32,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_QUERY")
@@ -3670,10 +3539,7 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     fn eq(&self, other: &Self) -> bool {
         self.QueryDesc == other.QueryDesc
@@ -3681,49 +3547,31 @@ impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
             && self.dwToken == other.dwToken
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub dwToken: u32,
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX")
@@ -3734,10 +3582,7 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     fn eq(&self, other: &Self) -> bool {
         self.QueryDesc == other.QueryDesc
@@ -3746,51 +3591,29 @@ impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
             && self.ParamType == other.ParamType
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_QUERY_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_CCS_SET {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_CCS_SET")
@@ -3799,79 +3622,43 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     fn eq(&self, other: &Self) -> bool {
         self.KeyDesc == other.KeyDesc && self.ParamDesc == other.ParamDesc
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_SET {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_CCS_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_CCS_SET_EX {
     type Abi = Self;
     type DefaultType = Self;
@@ -3892,31 +3679,19 @@ pub const HTTP_SERVICE_CONFIG_SSL_FLAG_REJECT: u32 = 8u32;
 pub const HTTP_SERVICE_CONFIG_SSL_FLAG_USE_DS_MAPPER: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY {
     pub pIpPort: *mut super::WinSock::SOCKADDR,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_KEY {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_KEY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_KEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_KEY")
@@ -3924,55 +3699,34 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_KEY {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_KEY {
     fn eq(&self, other: &Self) -> bool {
         self.pIpPort == other.pIpPort
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_KEY {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_KEY {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     pub IpPort: super::WinSock::SOCKADDR_STORAGE,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_KEY_EX {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_KEY_EX")
@@ -3980,24 +3734,15 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     fn eq(&self, other: &Self) -> bool {
         self.IpPort == other.IpPort
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_KEY_EX {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_KEY_EX {
     type Abi = Self;
     type DefaultType = Self;
@@ -4134,33 +3879,21 @@ unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_PARAM_EX_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
     pub dwToken: u32,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_QUERY {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_QUERY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_QUERY")
@@ -4170,10 +3903,7 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_QUERY {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_QUERY {
     fn eq(&self, other: &Self) -> bool {
         self.QueryDesc == other.QueryDesc
@@ -4181,49 +3911,31 @@ impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_QUERY {
             && self.dwToken == other.dwToken
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_QUERY {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
     pub dwToken: u32,
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_QUERY_EX {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_QUERY_EX")
@@ -4234,10 +3946,7 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     fn eq(&self, other: &Self) -> bool {
         self.QueryDesc == other.QueryDesc
@@ -4246,51 +3955,29 @@ impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
             && self.ParamType == other.ParamType
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_QUERY_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_SET {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_SET {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SET")
@@ -4299,115 +3986,63 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SET {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SET {
     fn eq(&self, other: &Self) -> bool {
         self.KeyDesc == other.KeyDesc && self.ParamDesc == other.ParamDesc
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SET {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_KEY_EX,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_SET_EX {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SET_EX {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SET_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     pub IpPort: super::WinSock::SOCKADDR_STORAGE,
     pub Host: super::super::Foundation::PWSTR,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_SNI_KEY {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_KEY")
@@ -4416,64 +4051,36 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     fn eq(&self, other: &Self) -> bool {
         self.IpPort == other.IpPort && self.Host == other.Host
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_KEY {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub dwToken: u32,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_QUERY")
@@ -4483,11 +4090,7 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     fn eq(&self, other: &Self) -> bool {
         self.QueryDesc == other.QueryDesc
@@ -4495,55 +4098,31 @@ impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
             && self.dwToken == other.dwToken
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     pub QueryDesc: HTTP_SERVICE_CONFIG_QUERY_TYPE,
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub dwToken: u32,
     pub ParamType: HTTP_SSL_SERVICE_CONFIG_EX_PARAM_TYPE,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX")
@@ -4554,11 +4133,7 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     fn eq(&self, other: &Self) -> bool {
         self.QueryDesc == other.QueryDesc
@@ -4567,53 +4142,29 @@ impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
             && self.ParamType == other.ParamType
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_QUERY_EX {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_SNI_SET {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_SERVICE_CONFIG_SSL_SNI_SET")
@@ -4622,79 +4173,43 @@ impl ::std::fmt::Debug for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     fn eq(&self, other: &Self) -> bool {
         self.KeyDesc == other.KeyDesc && self.ParamDesc == other.ParamDesc
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_SET {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     pub KeyDesc: HTTP_SERVICE_CONFIG_SSL_SNI_KEY,
     pub ParamDesc: HTTP_SERVICE_CONFIG_SSL_PARAM_EX,
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {}
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_SERVICE_CONFIG_SSL_SNI_SET_EX {
     type Abi = Self;
     type DefaultType = Self;
@@ -5222,32 +4737,20 @@ unsafe impl ::windows::runtime::Abi for HTTP_TLS_SESSION_TICKET_KEYS_PARAM {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct HTTP_TRANSPORT_ADDRESS {
     pub pRemoteAddress: *mut super::WinSock::SOCKADDR,
     pub pLocalAddress: *mut super::WinSock::SOCKADDR,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl HTTP_TRANSPORT_ADDRESS {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for HTTP_TRANSPORT_ADDRESS {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for HTTP_TRANSPORT_ADDRESS {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("HTTP_TRANSPORT_ADDRESS")
@@ -5256,24 +4759,15 @@ impl ::std::fmt::Debug for HTTP_TRANSPORT_ADDRESS {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for HTTP_TRANSPORT_ADDRESS {
     fn eq(&self, other: &Self) -> bool {
         self.pRemoteAddress == other.pRemoteAddress && self.pLocalAddress == other.pLocalAddress
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for HTTP_TRANSPORT_ADDRESS {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for HTTP_TRANSPORT_ADDRESS {
     type Abi = Self;
     type DefaultType = Self;
@@ -5454,7 +4948,7 @@ unsafe impl ::windows::runtime::Abi for HTTP_WSK_API_TIMINGS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpAddFragmentToCache<
     'a,
@@ -5465,7 +4959,7 @@ pub unsafe fn HttpAddFragmentToCache<
     urlprefix: Param1,
     datachunk: *mut HTTP_DATA_CHUNK,
     cachepolicy: *mut HTTP_CACHE_POLICY,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -5476,7 +4970,7 @@ pub unsafe fn HttpAddFragmentToCache<
                 urlprefix: super::super::Foundation::PWSTR,
                 datachunk: *mut HTTP_DATA_CHUNK,
                 cachepolicy: *mut HTTP_CACHE_POLICY,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpAddFragmentToCache(
@@ -5552,7 +5046,7 @@ pub unsafe fn HttpAddUrlToUrlGroup<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpCancelHttpRequest<
     'a,
@@ -5560,7 +5054,7 @@ pub unsafe fn HttpCancelHttpRequest<
 >(
     requestqueuehandle: Param0,
     requestid: u64,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -5569,7 +5063,7 @@ pub unsafe fn HttpCancelHttpRequest<
             fn HttpCancelHttpRequest(
                 requestqueuehandle: super::super::Foundation::HANDLE,
                 requestid: u64,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpCancelHttpRequest(
@@ -5819,7 +5313,7 @@ pub unsafe fn HttpDelegateRequestEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpDeleteServiceConfiguration<
     'a,
@@ -5829,7 +5323,7 @@ pub unsafe fn HttpDeleteServiceConfiguration<
     configid: HTTP_SERVICE_CONFIG_ID,
     pconfiginformation: *const ::std::ffi::c_void,
     configinformationlength: u32,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -5840,7 +5334,7 @@ pub unsafe fn HttpDeleteServiceConfiguration<
                 configid: HTTP_SERVICE_CONFIG_ID,
                 pconfiginformation: *const ::std::ffi::c_void,
                 configinformationlength: u32,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpDeleteServiceConfiguration(
@@ -5884,7 +5378,7 @@ pub unsafe fn HttpFindUrlGroupId<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpFlushResponseCache<
     'a,
@@ -5894,7 +5388,7 @@ pub unsafe fn HttpFlushResponseCache<
     requestqueuehandle: Param0,
     urlprefix: Param1,
     flags: u32,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -5904,7 +5398,7 @@ pub unsafe fn HttpFlushResponseCache<
                 requestqueuehandle: super::super::Foundation::HANDLE,
                 urlprefix: super::super::Foundation::PWSTR,
                 flags: u32,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpFlushResponseCache(
@@ -6089,7 +5583,7 @@ pub unsafe fn HttpQueryServerSessionProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpQueryServiceConfiguration<
     'a,
@@ -6102,7 +5596,7 @@ pub unsafe fn HttpQueryServiceConfiguration<
     poutput: *mut ::std::ffi::c_void,
     outputlength: u32,
     preturnlength: *mut u32,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6116,7 +5610,7 @@ pub unsafe fn HttpQueryServiceConfiguration<
                 poutput: *mut ::std::ffi::c_void,
                 outputlength: u32,
                 preturnlength: *mut u32,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpQueryServiceConfiguration(
@@ -6164,7 +5658,7 @@ pub unsafe fn HttpQueryUrlGroupProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpReadFragmentFromCache<
     'a,
@@ -6177,7 +5671,7 @@ pub unsafe fn HttpReadFragmentFromCache<
     buffer: *mut ::std::ffi::c_void,
     bufferlength: u32,
     bytesread: *mut u32,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6190,7 +5684,7 @@ pub unsafe fn HttpReadFragmentFromCache<
                 buffer: *mut ::std::ffi::c_void,
                 bufferlength: u32,
                 bytesread: *mut u32,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpReadFragmentFromCache(
@@ -6206,7 +5700,7 @@ pub unsafe fn HttpReadFragmentFromCache<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpReceiveClientCertificate<
     'a,
@@ -6218,7 +5712,7 @@ pub unsafe fn HttpReceiveClientCertificate<
     sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO,
     sslclientcertinfosize: u32,
     bytesreceived: *mut u32,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6231,7 +5725,7 @@ pub unsafe fn HttpReceiveClientCertificate<
                 sslclientcertinfo: *mut HTTP_SSL_CLIENT_CERT_INFO,
                 sslclientcertinfosize: u32,
                 bytesreceived: *mut u32,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpReceiveClientCertificate(
@@ -6250,7 +5744,7 @@ pub unsafe fn HttpReceiveClientCertificate<
 #[cfg(all(
     feature = "Win32_Foundation",
     feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_IO"
 ))]
 #[inline]
 pub unsafe fn HttpReceiveHttpRequest<
@@ -6263,7 +5757,7 @@ pub unsafe fn HttpReceiveHttpRequest<
     requestbuffer: *mut HTTP_REQUEST_V2,
     requestbufferlength: u32,
     bytesreturned: *mut u32,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6276,7 +5770,7 @@ pub unsafe fn HttpReceiveHttpRequest<
                 requestbuffer: *mut HTTP_REQUEST_V2,
                 requestbufferlength: u32,
                 bytesreturned: *mut u32,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpReceiveHttpRequest(
@@ -6292,7 +5786,7 @@ pub unsafe fn HttpReceiveHttpRequest<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpReceiveRequestEntityBody<
     'a,
@@ -6304,7 +5798,7 @@ pub unsafe fn HttpReceiveRequestEntityBody<
     entitybuffer: *mut ::std::ffi::c_void,
     entitybufferlength: u32,
     bytesreturned: *mut u32,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6317,7 +5811,7 @@ pub unsafe fn HttpReceiveRequestEntityBody<
                 entitybuffer: *mut ::std::ffi::c_void,
                 entitybufferlength: u32,
                 bytesreturned: *mut u32,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpReceiveRequestEntityBody(
@@ -6389,7 +5883,7 @@ pub unsafe fn HttpRemoveUrlFromUrlGroup<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpSendHttpResponse<
     'a,
@@ -6403,7 +5897,7 @@ pub unsafe fn HttpSendHttpResponse<
     bytessent: *mut u32,
     reserved1: *mut ::std::ffi::c_void,
     reserved2: u32,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
     logdata: *mut HTTP_LOG_DATA,
 ) -> u32 {
     #[cfg(windows)]
@@ -6419,7 +5913,7 @@ pub unsafe fn HttpSendHttpResponse<
                 bytessent: *mut u32,
                 reserved1: *mut ::std::ffi::c_void,
                 reserved2: u32,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
                 logdata: *mut HTTP_LOG_DATA,
             ) -> u32;
         }
@@ -6439,7 +5933,7 @@ pub unsafe fn HttpSendHttpResponse<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpSendResponseEntityBody<
     'a,
@@ -6453,7 +5947,7 @@ pub unsafe fn HttpSendResponseEntityBody<
     bytessent: *mut u32,
     reserved1: *mut ::std::ffi::c_void,
     reserved2: u32,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
     logdata: *mut HTTP_LOG_DATA,
 ) -> u32 {
     #[cfg(windows)]
@@ -6469,7 +5963,7 @@ pub unsafe fn HttpSendResponseEntityBody<
                 bytessent: *mut u32,
                 reserved1: *mut ::std::ffi::c_void,
                 reserved2: u32,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
                 logdata: *mut HTTP_LOG_DATA,
             ) -> u32;
         }
@@ -6489,7 +5983,7 @@ pub unsafe fn HttpSendResponseEntityBody<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpSetRequestProperty<
     'a,
@@ -6500,7 +5994,7 @@ pub unsafe fn HttpSetRequestProperty<
     propertyid: HTTP_REQUEST_PROPERTY,
     input: *const ::std::ffi::c_void,
     inputpropertysize: u32,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6512,7 +6006,7 @@ pub unsafe fn HttpSetRequestProperty<
                 propertyid: HTTP_REQUEST_PROPERTY,
                 input: *const ::std::ffi::c_void,
                 inputpropertysize: u32,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpSetRequestProperty(
@@ -6593,7 +6087,7 @@ pub unsafe fn HttpSetServerSessionProperty(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpSetServiceConfiguration<
     'a,
@@ -6603,7 +6097,7 @@ pub unsafe fn HttpSetServiceConfiguration<
     configid: HTTP_SERVICE_CONFIG_ID,
     pconfiginformation: *const ::std::ffi::c_void,
     configinformationlength: u32,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6614,7 +6108,7 @@ pub unsafe fn HttpSetServiceConfiguration<
                 configid: HTTP_SERVICE_CONFIG_ID,
                 pconfiginformation: *const ::std::ffi::c_void,
                 configinformationlength: u32,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpSetServiceConfiguration(
@@ -6695,7 +6189,7 @@ pub unsafe fn HttpTerminate(flags: HTTP_INITIALIZE, preserved: *mut ::std::ffi::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpUpdateServiceConfiguration<
     'a,
@@ -6705,7 +6199,7 @@ pub unsafe fn HttpUpdateServiceConfiguration<
     configid: HTTP_SERVICE_CONFIG_ID,
     configinfo: *const ::std::ffi::c_void,
     configinfolength: u32,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6716,7 +6210,7 @@ pub unsafe fn HttpUpdateServiceConfiguration<
                 configid: HTTP_SERVICE_CONFIG_ID,
                 configinfo: *const ::std::ffi::c_void,
                 configinfolength: u32,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpUpdateServiceConfiguration(
@@ -6730,14 +6224,14 @@ pub unsafe fn HttpUpdateServiceConfiguration<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpWaitForDemandStart<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     requestqueuehandle: Param0,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6745,7 +6239,7 @@ pub unsafe fn HttpWaitForDemandStart<
         extern "system" {
             fn HttpWaitForDemandStart(
                 requestqueuehandle: super::super::Foundation::HANDLE,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpWaitForDemandStart(
@@ -6756,7 +6250,7 @@ pub unsafe fn HttpWaitForDemandStart<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpWaitForDisconnect<
     'a,
@@ -6764,7 +6258,7 @@ pub unsafe fn HttpWaitForDisconnect<
 >(
     requestqueuehandle: Param0,
     connectionid: u64,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6773,7 +6267,7 @@ pub unsafe fn HttpWaitForDisconnect<
             fn HttpWaitForDisconnect(
                 requestqueuehandle: super::super::Foundation::HANDLE,
                 connectionid: u64,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpWaitForDisconnect(
@@ -6785,7 +6279,7 @@ pub unsafe fn HttpWaitForDisconnect<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn HttpWaitForDisconnectEx<
     'a,
@@ -6794,7 +6288,7 @@ pub unsafe fn HttpWaitForDisconnectEx<
     requestqueuehandle: Param0,
     connectionid: u64,
     reserved: u32,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> u32 {
     #[cfg(windows)]
     {
@@ -6804,7 +6298,7 @@ pub unsafe fn HttpWaitForDisconnectEx<
                 requestqueuehandle: super::super::Foundation::HANDLE,
                 connectionid: u64,
                 reserved: u32,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> u32;
         }
         ::std::mem::transmute(HttpWaitForDisconnectEx(

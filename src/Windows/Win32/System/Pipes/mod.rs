@@ -89,14 +89,14 @@ pub unsafe fn CallNamedPipeW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ConnectNamedPipe<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     hnamedpipe: Param0,
-    lpoverlapped: *mut super::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -104,7 +104,7 @@ pub unsafe fn ConnectNamedPipe<
         extern "system" {
             fn ConnectNamedPipe(
                 hnamedpipe: super::super::Foundation::HANDLE,
-                lpoverlapped: *mut super::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ConnectNamedPipe(
@@ -692,7 +692,7 @@ pub unsafe fn SetNamedPipeHandleState<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn TransactNamedPipe<
     'a,
@@ -704,7 +704,7 @@ pub unsafe fn TransactNamedPipe<
     lpoutbuffer: *mut ::std::ffi::c_void,
     noutbuffersize: u32,
     lpbytesread: *mut u32,
-    lpoverlapped: *mut super::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -717,7 +717,7 @@ pub unsafe fn TransactNamedPipe<
                 lpoutbuffer: *mut ::std::ffi::c_void,
                 noutbuffersize: u32,
                 lpbytesread: *mut u32,
-                lpoverlapped: *mut super::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(TransactNamedPipe(

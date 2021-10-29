@@ -330,7 +330,7 @@ pub unsafe fn Heap32Next(lphe: *mut HEAPENTRY32) -> super::super::super::Foundat
 pub const MAX_MODULE_NAME32: u32 = 255u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MODULEENTRY32 {
     pub dwSize: u32,
     pub th32ModuleID: u32,
@@ -340,18 +340,18 @@ pub struct MODULEENTRY32 {
     pub modBaseAddr: *mut u8,
     pub modBaseSize: u32,
     pub hModule: super::super::super::Foundation::HINSTANCE,
-    pub szModule: [super::super::SystemServices::CHAR; 256],
-    pub szExePath: [super::super::SystemServices::CHAR; 260],
+    pub szModule: [super::super::super::Foundation::CHAR; 256],
+    pub szExePath: [super::super::super::Foundation::CHAR; 260],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl MODULEENTRY32 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MODULEENTRY32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for MODULEENTRY32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("MODULEENTRY32")
@@ -368,7 +368,7 @@ impl ::std::fmt::Debug for MODULEENTRY32 {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MODULEENTRY32 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -383,9 +383,9 @@ impl ::std::cmp::PartialEq for MODULEENTRY32 {
             && self.szExePath == other.szExePath
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MODULEENTRY32 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MODULEENTRY32 {
     type Abi = Self;
     type DefaultType = Self;
@@ -452,7 +452,7 @@ unsafe impl ::windows::runtime::Abi for MODULEENTRY32W {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32First<
     'a,
@@ -504,7 +504,7 @@ pub unsafe fn Module32FirstW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Module32Next<
     'a,
@@ -558,7 +558,7 @@ pub unsafe fn Module32NextW<
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROCESSENTRY32 {
     pub dwSize: u32,
     pub cntUsage: u32,
@@ -569,17 +569,17 @@ pub struct PROCESSENTRY32 {
     pub th32ParentProcessID: u32,
     pub pcPriClassBase: i32,
     pub dwFlags: u32,
-    pub szExeFile: [super::super::SystemServices::CHAR; 260],
+    pub szExeFile: [super::super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl PROCESSENTRY32 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for PROCESSENTRY32 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for PROCESSENTRY32 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PROCESSENTRY32")
@@ -596,7 +596,7 @@ impl ::std::fmt::Debug for PROCESSENTRY32 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for PROCESSENTRY32 {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -611,9 +611,9 @@ impl ::std::cmp::PartialEq for PROCESSENTRY32 {
             && self.szExeFile == other.szExeFile
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for PROCESSENTRY32 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for PROCESSENTRY32 {
     type Abi = Self;
     type DefaultType = Self;
@@ -673,7 +673,7 @@ unsafe impl ::windows::runtime::Abi for PROCESSENTRY32W {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32First<
     'a,
@@ -725,7 +725,7 @@ pub unsafe fn Process32FirstW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Process32Next<
     'a,

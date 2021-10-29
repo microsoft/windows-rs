@@ -591,12 +591,12 @@ impl IDedupChunkLibrary {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn SetParameter<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::VARIANT>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::VARIANT>,
     >(
         &self,
         dwparamtype: u32,
@@ -675,18 +675,18 @@ pub struct IDedupChunkLibrary_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         dwparamtype: u32,
-        vparamvalue: ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
+        vparamvalue: ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -750,10 +750,10 @@ impl IDedupDataPort {
         )
         .from_abi::<::windows::runtime::GUID>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn InsertChunksWithStream<
         'a,
-        Param3: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         chunkcount: u32,
@@ -793,13 +793,10 @@ impl IDedupDataPort {
         )
         .from_abi::<::windows::runtime::GUID>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CommitStreamsWithStream<
         'a,
-        Param3: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         streamcount: u32,
@@ -1013,7 +1010,7 @@ pub struct IDedupDataPort_abi(
         pchunkdata: *const u8,
         prequestid: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         chunkcount: u32,
@@ -1022,7 +1019,7 @@ pub struct IDedupDataPort_abi(
         pchunkdatastream: ::windows::runtime::RawPtr,
         prequestid: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1033,10 +1030,7 @@ pub struct IDedupDataPort_abi(
         prequestid: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         streamcount: u32,
@@ -1045,11 +1039,7 @@ pub struct IDedupDataPort_abi(
         pentriesstream: ::windows::runtime::RawPtr,
         prequestid: *mut ::windows::runtime::GUID,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,

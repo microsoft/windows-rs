@@ -45,20 +45,20 @@ impl IPrintDocumentPackageStatusEvent {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::super::super::System::OleAutomation::ITypeInfo> {
-        let mut result__ : < super::super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::super::System::Ole::Automation::ITypeInfo> {
+        let mut result__ : < super::super::super::System::Ole::Automation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(itinfo),
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::super::super::System::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -81,8 +81,8 @@ impl IPrintDocumentPackageStatusEvent {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -90,9 +90,9 @@ impl IPrintDocumentPackageStatusEvent {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::super::super::System::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::super::super::System::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::super::super::System::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::super::super::System::Com::VARIANT,
+        pexcepinfo: *mut super::super::super::System::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -158,43 +158,45 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<IPrintDocumentPackageStatusEvent>
-    for super::super::super::System::OleAutomation::IDispatch
+    for super::super::super::System::Ole::Automation::IDispatch
 {
     fn from(value: IPrintDocumentPackageStatusEvent) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
+#[cfg(feature = "Win32_System_Ole_Automation")]
 impl ::std::convert::From<&IPrintDocumentPackageStatusEvent>
-    for super::super::super::System::OleAutomation::IDispatch
+    for super::super::super::System::Ole::Automation::IDispatch
 {
     fn from(value: &IPrintDocumentPackageStatusEvent) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Ole::Automation::IDispatch>
     for IPrintDocumentPackageStatusEvent
 {
     fn into_param(
         self,
-    ) -> ::windows::runtime::Param<'a, super::super::super::System::OleAutomation::IDispatch> {
+    ) -> ::windows::runtime::Param<'a, super::super::super::System::Ole::Automation::IDispatch>
+    {
         ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::super::System::OleAutomation::IDispatch,
+            super::super::super::System::Ole::Automation::IDispatch,
         >::into(self))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Ole::Automation::IDispatch>
     for &IPrintDocumentPackageStatusEvent
 {
     fn into_param(
         self,
-    ) -> ::windows::runtime::Param<'a, super::super::super::System::OleAutomation::IDispatch> {
+    ) -> ::windows::runtime::Param<'a, super::super::super::System::Ole::Automation::IDispatch>
+    {
         ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::super::System::OleAutomation::IDispatch,
+            super::super::super::System::Ole::Automation::IDispatch,
         >::into(::std::clone::Clone::clone(self)))
     }
 }
@@ -212,14 +214,14 @@ pub struct IPrintDocumentPackageStatusEvent_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -232,8 +234,8 @@ pub struct IPrintDocumentPackageStatusEvent_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -241,19 +243,17 @@ pub struct IPrintDocumentPackageStatusEvent_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::super::super::System::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<
-            super::super::super::System::OleAutomation::VARIANT,
-        >,
+        pdispparams: *const super::super::super::System::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::super::System::Com::VARIANT>,
         pexcepinfo: *mut ::std::mem::ManuallyDrop<
-            super::super::super::System::OleAutomation::EXCEPINFO,
+            super::super::super::System::Ole::Automation::EXCEPINFO,
         >,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -370,16 +370,13 @@ pub struct IPrintDocumentPackageTarget_abi(
 )]
 pub struct IPrintDocumentPackageTargetFactory(::windows::runtime::IUnknown);
 impl IPrintDocumentPackageTargetFactory {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDocumentPackageTargetForPrintJob<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         printername: Param0,
@@ -449,10 +446,7 @@ pub struct IPrintDocumentPackageTargetFactory_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         printername: super::super::super::Foundation::PWSTR,
@@ -461,11 +455,7 @@ pub struct IPrintDocumentPackageTargetFactory_abi(
         jobprintticketstream: ::windows::runtime::RawPtr,
         docpackagetarget: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -615,43 +605,43 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &IX
         )
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<IXpsPrintJobStream>
-    for super::super::StructuredStorage::ISequentialStream
+    for super::super::super::System::Com::ISequentialStream
 {
     fn from(value: IXpsPrintJobStream) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
+#[cfg(feature = "Win32_System_Com")]
 impl ::std::convert::From<&IXpsPrintJobStream>
-    for super::super::StructuredStorage::ISequentialStream
+    for super::super::super::System::Com::ISequentialStream
 {
     fn from(value: &IXpsPrintJobStream) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::ISequentialStream>
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Com::ISequentialStream>
     for IXpsPrintJobStream
 {
     fn into_param(
         self,
-    ) -> ::windows::runtime::Param<'a, super::super::StructuredStorage::ISequentialStream> {
+    ) -> ::windows::runtime::Param<'a, super::super::super::System::Com::ISequentialStream> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::StructuredStorage::ISequentialStream,
+            super::super::super::System::Com::ISequentialStream,
         >::into(self))
     }
 }
-#[cfg(feature = "Win32_Storage_StructuredStorage")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::ISequentialStream>
+#[cfg(feature = "Win32_System_Com")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::super::System::Com::ISequentialStream>
     for &IXpsPrintJobStream
 {
     fn into_param(
         self,
-    ) -> ::windows::runtime::Param<'a, super::super::StructuredStorage::ISequentialStream> {
+    ) -> ::windows::runtime::Param<'a, super::super::super::System::Com::ISequentialStream> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::StructuredStorage::ISequentialStream,
+            super::super::super::System::Com::ISequentialStream,
         >::into(::std::clone::Clone::clone(self)))
     }
 }
@@ -764,6 +754,7 @@ pub const PrintDocumentPackageTargetFactory: ::windows::runtime::GUID =
         [146, 180, 238, 24, 138, 67, 134, 122],
     );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StartXpsPrintJob<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,
@@ -818,6 +809,7 @@ pub unsafe fn StartXpsPrintJob<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn StartXpsPrintJob1<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::super::Foundation::PWSTR>,

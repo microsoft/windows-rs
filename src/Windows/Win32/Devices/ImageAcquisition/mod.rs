@@ -1041,8 +1041,8 @@ impl IWiaDataTransfer {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Graphics_Gdi",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub unsafe fn idtGetData<'a, Param1: ::windows::runtime::IntoParam<'a, IWiaDataCallback>>(
         &self,
@@ -1153,8 +1153,8 @@ pub struct IWiaDataTransfer_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Graphics_Gdi",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1164,8 +1164,8 @@ pub struct IWiaDataTransfer_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Graphics_Gdi",
-        feature = "Win32_Storage_StructuredStorage",
-        feature = "Win32_System_Com"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Com_StructuredStorage"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -2365,15 +2365,12 @@ impl IWiaImageFilter {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn FilterPreviewImage<
         'a,
         Param1: ::windows::runtime::IntoParam<'a, IWiaItem2>,
         Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::RECT>,
-        Param3: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         lflags: i32,
@@ -2458,10 +2455,7 @@ pub struct IWiaImageFilter_abi(
         this: ::windows::runtime::RawPtr,
         pwiatransfercallback: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lflags: i32,
@@ -2469,11 +2463,7 @@ pub struct IWiaImageFilter_abi(
         inputimageextents: super::super::Foundation::RECT,
         pinputstream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pwiapropertystorage: ::windows::runtime::RawPtr,
@@ -3641,14 +3631,14 @@ impl IWiaMiniDrv {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub unsafe fn drvValidateItemProperties(
         &self,
         __midl__iwiaminidrv0016: *const u8,
         __midl__iwiaminidrv0017: i32,
         __midl__iwiaminidrv0018: u32,
-        __midl__iwiaminidrv0019: *const super::super::Storage::StructuredStorage::PROPSPEC,
+        __midl__iwiaminidrv0019: *const super::super::System::Com::StructuredStorage::PROPSPEC,
     ) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(
@@ -3680,14 +3670,14 @@ impl IWiaMiniDrv {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub unsafe fn drvReadItemProperties(
         &self,
         __midl__iwiaminidrv0025: *const u8,
         __midl__iwiaminidrv0026: i32,
         __midl__iwiaminidrv0027: u32,
-        __midl__iwiaminidrv0028: *const super::super::Storage::StructuredStorage::PROPSPEC,
+        __midl__iwiaminidrv0028: *const super::super::System::Com::StructuredStorage::PROPSPEC,
     ) -> ::windows::runtime::Result<i32> {
         let mut result__: <i32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).8)(
@@ -3947,19 +3937,19 @@ pub struct IWiaMiniDrv_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         __midl__iwiaminidrv0016: *const u8,
         __midl__iwiaminidrv0017: i32,
         __midl__iwiaminidrv0018: u32,
-        __midl__iwiaminidrv0019: *const super::super::Storage::StructuredStorage::PROPSPEC,
+        __midl__iwiaminidrv0019: *const super::super::System::Com::StructuredStorage::PROPSPEC,
         __midl__iwiaminidrv0020: *mut i32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -3973,19 +3963,19 @@ pub struct IWiaMiniDrv_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         __midl__iwiaminidrv0025: *const u8,
         __midl__iwiaminidrv0026: i32,
         __midl__iwiaminidrv0027: u32,
-        __midl__iwiaminidrv0028: *const super::super::Storage::StructuredStorage::PROPSPEC,
+        __midl__iwiaminidrv0028: *const super::super::System::Com::StructuredStorage::PROPSPEC,
         __midl__iwiaminidrv0029: *mut i32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -4166,10 +4156,7 @@ pub struct IWiaMiniDrvCallBack_abi(
 )]
 pub struct IWiaMiniDrvTransferCallback(::windows::runtime::IUnknown);
 impl IWiaMiniDrvTransferCallback {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetNextStream<
         'a,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -4179,8 +4166,9 @@ impl IWiaMiniDrvTransferCallback {
         lflags: i32,
         bstritemname: Param1,
         bstrfullitemname: Param2,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(lflags),
@@ -4188,7 +4176,7 @@ impl IWiaMiniDrvTransferCallback {
             bstrfullitemname.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
     pub unsafe fn SendMessage(
         &self,
@@ -4252,10 +4240,7 @@ pub struct IWiaMiniDrvTransferCallback_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lflags: i32,
@@ -4263,11 +4248,7 @@ pub struct IWiaMiniDrvTransferCallback_abi(
         bstrfullitemname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
         ppistream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lflags: i32,
@@ -4464,16 +4445,15 @@ pub struct IWiaPropertyStorage(::windows::runtime::IUnknown);
 impl IWiaPropertyStorage {
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn ReadMultiple(
         &self,
         cpspec: u32,
-        rgpspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-        rgpropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC,
+        rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -4485,16 +4465,15 @@ impl IWiaPropertyStorage {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn WriteMultiple(
         &self,
         cpspec: u32,
-        rgpspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
-        rgpropvar: *const super::super::Storage::StructuredStorage::PROPVARIANT,
+        rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC,
+        rgpropvar: *const super::super::System::Com::StructuredStorage::PROPVARIANT,
         propidnamefirst: u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
@@ -4508,12 +4487,12 @@ impl IWiaPropertyStorage {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub unsafe fn DeleteMultiple(
         &self,
         cpspec: u32,
-        rgpspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
+        rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -4574,17 +4553,17 @@ impl IWiaPropertyStorage {
     pub unsafe fn Revert(&self) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).10)(::std::mem::transmute_copy(self)).ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub unsafe fn Enum(
         &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IEnumSTATPROPSTG>
+    ) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG>
     {
-        let mut result__ : < super::super::Storage::StructuredStorage:: IEnumSTATPROPSTG as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+        let mut result__ : < super::super::System::Com::StructuredStorage:: IEnumSTATPROPSTG as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IEnumSTATPROPSTG>(result__)
+        .from_abi::<super::super::System::Com::StructuredStorage::IEnumSTATPROPSTG>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetTimes(
@@ -4613,31 +4592,31 @@ impl IWiaPropertyStorage {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub unsafe fn Stat(
         &self,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::STATPROPSETSTG> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: STATPROPSETSTG as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::StructuredStorage::STATPROPSETSTG>
+    {
+        let mut result__ : < super::super::System::Com::StructuredStorage:: STATPROPSETSTG as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).14)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::STATPROPSETSTG>(result__)
+        .from_abi::<super::super::System::Com::StructuredStorage::STATPROPSETSTG>(result__)
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn GetPropertyAttributes(
         &self,
         cpspec: u32,
-        rgpspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
+        rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC,
         rgflags: *mut u32,
-        rgpropvar: *mut super::super::Storage::StructuredStorage::PROPVARIANT,
+        rgpropvar: *mut super::super::System::Com::StructuredStorage::PROPVARIANT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).15)(
             ::std::mem::transmute_copy(self),
@@ -4656,11 +4635,11 @@ impl IWiaPropertyStorage {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPropertyStream(
         &self,
         pcompatibilityid: *mut ::windows::runtime::GUID,
-        ppistream: *mut ::std::option::Option<super::super::Storage::StructuredStorage::IStream>,
+        ppistream: *mut ::std::option::Option<super::super::System::Com::IStream>,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).17)(
             ::std::mem::transmute_copy(self),
@@ -4669,10 +4648,10 @@ impl IWiaPropertyStorage {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPropertyStream<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         pcompatibilityid: *mut ::windows::runtime::GUID,
@@ -4733,63 +4712,59 @@ pub struct IWiaPropertyStorage_abi(
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cpspec: u32,
-        rgpspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
+        rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC,
         rgpropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cpspec: u32,
-        rgpspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
+        rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC,
         rgpropvar: *const ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
         propidnamefirst: u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cpspec: u32,
-        rgpspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
+        rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     )))]
     usize,
     #[cfg(feature = "Win32_Foundation")]
@@ -4818,12 +4793,12 @@ pub struct IWiaPropertyStorage_abi(
         grfcommitflags: u32,
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com_StructuredStorage")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         ppenum: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com_StructuredStorage"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -4838,59 +4813,57 @@ pub struct IWiaPropertyStorage_abi(
     ) -> ::windows::runtime::HRESULT,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pstatpsstg: *mut super::super::Storage::StructuredStorage::STATPROPSETSTG,
+        pstatpsstg: *mut super::super::System::Com::StructuredStorage::STATPROPSETSTG,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com_StructuredStorage"
     )))]
     usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         cpspec: u32,
-        rgpspec: *const super::super::Storage::StructuredStorage::PROPSPEC,
+        rgpspec: *const super::super::System::Com::StructuredStorage::PROPSPEC,
         rgflags: *mut u32,
         rgpropvar: *mut ::std::mem::ManuallyDrop<
-            super::super::Storage::StructuredStorage::PROPVARIANT,
+            super::super::System::Com::StructuredStorage::PROPVARIANT,
         >,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage",
         feature = "Win32_System_Com",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com_StructuredStorage",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pulnumprops: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcompatibilityid: *mut ::windows::runtime::GUID,
         ppistream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pcompatibilityid: *mut ::windows::runtime::GUID,
         pistream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4901,10 +4874,10 @@ pub struct IWiaPropertyStorage_abi(
 )]
 pub struct IWiaSegmentationFilter(::windows::runtime::IUnknown);
 impl IWiaSegmentationFilter {
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn DetectRegions<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, IWiaItem2>,
     >(
         &self,
@@ -4970,14 +4943,14 @@ pub struct IWiaSegmentationFilter_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lflags: i32,
         pinputstream: ::windows::runtime::RawPtr,
         pwiaitem2: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -5000,10 +4973,10 @@ impl IWiaTransfer {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Upload<
         'a,
-        Param1: ::windows::runtime::IntoParam<'a, super::super::Storage::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, IWiaTransferCallback>,
     >(
         &self,
@@ -5082,14 +5055,14 @@ pub struct IWiaTransfer_abi(
         lflags: i32,
         piwiatransfercallback: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lflags: i32,
         psource: ::windows::runtime::RawPtr,
         piwiatransfercallback: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> ::windows::runtime::HRESULT,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -5117,10 +5090,7 @@ impl IWiaTransferCallback {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetNextStream<
         'a,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BSTR>,
@@ -5130,8 +5100,9 @@ impl IWiaTransferCallback {
         lflags: i32,
         bstritemname: Param1,
         bstrfullitemname: Param2,
-    ) -> ::windows::runtime::Result<super::super::Storage::StructuredStorage::IStream> {
-        let mut result__ : < super::super::Storage::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
+            ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(lflags),
@@ -5139,7 +5110,7 @@ impl IWiaTransferCallback {
             bstrfullitemname.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::super::Storage::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IWiaTransferCallback {
@@ -5192,10 +5163,7 @@ pub struct IWiaTransferCallback_abi(
         lflags: i32,
         pwiatransferparams: *const WiaTransferParams,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         lflags: i32,
@@ -5203,11 +5171,7 @@ pub struct IWiaTransferCallback_abi(
         bstrfullitemname: ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
         ppdestination: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -6150,7 +6114,7 @@ pub const TYMED_MULTIPAGE_CALLBACK: u32 = 512u32;
 pub const TYMED_MULTIPAGE_FILE: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct VAL {
     pub lVal: i32,
     pub dblVal: f64,
@@ -6160,17 +6124,17 @@ pub struct VAL {
     pub ppButtonNames: *mut *mut u16,
     pub pHandle: *mut super::super::Foundation::HANDLE,
     pub lReserved: i32,
-    pub szVal: [super::super::System::SystemServices::CHAR; 255],
+    pub szVal: [super::super::Foundation::CHAR; 255],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl VAL {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for VAL {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for VAL {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("VAL")
@@ -6186,7 +6150,7 @@ impl ::std::fmt::Debug for VAL {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for VAL {
     fn eq(&self, other: &Self) -> bool {
         self.lVal == other.lVal
@@ -6200,9 +6164,9 @@ impl ::std::cmp::PartialEq for VAL {
             && self.szVal == other.szVal
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for VAL {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for VAL {
     type Abi = Self;
     type DefaultType = Self;

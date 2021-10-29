@@ -1283,7 +1283,7 @@ pub unsafe fn SnmpGetVb(vbl: isize, index: u32, name: *mut smiOID, value: *mut s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SnmpGetVendorInfo(vendorinfo: *mut smiVENDORINFO) -> u32 {
     #[cfg(windows)]
@@ -2684,23 +2684,23 @@ unsafe impl ::windows::runtime::Abi for smiVALUE_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct smiVENDORINFO {
-    pub vendorName: [super::super::System::SystemServices::CHAR; 64],
-    pub vendorContact: [super::super::System::SystemServices::CHAR; 64],
-    pub vendorVersionId: [super::super::System::SystemServices::CHAR; 32],
-    pub vendorVersionDate: [super::super::System::SystemServices::CHAR; 32],
+    pub vendorName: [super::super::Foundation::CHAR; 64],
+    pub vendorContact: [super::super::Foundation::CHAR; 64],
+    pub vendorVersionId: [super::super::Foundation::CHAR; 32],
+    pub vendorVersionDate: [super::super::Foundation::CHAR; 32],
     pub vendorEnterprise: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl smiVENDORINFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for smiVENDORINFO {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for smiVENDORINFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("smiVENDORINFO")
@@ -2712,7 +2712,7 @@ impl ::std::fmt::Debug for smiVENDORINFO {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for smiVENDORINFO {
     fn eq(&self, other: &Self) -> bool {
         self.vendorName == other.vendorName
@@ -2722,9 +2722,9 @@ impl ::std::cmp::PartialEq for smiVENDORINFO {
             && self.vendorEnterprise == other.vendorEnterprise
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for smiVENDORINFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for smiVENDORINFO {
     type Abi = Self;
     type DefaultType = Self;

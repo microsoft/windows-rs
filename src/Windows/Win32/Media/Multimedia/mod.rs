@@ -31,10 +31,7 @@ pub const ACMDM_STREAM_UPDATE: u32 = 24659u32;
 pub const ACMDM_USER: u32 = 16384u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(all(
-    feature = "Win32_System_SystemServices",
-    feature = "Win32_UI_WindowsAndMessaging"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub struct ACMDRIVERDETAILSA {
     pub cbStruct: u32,
     pub fccType: u32,
@@ -47,44 +44,29 @@ pub struct ACMDRIVERDETAILSA {
     pub cFormatTags: u32,
     pub cFilterTags: u32,
     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
-    pub szShortName: [super::super::System::SystemServices::CHAR; 32],
-    pub szLongName: [super::super::System::SystemServices::CHAR; 128],
-    pub szCopyright: [super::super::System::SystemServices::CHAR; 80],
-    pub szLicensing: [super::super::System::SystemServices::CHAR; 128],
-    pub szFeatures: [super::super::System::SystemServices::CHAR; 512],
+    pub szShortName: [super::super::Foundation::CHAR; 32],
+    pub szLongName: [super::super::Foundation::CHAR; 128],
+    pub szCopyright: [super::super::Foundation::CHAR; 80],
+    pub szLicensing: [super::super::Foundation::CHAR; 128],
+    pub szFeatures: [super::super::Foundation::CHAR; 512],
 }
-#[cfg(all(
-    feature = "Win32_System_SystemServices",
-    feature = "Win32_UI_WindowsAndMessaging"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ACMDRIVERDETAILSA {}
-#[cfg(all(
-    feature = "Win32_System_SystemServices",
-    feature = "Win32_UI_WindowsAndMessaging"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::default::Default for ACMDRIVERDETAILSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_System_SystemServices",
-    feature = "Win32_UI_WindowsAndMessaging"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::PartialEq for ACMDRIVERDETAILSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(
-    feature = "Win32_System_SystemServices",
-    feature = "Win32_UI_WindowsAndMessaging"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::std::cmp::Eq for ACMDRIVERDETAILSA {}
-#[cfg(all(
-    feature = "Win32_System_SystemServices",
-    feature = "Win32_UI_WindowsAndMessaging"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 unsafe impl ::windows::runtime::Abi for ACMDRIVERDETAILSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -154,14 +136,14 @@ pub const ACMERR_BUSY: u32 = 513u32;
 pub const ACMERR_CANCELED: u32 = 515u32;
 pub const ACMERR_NOTPOSSIBLE: u32 = 512u32;
 pub const ACMERR_UNPREPARED: u32 = 514u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for ACMFILTERCHOOSEA {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERCHOOSEA {
     pub cbStruct: u32,
     pub fdwStyle: u32,
@@ -169,8 +151,8 @@ pub struct ACMFILTERCHOOSEA {
     pub pwfltr: *mut WAVEFILTER,
     pub cbwfltr: u32,
     pub pszTitle: super::super::Foundation::PSTR,
-    pub szFilterTag: [super::super::System::SystemServices::CHAR; 48],
-    pub szFilter: [super::super::System::SystemServices::CHAR; 128],
+    pub szFilterTag: [super::super::Foundation::CHAR; 48],
+    pub szFilter: [super::super::Foundation::CHAR; 128],
     pub pszName: super::super::Foundation::PSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
@@ -180,23 +162,23 @@ pub struct ACMFILTERCHOOSEA {
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ::std::option::Option<ACMFILTERCHOOSEHOOKPROCA>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ACMFILTERCHOOSEA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ACMFILTERCHOOSEA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ACMFILTERCHOOSEA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ACMFILTERCHOOSEA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFILTERCHOOSEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -270,7 +252,7 @@ pub const ACMFILTERCHOOSE_STYLEF_INITTOFILTERSTRUCT: i32 = 64i32;
 pub const ACMFILTERCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERDETAILSA {
     pub cbStruct: u32,
     pub dwFilterIndex: u32,
@@ -278,25 +260,25 @@ pub struct ACMFILTERDETAILSA {
     pub fdwSupport: u32,
     pub pwfltr: *mut WAVEFILTER,
     pub cbwfltr: u32,
-    pub szFilter: [super::super::System::SystemServices::CHAR; 128],
+    pub szFilter: [super::super::Foundation::CHAR; 128],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ACMFILTERDETAILSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ACMFILTERDETAILSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ACMFILTERDETAILSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ACMFILTERDETAILSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFILTERDETAILSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -329,7 +311,7 @@ unsafe impl ::windows::runtime::Abi for ACMFILTERDETAILSW {
     type DefaultType = Self;
 }
 pub const ACMFILTERDETAILS_FILTER_CHARS: u32 = 128u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERENUMCBA = unsafe extern "system" fn(
     hadid: HACMDRIVERID,
     pafd: *mut ACMFILTERDETAILSA,
@@ -345,7 +327,7 @@ pub type ACMFILTERENUMCBW = unsafe extern "system" fn(
 ) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFILTERTAGDETAILSA {
     pub cbStruct: u32,
     pub dwFilterTagIndex: u32,
@@ -353,25 +335,25 @@ pub struct ACMFILTERTAGDETAILSA {
     pub cbFilterSize: u32,
     pub fdwSupport: u32,
     pub cStandardFilters: u32,
-    pub szFilterTag: [super::super::System::SystemServices::CHAR; 48],
+    pub szFilterTag: [super::super::Foundation::CHAR; 48],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ACMFILTERTAGDETAILSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ACMFILTERTAGDETAILSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ACMFILTERTAGDETAILSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ACMFILTERTAGDETAILSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFILTERTAGDETAILSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -404,7 +386,7 @@ unsafe impl ::windows::runtime::Abi for ACMFILTERTAGDETAILSW {
     type DefaultType = Self;
 }
 pub const ACMFILTERTAGDETAILS_FILTERTAG_CHARS: u32 = 48u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type ACMFILTERTAGENUMCBA = unsafe extern "system" fn(
     hadid: HACMDRIVERID,
     paftd: *mut ACMFILTERTAGDETAILSA,
@@ -418,14 +400,14 @@ pub type ACMFILTERTAGENUMCBW = unsafe extern "system" fn(
     dwinstance: usize,
     fdwsupport: u32,
 ) -> super::super::Foundation::BOOL;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::clone::Clone for ACMFORMATCHOOSEA {
     fn clone(&self) -> Self {
         unimplemented!()
     }
 }
 #[repr(C, packed(1))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATCHOOSEA {
     pub cbStruct: u32,
     pub fdwStyle: u32,
@@ -433,8 +415,8 @@ pub struct ACMFORMATCHOOSEA {
     pub pwfx: *mut WAVEFORMATEX,
     pub cbwfx: u32,
     pub pszTitle: super::super::Foundation::PSTR,
-    pub szFormatTag: [super::super::System::SystemServices::CHAR; 48],
-    pub szFormat: [super::super::System::SystemServices::CHAR; 128],
+    pub szFormatTag: [super::super::Foundation::CHAR; 48],
+    pub szFormat: [super::super::Foundation::CHAR; 128],
     pub pszName: super::super::Foundation::PSTR,
     pub cchName: u32,
     pub fdwEnum: u32,
@@ -444,23 +426,23 @@ pub struct ACMFORMATCHOOSEA {
     pub lCustData: super::super::Foundation::LPARAM,
     pub pfnHook: ::std::option::Option<ACMFORMATCHOOSEHOOKPROCA>,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ACMFORMATCHOOSEA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ACMFORMATCHOOSEA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ACMFORMATCHOOSEA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ACMFORMATCHOOSEA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFORMATCHOOSEA {
     type Abi = ::std::mem::ManuallyDrop<Self>;
     type DefaultType = Self;
@@ -534,7 +516,7 @@ pub const ACMFORMATCHOOSE_STYLEF_INITTOWFXSTRUCT: i32 = 64i32;
 pub const ACMFORMATCHOOSE_STYLEF_SHOWHELP: i32 = 4i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATDETAILSA {
     pub cbStruct: u32,
     pub dwFormatIndex: u32,
@@ -542,31 +524,31 @@ pub struct ACMFORMATDETAILSA {
     pub fdwSupport: u32,
     pub pwfx: *mut WAVEFORMATEX,
     pub cbwfx: u32,
-    pub szFormat: [super::super::System::SystemServices::CHAR; 128],
+    pub szFormat: [super::super::Foundation::CHAR; 128],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ACMFORMATDETAILSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ACMFORMATDETAILSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ACMFORMATDETAILSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ACMFORMATDETAILSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFORMATDETAILSA {
     type Abi = Self;
     type DefaultType = Self;
 }
 pub const ACMFORMATDETAILS_FORMAT_CHARS: u32 = 128u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATENUMCBA = unsafe extern "system" fn(
     hadid: HACMDRIVERID,
     pafd: *mut ACMFORMATDETAILSA,
@@ -582,7 +564,7 @@ pub type ACMFORMATENUMCBW = unsafe extern "system" fn(
 ) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct ACMFORMATTAGDETAILSA {
     pub cbStruct: u32,
     pub dwFormatTagIndex: u32,
@@ -590,25 +572,25 @@ pub struct ACMFORMATTAGDETAILSA {
     pub cbFormatSize: u32,
     pub fdwSupport: u32,
     pub cStandardFormats: u32,
-    pub szFormatTag: [super::super::System::SystemServices::CHAR; 48],
+    pub szFormatTag: [super::super::Foundation::CHAR; 48],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ACMFORMATTAGDETAILSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for ACMFORMATTAGDETAILSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for ACMFORMATTAGDETAILSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for ACMFORMATTAGDETAILSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for ACMFORMATTAGDETAILSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -641,7 +623,7 @@ unsafe impl ::windows::runtime::Abi for ACMFORMATTAGDETAILSW {
     type DefaultType = Self;
 }
 pub const ACMFORMATTAGDETAILS_FORMATTAG_CHARS: u32 = 48u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub type ACMFORMATTAGENUMCBA = unsafe extern "system" fn(
     hadid: HACMDRIVERID,
     paftd: *mut ACMFORMATTAGDETAILSA,
@@ -904,12 +886,12 @@ unsafe impl ::windows::runtime::Abi for AUDIOFILE_AF36WAVEFORMAT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUXCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub wTechnology: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
@@ -917,23 +899,23 @@ pub struct AUXCAPS2A {
     pub ProductGuid: ::windows::runtime::GUID,
     pub NameGuid: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl AUXCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for AUXCAPS2A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for AUXCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for AUXCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUXCAPS2A {
     type Abi = Self;
     type DefaultType = Self;
@@ -970,33 +952,33 @@ unsafe impl ::windows::runtime::Abi for AUXCAPS2W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct AUXCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub wTechnology: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl AUXCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for AUXCAPSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for AUXCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for AUXCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AUXCAPSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -1039,6 +1021,7 @@ pub const AUXDM_SETVOLUME: u32 = 6u32;
 pub const AUXM_INIT: u32 = 100u32;
 pub const AUXM_INIT_EX: u32 = 104u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIBuildFilterA<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -1068,6 +1051,7 @@ pub unsafe fn AVIBuildFilterA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIBuildFilterW<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -1158,6 +1142,7 @@ unsafe impl ::windows::runtime::Abi for AVICOMPRESSOPTIONS {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn AVIClearClipboard() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -1180,7 +1165,7 @@ pub const AVIFILEHANDLER_CANREAD: u32 = 1u32;
 pub const AVIFILEHANDLER_CANWRITE: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct AVIFILEINFOA {
     pub dwMaxBytesPerSec: u32,
     pub dwFlags: u32,
@@ -1193,17 +1178,17 @@ pub struct AVIFILEINFOA {
     pub dwRate: u32,
     pub dwLength: u32,
     pub dwEditCount: u32,
-    pub szFileType: [super::super::System::SystemServices::CHAR; 64],
+    pub szFileType: [super::super::Foundation::CHAR; 64],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl AVIFILEINFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for AVIFILEINFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for AVIFILEINFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("AVIFILEINFOA")
@@ -1222,7 +1207,7 @@ impl ::std::fmt::Debug for AVIFILEINFOA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for AVIFILEINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwMaxBytesPerSec == other.dwMaxBytesPerSec
@@ -1239,9 +1224,9 @@ impl ::std::cmp::PartialEq for AVIFILEINFOA {
             && self.szFileType == other.szFileType
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for AVIFILEINFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AVIFILEINFOA {
     type Abi = Self;
     type DefaultType = Self;
@@ -1327,7 +1312,8 @@ pub unsafe fn AVIFileAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     ppavi: *mut ::std::option::Option<IAVIStream>,
@@ -1354,6 +1340,7 @@ pub unsafe fn AVIFileCreateStreamA<'a, Param0: ::windows::runtime::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     ppavi: *mut ::std::option::Option<IAVIStream>,
@@ -1379,6 +1366,7 @@ pub unsafe fn AVIFileCreateStreamW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileEndRecord<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -1406,6 +1394,7 @@ pub unsafe fn AVIFileExit() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     ppavi: *mut ::std::option::Option<IAVIStream>,
@@ -1434,7 +1423,8 @@ pub unsafe fn AVIFileGetStream<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIFileInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     pfi: *mut AVIFILEINFOA,
@@ -1460,6 +1450,7 @@ pub unsafe fn AVIFileInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFil
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     pfi: *mut AVIFILEINFOW,
@@ -1499,6 +1490,7 @@ pub unsafe fn AVIFileInit() {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIFileOpenA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1531,6 +1523,7 @@ pub unsafe fn AVIFileOpenA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIFileOpenW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1562,6 +1555,7 @@ pub unsafe fn AVIFileOpenW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     ckid: u32,
@@ -1605,6 +1599,7 @@ pub unsafe fn AVIFileRelease<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIFileWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pfile: Param0,
     ckid: u32,
@@ -1634,6 +1629,7 @@ pub unsafe fn AVIFileWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAV
     unimplemented!("Unsupported target OS");
 }
 pub const AVIGETFRAMEF_BESTDISPLAYFMT: u32 = 1u32;
+#[inline]
 pub unsafe fn AVIGetFromClipboard() -> ::windows::runtime::Result<IAVIFile> {
     #[cfg(windows)]
     {
@@ -1651,6 +1647,7 @@ pub unsafe fn AVIGetFromClipboard() -> ::windows::runtime::Result<IAVIFile> {
 }
 pub const AVIIF_CONTROLFRAME: i32 = 512i32;
 pub const AVIIF_TWOCC: i32 = 2i32;
+#[inline]
 pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     ppscompressed: *mut ::std::option::Option<IAVIStream>,
     ppssource: Param1,
@@ -1679,6 +1676,7 @@ pub unsafe fn AVIMakeCompressedStream<'a, Param1: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIMakeFileFromStreams(
     ppfile: *mut ::std::option::Option<IAVIFile>,
     nstreams: i32,
@@ -1705,6 +1703,7 @@ pub unsafe fn AVIMakeFileFromStreams(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIMakeStreamFromClipboard<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1733,6 +1732,7 @@ pub unsafe fn AVIMakeStreamFromClipboard<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIPutFileOnClipboard<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIFile>>(
     pf: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -1752,7 +1752,7 @@ pub unsafe fn AVIPutFileOnClipboard<'a, Param0: ::windows::runtime::IntoParam<'a
 pub type AVISAVECALLBACK = unsafe extern "system" fn(param0: i32) -> super::super::Foundation::BOOL;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct AVISTREAMINFOA {
     pub fccType: u32,
     pub fccHandler: u32,
@@ -1771,17 +1771,17 @@ pub struct AVISTREAMINFOA {
     pub rcFrame: super::super::Foundation::RECT,
     pub dwEditCount: u32,
     pub dwFormatChangeCount: u32,
-    pub szName: [super::super::System::SystemServices::CHAR; 64],
+    pub szName: [super::super::Foundation::CHAR; 64],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl AVISTREAMINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for AVISTREAMINFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for AVISTREAMINFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("AVISTREAMINFOA")
@@ -1806,7 +1806,7 @@ impl ::std::fmt::Debug for AVISTREAMINFOA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for AVISTREAMINFOA {
     fn eq(&self, other: &Self) -> bool {
         self.fccType == other.fccType
@@ -1829,9 +1829,9 @@ impl ::std::cmp::PartialEq for AVISTREAMINFOA {
             && self.szName == other.szName
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for AVISTREAMINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for AVISTREAMINFOA {
     type Abi = Self;
     type DefaultType = Self;
@@ -1926,6 +1926,7 @@ pub const AVISTREAMINFO_DISABLED: u32 = 1u32;
 pub const AVISTREAMINFO_FORMATCHANGES: u32 = 65536u32;
 pub const AVISTREAMREAD_CONVENIENT: i32 = -1i32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVISaveA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1999,6 +2000,7 @@ pub unsafe fn AVISaveOptions<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVISaveOptionsFree(
     nstreams: i32,
     plpoptions: *const *const AVICOMPRESSOPTIONS,
@@ -2022,6 +2024,7 @@ pub unsafe fn AVISaveOptionsFree(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVISaveVA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2060,6 +2063,7 @@ pub unsafe fn AVISaveVA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVISaveVW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2098,6 +2102,7 @@ pub unsafe fn AVISaveVW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVISaveW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2151,6 +2156,7 @@ pub unsafe fn AVIStreamAddRef<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lstart: i32,
@@ -2179,6 +2185,7 @@ pub unsafe fn AVIStreamBeginStreaming<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamCreate(
     ppavi: *mut ::std::option::Option<IAVIStream>,
     lparam1: i32,
@@ -2207,6 +2214,7 @@ pub unsafe fn AVIStreamCreate(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamEndStreaming<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -2267,6 +2275,7 @@ pub unsafe fn AVIStreamGetFrame<'a, Param0: ::windows::runtime::IntoParam<'a, IG
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamGetFrameClose<'a, Param0: ::windows::runtime::IntoParam<'a, IGetFrame>>(
     pg: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -2306,7 +2315,8 @@ pub unsafe fn AVIStreamGetFrameOpen<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIStreamInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     psi: *mut AVISTREAMINFOA,
@@ -2333,6 +2343,7 @@ pub unsafe fn AVIStreamInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIStreamInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     psi: *mut AVISTREAMINFOW,
@@ -2374,6 +2385,7 @@ pub unsafe fn AVIStreamLength<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIStreamOpenFromFileA<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2412,6 +2424,7 @@ pub unsafe fn AVIStreamOpenFromFileA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn AVIStreamOpenFromFileW<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2449,6 +2462,7 @@ pub unsafe fn AVIStreamOpenFromFileW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamRead<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lstart: i32,
@@ -2486,6 +2500,7 @@ pub unsafe fn AVIStreamRead<'a, Param0: ::windows::runtime::IntoParam<'a, IAVISt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     fcc: u32,
@@ -2514,6 +2529,7 @@ pub unsafe fn AVIStreamReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamReadFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lpos: i32,
@@ -2576,6 +2592,7 @@ pub unsafe fn AVIStreamSampleToTime<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamSetFormat<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lpos: i32,
@@ -2638,6 +2655,7 @@ pub unsafe fn AVIStreamTimeToSample<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lstart: i32,
@@ -2678,6 +2696,7 @@ pub unsafe fn AVIStreamWrite<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn AVIStreamWriteData<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     fcc: u32,
@@ -3345,6 +3364,7 @@ pub unsafe fn CloseDriver<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CreateEditableStream<'a, Param1: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     ppseditable: *mut ::std::option::Option<IAVIStream>,
     pssource: Param1,
@@ -4314,6 +4334,7 @@ unsafe impl ::windows::runtime::Abi for EXBMINFOHEADER {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn EditStreamClone<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
 ) -> ::windows::runtime::Result<IAVIStream> {
@@ -4332,6 +4353,7 @@ pub unsafe fn EditStreamClone<'a, Param0: ::windows::runtime::IntoParam<'a, IAVI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EditStreamCopy<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     plstart: *mut i32,
@@ -4360,6 +4382,7 @@ pub unsafe fn EditStreamCopy<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EditStreamCut<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     plstart: *mut i32,
@@ -4388,6 +4411,7 @@ pub unsafe fn EditStreamCut<'a, Param0: ::windows::runtime::IntoParam<'a, IAVISt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn EditStreamPaste<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IAVIStream>,
@@ -4426,7 +4450,8 @@ pub unsafe fn EditStreamPaste<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EditStreamSetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lpinfo: *const AVISTREAMINFOA,
@@ -4453,6 +4478,7 @@ pub unsafe fn EditStreamSetInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EditStreamSetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, IAVIStream>>(
     pavi: Param0,
     lpinfo: *const AVISTREAMINFOW,
@@ -4479,6 +4505,7 @@ pub unsafe fn EditStreamSetInfoW<'a, Param0: ::windows::runtime::IntoParam<'a, I
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EditStreamSetNameA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IAVIStream>,
@@ -4502,6 +4529,7 @@ pub unsafe fn EditStreamSetNameA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn EditStreamSetNameW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IAVIStream>,
@@ -4653,10 +4681,10 @@ pub unsafe fn GetDriverModuleHandle<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn GetOpenFileNamePreviewA(
-    lpofn: *mut super::super::UI::WindowsAndMessaging::OPENFILENAMEA,
+    lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -4664,7 +4692,7 @@ pub unsafe fn GetOpenFileNamePreviewA(
         extern "system" {
             fn GetOpenFileNamePreviewA(
                 lpofn: *mut ::std::mem::ManuallyDrop<
-                    super::super::UI::WindowsAndMessaging::OPENFILENAMEA,
+                    super::super::UI::Controls::Dialogs::OPENFILENAMEA,
                 >,
             ) -> super::super::Foundation::BOOL;
         }
@@ -4673,10 +4701,10 @@ pub unsafe fn GetOpenFileNamePreviewA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn GetOpenFileNamePreviewW(
-    lpofn: *mut super::super::UI::WindowsAndMessaging::OPENFILENAMEW,
+    lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -4684,7 +4712,7 @@ pub unsafe fn GetOpenFileNamePreviewW(
         extern "system" {
             fn GetOpenFileNamePreviewW(
                 lpofn: *mut ::std::mem::ManuallyDrop<
-                    super::super::UI::WindowsAndMessaging::OPENFILENAMEW,
+                    super::super::UI::Controls::Dialogs::OPENFILENAMEW,
                 >,
             ) -> super::super::Foundation::BOOL;
         }
@@ -4693,10 +4721,10 @@ pub unsafe fn GetOpenFileNamePreviewW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn GetSaveFileNamePreviewA(
-    lpofn: *mut super::super::UI::WindowsAndMessaging::OPENFILENAMEA,
+    lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEA,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -4704,7 +4732,7 @@ pub unsafe fn GetSaveFileNamePreviewA(
         extern "system" {
             fn GetSaveFileNamePreviewA(
                 lpofn: *mut ::std::mem::ManuallyDrop<
-                    super::super::UI::WindowsAndMessaging::OPENFILENAMEA,
+                    super::super::UI::Controls::Dialogs::OPENFILENAMEA,
                 >,
             ) -> super::super::Foundation::BOOL;
         }
@@ -4713,10 +4741,10 @@ pub unsafe fn GetSaveFileNamePreviewA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls_Dialogs"))]
 #[inline]
 pub unsafe fn GetSaveFileNamePreviewW(
-    lpofn: *mut super::super::UI::WindowsAndMessaging::OPENFILENAMEW,
+    lpofn: *mut super::super::UI::Controls::Dialogs::OPENFILENAMEW,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -4724,7 +4752,7 @@ pub unsafe fn GetSaveFileNamePreviewW(
         extern "system" {
             fn GetSaveFileNamePreviewW(
                 lpofn: *mut ::std::mem::ManuallyDrop<
-                    super::super::UI::WindowsAndMessaging::OPENFILENAMEW,
+                    super::super::UI::Controls::Dialogs::OPENFILENAMEW,
                 >,
             ) -> super::super::Foundation::BOOL;
         }
@@ -7672,11 +7700,11 @@ unsafe impl ::windows::runtime::Abi for JOYCALIBRATE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JOYCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub wXmin: u32,
     pub wXmax: u32,
     pub wYmin: u32,
@@ -7696,29 +7724,29 @@ pub struct JOYCAPS2A {
     pub wMaxAxes: u32,
     pub wNumAxes: u32,
     pub wMaxButtons: u32,
-    pub szRegKey: [super::super::System::SystemServices::CHAR; 32],
-    pub szOEMVxD: [super::super::System::SystemServices::CHAR; 260],
+    pub szRegKey: [super::super::Foundation::CHAR; 32],
+    pub szOEMVxD: [super::super::Foundation::CHAR; 260],
     pub ManufacturerGuid: ::windows::runtime::GUID,
     pub ProductGuid: ::windows::runtime::GUID,
     pub NameGuid: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl JOYCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JOYCAPS2A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JOYCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JOYCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JOYCAPS2A {
     type Abi = Self;
     type DefaultType = Self;
@@ -7772,11 +7800,11 @@ unsafe impl ::windows::runtime::Abi for JOYCAPS2W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JOYCAPSA {
     pub wMid: u16,
     pub wPid: u16,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub wXmin: u32,
     pub wXmax: u32,
     pub wYmin: u32,
@@ -7796,26 +7824,26 @@ pub struct JOYCAPSA {
     pub wMaxAxes: u32,
     pub wNumAxes: u32,
     pub wMaxButtons: u32,
-    pub szRegKey: [super::super::System::SystemServices::CHAR; 32],
-    pub szOEMVxD: [super::super::System::SystemServices::CHAR; 260],
+    pub szRegKey: [super::super::Foundation::CHAR; 32],
+    pub szOEMVxD: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl JOYCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for JOYCAPSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for JOYCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for JOYCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for JOYCAPSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -8170,7 +8198,7 @@ pub type LPACMDRIVERPROC = unsafe extern "system" fn(
 ) -> super::super::Foundation::LRESULT;
 pub type LPDRVCALLBACK =
     unsafe extern "system" fn(hdrvr: HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize);
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub type LPFNEXTDEVIO = unsafe extern "system" fn(
     lparam: super::super::Foundation::LPARAM,
     dwflags: u32,
@@ -8180,7 +8208,7 @@ pub type LPFNEXTDEVIO = unsafe extern "system" fn(
     lpoutbuffer: *mut ::std::ffi::c_void,
     noutbuffersize: u32,
     lpbytesreturned: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL;
 pub type LPJOYDEVMSGPROC =
     unsafe extern "system" fn(param0: u32, param1: u32, param2: i32, param3: i32) -> u32;
@@ -9932,34 +9960,34 @@ unsafe impl ::windows::runtime::Abi for MIDIHDR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIDIINCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub dwSupport: u32,
     pub ManufacturerGuid: ::windows::runtime::GUID,
     pub ProductGuid: ::windows::runtime::GUID,
     pub NameGuid: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl MIDIINCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIDIINCAPS2A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIDIINCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIDIINCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIINCAPS2A {
     type Abi = Self;
     type DefaultType = Self;
@@ -9994,31 +10022,31 @@ unsafe impl ::windows::runtime::Abi for MIDIINCAPS2W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIDIINCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl MIDIINCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIDIINCAPSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIDIINCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIDIINCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIINCAPSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -10073,12 +10101,12 @@ unsafe impl ::windows::runtime::Abi for MIDIOPENSTRMID {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIDIOUTCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub wTechnology: u16,
     pub wVoices: u16,
     pub wNotes: u16,
@@ -10088,23 +10116,23 @@ pub struct MIDIOUTCAPS2A {
     pub ProductGuid: ::windows::runtime::GUID,
     pub NameGuid: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl MIDIOUTCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIDIOUTCAPS2A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIDIOUTCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIDIOUTCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIOUTCAPS2A {
     type Abi = Self;
     type DefaultType = Self;
@@ -10143,35 +10171,35 @@ unsafe impl ::windows::runtime::Abi for MIDIOUTCAPS2W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIDIOUTCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub wTechnology: u16,
     pub wVoices: u16,
     pub wNotes: u16,
     pub wChannelMask: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl MIDIOUTCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIDIOUTCAPSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIDIOUTCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIDIOUTCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIDIOUTCAPSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -10369,35 +10397,35 @@ pub const MIM_MOREDATA: u32 = 972u32;
 pub const MIM_OPEN: u32 = 961u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub fdwSupport: u32,
     pub cDestinations: u32,
     pub ManufacturerGuid: ::windows::runtime::GUID,
     pub ProductGuid: ::windows::runtime::GUID,
     pub NameGuid: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl MIXERCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIXERCAPS2A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIXERCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIXERCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCAPS2A {
     type Abi = Self;
     type DefaultType = Self;
@@ -10433,32 +10461,32 @@ unsafe impl ::windows::runtime::Abi for MIXERCAPS2W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub fdwSupport: u32,
     pub cDestinations: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl MIXERCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIXERCAPSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIXERCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIXERCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCAPSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -10491,35 +10519,35 @@ unsafe impl ::windows::runtime::Abi for MIXERCAPSW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCONTROLA {
     pub cbStruct: u32,
     pub dwControlID: u32,
     pub dwControlType: u32,
     pub fdwControl: u32,
     pub cMultipleItems: u32,
-    pub szShortName: [super::super::System::SystemServices::CHAR; 16],
-    pub szName: [super::super::System::SystemServices::CHAR; 64],
+    pub szShortName: [super::super::Foundation::CHAR; 16],
+    pub szName: [super::super::Foundation::CHAR; 64],
     pub Bounds: MIXERCONTROLA_0,
     pub Metrics: MIXERCONTROLA_1,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIXERCONTROLA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIXERCONTROLA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIXERCONTROLA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLA {
     type Abi = Self;
     type DefaultType = Self;
@@ -10697,29 +10725,29 @@ unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_BOOLEAN {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERCONTROLDETAILS_LISTTEXTA {
     pub dwParam1: u32,
     pub dwParam2: u32,
-    pub szName: [super::super::System::SystemServices::CHAR; 64],
+    pub szName: [super::super::Foundation::CHAR; 64],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl MIXERCONTROLDETAILS_LISTTEXTA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIXERCONTROLDETAILS_LISTTEXTA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIXERCONTROLDETAILS_LISTTEXTA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIXERCONTROLDETAILS_LISTTEXTA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERCONTROLDETAILS_LISTTEXTA {
     type Abi = Self;
     type DefaultType = Self;
@@ -10971,7 +10999,7 @@ pub const MIXERCONTROL_CT_UNITS_SIGNED: i32 = 131072i32;
 pub const MIXERCONTROL_CT_UNITS_UNSIGNED: i32 = 196608i32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERLINEA {
     pub cbStruct: u32,
     pub dwDestination: u32,
@@ -10983,66 +11011,66 @@ pub struct MIXERLINEA {
     pub cChannels: u32,
     pub cConnections: u32,
     pub cControls: u32,
-    pub szShortName: [super::super::System::SystemServices::CHAR; 16],
-    pub szName: [super::super::System::SystemServices::CHAR; 64],
+    pub szShortName: [super::super::Foundation::CHAR; 16],
+    pub szName: [super::super::Foundation::CHAR; 64],
     pub Target: MIXERLINEA_0,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl MIXERLINEA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIXERLINEA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIXERLINEA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIXERLINEA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERLINEA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERLINEA_0 {
     pub dwType: u32,
     pub dwDeviceID: u32,
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl MIXERLINEA_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIXERLINEA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIXERLINEA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIXERLINEA_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERLINEA_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MIXERLINECONTROLSA {
     pub cbStruct: u32,
     pub dwLineID: u32,
@@ -11051,23 +11079,23 @@ pub struct MIXERLINECONTROLSA {
     pub cbmxctrl: u32,
     pub pamxctrl: *mut MIXERCONTROLA,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl MIXERLINECONTROLSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for MIXERLINECONTROLSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for MIXERLINECONTROLSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for MIXERLINECONTROLSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for MIXERLINECONTROLSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -16459,12 +16487,12 @@ unsafe impl ::windows::runtime::Abi for WAVEHDR {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAVEINCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
@@ -16472,23 +16500,23 @@ pub struct WAVEINCAPS2A {
     pub ProductGuid: ::windows::runtime::GUID,
     pub NameGuid: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WAVEINCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WAVEINCAPS2A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WAVEINCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WAVEINCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEINCAPS2A {
     type Abi = Self;
     type DefaultType = Self;
@@ -16525,33 +16553,33 @@ unsafe impl ::windows::runtime::Abi for WAVEINCAPS2W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAVEINCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WAVEINCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WAVEINCAPSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WAVEINCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WAVEINCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEINCAPSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -16614,12 +16642,12 @@ unsafe impl ::windows::runtime::Abi for WAVEOPENDESC {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAVEOUTCAPS2A {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
@@ -16628,23 +16656,23 @@ pub struct WAVEOUTCAPS2A {
     pub ProductGuid: ::windows::runtime::GUID,
     pub NameGuid: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WAVEOUTCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WAVEOUTCAPS2A {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WAVEOUTCAPS2A {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WAVEOUTCAPS2A {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEOUTCAPS2A {
     type Abi = Self;
     type DefaultType = Self;
@@ -16682,34 +16710,34 @@ unsafe impl ::windows::runtime::Abi for WAVEOUTCAPS2W {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C, packed(1))]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAVEOUTCAPSA {
     pub wMid: u16,
     pub wPid: u16,
     pub vDriverVersion: u32,
-    pub szPname: [super::super::System::SystemServices::CHAR; 32],
+    pub szPname: [super::super::Foundation::CHAR; 32],
     pub dwFormats: u32,
     pub wChannels: u16,
     pub wReserved1: u16,
     pub dwSupport: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WAVEOUTCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WAVEOUTCAPSA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WAVEOUTCAPSA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WAVEOUTCAPSA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WAVEOUTCAPSA {
     type Abi = Self;
     type DefaultType = Self;
@@ -17349,10 +17377,7 @@ pub unsafe fn acmDriverClose<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_System_SystemServices",
-    feature = "Win32_UI_WindowsAndMessaging"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn acmDriverDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVERID>>(
     hadid: Param0,
@@ -17546,7 +17571,7 @@ pub unsafe fn acmDriverRemove<'a, Param0: ::windows::runtime::IntoParam<'a, HACM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
     #[cfg(windows)]
@@ -17574,7 +17599,7 @@ pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFilterDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
@@ -17625,7 +17650,7 @@ pub unsafe fn acmFilterDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFilterEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
@@ -17689,7 +17714,7 @@ pub unsafe fn acmFilterEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HACMD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFilterTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
@@ -17740,7 +17765,7 @@ pub unsafe fn acmFilterTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFilterTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
@@ -17804,7 +17829,7 @@ pub unsafe fn acmFilterTagEnumW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
     #[cfg(windows)]
@@ -17832,7 +17857,7 @@ pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFormatDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
@@ -17883,7 +17908,7 @@ pub unsafe fn acmFormatDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a, HA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFormatEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
@@ -17978,7 +18003,7 @@ pub unsafe fn acmFormatSuggest<'a, Param0: ::windows::runtime::IntoParam<'a, HAC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFormatTagDetailsA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
@@ -18029,7 +18054,7 @@ pub unsafe fn acmFormatTagDetailsW<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn acmFormatTagEnumA<'a, Param0: ::windows::runtime::IntoParam<'a, HACMDRIVER>>(
     had: Param0,
@@ -18345,7 +18370,7 @@ pub unsafe fn acmStreamUnprepareHeader<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32 {
     #[cfg(windows)]
@@ -18597,7 +18622,7 @@ pub unsafe fn capGetDriverDescriptionW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn joyGetDevCapsA(ujoyid: usize, pjc: *mut JOYCAPSA, cbjc: u32) -> u32 {
     #[cfg(windows)]
@@ -18846,7 +18871,7 @@ pub unsafe fn midiInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIIN>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32 {
     #[cfg(windows)]
@@ -19179,7 +19204,7 @@ pub unsafe fn midiOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HMIDIOU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32 {
     #[cfg(windows)]
@@ -19715,7 +19740,7 @@ pub unsafe fn mixerGetControlDetailsW<'a, Param0: ::windows::runtime::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32 {
     #[cfg(windows)]
@@ -19771,7 +19796,7 @@ pub unsafe fn mixerGetID<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mixerGetLineControlsA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
     hmxobj: Param0,
@@ -19822,7 +19847,7 @@ pub unsafe fn mixerGetLineControlsW<'a, Param0: ::windows::runtime::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn mixerGetLineInfoA<'a, Param0: ::windows::runtime::IntoParam<'a, HMIXEROBJ>>(
     hmxobj: Param0,
@@ -20611,25 +20636,25 @@ pub unsafe fn mmioWrite<
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct s_RIFFWAVE_inst {
     pub bUnshiftedNote: u8,
-    pub chFineTune: super::super::System::SystemServices::CHAR,
-    pub chGain: super::super::System::SystemServices::CHAR,
+    pub chFineTune: super::super::Foundation::CHAR,
+    pub chGain: super::super::Foundation::CHAR,
     pub bLowNote: u8,
     pub bHighNote: u8,
     pub bLowVelocity: u8,
     pub bHighVelocity: u8,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl s_RIFFWAVE_inst {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for s_RIFFWAVE_inst {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for s_RIFFWAVE_inst {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("s_RIFFWAVE_inst")
@@ -20643,7 +20668,7 @@ impl ::std::fmt::Debug for s_RIFFWAVE_inst {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for s_RIFFWAVE_inst {
     fn eq(&self, other: &Self) -> bool {
         self.bUnshiftedNote == other.bUnshiftedNote
@@ -20655,9 +20680,9 @@ impl ::std::cmp::PartialEq for s_RIFFWAVE_inst {
             && self.bHighVelocity == other.bHighVelocity
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for s_RIFFWAVE_inst {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for s_RIFFWAVE_inst {
     type Abi = Self;
     type DefaultType = Self;
@@ -21073,7 +21098,7 @@ pub unsafe fn waveInClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEIN>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32 {
     #[cfg(windows)]
@@ -21389,7 +21414,7 @@ pub unsafe fn waveOutClose<'a, Param0: ::windows::runtime::IntoParam<'a, HWAVEOU
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32 {
     #[cfg(windows)]

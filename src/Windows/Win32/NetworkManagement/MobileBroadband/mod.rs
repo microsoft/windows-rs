@@ -24,20 +24,20 @@ impl IDummyMBNUCMExt {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub unsafe fn GetTypeInfo(
         &self,
         itinfo: u32,
         lcid: u32,
-    ) -> ::windows::runtime::Result<super::super::System::OleAutomation::ITypeInfo> {
-        let mut result__ : < super::super::System::OleAutomation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::System::Ole::Automation::ITypeInfo> {
+        let mut result__ : < super::super::System::Ole::Automation:: ITypeInfo as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             ::std::mem::transmute(itinfo),
             ::std::mem::transmute(lcid),
             &mut result__,
         )
-        .from_abi::<super::super::System::OleAutomation::ITypeInfo>(result__)
+        .from_abi::<super::super::System::Ole::Automation::ITypeInfo>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetIDsOfNames(
@@ -60,8 +60,8 @@ impl IDummyMBNUCMExt {
     }
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub unsafe fn Invoke(
         &self,
@@ -69,9 +69,9 @@ impl IDummyMBNUCMExt {
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
-        pvarresult: *mut super::super::System::OleAutomation::VARIANT,
-        pexcepinfo: *mut super::super::System::OleAutomation::EXCEPINFO,
+        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut super::super::System::Com::VARIANT,
+        pexcepinfo: *mut super::super::System::Ole::Automation::EXCEPINFO,
         puargerr: *mut u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).6)(
@@ -123,39 +123,39 @@ impl<'a> ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown> for &ID
         )
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<IDummyMBNUCMExt> for super::super::System::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<IDummyMBNUCMExt> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: IDummyMBNUCMExt) -> Self {
         unsafe { ::std::mem::transmute(value) }
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl ::std::convert::From<&IDummyMBNUCMExt> for super::super::System::OleAutomation::IDispatch {
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl ::std::convert::From<&IDummyMBNUCMExt> for super::super::System::Ole::Automation::IDispatch {
     fn from(value: &IDummyMBNUCMExt) -> Self {
         ::std::convert::From::from(::std::clone::Clone::clone(value))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
     for IDummyMBNUCMExt
 {
     fn into_param(
         self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::OleAutomation::IDispatch,
+            super::super::System::Ole::Automation::IDispatch,
         >::into(self))
     }
 }
-#[cfg(feature = "Win32_System_OleAutomation")]
-impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::OleAutomation::IDispatch>
+#[cfg(feature = "Win32_System_Ole_Automation")]
+impl<'a> ::windows::runtime::IntoParam<'a, super::super::System::Ole::Automation::IDispatch>
     for &IDummyMBNUCMExt
 {
     fn into_param(
         self,
-    ) -> ::windows::runtime::Param<'a, super::super::System::OleAutomation::IDispatch> {
+    ) -> ::windows::runtime::Param<'a, super::super::System::Ole::Automation::IDispatch> {
         ::windows::runtime::Param::Owned(::std::convert::Into::<
-            super::super::System::OleAutomation::IDispatch,
+            super::super::System::Ole::Automation::IDispatch,
         >::into(::std::clone::Clone::clone(self)))
     }
 }
@@ -173,14 +173,14 @@ pub struct IDummyMBNUCMExt_abi(
         this: ::windows::runtime::RawPtr,
         pctinfo: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Ole_Automation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         itinfo: u32,
         lcid: u32,
         pptinfo: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Ole_Automation"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -193,8 +193,8 @@ pub struct IDummyMBNUCMExt_abi(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -202,15 +202,15 @@ pub struct IDummyMBNUCMExt_abi(
         riid: *const ::windows::runtime::GUID,
         lcid: u32,
         wflags: u16,
-        pdispparams: *const super::super::System::OleAutomation::DISPPARAMS,
-        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::VARIANT>,
-        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::OleAutomation::EXCEPINFO>,
+        pdispparams: *const super::super::System::Ole::Automation::DISPPARAMS,
+        pvarresult: *mut ::std::mem::ManuallyDrop<super::super::System::Com::VARIANT>,
+        pexcepinfo: *mut ::std::mem::ManuallyDrop<super::super::System::Ole::Automation::EXCEPINFO>,
         puargerr: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(
         feature = "Win32_Foundation",
-        feature = "Win32_System_OleAutomation",
-        feature = "Win32_System_SystemServices"
+        feature = "Win32_System_Com",
+        feature = "Win32_System_Ole_Automation"
     )))]
     usize,
 );
@@ -396,16 +396,16 @@ pub struct IMbnConnection_abi(
 )]
 pub struct IMbnConnectionContext(::windows::runtime::IUnknown);
 impl IMbnConnectionContext {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetProvisionedContexts(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetProvisionedContext<
@@ -474,12 +474,12 @@ pub struct IMbnConnectionContext_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        provisionedcontexts: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        provisionedcontexts: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -750,16 +750,16 @@ impl IMbnConnectionManager {
         )
         .from_abi::<IMbnConnection>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetConnections(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMbnConnectionManager {
@@ -816,12 +816,12 @@ pub struct IMbnConnectionManager_abi(
         mbnconnection: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        mbnconnections: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        mbnconnections: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -1103,21 +1103,21 @@ pub struct IMbnConnectionProfileEvents_abi(
 )]
 pub struct IMbnConnectionProfileManager(::windows::runtime::IUnknown);
 impl IMbnConnectionProfileManager {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetConnectionProfiles<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IMbnInterface>,
     >(
         &self,
         mbninterface: Param0,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             mbninterface.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetConnectionProfile<
@@ -1203,13 +1203,13 @@ pub struct IMbnConnectionProfileManager_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         mbninterface: ::windows::runtime::RawPtr,
-        connectionprofiles: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        connectionprofiles: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1352,11 +1352,11 @@ impl IMbnDeviceService {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetCommand(
         &self,
         commandid: u32,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(
@@ -1367,11 +1367,11 @@ impl IMbnDeviceService {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn QueryCommand(
         &self,
         commandid: u32,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(
@@ -1398,10 +1398,10 @@ impl IMbnDeviceService {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WriteData(
         &self,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(
@@ -1515,22 +1515,22 @@ pub struct IMbnDeviceService_abi(
         this: ::windows::runtime::RawPtr,
         requestid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         commandid: u32,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
         requestid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         commandid: u32,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
         requestid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         requestid: *mut u32,
@@ -1539,13 +1539,13 @@ pub struct IMbnDeviceService_abi(
         this: ::windows::runtime::RawPtr,
         requestid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
         requestid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1663,16 +1663,16 @@ pub struct IMbnDeviceServiceStateEvents_abi(
 )]
 pub struct IMbnDeviceServicesContext(::windows::runtime::IUnknown);
 impl IMbnDeviceServicesContext {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumerateDeviceServices(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDeviceService<
@@ -1757,12 +1757,12 @@ pub struct IMbnDeviceServicesContext_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        deviceservices: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        deviceservices: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1788,14 +1788,14 @@ pub struct IMbnDeviceServicesContext_abi(
 )]
 pub struct IMbnDeviceServicesEvents(::windows::runtime::IUnknown);
 impl IMbnDeviceServicesEvents {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnQuerySupportedCommandsComplete<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IMbnDeviceService>,
     >(
         &self,
         deviceservice: Param0,
-        commandidlist: *const super::super::System::OleAutomation::SAFEARRAY,
+        commandidlist: *const super::super::System::Com::SAFEARRAY,
         status: ::windows::runtime::HRESULT,
         requestid: u32,
     ) -> ::windows::runtime::Result<()> {
@@ -1842,7 +1842,7 @@ impl IMbnDeviceServicesEvents {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSetCommandComplete<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IMbnDeviceService>,
@@ -1850,7 +1850,7 @@ impl IMbnDeviceServicesEvents {
         &self,
         deviceservice: Param0,
         responseid: u32,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
         status: ::windows::runtime::HRESULT,
         requestid: u32,
     ) -> ::windows::runtime::Result<()> {
@@ -1864,7 +1864,7 @@ impl IMbnDeviceServicesEvents {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnQueryCommandComplete<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IMbnDeviceService>,
@@ -1872,7 +1872,7 @@ impl IMbnDeviceServicesEvents {
         &self,
         deviceservice: Param0,
         responseid: u32,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
         status: ::windows::runtime::HRESULT,
         requestid: u32,
     ) -> ::windows::runtime::Result<()> {
@@ -1886,7 +1886,7 @@ impl IMbnDeviceServicesEvents {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnEventNotification<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IMbnDeviceService>,
@@ -1894,7 +1894,7 @@ impl IMbnDeviceServicesEvents {
         &self,
         deviceservice: Param0,
         eventid: u32,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(
             ::std::mem::transmute_copy(self),
@@ -1955,11 +1955,11 @@ impl IMbnDeviceServicesEvents {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnReadData<'a, Param0: ::windows::runtime::IntoParam<'a, IMbnDeviceService>>(
         &self,
         deviceservice: Param0,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).12)(
             ::std::mem::transmute_copy(self),
@@ -2034,55 +2034,55 @@ pub struct IMbnDeviceServicesEvents_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         deviceservice: ::windows::runtime::RawPtr,
-        commandidlist: *const super::super::System::OleAutomation::SAFEARRAY,
+        commandidlist: *const super::super::System::Com::SAFEARRAY,
         status: ::windows::runtime::HRESULT,
         requestid: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    pub  unsafe extern "system" fn(
-        this: ::windows::runtime::RawPtr,
-        deviceservice: ::windows::runtime::RawPtr,
-        status: ::windows::runtime::HRESULT,
-        requestid: u32,
-    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         deviceservice: ::windows::runtime::RawPtr,
         status: ::windows::runtime::HRESULT,
         requestid: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         deviceservice: ::windows::runtime::RawPtr,
-        responseid: u32,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
         status: ::windows::runtime::HRESULT,
         requestid: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         deviceservice: ::windows::runtime::RawPtr,
         responseid: u32,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
         status: ::windows::runtime::HRESULT,
         requestid: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
+    pub  unsafe extern "system" fn(
+        this: ::windows::runtime::RawPtr,
+        deviceservice: ::windows::runtime::RawPtr,
+        responseid: u32,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
+        status: ::windows::runtime::HRESULT,
+        requestid: u32,
+    ) -> ::windows::runtime::HRESULT,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         deviceservice: ::windows::runtime::RawPtr,
         eventid: u32,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         deviceservice: ::windows::runtime::RawPtr,
@@ -2101,13 +2101,13 @@ pub struct IMbnDeviceServicesEvents_abi(
         status: ::windows::runtime::HRESULT,
         requestid: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         deviceservice: ::windows::runtime::RawPtr,
-        deviceservicedata: *const super::super::System::OleAutomation::SAFEARRAY,
+        deviceservicedata: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -2265,21 +2265,21 @@ impl IMbnInterface {
         )
         .from_abi::<MBN_PROVIDER>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPreferredProviders(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetPreferredProviders(
         &self,
-        preferredproviders: *const super::super::System::OleAutomation::SAFEARRAY,
+        preferredproviders: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).10)(
@@ -2289,11 +2289,11 @@ impl IMbnInterface {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetVisibleProviders(
         &self,
         age: *mut u32,
-        visibleproviders: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        visibleproviders: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).11)(
             ::std::mem::transmute_copy(self),
@@ -2394,26 +2394,26 @@ pub struct IMbnInterface_abi(
         homeprovider: *mut ::std::mem::ManuallyDrop<MBN_PROVIDER>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        preferredproviders: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        preferredproviders: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        preferredproviders: *const super::super::System::OleAutomation::SAFEARRAY,
+        preferredproviders: *const super::super::System::Com::SAFEARRAY,
         requestid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         age: *mut u32,
-        visibleproviders: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        visibleproviders: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         requestid: *mut u32,
@@ -2652,16 +2652,16 @@ impl IMbnInterfaceManager {
         )
         .from_abi::<IMbnInterface>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetInterfaces(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMbnInterfaceManager {
@@ -2716,12 +2716,12 @@ pub struct IMbnInterfaceManager_abi(
         mbninterface: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        mbninterfaces: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        mbninterfaces: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -2839,22 +2839,22 @@ impl IMbnMultiCarrier {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPreferredProviders(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetVisibleProviders(
         &self,
         age: *mut u32,
-        visibleproviders: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        visibleproviders: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -2863,16 +2863,16 @@ impl IMbnMultiCarrier {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetSupportedCellularClasses(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn GetCurrentCellularClass(&self) -> ::windows::runtime::Result<MBN_CELLULAR_CLASS> {
         let mut result__: <MBN_CELLULAR_CLASS as ::windows::runtime::Abi>::Abi =
@@ -2944,25 +2944,25 @@ pub struct IMbnMultiCarrier_abi(
         requestid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        preferredmulticarrierproviders: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        preferredmulticarrierproviders: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         age: *mut u32,
-        visibleproviders: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        visibleproviders: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        cellularclasses: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        cellularclasses: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         currentcellularclass: *mut MBN_CELLULAR_CLASS,
@@ -3560,16 +3560,16 @@ pub struct IMbnPinEvents_abi(
 )]
 pub struct IMbnPinManager(::windows::runtime::IUnknown);
 impl IMbnPinManager {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetPinList(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
     pub unsafe fn GetPin(&self, pintype: MBN_PIN_TYPE) -> ::windows::runtime::Result<IMbnPin> {
         let mut result__: <IMbnPin as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -3634,12 +3634,12 @@ pub struct IMbnPinManager_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        pinlist: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        pinlist: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         pintype: MBN_PIN_TYPE,
@@ -4296,10 +4296,10 @@ pub struct IMbnRegistrationEvents_abi(
 )]
 pub struct IMbnServiceActivation(::windows::runtime::IUnknown);
 impl IMbnServiceActivation {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Activate(
         &self,
-        vendorspecificdata: *const super::super::System::OleAutomation::SAFEARRAY,
+        vendorspecificdata: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(
@@ -4357,13 +4357,13 @@ pub struct IMbnServiceActivation_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        vendorspecificdata: *const super::super::System::OleAutomation::SAFEARRAY,
+        vendorspecificdata: *const super::super::System::Com::SAFEARRAY,
         requestid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4374,14 +4374,14 @@ pub struct IMbnServiceActivation_abi(
 )]
 pub struct IMbnServiceActivationEvents(::windows::runtime::IUnknown);
 impl IMbnServiceActivationEvents {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnActivationComplete<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IMbnServiceActivation>,
     >(
         &self,
         serviceactivation: Param0,
-        vendorspecificdata: *const super::super::System::OleAutomation::SAFEARRAY,
+        vendorspecificdata: *const super::super::System::Com::SAFEARRAY,
         requestid: u32,
         status: ::windows::runtime::HRESULT,
         networkerror: u32,
@@ -4446,16 +4446,16 @@ pub struct IMbnServiceActivationEvents_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         serviceactivation: ::windows::runtime::RawPtr,
-        vendorspecificdata: *const super::super::System::OleAutomation::SAFEARRAY,
+        vendorspecificdata: *const super::super::System::Com::SAFEARRAY,
         requestid: u32,
         status: ::windows::runtime::HRESULT,
         networkerror: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -4658,7 +4658,7 @@ impl IMbnSms {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn SmsSendCdma<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4668,7 +4668,7 @@ impl IMbnSms {
         encoding: MBN_SMS_CDMA_ENCODING,
         language: MBN_SMS_CDMA_LANG,
         sizeincharacters: u32,
-        message: *const super::super::System::OleAutomation::SAFEARRAY,
+        message: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(
@@ -4682,10 +4682,10 @@ impl IMbnSms {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SmsSendCdmaPdu(
         &self,
-        message: *const super::super::System::OleAutomation::SAFEARRAY,
+        message: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).7)(
@@ -4793,24 +4793,24 @@ pub struct IMbnSms_abi(
         requestid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation"))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         address: super::super::Foundation::PWSTR,
         encoding: MBN_SMS_CDMA_ENCODING,
         language: MBN_SMS_CDMA_LANG,
         sizeincharacters: u32,
-        message: *const super::super::System::OleAutomation::SAFEARRAY,
+        message: *const super::super::System::Com::SAFEARRAY,
         requestid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_OleAutomation")))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        message: *const super::super::System::OleAutomation::SAFEARRAY,
+        message: *const super::super::System::Com::SAFEARRAY,
         requestid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         smsfilter: *const MBN_SMS_FILTER,
@@ -5021,12 +5021,12 @@ impl IMbnSmsEvents {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSmsReadComplete<'a, Param0: ::windows::runtime::IntoParam<'a, IMbnSms>>(
         &self,
         sms: Param0,
         smsformat: MBN_SMS_FORMAT,
-        readmsgs: *const super::super::System::OleAutomation::SAFEARRAY,
+        readmsgs: *const super::super::System::Com::SAFEARRAY,
         moremsgs: i16,
         requestid: u32,
         status: ::windows::runtime::HRESULT,
@@ -5042,12 +5042,12 @@ impl IMbnSmsEvents {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSmsNewClass0Message<'a, Param0: ::windows::runtime::IntoParam<'a, IMbnSms>>(
         &self,
         sms: Param0,
         smsformat: MBN_SMS_FORMAT,
-        readmsgs: *const super::super::System::OleAutomation::SAFEARRAY,
+        readmsgs: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).7)(
             ::std::mem::transmute_copy(self),
@@ -5143,25 +5143,25 @@ pub struct IMbnSmsEvents_abi(
         requestid: u32,
         status: ::windows::runtime::HRESULT,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sms: ::windows::runtime::RawPtr,
         smsformat: MBN_SMS_FORMAT,
-        readmsgs: *const super::super::System::OleAutomation::SAFEARRAY,
+        readmsgs: *const super::super::System::Com::SAFEARRAY,
         moremsgs: i16,
         requestid: u32,
         status: ::windows::runtime::HRESULT,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sms: ::windows::runtime::RawPtr,
         smsformat: MBN_SMS_FORMAT,
-        readmsgs: *const super::super::System::OleAutomation::SAFEARRAY,
+        readmsgs: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sms: ::windows::runtime::RawPtr,
@@ -5208,16 +5208,16 @@ impl IMbnSmsReadMsgPdu {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Message(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMbnSmsReadMsgPdu {
@@ -5279,12 +5279,12 @@ pub struct IMbnSmsReadMsgPdu_abi(
         pdudata: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        message: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        message: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -5357,16 +5357,16 @@ impl IMbnSmsReadMsgTextCdma {
         )
         .from_abi::<u32>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Message(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).10)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMbnSmsReadMsgTextCdma {
@@ -5450,12 +5450,12 @@ pub struct IMbnSmsReadMsgTextCdma_abi(
         this: ::windows::runtime::RawPtr,
         sizeincharacters: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        message: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        message: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -5488,16 +5488,16 @@ impl IMbnSubscriberInformation {
         )
         .from_abi::<super::super::Foundation::BSTR>(result__)
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn TelephoneNumbers(
         &self,
-    ) -> ::windows::runtime::Result<*mut super::super::System::OleAutomation::SAFEARRAY> {
-        let mut result__ : < * mut super::super::System::OleAutomation:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<*mut super::super::System::Com::SAFEARRAY> {
+        let mut result__ : < * mut super::super::System::Com:: SAFEARRAY as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<*mut super::super::System::OleAutomation::SAFEARRAY>(result__)
+        .from_abi::<*mut super::super::System::Com::SAFEARRAY>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IMbnSubscriberInformation {
@@ -5561,12 +5561,12 @@ pub struct IMbnSubscriberInformation_abi(
         simiccid: *mut ::std::mem::ManuallyDrop<super::super::Foundation::BSTR>,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        telephonenumbers: *mut *mut super::super::System::OleAutomation::SAFEARRAY,
+        telephonenumbers: *mut *mut super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -5577,14 +5577,14 @@ pub struct IMbnSubscriberInformation_abi(
 )]
 pub struct IMbnVendorSpecificEvents(::windows::runtime::IUnknown);
 impl IMbnVendorSpecificEvents {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnEventNotification<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IMbnVendorSpecificOperation>,
     >(
         &self,
         vendoroperation: Param0,
-        vendorspecificdata: *const super::super::System::OleAutomation::SAFEARRAY,
+        vendorspecificdata: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -5593,14 +5593,14 @@ impl IMbnVendorSpecificEvents {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn OnSetVendorSpecificComplete<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IMbnVendorSpecificOperation>,
     >(
         &self,
         vendoroperation: Param0,
-        vendorspecificdata: *const super::super::System::OleAutomation::SAFEARRAY,
+        vendorspecificdata: *const super::super::System::Com::SAFEARRAY,
         requestid: u32,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
@@ -5661,21 +5661,21 @@ pub struct IMbnVendorSpecificEvents_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         vendoroperation: ::windows::runtime::RawPtr,
-        vendorspecificdata: *const super::super::System::OleAutomation::SAFEARRAY,
+        vendorspecificdata: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         vendoroperation: ::windows::runtime::RawPtr,
-        vendorspecificdata: *const super::super::System::OleAutomation::SAFEARRAY,
+        vendorspecificdata: *const super::super::System::Com::SAFEARRAY,
         requestid: u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -5686,10 +5686,10 @@ pub struct IMbnVendorSpecificEvents_abi(
 )]
 pub struct IMbnVendorSpecificOperation(::windows::runtime::IUnknown);
 impl IMbnVendorSpecificOperation {
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetVendorSpecific(
         &self,
-        vendorspecificdata: *const super::super::System::OleAutomation::SAFEARRAY,
+        vendorspecificdata: *const super::super::System::Com::SAFEARRAY,
     ) -> ::windows::runtime::Result<u32> {
         let mut result__: <u32 as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).3)(
@@ -5749,13 +5749,13 @@ pub struct IMbnVendorSpecificOperation_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(feature = "Win32_System_OleAutomation")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        vendorspecificdata: *const super::super::System::OleAutomation::SAFEARRAY,
+        vendorspecificdata: *const super::super::System::Com::SAFEARRAY,
         requestid: *mut u32,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_System_OleAutomation"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[derive(
     :: std :: cmp :: PartialEq,

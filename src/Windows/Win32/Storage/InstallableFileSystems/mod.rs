@@ -556,6 +556,7 @@ unsafe impl ::windows::runtime::Abi for FLT_FILESYSTEM_TYPE {
 }
 pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterAttach<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -593,6 +594,7 @@ pub unsafe fn FilterAttach<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterAttachAtAltitude<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -633,6 +635,7 @@ pub unsafe fn FilterAttachAtAltitude<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn FilterClose<'a, Param0: ::windows::runtime::IntoParam<'a, HFILTER>>(
     hfilter: Param0,
 ) -> ::windows::runtime::Result<()> {
@@ -648,6 +651,7 @@ pub unsafe fn FilterClose<'a, Param0: ::windows::runtime::IntoParam<'a, HFILTER>
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn FilterConnectCommunicationPort<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -687,6 +691,7 @@ pub unsafe fn FilterConnectCommunicationPort<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterCreate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -709,6 +714,7 @@ pub unsafe fn FilterCreate<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterDetach<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -740,6 +746,7 @@ pub unsafe fn FilterDetach<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterFindClose<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -759,6 +766,7 @@ pub unsafe fn FilterFindClose<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn FilterFindFirst(
     dwinformationclass: FILTER_INFORMATION_CLASS,
     lpbuffer: *mut ::std::ffi::c_void,
@@ -810,6 +818,7 @@ unsafe impl ::windows::runtime::Abi for FilterFindHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterFindNext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -845,6 +854,7 @@ pub unsafe fn FilterFindNext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterGetDosName<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -873,6 +883,7 @@ pub unsafe fn FilterGetDosName<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn FilterGetInformation<'a, Param0: ::windows::runtime::IntoParam<'a, HFILTER>>(
     hfilter: Param0,
     dwinformationclass: FILTER_INFORMATION_CLASS,
@@ -904,7 +915,8 @@ pub unsafe fn FilterGetInformation<'a, Param0: ::windows::runtime::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[inline]
 pub unsafe fn FilterGetMessage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -912,7 +924,7 @@ pub unsafe fn FilterGetMessage<
     hport: Param0,
     lpmessagebuffer: *mut FILTER_MESSAGE_HEADER,
     dwmessagebuffersize: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -922,7 +934,7 @@ pub unsafe fn FilterGetMessage<
                 hport: super::super::Foundation::HANDLE,
                 lpmessagebuffer: *mut FILTER_MESSAGE_HEADER,
                 dwmessagebuffersize: u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> ::windows::runtime::HRESULT;
         }
         FilterGetMessage(
@@ -936,6 +948,7 @@ pub unsafe fn FilterGetMessage<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn FilterInstanceClose<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HFILTER_INSTANCE>,
@@ -954,6 +967,7 @@ pub unsafe fn FilterInstanceClose<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterInstanceCreate<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -988,6 +1002,7 @@ pub unsafe fn FilterInstanceCreate<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterInstanceFindClose<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1008,6 +1023,7 @@ pub unsafe fn FilterInstanceFindClose<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterInstanceFindFirst<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1065,6 +1081,7 @@ unsafe impl ::windows::runtime::Abi for FilterInstanceFindHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterInstanceFindNext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1099,6 +1116,7 @@ pub unsafe fn FilterInstanceFindNext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn FilterInstanceGetInformation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, HFILTER_INSTANCE>,
@@ -1134,6 +1152,7 @@ pub unsafe fn FilterInstanceGetInformation<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterLoad<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1154,6 +1173,7 @@ pub unsafe fn FilterLoad<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterReplyMessage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1183,6 +1203,7 @@ pub unsafe fn FilterReplyMessage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterSendMessage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1221,6 +1242,7 @@ pub unsafe fn FilterSendMessage<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterUnload<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1241,6 +1263,7 @@ pub unsafe fn FilterUnload<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterVolumeFindClose<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1260,6 +1283,7 @@ pub unsafe fn FilterVolumeFindClose<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn FilterVolumeFindFirst(
     dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS,
     lpbuffer: *mut ::std::ffi::c_void,
@@ -1311,6 +1335,7 @@ unsafe impl ::windows::runtime::Abi for FilterVolumeFindHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterVolumeFindNext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1346,6 +1371,7 @@ pub unsafe fn FilterVolumeFindNext<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterVolumeInstanceFindClose<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1366,6 +1392,7 @@ pub unsafe fn FilterVolumeInstanceFindClose<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterVolumeInstanceFindFirst<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1423,6 +1450,7 @@ unsafe impl ::windows::runtime::Abi for FilterVolumeInstanceFindHandle {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FilterVolumeInstanceFindNext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,

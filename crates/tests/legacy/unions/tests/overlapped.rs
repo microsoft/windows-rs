@@ -1,6 +1,6 @@
 use test_unions::Windows::Win32::{
     Foundation::HANDLE,
-    System::SystemServices::{OVERLAPPED, OVERLAPPED_0, OVERLAPPED_0_0},
+    System::IO::{OVERLAPPED, OVERLAPPED_0, OVERLAPPED_0_0},
 };
 
 #[test]

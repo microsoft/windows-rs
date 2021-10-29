@@ -7,6 +7,7 @@
     dead_code,
     clippy::all
 )]
+#[inline]
 pub unsafe fn ApplyGuestMemoryFix(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -39,6 +40,7 @@ pub unsafe fn ApplyGuestMemoryFix(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplyPendingSavedStateFileReplayLog<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -59,6 +61,7 @@ pub unsafe fn ApplyPendingSavedStateFileReplayLog<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CallStackUnwind(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -143,6 +146,7 @@ pub type FOUND_IMAGE_CALLBACK = unsafe extern "system" fn(
     imageinfo: *const DOS_IMAGE_INFO,
 ) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn FindSavedStateSymbolFieldInType<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -181,6 +185,7 @@ pub unsafe fn FindSavedStateSymbolFieldInType<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ForceActiveVirtualTrustLevel(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -206,6 +211,7 @@ pub unsafe fn ForceActiveVirtualTrustLevel(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ForceArchitecture(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -232,6 +238,7 @@ pub unsafe fn ForceArchitecture(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ForceNestedHostMode<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -263,6 +270,7 @@ pub unsafe fn ForceNestedHostMode<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ForcePagingMode(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -483,6 +491,7 @@ pub const GUID_DEVINTERFACE_VM_GENCOUNTER: ::windows::runtime::GUID =
         20064,
         [142, 28, 12, 207, 73, 39, 227, 25],
     );
+#[inline]
 pub unsafe fn GetActiveVirtualTrustLevel(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -508,6 +517,7 @@ pub unsafe fn GetActiveVirtualTrustLevel(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetArchitecture(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -533,6 +543,7 @@ pub unsafe fn GetArchitecture(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetEnabledVirtualTrustLevels(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -558,6 +569,7 @@ pub unsafe fn GetEnabledVirtualTrustLevels(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetGuestEnabledVirtualTrustLevels(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     virtualtrustlevels: *mut u32,
@@ -580,6 +592,7 @@ pub unsafe fn GetGuestEnabledVirtualTrustLevels(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetGuestOsInfo(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     virtualtrustlevel: u8,
@@ -605,6 +618,7 @@ pub unsafe fn GetGuestOsInfo(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetGuestPhysicalMemoryChunks(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     memorychunkpagesize: *mut u64,
@@ -633,6 +647,7 @@ pub unsafe fn GetGuestPhysicalMemoryChunks(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetGuestRawSavedMemorySize(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     guestrawsavedmemorysize: *mut u64,
@@ -655,6 +670,7 @@ pub unsafe fn GetGuestRawSavedMemorySize(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetMemoryBlockCacheLimit(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     memoryblockcachelimit: *mut u64,
@@ -678,6 +694,7 @@ pub unsafe fn GetMemoryBlockCacheLimit(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetNestedVirtualizationMode(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -703,6 +720,7 @@ pub unsafe fn GetNestedVirtualizationMode(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetPagingMode(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -728,6 +746,7 @@ pub unsafe fn GetPagingMode(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetRegisterValue(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -757,6 +776,7 @@ pub unsafe fn GetRegisterValue(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetSavedStateSymbolFieldInfo<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -809,6 +829,7 @@ pub unsafe fn GetSavedStateSymbolProviderHandle(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetSavedStateSymbolTypeSize<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -840,6 +861,7 @@ pub unsafe fn GetSavedStateSymbolTypeSize<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetVpCount(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpcount: *mut u32,
@@ -862,6 +884,7 @@ pub unsafe fn GetVpCount(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GuestPhysicalAddressToRawSavedMemoryOffset(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     physicaladdress: u64,
@@ -887,6 +910,7 @@ pub unsafe fn GuestPhysicalAddressToRawSavedMemoryOffset(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GuestVirtualAddressToPhysicalAddress(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -1297,6 +1321,7 @@ pub const HV_GUID_VSOCK_TEMPLATE: ::windows::runtime::GUID =
 pub const HV_GUID_ZERO: ::windows::runtime::GUID =
     ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);
 pub const HV_PROTOCOL_RAW: u32 = 1u32;
+#[inline]
 pub unsafe fn HdvCreateDeviceInstance(
     devicehosthandle: *const ::std::ffi::c_void,
     devicetype: HDV_DEVICE_TYPE,
@@ -1335,6 +1360,7 @@ pub unsafe fn HdvCreateDeviceInstance(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HdvCreateGuestMemoryAperture<
     'a,
     Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -1370,6 +1396,7 @@ pub unsafe fn HdvCreateGuestMemoryAperture<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HdvCreateSectionBackedMmioRange<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1410,6 +1437,7 @@ pub unsafe fn HdvCreateSectionBackedMmioRange<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HdvDeliverGuestInterrupt(
     requestor: *const ::std::ffi::c_void,
     msiaddress: u64,
@@ -1435,6 +1463,7 @@ pub unsafe fn HdvDeliverGuestInterrupt(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HdvDestroyGuestMemoryAperture(
     requestor: *const ::std::ffi::c_void,
     mappedaddress: *const ::std::ffi::c_void,
@@ -1457,6 +1486,7 @@ pub unsafe fn HdvDestroyGuestMemoryAperture(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HdvDestroySectionBackedMmioRange(
     requestor: *const ::std::ffi::c_void,
     barindex: HDV_PCI_BAR_SELECTOR,
@@ -1483,6 +1513,7 @@ pub unsafe fn HdvDestroySectionBackedMmioRange(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_HostComputeSystem")]
+#[inline]
 pub unsafe fn HdvInitializeDeviceHost<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::HostComputeSystem::HCS_SYSTEM>,
@@ -1508,6 +1539,7 @@ pub unsafe fn HdvInitializeDeviceHost<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HdvReadGuestMemory(
     requestor: *const ::std::ffi::c_void,
     guestphysicaladdress: u64,
@@ -1537,6 +1569,7 @@ pub unsafe fn HdvReadGuestMemory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HdvRegisterDoorbell<
     'a,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -1574,6 +1607,7 @@ pub unsafe fn HdvRegisterDoorbell<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HdvTeardownDeviceHost(
     devicehosthandle: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -1590,6 +1624,7 @@ pub unsafe fn HdvTeardownDeviceHost(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HdvUnregisterDoorbell(
     requestor: *const ::std::ffi::c_void,
     barindex: HDV_PCI_BAR_SELECTOR,
@@ -1621,6 +1656,7 @@ pub unsafe fn HdvUnregisterDoorbell(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn HdvWriteGuestMemory(
     requestor: *const ::std::ffi::c_void,
     guestphysicaladdress: u64,
@@ -1651,6 +1687,7 @@ pub unsafe fn HdvWriteGuestMemory(
 }
 pub const IOCTL_VMGENCOUNTER_READ: u32 = 3325956u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn InKernelSpace(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -1677,6 +1714,7 @@ pub unsafe fn InKernelSpace(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsActiveVirtualTrustLevelEnabled(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -1703,6 +1741,7 @@ pub unsafe fn IsActiveVirtualTrustLevelEnabled(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn IsNestedVirtualizationEnabled(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     enabled: *mut super::super::Foundation::BOOL,
@@ -1726,6 +1765,7 @@ pub unsafe fn IsNestedVirtualizationEnabled(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadSavedStateFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1752,6 +1792,7 @@ pub unsafe fn LoadSavedStateFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadSavedStateFiles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1782,6 +1823,7 @@ pub unsafe fn LoadSavedStateFiles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadSavedStateModuleSymbols<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1818,6 +1860,7 @@ pub unsafe fn LoadSavedStateModuleSymbols<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadSavedStateModuleSymbolsEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -1857,6 +1900,7 @@ pub unsafe fn LoadSavedStateModuleSymbolsEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LoadSavedStateSymbolProvider<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -1887,6 +1931,7 @@ pub unsafe fn LoadSavedStateSymbolProvider<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn LocateSavedStateFiles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -2162,6 +2207,7 @@ unsafe impl ::windows::runtime::Abi for REGISTER_ID {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn ReadGuestPhysicalAddress(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     physicaladdress: u64,
@@ -2193,6 +2239,7 @@ pub unsafe fn ReadGuestPhysicalAddress(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ReadGuestRawSavedMemory(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     rawsavedmemoryoffset: u64,
@@ -2225,6 +2272,7 @@ pub unsafe fn ReadGuestRawSavedMemory(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ReadSavedStateGlobalVariable<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2259,6 +2307,7 @@ pub unsafe fn ReadSavedStateGlobalVariable<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ReleaseSavedStateFiles(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -2275,6 +2324,7 @@ pub unsafe fn ReleaseSavedStateFiles(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ReleaseSavedStateSymbolProvider(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -2292,6 +2342,7 @@ pub unsafe fn ReleaseSavedStateSymbolProvider(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ResolveSavedStateGlobalVariableAddress<
     'a,
     Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -2364,6 +2415,7 @@ unsafe impl ::windows::runtime::Abi for SOCKADDR_HV {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ScanMemoryForDosImages(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     vpid: u32,
@@ -2404,6 +2456,7 @@ pub unsafe fn ScanMemoryForDosImages(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SetMemoryBlockCacheLimit(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     memoryblockcachelimit: u64,
@@ -2427,6 +2480,7 @@ pub unsafe fn SetMemoryBlockCacheLimit(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetSavedStateSymbolProviderDebugInfoCallback(
     vmsavedstatedumphandle: *mut ::std::ffi::c_void,
     callback: ::std::option::Option<GUEST_SYMBOLS_PROVIDER_DEBUG_INFO_CALLBACK>,
@@ -5525,22 +5579,22 @@ unsafe impl ::windows::runtime::Abi for WHV_SCHEDULER_FEATURES_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WHV_SRIOV_RESOURCE_DESCRIPTOR {
     pub PnpInstanceId: [u16; 200],
-    pub VirtualFunctionId: super::SystemServices::LUID,
+    pub VirtualFunctionId: super::super::Foundation::LUID,
     pub VirtualFunctionIndex: u16,
     pub Reserved: u16,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl WHV_SRIOV_RESOURCE_DESCRIPTOR {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WHV_SRIOV_RESOURCE_DESCRIPTOR")
@@ -5551,7 +5605,7 @@ impl ::std::fmt::Debug for WHV_SRIOV_RESOURCE_DESCRIPTOR {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     fn eq(&self, other: &Self) -> bool {
         self.PnpInstanceId == other.PnpInstanceId
@@ -5560,9 +5614,9 @@ impl ::std::cmp::PartialEq for WHV_SRIOV_RESOURCE_DESCRIPTOR {
             && self.Reserved == other.Reserved
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WHV_SRIOV_RESOURCE_DESCRIPTOR {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WHV_SRIOV_RESOURCE_DESCRIPTOR {
     type Abi = Self;
     type DefaultType = Self;
@@ -8141,6 +8195,7 @@ unsafe impl ::windows::runtime::Abi for WHV_X64_XMM_CONTROL_STATUS_REGISTER_0_0_
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WHvAcceptPartitionMigration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -8164,6 +8219,7 @@ pub unsafe fn WHvAcceptPartitionMigration<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvAdviseGpaRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8202,6 +8258,7 @@ pub unsafe fn WHvAdviseGpaRange<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WHvAllocateVpciResource(
     providerid: *const ::windows::runtime::GUID,
     flags: WHV_ALLOCATE_VPCI_RESOURCE_FLAGS,
@@ -8234,6 +8291,7 @@ pub unsafe fn WHvAllocateVpciResource(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvCancelPartitionMigration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8253,6 +8311,7 @@ pub unsafe fn WHvCancelPartitionMigration<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvCancelRunVirtualProcessor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8281,6 +8340,7 @@ pub unsafe fn WHvCancelRunVirtualProcessor<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvCompletePartitionMigration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8301,6 +8361,7 @@ pub unsafe fn WHvCompletePartitionMigration<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WHvCreateNotificationPort<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8333,6 +8394,7 @@ pub unsafe fn WHvCreateNotificationPort<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvCreatePartition() -> ::windows::runtime::Result<WHV_PARTITION_HANDLE> {
     #[cfg(windows)]
     {
@@ -8350,6 +8412,7 @@ pub unsafe fn WHvCreatePartition() -> ::windows::runtime::Result<WHV_PARTITION_H
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WHvCreateTrigger<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8381,6 +8444,7 @@ pub unsafe fn WHvCreateTrigger<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvCreateVirtualProcessor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8409,6 +8473,7 @@ pub unsafe fn WHvCreateVirtualProcessor<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvCreateVirtualProcessor2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8441,6 +8506,7 @@ pub unsafe fn WHvCreateVirtualProcessor2<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WHvCreateVpciDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8477,6 +8543,7 @@ pub unsafe fn WHvCreateVpciDevice<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvDeleteNotificationPort<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8502,6 +8569,7 @@ pub unsafe fn WHvDeleteNotificationPort<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvDeletePartition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8519,6 +8587,7 @@ pub unsafe fn WHvDeletePartition<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvDeleteTrigger<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8544,6 +8613,7 @@ pub unsafe fn WHvDeleteTrigger<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvDeleteVirtualProcessor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8565,6 +8635,7 @@ pub unsafe fn WHvDeleteVirtualProcessor<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvDeleteVpciDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8590,6 +8661,7 @@ pub unsafe fn WHvDeleteVpciDevice<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvEmulatorCreateEmulator(
     callbacks: *const WHV_EMULATOR_CALLBACKS,
     emulator: *mut *mut ::std::ffi::c_void,
@@ -8612,6 +8684,7 @@ pub unsafe fn WHvEmulatorCreateEmulator(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvEmulatorDestroyEmulator(
     emulator: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {
@@ -8628,6 +8701,7 @@ pub unsafe fn WHvEmulatorDestroyEmulator(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvEmulatorTryIoEmulation(
     emulator: *const ::std::ffi::c_void,
     context: *const ::std::ffi::c_void,
@@ -8660,6 +8734,7 @@ pub unsafe fn WHvEmulatorTryIoEmulation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvEmulatorTryMmioEmulation(
     emulator: *const ::std::ffi::c_void,
     context: *const ::std::ffi::c_void,
@@ -8692,6 +8767,7 @@ pub unsafe fn WHvEmulatorTryMmioEmulation(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetCapability(
     capabilitycode: WHV_CAPABILITY_CODE,
     capabilitybuffer: *mut ::std::ffi::c_void,
@@ -8720,6 +8796,7 @@ pub unsafe fn WHvGetCapability(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetInterruptTargetVpSet<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8757,6 +8834,7 @@ pub unsafe fn WHvGetInterruptTargetVpSet<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetPartitionCounters<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8791,6 +8869,7 @@ pub unsafe fn WHvGetPartitionCounters<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetPartitionProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8825,6 +8904,7 @@ pub unsafe fn WHvGetPartitionProperty<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetVirtualProcessorCounters<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8862,6 +8942,7 @@ pub unsafe fn WHvGetVirtualProcessorCounters<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetVirtualProcessorCpuidOutput<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8896,6 +8977,7 @@ pub unsafe fn WHvGetVirtualProcessorCpuidOutput<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetVirtualProcessorInterruptControllerState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8930,6 +9012,7 @@ pub unsafe fn WHvGetVirtualProcessorInterruptControllerState<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8964,6 +9047,7 @@ pub unsafe fn WHvGetVirtualProcessorInterruptControllerState2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetVirtualProcessorRegisters<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -8998,6 +9082,7 @@ pub unsafe fn WHvGetVirtualProcessorRegisters<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetVirtualProcessorState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9035,6 +9120,7 @@ pub unsafe fn WHvGetVirtualProcessorState<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetVirtualProcessorXsaveState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9069,6 +9155,7 @@ pub unsafe fn WHvGetVirtualProcessorXsaveState<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetVpciDeviceInterruptTarget<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9109,6 +9196,7 @@ pub unsafe fn WHvGetVpciDeviceInterruptTarget<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetVpciDeviceNotification<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9140,6 +9228,7 @@ pub unsafe fn WHvGetVpciDeviceNotification<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvGetVpciDeviceProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9177,6 +9266,7 @@ pub unsafe fn WHvGetVpciDeviceProperty<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvMapGpaRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9212,6 +9302,7 @@ pub unsafe fn WHvMapGpaRange<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WHvMapGpaRange2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9250,6 +9341,7 @@ pub unsafe fn WHvMapGpaRange2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvMapVpciDeviceInterrupt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9290,6 +9382,7 @@ pub unsafe fn WHvMapVpciDeviceInterrupt<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvMapVpciDeviceMmioRanges<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9321,6 +9414,7 @@ pub unsafe fn WHvMapVpciDeviceMmioRanges<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvPostVirtualProcessorSynicMessage<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9355,6 +9449,7 @@ pub unsafe fn WHvPostVirtualProcessorSynicMessage<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvQueryGpaRangeDirtyBitmap<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9389,6 +9484,7 @@ pub unsafe fn WHvQueryGpaRangeDirtyBitmap<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvReadGpaRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9427,6 +9523,7 @@ pub unsafe fn WHvReadGpaRange<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvReadVpciDeviceRegister<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9459,6 +9556,7 @@ pub unsafe fn WHvReadVpciDeviceRegister<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WHvRegisterPartitionDoorbellEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9488,6 +9586,7 @@ pub unsafe fn WHvRegisterPartitionDoorbellEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvRequestInterrupt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9516,6 +9615,7 @@ pub unsafe fn WHvRequestInterrupt<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvRequestVpciDeviceInterrupt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9547,6 +9647,7 @@ pub unsafe fn WHvRequestVpciDeviceInterrupt<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvResetPartition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9564,6 +9665,7 @@ pub unsafe fn WHvResetPartition<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvResumePartitionTime<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9583,6 +9685,7 @@ pub unsafe fn WHvResumePartitionTime<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvRetargetVpciDeviceInterrupt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9617,6 +9720,7 @@ pub unsafe fn WHvRetargetVpciDeviceInterrupt<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvRunVirtualProcessor<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9648,6 +9752,7 @@ pub unsafe fn WHvRunVirtualProcessor<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvSetNotificationPortProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9679,6 +9784,7 @@ pub unsafe fn WHvSetNotificationPortProperty<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvSetPartitionProperty<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9710,6 +9816,7 @@ pub unsafe fn WHvSetPartitionProperty<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvSetVirtualProcessorInterruptControllerState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9741,6 +9848,7 @@ pub unsafe fn WHvSetVirtualProcessorInterruptControllerState<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvSetVirtualProcessorInterruptControllerState2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9772,6 +9880,7 @@ pub unsafe fn WHvSetVirtualProcessorInterruptControllerState2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvSetVirtualProcessorRegisters<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9806,6 +9915,7 @@ pub unsafe fn WHvSetVirtualProcessorRegisters<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvSetVirtualProcessorState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9840,6 +9950,7 @@ pub unsafe fn WHvSetVirtualProcessorState<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvSetVirtualProcessorXsaveState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9872,6 +9983,7 @@ pub unsafe fn WHvSetVirtualProcessorXsaveState<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_System_SystemServices")]
+#[inline]
 pub unsafe fn WHvSetVpciDevicePowerState<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9900,6 +10012,7 @@ pub unsafe fn WHvSetVpciDevicePowerState<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvSetupPartition<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9918,6 +10031,7 @@ pub unsafe fn WHvSetupPartition<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WHvSignalVirtualProcessorSynicEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9949,6 +10063,7 @@ pub unsafe fn WHvSignalVirtualProcessorSynicEvent<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WHvStartPartitionMigration<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9972,6 +10087,7 @@ pub unsafe fn WHvStartPartitionMigration<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvSuspendPartitionTime<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -9991,6 +10107,7 @@ pub unsafe fn WHvSuspendPartitionTime<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvTranslateGva<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -10028,6 +10145,7 @@ pub unsafe fn WHvTranslateGva<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvUnmapGpaRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -10056,6 +10174,7 @@ pub unsafe fn WHvUnmapGpaRange<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvUnmapVpciDeviceInterrupt<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -10084,6 +10203,7 @@ pub unsafe fn WHvUnmapVpciDeviceInterrupt<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvUnmapVpciDeviceMmioRanges<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -10109,6 +10229,7 @@ pub unsafe fn WHvUnmapVpciDeviceMmioRanges<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvUnregisterPartitionDoorbellEvent<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -10134,6 +10255,7 @@ pub unsafe fn WHvUnregisterPartitionDoorbellEvent<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvUpdateTriggerParameters<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -10162,6 +10284,7 @@ pub unsafe fn WHvUpdateTriggerParameters<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvWriteGpaRange<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,
@@ -10200,6 +10323,7 @@ pub unsafe fn WHvWriteGpaRange<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn WHvWriteVpciDeviceRegister<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, WHV_PARTITION_HANDLE>,

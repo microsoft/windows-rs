@@ -1901,11 +1901,7 @@ unsafe impl ::windows::runtime::Abi for QOS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn QOSAddSocketToFlow<
     'a,
@@ -1944,14 +1940,14 @@ pub unsafe fn QOSAddSocketToFlow<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn QOSCancel<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     qoshandle: Param0,
-    overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *const super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1959,7 +1955,7 @@ pub unsafe fn QOSCancel<
         extern "system" {
             fn QOSCancel(
                 qoshandle: super::super::Foundation::HANDLE,
-                overlapped: *const super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *const super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(QOSCancel(
@@ -2043,7 +2039,7 @@ pub unsafe fn QOSEnumerateFlows<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn QOSNotifyFlow<
     'a,
@@ -2055,7 +2051,7 @@ pub unsafe fn QOSNotifyFlow<
     size: *mut u32,
     buffer: *mut ::std::ffi::c_void,
     flags: u32,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2068,7 +2064,7 @@ pub unsafe fn QOSNotifyFlow<
                 size: *mut u32,
                 buffer: *mut ::std::ffi::c_void,
                 flags: u32,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(QOSNotifyFlow(
@@ -2084,7 +2080,7 @@ pub unsafe fn QOSNotifyFlow<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn QOSQueryFlow<
     'a,
@@ -2096,7 +2092,7 @@ pub unsafe fn QOSQueryFlow<
     size: *mut u32,
     buffer: *mut ::std::ffi::c_void,
     flags: u32,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2109,7 +2105,7 @@ pub unsafe fn QOSQueryFlow<
                 size: *mut u32,
                 buffer: *mut ::std::ffi::c_void,
                 flags: u32,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(QOSQueryFlow(
@@ -2160,7 +2156,7 @@ pub unsafe fn QOSRemoveSocketFromFlow<
 }
 pub const QOSSPBASE: u32 = 50000u32;
 pub const QOSSP_ERR_BASE: u32 = 56000u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn QOSSetFlow<
     'a,
@@ -2172,7 +2168,7 @@ pub unsafe fn QOSSetFlow<
     size: u32,
     buffer: *const ::std::ffi::c_void,
     flags: u32,
-    overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    overlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -2185,7 +2181,7 @@ pub unsafe fn QOSSetFlow<
                 size: u32,
                 buffer: *const ::std::ffi::c_void,
                 flags: u32,
-                overlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                overlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(QOSSetFlow(
@@ -2201,11 +2197,7 @@ pub unsafe fn QOSSetFlow<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn QOSStartTrackingClient<
     'a,
@@ -2234,11 +2226,7 @@ pub unsafe fn QOSStartTrackingClient<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 #[inline]
 pub unsafe fn QOSStopTrackingClient<
     'a,
@@ -2269,33 +2257,21 @@ pub unsafe fn QOSStopTrackingClient<
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct QOS_DESTADDR {
     pub ObjectHdr: QOS_OBJECT_HDR,
     pub SocketAddress: *mut super::super::Networking::WinSock::SOCKADDR,
     pub SocketAddressLength: u32,
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl QOS_DESTADDR {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::default::Default for QOS_DESTADDR {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::fmt::Debug for QOS_DESTADDR {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("QOS_DESTADDR")
@@ -2305,10 +2281,7 @@ impl ::std::fmt::Debug for QOS_DESTADDR {
             .finish()
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::PartialEq for QOS_DESTADDR {
     fn eq(&self, other: &Self) -> bool {
         self.ObjectHdr == other.ObjectHdr
@@ -2316,15 +2289,9 @@ impl ::std::cmp::PartialEq for QOS_DESTADDR {
             && self.SocketAddressLength == other.SocketAddressLength
     }
 }
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::std::cmp::Eq for QOS_DESTADDR {}
-#[cfg(all(
-    feature = "Win32_Networking_WinSock",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::runtime::Abi for QOS_DESTADDR {
     type Abi = Self;
     type DefaultType = Self;

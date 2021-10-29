@@ -38,13 +38,10 @@ impl IOpcCertificateEnumerator {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn GetCurrent(
         &self,
-        certificate: *const *const super::super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        certificate: *const *const super::super::super::Security::Cryptography::CERT_CONTEXT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
@@ -123,19 +120,12 @@ pub struct IOpcCertificateEnumerator_abi(
         hasprevious: *mut super::super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        certificate: *const *const super::super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        certificate: *const *const super::super::super::Security::Cryptography::CERT_CONTEXT,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         copy: *mut ::windows::runtime::RawPtr,
@@ -150,13 +140,10 @@ pub struct IOpcCertificateEnumerator_abi(
 )]
 pub struct IOpcCertificateSet(::windows::runtime::IUnknown);
 impl IOpcCertificateSet {
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Add(
         &self,
-        certificate: *const super::super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).3)(
             ::std::mem::transmute_copy(self),
@@ -164,13 +151,10 @@ impl IOpcCertificateSet {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Remove(
         &self,
-        certificate: *const super::super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
@@ -233,32 +217,18 @@ pub struct IOpcCertificateSet_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        certificate: *const super::super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        certificate: *const super::super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         certificateenumerator: *mut ::windows::runtime::RawPtr,
@@ -742,14 +712,11 @@ impl IOpcDigitalSignatureManager {
         )
         .from_abi::<IOpcSigningOptions>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Validate<'a, Param0: ::windows::runtime::IntoParam<'a, IOpcDigitalSignature>>(
         &self,
         signature: Param0,
-        certificate: *const super::super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT,
         validationresult: *mut OPC_SIGNATURE_VALIDATION_RESULT,
     ) -> ::windows::runtime::Result<()> {
         (::windows::runtime::Interface::vtable(self).8)(
@@ -760,13 +727,10 @@ impl IOpcDigitalSignatureManager {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Sign<'a, Param1: ::windows::runtime::IntoParam<'a, IOpcSigningOptions>>(
         &self,
-        certificate: *const super::super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT,
         signingoptions: Param1,
     ) -> ::windows::runtime::Result<IOpcDigitalSignature> {
         let mut result__: <IOpcDigitalSignature as ::windows::runtime::Abi>::Abi =
@@ -869,36 +833,22 @@ pub struct IOpcDigitalSignatureManager_abi(
         this: ::windows::runtime::RawPtr,
         signingoptions: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         signature: ::windows::runtime::RawPtr,
-        certificate: *const super::super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT,
         validationresult: *mut OPC_SIGNATURE_VALIDATION_RESULT,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        certificate: *const super::super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        certificate: *const super::super::super::Security::Cryptography::CERT_CONTEXT,
         signingoptions: ::windows::runtime::RawPtr,
         digitalsignature: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         signaturepartname: ::windows::runtime::RawPtr,
@@ -943,7 +893,7 @@ impl IOpcFactory {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Security",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub unsafe fn CreateStreamOnFile<
         'a,
@@ -954,8 +904,8 @@ impl IOpcFactory {
         iomode: OPC_STREAM_IO_MODE,
         securityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES,
         dwflagsandattributes: u32,
-    ) -> ::windows::runtime::Result<super::super::StructuredStorage::IStream> {
-        let mut result__ : < super::super::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
+        let mut result__ : < super::super::super::System::Com:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             filename.into_param().abi(),
@@ -964,7 +914,7 @@ impl IOpcFactory {
             ::std::mem::transmute(dwflagsandattributes),
             &mut result__,
         )
-        .from_abi::<super::super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     pub unsafe fn CreatePackage(&self) -> ::windows::runtime::Result<IOpcPackage> {
         let mut result__: <IOpcPackage as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -974,10 +924,10 @@ impl IOpcFactory {
         )
         .from_abi::<IOpcPackage>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn ReadPackageFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         stream: Param0,
@@ -992,11 +942,11 @@ impl IOpcFactory {
         )
         .from_abi::<IOpcPackage>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn WritePackageToStream<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, IOpcPackage>,
-        Param2: ::windows::runtime::IntoParam<'a, super::super::StructuredStorage::IStream>,
+        Param2: ::windows::runtime::IntoParam<'a, super::super::super::System::Com::IStream>,
     >(
         &self,
         package: Param0,
@@ -1087,7 +1037,7 @@ pub struct IOpcFactory_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Security",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -1100,29 +1050,29 @@ pub struct IOpcFactory_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Security",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     )))]
     usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         package: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
         flags: OPC_READ_FLAGS,
         package: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         package: ::windows::runtime::RawPtr,
         flags: OPC_WRITE_FLAGS,
         stream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         package: ::windows::runtime::RawPtr,
@@ -1228,16 +1178,16 @@ impl IOpcPart {
         )
         .from_abi::<IOpcRelationshipSet>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetContentStream(
         &self,
-    ) -> ::windows::runtime::Result<super::super::StructuredStorage::IStream> {
-        let mut result__ : < super::super::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
+        let mut result__ : < super::super::super::System::Com:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).4)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::super::System::Com::IStream>(result__)
     }
     pub unsafe fn GetName(&self) -> ::windows::runtime::Result<IOpcPartUri> {
         let mut result__: <IOpcPartUri as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
@@ -1320,12 +1270,12 @@ pub struct IOpcPart_abi(
         this: ::windows::runtime::RawPtr,
         relationshipset: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         name: *mut ::windows::runtime::RawPtr,
@@ -2958,16 +2908,16 @@ impl IOpcRelationshipSet {
         )
         .from_abi::<IOpcRelationshipEnumerator>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetRelationshipsContentStream(
         &self,
-    ) -> ::windows::runtime::Result<super::super::StructuredStorage::IStream> {
-        let mut result__ : < super::super::StructuredStorage:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
+    ) -> ::windows::runtime::Result<super::super::super::System::Com::IStream> {
+        let mut result__ : < super::super::super::System::Com:: IStream as :: windows :: runtime :: Abi > :: Abi = :: std :: mem :: zeroed ( ) ;
         (::windows::runtime::Interface::vtable(self).9)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::super::System::Com::IStream>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IOpcRelationshipSet {
@@ -3056,12 +3006,12 @@ pub struct IOpcRelationshipSet_abi(
         relationshipenumerator: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         contents: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(

@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CheckGamingPrivilegeSilently<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -42,6 +43,7 @@ pub unsafe fn CheckGamingPrivilegeSilently<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CheckGamingPrivilegeSilentlyForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
@@ -79,6 +81,7 @@ pub unsafe fn CheckGamingPrivilegeSilentlyForUser<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CheckGamingPrivilegeWithUI<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -118,6 +121,7 @@ pub unsafe fn CheckGamingPrivilegeWithUI<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CheckGamingPrivilegeWithUIForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
@@ -321,6 +325,7 @@ pub type GameUICompletionRoutine = unsafe extern "system" fn(
     returncode: ::windows::runtime::HRESULT,
     context: *const ::std::ffi::c_void,
 );
+#[inline]
 pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> ::windows::runtime::Result<u32> {
     #[cfg(windows)]
     {
@@ -336,6 +341,7 @@ pub unsafe fn GetExpandedResourceExclusiveCpuCount() -> ::windows::runtime::Resu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetGamingDeviceModelInformation(
 ) -> ::windows::runtime::Result<GAMING_DEVICE_MODEL_INFORMATION> {
     #[cfg(windows)]
@@ -355,6 +361,7 @@ pub unsafe fn GetGamingDeviceModelInformation(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn HasExpandedResources() -> ::windows::runtime::Result<super::Foundation::BOOL> {
     #[cfg(windows)]
     {
@@ -1762,6 +1769,7 @@ pub type PlayerPickerUICompletionRoutine = unsafe extern "system" fn(
     selectedxuidscount: usize,
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ProcessPendingGameUI<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Foundation::BOOL>,
@@ -1781,6 +1789,7 @@ pub unsafe fn ProcessPendingGameUI<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ReleaseExclusiveCpuSets() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -1793,6 +1802,7 @@ pub unsafe fn ReleaseExclusiveCpuSets() -> ::windows::runtime::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowChangeFriendRelationshipUI<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -1821,6 +1831,7 @@ pub unsafe fn ShowChangeFriendRelationshipUI<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowChangeFriendRelationshipUIForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
@@ -1853,6 +1864,7 @@ pub unsafe fn ShowChangeFriendRelationshipUIForUser<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowCustomizeUserProfileUI(
     completionroutine: ::std::option::Option<GameUICompletionRoutine>,
     context: *const ::std::ffi::c_void,
@@ -1875,6 +1887,7 @@ pub unsafe fn ShowCustomizeUserProfileUI(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowCustomizeUserProfileUIForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
@@ -1903,6 +1916,7 @@ pub unsafe fn ShowCustomizeUserProfileUIForUser<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowFindFriendsUI(
     completionroutine: ::std::option::Option<GameUICompletionRoutine>,
     context: *const ::std::ffi::c_void,
@@ -1925,6 +1939,7 @@ pub unsafe fn ShowFindFriendsUI(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowFindFriendsUIForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
@@ -1953,6 +1968,7 @@ pub unsafe fn ShowFindFriendsUIForUser<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowGameInfoUI(
     titleid: u32,
     completionroutine: ::std::option::Option<GameUICompletionRoutine>,
@@ -1978,6 +1994,7 @@ pub unsafe fn ShowGameInfoUI(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowGameInfoUIForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
@@ -2009,6 +2026,7 @@ pub unsafe fn ShowGameInfoUIForUser<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowGameInviteUI<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -2049,6 +2067,7 @@ pub unsafe fn ShowGameInviteUI<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowGameInviteUIForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
@@ -2093,6 +2112,7 @@ pub unsafe fn ShowGameInviteUIForUser<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowGameInviteUIWithContext<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -2137,6 +2157,7 @@ pub unsafe fn ShowGameInviteUIWithContext<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowGameInviteUIWithContextForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
@@ -2185,6 +2206,7 @@ pub unsafe fn ShowGameInviteUIWithContextForUser<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowPlayerPickerUI<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -2231,6 +2253,7 @@ pub unsafe fn ShowPlayerPickerUI<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowPlayerPickerUIForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
@@ -2281,6 +2304,7 @@ pub unsafe fn ShowPlayerPickerUIForUser<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowProfileCardUI<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::HSTRING>,
@@ -2309,6 +2333,7 @@ pub unsafe fn ShowProfileCardUI<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowProfileCardUIForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
@@ -2341,6 +2366,7 @@ pub unsafe fn ShowProfileCardUIForUser<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowTitleAchievementsUI(
     titleid: u32,
     completionroutine: ::std::option::Option<GameUICompletionRoutine>,
@@ -2366,6 +2392,7 @@ pub unsafe fn ShowTitleAchievementsUI(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowTitleAchievementsUIForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,
@@ -2397,6 +2424,7 @@ pub unsafe fn ShowTitleAchievementsUIForUser<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowUserSettingsUI(
     completionroutine: ::std::option::Option<GameUICompletionRoutine>,
     context: *const ::std::ffi::c_void,
@@ -2419,6 +2447,7 @@ pub unsafe fn ShowUserSettingsUI(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn ShowUserSettingsUIForUser<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IInspectable>,

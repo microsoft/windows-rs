@@ -101,13 +101,13 @@ pub unsafe fn AddUsersToEncryptedFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn AdvanceLogBase(
     pvmarshal: *mut ::std::ffi::c_void,
     plsnbase: *mut CLS_LSN,
     fflags: u32,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -117,7 +117,7 @@ pub unsafe fn AdvanceLogBase(
                 pvmarshal: *mut ::std::ffi::c_void,
                 plsnbase: *mut CLS_LSN,
                 fflags: u32,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(AdvanceLogBase(
@@ -224,64 +224,6 @@ pub unsafe fn AreShortNamesEnabled<
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct BOOT_AREA_INFO {
-    pub BootSectorCount: u32,
-    pub BootSectors: [BOOT_AREA_INFO_0; 2],
-}
-impl BOOT_AREA_INFO {}
-impl ::std::default::Default for BOOT_AREA_INFO {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for BOOT_AREA_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("BOOT_AREA_INFO")
-            .field("BootSectorCount", &self.BootSectorCount)
-            .field("BootSectors", &self.BootSectors)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for BOOT_AREA_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.BootSectorCount == other.BootSectorCount && self.BootSectors == other.BootSectors
-    }
-}
-impl ::std::cmp::Eq for BOOT_AREA_INFO {}
-unsafe impl ::windows::runtime::Abi for BOOT_AREA_INFO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct BOOT_AREA_INFO_0 {
-    pub Offset: i64,
-}
-impl BOOT_AREA_INFO_0 {}
-impl ::std::default::Default for BOOT_AREA_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for BOOT_AREA_INFO_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Offset", &self.Offset)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for BOOT_AREA_INFO_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset
-    }
-}
-impl ::std::cmp::Eq for BOOT_AREA_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for BOOT_AREA_INFO_0 {
-    type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -470,6 +412,7 @@ pub unsafe fn BackupWrite<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildIoRingCancelRequest<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, IORING_HANDLE_REF>,
@@ -502,6 +445,7 @@ pub unsafe fn BuildIoRingCancelRequest<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildIoRingReadFile<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, IORING_HANDLE_REF>,
@@ -543,6 +487,7 @@ pub unsafe fn BuildIoRingReadFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn BuildIoRingRegisterBuffers(
     ioring: *const HIORING__,
     count: u32,
@@ -572,6 +517,7 @@ pub unsafe fn BuildIoRingRegisterBuffers(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn BuildIoRingRegisterFileHandles(
     ioring: *const HIORING__,
     count: u32,
@@ -600,11 +546,7 @@ pub unsafe fn BuildIoRingRegisterFileHandles(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type CACHE_ACCESS_CHECK = unsafe extern "system" fn(
     psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR,
     hclienttoken: super::super::Foundation::HANDLE,
@@ -2409,108 +2351,6 @@ unsafe impl ::windows::runtime::Abi for CREATEFILE2_EXTENDED_PARAMETERS {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct CREATE_DISK {
-    pub PartitionStyle: PARTITION_STYLE,
-    pub Anonymous: CREATE_DISK_0,
-}
-impl CREATE_DISK {}
-impl ::std::default::Default for CREATE_DISK {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for CREATE_DISK {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for CREATE_DISK {}
-unsafe impl ::windows::runtime::Abi for CREATE_DISK {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union CREATE_DISK_0 {
-    pub Mbr: CREATE_DISK_MBR,
-    pub Gpt: CREATE_DISK_GPT,
-}
-impl CREATE_DISK_0 {}
-impl ::std::default::Default for CREATE_DISK_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for CREATE_DISK_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for CREATE_DISK_0 {}
-unsafe impl ::windows::runtime::Abi for CREATE_DISK_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct CREATE_DISK_GPT {
-    pub DiskId: ::windows::runtime::GUID,
-    pub MaxPartitionCount: u32,
-}
-impl CREATE_DISK_GPT {}
-impl ::std::default::Default for CREATE_DISK_GPT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for CREATE_DISK_GPT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CREATE_DISK_GPT")
-            .field("DiskId", &self.DiskId)
-            .field("MaxPartitionCount", &self.MaxPartitionCount)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for CREATE_DISK_GPT {
-    fn eq(&self, other: &Self) -> bool {
-        self.DiskId == other.DiskId && self.MaxPartitionCount == other.MaxPartitionCount
-    }
-}
-impl ::std::cmp::Eq for CREATE_DISK_GPT {}
-unsafe impl ::windows::runtime::Abi for CREATE_DISK_GPT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct CREATE_DISK_MBR {
-    pub Signature: u32,
-}
-impl CREATE_DISK_MBR {}
-impl ::std::default::Default for CREATE_DISK_MBR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for CREATE_DISK_MBR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CREATE_DISK_MBR")
-            .field("Signature", &self.Signature)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for CREATE_DISK_MBR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature
-    }
-}
-impl ::std::cmp::Eq for CREATE_DISK_MBR {}
-unsafe impl ::windows::runtime::Abi for CREATE_DISK_MBR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[derive(
     :: std :: cmp :: PartialEq,
     :: std :: cmp :: Eq,
@@ -2534,36 +2374,6 @@ unsafe impl ::windows::runtime::Abi for CREATE_TAPE_PARTITION_METHOD {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct CREATE_USN_JOURNAL_DATA {
-    pub MaximumSize: u64,
-    pub AllocationDelta: u64,
-}
-impl CREATE_USN_JOURNAL_DATA {}
-impl ::std::default::Default for CREATE_USN_JOURNAL_DATA {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for CREATE_USN_JOURNAL_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CREATE_USN_JOURNAL_DATA")
-            .field("MaximumSize", &self.MaximumSize)
-            .field("AllocationDelta", &self.AllocationDelta)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for CREATE_USN_JOURNAL_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.MaximumSize == other.MaximumSize && self.AllocationDelta == other.AllocationDelta
-    }
-}
-impl ::std::cmp::Eq for CREATE_USN_JOURNAL_DATA {}
-unsafe impl ::windows::runtime::Abi for CREATE_USN_JOURNAL_DATA {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
 pub const CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY: u32 = 1u32;
 pub const CRM_PROTOCOL_MAXIMUM_OPTION: u32 = 3u32;
@@ -2575,356 +2385,6 @@ pub const CSC_MASK: u32 = 48u32;
 pub const CSC_MASK_EXT: u32 = 8240u32;
 pub const CSV_BLOCK_AND_FILE_CACHE_CALLBACK_VERSION: u32 = 2u32;
 pub const CSV_BLOCK_CACHE_CALLBACK_VERSION: u32 = 1u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct CSV_CONTROL_OP(pub i32);
-pub const CsvControlStartRedirectFile: CSV_CONTROL_OP = CSV_CONTROL_OP(2i32);
-pub const CsvControlStopRedirectFile: CSV_CONTROL_OP = CSV_CONTROL_OP(3i32);
-pub const CsvControlQueryRedirectState: CSV_CONTROL_OP = CSV_CONTROL_OP(4i32);
-pub const CsvControlQueryFileRevision: CSV_CONTROL_OP = CSV_CONTROL_OP(6i32);
-pub const CsvControlQueryMdsPath: CSV_CONTROL_OP = CSV_CONTROL_OP(8i32);
-pub const CsvControlQueryFileRevisionFileId128: CSV_CONTROL_OP = CSV_CONTROL_OP(9i32);
-pub const CsvControlQueryVolumeRedirectState: CSV_CONTROL_OP = CSV_CONTROL_OP(10i32);
-pub const CsvControlEnableUSNRangeModificationTracking: CSV_CONTROL_OP = CSV_CONTROL_OP(13i32);
-pub const CsvControlMarkHandleLocalVolumeMount: CSV_CONTROL_OP = CSV_CONTROL_OP(14i32);
-pub const CsvControlUnmarkHandleLocalVolumeMount: CSV_CONTROL_OP = CSV_CONTROL_OP(15i32);
-pub const CsvControlGetCsvFsMdsPathV2: CSV_CONTROL_OP = CSV_CONTROL_OP(18i32);
-pub const CsvControlDisableCaching: CSV_CONTROL_OP = CSV_CONTROL_OP(19i32);
-pub const CsvControlEnableCaching: CSV_CONTROL_OP = CSV_CONTROL_OP(20i32);
-pub const CsvControlStartForceDFO: CSV_CONTROL_OP = CSV_CONTROL_OP(21i32);
-pub const CsvControlStopForceDFO: CSV_CONTROL_OP = CSV_CONTROL_OP(22i32);
-pub const CsvControlQueryMdsPathNoPause: CSV_CONTROL_OP = CSV_CONTROL_OP(23i32);
-pub const CsvControlSetVolumeId: CSV_CONTROL_OP = CSV_CONTROL_OP(24i32);
-pub const CsvControlQueryVolumeId: CSV_CONTROL_OP = CSV_CONTROL_OP(25i32);
-impl ::std::convert::From<i32> for CSV_CONTROL_OP {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for CSV_CONTROL_OP {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct CSV_CONTROL_PARAM {
-    pub Operation: CSV_CONTROL_OP,
-    pub Unused: i64,
-}
-impl CSV_CONTROL_PARAM {}
-impl ::std::default::Default for CSV_CONTROL_PARAM {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for CSV_CONTROL_PARAM {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_CONTROL_PARAM")
-            .field("Operation", &self.Operation)
-            .field("Unused", &self.Unused)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for CSV_CONTROL_PARAM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Operation == other.Operation && self.Unused == other.Unused
-    }
-}
-impl ::std::cmp::Eq for CSV_CONTROL_PARAM {}
-unsafe impl ::windows::runtime::Abi for CSV_CONTROL_PARAM {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CSV_IS_OWNED_BY_CSVFS {
-    pub OwnedByCSVFS: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl CSV_IS_OWNED_BY_CSVFS {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CSV_IS_OWNED_BY_CSVFS {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CSV_IS_OWNED_BY_CSVFS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_IS_OWNED_BY_CSVFS")
-            .field("OwnedByCSVFS", &self.OwnedByCSVFS)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CSV_IS_OWNED_BY_CSVFS {
-    fn eq(&self, other: &Self) -> bool {
-        self.OwnedByCSVFS == other.OwnedByCSVFS
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CSV_IS_OWNED_BY_CSVFS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CSV_IS_OWNED_BY_CSVFS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct CSV_NAMESPACE_INFO {
-    pub Version: u32,
-    pub DeviceNumber: u32,
-    pub StartingOffset: i64,
-    pub SectorSize: u32,
-}
-impl CSV_NAMESPACE_INFO {}
-impl ::std::default::Default for CSV_NAMESPACE_INFO {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for CSV_NAMESPACE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_NAMESPACE_INFO")
-            .field("Version", &self.Version)
-            .field("DeviceNumber", &self.DeviceNumber)
-            .field("StartingOffset", &self.StartingOffset)
-            .field("SectorSize", &self.SectorSize)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for CSV_NAMESPACE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.DeviceNumber == other.DeviceNumber
-            && self.StartingOffset == other.StartingOffset
-            && self.SectorSize == other.SectorSize
-    }
-}
-impl ::std::cmp::Eq for CSV_NAMESPACE_INFO {}
-unsafe impl ::windows::runtime::Abi for CSV_NAMESPACE_INFO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct CSV_QUERY_FILE_REVISION {
-    pub FileId: i64,
-    pub FileRevision: [i64; 3],
-}
-impl CSV_QUERY_FILE_REVISION {}
-impl ::std::default::Default for CSV_QUERY_FILE_REVISION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for CSV_QUERY_FILE_REVISION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_QUERY_FILE_REVISION")
-            .field("FileId", &self.FileId)
-            .field("FileRevision", &self.FileRevision)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for CSV_QUERY_FILE_REVISION {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileId == other.FileId && self.FileRevision == other.FileRevision
-    }
-}
-impl ::std::cmp::Eq for CSV_QUERY_FILE_REVISION {}
-unsafe impl ::windows::runtime::Abi for CSV_QUERY_FILE_REVISION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct CSV_QUERY_MDS_PATH {
-    pub MdsNodeId: u32,
-    pub DsNodeId: u32,
-    pub PathLength: u32,
-    pub Path: [u16; 1],
-}
-impl CSV_QUERY_MDS_PATH {}
-impl ::std::default::Default for CSV_QUERY_MDS_PATH {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for CSV_QUERY_MDS_PATH {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_QUERY_MDS_PATH")
-            .field("MdsNodeId", &self.MdsNodeId)
-            .field("DsNodeId", &self.DsNodeId)
-            .field("PathLength", &self.PathLength)
-            .field("Path", &self.Path)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for CSV_QUERY_MDS_PATH {
-    fn eq(&self, other: &Self) -> bool {
-        self.MdsNodeId == other.MdsNodeId
-            && self.DsNodeId == other.DsNodeId
-            && self.PathLength == other.PathLength
-            && self.Path == other.Path
-    }
-}
-impl ::std::cmp::Eq for CSV_QUERY_MDS_PATH {}
-unsafe impl ::windows::runtime::Abi for CSV_QUERY_MDS_PATH {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct CSV_QUERY_REDIRECT_STATE {
-    pub MdsNodeId: u32,
-    pub DsNodeId: u32,
-    pub FileRedirected: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl CSV_QUERY_REDIRECT_STATE {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for CSV_QUERY_REDIRECT_STATE {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for CSV_QUERY_REDIRECT_STATE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_QUERY_REDIRECT_STATE")
-            .field("MdsNodeId", &self.MdsNodeId)
-            .field("DsNodeId", &self.DsNodeId)
-            .field("FileRedirected", &self.FileRedirected)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for CSV_QUERY_REDIRECT_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.MdsNodeId == other.MdsNodeId
-            && self.DsNodeId == other.DsNodeId
-            && self.FileRedirected == other.FileRedirected
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for CSV_QUERY_REDIRECT_STATE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for CSV_QUERY_REDIRECT_STATE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
-    pub VetoedFromAltitudeIntegral: u64,
-    pub VetoedFromAltitudeDecimal: u64,
-    pub Reason: [u16; 256],
-}
-impl CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {}
-impl ::std::default::Default for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT")
-            .field(
-                "VetoedFromAltitudeIntegral",
-                &self.VetoedFromAltitudeIntegral,
-            )
-            .field("VetoedFromAltitudeDecimal", &self.VetoedFromAltitudeDecimal)
-            .field("Reason", &self.Reason)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.VetoedFromAltitudeIntegral == other.VetoedFromAltitudeIntegral
-            && self.VetoedFromAltitudeDecimal == other.VetoedFromAltitudeDecimal
-            && self.Reason == other.Reason
-    }
-}
-impl ::std::cmp::Eq for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for CSV_QUERY_VETO_FILE_DIRECT_IO_OUTPUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn CancelIo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CancelIo(hfile: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL;
-        }
-        ::std::mem::transmute(CancelIo(hfile.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-#[inline]
-pub unsafe fn CancelIoEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hfile: Param0,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CancelIoEx(
-                hfile: super::super::Foundation::HANDLE,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
-            ) -> super::super::Foundation::BOOL;
-        }
-        ::std::mem::transmute(CancelIoEx(
-            hfile.into_param().abi(),
-            ::std::mem::transmute(lpoverlapped),
-        ))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[cfg(feature = "Win32_Foundation")]
-#[inline]
-pub unsafe fn CancelSynchronousIo<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    hthread: Param0,
-) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CancelSynchronousIo(
-                hthread: super::super::Foundation::HANDLE,
-            ) -> super::super::Foundation::BOOL;
-        }
-        ::std::mem::transmute(CancelSynchronousIo(hthread.into_param().abi()))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckNameLegalDOS8Dot3A<
@@ -3039,6 +2499,7 @@ pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::std::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn CloseIoRing(ioring: *const HIORING__) -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -3175,6 +2636,7 @@ pub unsafe fn CompareFileTime(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CopyFile2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -4150,39 +3612,7 @@ pub unsafe fn CreateHardLinkW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn CreateIoCompletionPort<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    filehandle: Param0,
-    existingcompletionport: Param1,
-    completionkey: usize,
-    numberofconcurrentthreads: u32,
-) -> super::super::Foundation::HANDLE {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn CreateIoCompletionPort(
-                filehandle: super::super::Foundation::HANDLE,
-                existingcompletionport: super::super::Foundation::HANDLE,
-                completionkey: usize,
-                numberofconcurrentthreads: u32,
-            ) -> super::super::Foundation::HANDLE;
-        }
-        ::std::mem::transmute(CreateIoCompletionPort(
-            filehandle.into_param().abi(),
-            existingcompletionport.into_param().abi(),
-            ::std::mem::transmute(completionkey),
-            ::std::mem::transmute(numberofconcurrentthreads),
-        ))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
 pub unsafe fn CreateIoRing<'a, Param1: ::windows::runtime::IntoParam<'a, IORING_CREATE_FLAGS>>(
     ioringversion: IORING_VERSION,
     flags: Param1,
@@ -4214,7 +3644,7 @@ pub unsafe fn CreateIoRing<'a, Param1: ::windows::runtime::IntoParam<'a, IORING_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CreateLogContainerScanContext<
     'a,
@@ -4225,7 +3655,7 @@ pub unsafe fn CreateLogContainerScanContext<
     ccontainers: u32,
     escanmode: u8,
     pcxscan: *mut CLS_SCAN_CONTEXT,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -4237,7 +3667,7 @@ pub unsafe fn CreateLogContainerScanContext<
                 ccontainers: u32,
                 escanmode: u8,
                 pcxscan: *mut CLS_SCAN_CONTEXT,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(CreateLogContainerScanContext(
@@ -4655,349 +4085,6 @@ impl ::std::ops::Not for DEFINE_DOS_DEVICE_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DELETE_USN_JOURNAL_DATA {
-    pub UsnJournalID: u64,
-    pub DeleteFlags: USN_DELETE_FLAGS,
-}
-impl DELETE_USN_JOURNAL_DATA {}
-impl ::std::default::Default for DELETE_USN_JOURNAL_DATA {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DELETE_USN_JOURNAL_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DELETE_USN_JOURNAL_DATA")
-            .field("UsnJournalID", &self.UsnJournalID)
-            .field("DeleteFlags", &self.DeleteFlags)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DELETE_USN_JOURNAL_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.UsnJournalID == other.UsnJournalID && self.DeleteFlags == other.DeleteFlags
-    }
-}
-impl ::std::cmp::Eq for DELETE_USN_JOURNAL_DATA {}
-unsafe impl ::windows::runtime::Abi for DELETE_USN_JOURNAL_DATA {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DEVICE_COPY_OFFLOAD_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub MaximumTokenLifetime: u32,
-    pub DefaultTokenLifetime: u32,
-    pub MaximumTransferSize: u64,
-    pub OptimalTransferCount: u64,
-    pub MaximumDataDescriptors: u32,
-    pub MaximumTransferLengthPerDescriptor: u32,
-    pub OptimalTransferLengthPerDescriptor: u32,
-    pub OptimalTransferLengthGranularity: u16,
-    pub Reserved: [u8; 2],
-}
-impl DEVICE_COPY_OFFLOAD_DESCRIPTOR {}
-impl ::std::default::Default for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_COPY_OFFLOAD_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("MaximumTokenLifetime", &self.MaximumTokenLifetime)
-            .field("DefaultTokenLifetime", &self.DefaultTokenLifetime)
-            .field("MaximumTransferSize", &self.MaximumTransferSize)
-            .field("OptimalTransferCount", &self.OptimalTransferCount)
-            .field("MaximumDataDescriptors", &self.MaximumDataDescriptors)
-            .field(
-                "MaximumTransferLengthPerDescriptor",
-                &self.MaximumTransferLengthPerDescriptor,
-            )
-            .field(
-                "OptimalTransferLengthPerDescriptor",
-                &self.OptimalTransferLengthPerDescriptor,
-            )
-            .field(
-                "OptimalTransferLengthGranularity",
-                &self.OptimalTransferLengthGranularity,
-            )
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.MaximumTokenLifetime == other.MaximumTokenLifetime
-            && self.DefaultTokenLifetime == other.DefaultTokenLifetime
-            && self.MaximumTransferSize == other.MaximumTransferSize
-            && self.OptimalTransferCount == other.OptimalTransferCount
-            && self.MaximumDataDescriptors == other.MaximumDataDescriptors
-            && self.MaximumTransferLengthPerDescriptor == other.MaximumTransferLengthPerDescriptor
-            && self.OptimalTransferLengthPerDescriptor == other.OptimalTransferLengthPerDescriptor
-            && self.OptimalTransferLengthGranularity == other.OptimalTransferLengthGranularity
-            && self.Reserved == other.Reserved
-    }
-}
-impl ::std::cmp::Eq for DEVICE_COPY_OFFLOAD_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for DEVICE_COPY_OFFLOAD_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DEVICE_LB_PROVISIONING_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub _bitfield: u8,
-    pub Reserved1: [u8; 7],
-    pub OptimalUnmapGranularity: u64,
-    pub UnmapGranularityAlignment: u64,
-    pub MaxUnmapLbaCount: u32,
-    pub MaxUnmapBlockDescriptorCount: u32,
-}
-impl DEVICE_LB_PROVISIONING_DESCRIPTOR {}
-impl ::std::default::Default for DEVICE_LB_PROVISIONING_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DEVICE_LB_PROVISIONING_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_LB_PROVISIONING_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("_bitfield", &self._bitfield)
-            .field("Reserved1", &self.Reserved1)
-            .field("OptimalUnmapGranularity", &self.OptimalUnmapGranularity)
-            .field("UnmapGranularityAlignment", &self.UnmapGranularityAlignment)
-            .field("MaxUnmapLbaCount", &self.MaxUnmapLbaCount)
-            .field(
-                "MaxUnmapBlockDescriptorCount",
-                &self.MaxUnmapBlockDescriptorCount,
-            )
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DEVICE_LB_PROVISIONING_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self._bitfield == other._bitfield
-            && self.Reserved1 == other.Reserved1
-            && self.OptimalUnmapGranularity == other.OptimalUnmapGranularity
-            && self.UnmapGranularityAlignment == other.UnmapGranularityAlignment
-            && self.MaxUnmapLbaCount == other.MaxUnmapLbaCount
-            && self.MaxUnmapBlockDescriptorCount == other.MaxUnmapBlockDescriptorCount
-    }
-}
-impl ::std::cmp::Eq for DEVICE_LB_PROVISIONING_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for DEVICE_LB_PROVISIONING_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DEVICE_POWER_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub DeviceAttentionSupported: super::super::Foundation::BOOLEAN,
-    pub AsynchronousNotificationSupported: super::super::Foundation::BOOLEAN,
-    pub IdlePowerManagementEnabled: super::super::Foundation::BOOLEAN,
-    pub D3ColdEnabled: super::super::Foundation::BOOLEAN,
-    pub D3ColdSupported: super::super::Foundation::BOOLEAN,
-    pub NoVerifyDuringIdlePower: super::super::Foundation::BOOLEAN,
-    pub Reserved: [u8; 2],
-    pub IdleTimeoutInMS: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DEVICE_POWER_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DEVICE_POWER_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DEVICE_POWER_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_POWER_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("DeviceAttentionSupported", &self.DeviceAttentionSupported)
-            .field(
-                "AsynchronousNotificationSupported",
-                &self.AsynchronousNotificationSupported,
-            )
-            .field(
-                "IdlePowerManagementEnabled",
-                &self.IdlePowerManagementEnabled,
-            )
-            .field("D3ColdEnabled", &self.D3ColdEnabled)
-            .field("D3ColdSupported", &self.D3ColdSupported)
-            .field("NoVerifyDuringIdlePower", &self.NoVerifyDuringIdlePower)
-            .field("Reserved", &self.Reserved)
-            .field("IdleTimeoutInMS", &self.IdleTimeoutInMS)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DEVICE_POWER_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.DeviceAttentionSupported == other.DeviceAttentionSupported
-            && self.AsynchronousNotificationSupported == other.AsynchronousNotificationSupported
-            && self.IdlePowerManagementEnabled == other.IdlePowerManagementEnabled
-            && self.D3ColdEnabled == other.D3ColdEnabled
-            && self.D3ColdSupported == other.D3ColdSupported
-            && self.NoVerifyDuringIdlePower == other.NoVerifyDuringIdlePower
-            && self.Reserved == other.Reserved
-            && self.IdleTimeoutInMS == other.IdleTimeoutInMS
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DEVICE_POWER_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVICE_POWER_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DEVICE_SEEK_PENALTY_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub IncursSeekPenalty: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DEVICE_SEEK_PENALTY_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DEVICE_SEEK_PENALTY_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DEVICE_SEEK_PENALTY_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_SEEK_PENALTY_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("IncursSeekPenalty", &self.IncursSeekPenalty)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DEVICE_SEEK_PENALTY_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.IncursSeekPenalty == other.IncursSeekPenalty
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DEVICE_SEEK_PENALTY_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVICE_SEEK_PENALTY_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DEVICE_TRIM_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub TrimEnabled: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DEVICE_TRIM_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DEVICE_TRIM_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DEVICE_TRIM_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_TRIM_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("TrimEnabled", &self.TrimEnabled)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DEVICE_TRIM_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.TrimEnabled == other.TrimEnabled
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DEVICE_TRIM_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVICE_TRIM_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub BenefitsFromWriteAggregation: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DEVICE_WRITE_AGGREGATION_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DEVICE_WRITE_AGGREGATION_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field(
-                "BenefitsFromWriteAggregation",
-                &self.BenefitsFromWriteAggregation,
-            )
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.BenefitsFromWriteAggregation == other.BenefitsFromWriteAggregation
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DEVICE_WRITE_AGGREGATION_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 pub const DISKQUOTA_FILESTATE_INCOMPLETE: u32 = 256u32;
 pub const DISKQUOTA_FILESTATE_MASK: u32 = 768u32;
 pub const DISKQUOTA_FILESTATE_REBUILDING: u32 = 512u32;
@@ -5102,597 +4189,6 @@ unsafe impl ::windows::runtime::Abi for DISKQUOTA_USER_INFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-pub struct DISK_CACHE_INFORMATION {
-    pub ParametersSavable: super::super::Foundation::BOOLEAN,
-    pub ReadCacheEnabled: super::super::Foundation::BOOLEAN,
-    pub WriteCacheEnabled: super::super::Foundation::BOOLEAN,
-    pub ReadRetentionPriority: super::super::System::SystemServices::DISK_CACHE_RETENTION_PRIORITY,
-    pub WriteRetentionPriority: super::super::System::SystemServices::DISK_CACHE_RETENTION_PRIORITY,
-    pub DisablePrefetchTransferLength: u16,
-    pub PrefetchScalar: super::super::Foundation::BOOLEAN,
-    pub Anonymous: DISK_CACHE_INFORMATION_0,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl DISK_CACHE_INFORMATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::std::default::Default for DISK_CACHE_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::std::cmp::PartialEq for DISK_CACHE_INFORMATION {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::std::cmp::Eq for DISK_CACHE_INFORMATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union DISK_CACHE_INFORMATION_0 {
-    pub ScalarPrefetch: DISK_CACHE_INFORMATION_0_1,
-    pub BlockPrefetch: DISK_CACHE_INFORMATION_0_0,
-}
-impl DISK_CACHE_INFORMATION_0 {}
-impl ::std::default::Default for DISK_CACHE_INFORMATION_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for DISK_CACHE_INFORMATION_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for DISK_CACHE_INFORMATION_0 {}
-unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_CACHE_INFORMATION_0_0 {
-    pub Minimum: u16,
-    pub Maximum: u16,
-}
-impl DISK_CACHE_INFORMATION_0_0 {}
-impl ::std::default::Default for DISK_CACHE_INFORMATION_0_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DISK_CACHE_INFORMATION_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_BlockPrefetch_e__Struct")
-            .field("Minimum", &self.Minimum)
-            .field("Maximum", &self.Maximum)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DISK_CACHE_INFORMATION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Minimum == other.Minimum && self.Maximum == other.Maximum
-    }
-}
-impl ::std::cmp::Eq for DISK_CACHE_INFORMATION_0_0 {}
-unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_CACHE_INFORMATION_0_1 {
-    pub Minimum: u16,
-    pub Maximum: u16,
-    pub MaximumBlocks: u16,
-}
-impl DISK_CACHE_INFORMATION_0_1 {}
-impl ::std::default::Default for DISK_CACHE_INFORMATION_0_1 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DISK_CACHE_INFORMATION_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_ScalarPrefetch_e__Struct")
-            .field("Minimum", &self.Minimum)
-            .field("Maximum", &self.Maximum)
-            .field("MaximumBlocks", &self.MaximumBlocks)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DISK_CACHE_INFORMATION_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Minimum == other.Minimum
-            && self.Maximum == other.Maximum
-            && self.MaximumBlocks == other.MaximumBlocks
-    }
-}
-impl ::std::cmp::Eq for DISK_CACHE_INFORMATION_0_1 {}
-unsafe impl ::windows::runtime::Abi for DISK_CACHE_INFORMATION_0_1 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
-pub struct DISK_DETECTION_INFO {
-    pub SizeOfDetectInfo: u32,
-    pub DetectionType: super::super::System::SystemServices::DETECTION_TYPE,
-    pub Anonymous: DISK_DETECTION_INFO_0,
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl DISK_DETECTION_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::default::Default for DISK_DETECTION_INFO {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::cmp::PartialEq for DISK_DETECTION_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::cmp::Eq for DISK_DETECTION_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
-unsafe impl ::windows::runtime::Abi for DISK_DETECTION_INFO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union DISK_DETECTION_INFO_0 {
-    pub Anonymous: DISK_DETECTION_INFO_0_0,
-}
-impl DISK_DETECTION_INFO_0 {}
-impl ::std::default::Default for DISK_DETECTION_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for DISK_DETECTION_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for DISK_DETECTION_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for DISK_DETECTION_INFO_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_DETECTION_INFO_0_0 {
-    pub Int13: DISK_INT13_INFO,
-    pub ExInt13: DISK_EX_INT13_INFO,
-}
-impl DISK_DETECTION_INFO_0_0 {}
-impl ::std::default::Default for DISK_DETECTION_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DISK_DETECTION_INFO_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("Int13", &self.Int13)
-            .field("ExInt13", &self.ExInt13)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DISK_DETECTION_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Int13 == other.Int13 && self.ExInt13 == other.ExInt13
-    }
-}
-impl ::std::cmp::Eq for DISK_DETECTION_INFO_0_0 {}
-unsafe impl ::windows::runtime::Abi for DISK_DETECTION_INFO_0_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_EXTENT {
-    pub DiskNumber: u32,
-    pub StartingOffset: i64,
-    pub ExtentLength: i64,
-}
-impl DISK_EXTENT {}
-impl ::std::default::Default for DISK_EXTENT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DISK_EXTENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_EXTENT")
-            .field("DiskNumber", &self.DiskNumber)
-            .field("StartingOffset", &self.StartingOffset)
-            .field("ExtentLength", &self.ExtentLength)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DISK_EXTENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.DiskNumber == other.DiskNumber
-            && self.StartingOffset == other.StartingOffset
-            && self.ExtentLength == other.ExtentLength
-    }
-}
-impl ::std::cmp::Eq for DISK_EXTENT {}
-unsafe impl ::windows::runtime::Abi for DISK_EXTENT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_EX_INT13_INFO {
-    pub ExBufferSize: u16,
-    pub ExFlags: u16,
-    pub ExCylinders: u32,
-    pub ExHeads: u32,
-    pub ExSectorsPerTrack: u32,
-    pub ExSectorsPerDrive: u64,
-    pub ExSectorSize: u16,
-    pub ExReserved: u16,
-}
-impl DISK_EX_INT13_INFO {}
-impl ::std::default::Default for DISK_EX_INT13_INFO {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DISK_EX_INT13_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_EX_INT13_INFO")
-            .field("ExBufferSize", &self.ExBufferSize)
-            .field("ExFlags", &self.ExFlags)
-            .field("ExCylinders", &self.ExCylinders)
-            .field("ExHeads", &self.ExHeads)
-            .field("ExSectorsPerTrack", &self.ExSectorsPerTrack)
-            .field("ExSectorsPerDrive", &self.ExSectorsPerDrive)
-            .field("ExSectorSize", &self.ExSectorSize)
-            .field("ExReserved", &self.ExReserved)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DISK_EX_INT13_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExBufferSize == other.ExBufferSize
-            && self.ExFlags == other.ExFlags
-            && self.ExCylinders == other.ExCylinders
-            && self.ExHeads == other.ExHeads
-            && self.ExSectorsPerTrack == other.ExSectorsPerTrack
-            && self.ExSectorsPerDrive == other.ExSectorsPerDrive
-            && self.ExSectorSize == other.ExSectorSize
-            && self.ExReserved == other.ExReserved
-    }
-}
-impl ::std::cmp::Eq for DISK_EX_INT13_INFO {}
-unsafe impl ::windows::runtime::Abi for DISK_EX_INT13_INFO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_GEOMETRY {
-    pub Cylinders: i64,
-    pub MediaType: MEDIA_TYPE,
-    pub TracksPerCylinder: u32,
-    pub SectorsPerTrack: u32,
-    pub BytesPerSector: u32,
-}
-impl DISK_GEOMETRY {}
-impl ::std::default::Default for DISK_GEOMETRY {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DISK_GEOMETRY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_GEOMETRY")
-            .field("Cylinders", &self.Cylinders)
-            .field("MediaType", &self.MediaType)
-            .field("TracksPerCylinder", &self.TracksPerCylinder)
-            .field("SectorsPerTrack", &self.SectorsPerTrack)
-            .field("BytesPerSector", &self.BytesPerSector)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DISK_GEOMETRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Cylinders == other.Cylinders
-            && self.MediaType == other.MediaType
-            && self.TracksPerCylinder == other.TracksPerCylinder
-            && self.SectorsPerTrack == other.SectorsPerTrack
-            && self.BytesPerSector == other.BytesPerSector
-    }
-}
-impl ::std::cmp::Eq for DISK_GEOMETRY {}
-unsafe impl ::windows::runtime::Abi for DISK_GEOMETRY {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_GEOMETRY_EX {
-    pub Geometry: DISK_GEOMETRY,
-    pub DiskSize: i64,
-    pub Data: [u8; 1],
-}
-impl DISK_GEOMETRY_EX {}
-impl ::std::default::Default for DISK_GEOMETRY_EX {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DISK_GEOMETRY_EX {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_GEOMETRY_EX")
-            .field("Geometry", &self.Geometry)
-            .field("DiskSize", &self.DiskSize)
-            .field("Data", &self.Data)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DISK_GEOMETRY_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.Geometry == other.Geometry
-            && self.DiskSize == other.DiskSize
-            && self.Data == other.Data
-    }
-}
-impl ::std::cmp::Eq for DISK_GEOMETRY_EX {}
-unsafe impl ::windows::runtime::Abi for DISK_GEOMETRY_EX {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_GROW_PARTITION {
-    pub PartitionNumber: u32,
-    pub BytesToGrow: i64,
-}
-impl DISK_GROW_PARTITION {}
-impl ::std::default::Default for DISK_GROW_PARTITION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DISK_GROW_PARTITION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_GROW_PARTITION")
-            .field("PartitionNumber", &self.PartitionNumber)
-            .field("BytesToGrow", &self.BytesToGrow)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DISK_GROW_PARTITION {
-    fn eq(&self, other: &Self) -> bool {
-        self.PartitionNumber == other.PartitionNumber && self.BytesToGrow == other.BytesToGrow
-    }
-}
-impl ::std::cmp::Eq for DISK_GROW_PARTITION {}
-unsafe impl ::windows::runtime::Abi for DISK_GROW_PARTITION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_INT13_INFO {
-    pub DriveSelect: u16,
-    pub MaxCylinders: u32,
-    pub SectorsPerTrack: u16,
-    pub MaxHeads: u16,
-    pub NumberDrives: u16,
-}
-impl DISK_INT13_INFO {}
-impl ::std::default::Default for DISK_INT13_INFO {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DISK_INT13_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_INT13_INFO")
-            .field("DriveSelect", &self.DriveSelect)
-            .field("MaxCylinders", &self.MaxCylinders)
-            .field("SectorsPerTrack", &self.SectorsPerTrack)
-            .field("MaxHeads", &self.MaxHeads)
-            .field("NumberDrives", &self.NumberDrives)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DISK_INT13_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.DriveSelect == other.DriveSelect
-            && self.MaxCylinders == other.MaxCylinders
-            && self.SectorsPerTrack == other.SectorsPerTrack
-            && self.MaxHeads == other.MaxHeads
-            && self.NumberDrives == other.NumberDrives
-    }
-}
-impl ::std::cmp::Eq for DISK_INT13_INFO {}
-unsafe impl ::windows::runtime::Abi for DISK_INT13_INFO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_PARTITION_INFO {
-    pub SizeOfPartitionInfo: u32,
-    pub PartitionStyle: PARTITION_STYLE,
-    pub Anonymous: DISK_PARTITION_INFO_0,
-}
-impl DISK_PARTITION_INFO {}
-impl ::std::default::Default for DISK_PARTITION_INFO {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for DISK_PARTITION_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for DISK_PARTITION_INFO {}
-unsafe impl ::windows::runtime::Abi for DISK_PARTITION_INFO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union DISK_PARTITION_INFO_0 {
-    pub Mbr: DISK_PARTITION_INFO_0_1,
-    pub Gpt: DISK_PARTITION_INFO_0_0,
-}
-impl DISK_PARTITION_INFO_0 {}
-impl ::std::default::Default for DISK_PARTITION_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for DISK_PARTITION_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for DISK_PARTITION_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for DISK_PARTITION_INFO_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_PARTITION_INFO_0_0 {
-    pub DiskId: ::windows::runtime::GUID,
-}
-impl DISK_PARTITION_INFO_0_0 {}
-impl ::std::default::Default for DISK_PARTITION_INFO_0_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DISK_PARTITION_INFO_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Gpt_e__Struct")
-            .field("DiskId", &self.DiskId)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DISK_PARTITION_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.DiskId == other.DiskId
-    }
-}
-impl ::std::cmp::Eq for DISK_PARTITION_INFO_0_0 {}
-unsafe impl ::windows::runtime::Abi for DISK_PARTITION_INFO_0_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_PARTITION_INFO_0_1 {
-    pub Signature: u32,
-    pub CheckSum: u32,
-}
-impl DISK_PARTITION_INFO_0_1 {}
-impl ::std::default::Default for DISK_PARTITION_INFO_0_1 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DISK_PARTITION_INFO_0_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Mbr_e__Struct")
-            .field("Signature", &self.Signature)
-            .field("CheckSum", &self.CheckSum)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DISK_PARTITION_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature && self.CheckSum == other.CheckSum
-    }
-}
-impl ::std::cmp::Eq for DISK_PARTITION_INFO_0_1 {}
-unsafe impl ::windows::runtime::Abi for DISK_PARTITION_INFO_0_1 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DISK_PERFORMANCE {
-    pub BytesRead: i64,
-    pub BytesWritten: i64,
-    pub ReadTime: i64,
-    pub WriteTime: i64,
-    pub IdleTime: i64,
-    pub ReadCount: u32,
-    pub WriteCount: u32,
-    pub QueueDepth: u32,
-    pub SplitCount: u32,
-    pub QueryTime: i64,
-    pub StorageDeviceNumber: u32,
-    pub StorageManagerName: [u16; 8],
-}
-impl DISK_PERFORMANCE {}
-impl ::std::default::Default for DISK_PERFORMANCE {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DISK_PERFORMANCE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DISK_PERFORMANCE")
-            .field("BytesRead", &self.BytesRead)
-            .field("BytesWritten", &self.BytesWritten)
-            .field("ReadTime", &self.ReadTime)
-            .field("WriteTime", &self.WriteTime)
-            .field("IdleTime", &self.IdleTime)
-            .field("ReadCount", &self.ReadCount)
-            .field("WriteCount", &self.WriteCount)
-            .field("QueueDepth", &self.QueueDepth)
-            .field("SplitCount", &self.SplitCount)
-            .field("QueryTime", &self.QueryTime)
-            .field("StorageDeviceNumber", &self.StorageDeviceNumber)
-            .field("StorageManagerName", &self.StorageManagerName)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DISK_PERFORMANCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesRead == other.BytesRead
-            && self.BytesWritten == other.BytesWritten
-            && self.ReadTime == other.ReadTime
-            && self.WriteTime == other.WriteTime
-            && self.IdleTime == other.IdleTime
-            && self.ReadCount == other.ReadCount
-            && self.WriteCount == other.WriteCount
-            && self.QueueDepth == other.QueueDepth
-            && self.SplitCount == other.SplitCount
-            && self.QueryTime == other.QueryTime
-            && self.StorageDeviceNumber == other.StorageDeviceNumber
-            && self.StorageManagerName == other.StorageManagerName
-    }
-}
-impl ::std::cmp::Eq for DISK_PERFORMANCE {}
-unsafe impl ::windows::runtime::Abi for DISK_PERFORMANCE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
 pub struct DISK_SPACE_INFORMATION {
     pub ActualTotalAllocationUnits: u64,
     pub ActualAvailableAllocationUnits: u64,
@@ -5784,210 +4280,6 @@ impl ::std::cmp::PartialEq for DISK_SPACE_INFORMATION {
 }
 impl ::std::cmp::Eq for DISK_SPACE_INFORMATION {}
 unsafe impl ::windows::runtime::Abi for DISK_SPACE_INFORMATION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DRIVE_LAYOUT_INFORMATION {
-    pub PartitionCount: u32,
-    pub Signature: u32,
-    pub PartitionEntry: [PARTITION_INFORMATION; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DRIVE_LAYOUT_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DRIVE_LAYOUT_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DRIVE_LAYOUT_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRIVE_LAYOUT_INFORMATION")
-            .field("PartitionCount", &self.PartitionCount)
-            .field("Signature", &self.Signature)
-            .field("PartitionEntry", &self.PartitionEntry)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.PartitionCount == other.PartitionCount
-            && self.Signature == other.Signature
-            && self.PartitionEntry == other.PartitionEntry
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DRIVE_LAYOUT_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DRIVE_LAYOUT_INFORMATION_EX {
-    pub PartitionStyle: u32,
-    pub PartitionCount: u32,
-    pub Anonymous: DRIVE_LAYOUT_INFORMATION_EX_0,
-    pub PartitionEntry: [PARTITION_INFORMATION_EX; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DRIVE_LAYOUT_INFORMATION_EX {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DRIVE_LAYOUT_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION_EX {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DRIVE_LAYOUT_INFORMATION_EX {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_EX {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union DRIVE_LAYOUT_INFORMATION_EX_0 {
-    pub Mbr: DRIVE_LAYOUT_INFORMATION_MBR,
-    pub Gpt: DRIVE_LAYOUT_INFORMATION_GPT,
-}
-impl DRIVE_LAYOUT_INFORMATION_EX_0 {}
-impl ::std::default::Default for DRIVE_LAYOUT_INFORMATION_EX_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION_EX_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for DRIVE_LAYOUT_INFORMATION_EX_0 {}
-unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_EX_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DRIVE_LAYOUT_INFORMATION_GPT {
-    pub DiskId: ::windows::runtime::GUID,
-    pub StartingUsableOffset: i64,
-    pub UsableLength: i64,
-    pub MaxPartitionCount: u32,
-}
-impl DRIVE_LAYOUT_INFORMATION_GPT {}
-impl ::std::default::Default for DRIVE_LAYOUT_INFORMATION_GPT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DRIVE_LAYOUT_INFORMATION_GPT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRIVE_LAYOUT_INFORMATION_GPT")
-            .field("DiskId", &self.DiskId)
-            .field("StartingUsableOffset", &self.StartingUsableOffset)
-            .field("UsableLength", &self.UsableLength)
-            .field("MaxPartitionCount", &self.MaxPartitionCount)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION_GPT {
-    fn eq(&self, other: &Self) -> bool {
-        self.DiskId == other.DiskId
-            && self.StartingUsableOffset == other.StartingUsableOffset
-            && self.UsableLength == other.UsableLength
-            && self.MaxPartitionCount == other.MaxPartitionCount
-    }
-}
-impl ::std::cmp::Eq for DRIVE_LAYOUT_INFORMATION_GPT {}
-unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_GPT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct DRIVE_LAYOUT_INFORMATION_MBR {
-    pub Signature: u32,
-    pub CheckSum: u32,
-}
-impl DRIVE_LAYOUT_INFORMATION_MBR {}
-impl ::std::default::Default for DRIVE_LAYOUT_INFORMATION_MBR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for DRIVE_LAYOUT_INFORMATION_MBR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DRIVE_LAYOUT_INFORMATION_MBR")
-            .field("Signature", &self.Signature)
-            .field("CheckSum", &self.CheckSum)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION_MBR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Signature == other.Signature && self.CheckSum == other.CheckSum
-    }
-}
-impl ::std::cmp::Eq for DRIVE_LAYOUT_INFORMATION_MBR {}
-unsafe impl ::windows::runtime::Abi for DRIVE_LAYOUT_INFORMATION_MBR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct DUPLICATE_EXTENTS_DATA {
-    pub FileHandle: super::super::Foundation::HANDLE,
-    pub SourceFileOffset: i64,
-    pub TargetFileOffset: i64,
-    pub ByteCount: i64,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl DUPLICATE_EXTENTS_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for DUPLICATE_EXTENTS_DATA {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for DUPLICATE_EXTENTS_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("DUPLICATE_EXTENTS_DATA")
-            .field("FileHandle", &self.FileHandle)
-            .field("SourceFileOffset", &self.SourceFileOffset)
-            .field("TargetFileOffset", &self.TargetFileOffset)
-            .field("ByteCount", &self.ByteCount)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for DUPLICATE_EXTENTS_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileHandle == other.FileHandle
-            && self.SourceFileOffset == other.SourceFileOffset
-            && self.TargetFileOffset == other.TargetFileOffset
-            && self.ByteCount == other.ByteCount
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for DUPLICATE_EXTENTS_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for DUPLICATE_EXTENTS_DATA {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -6997,58 +5289,6 @@ unsafe impl ::windows::runtime::Abi for ERASE_TAPE_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct EXFAT_STATISTICS {
-    pub CreateHits: u32,
-    pub SuccessfulCreates: u32,
-    pub FailedCreates: u32,
-    pub NonCachedReads: u32,
-    pub NonCachedReadBytes: u32,
-    pub NonCachedWrites: u32,
-    pub NonCachedWriteBytes: u32,
-    pub NonCachedDiskReads: u32,
-    pub NonCachedDiskWrites: u32,
-}
-impl EXFAT_STATISTICS {}
-impl ::std::default::Default for EXFAT_STATISTICS {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for EXFAT_STATISTICS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("EXFAT_STATISTICS")
-            .field("CreateHits", &self.CreateHits)
-            .field("SuccessfulCreates", &self.SuccessfulCreates)
-            .field("FailedCreates", &self.FailedCreates)
-            .field("NonCachedReads", &self.NonCachedReads)
-            .field("NonCachedReadBytes", &self.NonCachedReadBytes)
-            .field("NonCachedWrites", &self.NonCachedWrites)
-            .field("NonCachedWriteBytes", &self.NonCachedWriteBytes)
-            .field("NonCachedDiskReads", &self.NonCachedDiskReads)
-            .field("NonCachedDiskWrites", &self.NonCachedDiskWrites)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for EXFAT_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.CreateHits == other.CreateHits
-            && self.SuccessfulCreates == other.SuccessfulCreates
-            && self.FailedCreates == other.FailedCreates
-            && self.NonCachedReads == other.NonCachedReads
-            && self.NonCachedReadBytes == other.NonCachedReadBytes
-            && self.NonCachedWrites == other.NonCachedWrites
-            && self.NonCachedWriteBytes == other.NonCachedWriteBytes
-            && self.NonCachedDiskReads == other.NonCachedDiskReads
-            && self.NonCachedDiskWrites == other.NonCachedDiskWrites
-    }
-}
-impl ::std::cmp::Eq for EXFAT_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for EXFAT_STATISTICS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EncryptFileA<
@@ -7148,58 +5388,6 @@ pub unsafe fn EraseTape<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FAT_STATISTICS {
-    pub CreateHits: u32,
-    pub SuccessfulCreates: u32,
-    pub FailedCreates: u32,
-    pub NonCachedReads: u32,
-    pub NonCachedReadBytes: u32,
-    pub NonCachedWrites: u32,
-    pub NonCachedWriteBytes: u32,
-    pub NonCachedDiskReads: u32,
-    pub NonCachedDiskWrites: u32,
-}
-impl FAT_STATISTICS {}
-impl ::std::default::Default for FAT_STATISTICS {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FAT_STATISTICS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FAT_STATISTICS")
-            .field("CreateHits", &self.CreateHits)
-            .field("SuccessfulCreates", &self.SuccessfulCreates)
-            .field("FailedCreates", &self.FailedCreates)
-            .field("NonCachedReads", &self.NonCachedReads)
-            .field("NonCachedReadBytes", &self.NonCachedReadBytes)
-            .field("NonCachedWrites", &self.NonCachedWrites)
-            .field("NonCachedWriteBytes", &self.NonCachedWriteBytes)
-            .field("NonCachedDiskReads", &self.NonCachedDiskReads)
-            .field("NonCachedDiskWrites", &self.NonCachedDiskWrites)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FAT_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.CreateHits == other.CreateHits
-            && self.SuccessfulCreates == other.SuccessfulCreates
-            && self.FailedCreates == other.FailedCreates
-            && self.NonCachedReads == other.NonCachedReads
-            && self.NonCachedReadBytes == other.NonCachedReadBytes
-            && self.NonCachedWrites == other.NonCachedWrites
-            && self.NonCachedWriteBytes == other.NonCachedWriteBytes
-            && self.NonCachedDiskReads == other.NonCachedDiskReads
-            && self.NonCachedDiskWrites == other.NonCachedDiskWrites
-    }
-}
-impl ::std::cmp::Eq for FAT_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for FAT_STATISTICS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[cfg(feature = "Win32_Foundation")]
 pub type FCACHE_CREATE_CALLBACK = unsafe extern "system" fn(
     lpstrname: super::super::Foundation::PSTR,
@@ -7278,171 +5466,6 @@ impl ::std::cmp::Eq for FH_OVERLAPPED {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FH_OVERLAPPED {
     type Abi = ::std::mem::ManuallyDrop<Self>;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FILESYSTEM_STATISTICS {
-    pub FileSystemType: FILESYSTEM_STATISTICS_TYPE,
-    pub Version: u16,
-    pub SizeOfCompleteStructure: u32,
-    pub UserFileReads: u32,
-    pub UserFileReadBytes: u32,
-    pub UserDiskReads: u32,
-    pub UserFileWrites: u32,
-    pub UserFileWriteBytes: u32,
-    pub UserDiskWrites: u32,
-    pub MetaDataReads: u32,
-    pub MetaDataReadBytes: u32,
-    pub MetaDataDiskReads: u32,
-    pub MetaDataWrites: u32,
-    pub MetaDataWriteBytes: u32,
-    pub MetaDataDiskWrites: u32,
-}
-impl FILESYSTEM_STATISTICS {}
-impl ::std::default::Default for FILESYSTEM_STATISTICS {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FILESYSTEM_STATISTICS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILESYSTEM_STATISTICS")
-            .field("FileSystemType", &self.FileSystemType)
-            .field("Version", &self.Version)
-            .field("SizeOfCompleteStructure", &self.SizeOfCompleteStructure)
-            .field("UserFileReads", &self.UserFileReads)
-            .field("UserFileReadBytes", &self.UserFileReadBytes)
-            .field("UserDiskReads", &self.UserDiskReads)
-            .field("UserFileWrites", &self.UserFileWrites)
-            .field("UserFileWriteBytes", &self.UserFileWriteBytes)
-            .field("UserDiskWrites", &self.UserDiskWrites)
-            .field("MetaDataReads", &self.MetaDataReads)
-            .field("MetaDataReadBytes", &self.MetaDataReadBytes)
-            .field("MetaDataDiskReads", &self.MetaDataDiskReads)
-            .field("MetaDataWrites", &self.MetaDataWrites)
-            .field("MetaDataWriteBytes", &self.MetaDataWriteBytes)
-            .field("MetaDataDiskWrites", &self.MetaDataDiskWrites)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FILESYSTEM_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileSystemType == other.FileSystemType
-            && self.Version == other.Version
-            && self.SizeOfCompleteStructure == other.SizeOfCompleteStructure
-            && self.UserFileReads == other.UserFileReads
-            && self.UserFileReadBytes == other.UserFileReadBytes
-            && self.UserDiskReads == other.UserDiskReads
-            && self.UserFileWrites == other.UserFileWrites
-            && self.UserFileWriteBytes == other.UserFileWriteBytes
-            && self.UserDiskWrites == other.UserDiskWrites
-            && self.MetaDataReads == other.MetaDataReads
-            && self.MetaDataReadBytes == other.MetaDataReadBytes
-            && self.MetaDataDiskReads == other.MetaDataDiskReads
-            && self.MetaDataWrites == other.MetaDataWrites
-            && self.MetaDataWriteBytes == other.MetaDataWriteBytes
-            && self.MetaDataDiskWrites == other.MetaDataDiskWrites
-    }
-}
-impl ::std::cmp::Eq for FILESYSTEM_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for FILESYSTEM_STATISTICS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FILESYSTEM_STATISTICS_EX {
-    pub FileSystemType: FILESYSTEM_STATISTICS_TYPE,
-    pub Version: u16,
-    pub SizeOfCompleteStructure: u32,
-    pub UserFileReads: u64,
-    pub UserFileReadBytes: u64,
-    pub UserDiskReads: u64,
-    pub UserFileWrites: u64,
-    pub UserFileWriteBytes: u64,
-    pub UserDiskWrites: u64,
-    pub MetaDataReads: u64,
-    pub MetaDataReadBytes: u64,
-    pub MetaDataDiskReads: u64,
-    pub MetaDataWrites: u64,
-    pub MetaDataWriteBytes: u64,
-    pub MetaDataDiskWrites: u64,
-}
-impl FILESYSTEM_STATISTICS_EX {}
-impl ::std::default::Default for FILESYSTEM_STATISTICS_EX {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FILESYSTEM_STATISTICS_EX {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILESYSTEM_STATISTICS_EX")
-            .field("FileSystemType", &self.FileSystemType)
-            .field("Version", &self.Version)
-            .field("SizeOfCompleteStructure", &self.SizeOfCompleteStructure)
-            .field("UserFileReads", &self.UserFileReads)
-            .field("UserFileReadBytes", &self.UserFileReadBytes)
-            .field("UserDiskReads", &self.UserDiskReads)
-            .field("UserFileWrites", &self.UserFileWrites)
-            .field("UserFileWriteBytes", &self.UserFileWriteBytes)
-            .field("UserDiskWrites", &self.UserDiskWrites)
-            .field("MetaDataReads", &self.MetaDataReads)
-            .field("MetaDataReadBytes", &self.MetaDataReadBytes)
-            .field("MetaDataDiskReads", &self.MetaDataDiskReads)
-            .field("MetaDataWrites", &self.MetaDataWrites)
-            .field("MetaDataWriteBytes", &self.MetaDataWriteBytes)
-            .field("MetaDataDiskWrites", &self.MetaDataDiskWrites)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FILESYSTEM_STATISTICS_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileSystemType == other.FileSystemType
-            && self.Version == other.Version
-            && self.SizeOfCompleteStructure == other.SizeOfCompleteStructure
-            && self.UserFileReads == other.UserFileReads
-            && self.UserFileReadBytes == other.UserFileReadBytes
-            && self.UserDiskReads == other.UserDiskReads
-            && self.UserFileWrites == other.UserFileWrites
-            && self.UserFileWriteBytes == other.UserFileWriteBytes
-            && self.UserDiskWrites == other.UserDiskWrites
-            && self.MetaDataReads == other.MetaDataReads
-            && self.MetaDataReadBytes == other.MetaDataReadBytes
-            && self.MetaDataDiskReads == other.MetaDataDiskReads
-            && self.MetaDataWrites == other.MetaDataWrites
-            && self.MetaDataWriteBytes == other.MetaDataWriteBytes
-            && self.MetaDataDiskWrites == other.MetaDataDiskWrites
-    }
-}
-impl ::std::cmp::Eq for FILESYSTEM_STATISTICS_EX {}
-unsafe impl ::windows::runtime::Abi for FILESYSTEM_STATISTICS_EX {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct FILESYSTEM_STATISTICS_TYPE(pub u16);
-pub const FILESYSTEM_STATISTICS_TYPE_EXFAT: FILESYSTEM_STATISTICS_TYPE =
-    FILESYSTEM_STATISTICS_TYPE(3u16);
-pub const FILESYSTEM_STATISTICS_TYPE_FAT: FILESYSTEM_STATISTICS_TYPE =
-    FILESYSTEM_STATISTICS_TYPE(2u16);
-pub const FILESYSTEM_STATISTICS_TYPE_NTFS: FILESYSTEM_STATISTICS_TYPE =
-    FILESYSTEM_STATISTICS_TYPE(1u16);
-impl ::std::convert::From<u16> for FILESYSTEM_STATISTICS_TYPE {
-    fn from(value: u16) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for FILESYSTEM_STATISTICS_TYPE {
-    type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(
@@ -7595,36 +5618,6 @@ impl ::std::cmp::PartialEq for FILE_ALIGNMENT_INFO {
 }
 impl ::std::cmp::Eq for FILE_ALIGNMENT_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_ALIGNMENT_INFO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FILE_ALLOCATED_RANGE_BUFFER {
-    pub FileOffset: i64,
-    pub Length: i64,
-}
-impl FILE_ALLOCATED_RANGE_BUFFER {}
-impl ::std::default::Default for FILE_ALLOCATED_RANGE_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FILE_ALLOCATED_RANGE_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_ALLOCATED_RANGE_BUFFER")
-            .field("FileOffset", &self.FileOffset)
-            .field("Length", &self.Length)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FILE_ALLOCATED_RANGE_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileOffset == other.FileOffset && self.Length == other.Length
-    }
-}
-impl ::std::cmp::Eq for FILE_ALLOCATED_RANGE_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FILE_ALLOCATED_RANGE_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -8605,131 +6598,6 @@ unsafe impl ::windows::runtime::Abi for FILE_IO_PRIORITY_HINT_INFO {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FILE_LEVEL_TRIM {
-    pub Key: u32,
-    pub NumRanges: u32,
-    pub Ranges: [FILE_LEVEL_TRIM_RANGE; 1],
-}
-impl FILE_LEVEL_TRIM {}
-impl ::std::default::Default for FILE_LEVEL_TRIM {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FILE_LEVEL_TRIM {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_LEVEL_TRIM")
-            .field("Key", &self.Key)
-            .field("NumRanges", &self.NumRanges)
-            .field("Ranges", &self.Ranges)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FILE_LEVEL_TRIM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.NumRanges == other.NumRanges && self.Ranges == other.Ranges
-    }
-}
-impl ::std::cmp::Eq for FILE_LEVEL_TRIM {}
-unsafe impl ::windows::runtime::Abi for FILE_LEVEL_TRIM {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FILE_LEVEL_TRIM_OUTPUT {
-    pub NumRangesProcessed: u32,
-}
-impl FILE_LEVEL_TRIM_OUTPUT {}
-impl ::std::default::Default for FILE_LEVEL_TRIM_OUTPUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FILE_LEVEL_TRIM_OUTPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_LEVEL_TRIM_OUTPUT")
-            .field("NumRangesProcessed", &self.NumRangesProcessed)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FILE_LEVEL_TRIM_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumRangesProcessed == other.NumRangesProcessed
-    }
-}
-impl ::std::cmp::Eq for FILE_LEVEL_TRIM_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for FILE_LEVEL_TRIM_OUTPUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FILE_LEVEL_TRIM_RANGE {
-    pub Offset: u64,
-    pub Length: u64,
-}
-impl FILE_LEVEL_TRIM_RANGE {}
-impl ::std::default::Default for FILE_LEVEL_TRIM_RANGE {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FILE_LEVEL_TRIM_RANGE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_LEVEL_TRIM_RANGE")
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FILE_LEVEL_TRIM_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset && self.Length == other.Length
-    }
-}
-impl ::std::cmp::Eq for FILE_LEVEL_TRIM_RANGE {}
-unsafe impl ::windows::runtime::Abi for FILE_LEVEL_TRIM_RANGE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct FILE_MAKE_COMPATIBLE_BUFFER {
-    pub CloseDisc: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl FILE_MAKE_COMPATIBLE_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FILE_MAKE_COMPATIBLE_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FILE_MAKE_COMPATIBLE_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_MAKE_COMPATIBLE_BUFFER")
-            .field("CloseDisc", &self.CloseDisc)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FILE_MAKE_COMPATIBLE_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.CloseDisc == other.CloseDisc
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FILE_MAKE_COMPATIBLE_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_MAKE_COMPATIBLE_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[derive(
     :: std :: cmp :: PartialEq,
     :: std :: cmp :: Eq,
@@ -8968,192 +6836,10 @@ unsafe impl ::windows::runtime::Abi for FILE_NOTIFY_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FILE_OBJECTID_BUFFER {
-    pub ObjectId: [u8; 16],
-    pub Anonymous: FILE_OBJECTID_BUFFER_0,
-}
-impl FILE_OBJECTID_BUFFER {}
-impl ::std::default::Default for FILE_OBJECTID_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for FILE_OBJECTID_BUFFER {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for FILE_OBJECTID_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FILE_OBJECTID_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union FILE_OBJECTID_BUFFER_0 {
-    pub Anonymous: FILE_OBJECTID_BUFFER_0_0,
-    pub ExtendedInfo: [u8; 48],
-}
-impl FILE_OBJECTID_BUFFER_0 {}
-impl ::std::default::Default for FILE_OBJECTID_BUFFER_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for FILE_OBJECTID_BUFFER_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for FILE_OBJECTID_BUFFER_0 {}
-unsafe impl ::windows::runtime::Abi for FILE_OBJECTID_BUFFER_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FILE_OBJECTID_BUFFER_0_0 {
-    pub BirthVolumeId: [u8; 16],
-    pub BirthObjectId: [u8; 16],
-    pub DomainId: [u8; 16],
-}
-impl FILE_OBJECTID_BUFFER_0_0 {}
-impl ::std::default::Default for FILE_OBJECTID_BUFFER_0_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FILE_OBJECTID_BUFFER_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("BirthVolumeId", &self.BirthVolumeId)
-            .field("BirthObjectId", &self.BirthObjectId)
-            .field("DomainId", &self.DomainId)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FILE_OBJECTID_BUFFER_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BirthVolumeId == other.BirthVolumeId
-            && self.BirthObjectId == other.BirthObjectId
-            && self.DomainId == other.DomainId
-    }
-}
-impl ::std::cmp::Eq for FILE_OBJECTID_BUFFER_0_0 {}
-unsafe impl ::windows::runtime::Abi for FILE_OBJECTID_BUFFER_0_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
-    pub DirectoryCount: i64,
-    pub FileCount: i64,
-    pub FsFormatMajVersion: u16,
-    pub FsFormatMinVersion: u16,
-    pub FsFormatName: [u16; 12],
-    pub FormatTime: i64,
-    pub LastUpdateTime: i64,
-    pub CopyrightInfo: [u16; 34],
-    pub AbstractInfo: [u16; 34],
-    pub FormattingImplementationInfo: [u16; 34],
-    pub LastModifyingImplementationInfo: [u16; 34],
-}
-impl FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {}
-impl ::std::default::Default for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_QUERY_ON_DISK_VOL_INFO_BUFFER")
-            .field("DirectoryCount", &self.DirectoryCount)
-            .field("FileCount", &self.FileCount)
-            .field("FsFormatMajVersion", &self.FsFormatMajVersion)
-            .field("FsFormatMinVersion", &self.FsFormatMinVersion)
-            .field("FsFormatName", &self.FsFormatName)
-            .field("FormatTime", &self.FormatTime)
-            .field("LastUpdateTime", &self.LastUpdateTime)
-            .field("CopyrightInfo", &self.CopyrightInfo)
-            .field("AbstractInfo", &self.AbstractInfo)
-            .field(
-                "FormattingImplementationInfo",
-                &self.FormattingImplementationInfo,
-            )
-            .field(
-                "LastModifyingImplementationInfo",
-                &self.LastModifyingImplementationInfo,
-            )
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.DirectoryCount == other.DirectoryCount
-            && self.FileCount == other.FileCount
-            && self.FsFormatMajVersion == other.FsFormatMajVersion
-            && self.FsFormatMinVersion == other.FsFormatMinVersion
-            && self.FsFormatName == other.FsFormatName
-            && self.FormatTime == other.FormatTime
-            && self.LastUpdateTime == other.LastUpdateTime
-            && self.CopyrightInfo == other.CopyrightInfo
-            && self.AbstractInfo == other.AbstractInfo
-            && self.FormattingImplementationInfo == other.FormattingImplementationInfo
-            && self.LastModifyingImplementationInfo == other.LastModifyingImplementationInfo
-    }
-}
-impl ::std::cmp::Eq for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FILE_QUERY_ON_DISK_VOL_INFO_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct FILE_QUERY_SPARING_BUFFER {
-    pub SparingUnitBytes: u32,
-    pub SoftwareSparing: super::super::Foundation::BOOLEAN,
-    pub TotalSpareBlocks: u32,
-    pub FreeSpareBlocks: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl FILE_QUERY_SPARING_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FILE_QUERY_SPARING_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FILE_QUERY_SPARING_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_QUERY_SPARING_BUFFER")
-            .field("SparingUnitBytes", &self.SparingUnitBytes)
-            .field("SoftwareSparing", &self.SoftwareSparing)
-            .field("TotalSpareBlocks", &self.TotalSpareBlocks)
-            .field("FreeSpareBlocks", &self.FreeSpareBlocks)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FILE_QUERY_SPARING_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.SparingUnitBytes == other.SparingUnitBytes
-            && self.SoftwareSparing == other.SoftwareSparing
-            && self.TotalSpareBlocks == other.TotalSpareBlocks
-            && self.FreeSpareBlocks == other.FreeSpareBlocks
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FILE_QUERY_SPARING_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_QUERY_SPARING_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
+pub const FILE_PROVIDER_COMPRESSION_LZX: u32 = 1u32;
+pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
+pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: u32 = 0u32;
+pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 pub struct FILE_REMOTE_PROTOCOL_INFO {
@@ -9382,71 +7068,23 @@ unsafe impl ::windows::runtime::Abi for FILE_RENAME_INFO_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct FILE_SET_DEFECT_MGMT_BUFFER {
-    pub Disable: super::super::Foundation::BOOLEAN,
+pub union FILE_SEGMENT_ELEMENT {
+    pub Buffer: *mut ::std::ffi::c_void,
+    pub Alignment: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
-impl FILE_SET_DEFECT_MGMT_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FILE_SET_DEFECT_MGMT_BUFFER {
+impl FILE_SEGMENT_ELEMENT {}
+impl ::std::default::Default for FILE_SEGMENT_ELEMENT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FILE_SET_DEFECT_MGMT_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_SET_DEFECT_MGMT_BUFFER")
-            .field("Disable", &self.Disable)
-            .finish()
+impl ::std::cmp::PartialEq for FILE_SEGMENT_ELEMENT {
+    fn eq(&self, _other: &Self) -> bool {
+        unimplemented!()
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FILE_SET_DEFECT_MGMT_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Disable == other.Disable
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FILE_SET_DEFECT_MGMT_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_SET_DEFECT_MGMT_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct FILE_SET_SPARSE_BUFFER {
-    pub SetSparse: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl FILE_SET_SPARSE_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for FILE_SET_SPARSE_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for FILE_SET_SPARSE_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_SET_SPARSE_BUFFER")
-            .field("SetSparse", &self.SetSparse)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for FILE_SET_SPARSE_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.SetSparse == other.SetSparse
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for FILE_SET_SPARSE_BUFFER {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for FILE_SET_SPARSE_BUFFER {
+impl ::std::cmp::Eq for FILE_SEGMENT_ELEMENT {}
+unsafe impl ::windows::runtime::Abi for FILE_SEGMENT_ELEMENT {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -9613,169 +7251,6 @@ unsafe impl ::windows::runtime::Abi for FILE_STORAGE_INFO {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
-pub struct FILE_STORAGE_TIER {
-    pub Id: ::windows::runtime::GUID,
-    pub Name: [u16; 256],
-    pub Description: [u16; 256],
-    pub Flags: FILE_STORAGE_TIER_FLAGS,
-    pub ProvisionedCapacity: u64,
-    pub MediaType: FILE_STORAGE_TIER_MEDIA_TYPE,
-    pub Class: super::super::System::SystemServices::FILE_STORAGE_TIER_CLASS,
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl FILE_STORAGE_TIER {}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::default::Default for FILE_STORAGE_TIER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::fmt::Debug for FILE_STORAGE_TIER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_STORAGE_TIER")
-            .field("Id", &self.Id)
-            .field("Name", &self.Name)
-            .field("Description", &self.Description)
-            .field("Flags", &self.Flags)
-            .field("ProvisionedCapacity", &self.ProvisionedCapacity)
-            .field("MediaType", &self.MediaType)
-            .field("Class", &self.Class)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::cmp::PartialEq for FILE_STORAGE_TIER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Id == other.Id
-            && self.Name == other.Name
-            && self.Description == other.Description
-            && self.Flags == other.Flags
-            && self.ProvisionedCapacity == other.ProvisionedCapacity
-            && self.MediaType == other.MediaType
-            && self.Class == other.Class
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::cmp::Eq for FILE_STORAGE_TIER {}
-#[cfg(feature = "Win32_System_SystemServices")]
-unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct FILE_STORAGE_TIER_FLAGS(pub u32);
-pub const FILE_STORAGE_TIER_FLAG_NO_SEEK_PENALTY: FILE_STORAGE_TIER_FLAGS =
-    FILE_STORAGE_TIER_FLAGS(131072u32);
-impl ::std::convert::From<u32> for FILE_STORAGE_TIER_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER_FLAGS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-impl ::std::ops::BitOr for FILE_STORAGE_TIER_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::std::ops::BitAnd for FILE_STORAGE_TIER_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::std::ops::BitOrAssign for FILE_STORAGE_TIER_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::std::ops::BitAndAssign for FILE_STORAGE_TIER_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::std::ops::Not for FILE_STORAGE_TIER_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct FILE_STORAGE_TIER_MEDIA_TYPE(pub i32);
-pub const FileStorageTierMediaTypeUnspecified: FILE_STORAGE_TIER_MEDIA_TYPE =
-    FILE_STORAGE_TIER_MEDIA_TYPE(0i32);
-pub const FileStorageTierMediaTypeDisk: FILE_STORAGE_TIER_MEDIA_TYPE =
-    FILE_STORAGE_TIER_MEDIA_TYPE(1i32);
-pub const FileStorageTierMediaTypeSsd: FILE_STORAGE_TIER_MEDIA_TYPE =
-    FILE_STORAGE_TIER_MEDIA_TYPE(2i32);
-pub const FileStorageTierMediaTypeScm: FILE_STORAGE_TIER_MEDIA_TYPE =
-    FILE_STORAGE_TIER_MEDIA_TYPE(4i32);
-pub const FileStorageTierMediaTypeMax: FILE_STORAGE_TIER_MEDIA_TYPE =
-    FILE_STORAGE_TIER_MEDIA_TYPE(5i32);
-impl ::std::convert::From<i32> for FILE_STORAGE_TIER_MEDIA_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER_MEDIA_TYPE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FILE_STORAGE_TIER_REGION {
-    pub TierId: ::windows::runtime::GUID,
-    pub Offset: u64,
-    pub Length: u64,
-}
-impl FILE_STORAGE_TIER_REGION {}
-impl ::std::default::Default for FILE_STORAGE_TIER_REGION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FILE_STORAGE_TIER_REGION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_STORAGE_TIER_REGION")
-            .field("TierId", &self.TierId)
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FILE_STORAGE_TIER_REGION {
-    fn eq(&self, other: &Self) -> bool {
-        self.TierId == other.TierId && self.Offset == other.Offset && self.Length == other.Length
-    }
-}
-impl ::std::cmp::Eq for FILE_STORAGE_TIER_REGION {}
-unsafe impl ::windows::runtime::Abi for FILE_STORAGE_TIER_REGION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
 pub struct FILE_STREAM_INFO {
     pub NextEntryOffset: u32,
     pub StreamNameLength: u32,
@@ -9811,71 +7286,6 @@ impl ::std::cmp::PartialEq for FILE_STREAM_INFO {
 }
 impl ::std::cmp::Eq for FILE_STREAM_INFO {}
 unsafe impl ::windows::runtime::Abi for FILE_STREAM_INFO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
-pub struct FILE_SYSTEM_RECOGNITION_INFORMATION {
-    pub FileSystem: [super::super::System::SystemServices::CHAR; 9],
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl FILE_SYSTEM_RECOGNITION_INFORMATION {}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::default::Default for FILE_SYSTEM_RECOGNITION_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::fmt::Debug for FILE_SYSTEM_RECOGNITION_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_SYSTEM_RECOGNITION_INFORMATION")
-            .field("FileSystem", &self.FileSystem)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::cmp::PartialEq for FILE_SYSTEM_RECOGNITION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileSystem == other.FileSystem
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::cmp::Eq for FILE_SYSTEM_RECOGNITION_INFORMATION {}
-#[cfg(feature = "Win32_System_SystemServices")]
-unsafe impl ::windows::runtime::Abi for FILE_SYSTEM_RECOGNITION_INFORMATION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FILE_ZERO_DATA_INFORMATION {
-    pub FileOffset: i64,
-    pub BeyondFinalZero: i64,
-}
-impl FILE_ZERO_DATA_INFORMATION {}
-impl ::std::default::Default for FILE_ZERO_DATA_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FILE_ZERO_DATA_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FILE_ZERO_DATA_INFORMATION")
-            .field("FileOffset", &self.FileOffset)
-            .field("BeyondFinalZero", &self.BeyondFinalZero)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FILE_ZERO_DATA_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileOffset == other.FileOffset && self.BeyondFinalZero == other.BeyondFinalZero
-    }
-}
-impl ::std::cmp::Eq for FILE_ZERO_DATA_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for FILE_ZERO_DATA_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -9921,80 +7331,6 @@ impl ::std::convert::From<i32> for FINDEX_SEARCH_OPS {
     }
 }
 unsafe impl ::windows::runtime::Abi for FINDEX_SEARCH_OPS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Security")]
-pub struct FIND_BY_SID_DATA {
-    pub Restart: u32,
-    pub Sid: super::super::Security::SID,
-}
-#[cfg(feature = "Win32_Security")]
-impl FIND_BY_SID_DATA {}
-#[cfg(feature = "Win32_Security")]
-impl ::std::default::Default for FIND_BY_SID_DATA {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl ::std::fmt::Debug for FIND_BY_SID_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FIND_BY_SID_DATA")
-            .field("Restart", &self.Restart)
-            .field("Sid", &self.Sid)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl ::std::cmp::PartialEq for FIND_BY_SID_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Restart == other.Restart && self.Sid == other.Sid
-    }
-}
-#[cfg(feature = "Win32_Security")]
-impl ::std::cmp::Eq for FIND_BY_SID_DATA {}
-#[cfg(feature = "Win32_Security")]
-unsafe impl ::windows::runtime::Abi for FIND_BY_SID_DATA {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FIND_BY_SID_OUTPUT {
-    pub NextEntryOffset: u32,
-    pub FileIndex: u32,
-    pub FileNameLength: u32,
-    pub FileName: [u16; 1],
-}
-impl FIND_BY_SID_OUTPUT {}
-impl ::std::default::Default for FIND_BY_SID_OUTPUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FIND_BY_SID_OUTPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FIND_BY_SID_OUTPUT")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("FileIndex", &self.FileIndex)
-            .field("FileNameLength", &self.FileNameLength)
-            .field("FileName", &self.FileName)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FIND_BY_SID_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset
-            && self.FileIndex == other.FileIndex
-            && self.FileNameLength == other.FileNameLength
-            && self.FileName == other.FileName
-    }
-}
-impl ::std::cmp::Eq for FIND_BY_SID_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for FIND_BY_SID_OUTPUT {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -10092,308 +7428,6 @@ impl ::std::cmp::PartialEq for FIO_CONTEXT {
 impl ::std::cmp::Eq for FIO_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for FIO_CONTEXT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FORMAT_EX_PARAMETERS {
-    pub MediaType: MEDIA_TYPE,
-    pub StartCylinderNumber: u32,
-    pub EndCylinderNumber: u32,
-    pub StartHeadNumber: u32,
-    pub EndHeadNumber: u32,
-    pub FormatGapLength: u16,
-    pub SectorsPerTrack: u16,
-    pub SectorNumber: [u16; 1],
-}
-impl FORMAT_EX_PARAMETERS {}
-impl ::std::default::Default for FORMAT_EX_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FORMAT_EX_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FORMAT_EX_PARAMETERS")
-            .field("MediaType", &self.MediaType)
-            .field("StartCylinderNumber", &self.StartCylinderNumber)
-            .field("EndCylinderNumber", &self.EndCylinderNumber)
-            .field("StartHeadNumber", &self.StartHeadNumber)
-            .field("EndHeadNumber", &self.EndHeadNumber)
-            .field("FormatGapLength", &self.FormatGapLength)
-            .field("SectorsPerTrack", &self.SectorsPerTrack)
-            .field("SectorNumber", &self.SectorNumber)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FORMAT_EX_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.MediaType == other.MediaType
-            && self.StartCylinderNumber == other.StartCylinderNumber
-            && self.EndCylinderNumber == other.EndCylinderNumber
-            && self.StartHeadNumber == other.StartHeadNumber
-            && self.EndHeadNumber == other.EndHeadNumber
-            && self.FormatGapLength == other.FormatGapLength
-            && self.SectorsPerTrack == other.SectorsPerTrack
-            && self.SectorNumber == other.SectorNumber
-    }
-}
-impl ::std::cmp::Eq for FORMAT_EX_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for FORMAT_EX_PARAMETERS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FORMAT_PARAMETERS {
-    pub MediaType: MEDIA_TYPE,
-    pub StartCylinderNumber: u32,
-    pub EndCylinderNumber: u32,
-    pub StartHeadNumber: u32,
-    pub EndHeadNumber: u32,
-}
-impl FORMAT_PARAMETERS {}
-impl ::std::default::Default for FORMAT_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FORMAT_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FORMAT_PARAMETERS")
-            .field("MediaType", &self.MediaType)
-            .field("StartCylinderNumber", &self.StartCylinderNumber)
-            .field("EndCylinderNumber", &self.EndCylinderNumber)
-            .field("StartHeadNumber", &self.StartHeadNumber)
-            .field("EndHeadNumber", &self.EndHeadNumber)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FORMAT_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.MediaType == other.MediaType
-            && self.StartCylinderNumber == other.StartCylinderNumber
-            && self.EndCylinderNumber == other.EndCylinderNumber
-            && self.StartHeadNumber == other.StartHeadNumber
-            && self.EndHeadNumber == other.EndHeadNumber
-    }
-}
-impl ::std::cmp::Eq for FORMAT_PARAMETERS {}
-unsafe impl ::windows::runtime::Abi for FORMAT_PARAMETERS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
-    pub ChecksumAlgorithm: u16,
-    pub Reserved: u16,
-    pub Flags: u32,
-    pub ChecksumChunkSizeInBytes: u32,
-    pub ClusterSizeInBytes: u32,
-}
-impl FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {}
-impl ::std::default::Default for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_GET_INTEGRITY_INFORMATION_BUFFER")
-            .field("ChecksumAlgorithm", &self.ChecksumAlgorithm)
-            .field("Reserved", &self.Reserved)
-            .field("Flags", &self.Flags)
-            .field("ChecksumChunkSizeInBytes", &self.ChecksumChunkSizeInBytes)
-            .field("ClusterSizeInBytes", &self.ClusterSizeInBytes)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.ChecksumAlgorithm == other.ChecksumAlgorithm
-            && self.Reserved == other.Reserved
-            && self.Flags == other.Flags
-            && self.ChecksumChunkSizeInBytes == other.ChecksumChunkSizeInBytes
-            && self.ClusterSizeInBytes == other.ClusterSizeInBytes
-    }
-}
-impl ::std::cmp::Eq for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FSCTL_GET_INTEGRITY_INFORMATION_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FSCTL_QUERY_REGION_INFO_INPUT {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub NumberOfTierIds: u32,
-    pub TierIds: [::windows::runtime::GUID; 1],
-}
-impl FSCTL_QUERY_REGION_INFO_INPUT {}
-impl ::std::default::Default for FSCTL_QUERY_REGION_INFO_INPUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FSCTL_QUERY_REGION_INFO_INPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_QUERY_REGION_INFO_INPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("NumberOfTierIds", &self.NumberOfTierIds)
-            .field("TierIds", &self.TierIds)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FSCTL_QUERY_REGION_INFO_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.NumberOfTierIds == other.NumberOfTierIds
-            && self.TierIds == other.TierIds
-    }
-}
-impl ::std::cmp::Eq for FSCTL_QUERY_REGION_INFO_INPUT {}
-unsafe impl ::windows::runtime::Abi for FSCTL_QUERY_REGION_INFO_INPUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FSCTL_QUERY_REGION_INFO_OUTPUT {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub Reserved: u32,
-    pub Alignment: u64,
-    pub TotalNumberOfRegions: u32,
-    pub NumberOfRegionsReturned: u32,
-    pub Regions: [FILE_STORAGE_TIER_REGION; 1],
-}
-impl FSCTL_QUERY_REGION_INFO_OUTPUT {}
-impl ::std::default::Default for FSCTL_QUERY_REGION_INFO_OUTPUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FSCTL_QUERY_REGION_INFO_OUTPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_QUERY_REGION_INFO_OUTPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("Alignment", &self.Alignment)
-            .field("TotalNumberOfRegions", &self.TotalNumberOfRegions)
-            .field("NumberOfRegionsReturned", &self.NumberOfRegionsReturned)
-            .field("Regions", &self.Regions)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FSCTL_QUERY_REGION_INFO_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.Alignment == other.Alignment
-            && self.TotalNumberOfRegions == other.TotalNumberOfRegions
-            && self.NumberOfRegionsReturned == other.NumberOfRegionsReturned
-            && self.Regions == other.Regions
-    }
-}
-impl ::std::cmp::Eq for FSCTL_QUERY_REGION_INFO_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for FSCTL_QUERY_REGION_INFO_OUTPUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
-pub struct FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: FILE_STORAGE_TIER_FLAGS,
-    pub TotalNumberOfTiers: u32,
-    pub NumberOfTiersReturned: u32,
-    pub Tiers: [FILE_STORAGE_TIER; 1],
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::default::Default for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::fmt::Debug for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_QUERY_STORAGE_CLASSES_OUTPUT")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("TotalNumberOfTiers", &self.TotalNumberOfTiers)
-            .field("NumberOfTiersReturned", &self.NumberOfTiersReturned)
-            .field("Tiers", &self.Tiers)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::cmp::PartialEq for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.TotalNumberOfTiers == other.TotalNumberOfTiers
-            && self.NumberOfTiersReturned == other.NumberOfTiersReturned
-            && self.Tiers == other.Tiers
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::cmp::Eq for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {}
-#[cfg(feature = "Win32_System_SystemServices")]
-unsafe impl ::windows::runtime::Abi for FSCTL_QUERY_STORAGE_CLASSES_OUTPUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
-    pub ChecksumAlgorithm: u16,
-    pub Reserved: u16,
-    pub Flags: u32,
-}
-impl FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {}
-impl ::std::default::Default for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("FSCTL_SET_INTEGRITY_INFORMATION_BUFFER")
-            .field("ChecksumAlgorithm", &self.ChecksumAlgorithm)
-            .field("Reserved", &self.Reserved)
-            .field("Flags", &self.Flags)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.ChecksumAlgorithm == other.ChecksumAlgorithm
-            && self.Reserved == other.Reserved
-            && self.Flags == other.Flags
-    }
-}
-impl ::std::cmp::Eq for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {}
-unsafe impl ::windows::runtime::Abi for FSCTL_SET_INTEGRITY_INFORMATION_BUFFER {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -10628,7 +7662,7 @@ pub unsafe fn FindFirstChangeNotificationW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileA<
     'a,
@@ -11139,7 +8173,7 @@ pub unsafe fn FindNextChangeNotification<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextFileA<'a, Param0: ::windows::runtime::IntoParam<'a, FindFileHandle>>(
     hfindfile: Param0,
@@ -11467,11 +8501,11 @@ pub unsafe fn FlushFileBuffers<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn FlushLogBuffers(
     pvmarshal: *mut ::std::ffi::c_void,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -11479,7 +8513,7 @@ pub unsafe fn FlushLogBuffers(
         extern "system" {
             fn FlushLogBuffers(
                 pvmarshal: *mut ::std::ffi::c_void,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(FlushLogBuffers(
@@ -11490,13 +8524,13 @@ pub unsafe fn FlushLogBuffers(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn FlushLogToLsn(
     pvmarshalcontext: *mut ::std::ffi::c_void,
     plsnflush: *mut CLS_LSN,
     plsnlastflushed: *mut CLS_LSN,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -11506,7 +8540,7 @@ pub unsafe fn FlushLogToLsn(
                 pvmarshalcontext: *mut ::std::ffi::c_void,
                 plsnflush: *mut CLS_LSN,
                 plsnlastflushed: *mut CLS_LSN,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(FlushLogToLsn(
@@ -11573,40 +8607,6 @@ pub unsafe fn FreeReservedLog(
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct GET_DISK_ATTRIBUTES {
-    pub Version: u32,
-    pub Reserved1: u32,
-    pub Attributes: u64,
-}
-impl GET_DISK_ATTRIBUTES {}
-impl ::std::default::Default for GET_DISK_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for GET_DISK_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GET_DISK_ATTRIBUTES")
-            .field("Version", &self.Version)
-            .field("Reserved1", &self.Reserved1)
-            .field("Attributes", &self.Attributes)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for GET_DISK_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Reserved1 == other.Reserved1
-            && self.Attributes == other.Attributes
-    }
-}
-impl ::std::cmp::Eq for GET_DISK_ATTRIBUTES {}
-unsafe impl ::windows::runtime::Abi for GET_DISK_ATTRIBUTES {
-    type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(
     :: std :: cmp :: PartialEq,
@@ -11679,34 +8679,6 @@ impl ::std::ops::Not for GET_FILE_VERSION_INFO_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct GET_LENGTH_INFORMATION {
-    pub Length: i64,
-}
-impl GET_LENGTH_INFORMATION {}
-impl ::std::default::Default for GET_LENGTH_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for GET_LENGTH_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("GET_LENGTH_INFORMATION")
-            .field("Length", &self.Length)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for GET_LENGTH_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length
-    }
-}
-impl ::std::cmp::Eq for GET_LENGTH_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for GET_LENGTH_INFORMATION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[derive(
     :: std :: cmp :: PartialEq,
     :: std :: cmp :: Eq,
@@ -11753,61 +8725,6 @@ impl ::std::ops::BitAndAssign for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
     }
 }
 impl ::std::ops::Not for GET_TAPE_DRIVE_PARAMETERS_OPERATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct GPT_ATTRIBUTES(pub u64);
-pub const GPT_ATTRIBUTE_PLATFORM_REQUIRED: GPT_ATTRIBUTES = GPT_ATTRIBUTES(1u64);
-pub const GPT_BASIC_DATA_ATTRIBUTE_NO_DRIVE_LETTER: GPT_ATTRIBUTES =
-    GPT_ATTRIBUTES(9223372036854775808u64);
-pub const GPT_BASIC_DATA_ATTRIBUTE_HIDDEN: GPT_ATTRIBUTES = GPT_ATTRIBUTES(4611686018427387904u64);
-pub const GPT_BASIC_DATA_ATTRIBUTE_SHADOW_COPY: GPT_ATTRIBUTES =
-    GPT_ATTRIBUTES(2305843009213693952u64);
-pub const GPT_BASIC_DATA_ATTRIBUTE_READ_ONLY: GPT_ATTRIBUTES =
-    GPT_ATTRIBUTES(1152921504606846976u64);
-impl ::std::convert::From<u64> for GPT_ATTRIBUTES {
-    fn from(value: u64) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for GPT_ATTRIBUTES {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-impl ::std::ops::BitOr for GPT_ATTRIBUTES {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::std::ops::BitAnd for GPT_ATTRIBUTES {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::std::ops::BitOrAssign for GPT_ATTRIBUTES {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::std::ops::BitAndAssign for GPT_ATTRIBUTES {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::std::ops::Not for GPT_ATTRIBUTES {
     type Output = Self;
     fn not(self) -> Self {
         Self(self.0.not())
@@ -12138,6 +9055,7 @@ pub unsafe fn GetDiskFreeSpaceW<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDiskSpaceInformationA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
@@ -12162,6 +9080,7 @@ pub unsafe fn GetDiskSpaceInformationA<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDiskSpaceInformationW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -13196,6 +10115,7 @@ pub unsafe fn GetFullPathNameW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn GetIoRingInfo(ioring: *const HIORING__) -> ::windows::runtime::Result<IORING_INFO> {
     #[cfg(windows)]
     {
@@ -13589,7 +10509,7 @@ pub unsafe fn GetNotificationResourceManager<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetNotificationResourceManagerAsync<
     'a,
@@ -13599,7 +10519,7 @@ pub unsafe fn GetNotificationResourceManagerAsync<
     transactionnotification: *mut TRANSACTION_NOTIFICATION,
     transactionnotificationlength: u32,
     returnlength: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -13610,7 +10530,7 @@ pub unsafe fn GetNotificationResourceManagerAsync<
                 transactionnotification: *mut TRANSACTION_NOTIFICATION,
                 transactionnotificationlength: u32,
                 returnlength: *mut u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(GetNotificationResourceManagerAsync(
@@ -13619,80 +10539,6 @@ pub unsafe fn GetNotificationResourceManagerAsync<
             ::std::mem::transmute(transactionnotificationlength),
             ::std::mem::transmute(returnlength),
             ::std::mem::transmute(lpoverlapped),
-        ))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-#[inline]
-pub unsafe fn GetQueuedCompletionStatus<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    completionport: Param0,
-    lpnumberofbytestransferred: *mut u32,
-    lpcompletionkey: *mut usize,
-    lpoverlapped: *mut *mut super::super::System::SystemServices::OVERLAPPED,
-    dwmilliseconds: u32,
-) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetQueuedCompletionStatus(
-                completionport: super::super::Foundation::HANDLE,
-                lpnumberofbytestransferred: *mut u32,
-                lpcompletionkey: *mut usize,
-                lpoverlapped: *mut *mut super::super::System::SystemServices::OVERLAPPED,
-                dwmilliseconds: u32,
-            ) -> super::super::Foundation::BOOL;
-        }
-        ::std::mem::transmute(GetQueuedCompletionStatus(
-            completionport.into_param().abi(),
-            ::std::mem::transmute(lpnumberofbytestransferred),
-            ::std::mem::transmute(lpcompletionkey),
-            ::std::mem::transmute(lpoverlapped),
-            ::std::mem::transmute(dwmilliseconds),
-        ))
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-#[inline]
-pub unsafe fn GetQueuedCompletionStatusEx<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
->(
-    completionport: Param0,
-    lpcompletionportentries: *mut OVERLAPPED_ENTRY,
-    ulcount: u32,
-    ulnumentriesremoved: *mut u32,
-    dwmilliseconds: u32,
-    falertable: Param5,
-) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn GetQueuedCompletionStatusEx(
-                completionport: super::super::Foundation::HANDLE,
-                lpcompletionportentries: *mut OVERLAPPED_ENTRY,
-                ulcount: u32,
-                ulnumentriesremoved: *mut u32,
-                dwmilliseconds: u32,
-                falertable: super::super::Foundation::BOOL,
-            ) -> super::super::Foundation::BOOL;
-        }
-        ::std::mem::transmute(GetQueuedCompletionStatusEx(
-            completionport.into_param().abi(),
-            ::std::mem::transmute(lpcompletionportentries),
-            ::std::mem::transmute(ulcount),
-            ::std::mem::transmute(ulnumentriesremoved),
-            ::std::mem::transmute(dwmilliseconds),
-            falertable.into_param().abi(),
         ))
     }
     #[cfg(not(windows))]
@@ -15496,16 +12342,22 @@ pub struct IEnumDiskQuotaUsers_abi(
 pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
 pub const INVALID_SET_FILE_POINTER: u32 = 4294967295u32;
 pub const IOCTL_VOLUME_ALLOCATE_BC_STREAM: u32 = 5685312u32;
+pub const IOCTL_VOLUME_BASE: u32 = 86u32;
 pub const IOCTL_VOLUME_BC_VERSION: u32 = 1u32;
 pub const IOCTL_VOLUME_FREE_BC_STREAM: u32 = 5685316u32;
 pub const IOCTL_VOLUME_GET_BC_PROPERTIES: u32 = 5652540u32;
 pub const IOCTL_VOLUME_GET_CSVBLOCKCACHE_CALLBACK: u32 = 5685352u32;
+pub const IOCTL_VOLUME_GET_GPT_ATTRIBUTES: u32 = 5636152u32;
+pub const IOCTL_VOLUME_GET_VOLUME_DISK_EXTENTS: u32 = 5636096u32;
+pub const IOCTL_VOLUME_IS_CLUSTERED: u32 = 5636144u32;
 pub const IOCTL_VOLUME_IS_CSV: u32 = 5636192u32;
 pub const IOCTL_VOLUME_IS_DYNAMIC: u32 = 5636168u32;
 pub const IOCTL_VOLUME_IS_IO_CAPABLE: u32 = 5636116u32;
 pub const IOCTL_VOLUME_IS_OFFLINE: u32 = 5636112u32;
 pub const IOCTL_VOLUME_IS_PARTITION: u32 = 5636136u32;
 pub const IOCTL_VOLUME_LOGICAL_TO_PHYSICAL: u32 = 5636128u32;
+pub const IOCTL_VOLUME_OFFLINE: u32 = 5685260u32;
+pub const IOCTL_VOLUME_ONLINE: u32 = 5685256u32;
 pub const IOCTL_VOLUME_PHYSICAL_TO_LOGICAL: u32 = 5636132u32;
 pub const IOCTL_VOLUME_POST_ONLINE: u32 = 5685348u32;
 pub const IOCTL_VOLUME_PREPARE_FOR_CRITICAL_IO: u32 = 5685324u32;
@@ -16232,120 +13084,6 @@ unsafe impl ::windows::runtime::Abi for LOG_MANAGEMENT_CALLBACKS {
 }
 pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
 pub const LOG_POLICY_PERSIST: u32 = 2u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
-    pub OffsetToNext: u32,
-    pub Flags: u32,
-    pub Reserved: i64,
-    pub Cluster: i64,
-    pub FileName: [u16; 1],
-}
-impl LOOKUP_STREAM_FROM_CLUSTER_ENTRY {}
-impl ::std::default::Default for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LOOKUP_STREAM_FROM_CLUSTER_ENTRY")
-            .field("OffsetToNext", &self.OffsetToNext)
-            .field("Flags", &self.Flags)
-            .field("Reserved", &self.Reserved)
-            .field("Cluster", &self.Cluster)
-            .field("FileName", &self.FileName)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.OffsetToNext == other.OffsetToNext
-            && self.Flags == other.Flags
-            && self.Reserved == other.Reserved
-            && self.Cluster == other.Cluster
-            && self.FileName == other.FileName
-    }
-}
-impl ::std::cmp::Eq for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {}
-unsafe impl ::windows::runtime::Abi for LOOKUP_STREAM_FROM_CLUSTER_ENTRY {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct LOOKUP_STREAM_FROM_CLUSTER_INPUT {
-    pub Flags: u32,
-    pub NumberOfClusters: u32,
-    pub Cluster: [i64; 1],
-}
-impl LOOKUP_STREAM_FROM_CLUSTER_INPUT {}
-impl ::std::default::Default for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LOOKUP_STREAM_FROM_CLUSTER_INPUT")
-            .field("Flags", &self.Flags)
-            .field("NumberOfClusters", &self.NumberOfClusters)
-            .field("Cluster", &self.Cluster)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.NumberOfClusters == other.NumberOfClusters
-            && self.Cluster == other.Cluster
-    }
-}
-impl ::std::cmp::Eq for LOOKUP_STREAM_FROM_CLUSTER_INPUT {}
-unsafe impl ::windows::runtime::Abi for LOOKUP_STREAM_FROM_CLUSTER_INPUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
-    pub Offset: u32,
-    pub NumberOfMatches: u32,
-    pub BufferSizeRequired: u32,
-}
-impl LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {}
-impl ::std::default::Default for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("LOOKUP_STREAM_FROM_CLUSTER_OUTPUT")
-            .field("Offset", &self.Offset)
-            .field("NumberOfMatches", &self.NumberOfMatches)
-            .field("BufferSizeRequired", &self.BufferSizeRequired)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset
-            && self.NumberOfMatches == other.NumberOfMatches
-            && self.BufferSizeRequired == other.BufferSizeRequired
-    }
-}
-impl ::std::cmp::Eq for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for LOOKUP_STREAM_FROM_CLUSTER_OUTPUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-pub type LPOVERLAPPED_COMPLETION_ROUTINE = unsafe extern "system" fn(
-    dwerrorcode: u32,
-    dwnumberofbytestransfered: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
-);
 #[cfg(feature = "Win32_Foundation")]
 pub type LPPROGRESS_ROUTINE = unsafe extern "system" fn(
     totalfilesize: i64,
@@ -16535,7 +13273,7 @@ impl ::std::ops::Not for LZOPENFILE_STYLE {
         Self(self.0.not())
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LZOpenFileA<
     'a,
@@ -16564,7 +13302,7 @@ pub unsafe fn LZOpenFileA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LZOpenFileW<
     'a,
@@ -16699,7 +13437,7 @@ pub unsafe fn LockFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn LockFileEx<
     'a,
@@ -16710,7 +13448,7 @@ pub unsafe fn LockFileEx<
     dwreserved: u32,
     nnumberofbytestolocklow: u32,
     nnumberofbytestolockhigh: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -16722,7 +13460,7 @@ pub unsafe fn LockFileEx<
                 dwreserved: u32,
                 nnumberofbytestolocklow: u32,
                 nnumberofbytestolockhigh: u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(LockFileEx(
@@ -16929,269 +13667,10 @@ pub unsafe fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MARK_HANDLE_INFO {
-    pub Anonymous: MARK_HANDLE_INFO_0,
-    pub VolumeHandle: super::super::Foundation::HANDLE,
-    pub HandleInfo: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MARK_HANDLE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MARK_HANDLE_INFO {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MARK_HANDLE_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MARK_HANDLE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union MARK_HANDLE_INFO_0 {
-    pub UsnSourceInfo: u32,
-    pub CopyNumber: u32,
-}
-impl MARK_HANDLE_INFO_0 {}
-impl ::std::default::Default for MARK_HANDLE_INFO_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for MARK_HANDLE_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for MARK_HANDLE_INFO_0 {}
-unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct MARK_HANDLE_INFO32 {
-    pub Anonymous: MARK_HANDLE_INFO32_0,
-    pub VolumeHandle: u32,
-    pub HandleInfo: u32,
-}
-impl MARK_HANDLE_INFO32 {}
-impl ::std::default::Default for MARK_HANDLE_INFO32 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for MARK_HANDLE_INFO32 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for MARK_HANDLE_INFO32 {}
-unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO32 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union MARK_HANDLE_INFO32_0 {
-    pub UsnSourceInfo: u32,
-    pub CopyNumber: u32,
-}
-impl MARK_HANDLE_INFO32_0 {}
-impl ::std::default::Default for MARK_HANDLE_INFO32_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for MARK_HANDLE_INFO32_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for MARK_HANDLE_INFO32_0 {}
-unsafe impl ::windows::runtime::Abi for MARK_HANDLE_INFO32_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 pub type MAXMEDIALABEL = unsafe extern "system" fn(pmaxsize: *mut u32) -> u32;
 pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64u32;
 pub const MAX_SID_SIZE: u32 = 256u32;
 pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct MEDIA_TYPE(pub i32);
-pub const Unknown: MEDIA_TYPE = MEDIA_TYPE(0i32);
-pub const F5_1Pt2_512: MEDIA_TYPE = MEDIA_TYPE(1i32);
-pub const F3_1Pt44_512: MEDIA_TYPE = MEDIA_TYPE(2i32);
-pub const F3_2Pt88_512: MEDIA_TYPE = MEDIA_TYPE(3i32);
-pub const F3_20Pt8_512: MEDIA_TYPE = MEDIA_TYPE(4i32);
-pub const F3_720_512: MEDIA_TYPE = MEDIA_TYPE(5i32);
-pub const F5_360_512: MEDIA_TYPE = MEDIA_TYPE(6i32);
-pub const F5_320_512: MEDIA_TYPE = MEDIA_TYPE(7i32);
-pub const F5_320_1024: MEDIA_TYPE = MEDIA_TYPE(8i32);
-pub const F5_180_512: MEDIA_TYPE = MEDIA_TYPE(9i32);
-pub const F5_160_512: MEDIA_TYPE = MEDIA_TYPE(10i32);
-pub const RemovableMedia: MEDIA_TYPE = MEDIA_TYPE(11i32);
-pub const FixedMedia: MEDIA_TYPE = MEDIA_TYPE(12i32);
-pub const F3_120M_512: MEDIA_TYPE = MEDIA_TYPE(13i32);
-pub const F3_640_512: MEDIA_TYPE = MEDIA_TYPE(14i32);
-pub const F5_640_512: MEDIA_TYPE = MEDIA_TYPE(15i32);
-pub const F5_720_512: MEDIA_TYPE = MEDIA_TYPE(16i32);
-pub const F3_1Pt2_512: MEDIA_TYPE = MEDIA_TYPE(17i32);
-pub const F3_1Pt23_1024: MEDIA_TYPE = MEDIA_TYPE(18i32);
-pub const F5_1Pt23_1024: MEDIA_TYPE = MEDIA_TYPE(19i32);
-pub const F3_128Mb_512: MEDIA_TYPE = MEDIA_TYPE(20i32);
-pub const F3_230Mb_512: MEDIA_TYPE = MEDIA_TYPE(21i32);
-pub const F8_256_128: MEDIA_TYPE = MEDIA_TYPE(22i32);
-pub const F3_200Mb_512: MEDIA_TYPE = MEDIA_TYPE(23i32);
-pub const F3_240M_512: MEDIA_TYPE = MEDIA_TYPE(24i32);
-pub const F3_32M_512: MEDIA_TYPE = MEDIA_TYPE(25i32);
-impl ::std::convert::From<i32> for MEDIA_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for MEDIA_TYPE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct MFT_ENUM_DATA_V0 {
-    pub StartFileReferenceNumber: u64,
-    pub LowUsn: i64,
-    pub HighUsn: i64,
-}
-impl MFT_ENUM_DATA_V0 {}
-impl ::std::default::Default for MFT_ENUM_DATA_V0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for MFT_ENUM_DATA_V0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MFT_ENUM_DATA_V0")
-            .field("StartFileReferenceNumber", &self.StartFileReferenceNumber)
-            .field("LowUsn", &self.LowUsn)
-            .field("HighUsn", &self.HighUsn)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for MFT_ENUM_DATA_V0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartFileReferenceNumber == other.StartFileReferenceNumber
-            && self.LowUsn == other.LowUsn
-            && self.HighUsn == other.HighUsn
-    }
-}
-impl ::std::cmp::Eq for MFT_ENUM_DATA_V0 {}
-unsafe impl ::windows::runtime::Abi for MFT_ENUM_DATA_V0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct MFT_ENUM_DATA_V1 {
-    pub StartFileReferenceNumber: u64,
-    pub LowUsn: i64,
-    pub HighUsn: i64,
-    pub MinMajorVersion: u16,
-    pub MaxMajorVersion: u16,
-}
-impl MFT_ENUM_DATA_V1 {}
-impl ::std::default::Default for MFT_ENUM_DATA_V1 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for MFT_ENUM_DATA_V1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MFT_ENUM_DATA_V1")
-            .field("StartFileReferenceNumber", &self.StartFileReferenceNumber)
-            .field("LowUsn", &self.LowUsn)
-            .field("HighUsn", &self.HighUsn)
-            .field("MinMajorVersion", &self.MinMajorVersion)
-            .field("MaxMajorVersion", &self.MaxMajorVersion)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for MFT_ENUM_DATA_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartFileReferenceNumber == other.StartFileReferenceNumber
-            && self.LowUsn == other.LowUsn
-            && self.HighUsn == other.HighUsn
-            && self.MinMajorVersion == other.MinMajorVersion
-            && self.MaxMajorVersion == other.MaxMajorVersion
-    }
-}
-impl ::std::cmp::Eq for MFT_ENUM_DATA_V1 {}
-unsafe impl ::windows::runtime::Abi for MFT_ENUM_DATA_V1 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct MOVE_FILE_DATA {
-    pub FileHandle: super::super::Foundation::HANDLE,
-    pub StartingVcn: i64,
-    pub StartingLcn: i64,
-    pub ClusterCount: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl MOVE_FILE_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for MOVE_FILE_DATA {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for MOVE_FILE_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("MOVE_FILE_DATA")
-            .field("FileHandle", &self.FileHandle)
-            .field("StartingVcn", &self.StartingVcn)
-            .field("StartingLcn", &self.StartingLcn)
-            .field("ClusterCount", &self.ClusterCount)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for MOVE_FILE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileHandle == other.FileHandle
-            && self.StartingVcn == other.StartingVcn
-            && self.StartingLcn == other.StartingLcn
-            && self.ClusterCount == other.ClusterCount
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for MOVE_FILE_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for MOVE_FILE_DATA {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[derive(
     :: std :: cmp :: PartialEq,
     :: std :: cmp :: Eq,
@@ -17603,998 +14082,6 @@ unsafe impl ::windows::runtime::Abi for NAME_CACHE_CONTEXT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_EXTENDED_VOLUME_DATA {
-    pub ByteCount: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub BytesPerPhysicalSector: u32,
-    pub LfsMajorVersion: u16,
-    pub LfsMinorVersion: u16,
-    pub MaxDeviceTrimExtentCount: u32,
-    pub MaxDeviceTrimByteCount: u32,
-    pub MaxVolumeTrimExtentCount: u32,
-    pub MaxVolumeTrimByteCount: u32,
-}
-impl NTFS_EXTENDED_VOLUME_DATA {}
-impl ::std::default::Default for NTFS_EXTENDED_VOLUME_DATA {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_EXTENDED_VOLUME_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NTFS_EXTENDED_VOLUME_DATA")
-            .field("ByteCount", &self.ByteCount)
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("BytesPerPhysicalSector", &self.BytesPerPhysicalSector)
-            .field("LfsMajorVersion", &self.LfsMajorVersion)
-            .field("LfsMinorVersion", &self.LfsMinorVersion)
-            .field("MaxDeviceTrimExtentCount", &self.MaxDeviceTrimExtentCount)
-            .field("MaxDeviceTrimByteCount", &self.MaxDeviceTrimByteCount)
-            .field("MaxVolumeTrimExtentCount", &self.MaxVolumeTrimExtentCount)
-            .field("MaxVolumeTrimByteCount", &self.MaxVolumeTrimByteCount)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_EXTENDED_VOLUME_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ByteCount == other.ByteCount
-            && self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.BytesPerPhysicalSector == other.BytesPerPhysicalSector
-            && self.LfsMajorVersion == other.LfsMajorVersion
-            && self.LfsMinorVersion == other.LfsMinorVersion
-            && self.MaxDeviceTrimExtentCount == other.MaxDeviceTrimExtentCount
-            && self.MaxDeviceTrimByteCount == other.MaxDeviceTrimByteCount
-            && self.MaxVolumeTrimExtentCount == other.MaxVolumeTrimExtentCount
-            && self.MaxVolumeTrimByteCount == other.MaxVolumeTrimByteCount
-    }
-}
-impl ::std::cmp::Eq for NTFS_EXTENDED_VOLUME_DATA {}
-unsafe impl ::windows::runtime::Abi for NTFS_EXTENDED_VOLUME_DATA {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_FILE_RECORD_INPUT_BUFFER {
-    pub FileReferenceNumber: i64,
-}
-impl NTFS_FILE_RECORD_INPUT_BUFFER {}
-impl ::std::default::Default for NTFS_FILE_RECORD_INPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_FILE_RECORD_INPUT_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NTFS_FILE_RECORD_INPUT_BUFFER")
-            .field("FileReferenceNumber", &self.FileReferenceNumber)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_FILE_RECORD_INPUT_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileReferenceNumber == other.FileReferenceNumber
-    }
-}
-impl ::std::cmp::Eq for NTFS_FILE_RECORD_INPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for NTFS_FILE_RECORD_INPUT_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_FILE_RECORD_OUTPUT_BUFFER {
-    pub FileReferenceNumber: i64,
-    pub FileRecordLength: u32,
-    pub FileRecordBuffer: [u8; 1],
-}
-impl NTFS_FILE_RECORD_OUTPUT_BUFFER {}
-impl ::std::default::Default for NTFS_FILE_RECORD_OUTPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_FILE_RECORD_OUTPUT_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NTFS_FILE_RECORD_OUTPUT_BUFFER")
-            .field("FileReferenceNumber", &self.FileReferenceNumber)
-            .field("FileRecordLength", &self.FileRecordLength)
-            .field("FileRecordBuffer", &self.FileRecordBuffer)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_FILE_RECORD_OUTPUT_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileReferenceNumber == other.FileReferenceNumber
-            && self.FileRecordLength == other.FileRecordLength
-            && self.FileRecordBuffer == other.FileRecordBuffer
-    }
-}
-impl ::std::cmp::Eq for NTFS_FILE_RECORD_OUTPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for NTFS_FILE_RECORD_OUTPUT_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_STATISTICS {
-    pub LogFileFullExceptions: u32,
-    pub OtherExceptions: u32,
-    pub MftReads: u32,
-    pub MftReadBytes: u32,
-    pub MftWrites: u32,
-    pub MftWriteBytes: u32,
-    pub MftWritesUserLevel: NTFS_STATISTICS_4,
-    pub MftWritesFlushForLogFileFull: u16,
-    pub MftWritesLazyWriter: u16,
-    pub MftWritesUserRequest: u16,
-    pub Mft2Writes: u32,
-    pub Mft2WriteBytes: u32,
-    pub Mft2WritesUserLevel: NTFS_STATISTICS_2,
-    pub Mft2WritesFlushForLogFileFull: u16,
-    pub Mft2WritesLazyWriter: u16,
-    pub Mft2WritesUserRequest: u16,
-    pub RootIndexReads: u32,
-    pub RootIndexReadBytes: u32,
-    pub RootIndexWrites: u32,
-    pub RootIndexWriteBytes: u32,
-    pub BitmapReads: u32,
-    pub BitmapReadBytes: u32,
-    pub BitmapWrites: u32,
-    pub BitmapWriteBytes: u32,
-    pub BitmapWritesFlushForLogFileFull: u16,
-    pub BitmapWritesLazyWriter: u16,
-    pub BitmapWritesUserRequest: u16,
-    pub BitmapWritesUserLevel: NTFS_STATISTICS_1,
-    pub MftBitmapReads: u32,
-    pub MftBitmapReadBytes: u32,
-    pub MftBitmapWrites: u32,
-    pub MftBitmapWriteBytes: u32,
-    pub MftBitmapWritesFlushForLogFileFull: u16,
-    pub MftBitmapWritesLazyWriter: u16,
-    pub MftBitmapWritesUserRequest: u16,
-    pub MftBitmapWritesUserLevel: NTFS_STATISTICS_3,
-    pub UserIndexReads: u32,
-    pub UserIndexReadBytes: u32,
-    pub UserIndexWrites: u32,
-    pub UserIndexWriteBytes: u32,
-    pub LogFileReads: u32,
-    pub LogFileReadBytes: u32,
-    pub LogFileWrites: u32,
-    pub LogFileWriteBytes: u32,
-    pub Allocate: NTFS_STATISTICS_0,
-    pub DiskResourcesExhausted: u32,
-}
-impl NTFS_STATISTICS {}
-impl ::std::default::Default for NTFS_STATISTICS {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_STATISTICS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NTFS_STATISTICS")
-            .field("LogFileFullExceptions", &self.LogFileFullExceptions)
-            .field("OtherExceptions", &self.OtherExceptions)
-            .field("MftReads", &self.MftReads)
-            .field("MftReadBytes", &self.MftReadBytes)
-            .field("MftWrites", &self.MftWrites)
-            .field("MftWriteBytes", &self.MftWriteBytes)
-            .field("MftWritesUserLevel", &self.MftWritesUserLevel)
-            .field(
-                "MftWritesFlushForLogFileFull",
-                &self.MftWritesFlushForLogFileFull,
-            )
-            .field("MftWritesLazyWriter", &self.MftWritesLazyWriter)
-            .field("MftWritesUserRequest", &self.MftWritesUserRequest)
-            .field("Mft2Writes", &self.Mft2Writes)
-            .field("Mft2WriteBytes", &self.Mft2WriteBytes)
-            .field("Mft2WritesUserLevel", &self.Mft2WritesUserLevel)
-            .field(
-                "Mft2WritesFlushForLogFileFull",
-                &self.Mft2WritesFlushForLogFileFull,
-            )
-            .field("Mft2WritesLazyWriter", &self.Mft2WritesLazyWriter)
-            .field("Mft2WritesUserRequest", &self.Mft2WritesUserRequest)
-            .field("RootIndexReads", &self.RootIndexReads)
-            .field("RootIndexReadBytes", &self.RootIndexReadBytes)
-            .field("RootIndexWrites", &self.RootIndexWrites)
-            .field("RootIndexWriteBytes", &self.RootIndexWriteBytes)
-            .field("BitmapReads", &self.BitmapReads)
-            .field("BitmapReadBytes", &self.BitmapReadBytes)
-            .field("BitmapWrites", &self.BitmapWrites)
-            .field("BitmapWriteBytes", &self.BitmapWriteBytes)
-            .field(
-                "BitmapWritesFlushForLogFileFull",
-                &self.BitmapWritesFlushForLogFileFull,
-            )
-            .field("BitmapWritesLazyWriter", &self.BitmapWritesLazyWriter)
-            .field("BitmapWritesUserRequest", &self.BitmapWritesUserRequest)
-            .field("BitmapWritesUserLevel", &self.BitmapWritesUserLevel)
-            .field("MftBitmapReads", &self.MftBitmapReads)
-            .field("MftBitmapReadBytes", &self.MftBitmapReadBytes)
-            .field("MftBitmapWrites", &self.MftBitmapWrites)
-            .field("MftBitmapWriteBytes", &self.MftBitmapWriteBytes)
-            .field(
-                "MftBitmapWritesFlushForLogFileFull",
-                &self.MftBitmapWritesFlushForLogFileFull,
-            )
-            .field("MftBitmapWritesLazyWriter", &self.MftBitmapWritesLazyWriter)
-            .field(
-                "MftBitmapWritesUserRequest",
-                &self.MftBitmapWritesUserRequest,
-            )
-            .field("MftBitmapWritesUserLevel", &self.MftBitmapWritesUserLevel)
-            .field("UserIndexReads", &self.UserIndexReads)
-            .field("UserIndexReadBytes", &self.UserIndexReadBytes)
-            .field("UserIndexWrites", &self.UserIndexWrites)
-            .field("UserIndexWriteBytes", &self.UserIndexWriteBytes)
-            .field("LogFileReads", &self.LogFileReads)
-            .field("LogFileReadBytes", &self.LogFileReadBytes)
-            .field("LogFileWrites", &self.LogFileWrites)
-            .field("LogFileWriteBytes", &self.LogFileWriteBytes)
-            .field("Allocate", &self.Allocate)
-            .field("DiskResourcesExhausted", &self.DiskResourcesExhausted)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_STATISTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.LogFileFullExceptions == other.LogFileFullExceptions
-            && self.OtherExceptions == other.OtherExceptions
-            && self.MftReads == other.MftReads
-            && self.MftReadBytes == other.MftReadBytes
-            && self.MftWrites == other.MftWrites
-            && self.MftWriteBytes == other.MftWriteBytes
-            && self.MftWritesUserLevel == other.MftWritesUserLevel
-            && self.MftWritesFlushForLogFileFull == other.MftWritesFlushForLogFileFull
-            && self.MftWritesLazyWriter == other.MftWritesLazyWriter
-            && self.MftWritesUserRequest == other.MftWritesUserRequest
-            && self.Mft2Writes == other.Mft2Writes
-            && self.Mft2WriteBytes == other.Mft2WriteBytes
-            && self.Mft2WritesUserLevel == other.Mft2WritesUserLevel
-            && self.Mft2WritesFlushForLogFileFull == other.Mft2WritesFlushForLogFileFull
-            && self.Mft2WritesLazyWriter == other.Mft2WritesLazyWriter
-            && self.Mft2WritesUserRequest == other.Mft2WritesUserRequest
-            && self.RootIndexReads == other.RootIndexReads
-            && self.RootIndexReadBytes == other.RootIndexReadBytes
-            && self.RootIndexWrites == other.RootIndexWrites
-            && self.RootIndexWriteBytes == other.RootIndexWriteBytes
-            && self.BitmapReads == other.BitmapReads
-            && self.BitmapReadBytes == other.BitmapReadBytes
-            && self.BitmapWrites == other.BitmapWrites
-            && self.BitmapWriteBytes == other.BitmapWriteBytes
-            && self.BitmapWritesFlushForLogFileFull == other.BitmapWritesFlushForLogFileFull
-            && self.BitmapWritesLazyWriter == other.BitmapWritesLazyWriter
-            && self.BitmapWritesUserRequest == other.BitmapWritesUserRequest
-            && self.BitmapWritesUserLevel == other.BitmapWritesUserLevel
-            && self.MftBitmapReads == other.MftBitmapReads
-            && self.MftBitmapReadBytes == other.MftBitmapReadBytes
-            && self.MftBitmapWrites == other.MftBitmapWrites
-            && self.MftBitmapWriteBytes == other.MftBitmapWriteBytes
-            && self.MftBitmapWritesFlushForLogFileFull == other.MftBitmapWritesFlushForLogFileFull
-            && self.MftBitmapWritesLazyWriter == other.MftBitmapWritesLazyWriter
-            && self.MftBitmapWritesUserRequest == other.MftBitmapWritesUserRequest
-            && self.MftBitmapWritesUserLevel == other.MftBitmapWritesUserLevel
-            && self.UserIndexReads == other.UserIndexReads
-            && self.UserIndexReadBytes == other.UserIndexReadBytes
-            && self.UserIndexWrites == other.UserIndexWrites
-            && self.UserIndexWriteBytes == other.UserIndexWriteBytes
-            && self.LogFileReads == other.LogFileReads
-            && self.LogFileReadBytes == other.LogFileReadBytes
-            && self.LogFileWrites == other.LogFileWrites
-            && self.LogFileWriteBytes == other.LogFileWriteBytes
-            && self.Allocate == other.Allocate
-            && self.DiskResourcesExhausted == other.DiskResourcesExhausted
-    }
-}
-impl ::std::cmp::Eq for NTFS_STATISTICS {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_STATISTICS_0 {
-    pub Calls: u32,
-    pub Clusters: u32,
-    pub Hints: u32,
-    pub RunsReturned: u32,
-    pub HintsHonored: u32,
-    pub HintsClusters: u32,
-    pub Cache: u32,
-    pub CacheClusters: u32,
-    pub CacheMiss: u32,
-    pub CacheMissClusters: u32,
-}
-impl NTFS_STATISTICS_0 {}
-impl ::std::default::Default for NTFS_STATISTICS_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_STATISTICS_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Allocate_e__Struct")
-            .field("Calls", &self.Calls)
-            .field("Clusters", &self.Clusters)
-            .field("Hints", &self.Hints)
-            .field("RunsReturned", &self.RunsReturned)
-            .field("HintsHonored", &self.HintsHonored)
-            .field("HintsClusters", &self.HintsClusters)
-            .field("Cache", &self.Cache)
-            .field("CacheClusters", &self.CacheClusters)
-            .field("CacheMiss", &self.CacheMiss)
-            .field("CacheMissClusters", &self.CacheMissClusters)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_STATISTICS_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Calls == other.Calls
-            && self.Clusters == other.Clusters
-            && self.Hints == other.Hints
-            && self.RunsReturned == other.RunsReturned
-            && self.HintsHonored == other.HintsHonored
-            && self.HintsClusters == other.HintsClusters
-            && self.Cache == other.Cache
-            && self.CacheClusters == other.CacheClusters
-            && self.CacheMiss == other.CacheMiss
-            && self.CacheMissClusters == other.CacheMissClusters
-    }
-}
-impl ::std::cmp::Eq for NTFS_STATISTICS_0 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_STATISTICS_1 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
-}
-impl NTFS_STATISTICS_1 {}
-impl ::std::default::Default for NTFS_STATISTICS_1 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_STATISTICS_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_BitmapWritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_STATISTICS_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write && self.Create == other.Create && self.SetInfo == other.SetInfo
-    }
-}
-impl ::std::cmp::Eq for NTFS_STATISTICS_1 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_1 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_STATISTICS_2 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
-    pub Flush: u16,
-}
-impl NTFS_STATISTICS_2 {}
-impl ::std::default::Default for NTFS_STATISTICS_2 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_STATISTICS_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Mft2WritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_STATISTICS_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
-    }
-}
-impl ::std::cmp::Eq for NTFS_STATISTICS_2 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_2 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_STATISTICS_3 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
-    pub Flush: u16,
-}
-impl NTFS_STATISTICS_3 {}
-impl ::std::default::Default for NTFS_STATISTICS_3 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_STATISTICS_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_MftBitmapWritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_STATISTICS_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
-    }
-}
-impl ::std::cmp::Eq for NTFS_STATISTICS_3 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_3 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_STATISTICS_4 {
-    pub Write: u16,
-    pub Create: u16,
-    pub SetInfo: u16,
-    pub Flush: u16,
-}
-impl NTFS_STATISTICS_4 {}
-impl ::std::default::Default for NTFS_STATISTICS_4 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_STATISTICS_4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_MftWritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_STATISTICS_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
-    }
-}
-impl ::std::cmp::Eq for NTFS_STATISTICS_4 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_4 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_STATISTICS_EX {
-    pub LogFileFullExceptions: u32,
-    pub OtherExceptions: u32,
-    pub MftReads: u64,
-    pub MftReadBytes: u64,
-    pub MftWrites: u64,
-    pub MftWriteBytes: u64,
-    pub MftWritesUserLevel: NTFS_STATISTICS_EX_4,
-    pub MftWritesFlushForLogFileFull: u32,
-    pub MftWritesLazyWriter: u32,
-    pub MftWritesUserRequest: u32,
-    pub Mft2Writes: u64,
-    pub Mft2WriteBytes: u64,
-    pub Mft2WritesUserLevel: NTFS_STATISTICS_EX_2,
-    pub Mft2WritesFlushForLogFileFull: u32,
-    pub Mft2WritesLazyWriter: u32,
-    pub Mft2WritesUserRequest: u32,
-    pub RootIndexReads: u64,
-    pub RootIndexReadBytes: u64,
-    pub RootIndexWrites: u64,
-    pub RootIndexWriteBytes: u64,
-    pub BitmapReads: u64,
-    pub BitmapReadBytes: u64,
-    pub BitmapWrites: u64,
-    pub BitmapWriteBytes: u64,
-    pub BitmapWritesFlushForLogFileFull: u32,
-    pub BitmapWritesLazyWriter: u32,
-    pub BitmapWritesUserRequest: u32,
-    pub BitmapWritesUserLevel: NTFS_STATISTICS_EX_1,
-    pub MftBitmapReads: u64,
-    pub MftBitmapReadBytes: u64,
-    pub MftBitmapWrites: u64,
-    pub MftBitmapWriteBytes: u64,
-    pub MftBitmapWritesFlushForLogFileFull: u32,
-    pub MftBitmapWritesLazyWriter: u32,
-    pub MftBitmapWritesUserRequest: u32,
-    pub MftBitmapWritesUserLevel: NTFS_STATISTICS_EX_3,
-    pub UserIndexReads: u64,
-    pub UserIndexReadBytes: u64,
-    pub UserIndexWrites: u64,
-    pub UserIndexWriteBytes: u64,
-    pub LogFileReads: u64,
-    pub LogFileReadBytes: u64,
-    pub LogFileWrites: u64,
-    pub LogFileWriteBytes: u64,
-    pub Allocate: NTFS_STATISTICS_EX_0,
-    pub DiskResourcesExhausted: u32,
-    pub VolumeTrimCount: u64,
-    pub VolumeTrimTime: u64,
-    pub VolumeTrimByteCount: u64,
-    pub FileLevelTrimCount: u64,
-    pub FileLevelTrimTime: u64,
-    pub FileLevelTrimByteCount: u64,
-    pub VolumeTrimSkippedCount: u64,
-    pub VolumeTrimSkippedByteCount: u64,
-    pub NtfsFillStatInfoFromMftRecordCalledCount: u64,
-    pub NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount: u64,
-    pub NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount: u64,
-}
-impl NTFS_STATISTICS_EX {}
-impl ::std::default::Default for NTFS_STATISTICS_EX {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_STATISTICS_EX {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NTFS_STATISTICS_EX")
-            .field("LogFileFullExceptions", &self.LogFileFullExceptions)
-            .field("OtherExceptions", &self.OtherExceptions)
-            .field("MftReads", &self.MftReads)
-            .field("MftReadBytes", &self.MftReadBytes)
-            .field("MftWrites", &self.MftWrites)
-            .field("MftWriteBytes", &self.MftWriteBytes)
-            .field("MftWritesUserLevel", &self.MftWritesUserLevel)
-            .field(
-                "MftWritesFlushForLogFileFull",
-                &self.MftWritesFlushForLogFileFull,
-            )
-            .field("MftWritesLazyWriter", &self.MftWritesLazyWriter)
-            .field("MftWritesUserRequest", &self.MftWritesUserRequest)
-            .field("Mft2Writes", &self.Mft2Writes)
-            .field("Mft2WriteBytes", &self.Mft2WriteBytes)
-            .field("Mft2WritesUserLevel", &self.Mft2WritesUserLevel)
-            .field(
-                "Mft2WritesFlushForLogFileFull",
-                &self.Mft2WritesFlushForLogFileFull,
-            )
-            .field("Mft2WritesLazyWriter", &self.Mft2WritesLazyWriter)
-            .field("Mft2WritesUserRequest", &self.Mft2WritesUserRequest)
-            .field("RootIndexReads", &self.RootIndexReads)
-            .field("RootIndexReadBytes", &self.RootIndexReadBytes)
-            .field("RootIndexWrites", &self.RootIndexWrites)
-            .field("RootIndexWriteBytes", &self.RootIndexWriteBytes)
-            .field("BitmapReads", &self.BitmapReads)
-            .field("BitmapReadBytes", &self.BitmapReadBytes)
-            .field("BitmapWrites", &self.BitmapWrites)
-            .field("BitmapWriteBytes", &self.BitmapWriteBytes)
-            .field(
-                "BitmapWritesFlushForLogFileFull",
-                &self.BitmapWritesFlushForLogFileFull,
-            )
-            .field("BitmapWritesLazyWriter", &self.BitmapWritesLazyWriter)
-            .field("BitmapWritesUserRequest", &self.BitmapWritesUserRequest)
-            .field("BitmapWritesUserLevel", &self.BitmapWritesUserLevel)
-            .field("MftBitmapReads", &self.MftBitmapReads)
-            .field("MftBitmapReadBytes", &self.MftBitmapReadBytes)
-            .field("MftBitmapWrites", &self.MftBitmapWrites)
-            .field("MftBitmapWriteBytes", &self.MftBitmapWriteBytes)
-            .field(
-                "MftBitmapWritesFlushForLogFileFull",
-                &self.MftBitmapWritesFlushForLogFileFull,
-            )
-            .field("MftBitmapWritesLazyWriter", &self.MftBitmapWritesLazyWriter)
-            .field(
-                "MftBitmapWritesUserRequest",
-                &self.MftBitmapWritesUserRequest,
-            )
-            .field("MftBitmapWritesUserLevel", &self.MftBitmapWritesUserLevel)
-            .field("UserIndexReads", &self.UserIndexReads)
-            .field("UserIndexReadBytes", &self.UserIndexReadBytes)
-            .field("UserIndexWrites", &self.UserIndexWrites)
-            .field("UserIndexWriteBytes", &self.UserIndexWriteBytes)
-            .field("LogFileReads", &self.LogFileReads)
-            .field("LogFileReadBytes", &self.LogFileReadBytes)
-            .field("LogFileWrites", &self.LogFileWrites)
-            .field("LogFileWriteBytes", &self.LogFileWriteBytes)
-            .field("Allocate", &self.Allocate)
-            .field("DiskResourcesExhausted", &self.DiskResourcesExhausted)
-            .field("VolumeTrimCount", &self.VolumeTrimCount)
-            .field("VolumeTrimTime", &self.VolumeTrimTime)
-            .field("VolumeTrimByteCount", &self.VolumeTrimByteCount)
-            .field("FileLevelTrimCount", &self.FileLevelTrimCount)
-            .field("FileLevelTrimTime", &self.FileLevelTrimTime)
-            .field("FileLevelTrimByteCount", &self.FileLevelTrimByteCount)
-            .field("VolumeTrimSkippedCount", &self.VolumeTrimSkippedCount)
-            .field(
-                "VolumeTrimSkippedByteCount",
-                &self.VolumeTrimSkippedByteCount,
-            )
-            .field(
-                "NtfsFillStatInfoFromMftRecordCalledCount",
-                &self.NtfsFillStatInfoFromMftRecordCalledCount,
-            )
-            .field(
-                "NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount",
-                &self.NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount,
-            )
-            .field(
-                "NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount",
-                &self.NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount,
-            )
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_STATISTICS_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.LogFileFullExceptions == other.LogFileFullExceptions
-            && self.OtherExceptions == other.OtherExceptions
-            && self.MftReads == other.MftReads
-            && self.MftReadBytes == other.MftReadBytes
-            && self.MftWrites == other.MftWrites
-            && self.MftWriteBytes == other.MftWriteBytes
-            && self.MftWritesUserLevel == other.MftWritesUserLevel
-            && self.MftWritesFlushForLogFileFull == other.MftWritesFlushForLogFileFull
-            && self.MftWritesLazyWriter == other.MftWritesLazyWriter
-            && self.MftWritesUserRequest == other.MftWritesUserRequest
-            && self.Mft2Writes == other.Mft2Writes
-            && self.Mft2WriteBytes == other.Mft2WriteBytes
-            && self.Mft2WritesUserLevel == other.Mft2WritesUserLevel
-            && self.Mft2WritesFlushForLogFileFull == other.Mft2WritesFlushForLogFileFull
-            && self.Mft2WritesLazyWriter == other.Mft2WritesLazyWriter
-            && self.Mft2WritesUserRequest == other.Mft2WritesUserRequest
-            && self.RootIndexReads == other.RootIndexReads
-            && self.RootIndexReadBytes == other.RootIndexReadBytes
-            && self.RootIndexWrites == other.RootIndexWrites
-            && self.RootIndexWriteBytes == other.RootIndexWriteBytes
-            && self.BitmapReads == other.BitmapReads
-            && self.BitmapReadBytes == other.BitmapReadBytes
-            && self.BitmapWrites == other.BitmapWrites
-            && self.BitmapWriteBytes == other.BitmapWriteBytes
-            && self.BitmapWritesFlushForLogFileFull == other.BitmapWritesFlushForLogFileFull
-            && self.BitmapWritesLazyWriter == other.BitmapWritesLazyWriter
-            && self.BitmapWritesUserRequest == other.BitmapWritesUserRequest
-            && self.BitmapWritesUserLevel == other.BitmapWritesUserLevel
-            && self.MftBitmapReads == other.MftBitmapReads
-            && self.MftBitmapReadBytes == other.MftBitmapReadBytes
-            && self.MftBitmapWrites == other.MftBitmapWrites
-            && self.MftBitmapWriteBytes == other.MftBitmapWriteBytes
-            && self.MftBitmapWritesFlushForLogFileFull == other.MftBitmapWritesFlushForLogFileFull
-            && self.MftBitmapWritesLazyWriter == other.MftBitmapWritesLazyWriter
-            && self.MftBitmapWritesUserRequest == other.MftBitmapWritesUserRequest
-            && self.MftBitmapWritesUserLevel == other.MftBitmapWritesUserLevel
-            && self.UserIndexReads == other.UserIndexReads
-            && self.UserIndexReadBytes == other.UserIndexReadBytes
-            && self.UserIndexWrites == other.UserIndexWrites
-            && self.UserIndexWriteBytes == other.UserIndexWriteBytes
-            && self.LogFileReads == other.LogFileReads
-            && self.LogFileReadBytes == other.LogFileReadBytes
-            && self.LogFileWrites == other.LogFileWrites
-            && self.LogFileWriteBytes == other.LogFileWriteBytes
-            && self.Allocate == other.Allocate
-            && self.DiskResourcesExhausted == other.DiskResourcesExhausted
-            && self.VolumeTrimCount == other.VolumeTrimCount
-            && self.VolumeTrimTime == other.VolumeTrimTime
-            && self.VolumeTrimByteCount == other.VolumeTrimByteCount
-            && self.FileLevelTrimCount == other.FileLevelTrimCount
-            && self.FileLevelTrimTime == other.FileLevelTrimTime
-            && self.FileLevelTrimByteCount == other.FileLevelTrimByteCount
-            && self.VolumeTrimSkippedCount == other.VolumeTrimSkippedCount
-            && self.VolumeTrimSkippedByteCount == other.VolumeTrimSkippedByteCount
-            && self.NtfsFillStatInfoFromMftRecordCalledCount
-                == other.NtfsFillStatInfoFromMftRecordCalledCount
-            && self.NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount
-                == other.NtfsFillStatInfoFromMftRecordBailedBecauseOfAttributeListCount
-            && self.NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount
-                == other.NtfsFillStatInfoFromMftRecordBailedBecauseOfNonResReparsePointCount
-    }
-}
-impl ::std::cmp::Eq for NTFS_STATISTICS_EX {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_STATISTICS_EX_0 {
-    pub Calls: u32,
-    pub RunsReturned: u32,
-    pub Hints: u32,
-    pub HintsHonored: u32,
-    pub Cache: u32,
-    pub CacheMiss: u32,
-    pub Clusters: u64,
-    pub HintsClusters: u64,
-    pub CacheClusters: u64,
-    pub CacheMissClusters: u64,
-}
-impl NTFS_STATISTICS_EX_0 {}
-impl ::std::default::Default for NTFS_STATISTICS_EX_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_STATISTICS_EX_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Allocate_e__Struct")
-            .field("Calls", &self.Calls)
-            .field("RunsReturned", &self.RunsReturned)
-            .field("Hints", &self.Hints)
-            .field("HintsHonored", &self.HintsHonored)
-            .field("Cache", &self.Cache)
-            .field("CacheMiss", &self.CacheMiss)
-            .field("Clusters", &self.Clusters)
-            .field("HintsClusters", &self.HintsClusters)
-            .field("CacheClusters", &self.CacheClusters)
-            .field("CacheMissClusters", &self.CacheMissClusters)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_STATISTICS_EX_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Calls == other.Calls
-            && self.RunsReturned == other.RunsReturned
-            && self.Hints == other.Hints
-            && self.HintsHonored == other.HintsHonored
-            && self.Cache == other.Cache
-            && self.CacheMiss == other.CacheMiss
-            && self.Clusters == other.Clusters
-            && self.HintsClusters == other.HintsClusters
-            && self.CacheClusters == other.CacheClusters
-            && self.CacheMissClusters == other.CacheMissClusters
-    }
-}
-impl ::std::cmp::Eq for NTFS_STATISTICS_EX_0 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_STATISTICS_EX_1 {
-    pub Write: u32,
-    pub Create: u32,
-    pub SetInfo: u32,
-    pub Flush: u32,
-}
-impl NTFS_STATISTICS_EX_1 {}
-impl ::std::default::Default for NTFS_STATISTICS_EX_1 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_STATISTICS_EX_1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_BitmapWritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_STATISTICS_EX_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
-    }
-}
-impl ::std::cmp::Eq for NTFS_STATISTICS_EX_1 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_1 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_STATISTICS_EX_2 {
-    pub Write: u32,
-    pub Create: u32,
-    pub SetInfo: u32,
-    pub Flush: u32,
-}
-impl NTFS_STATISTICS_EX_2 {}
-impl ::std::default::Default for NTFS_STATISTICS_EX_2 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_STATISTICS_EX_2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Mft2WritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_STATISTICS_EX_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
-    }
-}
-impl ::std::cmp::Eq for NTFS_STATISTICS_EX_2 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_2 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_STATISTICS_EX_3 {
-    pub Write: u32,
-    pub Create: u32,
-    pub SetInfo: u32,
-    pub Flush: u32,
-}
-impl NTFS_STATISTICS_EX_3 {}
-impl ::std::default::Default for NTFS_STATISTICS_EX_3 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_STATISTICS_EX_3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_MftBitmapWritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_STATISTICS_EX_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
-    }
-}
-impl ::std::cmp::Eq for NTFS_STATISTICS_EX_3 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_3 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_STATISTICS_EX_4 {
-    pub Write: u32,
-    pub Create: u32,
-    pub SetInfo: u32,
-    pub Flush: u32,
-}
-impl NTFS_STATISTICS_EX_4 {}
-impl ::std::default::Default for NTFS_STATISTICS_EX_4 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_STATISTICS_EX_4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_MftWritesUserLevel_e__Struct")
-            .field("Write", &self.Write)
-            .field("Create", &self.Create)
-            .field("SetInfo", &self.SetInfo)
-            .field("Flush", &self.Flush)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_STATISTICS_EX_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Write == other.Write
-            && self.Create == other.Create
-            && self.SetInfo == other.SetInfo
-            && self.Flush == other.Flush
-    }
-}
-impl ::std::cmp::Eq for NTFS_STATISTICS_EX_4 {}
-unsafe impl ::windows::runtime::Abi for NTFS_STATISTICS_EX_4 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct NTFS_VOLUME_DATA_BUFFER {
-    pub VolumeSerialNumber: i64,
-    pub NumberSectors: i64,
-    pub TotalClusters: i64,
-    pub FreeClusters: i64,
-    pub TotalReserved: i64,
-    pub BytesPerSector: u32,
-    pub BytesPerCluster: u32,
-    pub BytesPerFileRecordSegment: u32,
-    pub ClustersPerFileRecordSegment: u32,
-    pub MftValidDataLength: i64,
-    pub MftStartLcn: i64,
-    pub Mft2StartLcn: i64,
-    pub MftZoneStart: i64,
-    pub MftZoneEnd: i64,
-}
-impl NTFS_VOLUME_DATA_BUFFER {}
-impl ::std::default::Default for NTFS_VOLUME_DATA_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for NTFS_VOLUME_DATA_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("NTFS_VOLUME_DATA_BUFFER")
-            .field("VolumeSerialNumber", &self.VolumeSerialNumber)
-            .field("NumberSectors", &self.NumberSectors)
-            .field("TotalClusters", &self.TotalClusters)
-            .field("FreeClusters", &self.FreeClusters)
-            .field("TotalReserved", &self.TotalReserved)
-            .field("BytesPerSector", &self.BytesPerSector)
-            .field("BytesPerCluster", &self.BytesPerCluster)
-            .field("BytesPerFileRecordSegment", &self.BytesPerFileRecordSegment)
-            .field(
-                "ClustersPerFileRecordSegment",
-                &self.ClustersPerFileRecordSegment,
-            )
-            .field("MftValidDataLength", &self.MftValidDataLength)
-            .field("MftStartLcn", &self.MftStartLcn)
-            .field("Mft2StartLcn", &self.Mft2StartLcn)
-            .field("MftZoneStart", &self.MftZoneStart)
-            .field("MftZoneEnd", &self.MftZoneEnd)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for NTFS_VOLUME_DATA_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.VolumeSerialNumber == other.VolumeSerialNumber
-            && self.NumberSectors == other.NumberSectors
-            && self.TotalClusters == other.TotalClusters
-            && self.FreeClusters == other.FreeClusters
-            && self.TotalReserved == other.TotalReserved
-            && self.BytesPerSector == other.BytesPerSector
-            && self.BytesPerCluster == other.BytesPerCluster
-            && self.BytesPerFileRecordSegment == other.BytesPerFileRecordSegment
-            && self.ClustersPerFileRecordSegment == other.ClustersPerFileRecordSegment
-            && self.MftValidDataLength == other.MftValidDataLength
-            && self.MftStartLcn == other.MftStartLcn
-            && self.Mft2StartLcn == other.Mft2StartLcn
-            && self.MftZoneStart == other.MftZoneStart
-            && self.MftZoneEnd == other.MftZoneEnd
-    }
-}
-impl ::std::cmp::Eq for NTFS_VOLUME_DATA_BUFFER {}
-unsafe impl ::windows::runtime::Abi for NTFS_VOLUME_DATA_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 pub const NTMSMLI_MAXAPPDESCR: u32 = 256u32;
 pub const NTMSMLI_MAXIDSIZE: u32 = 256u32;
 pub const NTMSMLI_MAXTYPE: u32 = 64u32;
@@ -18689,28 +14176,28 @@ unsafe impl ::windows::runtime::Abi for NTMS_ASYNC_IO {
 pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_CHANGERINFORMATIONA {
     pub Number: u32,
     pub ChangerType: ::windows::runtime::GUID,
-    pub szSerialNumber: [super::super::System::SystemServices::CHAR; 32],
-    pub szRevision: [super::super::System::SystemServices::CHAR; 32],
-    pub szDeviceName: [super::super::System::SystemServices::CHAR; 64],
+    pub szSerialNumber: [super::super::Foundation::CHAR; 32],
+    pub szRevision: [super::super::Foundation::CHAR; 32],
+    pub szDeviceName: [super::super::Foundation::CHAR; 64],
     pub ScsiPort: u16,
     pub ScsiBus: u16,
     pub ScsiTarget: u16,
     pub ScsiLun: u16,
     pub Library: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_CHANGERINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_CHANGERINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTMS_CHANGERINFORMATIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NTMS_CHANGERINFORMATIONA")
@@ -18727,7 +14214,7 @@ impl ::std::fmt::Debug for NTMS_CHANGERINFORMATIONA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_CHANGERINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.Number == other.Number
@@ -18742,9 +14229,9 @@ impl ::std::cmp::PartialEq for NTMS_CHANGERINFORMATIONA {
             && self.Library == other.Library
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_CHANGERINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_CHANGERINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
@@ -18806,21 +14293,21 @@ unsafe impl ::windows::runtime::Abi for NTMS_CHANGERINFORMATIONW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_CHANGERTYPEINFORMATIONA {
-    pub szVendor: [super::super::System::SystemServices::CHAR; 128],
-    pub szProduct: [super::super::System::SystemServices::CHAR; 128],
+    pub szVendor: [super::super::Foundation::CHAR; 128],
+    pub szProduct: [super::super::Foundation::CHAR; 128],
     pub DeviceType: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_CHANGERTYPEINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_CHANGERTYPEINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTMS_CHANGERTYPEINFORMATIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NTMS_CHANGERTYPEINFORMATIONA")
@@ -18830,7 +14317,7 @@ impl ::std::fmt::Debug for NTMS_CHANGERTYPEINFORMATIONA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.szVendor == other.szVendor
@@ -18838,9 +14325,9 @@ impl ::std::cmp::PartialEq for NTMS_CHANGERTYPEINFORMATIONA {
             && self.DeviceType == other.DeviceType
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_CHANGERTYPEINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_CHANGERTYPEINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
@@ -18924,14 +14411,14 @@ pub const NTMS_DESCRIPTION_LENGTH: u32 = 127u32;
 pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_DRIVEINFORMATIONA {
     pub Number: u32,
     pub State: NtmsDriveState,
     pub DriveType: ::windows::runtime::GUID,
-    pub szDeviceName: [super::super::System::SystemServices::CHAR; 64],
-    pub szSerialNumber: [super::super::System::SystemServices::CHAR; 32],
-    pub szRevision: [super::super::System::SystemServices::CHAR; 32],
+    pub szDeviceName: [super::super::Foundation::CHAR; 64],
+    pub szSerialNumber: [super::super::Foundation::CHAR; 32],
+    pub szRevision: [super::super::Foundation::CHAR; 32],
     pub ScsiPort: u16,
     pub ScsiBus: u16,
     pub ScsiTarget: u16,
@@ -18943,15 +14430,15 @@ pub struct NTMS_DRIVEINFORMATIONA {
     pub Reserved: ::windows::runtime::GUID,
     pub dwDeferDismountDelay: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_DRIVEINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_DRIVEINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTMS_DRIVEINFORMATIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NTMS_DRIVEINFORMATIONA")
@@ -18974,7 +14461,7 @@ impl ::std::fmt::Debug for NTMS_DRIVEINFORMATIONA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_DRIVEINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.Number == other.Number
@@ -18995,9 +14482,9 @@ impl ::std::cmp::PartialEq for NTMS_DRIVEINFORMATIONA {
             && self.dwDeferDismountDelay == other.dwDeferDismountDelay
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_DRIVEINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_DRIVEINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
@@ -19084,22 +14571,22 @@ unsafe impl ::windows::runtime::Abi for NTMS_DRIVEINFORMATIONW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_DRIVETYPEINFORMATIONA {
-    pub szVendor: [super::super::System::SystemServices::CHAR; 128],
-    pub szProduct: [super::super::System::SystemServices::CHAR; 128],
+    pub szVendor: [super::super::Foundation::CHAR; 128],
+    pub szProduct: [super::super::Foundation::CHAR; 128],
     pub NumberOfHeads: u32,
     pub DeviceType: FILE_DEVICE_TYPE,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_DRIVETYPEINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_DRIVETYPEINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTMS_DRIVETYPEINFORMATIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NTMS_DRIVETYPEINFORMATIONA")
@@ -19110,7 +14597,7 @@ impl ::std::fmt::Debug for NTMS_DRIVETYPEINFORMATIONA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.szVendor == other.szVendor
@@ -19119,9 +14606,9 @@ impl ::std::cmp::PartialEq for NTMS_DRIVETYPEINFORMATIONA {
             && self.DeviceType == other.DeviceType
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_DRIVETYPEINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_DRIVETYPEINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
@@ -19297,7 +14784,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_I1_LIBRARYINFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub OperationCode: u32,
     pub OperationOption: u32,
@@ -19309,19 +14796,19 @@ pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub SlotId: ::windows::runtime::GUID,
     pub TimeQueued: super::super::Foundation::SYSTEMTIME,
     pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
-    pub szApplication: [super::super::System::SystemServices::CHAR; 64],
-    pub szUser: [super::super::System::SystemServices::CHAR; 64],
-    pub szComputer: [super::super::System::SystemServices::CHAR; 64],
+    pub szApplication: [super::super::Foundation::CHAR; 64],
+    pub szUser: [super::super::Foundation::CHAR; 64],
+    pub szComputer: [super::super::Foundation::CHAR; 64],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_LIBREQUESTINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_I1_LIBREQUESTINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NTMS_I1_LIBREQUESTINFORMATIONA")
@@ -19341,7 +14828,7 @@ impl ::std::fmt::Debug for NTMS_I1_LIBREQUESTINFORMATIONA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.OperationCode == other.OperationCode
@@ -19359,9 +14846,9 @@ impl ::std::cmp::PartialEq for NTMS_I1_LIBREQUESTINFORMATIONA {
             && self.szComputer == other.szComputer
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_I1_LIBREQUESTINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_LIBREQUESTINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
@@ -19440,7 +14927,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_I1_LIBREQUESTINFORMATIONW {
 pub const NTMS_I1_MESSAGE_LENGTH: u32 = 127u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub dwSize: u32,
     pub dwType: u32,
@@ -19449,34 +14936,34 @@ pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub ObjectGuid: ::windows::runtime::GUID,
     pub Enabled: super::super::Foundation::BOOL,
     pub dwOperationalState: u32,
-    pub szName: [super::super::System::SystemServices::CHAR; 64],
-    pub szDescription: [super::super::System::SystemServices::CHAR; 127],
+    pub szName: [super::super::Foundation::CHAR; 64],
+    pub szDescription: [super::super::Foundation::CHAR; 127],
     pub Info: NTMS_I1_OBJECTINFORMATIONA_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_OBJECTINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_I1_OBJECTINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_I1_OBJECTINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub union NTMS_I1_OBJECTINFORMATIONA_0 {
     pub Drive: NTMS_DRIVEINFORMATIONA,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONA,
@@ -19494,23 +14981,23 @@ pub union NTMS_I1_OBJECTINFORMATIONA_0 {
     pub LibRequest: NTMS_I1_LIBREQUESTINFORMATIONA,
     pub OpRequest: NTMS_I1_OPREQUESTINFORMATIONA,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_OBJECTINFORMATIONA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_I1_OBJECTINFORMATIONA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_I1_OBJECTINFORMATIONA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_I1_OBJECTINFORMATIONA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONA_0 {
     type Abi = Self;
     type DefaultType = Self;
@@ -19594,29 +15081,29 @@ unsafe impl ::windows::runtime::Abi for NTMS_I1_OBJECTINFORMATIONW_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OPREQUESTINFORMATIONA {
     pub Request: u32,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
     pub State: u32,
-    pub szMessage: [super::super::System::SystemServices::CHAR; 127],
+    pub szMessage: [super::super::Foundation::CHAR; 127],
     pub Arg1Type: u32,
     pub Arg1: ::windows::runtime::GUID,
     pub Arg2Type: u32,
     pub Arg2: ::windows::runtime::GUID,
-    pub szApplication: [super::super::System::SystemServices::CHAR; 64],
-    pub szUser: [super::super::System::SystemServices::CHAR; 64],
-    pub szComputer: [super::super::System::SystemServices::CHAR; 64],
+    pub szApplication: [super::super::Foundation::CHAR; 64],
+    pub szUser: [super::super::Foundation::CHAR; 64],
+    pub szComputer: [super::super::Foundation::CHAR; 64],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_OPREQUESTINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_I1_OPREQUESTINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NTMS_I1_OPREQUESTINFORMATIONA")
@@ -19634,7 +15121,7 @@ impl ::std::fmt::Debug for NTMS_I1_OPREQUESTINFORMATIONA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.Request == other.Request
@@ -19650,9 +15137,9 @@ impl ::std::cmp::PartialEq for NTMS_I1_OPREQUESTINFORMATIONA {
             && self.szComputer == other.szComputer
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_I1_OPREQUESTINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_OPREQUESTINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
@@ -19724,7 +15211,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_I1_OPREQUESTINFORMATIONW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub PhysicalMedia: ::windows::runtime::GUID,
     pub LogicalMedia: ::windows::runtime::GUID,
@@ -19732,20 +15219,20 @@ pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub Side: u16,
     pub dwOmidLabelIdLength: u32,
     pub OmidLabelId: [u8; 255],
-    pub szOmidLabelType: [super::super::System::SystemServices::CHAR; 64],
-    pub szOmidLabelInfo: [super::super::System::SystemServices::CHAR; 256],
+    pub szOmidLabelType: [super::super::Foundation::CHAR; 64],
+    pub szOmidLabelInfo: [super::super::Foundation::CHAR; 256],
     pub dwMountCount: u32,
     pub dwAllocateCount: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_PARTITIONINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_I1_PARTITIONINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NTMS_I1_PARTITIONINFORMATIONA")
@@ -19762,7 +15249,7 @@ impl ::std::fmt::Debug for NTMS_I1_PARTITIONINFORMATIONA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.PhysicalMedia == other.PhysicalMedia
@@ -19777,9 +15264,9 @@ impl ::std::cmp::PartialEq for NTMS_I1_PARTITIONINFORMATIONA {
             && self.dwAllocateCount == other.dwAllocateCount
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_I1_PARTITIONINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_PARTITIONINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
@@ -19841,7 +15328,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_I1_PARTITIONINFORMATIONW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_PMIDINFORMATIONA {
     pub CurrentLibrary: ::windows::runtime::GUID,
     pub MediaPool: ::windows::runtime::GUID,
@@ -19849,21 +15336,21 @@ pub struct NTMS_I1_PMIDINFORMATIONA {
     pub LocationType: u32,
     pub MediaType: ::windows::runtime::GUID,
     pub HomeSlot: ::windows::runtime::GUID,
-    pub szBarCode: [super::super::System::SystemServices::CHAR; 64],
+    pub szBarCode: [super::super::Foundation::CHAR; 64],
     pub BarCodeState: u32,
-    pub szSequenceNumber: [super::super::System::SystemServices::CHAR; 32],
+    pub szSequenceNumber: [super::super::Foundation::CHAR; 32],
     pub MediaState: u32,
     pub dwNumberOfPartitions: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_I1_PMIDINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_I1_PMIDINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTMS_I1_PMIDINFORMATIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NTMS_I1_PMIDINFORMATIONA")
@@ -19881,7 +15368,7 @@ impl ::std::fmt::Debug for NTMS_I1_PMIDINFORMATIONA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.CurrentLibrary == other.CurrentLibrary
@@ -19897,9 +15384,9 @@ impl ::std::cmp::PartialEq for NTMS_I1_PMIDINFORMATIONA {
             && self.dwNumberOfPartitions == other.dwNumberOfPartitions
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_I1_PMIDINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_I1_PMIDINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
@@ -20145,7 +15632,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_LIBRARYINFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub OperationCode: NtmsLmOperation,
     pub OperationOption: u32,
@@ -20157,22 +15644,22 @@ pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub SlotId: ::windows::runtime::GUID,
     pub TimeQueued: super::super::Foundation::SYSTEMTIME,
     pub TimeCompleted: super::super::Foundation::SYSTEMTIME,
-    pub szApplication: [super::super::System::SystemServices::CHAR; 64],
-    pub szUser: [super::super::System::SystemServices::CHAR; 64],
-    pub szComputer: [super::super::System::SystemServices::CHAR; 64],
+    pub szApplication: [super::super::Foundation::CHAR; 64],
+    pub szUser: [super::super::Foundation::CHAR; 64],
+    pub szComputer: [super::super::Foundation::CHAR; 64],
     pub dwErrorCode: u32,
     pub WorkItemId: ::windows::runtime::GUID,
     pub dwPriority: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_LIBREQUESTINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_LIBREQUESTINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTMS_LIBREQUESTINFORMATIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NTMS_LIBREQUESTINFORMATIONA")
@@ -20195,7 +15682,7 @@ impl ::std::fmt::Debug for NTMS_LIBREQUESTINFORMATIONA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.OperationCode == other.OperationCode
@@ -20216,9 +15703,9 @@ impl ::std::cmp::PartialEq for NTMS_LIBREQUESTINFORMATIONA {
             && self.dwPriority == other.dwPriority
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_LIBREQUESTINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_LIBREQUESTINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
@@ -20487,7 +15974,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_NOTIFICATIONINFORMATION {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OBJECTINFORMATIONA {
     pub dwSize: u32,
     pub dwType: NtmsObjectsTypes,
@@ -20496,34 +15983,34 @@ pub struct NTMS_OBJECTINFORMATIONA {
     pub ObjectGuid: ::windows::runtime::GUID,
     pub Enabled: super::super::Foundation::BOOL,
     pub dwOperationalState: NtmsOperationalState,
-    pub szName: [super::super::System::SystemServices::CHAR; 64],
-    pub szDescription: [super::super::System::SystemServices::CHAR; 127],
+    pub szName: [super::super::Foundation::CHAR; 64],
+    pub szDescription: [super::super::Foundation::CHAR; 127],
     pub Info: NTMS_OBJECTINFORMATIONA_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_OBJECTINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_OBJECTINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_OBJECTINFORMATIONA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_OBJECTINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_OBJECTINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub union NTMS_OBJECTINFORMATIONA_0 {
     pub Drive: NTMS_DRIVEINFORMATIONA,
     pub DriveType: NTMS_DRIVETYPEINFORMATIONA,
@@ -20542,23 +16029,23 @@ pub union NTMS_OBJECTINFORMATIONA_0 {
     pub OpRequest: NTMS_OPREQUESTINFORMATIONA,
     pub Computer: NTMS_COMPUTERINFORMATION,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_OBJECTINFORMATIONA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_OBJECTINFORMATIONA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_OBJECTINFORMATIONA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_OBJECTINFORMATIONA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_OBJECTINFORMATIONA_0 {
     type Abi = Self;
     type DefaultType = Self;
@@ -20696,29 +16183,29 @@ impl ::std::ops::Not for NTMS_OMID_TYPE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OPREQUESTINFORMATIONA {
     pub Request: NtmsOpreqCommand,
     pub Submitted: super::super::Foundation::SYSTEMTIME,
     pub State: NtmsOpreqState,
-    pub szMessage: [super::super::System::SystemServices::CHAR; 256],
+    pub szMessage: [super::super::Foundation::CHAR; 256],
     pub Arg1Type: NtmsObjectsTypes,
     pub Arg1: ::windows::runtime::GUID,
     pub Arg2Type: NtmsObjectsTypes,
     pub Arg2: ::windows::runtime::GUID,
-    pub szApplication: [super::super::System::SystemServices::CHAR; 64],
-    pub szUser: [super::super::System::SystemServices::CHAR; 64],
-    pub szComputer: [super::super::System::SystemServices::CHAR; 64],
+    pub szApplication: [super::super::Foundation::CHAR; 64],
+    pub szUser: [super::super::Foundation::CHAR; 64],
+    pub szComputer: [super::super::Foundation::CHAR; 64],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_OPREQUESTINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_OPREQUESTINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTMS_OPREQUESTINFORMATIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NTMS_OPREQUESTINFORMATIONA")
@@ -20736,7 +16223,7 @@ impl ::std::fmt::Debug for NTMS_OPREQUESTINFORMATIONA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.Request == other.Request
@@ -20752,9 +16239,9 @@ impl ::std::cmp::PartialEq for NTMS_OPREQUESTINFORMATIONA {
             && self.szComputer == other.szComputer
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_OPREQUESTINFORMATIONA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_OPREQUESTINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
@@ -20826,7 +16313,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_OPREQUESTINFORMATIONW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_PARTITIONINFORMATIONA {
     pub PhysicalMedia: ::windows::runtime::GUID,
     pub LogicalMedia: ::windows::runtime::GUID,
@@ -20834,21 +16321,21 @@ pub struct NTMS_PARTITIONINFORMATIONA {
     pub Side: u16,
     pub dwOmidLabelIdLength: u32,
     pub OmidLabelId: [u8; 255],
-    pub szOmidLabelType: [super::super::System::SystemServices::CHAR; 64],
-    pub szOmidLabelInfo: [super::super::System::SystemServices::CHAR; 256],
+    pub szOmidLabelType: [super::super::Foundation::CHAR; 64],
+    pub szOmidLabelInfo: [super::super::Foundation::CHAR; 256],
     pub dwMountCount: u32,
     pub dwAllocateCount: u32,
     pub Capacity: i64,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_PARTITIONINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_PARTITIONINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTMS_PARTITIONINFORMATIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NTMS_PARTITIONINFORMATIONA")
@@ -20866,7 +16353,7 @@ impl ::std::fmt::Debug for NTMS_PARTITIONINFORMATIONA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_PARTITIONINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.PhysicalMedia == other.PhysicalMedia
@@ -20882,9 +16369,9 @@ impl ::std::cmp::PartialEq for NTMS_PARTITIONINFORMATIONA {
             && self.Capacity == other.Capacity
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_PARTITIONINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_PARTITIONINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
@@ -20949,7 +16436,7 @@ unsafe impl ::windows::runtime::Abi for NTMS_PARTITIONINFORMATIONW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_PMIDINFORMATIONA {
     pub CurrentLibrary: ::windows::runtime::GUID,
     pub MediaPool: ::windows::runtime::GUID,
@@ -20957,24 +16444,24 @@ pub struct NTMS_PMIDINFORMATIONA {
     pub LocationType: u32,
     pub MediaType: ::windows::runtime::GUID,
     pub HomeSlot: ::windows::runtime::GUID,
-    pub szBarCode: [super::super::System::SystemServices::CHAR; 64],
+    pub szBarCode: [super::super::Foundation::CHAR; 64],
     pub BarCodeState: NtmsBarCodeState,
-    pub szSequenceNumber: [super::super::System::SystemServices::CHAR; 32],
+    pub szSequenceNumber: [super::super::Foundation::CHAR; 32],
     pub MediaState: NtmsMediaState,
     pub dwNumberOfPartitions: u32,
     pub dwMediaTypeCode: u32,
     pub dwDensityCode: u32,
     pub MountedPartition: ::windows::runtime::GUID,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl NTMS_PMIDINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for NTMS_PMIDINFORMATIONA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for NTMS_PMIDINFORMATIONA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("NTMS_PMIDINFORMATIONA")
@@ -20995,7 +16482,7 @@ impl ::std::fmt::Debug for NTMS_PMIDINFORMATIONA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for NTMS_PMIDINFORMATIONA {
     fn eq(&self, other: &Self) -> bool {
         self.CurrentLibrary == other.CurrentLibrary
@@ -21014,9 +16501,9 @@ impl ::std::cmp::PartialEq for NTMS_PMIDINFORMATIONA {
             && self.MountedPartition == other.MountedPartition
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for NTMS_PMIDINFORMATIONA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for NTMS_PMIDINFORMATIONA {
     type Abi = Self;
     type DefaultType = Self;
@@ -22812,24 +18299,24 @@ unsafe impl ::windows::runtime::Abi for NtmsUITypes {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OFSTRUCT {
     pub cBytes: u8,
     pub fFixedDisk: u8,
     pub nErrCode: u16,
     pub Reserved1: u16,
     pub Reserved2: u16,
-    pub szPathName: [super::super::System::SystemServices::CHAR; 128],
+    pub szPathName: [super::super::Foundation::CHAR; 128],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl OFSTRUCT {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for OFSTRUCT {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for OFSTRUCT {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("OFSTRUCT")
@@ -22842,7 +18329,7 @@ impl ::std::fmt::Debug for OFSTRUCT {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for OFSTRUCT {
     fn eq(&self, other: &Self) -> bool {
         self.cBytes == other.cBytes
@@ -22853,57 +18340,10 @@ impl ::std::cmp::PartialEq for OFSTRUCT {
             && self.szPathName == other.szPathName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for OFSTRUCT {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for OFSTRUCT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-pub struct OVERLAPPED_ENTRY {
-    pub lpCompletionKey: usize,
-    pub lpOverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
-    pub Internal: usize,
-    pub dwNumberOfBytesTransferred: u32,
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl OVERLAPPED_ENTRY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::std::default::Default for OVERLAPPED_ENTRY {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::std::fmt::Debug for OVERLAPPED_ENTRY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("OVERLAPPED_ENTRY")
-            .field("lpCompletionKey", &self.lpCompletionKey)
-            .field("lpOverlapped", &self.lpOverlapped)
-            .field("Internal", &self.Internal)
-            .field(
-                "dwNumberOfBytesTransferred",
-                &self.dwNumberOfBytesTransferred,
-            )
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::std::cmp::PartialEq for OVERLAPPED_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpCompletionKey == other.lpCompletionKey
-            && self.lpOverlapped == other.lpOverlapped
-            && self.Internal == other.Internal
-            && self.dwNumberOfBytesTransferred == other.dwNumberOfBytesTransferred
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::std::cmp::Eq for OVERLAPPED_ENTRY {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-unsafe impl ::windows::runtime::Abi for OVERLAPPED_ENTRY {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -22994,7 +18434,7 @@ pub unsafe fn OpenEnlistment<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenFile<
     'a,
@@ -23195,207 +18635,6 @@ pub const PARTITION_DPP_GUID: ::windows::runtime::GUID = ::windows::runtime::GUI
 );
 pub const PARTITION_ENTRY_UNUSED_GUID: ::windows::runtime::GUID =
     ::windows::runtime::GUID::from_values(0, 0, 0, [0, 0, 0, 0, 0, 0, 0, 0]);
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct PARTITION_INFORMATION {
-    pub StartingOffset: i64,
-    pub PartitionLength: i64,
-    pub HiddenSectors: u32,
-    pub PartitionNumber: u32,
-    pub PartitionType: u8,
-    pub BootIndicator: super::super::Foundation::BOOLEAN,
-    pub RecognizedPartition: super::super::Foundation::BOOLEAN,
-    pub RewritePartition: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl PARTITION_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for PARTITION_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for PARTITION_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PARTITION_INFORMATION")
-            .field("StartingOffset", &self.StartingOffset)
-            .field("PartitionLength", &self.PartitionLength)
-            .field("HiddenSectors", &self.HiddenSectors)
-            .field("PartitionNumber", &self.PartitionNumber)
-            .field("PartitionType", &self.PartitionType)
-            .field("BootIndicator", &self.BootIndicator)
-            .field("RecognizedPartition", &self.RecognizedPartition)
-            .field("RewritePartition", &self.RewritePartition)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for PARTITION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartingOffset == other.StartingOffset
-            && self.PartitionLength == other.PartitionLength
-            && self.HiddenSectors == other.HiddenSectors
-            && self.PartitionNumber == other.PartitionNumber
-            && self.PartitionType == other.PartitionType
-            && self.BootIndicator == other.BootIndicator
-            && self.RecognizedPartition == other.RecognizedPartition
-            && self.RewritePartition == other.RewritePartition
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for PARTITION_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct PARTITION_INFORMATION_EX {
-    pub PartitionStyle: PARTITION_STYLE,
-    pub StartingOffset: i64,
-    pub PartitionLength: i64,
-    pub PartitionNumber: u32,
-    pub RewritePartition: super::super::Foundation::BOOLEAN,
-    pub IsServicePartition: super::super::Foundation::BOOLEAN,
-    pub Anonymous: PARTITION_INFORMATION_EX_0,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl PARTITION_INFORMATION_EX {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for PARTITION_INFORMATION_EX {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for PARTITION_INFORMATION_EX {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for PARTITION_INFORMATION_EX {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_EX {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub union PARTITION_INFORMATION_EX_0 {
-    pub Mbr: PARTITION_INFORMATION_MBR,
-    pub Gpt: PARTITION_INFORMATION_GPT,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl PARTITION_INFORMATION_EX_0 {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for PARTITION_INFORMATION_EX_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for PARTITION_INFORMATION_EX_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for PARTITION_INFORMATION_EX_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_EX_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct PARTITION_INFORMATION_GPT {
-    pub PartitionType: ::windows::runtime::GUID,
-    pub PartitionId: ::windows::runtime::GUID,
-    pub Attributes: GPT_ATTRIBUTES,
-    pub Name: [u16; 36],
-}
-impl PARTITION_INFORMATION_GPT {}
-impl ::std::default::Default for PARTITION_INFORMATION_GPT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for PARTITION_INFORMATION_GPT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PARTITION_INFORMATION_GPT")
-            .field("PartitionType", &self.PartitionType)
-            .field("PartitionId", &self.PartitionId)
-            .field("Attributes", &self.Attributes)
-            .field("Name", &self.Name)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for PARTITION_INFORMATION_GPT {
-    fn eq(&self, other: &Self) -> bool {
-        self.PartitionType == other.PartitionType
-            && self.PartitionId == other.PartitionId
-            && self.Attributes == other.Attributes
-            && self.Name == other.Name
-    }
-}
-impl ::std::cmp::Eq for PARTITION_INFORMATION_GPT {}
-unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_GPT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct PARTITION_INFORMATION_MBR {
-    pub PartitionType: u8,
-    pub BootIndicator: super::super::Foundation::BOOLEAN,
-    pub RecognizedPartition: super::super::Foundation::BOOLEAN,
-    pub HiddenSectors: u32,
-    pub PartitionId: ::windows::runtime::GUID,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl PARTITION_INFORMATION_MBR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for PARTITION_INFORMATION_MBR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for PARTITION_INFORMATION_MBR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PARTITION_INFORMATION_MBR")
-            .field("PartitionType", &self.PartitionType)
-            .field("BootIndicator", &self.BootIndicator)
-            .field("RecognizedPartition", &self.RecognizedPartition)
-            .field("HiddenSectors", &self.HiddenSectors)
-            .field("PartitionId", &self.PartitionId)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for PARTITION_INFORMATION_MBR {
-    fn eq(&self, other: &Self) -> bool {
-        self.PartitionType == other.PartitionType
-            && self.BootIndicator == other.BootIndicator
-            && self.RecognizedPartition == other.RecognizedPartition
-            && self.HiddenSectors == other.HiddenSectors
-            && self.PartitionId == other.PartitionId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for PARTITION_INFORMATION_MBR {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for PARTITION_INFORMATION_MBR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 pub const PARTITION_LDM_DATA_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
     2946195616,
     5169,
@@ -23510,28 +18749,6 @@ pub const PARTITION_SPACES_GUID: ::windows::runtime::GUID = ::windows::runtime::
     19694,
     [175, 163, 176, 1, 229, 110, 252, 45],
 );
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct PARTITION_STYLE(pub i32);
-pub const PARTITION_STYLE_MBR: PARTITION_STYLE = PARTITION_STYLE(0i32);
-pub const PARTITION_STYLE_GPT: PARTITION_STYLE = PARTITION_STYLE(1i32);
-pub const PARTITION_STYLE_RAW: PARTITION_STYLE = PARTITION_STYLE(2i32);
-impl ::std::convert::From<i32> for PARTITION_STYLE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for PARTITION_STYLE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 pub const PARTITION_SYSTEM_GUID: ::windows::runtime::GUID = ::windows::runtime::GUID::from_values(
     3240784680,
     63519,
@@ -23569,40 +18786,6 @@ pub type PFN_IO_COMPLETION = unsafe extern "system" fn(
     cb: u32,
     dwcompletionstatus: u32,
 );
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct PLEX_READ_DATA_REQUEST {
-    pub ByteOffset: i64,
-    pub ByteLength: u32,
-    pub PlexNumber: u32,
-}
-impl PLEX_READ_DATA_REQUEST {}
-impl ::std::default::Default for PLEX_READ_DATA_REQUEST {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for PLEX_READ_DATA_REQUEST {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("PLEX_READ_DATA_REQUEST")
-            .field("ByteOffset", &self.ByteOffset)
-            .field("ByteLength", &self.ByteLength)
-            .field("PlexNumber", &self.PlexNumber)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for PLEX_READ_DATA_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.ByteOffset == other.ByteOffset
-            && self.ByteLength == other.ByteLength
-            && self.PlexNumber == other.PlexNumber
-    }
-}
-impl ::std::cmp::Eq for PLEX_READ_DATA_REQUEST {}
-unsafe impl ::windows::runtime::Abi for PLEX_READ_DATA_REQUEST {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOG_FULL_HANDLER_CALLBACK = unsafe extern "system" fn(
     hlogfile: super::super::Foundation::HANDLE,
@@ -23669,6 +18852,7 @@ unsafe impl ::windows::runtime::Abi for PRIORITY_HINT {
     type Abi = Self;
     type DefaultType = Self;
 }
+#[inline]
 pub unsafe fn PopIoRingCompletion(
     ioring: *const HIORING__,
 ) -> ::windows::runtime::Result<IORING_CQE> {
@@ -23684,38 +18868,6 @@ pub unsafe fn PopIoRingCompletion(
         let mut result__: <IORING_CQE as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         PopIoRingCompletion(::std::mem::transmute(ioring), &mut result__)
             .from_abi::<IORING_CQE>(result__)
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-#[inline]
-pub unsafe fn PostQueuedCompletionStatus<
-    'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
->(
-    completionport: Param0,
-    dwnumberofbytestransferred: u32,
-    dwcompletionkey: usize,
-    lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
-) -> super::super::Foundation::BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "windows")]
-        extern "system" {
-            fn PostQueuedCompletionStatus(
-                completionport: super::super::Foundation::HANDLE,
-                dwnumberofbytestransferred: u32,
-                dwcompletionkey: usize,
-                lpoverlapped: *const super::super::System::SystemServices::OVERLAPPED,
-            ) -> super::super::Foundation::BOOL;
-        }
-        ::std::mem::transmute(PostQueuedCompletionStatus(
-            completionport.into_param().abi(),
-            ::std::mem::transmute(dwnumberofbytestransferred),
-            ::std::mem::transmute(dwcompletionkey),
-            ::std::mem::transmute(lpoverlapped),
-        ))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23969,6 +19121,7 @@ pub unsafe fn QueryDosDeviceW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn QueryIoRingCapabilities() -> ::windows::runtime::Result<IORING_CAPABILITIES> {
     #[cfg(windows)]
     {
@@ -24094,266 +19247,6 @@ unsafe impl ::windows::runtime::Abi for READ_DIRECTORY_NOTIFY_INFORMATION_CLASS 
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-pub struct READ_FILE_USN_DATA {
-    pub MinMajorVersion: u16,
-    pub MaxMajorVersion: u16,
-}
-impl READ_FILE_USN_DATA {}
-impl ::std::default::Default for READ_FILE_USN_DATA {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for READ_FILE_USN_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("READ_FILE_USN_DATA")
-            .field("MinMajorVersion", &self.MinMajorVersion)
-            .field("MaxMajorVersion", &self.MaxMajorVersion)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for READ_FILE_USN_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.MinMajorVersion == other.MinMajorVersion
-            && self.MaxMajorVersion == other.MaxMajorVersion
-    }
-}
-impl ::std::cmp::Eq for READ_FILE_USN_DATA {}
-unsafe impl ::windows::runtime::Abi for READ_FILE_USN_DATA {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct READ_USN_JOURNAL_DATA_V0 {
-    pub StartUsn: i64,
-    pub ReasonMask: u32,
-    pub ReturnOnlyOnClose: u32,
-    pub Timeout: u64,
-    pub BytesToWaitFor: u64,
-    pub UsnJournalID: u64,
-}
-impl READ_USN_JOURNAL_DATA_V0 {}
-impl ::std::default::Default for READ_USN_JOURNAL_DATA_V0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for READ_USN_JOURNAL_DATA_V0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("READ_USN_JOURNAL_DATA_V0")
-            .field("StartUsn", &self.StartUsn)
-            .field("ReasonMask", &self.ReasonMask)
-            .field("ReturnOnlyOnClose", &self.ReturnOnlyOnClose)
-            .field("Timeout", &self.Timeout)
-            .field("BytesToWaitFor", &self.BytesToWaitFor)
-            .field("UsnJournalID", &self.UsnJournalID)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for READ_USN_JOURNAL_DATA_V0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartUsn == other.StartUsn
-            && self.ReasonMask == other.ReasonMask
-            && self.ReturnOnlyOnClose == other.ReturnOnlyOnClose
-            && self.Timeout == other.Timeout
-            && self.BytesToWaitFor == other.BytesToWaitFor
-            && self.UsnJournalID == other.UsnJournalID
-    }
-}
-impl ::std::cmp::Eq for READ_USN_JOURNAL_DATA_V0 {}
-unsafe impl ::windows::runtime::Abi for READ_USN_JOURNAL_DATA_V0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct READ_USN_JOURNAL_DATA_V1 {
-    pub StartUsn: i64,
-    pub ReasonMask: u32,
-    pub ReturnOnlyOnClose: u32,
-    pub Timeout: u64,
-    pub BytesToWaitFor: u64,
-    pub UsnJournalID: u64,
-    pub MinMajorVersion: u16,
-    pub MaxMajorVersion: u16,
-}
-impl READ_USN_JOURNAL_DATA_V1 {}
-impl ::std::default::Default for READ_USN_JOURNAL_DATA_V1 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for READ_USN_JOURNAL_DATA_V1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("READ_USN_JOURNAL_DATA_V1")
-            .field("StartUsn", &self.StartUsn)
-            .field("ReasonMask", &self.ReasonMask)
-            .field("ReturnOnlyOnClose", &self.ReturnOnlyOnClose)
-            .field("Timeout", &self.Timeout)
-            .field("BytesToWaitFor", &self.BytesToWaitFor)
-            .field("UsnJournalID", &self.UsnJournalID)
-            .field("MinMajorVersion", &self.MinMajorVersion)
-            .field("MaxMajorVersion", &self.MaxMajorVersion)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for READ_USN_JOURNAL_DATA_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartUsn == other.StartUsn
-            && self.ReasonMask == other.ReasonMask
-            && self.ReturnOnlyOnClose == other.ReturnOnlyOnClose
-            && self.Timeout == other.Timeout
-            && self.BytesToWaitFor == other.BytesToWaitFor
-            && self.UsnJournalID == other.UsnJournalID
-            && self.MinMajorVersion == other.MinMajorVersion
-            && self.MaxMajorVersion == other.MaxMajorVersion
-    }
-}
-impl ::std::cmp::Eq for READ_USN_JOURNAL_DATA_V1 {}
-unsafe impl ::windows::runtime::Abi for READ_USN_JOURNAL_DATA_V1 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct REASSIGN_BLOCKS {
-    pub Reserved: u16,
-    pub Count: u16,
-    pub BlockNumber: [u32; 1],
-}
-impl REASSIGN_BLOCKS {}
-impl ::std::default::Default for REASSIGN_BLOCKS {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for REASSIGN_BLOCKS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REASSIGN_BLOCKS")
-            .field("Reserved", &self.Reserved)
-            .field("Count", &self.Count)
-            .field("BlockNumber", &self.BlockNumber)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for REASSIGN_BLOCKS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-            && self.Count == other.Count
-            && self.BlockNumber == other.BlockNumber
-    }
-}
-impl ::std::cmp::Eq for REASSIGN_BLOCKS {}
-unsafe impl ::windows::runtime::Abi for REASSIGN_BLOCKS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C, packed(1))]
-pub struct REASSIGN_BLOCKS_EX {
-    pub Reserved: u16,
-    pub Count: u16,
-    pub BlockNumber: [i64; 1],
-}
-impl REASSIGN_BLOCKS_EX {}
-impl ::std::default::Default for REASSIGN_BLOCKS_EX {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for REASSIGN_BLOCKS_EX {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for REASSIGN_BLOCKS_EX {}
-unsafe impl ::windows::runtime::Abi for REASSIGN_BLOCKS_EX {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct REPAIR_COPIES_INPUT {
-    pub Size: u32,
-    pub Flags: u32,
-    pub FileOffset: i64,
-    pub Length: u32,
-    pub SourceCopy: u32,
-    pub NumberOfRepairCopies: u32,
-    pub RepairCopies: [u32; 1],
-}
-impl REPAIR_COPIES_INPUT {}
-impl ::std::default::Default for REPAIR_COPIES_INPUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for REPAIR_COPIES_INPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REPAIR_COPIES_INPUT")
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("FileOffset", &self.FileOffset)
-            .field("Length", &self.Length)
-            .field("SourceCopy", &self.SourceCopy)
-            .field("NumberOfRepairCopies", &self.NumberOfRepairCopies)
-            .field("RepairCopies", &self.RepairCopies)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for REPAIR_COPIES_INPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.FileOffset == other.FileOffset
-            && self.Length == other.Length
-            && self.SourceCopy == other.SourceCopy
-            && self.NumberOfRepairCopies == other.NumberOfRepairCopies
-            && self.RepairCopies == other.RepairCopies
-    }
-}
-impl ::std::cmp::Eq for REPAIR_COPIES_INPUT {}
-unsafe impl ::windows::runtime::Abi for REPAIR_COPIES_INPUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct REPAIR_COPIES_OUTPUT {
-    pub Size: u32,
-    pub Status: u32,
-    pub ResumeFileOffset: i64,
-}
-impl REPAIR_COPIES_OUTPUT {}
-impl ::std::default::Default for REPAIR_COPIES_OUTPUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for REPAIR_COPIES_OUTPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REPAIR_COPIES_OUTPUT")
-            .field("Size", &self.Size)
-            .field("Status", &self.Status)
-            .field("ResumeFileOffset", &self.ResumeFileOffset)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for REPAIR_COPIES_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size
-            && self.Status == other.Status
-            && self.ResumeFileOffset == other.ResumeFileOffset
-    }
-}
-impl ::std::cmp::Eq for REPAIR_COPIES_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for REPAIR_COPIES_OUTPUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
 pub struct REPARSE_GUID_DATA_BUFFER {
     pub ReparseTag: u32,
     pub ReparseDataLength: u16,
@@ -24470,184 +19363,9 @@ impl ::std::ops::Not for REPLACE_FILE_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct REQUEST_OPLOCK_INPUT_BUFFER {
-    pub StructureVersion: u16,
-    pub StructureLength: u16,
-    pub RequestedOplockLevel: u32,
-    pub Flags: u32,
-}
-impl REQUEST_OPLOCK_INPUT_BUFFER {}
-impl ::std::default::Default for REQUEST_OPLOCK_INPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for REQUEST_OPLOCK_INPUT_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REQUEST_OPLOCK_INPUT_BUFFER")
-            .field("StructureVersion", &self.StructureVersion)
-            .field("StructureLength", &self.StructureLength)
-            .field("RequestedOplockLevel", &self.RequestedOplockLevel)
-            .field("Flags", &self.Flags)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for REQUEST_OPLOCK_INPUT_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructureVersion == other.StructureVersion
-            && self.StructureLength == other.StructureLength
-            && self.RequestedOplockLevel == other.RequestedOplockLevel
-            && self.Flags == other.Flags
-    }
-}
-impl ::std::cmp::Eq for REQUEST_OPLOCK_INPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for REQUEST_OPLOCK_INPUT_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct REQUEST_OPLOCK_OUTPUT_BUFFER {
-    pub StructureVersion: u16,
-    pub StructureLength: u16,
-    pub OriginalOplockLevel: u32,
-    pub NewOplockLevel: u32,
-    pub Flags: u32,
-    pub AccessMode: u32,
-    pub ShareMode: u16,
-}
-impl REQUEST_OPLOCK_OUTPUT_BUFFER {}
-impl ::std::default::Default for REQUEST_OPLOCK_OUTPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for REQUEST_OPLOCK_OUTPUT_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("REQUEST_OPLOCK_OUTPUT_BUFFER")
-            .field("StructureVersion", &self.StructureVersion)
-            .field("StructureLength", &self.StructureLength)
-            .field("OriginalOplockLevel", &self.OriginalOplockLevel)
-            .field("NewOplockLevel", &self.NewOplockLevel)
-            .field("Flags", &self.Flags)
-            .field("AccessMode", &self.AccessMode)
-            .field("ShareMode", &self.ShareMode)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for REQUEST_OPLOCK_OUTPUT_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructureVersion == other.StructureVersion
-            && self.StructureLength == other.StructureLength
-            && self.OriginalOplockLevel == other.OriginalOplockLevel
-            && self.NewOplockLevel == other.NewOplockLevel
-            && self.Flags == other.Flags
-            && self.AccessMode == other.AccessMode
-            && self.ShareMode == other.ShareMode
-    }
-}
-impl ::std::cmp::Eq for REQUEST_OPLOCK_OUTPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for REQUEST_OPLOCK_OUTPUT_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 pub const RESOURCE_MANAGER_COMMUNICATION: u32 = 2u32;
 pub const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3u32;
 pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct RETRIEVAL_POINTERS_BUFFER {
-    pub ExtentCount: u32,
-    pub StartingVcn: i64,
-    pub Extents: [RETRIEVAL_POINTERS_BUFFER_0; 1],
-}
-impl RETRIEVAL_POINTERS_BUFFER {}
-impl ::std::default::Default for RETRIEVAL_POINTERS_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for RETRIEVAL_POINTERS_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RETRIEVAL_POINTERS_BUFFER")
-            .field("ExtentCount", &self.ExtentCount)
-            .field("StartingVcn", &self.StartingVcn)
-            .field("Extents", &self.Extents)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for RETRIEVAL_POINTERS_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExtentCount == other.ExtentCount
-            && self.StartingVcn == other.StartingVcn
-            && self.Extents == other.Extents
-    }
-}
-impl ::std::cmp::Eq for RETRIEVAL_POINTERS_BUFFER {}
-unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTERS_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct RETRIEVAL_POINTERS_BUFFER_0 {
-    pub NextVcn: i64,
-    pub Lcn: i64,
-}
-impl RETRIEVAL_POINTERS_BUFFER_0 {}
-impl ::std::default::Default for RETRIEVAL_POINTERS_BUFFER_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for RETRIEVAL_POINTERS_BUFFER_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("NextVcn", &self.NextVcn)
-            .field("Lcn", &self.Lcn)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for RETRIEVAL_POINTERS_BUFFER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextVcn == other.NextVcn && self.Lcn == other.Lcn
-    }
-}
-impl ::std::cmp::Eq for RETRIEVAL_POINTERS_BUFFER_0 {}
-unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTERS_BUFFER_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct RETRIEVAL_POINTER_BASE {
-    pub FileAreaOffset: i64,
-}
-impl RETRIEVAL_POINTER_BASE {}
-impl ::std::default::Default for RETRIEVAL_POINTER_BASE {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for RETRIEVAL_POINTER_BASE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("RETRIEVAL_POINTER_BASE")
-            .field("FileAreaOffset", &self.FileAreaOffset)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for RETRIEVAL_POINTER_BASE {
-    fn eq(&self, other: &Self) -> bool {
-        self.FileAreaOffset == other.FileAreaOffset
-    }
-}
-impl ::std::cmp::Eq for RETRIEVAL_POINTER_BASE {}
-unsafe impl ::windows::runtime::Abi for RETRIEVAL_POINTER_BASE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReOpenFile<
@@ -24680,7 +19398,7 @@ pub unsafe fn ReOpenFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadDirectoryChangesExW<
     'a,
@@ -24693,8 +19411,10 @@ pub unsafe fn ReadDirectoryChangesExW<
     bwatchsubtree: Param3,
     dwnotifyfilter: FILE_NOTIFY_CHANGE,
     lpbytesreturned: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
-    lpcompletionroutine: ::std::option::Option<LPOVERLAPPED_COMPLETION_ROUTINE>,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
+    lpcompletionroutine: ::std::option::Option<
+        super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE,
+    >,
     readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -24708,7 +19428,7 @@ pub unsafe fn ReadDirectoryChangesExW<
                 bwatchsubtree: super::super::Foundation::BOOL,
                 dwnotifyfilter: FILE_NOTIFY_CHANGE,
                 lpbytesreturned: *mut u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
                 readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS,
             ) -> super::super::Foundation::BOOL;
@@ -24728,7 +19448,7 @@ pub unsafe fn ReadDirectoryChangesExW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadDirectoryChangesW<
     'a,
@@ -24741,8 +19461,10 @@ pub unsafe fn ReadDirectoryChangesW<
     bwatchsubtree: Param3,
     dwnotifyfilter: FILE_NOTIFY_CHANGE,
     lpbytesreturned: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
-    lpcompletionroutine: ::std::option::Option<LPOVERLAPPED_COMPLETION_ROUTINE>,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
+    lpcompletionroutine: ::std::option::Option<
+        super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE,
+    >,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -24755,7 +19477,7 @@ pub unsafe fn ReadDirectoryChangesW<
                 bwatchsubtree: super::super::Foundation::BOOL,
                 dwnotifyfilter: FILE_NOTIFY_CHANGE,
                 lpbytesreturned: *mut u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
             ) -> super::super::Foundation::BOOL;
         }
@@ -24798,7 +19520,7 @@ pub unsafe fn ReadEncryptedFileRaw(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadFile<
     'a,
@@ -24808,7 +19530,7 @@ pub unsafe fn ReadFile<
     lpbuffer: *mut ::std::ffi::c_void,
     nnumberofbytestoread: u32,
     lpnumberofbytesread: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -24819,7 +19541,7 @@ pub unsafe fn ReadFile<
                 lpbuffer: *mut ::std::ffi::c_void,
                 nnumberofbytestoread: u32,
                 lpnumberofbytesread: *mut u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ReadFile(
@@ -24833,7 +19555,7 @@ pub unsafe fn ReadFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadFileEx<
     'a,
@@ -24842,8 +19564,10 @@ pub unsafe fn ReadFileEx<
     hfile: Param0,
     lpbuffer: *mut ::std::ffi::c_void,
     nnumberofbytestoread: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
-    lpcompletionroutine: ::std::option::Option<LPOVERLAPPED_COMPLETION_ROUTINE>,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
+    lpcompletionroutine: ::std::option::Option<
+        super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE,
+    >,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -24853,7 +19577,7 @@ pub unsafe fn ReadFileEx<
                 hfile: super::super::Foundation::HANDLE,
                 lpbuffer: *mut ::std::ffi::c_void,
                 nnumberofbytestoread: u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
             ) -> super::super::Foundation::BOOL;
         }
@@ -24868,17 +19592,17 @@ pub unsafe fn ReadFileEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadFileScatter<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     hfile: Param0,
-    asegmentarray: *const super::super::System::SystemServices::FILE_SEGMENT_ELEMENT,
+    asegmentarray: *const FILE_SEGMENT_ELEMENT,
     nnumberofbytestoread: u32,
     lpreserved: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -24886,10 +19610,10 @@ pub unsafe fn ReadFileScatter<
         extern "system" {
             fn ReadFileScatter(
                 hfile: super::super::Foundation::HANDLE,
-                asegmentarray: *const super::super::System::SystemServices::FILE_SEGMENT_ELEMENT,
+                asegmentarray: *const FILE_SEGMENT_ELEMENT,
                 nnumberofbytestoread: u32,
                 lpreserved: *mut u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ReadFileScatter(
@@ -24935,7 +19659,7 @@ pub unsafe fn ReadLogArchiveMetadata(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadLogNotification<
     'a,
@@ -24943,7 +19667,7 @@ pub unsafe fn ReadLogNotification<
 >(
     hlog: Param0,
     pnotification: *mut CLFS_MGMT_NOTIFICATION,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -24952,7 +19676,7 @@ pub unsafe fn ReadLogNotification<
             fn ReadLogNotification(
                 hlog: super::super::Foundation::HANDLE,
                 pnotification: *mut CLFS_MGMT_NOTIFICATION,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ReadLogNotification(
@@ -24964,7 +19688,7 @@ pub unsafe fn ReadLogNotification<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadLogRecord(
     pvmarshal: *mut ::std::ffi::c_void,
@@ -24976,7 +19700,7 @@ pub unsafe fn ReadLogRecord(
     plsnundonext: *mut CLS_LSN,
     plsnprevious: *mut CLS_LSN,
     ppvreadcontext: *mut *mut ::std::ffi::c_void,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -24992,7 +19716,7 @@ pub unsafe fn ReadLogRecord(
                 plsnundonext: *mut CLS_LSN,
                 plsnprevious: *mut CLS_LSN,
                 ppvreadcontext: *mut *mut ::std::ffi::c_void,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ReadLogRecord(
@@ -25011,7 +19735,7 @@ pub unsafe fn ReadLogRecord(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadLogRestartArea(
     pvmarshal: *mut ::std::ffi::c_void,
@@ -25019,7 +19743,7 @@ pub unsafe fn ReadLogRestartArea(
     pcbrestartbuffer: *mut u32,
     plsn: *mut CLS_LSN,
     ppvcontext: *mut *mut ::std::ffi::c_void,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -25031,7 +19755,7 @@ pub unsafe fn ReadLogRestartArea(
                 pcbrestartbuffer: *mut u32,
                 plsn: *mut CLS_LSN,
                 ppvcontext: *mut *mut ::std::ffi::c_void,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ReadLogRestartArea(
@@ -25046,7 +19770,7 @@ pub unsafe fn ReadLogRestartArea(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadNextLogRecord(
     pvreadcontext: *mut ::std::ffi::c_void,
@@ -25057,7 +19781,7 @@ pub unsafe fn ReadNextLogRecord(
     plsnundonext: *mut CLS_LSN,
     plsnprevious: *mut CLS_LSN,
     plsnrecord: *mut CLS_LSN,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -25072,7 +19796,7 @@ pub unsafe fn ReadNextLogRecord(
                 plsnundonext: *mut CLS_LSN,
                 plsnprevious: *mut CLS_LSN,
                 plsnrecord: *mut CLS_LSN,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ReadNextLogRecord(
@@ -25116,14 +19840,14 @@ pub unsafe fn ReadOnlyEnlistment<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadPreviousLogRestartArea(
     pvreadcontext: *mut ::std::ffi::c_void,
     ppvrestartbuffer: *mut *mut ::std::ffi::c_void,
     pcbrestartbuffer: *mut u32,
     plsnrestart: *mut CLS_LSN,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -25134,7 +19858,7 @@ pub unsafe fn ReadPreviousLogRestartArea(
                 ppvrestartbuffer: *mut *mut ::std::ffi::c_void,
                 pcbrestartbuffer: *mut u32,
                 plsnrestart: *mut CLS_LSN,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ReadPreviousLogRestartArea(
@@ -25661,7 +20385,7 @@ pub unsafe fn ReplaceFileW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReserveAndAppendLog(
     pvmarshal: *mut ::std::ffi::c_void,
@@ -25673,7 +20397,7 @@ pub unsafe fn ReserveAndAppendLog(
     rgcbreservation: *mut i64,
     fflags: CLFS_FLAG,
     plsn: *mut CLS_LSN,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -25689,7 +20413,7 @@ pub unsafe fn ReserveAndAppendLog(
                 rgcbreservation: *mut i64,
                 fflags: CLFS_FLAG,
                 plsn: *mut CLS_LSN,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ReserveAndAppendLog(
@@ -25708,7 +20432,7 @@ pub unsafe fn ReserveAndAppendLog(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReserveAndAppendLogAligned(
     pvmarshal: *mut ::std::ffi::c_void,
@@ -25721,7 +20445,7 @@ pub unsafe fn ReserveAndAppendLogAligned(
     rgcbreservation: *mut i64,
     fflags: CLFS_FLAG,
     plsn: *mut CLS_LSN,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -25738,7 +20462,7 @@ pub unsafe fn ReserveAndAppendLogAligned(
                 rgcbreservation: *mut i64,
                 fflags: CLFS_FLAG,
                 plsn: *mut CLS_LSN,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(ReserveAndAppendLogAligned(
@@ -26301,56 +21025,6 @@ impl ::std::ops::Not for SESSION_INFO_USER_FLAGS {
         Self(self.0.not())
     }
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct SET_DISK_ATTRIBUTES {
-    pub Version: u32,
-    pub Persist: super::super::Foundation::BOOLEAN,
-    pub Reserved1: [u8; 3],
-    pub Attributes: u64,
-    pub AttributesMask: u64,
-    pub Reserved2: [u32; 4],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl SET_DISK_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for SET_DISK_ATTRIBUTES {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for SET_DISK_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SET_DISK_ATTRIBUTES")
-            .field("Version", &self.Version)
-            .field("Persist", &self.Persist)
-            .field("Reserved1", &self.Reserved1)
-            .field("Attributes", &self.Attributes)
-            .field("AttributesMask", &self.AttributesMask)
-            .field("Reserved2", &self.Reserved2)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for SET_DISK_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Persist == other.Persist
-            && self.Reserved1 == other.Reserved1
-            && self.Attributes == other.Attributes
-            && self.AttributesMask == other.AttributesMask
-            && self.Reserved2 == other.Reserved2
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for SET_DISK_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for SET_DISK_ATTRIBUTES {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[derive(
     :: std :: cmp :: PartialEq,
     :: std :: cmp :: Eq,
@@ -26400,34 +21074,6 @@ impl ::std::ops::Not for SET_FILE_POINTER_MOVE_METHOD {
     fn not(self) -> Self {
         Self(self.0.not())
     }
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct SET_PARTITION_INFORMATION {
-    pub PartitionType: u8,
-}
-impl SET_PARTITION_INFORMATION {}
-impl ::std::default::Default for SET_PARTITION_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for SET_PARTITION_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SET_PARTITION_INFORMATION")
-            .field("PartitionType", &self.PartitionType)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for SET_PARTITION_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.PartitionType == other.PartitionType
-    }
-}
-impl ::std::cmp::Eq for SET_PARTITION_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for SET_PARTITION_INFORMATION {
-    type Abi = Self;
-    type DefaultType = Self;
 }
 pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7u32;
 pub const SHARE_FILE_SD_PARMNUM: u32 = 501u32;
@@ -27035,103 +21681,6 @@ pub const SHI1005_FLAGS_RESTRICT_EXCLUSIVE_OPENS: u32 = 256u32;
 pub const SHI1_NUM_ELEMENTS: u32 = 4u32;
 pub const SHI2_NUM_ELEMENTS: u32 = 10u32;
 pub const SHI_USES_UNLIMITED: u32 = 4294967295u32;
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
-pub struct SHRINK_VOLUME_INFORMATION {
-    pub ShrinkRequestType: super::super::System::SystemServices::SHRINK_VOLUME_REQUEST_TYPES,
-    pub Flags: u64,
-    pub NewNumberOfSectors: i64,
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl SHRINK_VOLUME_INFORMATION {}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::default::Default for SHRINK_VOLUME_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::fmt::Debug for SHRINK_VOLUME_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("SHRINK_VOLUME_INFORMATION")
-            .field("ShrinkRequestType", &self.ShrinkRequestType)
-            .field("Flags", &self.Flags)
-            .field("NewNumberOfSectors", &self.NewNumberOfSectors)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::cmp::PartialEq for SHRINK_VOLUME_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ShrinkRequestType == other.ShrinkRequestType
-            && self.Flags == other.Flags
-            && self.NewNumberOfSectors == other.NewNumberOfSectors
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::std::cmp::Eq for SHRINK_VOLUME_INFORMATION {}
-#[cfg(feature = "Win32_System_SystemServices")]
-unsafe impl ::windows::runtime::Abi for SHRINK_VOLUME_INFORMATION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STARTING_LCN_INPUT_BUFFER {
-    pub StartingLcn: i64,
-}
-impl STARTING_LCN_INPUT_BUFFER {}
-impl ::std::default::Default for STARTING_LCN_INPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STARTING_LCN_INPUT_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STARTING_LCN_INPUT_BUFFER")
-            .field("StartingLcn", &self.StartingLcn)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STARTING_LCN_INPUT_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartingLcn == other.StartingLcn
-    }
-}
-impl ::std::cmp::Eq for STARTING_LCN_INPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for STARTING_LCN_INPUT_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STARTING_VCN_INPUT_BUFFER {
-    pub StartingVcn: i64,
-}
-impl STARTING_VCN_INPUT_BUFFER {}
-impl ::std::default::Default for STARTING_VCN_INPUT_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STARTING_VCN_INPUT_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STARTING_VCN_INPUT_BUFFER")
-            .field("StartingVcn", &self.StartingVcn)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STARTING_VCN_INPUT_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartingVcn == other.StartingVcn
-    }
-}
-impl ::std::cmp::Eq for STARTING_VCN_INPUT_BUFFER {}
-unsafe impl ::windows::runtime::Abi for STARTING_VCN_INPUT_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 pub const STATSOPT_CLR: u32 = 1u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -27366,166 +21915,6 @@ unsafe impl ::windows::runtime::Abi for STAT_WORKSTATION_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub BytesPerCacheLine: u32,
-    pub BytesOffsetForCacheAlignment: u32,
-    pub BytesPerLogicalSector: u32,
-    pub BytesPerPhysicalSector: u32,
-    pub BytesOffsetForSectorAlignment: u32,
-}
-impl STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {}
-impl ::std::default::Default for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("BytesPerCacheLine", &self.BytesPerCacheLine)
-            .field(
-                "BytesOffsetForCacheAlignment",
-                &self.BytesOffsetForCacheAlignment,
-            )
-            .field("BytesPerLogicalSector", &self.BytesPerLogicalSector)
-            .field("BytesPerPhysicalSector", &self.BytesPerPhysicalSector)
-            .field(
-                "BytesOffsetForSectorAlignment",
-                &self.BytesOffsetForSectorAlignment,
-            )
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.BytesPerCacheLine == other.BytesPerCacheLine
-            && self.BytesOffsetForCacheAlignment == other.BytesOffsetForCacheAlignment
-            && self.BytesPerLogicalSector == other.BytesPerLogicalSector
-            && self.BytesPerPhysicalSector == other.BytesPerPhysicalSector
-            && self.BytesOffsetForSectorAlignment == other.BytesOffsetForSectorAlignment
-    }
-}
-impl ::std::cmp::Eq for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_ACCESS_ALIGNMENT_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct STORAGE_ADAPTER_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub MaximumTransferLength: u32,
-    pub MaximumPhysicalPages: u32,
-    pub AlignmentMask: u32,
-    pub AdapterUsesPio: super::super::Foundation::BOOLEAN,
-    pub AdapterScansDown: super::super::Foundation::BOOLEAN,
-    pub CommandQueueing: super::super::Foundation::BOOLEAN,
-    pub AcceleratedTransfer: super::super::Foundation::BOOLEAN,
-    pub BusType: u8,
-    pub BusMajorVersion: u16,
-    pub BusMinorVersion: u16,
-    pub SrbType: u8,
-    pub AddressType: u8,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl STORAGE_ADAPTER_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for STORAGE_ADAPTER_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for STORAGE_ADAPTER_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_ADAPTER_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("MaximumTransferLength", &self.MaximumTransferLength)
-            .field("MaximumPhysicalPages", &self.MaximumPhysicalPages)
-            .field("AlignmentMask", &self.AlignmentMask)
-            .field("AdapterUsesPio", &self.AdapterUsesPio)
-            .field("AdapterScansDown", &self.AdapterScansDown)
-            .field("CommandQueueing", &self.CommandQueueing)
-            .field("AcceleratedTransfer", &self.AcceleratedTransfer)
-            .field("BusType", &self.BusType)
-            .field("BusMajorVersion", &self.BusMajorVersion)
-            .field("BusMinorVersion", &self.BusMinorVersion)
-            .field("SrbType", &self.SrbType)
-            .field("AddressType", &self.AddressType)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for STORAGE_ADAPTER_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.MaximumTransferLength == other.MaximumTransferLength
-            && self.MaximumPhysicalPages == other.MaximumPhysicalPages
-            && self.AlignmentMask == other.AlignmentMask
-            && self.AdapterUsesPio == other.AdapterUsesPio
-            && self.AdapterScansDown == other.AdapterScansDown
-            && self.CommandQueueing == other.CommandQueueing
-            && self.AcceleratedTransfer == other.AcceleratedTransfer
-            && self.BusType == other.BusType
-            && self.BusMajorVersion == other.BusMajorVersion
-            && self.BusMinorVersion == other.BusMinorVersion
-            && self.SrbType == other.SrbType
-            && self.AddressType == other.AddressType
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for STORAGE_ADAPTER_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_ADAPTER_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_ADAPTER_SERIAL_NUMBER {
-    pub Version: u32,
-    pub Size: u32,
-    pub SerialNumber: [u16; 128],
-}
-impl STORAGE_ADAPTER_SERIAL_NUMBER {}
-impl ::std::default::Default for STORAGE_ADAPTER_SERIAL_NUMBER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_ADAPTER_SERIAL_NUMBER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_ADAPTER_SERIAL_NUMBER")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("SerialNumber", &self.SerialNumber)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_ADAPTER_SERIAL_NUMBER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.SerialNumber == other.SerialNumber
-    }
-}
-impl ::std::cmp::Eq for STORAGE_ADAPTER_SERIAL_NUMBER {}
-unsafe impl ::windows::runtime::Abi for STORAGE_ADAPTER_SERIAL_NUMBER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[derive(
     :: std :: cmp :: PartialEq,
     :: std :: cmp :: Eq,
@@ -27535,1474 +21924,35 @@ unsafe impl ::windows::runtime::Abi for STORAGE_ADAPTER_SERIAL_NUMBER {
     :: std :: fmt :: Debug,
 )]
 #[repr(transparent)]
-pub struct STORAGE_COMPONENT_HEALTH_STATUS(pub i32);
-pub const HealthStatusUnknown: STORAGE_COMPONENT_HEALTH_STATUS =
-    STORAGE_COMPONENT_HEALTH_STATUS(0i32);
-pub const HealthStatusNormal: STORAGE_COMPONENT_HEALTH_STATUS =
-    STORAGE_COMPONENT_HEALTH_STATUS(1i32);
-pub const HealthStatusThrottled: STORAGE_COMPONENT_HEALTH_STATUS =
-    STORAGE_COMPONENT_HEALTH_STATUS(2i32);
-pub const HealthStatusWarning: STORAGE_COMPONENT_HEALTH_STATUS =
-    STORAGE_COMPONENT_HEALTH_STATUS(3i32);
-pub const HealthStatusDisabled: STORAGE_COMPONENT_HEALTH_STATUS =
-    STORAGE_COMPONENT_HEALTH_STATUS(4i32);
-pub const HealthStatusFailed: STORAGE_COMPONENT_HEALTH_STATUS =
-    STORAGE_COMPONENT_HEALTH_STATUS(5i32);
-impl ::std::convert::From<i32> for STORAGE_COMPONENT_HEALTH_STATUS {
+pub struct STORAGE_BUS_TYPE(pub i32);
+pub const BusTypeUnknown: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(0i32);
+pub const BusTypeScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(1i32);
+pub const BusTypeAtapi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(2i32);
+pub const BusTypeAta: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(3i32);
+pub const BusType1394: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(4i32);
+pub const BusTypeSsa: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(5i32);
+pub const BusTypeFibre: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(6i32);
+pub const BusTypeUsb: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(7i32);
+pub const BusTypeRAID: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(8i32);
+pub const BusTypeiScsi: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(9i32);
+pub const BusTypeSas: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(10i32);
+pub const BusTypeSata: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(11i32);
+pub const BusTypeSd: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(12i32);
+pub const BusTypeMmc: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(13i32);
+pub const BusTypeVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(14i32);
+pub const BusTypeFileBackedVirtual: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(15i32);
+pub const BusTypeSpaces: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(16i32);
+pub const BusTypeNvme: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(17i32);
+pub const BusTypeSCM: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(18i32);
+pub const BusTypeUfs: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(19i32);
+pub const BusTypeMax: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(20i32);
+pub const BusTypeMaxReserved: STORAGE_BUS_TYPE = STORAGE_BUS_TYPE(127i32);
+impl ::std::convert::From<i32> for STORAGE_BUS_TYPE {
     fn from(value: i32) -> Self {
         Self(value)
     }
 }
-unsafe impl ::windows::runtime::Abi for STORAGE_COMPONENT_HEALTH_STATUS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_DESCRIPTOR_HEADER {
-    pub Version: u32,
-    pub Size: u32,
-}
-impl STORAGE_DESCRIPTOR_HEADER {}
-impl ::std::default::Default for STORAGE_DESCRIPTOR_HEADER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_DESCRIPTOR_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DESCRIPTOR_HEADER")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_DESCRIPTOR_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Size == other.Size
-    }
-}
-impl ::std::cmp::Eq for STORAGE_DESCRIPTOR_HEADER {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DESCRIPTOR_HEADER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub Attributes: u64,
-}
-impl STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {}
-impl ::std::default::Default for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Attributes", &self.Attributes)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Attributes == other.Attributes
-    }
-}
-impl ::std::cmp::Eq for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_ATTRIBUTES_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-pub struct STORAGE_DEVICE_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub DeviceType: u8,
-    pub DeviceTypeModifier: u8,
-    pub RemovableMedia: super::super::Foundation::BOOLEAN,
-    pub CommandQueueing: super::super::Foundation::BOOLEAN,
-    pub VendorIdOffset: u32,
-    pub ProductIdOffset: u32,
-    pub ProductRevisionOffset: u32,
-    pub SerialNumberOffset: u32,
-    pub BusType: super::super::System::SystemServices::STORAGE_BUS_TYPE,
-    pub RawPropertiesLength: u32,
-    pub RawDeviceProperties: [u8; 1],
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl STORAGE_DEVICE_DESCRIPTOR {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::std::default::Default for STORAGE_DEVICE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::std::fmt::Debug for STORAGE_DEVICE_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("DeviceType", &self.DeviceType)
-            .field("DeviceTypeModifier", &self.DeviceTypeModifier)
-            .field("RemovableMedia", &self.RemovableMedia)
-            .field("CommandQueueing", &self.CommandQueueing)
-            .field("VendorIdOffset", &self.VendorIdOffset)
-            .field("ProductIdOffset", &self.ProductIdOffset)
-            .field("ProductRevisionOffset", &self.ProductRevisionOffset)
-            .field("SerialNumberOffset", &self.SerialNumberOffset)
-            .field("BusType", &self.BusType)
-            .field("RawPropertiesLength", &self.RawPropertiesLength)
-            .field("RawDeviceProperties", &self.RawDeviceProperties)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::std::cmp::PartialEq for STORAGE_DEVICE_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.DeviceType == other.DeviceType
-            && self.DeviceTypeModifier == other.DeviceTypeModifier
-            && self.RemovableMedia == other.RemovableMedia
-            && self.CommandQueueing == other.CommandQueueing
-            && self.VendorIdOffset == other.VendorIdOffset
-            && self.ProductIdOffset == other.ProductIdOffset
-            && self.ProductRevisionOffset == other.ProductRevisionOffset
-            && self.SerialNumberOffset == other.SerialNumberOffset
-            && self.BusType == other.BusType
-            && self.RawPropertiesLength == other.RawPropertiesLength
-            && self.RawDeviceProperties == other.RawDeviceProperties
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-impl ::std::cmp::Eq for STORAGE_DEVICE_DESCRIPTOR {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct STORAGE_DEVICE_FORM_FACTOR(pub i32);
-pub const FormFactorUnknown: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(0i32);
-pub const FormFactor3_5: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(1i32);
-pub const FormFactor2_5: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(2i32);
-pub const FormFactor1_8: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(3i32);
-pub const FormFactor1_8Less: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(4i32);
-pub const FormFactorEmbedded: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(5i32);
-pub const FormFactorMemoryCard: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(6i32);
-pub const FormFactormSata: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(7i32);
-pub const FormFactorM_2: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(8i32);
-pub const FormFactorPCIeBoard: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(9i32);
-pub const FormFactorDimm: STORAGE_DEVICE_FORM_FACTOR = STORAGE_DEVICE_FORM_FACTOR(10i32);
-impl ::std::convert::From<i32> for STORAGE_DEVICE_FORM_FACTOR {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_FORM_FACTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_DEVICE_ID_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub NumberOfIdentifiers: u32,
-    pub Identifiers: [u8; 1],
-}
-impl STORAGE_DEVICE_ID_DESCRIPTOR {}
-impl ::std::default::Default for STORAGE_DEVICE_ID_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_DEVICE_ID_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_ID_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("NumberOfIdentifiers", &self.NumberOfIdentifiers)
-            .field("Identifiers", &self.Identifiers)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_DEVICE_ID_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.NumberOfIdentifiers == other.NumberOfIdentifiers
-            && self.Identifiers == other.Identifiers
-    }
-}
-impl ::std::cmp::Eq for STORAGE_DEVICE_ID_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_ID_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub LunMaxIoCount: u32,
-    pub AdapterMaxIoCount: u32,
-}
-impl STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {}
-impl ::std::default::Default for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("LunMaxIoCount", &self.LunMaxIoCount)
-            .field("AdapterMaxIoCount", &self.AdapterMaxIoCount)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.LunMaxIoCount == other.LunMaxIoCount
-            && self.AdapterMaxIoCount == other.AdapterMaxIoCount
-    }
-}
-impl ::std::cmp::Eq for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_IO_CAPABILITY_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_DEVICE_POWER_CAP {
-    pub Version: u32,
-    pub Size: u32,
-    pub Units: STORAGE_DEVICE_POWER_CAP_UNITS,
-    pub MaxPower: u64,
-}
-impl STORAGE_DEVICE_POWER_CAP {}
-impl ::std::default::Default for STORAGE_DEVICE_POWER_CAP {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_DEVICE_POWER_CAP {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_POWER_CAP")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Units", &self.Units)
-            .field("MaxPower", &self.MaxPower)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_DEVICE_POWER_CAP {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Units == other.Units
-            && self.MaxPower == other.MaxPower
-    }
-}
-impl ::std::cmp::Eq for STORAGE_DEVICE_POWER_CAP {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_POWER_CAP {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct STORAGE_DEVICE_POWER_CAP_UNITS(pub i32);
-pub const StorageDevicePowerCapUnitsPercent: STORAGE_DEVICE_POWER_CAP_UNITS =
-    STORAGE_DEVICE_POWER_CAP_UNITS(0i32);
-pub const StorageDevicePowerCapUnitsMilliwatts: STORAGE_DEVICE_POWER_CAP_UNITS =
-    STORAGE_DEVICE_POWER_CAP_UNITS(1i32);
-impl ::std::convert::From<i32> for STORAGE_DEVICE_POWER_CAP_UNITS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_POWER_CAP_UNITS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub NameOffset: u32,
-    pub NumberOfLogicalCopies: u32,
-    pub NumberOfPhysicalCopies: u32,
-    pub PhysicalDiskRedundancy: u32,
-    pub NumberOfColumns: u32,
-    pub Interleave: u32,
-}
-impl STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {}
-impl ::std::default::Default for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_DEVICE_RESILIENCY_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("NameOffset", &self.NameOffset)
-            .field("NumberOfLogicalCopies", &self.NumberOfLogicalCopies)
-            .field("NumberOfPhysicalCopies", &self.NumberOfPhysicalCopies)
-            .field("PhysicalDiskRedundancy", &self.PhysicalDiskRedundancy)
-            .field("NumberOfColumns", &self.NumberOfColumns)
-            .field("Interleave", &self.Interleave)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.NameOffset == other.NameOffset
-            && self.NumberOfLogicalCopies == other.NumberOfLogicalCopies
-            && self.NumberOfPhysicalCopies == other.NumberOfPhysicalCopies
-            && self.PhysicalDiskRedundancy == other.PhysicalDiskRedundancy
-            && self.NumberOfColumns == other.NumberOfColumns
-            && self.Interleave == other.Interleave
-    }
-}
-impl ::std::cmp::Eq for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_DEVICE_RESILIENCY_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_HW_FIRMWARE_ACTIVATE {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub Slot: u8,
-    pub Reserved0: [u8; 3],
-}
-impl STORAGE_HW_FIRMWARE_ACTIVATE {}
-impl ::std::default::Default for STORAGE_HW_FIRMWARE_ACTIVATE {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_HW_FIRMWARE_ACTIVATE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_HW_FIRMWARE_ACTIVATE")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Slot", &self.Slot)
-            .field("Reserved0", &self.Reserved0)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_HW_FIRMWARE_ACTIVATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Slot == other.Slot
-            && self.Reserved0 == other.Reserved0
-    }
-}
-impl ::std::cmp::Eq for STORAGE_HW_FIRMWARE_ACTIVATE {}
-unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_ACTIVATE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_HW_FIRMWARE_DOWNLOAD {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u32,
-    pub Slot: u8,
-    pub Reserved: [u8; 3],
-    pub Offset: u64,
-    pub BufferSize: u64,
-    pub ImageBuffer: [u8; 1],
-}
-impl STORAGE_HW_FIRMWARE_DOWNLOAD {}
-impl ::std::default::Default for STORAGE_HW_FIRMWARE_DOWNLOAD {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_HW_FIRMWARE_DOWNLOAD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_HW_FIRMWARE_DOWNLOAD")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Slot", &self.Slot)
-            .field("Reserved", &self.Reserved)
-            .field("Offset", &self.Offset)
-            .field("BufferSize", &self.BufferSize)
-            .field("ImageBuffer", &self.ImageBuffer)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_HW_FIRMWARE_DOWNLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Slot == other.Slot
-            && self.Reserved == other.Reserved
-            && self.Offset == other.Offset
-            && self.BufferSize == other.BufferSize
-            && self.ImageBuffer == other.ImageBuffer
-    }
-}
-impl ::std::cmp::Eq for STORAGE_HW_FIRMWARE_DOWNLOAD {}
-unsafe impl ::windows::runtime::Abi for STORAGE_HW_FIRMWARE_DOWNLOAD {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub MediumProductType: u32,
-}
-impl STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {}
-impl ::std::default::Default for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("MediumProductType", &self.MediumProductType)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.MediumProductType == other.MediumProductType
-    }
-}
-impl ::std::cmp::Eq for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_MEDIUM_PRODUCT_TYPE_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct STORAGE_MINIPORT_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub Portdriver: STORAGE_PORT_CODE_SET,
-    pub LUNResetSupported: super::super::Foundation::BOOLEAN,
-    pub TargetResetSupported: super::super::Foundation::BOOLEAN,
-    pub IoTimeoutValue: u16,
-    pub ExtraIoInfoSupported: super::super::Foundation::BOOLEAN,
-    pub Flags: STORAGE_MINIPORT_DESCRIPTOR_0,
-    pub Reserved0: [u8; 2],
-    pub Reserved1: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl STORAGE_MINIPORT_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for STORAGE_MINIPORT_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for STORAGE_MINIPORT_DESCRIPTOR {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for STORAGE_MINIPORT_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_MINIPORT_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union STORAGE_MINIPORT_DESCRIPTOR_0 {
-    pub Anonymous: STORAGE_MINIPORT_DESCRIPTOR_0_0,
-    pub AsBYTE: u8,
-}
-impl STORAGE_MINIPORT_DESCRIPTOR_0 {}
-impl ::std::default::Default for STORAGE_MINIPORT_DESCRIPTOR_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_MINIPORT_DESCRIPTOR_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for STORAGE_MINIPORT_DESCRIPTOR_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_MINIPORT_DESCRIPTOR_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
-    pub _bitfield: u8,
-}
-impl STORAGE_MINIPORT_DESCRIPTOR_0_0 {}
-impl ::std::default::Default for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("_bitfield", &self._bitfield)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::std::cmp::Eq for STORAGE_MINIPORT_DESCRIPTOR_0_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct STORAGE_PHYSICAL_ADAPTER_DATA {
-    pub AdapterId: u32,
-    pub HealthStatus: STORAGE_COMPONENT_HEALTH_STATUS,
-    pub CommandProtocol: STORAGE_PROTOCOL_TYPE,
-    pub SpecVersion: STORAGE_SPEC_VERSION,
-    pub Vendor: [u8; 8],
-    pub Model: [u8; 40],
-    pub FirmwareRevision: [u8; 16],
-    pub PhysicalLocation: [u8; 32],
-    pub ExpanderConnected: super::super::Foundation::BOOLEAN,
-    pub Reserved0: [u8; 3],
-    pub Reserved1: [u32; 3],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl STORAGE_PHYSICAL_ADAPTER_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for STORAGE_PHYSICAL_ADAPTER_DATA {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for STORAGE_PHYSICAL_ADAPTER_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for STORAGE_PHYSICAL_ADAPTER_DATA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_ADAPTER_DATA {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_PHYSICAL_DEVICE_DATA {
-    pub DeviceId: u32,
-    pub Role: u32,
-    pub HealthStatus: STORAGE_COMPONENT_HEALTH_STATUS,
-    pub CommandProtocol: STORAGE_PROTOCOL_TYPE,
-    pub SpecVersion: STORAGE_SPEC_VERSION,
-    pub FormFactor: STORAGE_DEVICE_FORM_FACTOR,
-    pub Vendor: [u8; 8],
-    pub Model: [u8; 40],
-    pub FirmwareRevision: [u8; 16],
-    pub Capacity: u64,
-    pub PhysicalLocation: [u8; 32],
-    pub Reserved: [u32; 2],
-}
-impl STORAGE_PHYSICAL_DEVICE_DATA {}
-impl ::std::default::Default for STORAGE_PHYSICAL_DEVICE_DATA {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_PHYSICAL_DEVICE_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for STORAGE_PHYSICAL_DEVICE_DATA {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_DEVICE_DATA {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_PHYSICAL_NODE_DATA {
-    pub NodeId: u32,
-    pub AdapterCount: u32,
-    pub AdapterDataLength: u32,
-    pub AdapterDataOffset: u32,
-    pub DeviceCount: u32,
-    pub DeviceDataLength: u32,
-    pub DeviceDataOffset: u32,
-    pub Reserved: [u32; 3],
-}
-impl STORAGE_PHYSICAL_NODE_DATA {}
-impl ::std::default::Default for STORAGE_PHYSICAL_NODE_DATA {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_PHYSICAL_NODE_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PHYSICAL_NODE_DATA")
-            .field("NodeId", &self.NodeId)
-            .field("AdapterCount", &self.AdapterCount)
-            .field("AdapterDataLength", &self.AdapterDataLength)
-            .field("AdapterDataOffset", &self.AdapterDataOffset)
-            .field("DeviceCount", &self.DeviceCount)
-            .field("DeviceDataLength", &self.DeviceDataLength)
-            .field("DeviceDataOffset", &self.DeviceDataOffset)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_PHYSICAL_NODE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.NodeId == other.NodeId
-            && self.AdapterCount == other.AdapterCount
-            && self.AdapterDataLength == other.AdapterDataLength
-            && self.AdapterDataOffset == other.AdapterDataOffset
-            && self.DeviceCount == other.DeviceCount
-            && self.DeviceDataLength == other.DeviceDataLength
-            && self.DeviceDataOffset == other.DeviceDataOffset
-            && self.Reserved == other.Reserved
-    }
-}
-impl ::std::cmp::Eq for STORAGE_PHYSICAL_NODE_DATA {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_NODE_DATA {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub NodeCount: u32,
-    pub Reserved: u32,
-    pub Node: [STORAGE_PHYSICAL_NODE_DATA; 1],
-}
-impl STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {}
-impl ::std::default::Default for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("NodeCount", &self.NodeCount)
-            .field("Reserved", &self.Reserved)
-            .field("Node", &self.Node)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.NodeCount == other.NodeCount
-            && self.Reserved == other.Reserved
-            && self.Node == other.Node
-    }
-}
-impl ::std::cmp::Eq for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PHYSICAL_TOPOLOGY_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct STORAGE_PORT_CODE_SET(pub i32);
-pub const StoragePortCodeSetReserved: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(0i32);
-pub const StoragePortCodeSetStorport: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(1i32);
-pub const StoragePortCodeSetSCSIport: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(2i32);
-pub const StoragePortCodeSetSpaceport: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(3i32);
-pub const StoragePortCodeSetATAport: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(4i32);
-pub const StoragePortCodeSetUSBport: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(5i32);
-pub const StoragePortCodeSetSBP2port: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(6i32);
-pub const StoragePortCodeSetSDport: STORAGE_PORT_CODE_SET = STORAGE_PORT_CODE_SET(7i32);
-impl ::std::convert::From<i32> for STORAGE_PORT_CODE_SET {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for STORAGE_PORT_CODE_SET {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct STORAGE_PROPERTY_ID(pub i32);
-pub const StorageDeviceProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(0i32);
-pub const StorageAdapterProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(1i32);
-pub const StorageDeviceIdProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(2i32);
-pub const StorageDeviceUniqueIdProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(3i32);
-pub const StorageDeviceWriteCacheProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(4i32);
-pub const StorageMiniportProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(5i32);
-pub const StorageAccessAlignmentProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(6i32);
-pub const StorageDeviceSeekPenaltyProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(7i32);
-pub const StorageDeviceTrimProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(8i32);
-pub const StorageDeviceWriteAggregationProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(9i32);
-pub const StorageDeviceDeviceTelemetryProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(10i32);
-pub const StorageDeviceLBProvisioningProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(11i32);
-pub const StorageDevicePowerProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(12i32);
-pub const StorageDeviceCopyOffloadProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(13i32);
-pub const StorageDeviceResiliencyProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(14i32);
-pub const StorageDeviceMediumProductType: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(15i32);
-pub const StorageAdapterRpmbProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(16i32);
-pub const StorageAdapterCryptoProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(17i32);
-pub const StorageDeviceIoCapabilityProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(48i32);
-pub const StorageAdapterProtocolSpecificProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(49i32);
-pub const StorageDeviceProtocolSpecificProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(50i32);
-pub const StorageAdapterTemperatureProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(51i32);
-pub const StorageDeviceTemperatureProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(52i32);
-pub const StorageAdapterPhysicalTopologyProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(53i32);
-pub const StorageDevicePhysicalTopologyProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(54i32);
-pub const StorageDeviceAttributesProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(55i32);
-pub const StorageDeviceManagementStatus: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(56i32);
-pub const StorageAdapterSerialNumberProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(57i32);
-pub const StorageDeviceLocationProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(58i32);
-pub const StorageDeviceNumaProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(59i32);
-pub const StorageDeviceZonedDeviceProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(60i32);
-pub const StorageDeviceUnsafeShutdownCount: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(61i32);
-pub const StorageDeviceEnduranceProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(62i32);
-pub const StorageDeviceLedStateProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(63i32);
-pub const StorageDeviceSelfEncryptionProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(64i32);
-pub const StorageFruIdProperty: STORAGE_PROPERTY_ID = STORAGE_PROPERTY_ID(65i32);
-impl ::std::convert::From<i32> for STORAGE_PROPERTY_ID {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROPERTY_ID {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_PROPERTY_QUERY {
-    pub PropertyId: STORAGE_PROPERTY_ID,
-    pub QueryType: STORAGE_QUERY_TYPE,
-    pub AdditionalParameters: [u8; 1],
-}
-impl STORAGE_PROPERTY_QUERY {}
-impl ::std::default::Default for STORAGE_PROPERTY_QUERY {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_PROPERTY_QUERY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PROPERTY_QUERY")
-            .field("PropertyId", &self.PropertyId)
-            .field("QueryType", &self.QueryType)
-            .field("AdditionalParameters", &self.AdditionalParameters)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_PROPERTY_QUERY {
-    fn eq(&self, other: &Self) -> bool {
-        self.PropertyId == other.PropertyId
-            && self.QueryType == other.QueryType
-            && self.AdditionalParameters == other.AdditionalParameters
-    }
-}
-impl ::std::cmp::Eq for STORAGE_PROPERTY_QUERY {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROPERTY_QUERY {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct STORAGE_PROTOCOL_ATA_DATA_TYPE(pub i32);
-pub const AtaDataTypeUnknown: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(0i32);
-pub const AtaDataTypeIdentify: STORAGE_PROTOCOL_ATA_DATA_TYPE =
-    STORAGE_PROTOCOL_ATA_DATA_TYPE(1i32);
-pub const AtaDataTypeLogPage: STORAGE_PROTOCOL_ATA_DATA_TYPE = STORAGE_PROTOCOL_ATA_DATA_TYPE(2i32);
-impl ::std::convert::From<i32> for STORAGE_PROTOCOL_ATA_DATA_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_ATA_DATA_TYPE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_PROTOCOL_COMMAND {
-    pub Version: u32,
-    pub Length: u32,
-    pub ProtocolType: STORAGE_PROTOCOL_TYPE,
-    pub Flags: u32,
-    pub ReturnStatus: u32,
-    pub ErrorCode: u32,
-    pub CommandLength: u32,
-    pub ErrorInfoLength: u32,
-    pub DataToDeviceTransferLength: u32,
-    pub DataFromDeviceTransferLength: u32,
-    pub TimeOutValue: u32,
-    pub ErrorInfoOffset: u32,
-    pub DataToDeviceBufferOffset: u32,
-    pub DataFromDeviceBufferOffset: u32,
-    pub CommandSpecific: u32,
-    pub Reserved0: u32,
-    pub FixedProtocolReturnData: u32,
-    pub Reserved1: [u32; 3],
-    pub Command: [u8; 1],
-}
-impl STORAGE_PROTOCOL_COMMAND {}
-impl ::std::default::Default for STORAGE_PROTOCOL_COMMAND {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_PROTOCOL_COMMAND {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PROTOCOL_COMMAND")
-            .field("Version", &self.Version)
-            .field("Length", &self.Length)
-            .field("ProtocolType", &self.ProtocolType)
-            .field("Flags", &self.Flags)
-            .field("ReturnStatus", &self.ReturnStatus)
-            .field("ErrorCode", &self.ErrorCode)
-            .field("CommandLength", &self.CommandLength)
-            .field("ErrorInfoLength", &self.ErrorInfoLength)
-            .field(
-                "DataToDeviceTransferLength",
-                &self.DataToDeviceTransferLength,
-            )
-            .field(
-                "DataFromDeviceTransferLength",
-                &self.DataFromDeviceTransferLength,
-            )
-            .field("TimeOutValue", &self.TimeOutValue)
-            .field("ErrorInfoOffset", &self.ErrorInfoOffset)
-            .field("DataToDeviceBufferOffset", &self.DataToDeviceBufferOffset)
-            .field(
-                "DataFromDeviceBufferOffset",
-                &self.DataFromDeviceBufferOffset,
-            )
-            .field("CommandSpecific", &self.CommandSpecific)
-            .field("Reserved0", &self.Reserved0)
-            .field("FixedProtocolReturnData", &self.FixedProtocolReturnData)
-            .field("Reserved1", &self.Reserved1)
-            .field("Command", &self.Command)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_PROTOCOL_COMMAND {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Length == other.Length
-            && self.ProtocolType == other.ProtocolType
-            && self.Flags == other.Flags
-            && self.ReturnStatus == other.ReturnStatus
-            && self.ErrorCode == other.ErrorCode
-            && self.CommandLength == other.CommandLength
-            && self.ErrorInfoLength == other.ErrorInfoLength
-            && self.DataToDeviceTransferLength == other.DataToDeviceTransferLength
-            && self.DataFromDeviceTransferLength == other.DataFromDeviceTransferLength
-            && self.TimeOutValue == other.TimeOutValue
-            && self.ErrorInfoOffset == other.ErrorInfoOffset
-            && self.DataToDeviceBufferOffset == other.DataToDeviceBufferOffset
-            && self.DataFromDeviceBufferOffset == other.DataFromDeviceBufferOffset
-            && self.CommandSpecific == other.CommandSpecific
-            && self.Reserved0 == other.Reserved0
-            && self.FixedProtocolReturnData == other.FixedProtocolReturnData
-            && self.Reserved1 == other.Reserved1
-            && self.Command == other.Command
-    }
-}
-impl ::std::cmp::Eq for STORAGE_PROTOCOL_COMMAND {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_COMMAND {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_PROTOCOL_DATA_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub ProtocolSpecificData: STORAGE_PROTOCOL_SPECIFIC_DATA,
-}
-impl STORAGE_PROTOCOL_DATA_DESCRIPTOR {}
-impl ::std::default::Default for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PROTOCOL_DATA_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("ProtocolSpecificData", &self.ProtocolSpecificData)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.ProtocolSpecificData == other.ProtocolSpecificData
-    }
-}
-impl ::std::cmp::Eq for STORAGE_PROTOCOL_DATA_DESCRIPTOR {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_DATA_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct STORAGE_PROTOCOL_NVME_DATA_TYPE(pub i32);
-pub const NVMeDataTypeUnknown: STORAGE_PROTOCOL_NVME_DATA_TYPE =
-    STORAGE_PROTOCOL_NVME_DATA_TYPE(0i32);
-pub const NVMeDataTypeIdentify: STORAGE_PROTOCOL_NVME_DATA_TYPE =
-    STORAGE_PROTOCOL_NVME_DATA_TYPE(1i32);
-pub const NVMeDataTypeLogPage: STORAGE_PROTOCOL_NVME_DATA_TYPE =
-    STORAGE_PROTOCOL_NVME_DATA_TYPE(2i32);
-pub const NVMeDataTypeFeature: STORAGE_PROTOCOL_NVME_DATA_TYPE =
-    STORAGE_PROTOCOL_NVME_DATA_TYPE(3i32);
-impl ::std::convert::From<i32> for STORAGE_PROTOCOL_NVME_DATA_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_NVME_DATA_TYPE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_PROTOCOL_SPECIFIC_DATA {
-    pub ProtocolType: STORAGE_PROTOCOL_TYPE,
-    pub DataType: u32,
-    pub ProtocolDataRequestValue: u32,
-    pub ProtocolDataRequestSubValue: u32,
-    pub ProtocolDataOffset: u32,
-    pub ProtocolDataLength: u32,
-    pub FixedProtocolReturnData: u32,
-    pub ProtocolDataRequestSubValue2: u32,
-    pub ProtocolDataRequestSubValue3: u32,
-    pub ProtocolDataRequestSubValue4: u32,
-}
-impl STORAGE_PROTOCOL_SPECIFIC_DATA {}
-impl ::std::default::Default for STORAGE_PROTOCOL_SPECIFIC_DATA {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_PROTOCOL_SPECIFIC_DATA {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_PROTOCOL_SPECIFIC_DATA")
-            .field("ProtocolType", &self.ProtocolType)
-            .field("DataType", &self.DataType)
-            .field("ProtocolDataRequestValue", &self.ProtocolDataRequestValue)
-            .field(
-                "ProtocolDataRequestSubValue",
-                &self.ProtocolDataRequestSubValue,
-            )
-            .field("ProtocolDataOffset", &self.ProtocolDataOffset)
-            .field("ProtocolDataLength", &self.ProtocolDataLength)
-            .field("FixedProtocolReturnData", &self.FixedProtocolReturnData)
-            .field(
-                "ProtocolDataRequestSubValue2",
-                &self.ProtocolDataRequestSubValue2,
-            )
-            .field(
-                "ProtocolDataRequestSubValue3",
-                &self.ProtocolDataRequestSubValue3,
-            )
-            .field(
-                "ProtocolDataRequestSubValue4",
-                &self.ProtocolDataRequestSubValue4,
-            )
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_PROTOCOL_SPECIFIC_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProtocolType == other.ProtocolType
-            && self.DataType == other.DataType
-            && self.ProtocolDataRequestValue == other.ProtocolDataRequestValue
-            && self.ProtocolDataRequestSubValue == other.ProtocolDataRequestSubValue
-            && self.ProtocolDataOffset == other.ProtocolDataOffset
-            && self.ProtocolDataLength == other.ProtocolDataLength
-            && self.FixedProtocolReturnData == other.FixedProtocolReturnData
-            && self.ProtocolDataRequestSubValue2 == other.ProtocolDataRequestSubValue2
-            && self.ProtocolDataRequestSubValue3 == other.ProtocolDataRequestSubValue3
-            && self.ProtocolDataRequestSubValue4 == other.ProtocolDataRequestSubValue4
-    }
-}
-impl ::std::cmp::Eq for STORAGE_PROTOCOL_SPECIFIC_DATA {}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_SPECIFIC_DATA {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct STORAGE_PROTOCOL_TYPE(pub i32);
-pub const ProtocolTypeUnknown: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(0i32);
-pub const ProtocolTypeScsi: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(1i32);
-pub const ProtocolTypeAta: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(2i32);
-pub const ProtocolTypeNvme: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(3i32);
-pub const ProtocolTypeSd: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(4i32);
-pub const ProtocolTypeUfs: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(5i32);
-pub const ProtocolTypeProprietary: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(126i32);
-pub const ProtocolTypeMaxReserved: STORAGE_PROTOCOL_TYPE = STORAGE_PROTOCOL_TYPE(127i32);
-impl ::std::convert::From<i32> for STORAGE_PROTOCOL_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for STORAGE_PROTOCOL_TYPE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct STORAGE_QUERY_TYPE(pub i32);
-pub const PropertyStandardQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(0i32);
-pub const PropertyExistsQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(1i32);
-pub const PropertyMaskQuery: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(2i32);
-pub const PropertyQueryMaxDefined: STORAGE_QUERY_TYPE = STORAGE_QUERY_TYPE(3i32);
-impl ::std::convert::From<i32> for STORAGE_QUERY_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for STORAGE_QUERY_TYPE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union STORAGE_SPEC_VERSION {
-    pub Anonymous: STORAGE_SPEC_VERSION_0,
-    pub AsUlong: u32,
-}
-impl STORAGE_SPEC_VERSION {}
-impl ::std::default::Default for STORAGE_SPEC_VERSION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_SPEC_VERSION {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for STORAGE_SPEC_VERSION {}
-unsafe impl ::windows::runtime::Abi for STORAGE_SPEC_VERSION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_SPEC_VERSION_0 {
-    pub MinorVersion: STORAGE_SPEC_VERSION_0_0,
-    pub MajorVersion: u16,
-}
-impl STORAGE_SPEC_VERSION_0 {}
-impl ::std::default::Default for STORAGE_SPEC_VERSION_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_SPEC_VERSION_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for STORAGE_SPEC_VERSION_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_SPEC_VERSION_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union STORAGE_SPEC_VERSION_0_0 {
-    pub Anonymous: STORAGE_SPEC_VERSION_0_0_0,
-    pub AsUshort: u16,
-}
-impl STORAGE_SPEC_VERSION_0_0 {}
-impl ::std::default::Default for STORAGE_SPEC_VERSION_0_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_SPEC_VERSION_0_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for STORAGE_SPEC_VERSION_0_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_SPEC_VERSION_0_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct STORAGE_SPEC_VERSION_0_0_0 {
-    pub SubMinor: u8,
-    pub Minor: u8,
-}
-impl STORAGE_SPEC_VERSION_0_0_0 {}
-impl ::std::default::Default for STORAGE_SPEC_VERSION_0_0_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for STORAGE_SPEC_VERSION_0_0_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct")
-            .field("SubMinor", &self.SubMinor)
-            .field("Minor", &self.Minor)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for STORAGE_SPEC_VERSION_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SubMinor == other.SubMinor && self.Minor == other.Minor
-    }
-}
-impl ::std::cmp::Eq for STORAGE_SPEC_VERSION_0_0_0 {}
-unsafe impl ::windows::runtime::Abi for STORAGE_SPEC_VERSION_0_0_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
-    pub Version: u32,
-    pub Size: u32,
-    pub CriticalTemperature: i16,
-    pub WarningTemperature: i16,
-    pub InfoCount: u16,
-    pub Reserved0: [u8; 2],
-    pub Reserved1: [u32; 2],
-    pub TemperatureInfo: [STORAGE_TEMPERATURE_INFO; 1],
-}
-#[cfg(feature = "Win32_Foundation")]
-impl STORAGE_TEMPERATURE_DATA_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_TEMPERATURE_DATA_DESCRIPTOR")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("CriticalTemperature", &self.CriticalTemperature)
-            .field("WarningTemperature", &self.WarningTemperature)
-            .field("InfoCount", &self.InfoCount)
-            .field("Reserved0", &self.Reserved0)
-            .field("Reserved1", &self.Reserved1)
-            .field("TemperatureInfo", &self.TemperatureInfo)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.CriticalTemperature == other.CriticalTemperature
-            && self.WarningTemperature == other.WarningTemperature
-            && self.InfoCount == other.InfoCount
-            && self.Reserved0 == other.Reserved0
-            && self.Reserved1 == other.Reserved1
-            && self.TemperatureInfo == other.TemperatureInfo
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_TEMPERATURE_DATA_DESCRIPTOR {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct STORAGE_TEMPERATURE_INFO {
-    pub Index: u16,
-    pub Temperature: i16,
-    pub OverThreshold: i16,
-    pub UnderThreshold: i16,
-    pub OverThresholdChangable: super::super::Foundation::BOOLEAN,
-    pub UnderThresholdChangable: super::super::Foundation::BOOLEAN,
-    pub EventGenerated: super::super::Foundation::BOOLEAN,
-    pub Reserved0: u8,
-    pub Reserved1: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl STORAGE_TEMPERATURE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for STORAGE_TEMPERATURE_INFO {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for STORAGE_TEMPERATURE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_TEMPERATURE_INFO")
-            .field("Index", &self.Index)
-            .field("Temperature", &self.Temperature)
-            .field("OverThreshold", &self.OverThreshold)
-            .field("UnderThreshold", &self.UnderThreshold)
-            .field("OverThresholdChangable", &self.OverThresholdChangable)
-            .field("UnderThresholdChangable", &self.UnderThresholdChangable)
-            .field("EventGenerated", &self.EventGenerated)
-            .field("Reserved0", &self.Reserved0)
-            .field("Reserved1", &self.Reserved1)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for STORAGE_TEMPERATURE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Index == other.Index
-            && self.Temperature == other.Temperature
-            && self.OverThreshold == other.OverThreshold
-            && self.UnderThreshold == other.UnderThreshold
-            && self.OverThresholdChangable == other.OverThresholdChangable
-            && self.UnderThresholdChangable == other.UnderThresholdChangable
-            && self.EventGenerated == other.EventGenerated
-            && self.Reserved0 == other.Reserved0
-            && self.Reserved1 == other.Reserved1
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for STORAGE_TEMPERATURE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_TEMPERATURE_INFO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct STORAGE_TEMPERATURE_THRESHOLD {
-    pub Version: u32,
-    pub Size: u32,
-    pub Flags: u16,
-    pub Index: u16,
-    pub Threshold: i16,
-    pub OverThreshold: super::super::Foundation::BOOLEAN,
-    pub Reserved: u8,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl STORAGE_TEMPERATURE_THRESHOLD {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for STORAGE_TEMPERATURE_THRESHOLD {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for STORAGE_TEMPERATURE_THRESHOLD {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_TEMPERATURE_THRESHOLD")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("Flags", &self.Flags)
-            .field("Index", &self.Index)
-            .field("Threshold", &self.Threshold)
-            .field("OverThreshold", &self.OverThreshold)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for STORAGE_TEMPERATURE_THRESHOLD {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.Flags == other.Flags
-            && self.Index == other.Index
-            && self.Threshold == other.Threshold
-            && self.OverThreshold == other.OverThreshold
-            && self.Reserved == other.Reserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for STORAGE_TEMPERATURE_THRESHOLD {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_TEMPERATURE_THRESHOLD {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct STORAGE_WRITE_CACHE_PROPERTY {
-    pub Version: u32,
-    pub Size: u32,
-    pub WriteCacheType: WRITE_CACHE_TYPE,
-    pub WriteCacheEnabled: WRITE_CACHE_ENABLE,
-    pub WriteCacheChangeable: WRITE_CACHE_CHANGE,
-    pub WriteThroughSupported: WRITE_THROUGH,
-    pub FlushCacheSupported: super::super::Foundation::BOOLEAN,
-    pub UserDefinedPowerProtection: super::super::Foundation::BOOLEAN,
-    pub NVCacheEnabled: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl STORAGE_WRITE_CACHE_PROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for STORAGE_WRITE_CACHE_PROPERTY {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for STORAGE_WRITE_CACHE_PROPERTY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("STORAGE_WRITE_CACHE_PROPERTY")
-            .field("Version", &self.Version)
-            .field("Size", &self.Size)
-            .field("WriteCacheType", &self.WriteCacheType)
-            .field("WriteCacheEnabled", &self.WriteCacheEnabled)
-            .field("WriteCacheChangeable", &self.WriteCacheChangeable)
-            .field("WriteThroughSupported", &self.WriteThroughSupported)
-            .field("FlushCacheSupported", &self.FlushCacheSupported)
-            .field(
-                "UserDefinedPowerProtection",
-                &self.UserDefinedPowerProtection,
-            )
-            .field("NVCacheEnabled", &self.NVCacheEnabled)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for STORAGE_WRITE_CACHE_PROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Size == other.Size
-            && self.WriteCacheType == other.WriteCacheType
-            && self.WriteCacheEnabled == other.WriteCacheEnabled
-            && self.WriteCacheChangeable == other.WriteCacheChangeable
-            && self.WriteThroughSupported == other.WriteThroughSupported
-            && self.FlushCacheSupported == other.FlushCacheSupported
-            && self.UserDefinedPowerProtection == other.UserDefinedPowerProtection
-            && self.NVCacheEnabled == other.NVCacheEnabled
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for STORAGE_WRITE_CACHE_PROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for STORAGE_WRITE_CACHE_PROPERTY {
+unsafe impl ::windows::runtime::Abi for STORAGE_BUS_TYPE {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -29248,7 +22198,7 @@ pub unsafe fn SetEndOfFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn SetEndOfLog<
     'a,
@@ -29256,7 +22206,7 @@ pub unsafe fn SetEndOfLog<
 >(
     hlog: Param0,
     plsnend: *mut CLS_LSN,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -29265,7 +22215,7 @@ pub unsafe fn SetEndOfLog<
             fn SetEndOfLog(
                 hlog: super::super::Foundation::HANDLE,
                 plsnend: *mut CLS_LSN,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(SetEndOfLog(
@@ -29773,6 +22723,7 @@ pub unsafe fn SetFileValidData<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn SetIoRingCompletionEvent<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -30209,6 +23160,7 @@ pub unsafe fn SinglePhaseReject<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn SubmitIoRing(
     ioring: *const HIORING__,
     waitoperations: u32,
@@ -30610,304 +23562,6 @@ unsafe impl ::windows::runtime::Abi for TRANSACTION_OUTCOME {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct TXFS_CREATE_MINIVERSION_INFO {
-    pub StructureVersion: u16,
-    pub StructureLength: u16,
-    pub BaseVersion: u32,
-    pub MiniVersion: u16,
-}
-impl TXFS_CREATE_MINIVERSION_INFO {}
-impl ::std::default::Default for TXFS_CREATE_MINIVERSION_INFO {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for TXFS_CREATE_MINIVERSION_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_CREATE_MINIVERSION_INFO")
-            .field("StructureVersion", &self.StructureVersion)
-            .field("StructureLength", &self.StructureLength)
-            .field("BaseVersion", &self.BaseVersion)
-            .field("MiniVersion", &self.MiniVersion)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_CREATE_MINIVERSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.StructureVersion == other.StructureVersion
-            && self.StructureLength == other.StructureLength
-            && self.BaseVersion == other.BaseVersion
-            && self.MiniVersion == other.MiniVersion
-    }
-}
-impl ::std::cmp::Eq for TXFS_CREATE_MINIVERSION_INFO {}
-unsafe impl ::windows::runtime::Abi for TXFS_CREATE_MINIVERSION_INFO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct TXFS_GET_METADATA_INFO_OUT {
-    pub TxfFileId: TXFS_GET_METADATA_INFO_OUT_0,
-    pub LockingTransaction: ::windows::runtime::GUID,
-    pub LastLsn: u64,
-    pub TransactionState: u32,
-}
-impl TXFS_GET_METADATA_INFO_OUT {}
-impl ::std::default::Default for TXFS_GET_METADATA_INFO_OUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for TXFS_GET_METADATA_INFO_OUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_GET_METADATA_INFO_OUT")
-            .field("TxfFileId", &self.TxfFileId)
-            .field("LockingTransaction", &self.LockingTransaction)
-            .field("LastLsn", &self.LastLsn)
-            .field("TransactionState", &self.TransactionState)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_GET_METADATA_INFO_OUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.TxfFileId == other.TxfFileId
-            && self.LockingTransaction == other.LockingTransaction
-            && self.LastLsn == other.LastLsn
-            && self.TransactionState == other.TransactionState
-    }
-}
-impl ::std::cmp::Eq for TXFS_GET_METADATA_INFO_OUT {}
-unsafe impl ::windows::runtime::Abi for TXFS_GET_METADATA_INFO_OUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct TXFS_GET_METADATA_INFO_OUT_0 {
-    pub LowPart: i64,
-    pub HighPart: i64,
-}
-impl TXFS_GET_METADATA_INFO_OUT_0 {}
-impl ::std::default::Default for TXFS_GET_METADATA_INFO_OUT_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for TXFS_GET_METADATA_INFO_OUT_0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("_TxfFileId_e__Struct")
-            .field("LowPart", &self.LowPart)
-            .field("HighPart", &self.HighPart)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_GET_METADATA_INFO_OUT_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowPart == other.LowPart && self.HighPart == other.HighPart
-    }
-}
-impl ::std::cmp::Eq for TXFS_GET_METADATA_INFO_OUT_0 {}
-unsafe impl ::windows::runtime::Abi for TXFS_GET_METADATA_INFO_OUT_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct TXFS_GET_TRANSACTED_VERSION {
-    pub ThisBaseVersion: u32,
-    pub LatestVersion: u32,
-    pub ThisMiniVersion: u16,
-    pub FirstMiniVersion: u16,
-    pub LatestMiniVersion: u16,
-}
-impl TXFS_GET_TRANSACTED_VERSION {}
-impl ::std::default::Default for TXFS_GET_TRANSACTED_VERSION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for TXFS_GET_TRANSACTED_VERSION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_GET_TRANSACTED_VERSION")
-            .field("ThisBaseVersion", &self.ThisBaseVersion)
-            .field("LatestVersion", &self.LatestVersion)
-            .field("ThisMiniVersion", &self.ThisMiniVersion)
-            .field("FirstMiniVersion", &self.FirstMiniVersion)
-            .field("LatestMiniVersion", &self.LatestMiniVersion)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_GET_TRANSACTED_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ThisBaseVersion == other.ThisBaseVersion
-            && self.LatestVersion == other.LatestVersion
-            && self.ThisMiniVersion == other.ThisMiniVersion
-            && self.FirstMiniVersion == other.FirstMiniVersion
-            && self.LatestMiniVersion == other.LatestMiniVersion
-    }
-}
-impl ::std::cmp::Eq for TXFS_GET_TRANSACTED_VERSION {}
-unsafe impl ::windows::runtime::Abi for TXFS_GET_TRANSACTED_VERSION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct TXFS_LIST_TRANSACTIONS {
-    pub NumberOfTransactions: u64,
-    pub BufferSizeRequired: u64,
-}
-impl TXFS_LIST_TRANSACTIONS {}
-impl ::std::default::Default for TXFS_LIST_TRANSACTIONS {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for TXFS_LIST_TRANSACTIONS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_LIST_TRANSACTIONS")
-            .field("NumberOfTransactions", &self.NumberOfTransactions)
-            .field("BufferSizeRequired", &self.BufferSizeRequired)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_LIST_TRANSACTIONS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfTransactions == other.NumberOfTransactions
-            && self.BufferSizeRequired == other.BufferSizeRequired
-    }
-}
-impl ::std::cmp::Eq for TXFS_LIST_TRANSACTIONS {}
-unsafe impl ::windows::runtime::Abi for TXFS_LIST_TRANSACTIONS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct TXFS_LIST_TRANSACTIONS_ENTRY {
-    pub TransactionId: ::windows::runtime::GUID,
-    pub TransactionState: u32,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: i64,
-}
-impl TXFS_LIST_TRANSACTIONS_ENTRY {}
-impl ::std::default::Default for TXFS_LIST_TRANSACTIONS_ENTRY {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for TXFS_LIST_TRANSACTIONS_ENTRY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_LIST_TRANSACTIONS_ENTRY")
-            .field("TransactionId", &self.TransactionId)
-            .field("TransactionState", &self.TransactionState)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_LIST_TRANSACTIONS_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransactionId == other.TransactionId
-            && self.TransactionState == other.TransactionState
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
-            && self.Reserved3 == other.Reserved3
-    }
-}
-impl ::std::cmp::Eq for TXFS_LIST_TRANSACTIONS_ENTRY {}
-unsafe impl ::windows::runtime::Abi for TXFS_LIST_TRANSACTIONS_ENTRY {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES {
-    pub KtmTransaction: ::windows::runtime::GUID,
-    pub NumberOfFiles: u64,
-    pub BufferSizeRequired: u64,
-    pub Offset: u64,
-}
-impl TXFS_LIST_TRANSACTION_LOCKED_FILES {}
-impl ::std::default::Default for TXFS_LIST_TRANSACTION_LOCKED_FILES {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for TXFS_LIST_TRANSACTION_LOCKED_FILES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_LIST_TRANSACTION_LOCKED_FILES")
-            .field("KtmTransaction", &self.KtmTransaction)
-            .field("NumberOfFiles", &self.NumberOfFiles)
-            .field("BufferSizeRequired", &self.BufferSizeRequired)
-            .field("Offset", &self.Offset)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_LIST_TRANSACTION_LOCKED_FILES {
-    fn eq(&self, other: &Self) -> bool {
-        self.KtmTransaction == other.KtmTransaction
-            && self.NumberOfFiles == other.NumberOfFiles
-            && self.BufferSizeRequired == other.BufferSizeRequired
-            && self.Offset == other.Offset
-    }
-}
-impl ::std::cmp::Eq for TXFS_LIST_TRANSACTION_LOCKED_FILES {}
-unsafe impl ::windows::runtime::Abi for TXFS_LIST_TRANSACTION_LOCKED_FILES {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
-    pub Offset: u64,
-    pub NameFlags: u32,
-    pub FileId: i64,
-    pub Reserved1: u32,
-    pub Reserved2: u32,
-    pub Reserved3: i64,
-    pub FileName: [u16; 1],
-}
-impl TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {}
-impl ::std::default::Default for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY")
-            .field("Offset", &self.Offset)
-            .field("NameFlags", &self.NameFlags)
-            .field("FileId", &self.FileId)
-            .field("Reserved1", &self.Reserved1)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .field("FileName", &self.FileName)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset
-            && self.NameFlags == other.NameFlags
-            && self.FileId == other.FileId
-            && self.Reserved1 == other.Reserved1
-            && self.Reserved2 == other.Reserved2
-            && self.Reserved3 == other.Reserved3
-            && self.FileName == other.FileName
-    }
-}
-impl ::std::cmp::Eq for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {}
-unsafe impl ::windows::runtime::Abi for TXFS_LIST_TRANSACTION_LOCKED_FILES_ENTRY {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[derive(
     :: std :: cmp :: PartialEq,
     :: std :: cmp :: Eq,
@@ -30957,372 +23611,6 @@ impl ::std::ops::Not for TXFS_MINIVERSION {
     fn not(self) -> Self {
         Self(self.0.not())
     }
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct TXFS_MODIFY_RM {
-    pub Flags: TXFS_RMF_LAGS,
-    pub LogContainerCountMax: u32,
-    pub LogContainerCountMin: u32,
-    pub LogContainerCount: u32,
-    pub LogGrowthIncrement: u32,
-    pub LogAutoShrinkPercentage: u32,
-    pub Reserved: u64,
-    pub LoggingMode: u16,
-}
-impl TXFS_MODIFY_RM {}
-impl ::std::default::Default for TXFS_MODIFY_RM {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for TXFS_MODIFY_RM {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_MODIFY_RM")
-            .field("Flags", &self.Flags)
-            .field("LogContainerCountMax", &self.LogContainerCountMax)
-            .field("LogContainerCountMin", &self.LogContainerCountMin)
-            .field("LogContainerCount", &self.LogContainerCount)
-            .field("LogGrowthIncrement", &self.LogGrowthIncrement)
-            .field("LogAutoShrinkPercentage", &self.LogAutoShrinkPercentage)
-            .field("Reserved", &self.Reserved)
-            .field("LoggingMode", &self.LoggingMode)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_MODIFY_RM {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.LogContainerCountMax == other.LogContainerCountMax
-            && self.LogContainerCountMin == other.LogContainerCountMin
-            && self.LogContainerCount == other.LogContainerCount
-            && self.LogGrowthIncrement == other.LogGrowthIncrement
-            && self.LogAutoShrinkPercentage == other.LogAutoShrinkPercentage
-            && self.Reserved == other.Reserved
-            && self.LoggingMode == other.LoggingMode
-    }
-}
-impl ::std::cmp::Eq for TXFS_MODIFY_RM {}
-unsafe impl ::windows::runtime::Abi for TXFS_MODIFY_RM {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct TXFS_QUERY_RM_INFORMATION {
-    pub BytesRequired: u32,
-    pub TailLsn: u64,
-    pub CurrentLsn: u64,
-    pub ArchiveTailLsn: u64,
-    pub LogContainerSize: u64,
-    pub HighestVirtualClock: i64,
-    pub LogContainerCount: u32,
-    pub LogContainerCountMax: u32,
-    pub LogContainerCountMin: u32,
-    pub LogGrowthIncrement: u32,
-    pub LogAutoShrinkPercentage: u32,
-    pub Flags: TXFS_RMF_LAGS,
-    pub LoggingMode: u16,
-    pub Reserved: u16,
-    pub RmState: u32,
-    pub LogCapacity: u64,
-    pub LogFree: u64,
-    pub TopsSize: u64,
-    pub TopsUsed: u64,
-    pub TransactionCount: u64,
-    pub OnePCCount: u64,
-    pub TwoPCCount: u64,
-    pub NumberLogFileFull: u64,
-    pub OldestTransactionAge: u64,
-    pub RMName: ::windows::runtime::GUID,
-    pub TmLogPathOffset: u32,
-}
-impl TXFS_QUERY_RM_INFORMATION {}
-impl ::std::default::Default for TXFS_QUERY_RM_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for TXFS_QUERY_RM_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_QUERY_RM_INFORMATION")
-            .field("BytesRequired", &self.BytesRequired)
-            .field("TailLsn", &self.TailLsn)
-            .field("CurrentLsn", &self.CurrentLsn)
-            .field("ArchiveTailLsn", &self.ArchiveTailLsn)
-            .field("LogContainerSize", &self.LogContainerSize)
-            .field("HighestVirtualClock", &self.HighestVirtualClock)
-            .field("LogContainerCount", &self.LogContainerCount)
-            .field("LogContainerCountMax", &self.LogContainerCountMax)
-            .field("LogContainerCountMin", &self.LogContainerCountMin)
-            .field("LogGrowthIncrement", &self.LogGrowthIncrement)
-            .field("LogAutoShrinkPercentage", &self.LogAutoShrinkPercentage)
-            .field("Flags", &self.Flags)
-            .field("LoggingMode", &self.LoggingMode)
-            .field("Reserved", &self.Reserved)
-            .field("RmState", &self.RmState)
-            .field("LogCapacity", &self.LogCapacity)
-            .field("LogFree", &self.LogFree)
-            .field("TopsSize", &self.TopsSize)
-            .field("TopsUsed", &self.TopsUsed)
-            .field("TransactionCount", &self.TransactionCount)
-            .field("OnePCCount", &self.OnePCCount)
-            .field("TwoPCCount", &self.TwoPCCount)
-            .field("NumberLogFileFull", &self.NumberLogFileFull)
-            .field("OldestTransactionAge", &self.OldestTransactionAge)
-            .field("RMName", &self.RMName)
-            .field("TmLogPathOffset", &self.TmLogPathOffset)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_QUERY_RM_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.BytesRequired == other.BytesRequired
-            && self.TailLsn == other.TailLsn
-            && self.CurrentLsn == other.CurrentLsn
-            && self.ArchiveTailLsn == other.ArchiveTailLsn
-            && self.LogContainerSize == other.LogContainerSize
-            && self.HighestVirtualClock == other.HighestVirtualClock
-            && self.LogContainerCount == other.LogContainerCount
-            && self.LogContainerCountMax == other.LogContainerCountMax
-            && self.LogContainerCountMin == other.LogContainerCountMin
-            && self.LogGrowthIncrement == other.LogGrowthIncrement
-            && self.LogAutoShrinkPercentage == other.LogAutoShrinkPercentage
-            && self.Flags == other.Flags
-            && self.LoggingMode == other.LoggingMode
-            && self.Reserved == other.Reserved
-            && self.RmState == other.RmState
-            && self.LogCapacity == other.LogCapacity
-            && self.LogFree == other.LogFree
-            && self.TopsSize == other.TopsSize
-            && self.TopsUsed == other.TopsUsed
-            && self.TransactionCount == other.TransactionCount
-            && self.OnePCCount == other.OnePCCount
-            && self.TwoPCCount == other.TwoPCCount
-            && self.NumberLogFileFull == other.NumberLogFileFull
-            && self.OldestTransactionAge == other.OldestTransactionAge
-            && self.RMName == other.RMName
-            && self.TmLogPathOffset == other.TmLogPathOffset
-    }
-}
-impl ::std::cmp::Eq for TXFS_QUERY_RM_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TXFS_QUERY_RM_INFORMATION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct TXFS_READ_BACKUP_INFORMATION_OUT {
-    pub Anonymous: TXFS_READ_BACKUP_INFORMATION_OUT_0,
-}
-impl TXFS_READ_BACKUP_INFORMATION_OUT {}
-impl ::std::default::Default for TXFS_READ_BACKUP_INFORMATION_OUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_READ_BACKUP_INFORMATION_OUT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for TXFS_READ_BACKUP_INFORMATION_OUT {}
-unsafe impl ::windows::runtime::Abi for TXFS_READ_BACKUP_INFORMATION_OUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union TXFS_READ_BACKUP_INFORMATION_OUT_0 {
-    pub BufferLength: u32,
-    pub Buffer: [u8; 1],
-}
-impl TXFS_READ_BACKUP_INFORMATION_OUT_0 {}
-impl ::std::default::Default for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for TXFS_READ_BACKUP_INFORMATION_OUT_0 {}
-unsafe impl ::windows::runtime::Abi for TXFS_READ_BACKUP_INFORMATION_OUT_0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct TXFS_RMF_LAGS(pub u32);
-pub const TXFS_RM_FLAG_LOGGING_MODE: TXFS_RMF_LAGS = TXFS_RMF_LAGS(1u32);
-pub const TXFS_RM_FLAG_RENAME_RM: TXFS_RMF_LAGS = TXFS_RMF_LAGS(2u32);
-pub const TXFS_RM_FLAG_LOG_CONTAINER_COUNT_MAX: TXFS_RMF_LAGS = TXFS_RMF_LAGS(4u32);
-pub const TXFS_RM_FLAG_LOG_CONTAINER_COUNT_MIN: TXFS_RMF_LAGS = TXFS_RMF_LAGS(8u32);
-pub const TXFS_RM_FLAG_LOG_GROWTH_INCREMENT_NUM_CONTAINERS: TXFS_RMF_LAGS = TXFS_RMF_LAGS(16u32);
-pub const TXFS_RM_FLAG_LOG_GROWTH_INCREMENT_PERCENT: TXFS_RMF_LAGS = TXFS_RMF_LAGS(32u32);
-pub const TXFS_RM_FLAG_LOG_AUTO_SHRINK_PERCENTAGE: TXFS_RMF_LAGS = TXFS_RMF_LAGS(64u32);
-pub const TXFS_RM_FLAG_LOG_NO_CONTAINER_COUNT_MAX: TXFS_RMF_LAGS = TXFS_RMF_LAGS(128u32);
-pub const TXFS_RM_FLAG_LOG_NO_CONTAINER_COUNT_MIN: TXFS_RMF_LAGS = TXFS_RMF_LAGS(256u32);
-pub const TXFS_RM_FLAG_GROW_LOG: TXFS_RMF_LAGS = TXFS_RMF_LAGS(1024u32);
-pub const TXFS_RM_FLAG_SHRINK_LOG: TXFS_RMF_LAGS = TXFS_RMF_LAGS(2048u32);
-pub const TXFS_RM_FLAG_ENFORCE_MINIMUM_SIZE: TXFS_RMF_LAGS = TXFS_RMF_LAGS(4096u32);
-pub const TXFS_RM_FLAG_PRESERVE_CHANGES: TXFS_RMF_LAGS = TXFS_RMF_LAGS(8192u32);
-pub const TXFS_RM_FLAG_RESET_RM_AT_NEXT_START: TXFS_RMF_LAGS = TXFS_RMF_LAGS(16384u32);
-pub const TXFS_RM_FLAG_DO_NOT_RESET_RM_AT_NEXT_START: TXFS_RMF_LAGS = TXFS_RMF_LAGS(32768u32);
-pub const TXFS_RM_FLAG_PREFER_CONSISTENCY: TXFS_RMF_LAGS = TXFS_RMF_LAGS(65536u32);
-pub const TXFS_RM_FLAG_PREFER_AVAILABILITY: TXFS_RMF_LAGS = TXFS_RMF_LAGS(131072u32);
-impl ::std::convert::From<u32> for TXFS_RMF_LAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for TXFS_RMF_LAGS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-impl ::std::ops::BitOr for TXFS_RMF_LAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::std::ops::BitAnd for TXFS_RMF_LAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::std::ops::BitOrAssign for TXFS_RMF_LAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::std::ops::BitAndAssign for TXFS_RMF_LAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::std::ops::Not for TXFS_RMF_LAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TXFS_SAVEPOINT_INFORMATION {
-    pub KtmTransaction: super::super::Foundation::HANDLE,
-    pub ActionCode: u32,
-    pub SavepointId: u32,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl TXFS_SAVEPOINT_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TXFS_SAVEPOINT_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TXFS_SAVEPOINT_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_SAVEPOINT_INFORMATION")
-            .field("KtmTransaction", &self.KtmTransaction)
-            .field("ActionCode", &self.ActionCode)
-            .field("SavepointId", &self.SavepointId)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TXFS_SAVEPOINT_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.KtmTransaction == other.KtmTransaction
-            && self.ActionCode == other.ActionCode
-            && self.SavepointId == other.SavepointId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TXFS_SAVEPOINT_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TXFS_SAVEPOINT_INFORMATION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-#[cfg(feature = "Win32_Foundation")]
-pub struct TXFS_TRANSACTION_ACTIVE_INFO {
-    pub TransactionsActiveAtSnapshot: super::super::Foundation::BOOLEAN,
-}
-#[cfg(feature = "Win32_Foundation")]
-impl TXFS_TRANSACTION_ACTIVE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::default::Default for TXFS_TRANSACTION_ACTIVE_INFO {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::fmt::Debug for TXFS_TRANSACTION_ACTIVE_INFO {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_TRANSACTION_ACTIVE_INFO")
-            .field(
-                "TransactionsActiveAtSnapshot",
-                &self.TransactionsActiveAtSnapshot,
-            )
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::PartialEq for TXFS_TRANSACTION_ACTIVE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.TransactionsActiveAtSnapshot == other.TransactionsActiveAtSnapshot
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::std::cmp::Eq for TXFS_TRANSACTION_ACTIVE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::runtime::Abi for TXFS_TRANSACTION_ACTIVE_INFO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct TXFS_WRITE_BACKUP_INFORMATION {
-    pub Buffer: [u8; 1],
-}
-impl TXFS_WRITE_BACKUP_INFORMATION {}
-impl ::std::default::Default for TXFS_WRITE_BACKUP_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for TXFS_WRITE_BACKUP_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("TXFS_WRITE_BACKUP_INFORMATION")
-            .field("Buffer", &self.Buffer)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for TXFS_WRITE_BACKUP_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Buffer == other.Buffer
-    }
-}
-impl ::std::cmp::Eq for TXFS_WRITE_BACKUP_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for TXFS_WRITE_BACKUP_INFORMATION {
-    type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
@@ -31550,12 +23838,12 @@ pub unsafe fn TerminateReadLog(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn TruncateLog(
     pvmarshal: *const ::std::ffi::c_void,
     plsnend: *const CLS_LSN,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -31564,7 +23852,7 @@ pub unsafe fn TruncateLog(
             fn TruncateLog(
                 pvmarshal: *const ::std::ffi::c_void,
                 plsnend: *const CLS_LSN,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(TruncateLog(
@@ -31834,610 +24122,6 @@ pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct USN_DELETE_FLAGS(pub u32);
-pub const USN_DELETE_FLAG_DELETE: USN_DELETE_FLAGS = USN_DELETE_FLAGS(1u32);
-pub const USN_DELETE_FLAG_NOTIFY: USN_DELETE_FLAGS = USN_DELETE_FLAGS(2u32);
-impl ::std::convert::From<u32> for USN_DELETE_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for USN_DELETE_FLAGS {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-impl ::std::ops::BitOr for USN_DELETE_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::std::ops::BitAnd for USN_DELETE_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::std::ops::BitOrAssign for USN_DELETE_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::std::ops::BitAndAssign for USN_DELETE_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::std::ops::Not for USN_DELETE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct USN_JOURNAL_DATA_V0 {
-    pub UsnJournalID: u64,
-    pub FirstUsn: i64,
-    pub NextUsn: i64,
-    pub LowestValidUsn: i64,
-    pub MaxUsn: i64,
-    pub MaximumSize: u64,
-    pub AllocationDelta: u64,
-}
-impl USN_JOURNAL_DATA_V0 {}
-impl ::std::default::Default for USN_JOURNAL_DATA_V0 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for USN_JOURNAL_DATA_V0 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_JOURNAL_DATA_V0")
-            .field("UsnJournalID", &self.UsnJournalID)
-            .field("FirstUsn", &self.FirstUsn)
-            .field("NextUsn", &self.NextUsn)
-            .field("LowestValidUsn", &self.LowestValidUsn)
-            .field("MaxUsn", &self.MaxUsn)
-            .field("MaximumSize", &self.MaximumSize)
-            .field("AllocationDelta", &self.AllocationDelta)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for USN_JOURNAL_DATA_V0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UsnJournalID == other.UsnJournalID
-            && self.FirstUsn == other.FirstUsn
-            && self.NextUsn == other.NextUsn
-            && self.LowestValidUsn == other.LowestValidUsn
-            && self.MaxUsn == other.MaxUsn
-            && self.MaximumSize == other.MaximumSize
-            && self.AllocationDelta == other.AllocationDelta
-    }
-}
-impl ::std::cmp::Eq for USN_JOURNAL_DATA_V0 {}
-unsafe impl ::windows::runtime::Abi for USN_JOURNAL_DATA_V0 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct USN_JOURNAL_DATA_V1 {
-    pub UsnJournalID: u64,
-    pub FirstUsn: i64,
-    pub NextUsn: i64,
-    pub LowestValidUsn: i64,
-    pub MaxUsn: i64,
-    pub MaximumSize: u64,
-    pub AllocationDelta: u64,
-    pub MinSupportedMajorVersion: u16,
-    pub MaxSupportedMajorVersion: u16,
-}
-impl USN_JOURNAL_DATA_V1 {}
-impl ::std::default::Default for USN_JOURNAL_DATA_V1 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for USN_JOURNAL_DATA_V1 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_JOURNAL_DATA_V1")
-            .field("UsnJournalID", &self.UsnJournalID)
-            .field("FirstUsn", &self.FirstUsn)
-            .field("NextUsn", &self.NextUsn)
-            .field("LowestValidUsn", &self.LowestValidUsn)
-            .field("MaxUsn", &self.MaxUsn)
-            .field("MaximumSize", &self.MaximumSize)
-            .field("AllocationDelta", &self.AllocationDelta)
-            .field("MinSupportedMajorVersion", &self.MinSupportedMajorVersion)
-            .field("MaxSupportedMajorVersion", &self.MaxSupportedMajorVersion)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for USN_JOURNAL_DATA_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UsnJournalID == other.UsnJournalID
-            && self.FirstUsn == other.FirstUsn
-            && self.NextUsn == other.NextUsn
-            && self.LowestValidUsn == other.LowestValidUsn
-            && self.MaxUsn == other.MaxUsn
-            && self.MaximumSize == other.MaximumSize
-            && self.AllocationDelta == other.AllocationDelta
-            && self.MinSupportedMajorVersion == other.MinSupportedMajorVersion
-            && self.MaxSupportedMajorVersion == other.MaxSupportedMajorVersion
-    }
-}
-impl ::std::cmp::Eq for USN_JOURNAL_DATA_V1 {}
-unsafe impl ::windows::runtime::Abi for USN_JOURNAL_DATA_V1 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct USN_JOURNAL_DATA_V2 {
-    pub UsnJournalID: u64,
-    pub FirstUsn: i64,
-    pub NextUsn: i64,
-    pub LowestValidUsn: i64,
-    pub MaxUsn: i64,
-    pub MaximumSize: u64,
-    pub AllocationDelta: u64,
-    pub MinSupportedMajorVersion: u16,
-    pub MaxSupportedMajorVersion: u16,
-    pub Flags: u32,
-    pub RangeTrackChunkSize: u64,
-    pub RangeTrackFileSizeThreshold: i64,
-}
-impl USN_JOURNAL_DATA_V2 {}
-impl ::std::default::Default for USN_JOURNAL_DATA_V2 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for USN_JOURNAL_DATA_V2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_JOURNAL_DATA_V2")
-            .field("UsnJournalID", &self.UsnJournalID)
-            .field("FirstUsn", &self.FirstUsn)
-            .field("NextUsn", &self.NextUsn)
-            .field("LowestValidUsn", &self.LowestValidUsn)
-            .field("MaxUsn", &self.MaxUsn)
-            .field("MaximumSize", &self.MaximumSize)
-            .field("AllocationDelta", &self.AllocationDelta)
-            .field("MinSupportedMajorVersion", &self.MinSupportedMajorVersion)
-            .field("MaxSupportedMajorVersion", &self.MaxSupportedMajorVersion)
-            .field("Flags", &self.Flags)
-            .field("RangeTrackChunkSize", &self.RangeTrackChunkSize)
-            .field(
-                "RangeTrackFileSizeThreshold",
-                &self.RangeTrackFileSizeThreshold,
-            )
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for USN_JOURNAL_DATA_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UsnJournalID == other.UsnJournalID
-            && self.FirstUsn == other.FirstUsn
-            && self.NextUsn == other.NextUsn
-            && self.LowestValidUsn == other.LowestValidUsn
-            && self.MaxUsn == other.MaxUsn
-            && self.MaximumSize == other.MaximumSize
-            && self.AllocationDelta == other.AllocationDelta
-            && self.MinSupportedMajorVersion == other.MinSupportedMajorVersion
-            && self.MaxSupportedMajorVersion == other.MaxSupportedMajorVersion
-            && self.Flags == other.Flags
-            && self.RangeTrackChunkSize == other.RangeTrackChunkSize
-            && self.RangeTrackFileSizeThreshold == other.RangeTrackFileSizeThreshold
-    }
-}
-impl ::std::cmp::Eq for USN_JOURNAL_DATA_V2 {}
-unsafe impl ::windows::runtime::Abi for USN_JOURNAL_DATA_V2 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct USN_RANGE_TRACK_OUTPUT {
-    pub Usn: i64,
-}
-impl USN_RANGE_TRACK_OUTPUT {}
-impl ::std::default::Default for USN_RANGE_TRACK_OUTPUT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for USN_RANGE_TRACK_OUTPUT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_RANGE_TRACK_OUTPUT")
-            .field("Usn", &self.Usn)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for USN_RANGE_TRACK_OUTPUT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Usn == other.Usn
-    }
-}
-impl ::std::cmp::Eq for USN_RANGE_TRACK_OUTPUT {}
-unsafe impl ::windows::runtime::Abi for USN_RANGE_TRACK_OUTPUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct USN_RECORD_COMMON_HEADER {
-    pub RecordLength: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-}
-impl USN_RECORD_COMMON_HEADER {}
-impl ::std::default::Default for USN_RECORD_COMMON_HEADER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for USN_RECORD_COMMON_HEADER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_RECORD_COMMON_HEADER")
-            .field("RecordLength", &self.RecordLength)
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for USN_RECORD_COMMON_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.RecordLength == other.RecordLength
-            && self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-    }
-}
-impl ::std::cmp::Eq for USN_RECORD_COMMON_HEADER {}
-unsafe impl ::windows::runtime::Abi for USN_RECORD_COMMON_HEADER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct USN_RECORD_EXTENT {
-    pub Offset: i64,
-    pub Length: i64,
-}
-impl USN_RECORD_EXTENT {}
-impl ::std::default::Default for USN_RECORD_EXTENT {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for USN_RECORD_EXTENT {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_RECORD_EXTENT")
-            .field("Offset", &self.Offset)
-            .field("Length", &self.Length)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for USN_RECORD_EXTENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Offset == other.Offset && self.Length == other.Length
-    }
-}
-impl ::std::cmp::Eq for USN_RECORD_EXTENT {}
-unsafe impl ::windows::runtime::Abi for USN_RECORD_EXTENT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub union USN_RECORD_UNION {
-    pub Header: USN_RECORD_COMMON_HEADER,
-    pub V2: USN_RECORD_V2,
-    pub V3: USN_RECORD_V3,
-    pub V4: USN_RECORD_V4,
-}
-impl USN_RECORD_UNION {}
-impl ::std::default::Default for USN_RECORD_UNION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::cmp::PartialEq for USN_RECORD_UNION {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::std::cmp::Eq for USN_RECORD_UNION {}
-unsafe impl ::windows::runtime::Abi for USN_RECORD_UNION {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct USN_RECORD_V2 {
-    pub RecordLength: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub FileReferenceNumber: u64,
-    pub ParentFileReferenceNumber: u64,
-    pub Usn: i64,
-    pub TimeStamp: i64,
-    pub Reason: u32,
-    pub SourceInfo: u32,
-    pub SecurityId: u32,
-    pub FileAttributes: u32,
-    pub FileNameLength: u16,
-    pub FileNameOffset: u16,
-    pub FileName: [u16; 1],
-}
-impl USN_RECORD_V2 {}
-impl ::std::default::Default for USN_RECORD_V2 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for USN_RECORD_V2 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_RECORD_V2")
-            .field("RecordLength", &self.RecordLength)
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("FileReferenceNumber", &self.FileReferenceNumber)
-            .field("ParentFileReferenceNumber", &self.ParentFileReferenceNumber)
-            .field("Usn", &self.Usn)
-            .field("TimeStamp", &self.TimeStamp)
-            .field("Reason", &self.Reason)
-            .field("SourceInfo", &self.SourceInfo)
-            .field("SecurityId", &self.SecurityId)
-            .field("FileAttributes", &self.FileAttributes)
-            .field("FileNameLength", &self.FileNameLength)
-            .field("FileNameOffset", &self.FileNameOffset)
-            .field("FileName", &self.FileName)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for USN_RECORD_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RecordLength == other.RecordLength
-            && self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.FileReferenceNumber == other.FileReferenceNumber
-            && self.ParentFileReferenceNumber == other.ParentFileReferenceNumber
-            && self.Usn == other.Usn
-            && self.TimeStamp == other.TimeStamp
-            && self.Reason == other.Reason
-            && self.SourceInfo == other.SourceInfo
-            && self.SecurityId == other.SecurityId
-            && self.FileAttributes == other.FileAttributes
-            && self.FileNameLength == other.FileNameLength
-            && self.FileNameOffset == other.FileNameOffset
-            && self.FileName == other.FileName
-    }
-}
-impl ::std::cmp::Eq for USN_RECORD_V2 {}
-unsafe impl ::windows::runtime::Abi for USN_RECORD_V2 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct USN_RECORD_V3 {
-    pub RecordLength: u32,
-    pub MajorVersion: u16,
-    pub MinorVersion: u16,
-    pub FileReferenceNumber: FILE_ID_128,
-    pub ParentFileReferenceNumber: FILE_ID_128,
-    pub Usn: i64,
-    pub TimeStamp: i64,
-    pub Reason: u32,
-    pub SourceInfo: u32,
-    pub SecurityId: u32,
-    pub FileAttributes: u32,
-    pub FileNameLength: u16,
-    pub FileNameOffset: u16,
-    pub FileName: [u16; 1],
-}
-impl USN_RECORD_V3 {}
-impl ::std::default::Default for USN_RECORD_V3 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for USN_RECORD_V3 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_RECORD_V3")
-            .field("RecordLength", &self.RecordLength)
-            .field("MajorVersion", &self.MajorVersion)
-            .field("MinorVersion", &self.MinorVersion)
-            .field("FileReferenceNumber", &self.FileReferenceNumber)
-            .field("ParentFileReferenceNumber", &self.ParentFileReferenceNumber)
-            .field("Usn", &self.Usn)
-            .field("TimeStamp", &self.TimeStamp)
-            .field("Reason", &self.Reason)
-            .field("SourceInfo", &self.SourceInfo)
-            .field("SecurityId", &self.SecurityId)
-            .field("FileAttributes", &self.FileAttributes)
-            .field("FileNameLength", &self.FileNameLength)
-            .field("FileNameOffset", &self.FileNameOffset)
-            .field("FileName", &self.FileName)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for USN_RECORD_V3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RecordLength == other.RecordLength
-            && self.MajorVersion == other.MajorVersion
-            && self.MinorVersion == other.MinorVersion
-            && self.FileReferenceNumber == other.FileReferenceNumber
-            && self.ParentFileReferenceNumber == other.ParentFileReferenceNumber
-            && self.Usn == other.Usn
-            && self.TimeStamp == other.TimeStamp
-            && self.Reason == other.Reason
-            && self.SourceInfo == other.SourceInfo
-            && self.SecurityId == other.SecurityId
-            && self.FileAttributes == other.FileAttributes
-            && self.FileNameLength == other.FileNameLength
-            && self.FileNameOffset == other.FileNameOffset
-            && self.FileName == other.FileName
-    }
-}
-impl ::std::cmp::Eq for USN_RECORD_V3 {}
-unsafe impl ::windows::runtime::Abi for USN_RECORD_V3 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct USN_RECORD_V4 {
-    pub Header: USN_RECORD_COMMON_HEADER,
-    pub FileReferenceNumber: FILE_ID_128,
-    pub ParentFileReferenceNumber: FILE_ID_128,
-    pub Usn: i64,
-    pub Reason: u32,
-    pub SourceInfo: USN_SOURCE_INFO_ID,
-    pub RemainingExtents: u32,
-    pub NumberOfExtents: u16,
-    pub ExtentSize: u16,
-    pub Extents: [USN_RECORD_EXTENT; 1],
-}
-impl USN_RECORD_V4 {}
-impl ::std::default::Default for USN_RECORD_V4 {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for USN_RECORD_V4 {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_RECORD_V4")
-            .field("Header", &self.Header)
-            .field("FileReferenceNumber", &self.FileReferenceNumber)
-            .field("ParentFileReferenceNumber", &self.ParentFileReferenceNumber)
-            .field("Usn", &self.Usn)
-            .field("Reason", &self.Reason)
-            .field("SourceInfo", &self.SourceInfo)
-            .field("RemainingExtents", &self.RemainingExtents)
-            .field("NumberOfExtents", &self.NumberOfExtents)
-            .field("ExtentSize", &self.ExtentSize)
-            .field("Extents", &self.Extents)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for USN_RECORD_V4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Header == other.Header
-            && self.FileReferenceNumber == other.FileReferenceNumber
-            && self.ParentFileReferenceNumber == other.ParentFileReferenceNumber
-            && self.Usn == other.Usn
-            && self.Reason == other.Reason
-            && self.SourceInfo == other.SourceInfo
-            && self.RemainingExtents == other.RemainingExtents
-            && self.NumberOfExtents == other.NumberOfExtents
-            && self.ExtentSize == other.ExtentSize
-            && self.Extents == other.Extents
-    }
-}
-impl ::std::cmp::Eq for USN_RECORD_V4 {}
-unsafe impl ::windows::runtime::Abi for USN_RECORD_V4 {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct USN_SOURCE_INFO_ID(pub u32);
-pub const USN_SOURCE_AUXILIARY_DATA: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(2u32);
-pub const USN_SOURCE_DATA_MANAGEMENT: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(1u32);
-pub const USN_SOURCE_REPLICATION_MANAGEMENT: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(4u32);
-pub const USN_SOURCE_CLIENT_REPLICATION_MANAGEMENT: USN_SOURCE_INFO_ID = USN_SOURCE_INFO_ID(8u32);
-impl ::std::convert::From<u32> for USN_SOURCE_INFO_ID {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for USN_SOURCE_INFO_ID {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-impl ::std::ops::BitOr for USN_SOURCE_INFO_ID {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::std::ops::BitAnd for USN_SOURCE_INFO_ID {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::std::ops::BitOrAssign for USN_SOURCE_INFO_ID {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::std::ops::BitAndAssign for USN_SOURCE_INFO_ID {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::std::ops::Not for USN_SOURCE_INFO_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct USN_TRACK_MODIFIED_RANGES {
-    pub Flags: u32,
-    pub Unused: u32,
-    pub ChunkSize: u64,
-    pub FileSizeThreshold: i64,
-}
-impl USN_TRACK_MODIFIED_RANGES {}
-impl ::std::default::Default for USN_TRACK_MODIFIED_RANGES {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for USN_TRACK_MODIFIED_RANGES {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("USN_TRACK_MODIFIED_RANGES")
-            .field("Flags", &self.Flags)
-            .field("Unused", &self.Unused)
-            .field("ChunkSize", &self.ChunkSize)
-            .field("FileSizeThreshold", &self.FileSizeThreshold)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for USN_TRACK_MODIFIED_RANGES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags
-            && self.Unused == other.Unused
-            && self.ChunkSize == other.ChunkSize
-            && self.FileSizeThreshold == other.FileSizeThreshold
-    }
-}
-impl ::std::cmp::Eq for USN_TRACK_MODIFIED_RANGES {}
-unsafe impl ::windows::runtime::Abi for USN_TRACK_MODIFIED_RANGES {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnlockFile<
@@ -32473,7 +24157,7 @@ pub unsafe fn UnlockFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn UnlockFileEx<
     'a,
@@ -32483,7 +24167,7 @@ pub unsafe fn UnlockFileEx<
     dwreserved: u32,
     nnumberofbytestounlocklow: u32,
     nnumberofbytestounlockhigh: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -32494,7 +24178,7 @@ pub unsafe fn UnlockFileEx<
                 dwreserved: u32,
                 nnumberofbytestounlocklow: u32,
                 nnumberofbytestounlockhigh: u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(UnlockFileEx(
@@ -32507,36 +24191,6 @@ pub unsafe fn UnlockFileEx<
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct VERIFY_INFORMATION {
-    pub StartingOffset: i64,
-    pub Length: u32,
-}
-impl VERIFY_INFORMATION {}
-impl ::std::default::Default for VERIFY_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for VERIFY_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VERIFY_INFORMATION")
-            .field("StartingOffset", &self.StartingOffset)
-            .field("Length", &self.Length)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for VERIFY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartingOffset == other.StartingOffset && self.Length == other.Length
-    }
-}
-impl ::std::cmp::Eq for VERIFY_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for VERIFY_INFORMATION {
-    type Abi = Self;
-    type DefaultType = Self;
 }
 #[derive(
     :: std :: cmp :: PartialEq,
@@ -32910,40 +24564,6 @@ unsafe impl ::windows::runtime::Abi for VOLUME_ALLOCATION_HINT_OUTPUT {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-pub struct VOLUME_BITMAP_BUFFER {
-    pub StartingLcn: i64,
-    pub BitmapSize: i64,
-    pub Buffer: [u8; 1],
-}
-impl VOLUME_BITMAP_BUFFER {}
-impl ::std::default::Default for VOLUME_BITMAP_BUFFER {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for VOLUME_BITMAP_BUFFER {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VOLUME_BITMAP_BUFFER")
-            .field("StartingLcn", &self.StartingLcn)
-            .field("BitmapSize", &self.BitmapSize)
-            .field("Buffer", &self.Buffer)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for VOLUME_BITMAP_BUFFER {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartingLcn == other.StartingLcn
-            && self.BitmapSize == other.BitmapSize
-            && self.Buffer == other.Buffer
-    }
-}
-impl ::std::cmp::Eq for VOLUME_BITMAP_BUFFER {}
-unsafe impl ::windows::runtime::Abi for VOLUME_BITMAP_BUFFER {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
 pub struct VOLUME_CRITICAL_IO {
     pub AccessType: u32,
     pub ExtentsCount: u32,
@@ -32973,36 +24593,6 @@ impl ::std::cmp::PartialEq for VOLUME_CRITICAL_IO {
 }
 impl ::std::cmp::Eq for VOLUME_CRITICAL_IO {}
 unsafe impl ::windows::runtime::Abi for VOLUME_CRITICAL_IO {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct VOLUME_DISK_EXTENTS {
-    pub NumberOfDiskExtents: u32,
-    pub Extents: [DISK_EXTENT; 1],
-}
-impl VOLUME_DISK_EXTENTS {}
-impl ::std::default::Default for VOLUME_DISK_EXTENTS {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for VOLUME_DISK_EXTENTS {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VOLUME_DISK_EXTENTS")
-            .field("NumberOfDiskExtents", &self.NumberOfDiskExtents)
-            .field("Extents", &self.Extents)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for VOLUME_DISK_EXTENTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfDiskExtents == other.NumberOfDiskExtents && self.Extents == other.Extents
-    }
-}
-impl ::std::cmp::Eq for VOLUME_DISK_EXTENTS {}
-unsafe impl ::windows::runtime::Abi for VOLUME_DISK_EXTENTS {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -33119,34 +24709,6 @@ impl ::std::cmp::PartialEq for VOLUME_GET_BC_PROPERTIES_OUTPUT {
 }
 impl ::std::cmp::Eq for VOLUME_GET_BC_PROPERTIES_OUTPUT {}
 unsafe impl ::windows::runtime::Abi for VOLUME_GET_BC_PROPERTIES_OUTPUT {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
-    pub GptAttributes: u64,
-}
-impl VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {}
-impl ::std::default::Default for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("VOLUME_GET_GPT_ATTRIBUTES_INFORMATION")
-            .field("GptAttributes", &self.GptAttributes)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.GptAttributes == other.GptAttributes
-    }
-}
-impl ::std::cmp::Eq for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {}
-unsafe impl ::windows::runtime::Abi for VOLUME_GET_GPT_ATTRIBUTES_INFORMATION {
     type Abi = Self;
     type DefaultType = Self;
 }
@@ -33937,6 +25499,8 @@ pub unsafe fn VerQueryValueW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+pub const WIM_BOOT_NOT_OS_WIM: u32 = 0u32;
+pub const WIM_BOOT_OS_WIM: u32 = 1u32;
 pub const WIM_ENTRY_FLAG_NOT_ACTIVE: u32 = 1u32;
 pub const WIM_ENTRY_FLAG_SUSPENDED: u32 = 2u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -34028,6 +25592,7 @@ unsafe impl ::windows::runtime::Abi for WIM_EXTERNAL_FILE_INFO {
 }
 pub const WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE: u32 = 1u32;
 pub const WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED: u32 = 2u32;
+pub const WIM_PROVIDER_HASH_SIZE: u32 = 20u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
@@ -34080,7 +25645,7 @@ unsafe impl ::windows::runtime::Abi for WIN32_FILE_ATTRIBUTE_DATA {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WIN32_FIND_DATAA {
     pub dwFileAttributes: u32,
     pub ftCreationTime: super::super::Foundation::FILETIME,
@@ -34090,18 +25655,18 @@ pub struct WIN32_FIND_DATAA {
     pub nFileSizeLow: u32,
     pub dwReserved0: u32,
     pub dwReserved1: u32,
-    pub cFileName: [super::super::System::SystemServices::CHAR; 260],
-    pub cAlternateFileName: [super::super::System::SystemServices::CHAR; 14],
+    pub cFileName: [super::super::Foundation::CHAR; 260],
+    pub cAlternateFileName: [super::super::Foundation::CHAR; 14],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl WIN32_FIND_DATAA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for WIN32_FIND_DATAA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for WIN32_FIND_DATAA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("WIN32_FIND_DATAA")
@@ -34118,7 +25683,7 @@ impl ::std::fmt::Debug for WIN32_FIND_DATAA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for WIN32_FIND_DATAA {
     fn eq(&self, other: &Self) -> bool {
         self.dwFileAttributes == other.dwFileAttributes
@@ -34133,9 +25698,9 @@ impl ::std::cmp::PartialEq for WIN32_FIND_DATAA {
             && self.cAlternateFileName == other.cAlternateFileName
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for WIN32_FIND_DATAA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for WIN32_FIND_DATAA {
     type Abi = Self;
     type DefaultType = Self;
@@ -34388,96 +25953,10 @@ unsafe impl ::windows::runtime::Abi for WOF_FILE_COMPRESSION_INFO_V1 {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct WRITE_CACHE_CHANGE(pub i32);
-pub const WriteCacheChangeUnknown: WRITE_CACHE_CHANGE = WRITE_CACHE_CHANGE(0i32);
-pub const WriteCacheNotChangeable: WRITE_CACHE_CHANGE = WRITE_CACHE_CHANGE(1i32);
-pub const WriteCacheChangeable: WRITE_CACHE_CHANGE = WRITE_CACHE_CHANGE(2i32);
-impl ::std::convert::From<i32> for WRITE_CACHE_CHANGE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for WRITE_CACHE_CHANGE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct WRITE_CACHE_ENABLE(pub i32);
-pub const WriteCacheEnableUnknown: WRITE_CACHE_ENABLE = WRITE_CACHE_ENABLE(0i32);
-pub const WriteCacheDisabled: WRITE_CACHE_ENABLE = WRITE_CACHE_ENABLE(1i32);
-pub const WriteCacheEnabled: WRITE_CACHE_ENABLE = WRITE_CACHE_ENABLE(2i32);
-impl ::std::convert::From<i32> for WRITE_CACHE_ENABLE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for WRITE_CACHE_ENABLE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct WRITE_CACHE_TYPE(pub i32);
-pub const WriteCacheTypeUnknown: WRITE_CACHE_TYPE = WRITE_CACHE_TYPE(0i32);
-pub const WriteCacheTypeNone: WRITE_CACHE_TYPE = WRITE_CACHE_TYPE(1i32);
-pub const WriteCacheTypeWriteBack: WRITE_CACHE_TYPE = WRITE_CACHE_TYPE(2i32);
-pub const WriteCacheTypeWriteThrough: WRITE_CACHE_TYPE = WRITE_CACHE_TYPE(3i32);
-impl ::std::convert::From<i32> for WRITE_CACHE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for WRITE_CACHE_TYPE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(
-    :: std :: cmp :: PartialEq,
-    :: std :: cmp :: Eq,
-    :: std :: marker :: Copy,
-    :: std :: clone :: Clone,
-    :: std :: default :: Default,
-    :: std :: fmt :: Debug,
-)]
-#[repr(transparent)]
-pub struct WRITE_THROUGH(pub i32);
-pub const WriteThroughUnknown: WRITE_THROUGH = WRITE_THROUGH(0i32);
-pub const WriteThroughNotSupported: WRITE_THROUGH = WRITE_THROUGH(1i32);
-pub const WriteThroughSupported: WRITE_THROUGH = WRITE_THROUGH(2i32);
-impl ::std::convert::From<i32> for WRITE_THROUGH {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::runtime::Abi for WRITE_THROUGH {
-    type Abi = Self;
-    type DefaultType = Self;
-}
+pub const WOF_PROVIDER_FILE: u32 = 2u32;
+pub const WOF_PROVIDER_WIM: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofEnumEntries<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -34521,6 +26000,7 @@ pub type WofEnumFilesProc = unsafe extern "system" fn(
     userdata: *const ::std::ffi::c_void,
 ) -> super::super::Foundation::BOOL;
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofFileEnumFiles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -34553,6 +26033,7 @@ pub unsafe fn WofFileEnumFiles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofGetDriverVersion<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -34582,6 +26063,7 @@ pub unsafe fn WofGetDriverVersion<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofIsExternalFile<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -34617,6 +26099,7 @@ pub unsafe fn WofIsExternalFile<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofSetFileDataLocation<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -34675,6 +26158,7 @@ pub unsafe fn WofShouldCompressBinaries<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofWimAddEntry<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -34711,6 +26195,7 @@ pub unsafe fn WofWimAddEntry<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofWimEnumFiles<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -34743,6 +26228,7 @@ pub unsafe fn WofWimEnumFiles<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofWimRemoveEntry<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -34769,6 +26255,7 @@ pub unsafe fn WofWimRemoveEntry<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofWimSuspendEntry<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -34795,6 +26282,7 @@ pub unsafe fn WofWimSuspendEntry<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn WofWimUpdateEntry<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -34912,7 +26400,7 @@ pub unsafe fn WriteEncryptedFileRaw(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteFile<
     'a,
@@ -34922,7 +26410,7 @@ pub unsafe fn WriteFile<
     lpbuffer: *const ::std::ffi::c_void,
     nnumberofbytestowrite: u32,
     lpnumberofbyteswritten: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -34933,7 +26421,7 @@ pub unsafe fn WriteFile<
                 lpbuffer: *const ::std::ffi::c_void,
                 nnumberofbytestowrite: u32,
                 lpnumberofbyteswritten: *mut u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WriteFile(
@@ -34947,7 +26435,7 @@ pub unsafe fn WriteFile<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteFileEx<
     'a,
@@ -34956,8 +26444,10 @@ pub unsafe fn WriteFileEx<
     hfile: Param0,
     lpbuffer: *const ::std::ffi::c_void,
     nnumberofbytestowrite: u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
-    lpcompletionroutine: ::std::option::Option<LPOVERLAPPED_COMPLETION_ROUTINE>,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
+    lpcompletionroutine: ::std::option::Option<
+        super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE,
+    >,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -34967,7 +26457,7 @@ pub unsafe fn WriteFileEx<
                 hfile: super::super::Foundation::HANDLE,
                 lpbuffer: *const ::std::ffi::c_void,
                 nnumberofbytestowrite: u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
                 lpcompletionroutine: ::windows::runtime::RawPtr,
             ) -> super::super::Foundation::BOOL;
         }
@@ -34982,17 +26472,17 @@ pub unsafe fn WriteFileEx<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteFileGather<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
 >(
     hfile: Param0,
-    asegmentarray: *const super::super::System::SystemServices::FILE_SEGMENT_ELEMENT,
+    asegmentarray: *const FILE_SEGMENT_ELEMENT,
     nnumberofbytestowrite: u32,
     lpreserved: *mut u32,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -35000,10 +26490,10 @@ pub unsafe fn WriteFileGather<
         extern "system" {
             fn WriteFileGather(
                 hfile: super::super::Foundation::HANDLE,
-                asegmentarray: *const super::super::System::SystemServices::FILE_SEGMENT_ELEMENT,
+                asegmentarray: *const FILE_SEGMENT_ELEMENT,
                 nnumberofbytestowrite: u32,
                 lpreserved: *mut u32,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WriteFileGather(
@@ -35017,7 +26507,7 @@ pub unsafe fn WriteFileGather<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteLogRestartArea(
     pvmarshal: *mut ::std::ffi::c_void,
@@ -35027,7 +26517,7 @@ pub unsafe fn WriteLogRestartArea(
     fflags: CLFS_FLAG,
     pcbwritten: *mut u32,
     plsnnext: *mut CLS_LSN,
-    poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    poverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -35041,7 +26531,7 @@ pub unsafe fn WriteLogRestartArea(
                 fflags: CLFS_FLAG,
                 pcbwritten: *mut u32,
                 plsnnext: *mut CLS_LSN,
-                poverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                poverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WriteLogRestartArea(

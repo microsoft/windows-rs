@@ -1960,13 +1960,13 @@ pub type JsThreadServiceCallback = unsafe extern "system" fn(
 ) -> bool;
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn JsValueToVariant(
     object: *const ::std::ffi::c_void,
-    variant: *mut super::OleAutomation::VARIANT,
+    variant: *mut super::Com::VARIANT,
 ) -> JsErrorCode {
     #[cfg(windows)]
     {
@@ -1974,7 +1974,7 @@ pub unsafe fn JsValueToVariant(
         extern "system" {
             fn JsValueToVariant(
                 object: *const ::std::ffi::c_void,
-                variant: *mut ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                variant: *mut ::std::mem::ManuallyDrop<super::Com::VARIANT>,
             ) -> JsErrorCode;
         }
         ::std::mem::transmute(JsValueToVariant(
@@ -2015,12 +2015,12 @@ unsafe impl ::windows::runtime::Abi for JsValueType {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_System_OleAutomation",
-    feature = "Win32_System_SystemServices"
+    feature = "Win32_System_Com",
+    feature = "Win32_System_Ole_Automation"
 ))]
 #[inline]
 pub unsafe fn JsVariantToValue(
-    variant: *const super::OleAutomation::VARIANT,
+    variant: *const super::Com::VARIANT,
     value: *mut *mut ::std::ffi::c_void,
 ) -> JsErrorCode {
     #[cfg(windows)]
@@ -2028,7 +2028,7 @@ pub unsafe fn JsVariantToValue(
         #[link(name = "windows")]
         extern "system" {
             fn JsVariantToValue(
-                variant: *const ::std::mem::ManuallyDrop<super::OleAutomation::VARIANT>,
+                variant: *const ::std::mem::ManuallyDrop<super::Com::VARIANT>,
                 value: *mut *mut ::std::ffi::c_void,
             ) -> JsErrorCode;
         }

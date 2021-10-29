@@ -175,74 +175,6 @@ pub const CATID_WcsPlugin: ::windows::runtime::GUID = ::windows::runtime::GUID::
     16479,
     [138, 22, 138, 91, 77, 242, 240, 221],
 );
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct CIEXYZ {
-    pub ciexyzX: i32,
-    pub ciexyzY: i32,
-    pub ciexyzZ: i32,
-}
-impl CIEXYZ {}
-impl ::std::default::Default for CIEXYZ {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for CIEXYZ {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CIEXYZ")
-            .field("ciexyzX", &self.ciexyzX)
-            .field("ciexyzY", &self.ciexyzY)
-            .field("ciexyzZ", &self.ciexyzZ)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for CIEXYZ {
-    fn eq(&self, other: &Self) -> bool {
-        self.ciexyzX == other.ciexyzX
-            && self.ciexyzY == other.ciexyzY
-            && self.ciexyzZ == other.ciexyzZ
-    }
-}
-impl ::std::cmp::Eq for CIEXYZ {}
-unsafe impl ::windows::runtime::Abi for CIEXYZ {
-    type Abi = Self;
-    type DefaultType = Self;
-}
-#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
-#[repr(C)]
-pub struct CIEXYZTRIPLE {
-    pub ciexyzRed: CIEXYZ,
-    pub ciexyzGreen: CIEXYZ,
-    pub ciexyzBlue: CIEXYZ,
-}
-impl CIEXYZTRIPLE {}
-impl ::std::default::Default for CIEXYZTRIPLE {
-    fn default() -> Self {
-        unsafe { ::std::mem::zeroed() }
-    }
-}
-impl ::std::fmt::Debug for CIEXYZTRIPLE {
-    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
-        fmt.debug_struct("CIEXYZTRIPLE")
-            .field("ciexyzRed", &self.ciexyzRed)
-            .field("ciexyzGreen", &self.ciexyzGreen)
-            .field("ciexyzBlue", &self.ciexyzBlue)
-            .finish()
-    }
-}
-impl ::std::cmp::PartialEq for CIEXYZTRIPLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.ciexyzRed == other.ciexyzRed
-            && self.ciexyzGreen == other.ciexyzGreen
-            && self.ciexyzBlue == other.ciexyzBlue
-    }
-}
-impl ::std::cmp::Eq for CIEXYZTRIPLE {}
-unsafe impl ::windows::runtime::Abi for CIEXYZTRIPLE {
-    type Abi = Self;
-    type DefaultType = Self;
-}
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CMCheckColors(
@@ -475,7 +407,7 @@ pub unsafe fn CMCreateMultiProfileTransform(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CMCreateProfile(
     lpcolorspace: *mut LOGCOLORSPACEA,
@@ -498,7 +430,7 @@ pub unsafe fn CMCreateProfile(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CMCreateProfileW(
     lpcolorspace: *mut LOGCOLORSPACEW,
@@ -521,7 +453,7 @@ pub unsafe fn CMCreateProfileW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CMCreateTransform(
     lpcolorspace: *const LOGCOLORSPACEA,
@@ -547,7 +479,7 @@ pub unsafe fn CMCreateTransform(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CMCreateTransformExt(
     lpcolorspace: *const LOGCOLORSPACEA,
@@ -576,6 +508,7 @@ pub unsafe fn CMCreateTransformExt(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CMCreateTransformExtW(
     lpcolorspace: *const LOGCOLORSPACEW,
@@ -604,6 +537,7 @@ pub unsafe fn CMCreateTransformExtW(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CMCreateTransformW(
     lpcolorspace: *const LOGCOLORSPACEW,
@@ -1488,11 +1422,12 @@ pub unsafe fn ColorMatchToTarget<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ColorProfileAddDisplayAssociation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::LUID>,
+    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     Param5: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
 >(
@@ -1510,7 +1445,7 @@ pub unsafe fn ColorProfileAddDisplayAssociation<
             fn ColorProfileAddDisplayAssociation(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
                 profilename: super::super::Foundation::PWSTR,
-                targetadapterid: super::super::System::SystemServices::LUID,
+                targetadapterid: super::super::Foundation::LUID,
                 sourceid: u32,
                 setasdefault: super::super::Foundation::BOOL,
                 associateasadvancedcolor: super::super::Foundation::BOOL,
@@ -1529,10 +1464,11 @@ pub unsafe fn ColorProfileAddDisplayAssociation<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ColorProfileGetDisplayDefault<
     'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::LUID>,
+    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
 >(
     scope: WCS_PROFILE_MANAGEMENT_SCOPE,
     targetadapterid: Param1,
@@ -1546,7 +1482,7 @@ pub unsafe fn ColorProfileGetDisplayDefault<
         extern "system" {
             fn ColorProfileGetDisplayDefault(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
-                targetadapterid: super::super::System::SystemServices::LUID,
+                targetadapterid: super::super::Foundation::LUID,
                 sourceid: u32,
                 profiletype: COLORPROFILETYPE,
                 profilesubtype: COLORPROFILESUBTYPE,
@@ -1568,10 +1504,11 @@ pub unsafe fn ColorProfileGetDisplayDefault<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ColorProfileGetDisplayList<
     'a,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::LUID>,
+    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
 >(
     scope: WCS_PROFILE_MANAGEMENT_SCOPE,
     targetadapterid: Param1,
@@ -1585,7 +1522,7 @@ pub unsafe fn ColorProfileGetDisplayList<
         extern "system" {
             fn ColorProfileGetDisplayList(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
-                targetadapterid: super::super::System::SystemServices::LUID,
+                targetadapterid: super::super::Foundation::LUID,
                 sourceid: u32,
                 profilelist: *mut *mut super::super::Foundation::PWSTR,
                 profilecount: *mut u32,
@@ -1603,10 +1540,11 @@ pub unsafe fn ColorProfileGetDisplayList<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ColorProfileGetDisplayUserScope<
     'a,
-    Param0: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::LUID>,
+    Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
 >(
     targetadapterid: Param0,
     sourceid: u32,
@@ -1616,7 +1554,7 @@ pub unsafe fn ColorProfileGetDisplayUserScope<
         #[link(name = "windows")]
         extern "system" {
             fn ColorProfileGetDisplayUserScope(
-                targetadapterid: super::super::System::SystemServices::LUID,
+                targetadapterid: super::super::Foundation::LUID,
                 sourceid: u32,
                 scope: *mut WCS_PROFILE_MANAGEMENT_SCOPE,
             ) -> ::windows::runtime::HRESULT;
@@ -1633,11 +1571,12 @@ pub unsafe fn ColorProfileGetDisplayUserScope<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ColorProfileRemoveDisplayAssociation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param2: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::LUID>,
+    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
     Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
 >(
     scope: WCS_PROFILE_MANAGEMENT_SCOPE,
@@ -1653,7 +1592,7 @@ pub unsafe fn ColorProfileRemoveDisplayAssociation<
             fn ColorProfileRemoveDisplayAssociation(
                 scope: WCS_PROFILE_MANAGEMENT_SCOPE,
                 profilename: super::super::Foundation::PWSTR,
-                targetadapterid: super::super::System::SystemServices::LUID,
+                targetadapterid: super::super::Foundation::LUID,
                 sourceid: u32,
                 dissociateadvancedcolor: super::super::Foundation::BOOL,
             ) -> ::windows::runtime::HRESULT;
@@ -1670,11 +1609,12 @@ pub unsafe fn ColorProfileRemoveDisplayAssociation<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ColorProfileSetDisplayDefaultAssociation<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
-    Param4: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::LUID>,
+    Param4: ::windows::runtime::IntoParam<'a, super::super::Foundation::LUID>,
 >(
     scope: WCS_PROFILE_MANAGEMENT_SCOPE,
     profilename: Param1,
@@ -1692,7 +1632,7 @@ pub unsafe fn ColorProfileSetDisplayDefaultAssociation<
                 profilename: super::super::Foundation::PWSTR,
                 profiletype: COLORPROFILETYPE,
                 profilesubtype: COLORPROFILESUBTYPE,
-                targetadapterid: super::super::System::SystemServices::LUID,
+                targetadapterid: super::super::Foundation::LUID,
                 sourceid: u32,
             ) -> ::windows::runtime::HRESULT;
         }
@@ -1767,7 +1707,7 @@ pub unsafe fn ConvertIndexToColorName(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE {
     #[cfg(windows)]
@@ -1781,6 +1721,7 @@ pub unsafe fn CreateColorSpaceA(lplcs: *const LOGCOLORSPACEA) -> HCOLORSPACE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE {
     #[cfg(windows)]
@@ -1794,7 +1735,7 @@ pub unsafe fn CreateColorSpaceW(lplcs: *const LOGCOLORSPACEW) -> HCOLORSPACE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CreateColorTransformA(
     plogcolorspace: *const LOGCOLORSPACEA,
@@ -1823,6 +1764,7 @@ pub unsafe fn CreateColorTransformA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn CreateColorTransformW(
     plogcolorspace: *const LOGCOLORSPACEW,
@@ -1923,7 +1865,7 @@ pub unsafe fn CreateMultiProfileTransform(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CreateProfileFromLogColorSpaceA(
     plogcolorspace: *const LOGCOLORSPACEA,
@@ -1946,7 +1888,7 @@ pub unsafe fn CreateProfileFromLogColorSpaceA(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn CreateProfileFromLogColorSpaceW(
     plogcolorspace: *const LOGCOLORSPACEW,
@@ -2061,6 +2003,95 @@ pub unsafe fn DisassociateColorProfileFromDeviceW<
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+pub struct EMRCREATECOLORSPACE {
+    pub emr: super::super::Graphics::Gdi::EMR,
+    pub ihCS: u32,
+    pub lcs: LOGCOLORSPACEA,
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl EMRCREATECOLORSPACE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::std::default::Default for EMRCREATECOLORSPACE {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::std::fmt::Debug for EMRCREATECOLORSPACE {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("EMRCREATECOLORSPACE")
+            .field("emr", &self.emr)
+            .field("ihCS", &self.ihCS)
+            .field("lcs", &self.lcs)
+            .finish()
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::std::cmp::PartialEq for EMRCREATECOLORSPACE {
+    fn eq(&self, other: &Self) -> bool {
+        self.emr == other.emr && self.ihCS == other.ihCS && self.lcs == other.lcs
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::std::cmp::Eq for EMRCREATECOLORSPACE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::runtime::Abi for EMRCREATECOLORSPACE {
+    type Abi = Self;
+    type DefaultType = Self;
+}
+#[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
+#[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
+pub struct EMRCREATECOLORSPACEW {
+    pub emr: super::super::Graphics::Gdi::EMR,
+    pub ihCS: u32,
+    pub lcs: LOGCOLORSPACEW,
+    pub dwFlags: u32,
+    pub cbData: u32,
+    pub Data: [u8; 1],
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl EMRCREATECOLORSPACEW {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::std::default::Default for EMRCREATECOLORSPACEW {
+    fn default() -> Self {
+        unsafe { ::std::mem::zeroed() }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::std::fmt::Debug for EMRCREATECOLORSPACEW {
+    fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
+        fmt.debug_struct("EMRCREATECOLORSPACEW")
+            .field("emr", &self.emr)
+            .field("ihCS", &self.ihCS)
+            .field("lcs", &self.lcs)
+            .field("dwFlags", &self.dwFlags)
+            .field("cbData", &self.cbData)
+            .field("Data", &self.Data)
+            .finish()
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::std::cmp::PartialEq for EMRCREATECOLORSPACEW {
+    fn eq(&self, other: &Self) -> bool {
+        self.emr == other.emr
+            && self.ihCS == other.ihCS
+            && self.lcs == other.lcs
+            && self.dwFlags == other.dwFlags
+            && self.cbData == other.cbData
+            && self.Data == other.Data
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::std::cmp::Eq for EMRCREATECOLORSPACEW {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::runtime::Abi for EMRCREATECOLORSPACEW {
+    type Abi = Self;
+    type DefaultType = Self;
 }
 pub const ENABLE_GAMUT_CHECKING: u32 = 65536u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
@@ -2736,7 +2767,7 @@ pub unsafe fn GetColorProfileFromHandle(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetColorProfileHeader(
     hprofile: isize,
@@ -2885,7 +2916,7 @@ pub unsafe fn GetICMProfileW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetLogColorSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, HCOLORSPACE>>(
     hcolorspace: Param0,
@@ -2911,7 +2942,7 @@ pub unsafe fn GetLogColorSpaceA<'a, Param0: ::windows::runtime::IntoParam<'a, HC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn GetLogColorSpaceW<'a, Param0: ::windows::runtime::IntoParam<'a, HCOLORSPACE>>(
     hcolorspace: Param0,
@@ -3788,28 +3819,28 @@ unsafe impl ::windows::runtime::Abi for JabColorF {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct LOGCOLORSPACEA {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
     pub lcsSize: u32,
     pub lcsCSType: i32,
     pub lcsIntent: i32,
-    pub lcsEndpoints: CIEXYZTRIPLE,
+    pub lcsEndpoints: super::super::Graphics::Gdi::CIEXYZTRIPLE,
     pub lcsGammaRed: u32,
     pub lcsGammaGreen: u32,
     pub lcsGammaBlue: u32,
-    pub lcsFilename: [super::super::System::SystemServices::CHAR; 260],
+    pub lcsFilename: [super::super::Foundation::CHAR; 260],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl LOGCOLORSPACEA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::default::Default for LOGCOLORSPACEA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::fmt::Debug for LOGCOLORSPACEA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("LOGCOLORSPACEA")
@@ -3826,7 +3857,7 @@ impl ::std::fmt::Debug for LOGCOLORSPACEA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::PartialEq for LOGCOLORSPACEA {
     fn eq(&self, other: &Self) -> bool {
         self.lcsSignature == other.lcsSignature
@@ -3841,33 +3872,37 @@ impl ::std::cmp::PartialEq for LOGCOLORSPACEA {
             && self.lcsFilename == other.lcsFilename
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::std::cmp::Eq for LOGCOLORSPACEA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::runtime::Abi for LOGCOLORSPACEA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct LOGCOLORSPACEW {
     pub lcsSignature: u32,
     pub lcsVersion: u32,
     pub lcsSize: u32,
     pub lcsCSType: i32,
     pub lcsIntent: i32,
-    pub lcsEndpoints: CIEXYZTRIPLE,
+    pub lcsEndpoints: super::super::Graphics::Gdi::CIEXYZTRIPLE,
     pub lcsGammaRed: u32,
     pub lcsGammaGreen: u32,
     pub lcsGammaBlue: u32,
     pub lcsFilename: [u16; 260],
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl LOGCOLORSPACEW {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::default::Default for LOGCOLORSPACEW {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::fmt::Debug for LOGCOLORSPACEW {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("LOGCOLORSPACEW")
@@ -3884,6 +3919,7 @@ impl ::std::fmt::Debug for LOGCOLORSPACEW {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::PartialEq for LOGCOLORSPACEW {
     fn eq(&self, other: &Self) -> bool {
         self.lcsSignature == other.lcsSignature
@@ -3898,7 +3934,9 @@ impl ::std::cmp::PartialEq for LOGCOLORSPACEW {
             && self.lcsFilename == other.lcsFilename
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::Eq for LOGCOLORSPACEW {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for LOGCOLORSPACEW {
     type Abi = Self;
     type DefaultType = Self;
@@ -4114,6 +4152,7 @@ unsafe impl ::windows::runtime::Abi for PROFILE {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PROFILEHEADER {
     pub phSize: u32,
     pub phCMMType: u32,
@@ -4129,16 +4168,19 @@ pub struct PROFILEHEADER {
     pub phModel: u32,
     pub phAttributes: [u32; 2],
     pub phRenderingIntent: u32,
-    pub phIlluminant: CIEXYZ,
+    pub phIlluminant: super::super::Graphics::Gdi::CIEXYZ,
     pub phCreator: u32,
     pub phReserved: [u8; 44],
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl PROFILEHEADER {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::default::Default for PROFILEHEADER {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::fmt::Debug for PROFILEHEADER {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("PROFILEHEADER")
@@ -4162,6 +4204,7 @@ impl ::std::fmt::Debug for PROFILEHEADER {
             .finish()
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::PartialEq for PROFILEHEADER {
     fn eq(&self, other: &Self) -> bool {
         self.phSize == other.phSize
@@ -4183,7 +4226,9 @@ impl ::std::cmp::PartialEq for PROFILEHEADER {
             && self.phReserved == other.phReserved
     }
 }
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::std::cmp::Eq for PROFILEHEADER {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
 unsafe impl ::windows::runtime::Abi for PROFILEHEADER {
     type Abi = Self;
     type DefaultType = Self;
@@ -4483,7 +4528,7 @@ pub unsafe fn SetColorProfileElementSize(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn SetColorProfileHeader(
     hprofile: isize,

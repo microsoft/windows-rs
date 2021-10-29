@@ -7,7 +7,7 @@
     dead_code,
     clippy::all
 )]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildCommDCBA<
     'a,
@@ -33,7 +33,7 @@ pub unsafe fn BuildCommDCBA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildCommDCBAndTimeoutsA<
     'a,
@@ -62,7 +62,7 @@ pub unsafe fn BuildCommDCBAndTimeoutsA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildCommDCBAndTimeoutsW<
     'a,
@@ -91,7 +91,7 @@ pub unsafe fn BuildCommDCBAndTimeoutsW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildCommDCBW<
     'a,
@@ -171,7 +171,7 @@ impl ::std::ops::Not for CLEAR_COMM_ERROR_FLAGS {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMMCONFIG {
     pub dwSize: u32,
     pub wVersion: u16,
@@ -182,15 +182,15 @@ pub struct COMMCONFIG {
     pub dwProviderSize: u32,
     pub wcProviderData: [u16; 1],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl COMMCONFIG {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for COMMCONFIG {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for COMMCONFIG {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("COMMCONFIG")
@@ -205,7 +205,7 @@ impl ::std::fmt::Debug for COMMCONFIG {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for COMMCONFIG {
     fn eq(&self, other: &Self) -> bool {
         self.dwSize == other.dwSize
@@ -218,9 +218,9 @@ impl ::std::cmp::PartialEq for COMMCONFIG {
             && self.wcProviderData == other.wcProviderData
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for COMMCONFIG {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COMMCONFIG {
     type Abi = Self;
     type DefaultType = Self;
@@ -549,7 +549,7 @@ pub unsafe fn ClearCommError<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommConfigDialogA<
     'a,
@@ -579,7 +579,7 @@ pub unsafe fn CommConfigDialogA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommConfigDialogW<
     'a,
@@ -611,7 +611,7 @@ pub unsafe fn CommConfigDialogW<
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DCB {
     pub DCBlength: u32,
     pub BaudRate: u32,
@@ -622,22 +622,22 @@ pub struct DCB {
     pub ByteSize: u8,
     pub Parity: u8,
     pub StopBits: u8,
-    pub XonChar: super::super::System::SystemServices::CHAR,
-    pub XoffChar: super::super::System::SystemServices::CHAR,
-    pub ErrorChar: super::super::System::SystemServices::CHAR,
-    pub EofChar: super::super::System::SystemServices::CHAR,
-    pub EvtChar: super::super::System::SystemServices::CHAR,
+    pub XonChar: super::super::Foundation::CHAR,
+    pub XoffChar: super::super::Foundation::CHAR,
+    pub ErrorChar: super::super::Foundation::CHAR,
+    pub EofChar: super::super::Foundation::CHAR,
+    pub EvtChar: super::super::Foundation::CHAR,
     pub wReserved1: u16,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl DCB {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for DCB {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for DCB {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("DCB")
@@ -659,7 +659,7 @@ impl ::std::fmt::Debug for DCB {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for DCB {
     fn eq(&self, other: &Self) -> bool {
         self.DCBlength == other.DCBlength
@@ -679,9 +679,9 @@ impl ::std::cmp::PartialEq for DCB {
             && self.wReserved1 == other.wReserved1
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for DCB {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for DCB {
     type Abi = Self;
     type DefaultType = Self;
@@ -767,7 +767,7 @@ pub unsafe fn EscapeCommFunction<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCommConfig<
     'a,
@@ -899,7 +899,7 @@ pub unsafe fn GetCommProperties<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCommState<
     'a,
@@ -951,7 +951,7 @@ pub unsafe fn GetCommTimeouts<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDefaultCommConfigA<
     'a,
@@ -980,7 +980,7 @@ pub unsafe fn GetDefaultCommConfigA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDefaultCommConfigW<
     'a,
@@ -1679,7 +1679,7 @@ pub unsafe fn SetCommBreak<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCommConfig<
     'a,
@@ -1734,7 +1734,7 @@ pub unsafe fn SetCommMask<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCommState<
     'a,
@@ -1786,7 +1786,7 @@ pub unsafe fn SetCommTimeouts<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDefaultCommConfigA<
     'a,
@@ -1815,7 +1815,7 @@ pub unsafe fn SetDefaultCommConfigA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetDefaultCommConfigW<
     'a,
@@ -1873,12 +1873,12 @@ pub unsafe fn SetupComm<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TransmitCommChar<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
-    Param1: ::windows::runtime::IntoParam<'a, super::super::System::SystemServices::CHAR>,
+    Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::CHAR>,
 >(
     hfile: Param0,
     cchar: Param1,
@@ -1889,7 +1889,7 @@ pub unsafe fn TransmitCommChar<
         extern "system" {
             fn TransmitCommChar(
                 hfile: super::super::Foundation::HANDLE,
-                cchar: super::super::System::SystemServices::CHAR,
+                cchar: super::super::Foundation::CHAR,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(TransmitCommChar(
@@ -1900,7 +1900,7 @@ pub unsafe fn TransmitCommChar<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WaitCommEvent<
     'a,
@@ -1908,7 +1908,7 @@ pub unsafe fn WaitCommEvent<
 >(
     hfile: Param0,
     lpevtmask: *mut COMM_EVENT_MASK,
-    lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+    lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
     {
@@ -1917,7 +1917,7 @@ pub unsafe fn WaitCommEvent<
             fn WaitCommEvent(
                 hfile: super::super::Foundation::HANDLE,
                 lpevtmask: *mut COMM_EVENT_MASK,
-                lpoverlapped: *mut super::super::System::SystemServices::OVERLAPPED,
+                lpoverlapped: *mut super::super::System::IO::OVERLAPPED,
             ) -> super::super::Foundation::BOOL;
         }
         ::std::mem::transmute(WaitCommEvent(

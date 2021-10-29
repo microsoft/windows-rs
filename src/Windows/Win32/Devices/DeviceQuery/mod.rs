@@ -396,6 +396,7 @@ pub unsafe fn DevCloseObjectQuery(hdevquery: *const HDEVQUERY__) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevCreateObjectQuery(
     objecttype: DEV_OBJECT_TYPE,
     queryflags: u32,
@@ -440,6 +441,7 @@ pub unsafe fn DevCreateObjectQuery(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevCreateObjectQueryEx(
     objecttype: DEV_OBJECT_TYPE,
     queryflags: u32,
@@ -490,6 +492,7 @@ pub unsafe fn DevCreateObjectQueryEx(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevCreateObjectQueryFromId<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -540,6 +543,7 @@ pub unsafe fn DevCreateObjectQueryFromId<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevCreateObjectQueryFromIdEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -596,6 +600,7 @@ pub unsafe fn DevCreateObjectQueryFromIdEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevCreateObjectQueryFromIds<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -646,6 +651,7 @@ pub unsafe fn DevCreateObjectQueryFromIds<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevCreateObjectQueryFromIdsEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -777,6 +783,7 @@ pub unsafe fn DevFreeObjects(cobjectcount: u32, pobjects: *const DEV_OBJECT) {
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevGetObjectProperties<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -818,6 +825,7 @@ pub unsafe fn DevGetObjectProperties<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevGetObjectPropertiesEx<
     'a,
     Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -865,6 +873,7 @@ pub unsafe fn DevGetObjectPropertiesEx<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevGetObjects(
     objecttype: DEV_OBJECT_TYPE,
     queryflags: u32,
@@ -906,6 +915,7 @@ pub unsafe fn DevGetObjects(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[inline]
 pub unsafe fn DevGetObjectsEx(
     objecttype: DEV_OBJECT_TYPE,
     queryflags: u32,

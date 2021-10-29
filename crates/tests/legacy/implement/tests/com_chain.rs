@@ -1,8 +1,7 @@
 use test_implement::*;
 use windows::runtime::*;
 use Windows::Win32::Foundation::BOOL;
-use Windows::Win32::Storage::StructuredStorage::IStream;
-use Windows::Win32::System::Com::{IPersist, IPersistStream};
+use Windows::Win32::System::Com::{IPersist, IPersistStream, IStream};
 
 #[implement(Windows::Win32::System::Com::IPersistStream)]
 struct Test();

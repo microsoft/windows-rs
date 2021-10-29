@@ -3412,6 +3412,7 @@ pub unsafe fn PowerReadValueUnitsSpecifier<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PowerRegisterForEffectivePowerModeNotifications(
     version: u32,
     callback: ::std::option::Option<EFFECTIVE_POWER_MODE_CALLBACK>,
@@ -3702,6 +3703,7 @@ pub unsafe fn PowerSettingUnregisterNotification<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn PowerUnregisterFromEffectivePowerModeNotifications(
     registrationhandle: *const ::std::ffi::c_void,
 ) -> ::windows::runtime::Result<()> {

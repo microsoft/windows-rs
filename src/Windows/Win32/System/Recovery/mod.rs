@@ -27,6 +27,7 @@ pub unsafe fn ApplicationRecoveryFinished<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn ApplicationRecoveryInProgress(
 ) -> ::windows::runtime::Result<super::super::Foundation::BOOL> {
     #[cfg(windows)]
@@ -49,6 +50,7 @@ pub unsafe fn ApplicationRecoveryInProgress(
     feature = "Win32_Foundation",
     feature = "Win32_System_WindowsProgramming"
 ))]
+#[inline]
 pub unsafe fn GetApplicationRecoveryCallback<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -86,6 +88,7 @@ pub unsafe fn GetApplicationRecoveryCallback<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetApplicationRestartSettings<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::HANDLE>,
@@ -173,6 +176,7 @@ impl ::std::ops::Not for REGISTER_APPLICATION_RESTART_FLAGS {
     }
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
+#[inline]
 pub unsafe fn RegisterApplicationRecoveryCallback(
     precoveycallback: ::std::option::Option<
         super::WindowsProgramming::APPLICATION_RECOVERY_CALLBACK,
@@ -204,6 +208,7 @@ pub unsafe fn RegisterApplicationRecoveryCallback(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn RegisterApplicationRestart<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
@@ -229,6 +234,7 @@ pub unsafe fn RegisterApplicationRestart<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {
@@ -241,6 +247,7 @@ pub unsafe fn UnregisterApplicationRecoveryCallback() -> ::windows::runtime::Res
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn UnregisterApplicationRestart() -> ::windows::runtime::Result<()> {
     #[cfg(windows)]
     {

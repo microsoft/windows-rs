@@ -1,9 +1,8 @@
-use test_win32_handles::*;
 use windows::runtime::*;
-use Windows::Win32::Foundation::*;
-use Windows::Win32::Graphics::Gdi::*;
-use Windows::Win32::System::Registry::*;
-use Windows::Win32::System::Threading::LPPROC_THREAD_ATTRIBUTE_LIST;
+use windows::Win32::Foundation::*;
+use windows::Win32::Graphics::Gdi::*;
+use windows::Win32::System::Registry::*;
+use windows::Win32::System::Threading::LPPROC_THREAD_ATTRIBUTE_LIST;
 
 #[test]
 fn hwnd() {

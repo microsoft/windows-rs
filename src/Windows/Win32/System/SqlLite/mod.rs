@@ -6213,11 +6213,11 @@ pub unsafe fn sqlite3_str_appendall<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn sqlite3_str_appendchar<
     'a,
-    Param2: ::windows::runtime::IntoParam<'a, super::SystemServices::CHAR>,
+    Param2: ::windows::runtime::IntoParam<'a, super::super::Foundation::CHAR>,
 >(
     param0: *mut sqlite3_str,
     n: i32,
@@ -6230,7 +6230,7 @@ pub unsafe fn sqlite3_str_appendchar<
             fn sqlite3_str_appendchar(
                 param0: *mut sqlite3_str,
                 n: i32,
-                c: super::SystemServices::CHAR,
+                c: super::super::Foundation::CHAR,
             );
         }
         ::std::mem::transmute(sqlite3_str_appendchar(

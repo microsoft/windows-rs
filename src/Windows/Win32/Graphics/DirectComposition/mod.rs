@@ -107,23 +107,23 @@ unsafe impl ::windows::runtime::Abi for COMPOSITION_STATS {
 pub const COMPOSITION_STATS_MAX_TARGETS: u32 = 256u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct COMPOSITION_TARGET_ID {
-    pub displayAdapterLuid: super::super::System::SystemServices::LUID,
-    pub renderAdapterLuid: super::super::System::SystemServices::LUID,
+    pub displayAdapterLuid: super::super::Foundation::LUID,
+    pub renderAdapterLuid: super::super::Foundation::LUID,
     pub vidPnSourceId: u32,
     pub vidPnTargetId: u32,
     pub uniqueId: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl COMPOSITION_TARGET_ID {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for COMPOSITION_TARGET_ID {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for COMPOSITION_TARGET_ID {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("COMPOSITION_TARGET_ID")
@@ -135,7 +135,7 @@ impl ::std::fmt::Debug for COMPOSITION_TARGET_ID {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for COMPOSITION_TARGET_ID {
     fn eq(&self, other: &Self) -> bool {
         self.displayAdapterLuid == other.displayAdapterLuid
@@ -145,9 +145,9 @@ impl ::std::cmp::PartialEq for COMPOSITION_TARGET_ID {
             && self.uniqueId == other.uniqueId
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for COMPOSITION_TARGET_ID {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for COMPOSITION_TARGET_ID {
     type Abi = Self;
     type DefaultType = Self;
@@ -389,6 +389,7 @@ unsafe impl ::windows::runtime::Abi for DCOMPOSITION_OPACITY_MODE {
     type DefaultType = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DCompositionAttachMouseDragToHwnd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IDCompositionVisual>,
@@ -420,6 +421,7 @@ pub unsafe fn DCompositionAttachMouseDragToHwnd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DCompositionAttachMouseWheelToHwnd<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, IDCompositionVisual>,
@@ -451,6 +453,7 @@ pub unsafe fn DCompositionAttachMouseWheelToHwnd<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DCompositionBoostCompositorClock<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -471,6 +474,7 @@ pub unsafe fn DCompositionBoostCompositorClock<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
+#[inline]
 pub unsafe fn DCompositionCreateDevice<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::Dxgi::IDXGIDevice>,
@@ -499,6 +503,7 @@ pub unsafe fn DCompositionCreateDevice<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DCompositionCreateDevice2<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -527,6 +532,7 @@ pub unsafe fn DCompositionCreateDevice2<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DCompositionCreateDevice3<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, ::windows::runtime::IUnknown>,
@@ -556,6 +562,7 @@ pub unsafe fn DCompositionCreateDevice3<
     unimplemented!("Unsupported target OS");
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[inline]
 pub unsafe fn DCompositionCreateSurfaceHandle(
     desiredaccess: u32,
     securityattributes: *const super::super::Security::SECURITY_ATTRIBUTES,
@@ -582,6 +589,7 @@ pub unsafe fn DCompositionCreateSurfaceHandle(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
 pub unsafe fn DCompositionGetFrameId(
     frameidtype: COMPOSITION_FRAME_ID_TYPE,
 ) -> ::windows::runtime::Result<u64> {
@@ -601,7 +609,8 @@ pub unsafe fn DCompositionGetFrameId(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DCompositionGetStatistics(
     frameid: u64,
     framestats: *mut COMPOSITION_FRAME_STATS,
@@ -633,7 +642,8 @@ pub unsafe fn DCompositionGetStatistics(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn DCompositionGetTargetStatistics(
     frameid: u64,
     targetid: *const COMPOSITION_TARGET_ID,

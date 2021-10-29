@@ -248,7 +248,7 @@ unsafe impl ::windows::runtime::Abi for DRAWPATRECT {
     type Abi = Self;
     type DefaultType = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DeviceCapabilitiesA<
     'a,
@@ -259,7 +259,7 @@ pub unsafe fn DeviceCapabilitiesA<
     pport: Param1,
     fwcapability: DEVICE_CAPABILITIES,
     poutput: super::super::Foundation::PSTR,
-    pdevmode: *const super::super::UI::DisplayDevices::DEVMODEA,
+    pdevmode: *const super::super::Graphics::Gdi::DEVMODEA,
 ) -> i32 {
     #[cfg(windows)]
     {
@@ -270,7 +270,7 @@ pub unsafe fn DeviceCapabilitiesA<
                 pport: super::super::Foundation::PSTR,
                 fwcapability: DEVICE_CAPABILITIES,
                 poutput: super::super::Foundation::PSTR,
-                pdevmode: *const super::super::UI::DisplayDevices::DEVMODEA,
+                pdevmode: *const super::super::Graphics::Gdi::DEVMODEA,
             ) -> i32;
         }
         ::std::mem::transmute(DeviceCapabilitiesA(
@@ -284,7 +284,7 @@ pub unsafe fn DeviceCapabilitiesA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_DisplayDevices"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn DeviceCapabilitiesW<
     'a,
@@ -295,7 +295,7 @@ pub unsafe fn DeviceCapabilitiesW<
     pport: Param1,
     fwcapability: DEVICE_CAPABILITIES,
     poutput: super::super::Foundation::PWSTR,
-    pdevmode: *const super::super::UI::DisplayDevices::DEVMODEW,
+    pdevmode: *const super::super::Graphics::Gdi::DEVMODEW,
 ) -> i32 {
     #[cfg(windows)]
     {
@@ -306,7 +306,7 @@ pub unsafe fn DeviceCapabilitiesW<
                 pport: super::super::Foundation::PWSTR,
                 fwcapability: DEVICE_CAPABILITIES,
                 poutput: super::super::Foundation::PWSTR,
-                pdevmode: *const super::super::UI::DisplayDevices::DEVMODEW,
+                pdevmode: *const super::super::Graphics::Gdi::DEVMODEW,
             ) -> i32;
         }
         ::std::mem::transmute(DeviceCapabilitiesW(
@@ -575,16 +575,13 @@ pub struct IXpsDocumentPackageTarget_abi(
 )]
 pub struct IXpsDocumentPackageTarget3D(::windows::runtime::IUnknown);
 impl IXpsDocumentPackageTarget3D {
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn GetXpsOMPackageWriter3D<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param2: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-        Param3: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param3: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         documentsequencepartname: Param0,
@@ -663,10 +660,7 @@ pub struct IXpsDocumentPackageTarget3D_abi(
     ) -> ::windows::runtime::HRESULT,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
     pub unsafe extern "system" fn(this: ::windows::runtime::RawPtr) -> u32,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         documentsequencepartname: ::windows::runtime::RawPtr,
@@ -675,11 +669,7 @@ pub struct IXpsDocumentPackageTarget3D_abi(
         modeldata: ::windows::runtime::RawPtr,
         packagewriter: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         xpsfactory: *mut ::windows::runtime::RawPtr,
@@ -1595,25 +1585,22 @@ impl IXpsOMColorProfileResource {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::StructuredStorage::IStream> {
-        let mut result__: <super::StructuredStorage::IStream as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -1733,26 +1720,19 @@ pub struct IXpsOMColorProfileResource_abi(
         parturi: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sourcestream: ::windows::runtime::RawPtr,
         partname: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -3655,25 +3635,22 @@ impl IXpsOMDocumentStructureResource {
         )
         .from_abi::<IXpsOMDocument>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::StructuredStorage::IStream> {
-        let mut result__: <super::StructuredStorage::IStream as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -3797,26 +3774,19 @@ pub struct IXpsOMDocumentStructureResource_abi(
         this: ::windows::runtime::RawPtr,
         owner: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sourcestream: ::windows::runtime::RawPtr,
         partname: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -3853,25 +3823,22 @@ impl IXpsOMFontResource {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::StructuredStorage::IStream> {
-        let mut result__: <super::StructuredStorage::IStream as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -3998,27 +3965,20 @@ pub struct IXpsOMFontResource_abi(
         parturi: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         readerstream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sourcestream: ::windows::runtime::RawPtr,
         embeddingoption: XPS_FONT_EMBEDDING,
         partname: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         embeddingoption: *mut XPS_FONT_EMBEDDING,
@@ -7145,25 +7105,22 @@ impl IXpsOMImageResource {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::StructuredStorage::IStream> {
-        let mut result__: <super::StructuredStorage::IStream as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -7289,27 +7246,20 @@ pub struct IXpsOMImageResource_abi(
         parturi: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         readerstream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sourcestream: ::windows::runtime::RawPtr,
         imagetype: XPS_IMAGE_TYPE,
         partname: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         imagetype: *mut XPS_IMAGE_TYPE,
@@ -8139,13 +8089,10 @@ impl IXpsOMObjectFactory {
         )
         .from_abi::<IXpsOMPackage>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -8161,13 +8108,10 @@ impl IXpsOMObjectFactory {
         )
         .from_abi::<IXpsOMPackage>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateStoryFragmentsResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -8184,13 +8128,10 @@ impl IXpsOMObjectFactory {
         )
         .from_abi::<IXpsOMStoryFragmentsResource>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDocumentStructureResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -8207,13 +8148,10 @@ impl IXpsOMObjectFactory {
         )
         .from_abi::<IXpsOMDocumentStructureResource>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateSignatureBlockResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -8250,13 +8188,10 @@ impl IXpsOMObjectFactory {
         )
         .from_abi::<IXpsOMRemoteDictionaryResource>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateRemoteDictionaryResourceFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param2: ::windows::runtime::IntoParam<'a, IXpsOMPartResources>,
     >(
@@ -8355,11 +8290,11 @@ impl IXpsOMObjectFactory {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub unsafe fn CreatePageFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param2: ::windows::runtime::IntoParam<'a, IXpsOMPartResources>,
         Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -8464,13 +8399,10 @@ impl IXpsOMObjectFactory {
         )
         .from_abi::<IXpsOMSolidColorBrush>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateColorProfileResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -8521,13 +8453,10 @@ impl IXpsOMObjectFactory {
         )
         .from_abi::<IXpsOMVisualBrush>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateImageResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -8546,13 +8475,10 @@ impl IXpsOMObjectFactory {
         )
         .from_abi::<IXpsOMImageResource>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePrintTicketResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -8572,11 +8498,11 @@ impl IXpsOMObjectFactory {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub unsafe fn CreateFontResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
@@ -8750,11 +8676,11 @@ impl IXpsOMObjectFactory {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub unsafe fn CreatePackageWriterOnStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::ISequentialStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
         Param3: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param4: ::windows::runtime::IntoParam<'a, IXpsOMCoreProperties>,
@@ -8805,25 +8731,22 @@ impl IXpsOMObjectFactory {
         )
         .from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateReadOnlyStreamOnFile<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
     >(
         &self,
         filename: Param0,
-    ) -> ::windows::runtime::Result<super::StructuredStorage::IStream> {
-        let mut result__: <super::StructuredStorage::IStream as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).39)(
             ::std::mem::transmute_copy(self),
             filename.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
 }
 unsafe impl ::windows::runtime::Interface for IXpsOMObjectFactory {
@@ -8883,66 +8806,38 @@ pub struct IXpsOMObjectFactory_abi(
         package: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
         reuseobjects: super::super::Foundation::BOOL,
         package: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         acquiredstream: ::windows::runtime::RawPtr,
         parturi: ::windows::runtime::RawPtr,
         storyfragmentsresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         acquiredstream: ::windows::runtime::RawPtr,
         parturi: ::windows::runtime::RawPtr,
         documentstructureresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         acquiredstream: ::windows::runtime::RawPtr,
         parturi: ::windows::runtime::RawPtr,
         signatureblockresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -8951,10 +8846,7 @@ pub struct IXpsOMObjectFactory_abi(
         remotedictionaryresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         dictionarymarkupstream: ::windows::runtime::RawPtr,
@@ -8962,11 +8854,7 @@ pub struct IXpsOMObjectFactory_abi(
         resources: ::windows::runtime::RawPtr,
         dictionaryresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         partresources: *mut ::windows::runtime::RawPtr,
@@ -9002,7 +8890,7 @@ pub struct IXpsOMObjectFactory_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -9015,7 +8903,7 @@ pub struct IXpsOMObjectFactory_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -9051,21 +8939,14 @@ pub struct IXpsOMObjectFactory_abi(
         colorprofile: ::windows::runtime::RawPtr,
         solidcolorbrush: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         acquiredstream: ::windows::runtime::RawPtr,
         parturi: ::windows::runtime::RawPtr,
         colorprofileresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         image: ::windows::runtime::RawPtr,
@@ -9079,10 +8960,7 @@ pub struct IXpsOMObjectFactory_abi(
         viewport: *const XPS_RECT,
         visualbrush: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         acquiredstream: ::windows::runtime::RawPtr,
@@ -9090,30 +8968,19 @@ pub struct IXpsOMObjectFactory_abi(
         parturi: ::windows::runtime::RawPtr,
         imageresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         acquiredstream: ::windows::runtime::RawPtr,
         parturi: ::windows::runtime::RawPtr,
         printticketresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -9126,7 +8993,7 @@ pub struct IXpsOMObjectFactory_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -9196,7 +9063,7 @@ pub struct IXpsOMObjectFactory_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -9213,7 +9080,7 @@ pub struct IXpsOMObjectFactory_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc"))]
@@ -9223,20 +9090,13 @@ pub struct IXpsOMObjectFactory_abi(
         parturi: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc")))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::Foundation::PWSTR,
         stream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -9274,13 +9134,10 @@ impl IXpsOMObjectFactory1 {
         )
         .from_abi::<IXpsOMPackage>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -9296,13 +9153,10 @@ impl IXpsOMObjectFactory1 {
         )
         .from_abi::<IXpsOMPackage>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateStoryFragmentsResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -9319,13 +9173,10 @@ impl IXpsOMObjectFactory1 {
         )
         .from_abi::<IXpsOMStoryFragmentsResource>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDocumentStructureResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -9342,13 +9193,10 @@ impl IXpsOMObjectFactory1 {
         )
         .from_abi::<IXpsOMDocumentStructureResource>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateSignatureBlockResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -9385,13 +9233,10 @@ impl IXpsOMObjectFactory1 {
         )
         .from_abi::<IXpsOMRemoteDictionaryResource>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateRemoteDictionaryResourceFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param2: ::windows::runtime::IntoParam<'a, IXpsOMPartResources>,
     >(
@@ -9490,11 +9335,11 @@ impl IXpsOMObjectFactory1 {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub unsafe fn CreatePageFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param2: ::windows::runtime::IntoParam<'a, IXpsOMPartResources>,
         Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -9599,13 +9444,10 @@ impl IXpsOMObjectFactory1 {
         )
         .from_abi::<IXpsOMSolidColorBrush>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateColorProfileResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -9656,13 +9498,10 @@ impl IXpsOMObjectFactory1 {
         )
         .from_abi::<IXpsOMVisualBrush>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateImageResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -9681,13 +9520,10 @@ impl IXpsOMObjectFactory1 {
         )
         .from_abi::<IXpsOMImageResource>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePrintTicketResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -9707,11 +9543,11 @@ impl IXpsOMObjectFactory1 {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub unsafe fn CreateFontResource<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param2: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
@@ -9885,11 +9721,11 @@ impl IXpsOMObjectFactory1 {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub unsafe fn CreatePackageWriterOnStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::ISequentialStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
         Param3: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param4: ::windows::runtime::IntoParam<'a, IXpsOMCoreProperties>,
@@ -9940,25 +9776,22 @@ impl IXpsOMObjectFactory1 {
         )
         .from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateReadOnlyStreamOnFile<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
     >(
         &self,
         filename: Param0,
-    ) -> ::windows::runtime::Result<super::StructuredStorage::IStream> {
-        let mut result__: <super::StructuredStorage::IStream as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).39)(
             ::std::mem::transmute_copy(self),
             filename.into_param().abi(),
             &mut result__,
         )
-        .from_abi::<super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDocumentTypeFromFile<
@@ -9977,10 +9810,10 @@ impl IXpsOMObjectFactory1 {
         )
         .from_abi::<XPS_DOCUMENT_TYPE>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetDocumentTypeFromStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         xpsdocumentstream: Param0,
@@ -10070,11 +9903,11 @@ impl IXpsOMObjectFactory1 {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub unsafe fn CreatePackageWriterOnStream1<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::ISequentialStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
         Param3: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param4: ::windows::runtime::IntoParam<'a, IXpsOMCoreProperties>,
@@ -10118,13 +9951,10 @@ impl IXpsOMObjectFactory1 {
         )
         .from_abi::<IXpsOMPackage1>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreatePackageFromStream1<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -10183,11 +10013,11 @@ impl IXpsOMObjectFactory1 {
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub unsafe fn CreatePageFromStream1<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param2: ::windows::runtime::IntoParam<'a, IXpsOMPartResources>,
         Param3: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
@@ -10209,13 +10039,10 @@ impl IXpsOMObjectFactory1 {
         )
         .from_abi::<IXpsOMPage1>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn CreateRemoteDictionaryResourceFromStream1<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
         Param2: ::windows::runtime::IntoParam<'a, IXpsOMPartResources>,
     >(
@@ -10315,66 +10142,38 @@ pub struct IXpsOMObjectFactory1_abi(
         package: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
         reuseobjects: super::super::Foundation::BOOL,
         package: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         acquiredstream: ::windows::runtime::RawPtr,
         parturi: ::windows::runtime::RawPtr,
         storyfragmentsresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         acquiredstream: ::windows::runtime::RawPtr,
         parturi: ::windows::runtime::RawPtr,
         documentstructureresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         acquiredstream: ::windows::runtime::RawPtr,
         parturi: ::windows::runtime::RawPtr,
         signatureblockresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -10383,10 +10182,7 @@ pub struct IXpsOMObjectFactory1_abi(
         remotedictionaryresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         dictionarymarkupstream: ::windows::runtime::RawPtr,
@@ -10394,11 +10190,7 @@ pub struct IXpsOMObjectFactory1_abi(
         resources: ::windows::runtime::RawPtr,
         dictionaryresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         partresources: *mut ::windows::runtime::RawPtr,
@@ -10434,7 +10226,7 @@ pub struct IXpsOMObjectFactory1_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -10447,7 +10239,7 @@ pub struct IXpsOMObjectFactory1_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -10483,21 +10275,14 @@ pub struct IXpsOMObjectFactory1_abi(
         colorprofile: ::windows::runtime::RawPtr,
         solidcolorbrush: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         acquiredstream: ::windows::runtime::RawPtr,
         parturi: ::windows::runtime::RawPtr,
         colorprofileresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         image: ::windows::runtime::RawPtr,
@@ -10511,10 +10296,7 @@ pub struct IXpsOMObjectFactory1_abi(
         viewport: *const XPS_RECT,
         visualbrush: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         acquiredstream: ::windows::runtime::RawPtr,
@@ -10522,30 +10304,19 @@ pub struct IXpsOMObjectFactory1_abi(
         parturi: ::windows::runtime::RawPtr,
         imageresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         acquiredstream: ::windows::runtime::RawPtr,
         parturi: ::windows::runtime::RawPtr,
         printticketresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -10558,7 +10329,7 @@ pub struct IXpsOMObjectFactory1_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     )))]
     usize,
     pub  unsafe extern "system" fn(
@@ -10628,7 +10399,7 @@ pub struct IXpsOMObjectFactory1_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -10645,7 +10416,7 @@ pub struct IXpsOMObjectFactory1_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     )))]
     usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc"))]
@@ -10655,20 +10426,13 @@ pub struct IXpsOMObjectFactory1_abi(
         parturi: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Storage_Packaging_Opc")))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         filename: super::super::Foundation::PWSTR,
         stream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -10676,13 +10440,13 @@ pub struct IXpsOMObjectFactory1_abi(
         documenttype: *mut XPS_DOCUMENT_TYPE,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         xpsdocumentstream: ::windows::runtime::RawPtr,
         documenttype: *mut XPS_DOCUMENT_TYPE,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         imageresource: ::windows::runtime::RawPtr,
@@ -10720,7 +10484,7 @@ pub struct IXpsOMObjectFactory1_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -10738,28 +10502,21 @@ pub struct IXpsOMObjectFactory1_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     )))]
     usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         package: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
         reuseobjects: super::super::Foundation::BOOL,
         package: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -10780,7 +10537,7 @@ pub struct IXpsOMObjectFactory1_abi(
     #[cfg(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     ))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -10793,13 +10550,10 @@ pub struct IXpsOMObjectFactory1_abi(
     #[cfg(not(all(
         feature = "Win32_Foundation",
         feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
+        feature = "Win32_System_Com"
     )))]
     usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         dictionarymarkupstream: ::windows::runtime::RawPtr,
@@ -10807,11 +10561,7 @@ pub struct IXpsOMObjectFactory1_abi(
         resources: ::windows::runtime::RawPtr,
         dictionaryresource: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -10935,13 +10685,10 @@ impl IXpsOMPackage {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn WriteToStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::ISequentialStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -11046,20 +10793,13 @@ pub struct IXpsOMPackage_abi(
         optimizemarkupsize: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
         optimizemarkupsize: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -11183,13 +10923,10 @@ impl IXpsOMPackage1 {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn WriteToStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::ISequentialStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -11235,13 +10972,10 @@ impl IXpsOMPackage1 {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn WriteToStream1<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::ISequentialStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -11370,20 +11104,13 @@ pub struct IXpsOMPackage1_abi(
         optimizemarkupsize: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
         optimizemarkupsize: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         documenttype: *mut XPS_DOCUMENT_TYPE,
@@ -11398,21 +11125,14 @@ pub struct IXpsOMPackage1_abi(
         documenttype: XPS_DOCUMENT_TYPE,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         outputstream: ::windows::runtime::RawPtr,
         optimizemarkupsize: super::super::Foundation::BOOL,
         documenttype: XPS_DOCUMENT_TYPE,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -11749,14 +11469,11 @@ impl IXpsOMPackageWriter3D {
         )
         .from_abi::<super::super::Foundation::BOOL>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn AddModelTexture<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-        Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         texturepartname: Param0,
@@ -11769,14 +11486,11 @@ impl IXpsOMPackageWriter3D {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetModelPrintTicket<
         'a,
         Param0: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
-        Param1: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param1: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         printticketpartname: Param0,
@@ -11889,34 +11603,20 @@ pub struct IXpsOMPackageWriter3D_abi(
         isclosed: *mut super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         texturepartname: ::windows::runtime::RawPtr,
         texturedata: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         printticketpartname: ::windows::runtime::RawPtr,
         printticketdata: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -12151,13 +11851,10 @@ impl IXpsOMPage {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Write<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::ISequentialStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -12361,20 +12058,13 @@ pub struct IXpsOMPage_abi(
         this: ::windows::runtime::RawPtr,
         remotedictionaryresource: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
         optimizemarkupsize: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -12620,13 +12310,10 @@ impl IXpsOMPage1 {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Write<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::ISequentialStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -12671,13 +12358,10 @@ impl IXpsOMPage1 {
         )
         .from_abi::<XPS_DOCUMENT_TYPE>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn Write1<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::ISequentialStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::super::Foundation::BOOL>,
     >(
         &self,
@@ -12883,20 +12567,13 @@ pub struct IXpsOMPage1_abi(
         this: ::windows::runtime::RawPtr,
         remotedictionaryresource: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
         optimizemarkupsize: super::super::Foundation::BOOL,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -12912,21 +12589,14 @@ pub struct IXpsOMPage1_abi(
         this: ::windows::runtime::RawPtr,
         documenttype: *mut XPS_DOCUMENT_TYPE,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
         optimizemarkupsize: super::super::Foundation::BOOL,
         documenttype: XPS_DOCUMENT_TYPE,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -14873,25 +14543,22 @@ impl IXpsOMPrintTicketResource {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::StructuredStorage::IStream> {
-        let mut result__: <super::StructuredStorage::IStream as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -15011,26 +14678,19 @@ pub struct IXpsOMPrintTicketResource_abi(
         parturi: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sourcestream: ::windows::runtime::RawPtr,
         partname: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -15676,10 +15336,10 @@ impl IXpsOMRemoteDictionaryResource1 {
         )
         .from_abi::<XPS_DOCUMENT_TYPE>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write1<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::ISequentialStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::ISequentialStream>,
     >(
         &self,
         stream: Param0,
@@ -15840,13 +15500,13 @@ pub struct IXpsOMRemoteDictionaryResource1_abi(
         this: ::windows::runtime::RawPtr,
         documenttype: *mut XPS_DOCUMENT_TYPE,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
         documenttype: XPS_DOCUMENT_TYPE,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -16274,25 +15934,22 @@ impl IXpsOMSignatureBlockResource {
         )
         .from_abi::<IXpsOMDocument>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::StructuredStorage::IStream> {
-        let mut result__: <super::StructuredStorage::IStream as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -16416,26 +16073,19 @@ pub struct IXpsOMSignatureBlockResource_abi(
         this: ::windows::runtime::RawPtr,
         owner: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sourcestream: ::windows::runtime::RawPtr,
         partname: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -16865,25 +16515,22 @@ impl IXpsOMStoryFragmentsResource {
         )
         .from_abi::<IXpsOMPageReference>(result__)
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetStream(
         &self,
-    ) -> ::windows::runtime::Result<super::StructuredStorage::IStream> {
-        let mut result__: <super::StructuredStorage::IStream as ::windows::runtime::Abi>::Abi =
+    ) -> ::windows::runtime::Result<super::super::System::Com::IStream> {
+        let mut result__: <super::super::System::Com::IStream as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).6)(
             ::std::mem::transmute_copy(self),
             &mut result__,
         )
-        .from_abi::<super::StructuredStorage::IStream>(result__)
+        .from_abi::<super::super::System::Com::IStream>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub unsafe fn SetContent<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
         Param1: ::windows::runtime::IntoParam<'a, super::Packaging::Opc::IOpcPartUri>,
     >(
         &self,
@@ -17007,26 +16654,19 @@ pub struct IXpsOMStoryFragmentsResource_abi(
         this: ::windows::runtime::RawPtr,
         owner: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         sourcestream: ::windows::runtime::RawPtr,
         partname: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Storage_Packaging_Opc",
-        feature = "Win32_Storage_StructuredStorage"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Storage_Packaging_Opc", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 #[derive(
@@ -18568,13 +18208,10 @@ impl IXpsSignature {
         )
         .from_abi::<super::Packaging::Opc::IOpcPartUri>(result__)
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Verify(
         &self,
-        x509certificate: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        x509certificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
     ) -> ::windows::runtime::Result<XPS_SIGNATURE_STATUS> {
         let mut result__: <XPS_SIGNATURE_STATUS as ::windows::runtime::Abi>::Abi =
             ::std::mem::zeroed();
@@ -18721,20 +18358,13 @@ pub struct IXpsSignature_abi(
         signaturepartname: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Storage_Packaging_Opc"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
-        x509certificate: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        x509certificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
         sigstatus: *mut XPS_SIGNATURE_STATUS,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))] usize,
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         policy: *mut XPS_SIGN_POLICY,
@@ -19121,10 +18751,10 @@ impl IXpsSignatureManager {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn LoadPackageStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         stream: Param0,
@@ -19135,14 +18765,11 @@ impl IXpsSignatureManager {
         )
         .ok()
     }
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub unsafe fn Sign<'a, Param0: ::windows::runtime::IntoParam<'a, IXpsSigningOptions>>(
         &self,
         signoptions: Param0,
-        x509certificate: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        x509certificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
     ) -> ::windows::runtime::Result<IXpsSignature> {
         let mut result__: <IXpsSignature as ::windows::runtime::Abi>::Abi = ::std::mem::zeroed();
         (::windows::runtime::Interface::vtable(self).5)(
@@ -19245,10 +18872,10 @@ impl IXpsSignatureManager {
         )
         .ok()
     }
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SavePackageToStream<
         'a,
-        Param0: ::windows::runtime::IntoParam<'a, super::StructuredStorage::IStream>,
+        Param0: ::windows::runtime::IntoParam<'a, super::super::System::Com::IStream>,
     >(
         &self,
         stream: Param0,
@@ -19311,27 +18938,20 @@ pub struct IXpsSignatureManager_abi(
         filename: super::super::Foundation::PWSTR,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
-    #[cfg(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    ))]
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         signoptions: ::windows::runtime::RawPtr,
-        x509certificate: *const super::super::Security::Cryptography::Core::CERT_CONTEXT,
+        x509certificate: *const super::super::Security::Cryptography::CERT_CONTEXT,
         signature: *mut ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(all(
-        feature = "Win32_Foundation",
-        feature = "Win32_Security_Cryptography_Core"
-    )))]
-    usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography")))] usize,
     #[cfg(feature = "Win32_Storage_Packaging_Opc")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
@@ -19372,12 +18992,12 @@ pub struct IXpsSignatureManager_abi(
         flagsandattributes: u32,
     ) -> ::windows::runtime::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Security")))] usize,
-    #[cfg(feature = "Win32_Storage_StructuredStorage")]
+    #[cfg(feature = "Win32_System_Com")]
     pub  unsafe extern "system" fn(
         this: ::windows::runtime::RawPtr,
         stream: ::windows::runtime::RawPtr,
     ) -> ::windows::runtime::HRESULT,
-    #[cfg(not(feature = "Win32_Storage_StructuredStorage"))] usize,
+    #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
 #[repr(transparent)]
 #[derive(

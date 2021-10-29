@@ -14,6 +14,7 @@ pub const CLSID_DeviceIoControl: ::windows::runtime::GUID = ::windows::runtime::
     [159, 223, 115, 151, 119, 120, 104, 108],
 );
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn CreateDeviceAccessInstance<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,

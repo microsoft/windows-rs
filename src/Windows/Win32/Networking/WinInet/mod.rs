@@ -2671,11 +2671,7 @@ pub unsafe fn FtpDeleteFileW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Storage_FileSystem",
-    feature = "Win32_System_SystemServices"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 #[inline]
 pub unsafe fn FtpFindFirstFileA<
     'a,
@@ -3479,24 +3475,24 @@ pub const GOPHER_CATEGORY_ID_VERONICA: u32 = 2882325510u32;
 pub const GOPHER_CATEGORY_ID_VIEWS: u32 = 2882325508u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct GOPHER_FIND_DATAA {
-    pub DisplayString: [super::super::System::SystemServices::CHAR; 129],
+    pub DisplayString: [super::super::Foundation::CHAR; 129],
     pub GopherType: GOPHER_TYPE,
     pub SizeLow: u32,
     pub SizeHigh: u32,
     pub LastModificationTime: super::super::Foundation::FILETIME,
-    pub Locator: [super::super::System::SystemServices::CHAR; 654],
+    pub Locator: [super::super::Foundation::CHAR; 654],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl GOPHER_FIND_DATAA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for GOPHER_FIND_DATAA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for GOPHER_FIND_DATAA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("GOPHER_FIND_DATAA")
@@ -3509,7 +3505,7 @@ impl ::std::fmt::Debug for GOPHER_FIND_DATAA {
             .finish()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for GOPHER_FIND_DATAA {
     fn eq(&self, other: &Self) -> bool {
         self.DisplayString == other.DisplayString
@@ -3520,9 +3516,9 @@ impl ::std::cmp::PartialEq for GOPHER_FIND_DATAA {
             && self.Locator == other.Locator
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for GOPHER_FIND_DATAA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for GOPHER_FIND_DATAA {
     type Abi = Self;
     type DefaultType = Self;
@@ -4111,7 +4107,7 @@ pub unsafe fn GetDiskInfoA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUrlCacheConfigInfoA(
     lpcacheconfiginfo: *mut INTERNET_CACHE_CONFIG_INFOA,
@@ -4346,7 +4342,7 @@ pub unsafe fn GetUrlCacheEntryInfoW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUrlCacheGroupAttributeA(
     gid: i64,
@@ -4525,7 +4521,7 @@ pub unsafe fn GopherCreateLocatorW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GopherFindFirstFileA<
     'a,
@@ -6840,7 +6836,7 @@ unsafe impl ::windows::runtime::Abi for INTERNET_BUFFERSW {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_CONFIG_INFOA {
     pub dwStructSize: u32,
     pub dwContainer: u32,
@@ -6853,71 +6849,71 @@ pub struct INTERNET_CACHE_CONFIG_INFOA {
     pub dwNormalUsage: u32,
     pub dwExemptUsage: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl INTERNET_CACHE_CONFIG_INFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for INTERNET_CACHE_CONFIG_INFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOA {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_INFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOA {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub union INTERNET_CACHE_CONFIG_INFOA_0 {
     pub Anonymous: INTERNET_CACHE_CONFIG_INFOA_0_0,
     pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYA; 1],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl INTERNET_CACHE_CONFIG_INFOA_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for INTERNET_CACHE_CONFIG_INFOA_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOA_0 {
     fn eq(&self, _other: &Self) -> bool {
         unimplemented!()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_INFOA_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOA_0 {
     type Abi = Self;
     type DefaultType = Self;
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_CONFIG_INFOA_0_0 {
-    pub CachePath: [super::super::System::SystemServices::CHAR; 260],
+    pub CachePath: [super::super::Foundation::CHAR; 260],
     pub dwCacheSize: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl INTERNET_CACHE_CONFIG_INFOA_0_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for INTERNET_CACHE_CONFIG_INFOA_0_0 {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_CACHE_CONFIG_INFOA_0_0 {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("_Anonymous_e__Struct")
@@ -6926,15 +6922,15 @@ impl ::std::fmt::Debug for INTERNET_CACHE_CONFIG_INFOA_0_0 {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOA_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.CachePath == other.CachePath && self.dwCacheSize == other.dwCacheSize
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_INFOA_0_0 {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOA_0_0 {
     type Abi = Self;
     type DefaultType = Self;
@@ -7029,20 +7025,20 @@ unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_INFOW_0_0 {
 }
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_CONFIG_PATH_ENTRYA {
-    pub CachePath: [super::super::System::SystemServices::CHAR; 260],
+    pub CachePath: [super::super::Foundation::CHAR; 260],
     pub dwCacheSize: u32,
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl INTERNET_CACHE_CONFIG_PATH_ENTRYA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("INTERNET_CACHE_CONFIG_PATH_ENTRYA")
@@ -7051,15 +7047,15 @@ impl ::std::fmt::Debug for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     fn eq(&self, other: &Self) -> bool {
         self.CachePath == other.CachePath && self.dwCacheSize == other.dwCacheSize
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for INTERNET_CACHE_CONFIG_PATH_ENTRYA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_CONFIG_PATH_ENTRYA {
     type Abi = Self;
     type DefaultType = Self;
@@ -7332,7 +7328,7 @@ pub const INTERNET_CACHE_FLAG_INSTALLED_ENTRY: u32 = 512u32;
 pub const INTERNET_CACHE_GROUP_ADD: u32 = 0u32;
 #[derive(:: std :: clone :: Clone, :: std :: marker :: Copy)]
 #[repr(C)]
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwGroupSize: u32,
     pub dwGroupFlags: u32,
@@ -7340,17 +7336,17 @@ pub struct INTERNET_CACHE_GROUP_INFOA {
     pub dwDiskUsage: u32,
     pub dwDiskQuota: u32,
     pub dwOwnerStorage: [u32; 4],
-    pub szGroupName: [super::super::System::SystemServices::CHAR; 120],
+    pub szGroupName: [super::super::Foundation::CHAR; 120],
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl INTERNET_CACHE_GROUP_INFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::default::Default for INTERNET_CACHE_GROUP_INFOA {
     fn default() -> Self {
         unsafe { ::std::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::fmt::Debug for INTERNET_CACHE_GROUP_INFOA {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
         fmt.debug_struct("INTERNET_CACHE_GROUP_INFOA")
@@ -7364,7 +7360,7 @@ impl ::std::fmt::Debug for INTERNET_CACHE_GROUP_INFOA {
             .finish()
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::PartialEq for INTERNET_CACHE_GROUP_INFOA {
     fn eq(&self, other: &Self) -> bool {
         self.dwGroupSize == other.dwGroupSize
@@ -7376,9 +7372,9 @@ impl ::std::cmp::PartialEq for INTERNET_CACHE_GROUP_INFOA {
             && self.szGroupName == other.szGroupName
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::std::cmp::Eq for INTERNET_CACHE_GROUP_INFOA {}
-#[cfg(feature = "Win32_System_SystemServices")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::runtime::Abi for INTERNET_CACHE_GROUP_INFOA {
     type Abi = Self;
     type DefaultType = Self;
@@ -8708,24 +8704,23 @@ unsafe impl ::windows::runtime::Abi for INTERNET_SCHEME {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core"
+    feature = "Win32_Security_Authentication_Identity"
 ))]
 pub struct INTERNET_SECURITY_CONNECTION_INFO {
     pub dwSize: u32,
     pub fSecure: super::super::Foundation::BOOL,
     pub connectionInfo:
-        super::super::Security::Authentication::Identity::Core::SecPkgContext_ConnectionInfo,
-    pub cipherInfo:
-        super::super::Security::Authentication::Identity::Core::SecPkgContext_CipherInfo,
+        super::super::Security::Authentication::Identity::SecPkgContext_ConnectionInfo,
+    pub cipherInfo: super::super::Security::Authentication::Identity::SecPkgContext_CipherInfo,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core"
+    feature = "Win32_Security_Authentication_Identity"
 ))]
 impl INTERNET_SECURITY_CONNECTION_INFO {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core"
+    feature = "Win32_Security_Authentication_Identity"
 ))]
 impl ::std::default::Default for INTERNET_SECURITY_CONNECTION_INFO {
     fn default() -> Self {
@@ -8734,7 +8729,7 @@ impl ::std::default::Default for INTERNET_SECURITY_CONNECTION_INFO {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core"
+    feature = "Win32_Security_Authentication_Identity"
 ))]
 impl ::std::fmt::Debug for INTERNET_SECURITY_CONNECTION_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8748,7 +8743,7 @@ impl ::std::fmt::Debug for INTERNET_SECURITY_CONNECTION_INFO {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core"
+    feature = "Win32_Security_Authentication_Identity"
 ))]
 impl ::std::cmp::PartialEq for INTERNET_SECURITY_CONNECTION_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -8760,12 +8755,12 @@ impl ::std::cmp::PartialEq for INTERNET_SECURITY_CONNECTION_INFO {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core"
+    feature = "Win32_Security_Authentication_Identity"
 ))]
 impl ::std::cmp::Eq for INTERNET_SECURITY_CONNECTION_INFO {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core"
+    feature = "Win32_Security_Authentication_Identity"
 ))]
 unsafe impl ::windows::runtime::Abi for INTERNET_SECURITY_CONNECTION_INFO {
     type Abi = Self;
@@ -8775,31 +8770,30 @@ unsafe impl ::windows::runtime::Abi for INTERNET_SECURITY_CONNECTION_INFO {
 #[repr(C)]
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 pub struct INTERNET_SECURITY_INFO {
     pub dwSize: u32,
-    pub pCertificate: *mut super::super::Security::Cryptography::Core::CERT_CONTEXT,
-    pub pcCertChain: *mut super::super::Security::Cryptography::Core::CERT_CHAIN_CONTEXT,
+    pub pCertificate: *mut super::super::Security::Cryptography::CERT_CONTEXT,
+    pub pcCertChain: *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
     pub connectionInfo:
-        super::super::Security::Authentication::Identity::Core::SecPkgContext_ConnectionInfo,
-    pub cipherInfo:
-        super::super::Security::Authentication::Identity::Core::SecPkgContext_CipherInfo,
-    pub pcUnverifiedCertChain: *mut super::super::Security::Cryptography::Core::CERT_CHAIN_CONTEXT,
+        super::super::Security::Authentication::Identity::SecPkgContext_ConnectionInfo,
+    pub cipherInfo: super::super::Security::Authentication::Identity::SecPkgContext_CipherInfo,
+    pub pcUnverifiedCertChain: *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
     pub channelBindingToken:
-        super::super::Security::Authentication::Identity::Core::SecPkgContext_Bindings,
+        super::super::Security::Authentication::Identity::SecPkgContext_Bindings,
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 impl INTERNET_SECURITY_INFO {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::default::Default for INTERNET_SECURITY_INFO {
     fn default() -> Self {
@@ -8808,8 +8802,8 @@ impl ::std::default::Default for INTERNET_SECURITY_INFO {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::fmt::Debug for INTERNET_SECURITY_INFO {
     fn fmt(&self, fmt: &mut ::std::fmt::Formatter<'_>) -> ::std::fmt::Result {
@@ -8826,8 +8820,8 @@ impl ::std::fmt::Debug for INTERNET_SECURITY_INFO {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::cmp::PartialEq for INTERNET_SECURITY_INFO {
     fn eq(&self, other: &Self) -> bool {
@@ -8842,14 +8836,14 @@ impl ::std::cmp::PartialEq for INTERNET_SECURITY_INFO {
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 impl ::std::cmp::Eq for INTERNET_SECURITY_INFO {}
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 unsafe impl ::windows::runtime::Abi for INTERNET_SECURITY_INFO {
     type Abi = Self;
@@ -10888,17 +10882,14 @@ pub unsafe fn InternetGetProxyForUrl<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn InternetGetSecurityInfoByURL<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
 >(
     lpszurl: Param0,
-    ppcertchain: *mut *mut super::super::Security::Cryptography::Core::CERT_CHAIN_CONTEXT,
+    ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
     pdwsecureflags: *mut u32,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10907,7 +10898,7 @@ pub unsafe fn InternetGetSecurityInfoByURL<
         extern "system" {
             fn InternetGetSecurityInfoByURL(
                 lpszurl: super::super::Foundation::PSTR,
-                ppcertchain : * mut * mut super::super::Security::Cryptography::Core:: CERT_CHAIN_CONTEXT,
+                ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
                 pdwsecureflags: *mut u32,
             ) -> super::super::Foundation::BOOL;
         }
@@ -10920,17 +10911,14 @@ pub unsafe fn InternetGetSecurityInfoByURL<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn InternetGetSecurityInfoByURLA<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PSTR>,
 >(
     lpszurl: Param0,
-    ppcertchain: *mut *mut super::super::Security::Cryptography::Core::CERT_CHAIN_CONTEXT,
+    ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
     pdwsecureflags: *mut u32,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10939,7 +10927,7 @@ pub unsafe fn InternetGetSecurityInfoByURLA<
         extern "system" {
             fn InternetGetSecurityInfoByURLA(
                 lpszurl: super::super::Foundation::PSTR,
-                ppcertchain : * mut * mut super::super::Security::Cryptography::Core:: CERT_CHAIN_CONTEXT,
+                ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
                 pdwsecureflags: *mut u32,
             ) -> super::super::Foundation::BOOL;
         }
@@ -10952,17 +10940,14 @@ pub unsafe fn InternetGetSecurityInfoByURLA<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(
-    feature = "Win32_Foundation",
-    feature = "Win32_Security_Cryptography_Core"
-))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security_Cryptography"))]
 #[inline]
 pub unsafe fn InternetGetSecurityInfoByURLW<
     'a,
     Param0: ::windows::runtime::IntoParam<'a, super::super::Foundation::PWSTR>,
 >(
     lpszurl: Param0,
-    ppcertchain: *mut *mut super::super::Security::Cryptography::Core::CERT_CHAIN_CONTEXT,
+    ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
     pdwsecureflags: *mut u32,
 ) -> super::super::Foundation::BOOL {
     #[cfg(windows)]
@@ -10971,7 +10956,7 @@ pub unsafe fn InternetGetSecurityInfoByURLW<
         extern "system" {
             fn InternetGetSecurityInfoByURLW(
                 lpszurl: super::super::Foundation::PWSTR,
-                ppcertchain : * mut * mut super::super::Security::Cryptography::Core:: CERT_CHAIN_CONTEXT,
+                ppcertchain: *mut *mut super::super::Security::Cryptography::CERT_CHAIN_CONTEXT,
                 pdwsecureflags: *mut u32,
             ) -> super::super::Foundation::BOOL;
         }
@@ -13308,7 +13293,7 @@ pub const SHORTPATH_CACHE_ENTRY: u32 = 512u32;
 pub const SPARSE_CACHE_ENTRY: u32 = 65536u32;
 pub const STATIC_CACHE_ENTRY: u32 = 128u32;
 pub const STICKY_CACHE_ENTRY: u32 = 4u32;
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetUrlCacheConfigInfoA(
     lpcacheconfiginfo: *const INTERNET_CACHE_CONFIG_INFOA,
@@ -13526,7 +13511,7 @@ pub unsafe fn SetUrlCacheEntryInfoW<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_SystemServices"))]
+#[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetUrlCacheGroupAttributeA(
     gid: i64,
@@ -13628,8 +13613,8 @@ pub unsafe fn ShowClientAuthCerts<
 }
 #[cfg(all(
     feature = "Win32_Foundation",
-    feature = "Win32_Security_Authentication_Identity_Core",
-    feature = "Win32_Security_Cryptography_Core"
+    feature = "Win32_Security_Authentication_Identity",
+    feature = "Win32_Security_Cryptography"
 ))]
 #[inline]
 pub unsafe fn ShowSecurityInfo<

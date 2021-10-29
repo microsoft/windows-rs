@@ -8,6 +8,7 @@
     clippy::all
 )]
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDeviceID(
     pbwindowsaik: *mut u8,
     cbwindowsaik: u32,
@@ -37,6 +38,7 @@ pub unsafe fn GetDeviceID(
     unimplemented!("Unsupported target OS");
 }
 #[cfg(feature = "Win32_Foundation")]
+#[inline]
 pub unsafe fn GetDeviceIDString(
     pszwindowsaik: super::super::Foundation::PWSTR,
     cchwindowsaik: u32,
